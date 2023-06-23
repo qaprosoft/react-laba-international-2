@@ -25,9 +25,10 @@ Once PR is created you have to do the following things:
 
 | Day           | Theme                                              | Homework                                      |
 | :------------ | :------------------------------------------------- | :-------------------------------------------- |
-| Jan 6th       | [Internet Basics](./lectures/01-basics/README.md)  | [task 🔗](./lectures/01-basics/task.md)       |
-| Jan 10th      | HTML                                               |                                               |
-| Jan 13th      | Git                                                |                                               |
-| Jan 17th      | CSS Part 1                                         |                                               |
-| Jan 20th      | CSS Part 2                                         |                                               |
-| Jan 23th-27th | First block exam                                   | ---                                           |
+| June 23th     | [Internet Basics](./lectures/01-basics/README.md)  | [task 🔗](./lectures/01-basics/task.md)       |
+| June 27th     | HTML                                               |                                               |
+| June 30th     | Git                                                |                                               |
+| July 4th      | CSS Part 1                                         |                                               |
+| July 7th      | CSS Part 2                                         |                                               |
+| July 10th-14th | Learning week                                     | ---                                           |
+| July 17th-21th | First block exam                                  | ---                                           |
