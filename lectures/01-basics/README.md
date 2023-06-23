@@ -4,7 +4,7 @@ Concepts such as URL, DNS, TCP, HTTP will be introduced here.
 
 [Presentation](https://docs.google.com/presentation/d/12S7t9o9qFhF5w-eBnQLXjdFJu2uoS1czpzH_3LIaA6o/edit?usp=sharing)
 
-[Video]()
+[Video](https://drive.google.com/file/d/1BiFgKTBUuhaUO1hPWiDThRW5s6PTBZMk/view?usp=sharing)
 
 Useful links
 
