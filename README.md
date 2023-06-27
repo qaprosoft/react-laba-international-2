@@ -26,7 +26,7 @@ Once PR is created you have to do the following things:
 | Day           | Theme                                              | Homework                                      |
 | :------------ | :------------------------------------------------- | :-------------------------------------------- |
 | June 23th     | [Internet Basics](./lectures/01-basics/README.md)  | [task 🔗](./lectures/01-basics/task.md)       |
-| June 27th     | [Git](./lectures/02-git/README.md)                 |                                               |
+| June 27th     | [Git](./lectures/02-git/README.md)                 | ---                                           |
 | June 30th     | HTML                                               |                                               |
 | July 4th      | CSS Part 1                                         |                                               |
 | July 7th      | CSS Part 2                                         |                                               |
