@@ -10,6 +10,7 @@ You need to create a folder in the `homeworks` folder. The name should be `first
 
 ### Naming
 
+
 Every branch in upstream must starts with a prefix that is based on user initials. For example, for a developer Mykhailo Melnyk prefix would be `mm-`. In case of prefix collisions in the future the common rule is to dive deeper into the last name, for example: `mmel-`.
 
 ### Reviews
