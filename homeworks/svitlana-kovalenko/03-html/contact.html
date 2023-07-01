@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="./index.html">Home</a>
+        <a href="./contact.html">Contact</a>
+        <hr>
+    </header>
+    <main>
+        <h1>Contact Me</h1>
+        <form action="./contact.html" method="post">
+            <label>Full name*</label>
+            <input type="text" name="firstname" placeholder="Your name.." required>
+            <input type="text" name="lastname" placeholder="Your last name.." required>
+            <br>
+            <label>Phone number*</label>
+            <input type='text' name='usernumber' placeholder="Your phone.." required>
+            <br>
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="Australia">Australia</option>
+                <option value="USA">USA</option>
+                <option value="Spain">Spain</option>
+                <option value="Italy">Italy</option>
+                <option value="Ukraine">Ukraine</option>
+            </select>
+            <br>
+            <textarea name="message" id="message" cols="20" rows="10" placeholder="Your message.."></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <footer>
+        <hr>
+            <a href="http://www.facebook.com"><img src='./src/img/facebook.png' width="30" height="30" alt="facebook logo"></a>
+            <a href="http://www.instagram.com"><img src='./src/img/instagram.png' width="30" height="30" alt="instagram logo"></a>
+            <a href="http://www.linkedin.com"><img src='./src/img/linkedin.png' width="30" height="30" alt="linkedin logo"></a>
+            <a href="http://www.twitter.com"><img src='./src/img/twitter.png' width="30" height="30" alt="twitter logo"></a>
+    </footer>
+</body>
+</html>
