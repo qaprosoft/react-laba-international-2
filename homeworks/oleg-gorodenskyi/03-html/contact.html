@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <h1>Contact me</h1>
+
+        <form>
+            <div>
+                <label for="firstName"> Full name* </label>
+                <input id="firstName" type="text" name="firstName" placeholder="Your name..." required>
+                <input id="lastName" type="text" name="lastName" placeholder="Your lastname..." required>
+            </div>
+            <div>
+                <label for="mobile"> Phone number* </label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Your phone..." required>
+            </div>
+            <div>
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                    <option value="Australia">Australia</option>
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="Belarus">Belarus</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Argentina">Argentina</option>
+                </select>
+            </div>
+            <div>
+                <textarea name="message" cols="30" rows="10" placeholder="Your message..."></textarea>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </main>
+
+    <hr>
+
+    <footer>
+        <nav>
+            <a href="https://www.facebook.com/oleg.gorodenskyi/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/facebook.svg" width="20" height="20" alt="facebook">
+            </a>
+            <a href="https://www.instagram.com/oleg.gorodenskyi/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/instagram.svg" width="20" height="20" alt="instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/oleg-gorodenskyi-bb938396" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/linkedin.svg" width="20" height="20" alt="linkedin">
+            </a>
+            <a href="#">
+                <img src="assets/icons/twitter.svg" width="20" height="20" alt="twitter">
+            </a>
+        </nav>
+    </footer>
+</body>
+
+</html>
