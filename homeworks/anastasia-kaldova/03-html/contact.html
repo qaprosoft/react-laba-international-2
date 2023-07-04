@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <section>
+            <h1>Contact me</h1>
+            <form action="/" method="post">
+                <div>
+                    <label for="firstName">Full name <sup>*</sup></label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Your name.." required>
+                    <input type="text" id="lastName" name="lastName" placeholder="Your last name.." required>
+                </div>
+                <div>
+                    <label for="phoneNumber">Phone number <sup>*</sup></label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Your phone.." required>
+                </div>
+                <div>
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="Australia">Australia</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Poland">Poland</option>
+                    </select>
+                </div>
+                <textarea id="userMessage" name="userMessage" placeholder="Your message.." rows="15"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <hr>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Go to Facebook">
+                <img src="assets/icons/facebook.svg" alt="Facebook logo" width="20" height="20">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Go to Instagram">
+                <img src="assets/icons/instagram.svg" alt="Instagram logo" width="20" height="20">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="Go to Linkedin">
+                <img src="assets/icons/linkedin.svg" alt="Linkedin logo" width="20" height="20">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Go to Twitter">
+                <img src="assets/icons/twitter.svg" alt="Twitter logo" width="20" height="20">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
