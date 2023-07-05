@@ -1,0 +1,52 @@
+.portfolio {
+    display: flex;
+    margin-block: 2rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.portfolio_buttons {
+    width: 760px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #171F26;
+    justify-content: space-between;
+}
+
+.portfolio_active_button {
+    width: 350px;
+    height: 80px;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #A3ABB2;
+    border-radius: 20px;
+    font-family: Poppins;
+    background-color: #0C151D;
+}
+
+.portfolio_inactive_button {
+    width: 350px;
+    height: 80px;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #A3ABB2;
+    border-radius: 20px;
+    font-family: Poppins;
+    background-color: transparent;
+}
+
+.portfolio_examples {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 757px;
+    margin-top: 2rem;
+    justify-content: space-between;
+}
+
+.portfolio_examples img {
+    margin-block: 15px;
+}
