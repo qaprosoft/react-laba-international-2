@@ -1,5 +1,16 @@
+* {
+    margin-block: 0px;
+    margin-inline: 0px;
+}
+
 body {
     background-color: #0C151D;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 
