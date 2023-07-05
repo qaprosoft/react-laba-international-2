@@ -5,15 +5,53 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Victor Alvarado</title>
 </head>
 <body>
     <div class="container">
-        <div class="change-theme">
+        <header class="change-theme">
             <input type="checkbox" class="change-theme__input" id="change-theme">
             <label class="change-theme__label" for="change-theme"></label>
-        </div>
+        </header>
+
+        <section class="personal-info">
+            <div class="personal-info__top">
+                <div class="personal-info__image">
+                    <img src="assets/img/avatar.jpg" alt="avatar">
+                </div>
+                <div class="personal-info__info">
+                    <h1 class="personal-info__title">Victor Alvarado</h1>
+                    <p class="personal-info__job-name">Software Engineer</p>
+                    <div class="personal-info__links">
+                        <a href="#" class="personal-info__link">
+                            <img src="assets/icons/social/github.svg" alt="">
+                        </a>
+                        <a href="#" class="personal-info__link">
+                            <img src="assets/icons/social/twitter.svg" alt="">
+                        </a>
+                        <a href="#" class="personal-info__link">
+                            <img src="assets/icons/social/linkedin.svg" alt="">
+                        </a>
+                        <a href="#" class="personal-info__link">
+                            <img src="assets/icons/social/youtube.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="personal-info__experience">
+                <p class="personal-info__topic">7 <br> <span>Years of work experience</span></p>
+                <p class="personal-info__topic">50+ <br> <span>Completed projects</span></p>
+                <p class="personal-info__topic">20+ <br> <span>Satisfied customers</span></p>
+            </div>
+            <div class="personal-info__cta">
+                <button class="personal-info__download-cv">
+                    <span>Download CV</span>
+                    <img src="assets/icons/download.svg" alt="download">
+                </button>
+                <button class="personal-info__contact">Contact me</button>
+            </div>
+        </section>
     </div>
 </body>
 </html>
