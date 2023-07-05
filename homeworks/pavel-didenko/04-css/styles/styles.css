@@ -14,3 +14,15 @@ body{
   --main-font-weight: 500;
   --main-line-height: normal;
 }
+
+@media(max-width: 544px){
+  :root{
+    --main-font-size: 1.1rem;
+  }
+}
+
+@media(max-width: 414px){
+  :root{
+    --main-font-size: 1rem;
+  }
+}

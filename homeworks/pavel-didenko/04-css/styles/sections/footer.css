@@ -9,3 +9,9 @@ footer{
   position: relative;
   left: 3.2rem;
 }
+
+@media(max-width: 761px){
+  .copy-rights{
+    left: 0rem;
+  }
+}

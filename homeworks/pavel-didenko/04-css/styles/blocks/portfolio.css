@@ -9,3 +9,11 @@
   margin-top: 1rem;
   cursor: pointer;
 }
+
+@media (max-width: 761px){
+  .portfolio{
+    width: 100%;
+    justify-content: center;
+  }
+
+}

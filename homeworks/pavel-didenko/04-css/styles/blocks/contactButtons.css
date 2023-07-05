@@ -2,3 +2,9 @@
   display: flex;
   gap: 2.3rem;
 }
+
+@media(max-width: 550px){
+  .contact-buttons{
+    gap: 0.87rem;
+  }
+}

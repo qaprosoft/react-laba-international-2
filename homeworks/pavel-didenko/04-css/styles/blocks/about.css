@@ -34,3 +34,44 @@
   line-height: var(--main-line-height);
 }
 
+@media(max-width: 761px){
+  .about{
+    width: 100%;
+  }
+
+  .about__button{
+    width: 19rem;
+    height: 4.5rem
+  }
+}
+
+@media(max-width: 637px){
+  .about__button {
+    width: 17rem;
+  }
+}
+
+@media(max-width: 570px){
+  .about__button{
+    width: 15rem;
+    height: 4.5rem
+  }
+}
+
+@media(max-width: 504px){
+  .about__button{
+    width: 13rem;
+    height: 4rem
+  }
+
+  .about{
+    height: 6rem;
+  }
+}
+
+@media (max-width: 441px){
+  .about__button{
+    width: 11rem;
+  }
+}
+

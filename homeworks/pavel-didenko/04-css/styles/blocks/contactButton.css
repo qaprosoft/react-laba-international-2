@@ -1,5 +1,5 @@
 .contact-button {
-  width: 18.125rem;
+  width: 16rem;
   height: 5rem;
   border-radius: 0.625rem;
   border: 0px solid #3E64AA;
@@ -24,3 +24,21 @@
   left: 1rem;
   top: 0.1rem;
 }
+
+@media(max-width: 534px){
+  .contact-button{
+    width: 13rem;
+  }
+
+  .contact-button__arrow{
+    left: 0.3rem;
+    top: 0.1rem;
+  }
+}
+
+@media(max-width: 431px){
+  .contact-button{
+    width: 11rem;
+  }
+}
+

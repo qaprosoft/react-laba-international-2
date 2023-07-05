@@ -43,3 +43,32 @@
   display: flex;
   gap: 1.625rem;
 }
+
+@media (max-width: 670px){
+  .person__info {
+    margin-top: 1rem;
+    margin-left: 0rem;
+  }
+}
+
+@media (max-width: 603px){
+  .person{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .person__job-title{
+    text-align: center;
+  }
+
+  .person__social-medias{
+    justify-content: center;
+  }
+}
+
+@media(max-width: 414px){
+  .person__full-name{
+    font-size: 2.2rem;
+  }
+}
