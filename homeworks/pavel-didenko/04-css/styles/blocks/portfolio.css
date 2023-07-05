@@ -1,0 +1,11 @@
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 47.5rem;;
+}
+
+.portfolio__project{
+  margin-top: 1rem;
+  cursor: pointer;
+}
