@@ -1,0 +1,35 @@
+.about{
+  width: 47.5rem;
+  height: 6.875rem;
+  border-radius: 1.25rem;
+  background: #FFF;
+  display: flex;
+}
+
+.about__button{
+  width: 351.445px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0.938rem;
+  left: 1.484rem;
+  cursor: pointer;
+}
+
+#about-button__active{
+  border-radius: 0.625rem;
+  border: 0px solid #3E64AA;
+  background: #D7D7D7;
+}
+
+.about__text{
+  color: #19191B;
+  text-align: center;
+  font-size: 1.375rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

@@ -9,11 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="./styles/styles.css">
   <link rel="stylesheet" href="./styles/sections/header.css">
+  <link rel="stylesheet" href="./styles/sections/main.css">
   <link rel="stylesheet" href="./styles/blocks/switcher.css">
   <link rel="stylesheet" href="./styles/blocks/person.css">
   <link rel="stylesheet" href="./styles/blocks/achievements.css">
   <link rel="stylesheet" href="./styles/elements/contactButton.css">
   <link rel="stylesheet" href="./styles/blocks/contactButtons.css">
+  <link rel="stylesheet" href="./styles/blocks/about.css">
 
 </head>
 <body>
@@ -21,7 +23,7 @@
     <div class="switcher">
       <img src="./assets/img/icons/switcher-light-theme.svg" alt="Theme switcher" class="switcher__icon" width="40" height="40">
     </div>
-    <div class="person">
+    <section class="person">
       <div class="person__avatar">
         <img src="./assets/img/foto.png" alt="foto" class="person__foto">
       </div>
@@ -35,8 +37,8 @@
           <img src="./assets/img/icons/youtube.svg" alt="youtube">
         </div>
       </div>
-    </div>
-    <div class="achievements">
+    </section>
+    <section class="achievements">
       <pre class="achievements__bullet">
         7
         Years of work
@@ -52,18 +54,25 @@
         Satisfied
         customers
       </pre>
-    </div>
-    <div class="contact-buttons">
+    </section>
+    <section class="contact-buttons">
       <button class="contact-button" id="active-contact-button">
         Download CV <img class="contact-button__arrow" src="./assets/img/icons/download-arrow.svg" alt="Download arrow">
       </button>
       <button class="contact-button">
         Contact me
       </button>
-    </div>
+    </section>
   </header>
   <main>
-
+    <nav class="about">
+      <div class="about__button" id="about-button__active">
+        <span class="about__text">Portfolio</span>
+      </div>
+      <div class="about__button">
+        <span class="about__text">Skills</span>
+      </div>
+    </nav>
   </main>
   <footer>
 

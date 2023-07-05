@@ -1,0 +1,8 @@
+main{
+  display: flex;
+  justify-content: center;
+}
+
+.about{
+  margin-top: 5.3rem;
+}
