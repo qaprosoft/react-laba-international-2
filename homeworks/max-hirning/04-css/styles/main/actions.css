@@ -1,0 +1,36 @@
+.action_buttons {
+    width: 65%;
+    display: flex;
+    max-width: 618px;
+    margin-block: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.download_button {
+    border: none;
+    height: 80px;
+    width: 290px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #3D3D3D;
+    border-radius: 20px;
+    font-family: Poppins;
+    background-color: #FFE071;
+    background-position-x: 220px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-image: url("../../assets/icons/download.svg");
+}
+
+.contact_button {
+    border: none;
+    height: 80px;
+    width: 290px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #A3ABB2;
+    border-radius: 20px;
+    font-family: Poppins;
+    background-color: #171F26;
+}
