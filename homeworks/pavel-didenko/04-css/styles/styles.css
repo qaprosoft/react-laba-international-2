@@ -6,3 +6,11 @@
 body{
   background-color: #E9EBEC;
 }
+
+:root {
+  --main-font-size: 1.375rem;
+  --main-font-family: Poppins;
+  --main-font-style: normal;
+  --main-font-weight: 500;
+  --main-line-height: normal;
+}

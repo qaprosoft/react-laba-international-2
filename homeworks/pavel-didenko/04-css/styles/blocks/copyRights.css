@@ -1,12 +1,5 @@
-.achievements {
-  display: flex;
-  justify-content: start;
-  gap: 2.5rem;
-}
-
-.achievements__bullet {
+.copy-rights{
   color: #575757;
-  text-align: center;
   font-size: var(--main-font-size);
   font-family: var(--main-font-family);
   font-style: var(--main-font-style);

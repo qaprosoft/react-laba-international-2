@@ -27,9 +27,10 @@
 .about__text{
   color: #19191B;
   text-align: center;
-  font-size: 1.375rem;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  font-size: var(--main-font-size);
+  font-family: var(--main-font-family);
+  font-style: var(--main-font-style);
+  font-weight: var(--main-font-weight);
+  line-height: var(--main-line-height);
 }
+

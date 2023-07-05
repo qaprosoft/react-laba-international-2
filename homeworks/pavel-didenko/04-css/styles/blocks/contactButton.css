@@ -1,17 +1,17 @@
 .contact-button {
   width: 18.125rem;
   height: 5rem;
-  border-radius: 0.625.rem;
+  border-radius: 0.625rem;
   border: 0px solid #3E64AA;
   background: #FFF;
   color: #3D3D3D;
   text-align: center;
-  font-size: 1.375rem;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.5px;
+  font-size: var(--main-font-size);
+  font-family: var(--main-font-family);
+  font-style: var(--main-font-style);
+  font-weight: var(--main-font-weight);
+  line-height: var(--main-line-height);
+  letter-spacing: -0.031rem;
   cursor: pointer;
 }
 

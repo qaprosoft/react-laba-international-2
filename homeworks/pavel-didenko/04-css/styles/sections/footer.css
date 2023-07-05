@@ -3,13 +3,7 @@ footer{
   justify-content: center;
 }
 
-.footer__copy-rights{
-  color: #575757;
-  font-size: 1.375rem;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+.copy-rights{
   margin-top: 8.2rem;
   padding-bottom: 5rem;
   position: relative;
