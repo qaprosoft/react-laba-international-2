@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import "change-theme.css";
 @import "personal-info.css";
+@import "about.css";
 
 :root {
 	--color-main: #E5E5E5;
@@ -24,6 +25,7 @@
 	color: var(--color-text);
 	font-size: 22px;
 	line-height: 33px;
+	transition: 0.2s;
 }
 
 body {
