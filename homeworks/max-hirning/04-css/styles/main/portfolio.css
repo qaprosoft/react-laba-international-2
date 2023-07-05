@@ -47,6 +47,52 @@
     justify-content: space-between;
 }
 
-.portfolio_examples img {
+.portfolio_example_first {
+    display: flex;
+    text-align: center;
+    border-radius: 22px;
+    align-items: center;
+    flex-direction: column;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/images/portfolio/1.png");
+}
+
+.portfolio_example_first h3 {
+    font-size: 22px;
+    margin-top: 3rem;
+    color: #3D3D3D;
+    font-family: Poppins;
+}
+
+.portfolio_example_first p {
+    font-size: 14px;
+    color: #3D3D3D;
+    margin-top: 0.25rem;
+    font-family: Poppins;
+}
+
+.portfolio_example_first a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    margin-top: 1rem;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.portfolio_example_first a image {
+    width: 17px;
+    height: 9px;
+}
+
+.portfolio_example, .portfolio_example_first {
+    width: 362px;
+    height: 226px;
+    cursor: pointer;
     margin-block: 15px;
+    border-radius: 22px;
 }
