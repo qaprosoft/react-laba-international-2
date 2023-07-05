@@ -1,0 +1,11 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author {
+    font-size: 14px;
+    color: #A3ABB2;
+    font-family: Poppins;
+}
