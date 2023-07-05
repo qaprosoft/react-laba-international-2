@@ -1,0 +1,22 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme_toogle {
+    width: 45px;
+    height: 45px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #171F26;
+}
+
+.theme_toogle img {
+    width: 25px;
+    height: 25px;
+}

@@ -2,41 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/main/actions.css">
+    <link rel="stylesheet" href="./styles/main/profile.css">
+    <link rel="stylesheet" href="./styles/main/portfolio.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Alvarado</title>
 </head>
 <body>
     <header>
-        <button>
+        <button class="theme_toogle">
             <img src="./assets/icons/theme-switcher/dark.svg" alt="theme toogle">
         </button>
     </header>
     <main>
-        <article>
-            <div>
+        <article class="profile">
+            <div class="profile_main_info">
                 <img src="./assets/images/avatar.png" alt="avatar">
                 <div>
                     <h1>Victor Alvarado</h1>
                     <p>Software Engineer</p>
-                    <div>
-                        <nav>
-                            <a>
-                                <img src="./assets/icons/github.svg" alt="github">
-                            </a>
-                            <a>
-                                <img src="./assets/icons/twitter.svg" alt="twitter">
-                            </a>
-                            <a>
-                                <img src="./assets/icons/linkedin.svg" alt="linkedin">
-                            </a>
-                            <a>
-                                <img src="./assets/icons/youtube.svg" alt="youtube">
-                            </a>
-                        </nav>
-                    </div>
+                    <nav class="social_media_links">
+                        <a>
+                            <img src="./assets/icons/github.svg" alt="github">
+                        </a>
+                        <a>
+                            <img src="./assets/icons/twitter.svg" alt="twitter">
+                        </a>
+                        <a>
+                            <img src="./assets/icons/linkedin.svg" alt="linkedin">
+                        </a>
+                        <a>
+                            <img src="./assets/icons/youtube.svg" alt="youtube">
+                        </a>
+                    </nav>
                 </div>
             </div>
-            <div>
+            <div class="profile_additional_info">
                 <div>
                     <p>7</p>
                     <p>Years of work experience</p>
@@ -51,16 +55,16 @@
                 </div>
             </div>
         </article>
-        <article>
-            <button>Download CV</button>
-            <button>Contact me</button>
+        <article class="action_buttons">
+            <button class="download_button">Download CV</button>
+            <button class="contact_button">Contact me</button>
         </article>
-        <article>
-            <div>
-                <button>Portfolio</button>
-                <button>Skills</button>
+        <article class="portfolio">
+            <div class="portfolio_buttons">
+                <button class="portfolio_active_button">Portfolio</button>
+                <button class="portfolio_inactive_button">Skills</button>
             </div>
-            <div>
+            <div class="portfolio_examples">
                 <img src="./assets/images/portfolio/1.png" alt="first portofilio example">
                 <img src="./assets/images/portfolio/2.png" alt="second portofilio example">
                 <img src="./assets/images/portfolio/3.png" alt="third portofilio example">
@@ -71,7 +75,7 @@
         </article>
     </main>
     <footer>
-        <p>© Victor Alvarado. 2022 All rigths reserved</p>
+        <p class="author">© Victor Alvarado. 2022 All rigths reserved</p>
     </footer>
 </body>
 </html>
