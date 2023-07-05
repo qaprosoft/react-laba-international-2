@@ -1,0 +1,45 @@
+.person{
+  display: flex;
+}
+
+.person__info {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.person__avatar {
+  position: relative;
+  right: 1rem;
+  width: 13.438rem;
+  height: 13.438rem;
+  border-radius: 100%;
+  border: 0.25rem solid #F7D039;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.person__full-name {
+  color: #3D3D3D;
+  font-size: 2.875rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.person__job-title {
+  color: #575757;
+  font-size: 1.375rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.person__social-medias{
+  margin-top: 1rem;
+  display: flex;
+  gap: 26px;
+}

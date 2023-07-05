@@ -1,0 +1,25 @@
+.contact-button {
+  width: 290px;
+  height: 80px;
+  border-radius: 10px;
+  border: 0px solid #3E64AA;
+  background: #FFF;
+  color: #3D3D3D;
+  text-align: center;
+  font-size: 22px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.5px;
+}
+
+#active-contact-button{
+  background: #FBD144;
+}
+
+.contact-button__arrow{
+  position: relative;
+  left: 1rem;
+  top: 0.1rem;
+}

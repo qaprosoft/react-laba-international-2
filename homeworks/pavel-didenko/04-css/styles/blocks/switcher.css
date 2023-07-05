@@ -1,0 +1,9 @@
+.switcher {
+  width: 5rem;
+  height: 5rem;
+  background-color: #FFFFFF;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

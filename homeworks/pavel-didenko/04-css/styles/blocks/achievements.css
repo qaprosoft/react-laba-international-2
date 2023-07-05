@@ -1,0 +1,15 @@
+.achievements {
+  display: flex;
+  justify-content: start;
+  gap: 2.5rem;
+}
+
+.achievements__bullet {
+  color: #575757;
+  text-align: center;
+  font-size: 22px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
