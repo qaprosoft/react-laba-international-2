@@ -1,0 +1,102 @@
+body{
+    background-color: #E9EBEC;
+}
+
+header{
+    text-align: center;
+}
+
+
+.dark-mode-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: white;
+    transition: all 1000ms;
+    margin-top: 33px;
+}
+
+#dark-mode-image{
+    width: 50%;
+}
+
+.dark-mode-button:hover{
+    background-color:grey ;
+}       
+main{
+    display: flex;
+    justify-content: center;
+}
+.portfolio-presentation{
+    width: 631px;
+    height: 215px;
+    display: flex;
+
+    margin-top: 65px;
+    
+}
+
+.photo-container{
+    justify-self: center;
+    width: 215px;
+    height: 215px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.photo-container img {
+    width: 192px;
+    height: 192px;
+    border-radius: 100%;
+    border: 5px white solid;
+}
+
+.title-logos{
+    
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    height: 156px;
+    margin: 0 auto;
+    align-content: flex-start;
+    
+    
+    
+}
+
+.title-logos h1{
+    
+    font-size: 46px;
+    font-weight: 500;
+    line-height: 69px;
+    color: #3D3D3D; 
+    margin: 0 auto;
+    
+}
+
+.title-logos h4 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 33px;
+    color: #575757;
+
+    margin: 0 ;
+    
+    
+}
+.portfolio-presentation .socials{
+    display: flex;
+    justify-content: space-between;
+    width: 222px;
+    margin: 0;
+    
+    
+
+}
+.socials-logos {
+    width: 36px;
+    height: 36px;
+}
