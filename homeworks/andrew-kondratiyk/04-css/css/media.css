@@ -24,10 +24,15 @@
 
 	.about__portfolio {
 		grid-template-columns: 1fr;
+		row-gap: 30px;
 	}
 
 	.about__card-overlay {
 		font-size: 1.6rem;
+	}
+
+	.footer {
+		margin-top: 7rem;
 	}
 }
 
