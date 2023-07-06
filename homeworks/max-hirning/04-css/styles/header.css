@@ -13,14 +13,7 @@
     border-radius: 100%;
     align-items: center;
     justify-content: center;
-}
-
-.header_theme_toogle_dark {
-    background-color: #171F26;
-}
-
-.header_theme_toogle_light {
-    background-color: white;
+    background: var(--toggle-switcher-bg-color);
 }
 
 .theme_toogle_icon {

@@ -12,8 +12,8 @@
     max-width: 760px;
     align-items: center;
     border-radius: 20px;
-    background-color: #171F26;
     justify-content: space-between;
+    background-color: var(--portfolio-btns-bg-color);
 }
 
 .portfolio_button {
@@ -27,7 +27,7 @@
 }
 
 .portfolio_buttons_active {
-    background-color: #0C151D;
+    background-color:var(--portfolio-btn-active-bg-color);
 }
 
 .portfolio_buttons_inactive {
@@ -61,13 +61,13 @@
 
 .portfolio_example_title {
     margin-top: 3rem;
-    color: #3D3D3D;
+    color: var(--portfolio-example-title);
 }
 
 .portfolio_example_text {
     font-size: 14px;
-    color: #3D3D3D;
     margin-top: 0.25rem;
+    color: var(--portfolio-example-text);
 }
 
 .portfolio_example_link {
@@ -79,7 +79,7 @@
     border-radius: 100%;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: var(--portfolio-example-link);
 }
 
 .portfolio_example_link_icon {

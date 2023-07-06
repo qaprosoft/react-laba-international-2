@@ -6,7 +6,7 @@
 body {
     padding-block: 2rem;
     padding-inline: 10px;
-    background-color: #0C151D;
+    background-color: var(--main-bg-color);
 }
 
 .main {
@@ -17,14 +17,14 @@ body {
 
 .text {
     font-size: 22px;
-    color: #A3ABB2;
     font-family: Poppins;
+    color: var(--text-color);
 }
 
 .title {
     font-size: 46px;
-    color: #F1F2F4;
     font-family: Poppins;
+    color: var(--title-color);
 }
 
 /*Fonts*/

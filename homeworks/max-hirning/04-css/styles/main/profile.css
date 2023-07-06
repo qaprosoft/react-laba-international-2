@@ -14,8 +14,8 @@
 .profile_avatar {
     padding: 4px;
     border-radius: 100%;
-    background-color: white;
-    border: 4px solid #FFE071;
+    background-color: var(--profile-avatar-bg);
+    border: 4px solid var(--profile-avatar-border-color);
 }
 
 .profile_info {

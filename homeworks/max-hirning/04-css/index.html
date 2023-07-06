@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/header.css">
+    <link rel="icon" href="./assets/images/avatar.png">
     <link rel="stylesheet" href="./styles//adaptive.css">
     <link rel="stylesheet" href="./styles/main/actions.css">
     <link rel="stylesheet" href="./styles/main/profile.css">
@@ -13,9 +14,8 @@
     <title>Victor Alvarado</title>
 </head>
 <body>
-    <!-- header_theme_toogle_light -->
     <header class="header">
-        <button class="theme_toogle header_theme_toogle header_theme_toogle_dark">
+        <button id="theme_toogle" class="theme_toogle header_theme_toogle">
             <img class="theme_toogle_icon" src="./assets/icons/theme-switcher/dark.svg" alt="theme toogle">
         </button>
     </header>
@@ -27,16 +27,16 @@
                     <h1 class="title">Victor Alvarado</h1>
                     <p class="text profile_info_position">Software Engineer</p>
                     <nav class="social_media">
-                        <a class="social_media_link">
+                        <a class="social_media_link" target="_blank" href="https://github.com/Max-Hirning">
                             <img class="social_media_link_icon" src="./assets/icons/github.svg" alt="github">
                         </a>
-                        <a class="social_media_link">
+                        <a class="social_media_link" target="_blank" href="https://twitter.com/">
                             <img class="social_media_link_icon" src="./assets/icons/twitter.svg" alt="twitter">
                         </a>
-                        <a class="social_media_link">
+                        <a class="social_media_link" target="_blank" href="https://www.linkedin.com/in/max-hirning-2bbb03230/">
                             <img class="social_media_link_icon" src="./assets/icons/linkedin.svg" alt="linkedin">
                         </a>
-                        <a class="social_media_link">
+                        <a class="social_media_link" target="_blank" href="https://www.youtube.com/">
                             <img class="social_media_link_icon" src="./assets/icons/youtube.svg" alt="youtube">
                         </a>
                     </nav>
@@ -55,13 +55,13 @@
             </div>
         </article>
         <section class="action_buttons">
-            <button class="text action_button action_button_download">Download CV <img class="download_icon" src="./assets/icons/download.svg" alt="download"></button>
+            <button class="text action_button action_button_download" id="downloadCV">Download CV <img class="download_icon" src="./assets/icons/download.svg" alt="download"></button>
             <button class="text action_button action_button_contact">Contact me</button>
         </section>
         <article class="portfolio">
             <div class="portfolio_buttons">
-                <button class="text portfolio_button portfolio_buttons_active">Portfolio</button>
-                <button class="text portfolio_button portfolio_buttons_inactive">Skills</button>
+                <button id="portfolio" class="text portfolio_button portfolio_buttons_active">Portfolio</button>
+                <button id="skills" class="text portfolio_button portfolio_buttons_inactive">Skills</button>
             </div>
             <div class="portfolio_examples">
                 <div class="portfolio_example">
@@ -80,7 +80,8 @@
         </article>
     </main>
     <footer class="footer">
-        <p class="text footer_author">© Victor Alvarado. 2022 All rigths reserved</p>
+        <p class="text">© Victor Alvarado. 2022 All rigths reserved</p>
     </footer>
+    <script src="./script.js"></script>
 </body>
 </html>

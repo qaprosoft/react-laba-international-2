@@ -21,13 +21,8 @@
 }
 
 .action_button_download {
-    color: #3D3D3D;
-    /* background-size: 11%;
-    background-position-x: 90%; */
-    background-color: #FFE071;
-    /* background-repeat: no-repeat;
-    background-position-y: center;
-    background-image: url("../../assets/icons/download.svg"); */
+    color: var(--download-btn-color);
+    background-color: var(--download-btn-bg-color);
 }
 
 .download_icon {
@@ -36,5 +31,5 @@
 }
 
 .action_button_contact {
-    background-color: #171F26;
+    background-color: var(--contact-btn-bg-color);
 }
