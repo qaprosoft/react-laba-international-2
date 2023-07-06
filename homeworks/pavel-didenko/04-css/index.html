@@ -24,24 +24,24 @@
 <body>
   <header>
     <div class="switcher">
-      <img src="./assets/img/icons/switcher-light-theme.svg" alt="Theme switcher" class="switcher__icon" width="40" height="40">
+      <img class="switcher__icon" src="./assets/img/icons/switcher-light-theme.svg" alt="Theme switcher" width="40" height="40">
     </div>
     <section class="person">
       <div class="person__avatar">
-        <img src="./assets/img/foto.png" alt="foto" class="person__foto">
+        <img class="person__foto" src="./assets/img/foto.png" alt="foto">
       </div>
       <div class="person__info">
         <h1 class="person__full-name">Victor Alvarado</h1>
         <p class="person__job-title">Software Engineer</p>
         <div class="person__social-medias">
-          <img src="./assets/img/icons/github.svg" alt="github">
-          <img src="./assets/img/icons/twitter.svg" alt="twitter">
-          <img src="./assets/img/icons/linkedin.svg" alt="linkedIn">
-          <img src="./assets/img/icons/youtube.svg" alt="youtube">
+          <img class="person__sm-icon" src="./assets/img/icons/github.svg" alt="github">
+          <img class="person__sm-icon" src="./assets/img/icons/twitter.svg" alt="twitter">
+          <img class="person__sm-icon" src="./assets/img/icons/linkedin.svg" alt="linkedIn">
+          <img class="person__sm-icon" src="./assets/img/icons/youtube.svg" alt="youtube">
         </div>
       </div>
     </section>
-    <section class="achievements">
+    <div class="achievements">
       <pre class="achievements__bullet">
         7
         Years of work
@@ -57,15 +57,15 @@
         Satisfied
         customers
       </pre>
-    </section>
-    <section class="contact-buttons">
+    </div>
+    <div class="contact-buttons">
       <button class="contact-button" id="active-contact-button">
         Download CV <img class="contact-button__arrow" src="./assets/img/icons/download-arrow.svg" alt="Download arrow">
       </button>
       <button class="contact-button">
         Contact me
       </button>
-    </section>
+    </div>
   </header>
   <main>
     <nav class="about">
@@ -76,19 +76,20 @@
         <span class="about__text">Skills</span>
       </div>
     </nav>
-    <section class="portfolio">
+    <div class="portfolio">
       <img class="portfolio__project" src="./assets/img/portfolio/project1.png" alt="project 1">
       <img class="portfolio__project" src="./assets/img/portfolio/project2.png" alt="project 2">
       <img class="portfolio__project" src="./assets/img/portfolio/project3.png" alt="project 3">
       <img class="portfolio__project" src="./assets/img/portfolio/project4.png" alt="project 4">
       <img class="portfolio__project" src="./assets/img/portfolio/project5.png" alt="project 5">
       <img class="portfolio__project" src="./assets/img/portfolio/project6.png" alt="project 6">
-    </section>
+    </div>
   </main>
   <footer>
     <p class="copy-rights">
       © Victor Alvarado. 2022 All rigths reserved
     </p>
   </footer>
+  <script src="./assets/scripts/index.js"></script>
 </body>
 </html>

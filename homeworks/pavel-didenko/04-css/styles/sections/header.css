@@ -21,3 +21,24 @@ header{
 .contact-buttons {
   margin-top: 2.2rem;
 }
+
+@media (max-width: 376px){
+  .switcher{
+    margin-top: 1.3rem;
+  }
+
+  .person {
+    margin-top: 1.8rem;
+    position: relative;
+    right: 0.5rem;
+  }
+
+  .achievements {
+    margin-top: 3.3rem;
+  }
+
+  .contact-buttons {
+    margin-top: 3rem;
+  }
+
+}

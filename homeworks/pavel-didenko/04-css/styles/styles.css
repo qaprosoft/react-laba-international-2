@@ -26,3 +26,9 @@ body{
     --main-font-size: 1rem;
   }
 }
+
+@media (max-width: 376px){
+  :root{
+    --main-font-size: 0.875rem;
+  }
+}

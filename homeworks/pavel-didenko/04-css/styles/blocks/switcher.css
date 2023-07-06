@@ -6,4 +6,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+@media (max-width: 376px){
+  .switcher {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .switcher__icon{
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }

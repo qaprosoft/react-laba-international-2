@@ -12,3 +12,13 @@ main{
 .portfolio{
   margin-top: 3.7rem;
 }
+
+@media (max-width: 376px){
+  .about{
+    margin-top: 3.5rem;
+  }
+
+  .portfolio{
+    margin-top: 1.3rem;
+  }
+}

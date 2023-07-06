@@ -15,5 +15,21 @@
     width: 100%;
     justify-content: center;
   }
+}
 
+@media (max-width: 376px){
+
+  .portfolio{
+    gap: 0.88rem;
+  }
+
+  .portfolio__project{
+    width: 21.25rem;
+    height: 13.125rem;
+    border-radius: 0.9375rem;
+  }
+
+  /* .portfolio__project{
+    margin-top: 0.3rem;
+  } */
 }

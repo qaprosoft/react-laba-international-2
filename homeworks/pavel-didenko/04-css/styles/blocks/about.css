@@ -75,3 +75,24 @@
   }
 }
 
+@media (max-width: 376px){
+
+  .about{
+    width: 20.625rem;
+    height: 3.5rem;
+    padding: 0.3125rem 0.125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5625rem;
+  }
+
+  .about__button{
+    width: 9.625rem;
+    height: 3.14394rem;
+    top: 0rem;
+    left: 0.25rem;
+    border-radius: 0.625rem;
+    border: 0px solid #3E64AA;
+  }
+}
+

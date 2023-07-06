@@ -44,12 +44,6 @@
   gap: 1.625rem;
 }
 
-@media (max-width: 670px){
-  .person__info {
-    margin-top: 1rem;
-    margin-left: 0rem;
-  }
-}
 
 @media (max-width: 603px){
   .person{
@@ -71,4 +65,33 @@
   .person__full-name{
     font-size: 2.2rem;
   }
+}
+
+@media (max-width: 376px){
+  .person__avatar{
+    width: 7.75rem;
+    height: 7.75rem;
+    left: 0.5rem;
+  }
+
+  .person__foto{
+    width: 6.6875rem;
+    height: 6.6875rem;
+  }
+
+  .person__full-name{
+    font-size: 2rem;
+  }
+
+  .person__social-medias{
+    gap: 1.62rem;
+    margin-top: 1.3rem;
+  }
+
+  .person__sm-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+
 }
