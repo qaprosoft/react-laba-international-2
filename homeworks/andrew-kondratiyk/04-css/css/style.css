@@ -2,6 +2,7 @@
 @import "change-theme.css";
 @import "personal-info.css";
 @import "about.css";
+@import "media.css";
 
 :root {
 	--color-main: #E5E5E5;
