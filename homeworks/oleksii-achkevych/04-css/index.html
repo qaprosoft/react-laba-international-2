@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/darkTheme.css">
+    <link rel="stylesheet" href="./styles/media.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <div class="container">
+
+    <header>
+        <div class="theme-switch">
+            <img src="./images/sun.svg" alt="">
+        </div>
+    </header>
+
+   
+        <div class="profile">
+            <div class="profile-info">
+                <div class="avatar">
+                    <img src="./images/avatar.jpg" alt="">
+                </div>
+                <div class="profile-info-items">
+                    <h1>Oleksii Achkevych</h1>
+                    <p>Frontend developer</p>
+                    <div class="social-icons">
+                        <a href="https://www.github.com">
+                            <img src="./images/github.svg" alt="" width="30" height="30" class="icon">
+                        </a>
+                        <a href="https://www.twitter.com">
+                            <img src="./images/twitter.svg" alt="" width="30" height="30" class="icon">
+                        </a>
+                        <a href="https://www.linkedin.com">
+                            <img src="./images/linkedin.svg" alt="" width="30" height="30" class="icon">
+                        </a>
+                        <a href="https://www.youtube.com">
+                            <img src="./images/youtube.svg" alt="" width="30" height="30" class="icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="achievements">
+            <div class="achievements-item">
+                <p class="achievements-item-title">7</p>
+                <p>Years of work<br>experience</p>
+            </div>
+            <div class="achievements-item">
+                <p class="achievements-item-title">50+</p>
+                <p>Completed<br>projects</p>
+            </div>
+            <div class="achievements-item">
+                <p class="achievements-item-title">20+</p>
+                <p>Satisfied<br>customers</p>
+            </div>
+        </div>
+
+
+        <div class="buttons">
+            <button class="btn_style btn_download">Download CV
+                <span class="arrow-icon">
+                    <img src="./images/arrow.svg" alt="Arrow" width="20" height="20">
+                </span>
+            </button>
+            <button class="btn_style btn_contact">Contact Me</button>
+        </div>
+
+        <div class="tab-buttons-block">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="tab1">Portfolio</button>
+                <button class="tab-button" data-tab="tab2">Skills</button>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div id="tab1" class="tab-panel active">
+                <div class="grid-container">
+                    <div class="grid-item"><img src="./images/example1.png" alt="Image 1"></div>
+                    <div class="grid-item"><img src="./images/example2.png" alt="Image 2"></div>
+                    <div class="grid-item"><img src="./images/example3.png" alt="Image 3"></div>
+                    <div class="grid-item"><img src="./images/example4.png" alt="Image 4"></div>
+                    <div class="grid-item"><img src="./images/example5.png" alt="Image 5"></div>
+                    <div class="grid-item"><img src="./images/example6.png" alt="Image 6"></div>
+                </div>
+            </div>
+            <div id="tab2" class="tab-panel">
+                <div class="grid-container">
+                    <div class="grid-item .grid-item-skills"><img src="./images/git.jpg" alt="Image 1"></div>
+                    <div class="grid-item .grid-item-skills"><img src="./images/hcj1.jpg" alt="Image 2"></div>
+                    <div class="grid-item .grid-item-skills"><img src="./images/sass.jpg" alt="Image 3"></div>
+                    <div class="grid-item .grid-item-skills"><img src="./images/react.jpg" alt="Image 4"></div>
+                    <div class="grid-item .grid-item-skills"><img src="./images/mongo.jpg" alt="Image 5"></div>
+                    <div class="grid-item .grid-item-skills"><img src="./images/expres.jpeg" alt="Image 6"></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>© Victor Alvarado. 2022 All rigths reserved</p>
+        </footer>
+    </div>
+    <script src="./scripts/darkTheme.js"></script>
+    <script src="./scripts/avatar.js"></script>
+    <script src="./scripts/tabs.js"></script>
+</body>
+
+</html>
