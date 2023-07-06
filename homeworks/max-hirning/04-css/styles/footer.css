@@ -1,11 +1,9 @@
-footer {
+.footer {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.author {
-    font-size: 14px;
+.footer_author {
     color: #A3ABB2;
-    font-family: Poppins;
 }

@@ -1,4 +1,4 @@
-header {
+.header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,10 +13,17 @@ header {
     border-radius: 100%;
     align-items: center;
     justify-content: center;
+}
+
+.header_theme_toogle_dark {
     background-color: #171F26;
 }
 
-.theme_toogle img {
+.header_theme_toogle_light {
+    background-color: white;
+}
+
+.theme_toogle_icon {
     width: 25px;
     height: 25px;
 }

@@ -26,30 +26,18 @@
     justify-content: space-between;
 }
 
-.profile_info h1 {
-    font-size: 46px;
-    color: #F1F2F4;
-    font-family: Poppins;
-}
-
-.profile_info p, .profile_additional_info div p {
-    font-size: 22px;
-    color: #A3ABB2;
-    font-family: Poppins;
-}
-
-.social_media_links {
+.social_media {
     width: 200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.social_media_links a {
+.social_media_link {
     cursor: pointer;
 }
 
-.social_media_links a img {
+.social_media_link_icon {
     width: 30px;
     height: 30px;
 }
@@ -62,13 +50,13 @@
     justify-content: space-between;
 }
 
-.profile_additional_info div {
+.profile_additional_info_box {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.profile_additional_info div p {
+.profile_additional_info_text {
     text-align: center;
 }

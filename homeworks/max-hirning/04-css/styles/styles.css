@@ -8,12 +8,23 @@ body {
     background-color: #0C151D;
 }
 
-main {
+.main {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
+.text {
+    font-size: 22px;
+    color: #A3ABB2;
+    font-family: Poppins;
+}
+
+.title {
+    font-size: 46px;
+    color: #F1F2F4;
+    font-family: Poppins;
+}
 
 /*Fonts*/
 @font-face {

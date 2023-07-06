@@ -12,65 +12,62 @@
     <title>Victor Alvarado</title>
 </head>
 <body>
-    <header>
-        <button class="theme_toogle">
-            <img src="./assets/icons/theme-switcher/dark.svg" alt="theme toogle">
+    <!-- header_theme_toogle_light -->
+    <header class="header">
+        <button class="theme_toogle header_theme_toogle header_theme_toogle_dark">
+            <img class="theme_toogle_icon" src="./assets/icons/theme-switcher/dark.svg" alt="theme toogle">
         </button>
     </header>
-    <main>
+    <main class="main">
         <article class="profile">
             <div class="profile_main_info">
                 <img class="profile_avatar" src="./assets/images/avatar.png" alt="avatar">
                 <div class="profile_info">
-                    <h1>Victor Alvarado</h1>
-                    <p>Software Engineer</p>
-                    <nav class="social_media_links">
-                        <a>
-                            <img src="./assets/icons/github.svg" alt="github">
+                    <h1 class="title">Victor Alvarado</h1>
+                    <p class="text">Software Engineer</p>
+                    <nav class="social_media">
+                        <a class="social_media_link">
+                            <img class="social_media_link_icon" src="./assets/icons/github.svg" alt="github">
                         </a>
-                        <a>
-                            <img src="./assets/icons/twitter.svg" alt="twitter">
+                        <a class="social_media_link">
+                            <img class="social_media_link_icon" src="./assets/icons/twitter.svg" alt="twitter">
                         </a>
-                        <a>
-                            <img src="./assets/icons/linkedin.svg" alt="linkedin">
+                        <a class="social_media_link">
+                            <img class="social_media_link_icon" src="./assets/icons/linkedin.svg" alt="linkedin">
                         </a>
-                        <a>
-                            <img src="./assets/icons/youtube.svg" alt="youtube">
+                        <a class="social_media_link">
+                            <img class="social_media_link_icon" src="./assets/icons/youtube.svg" alt="youtube">
                         </a>
                     </nav>
                 </div>
             </div>
             <div class="profile_additional_info">
-                <div>
-                    <p>7</p>
-                    <p>Years of work <br> experience</p>
+                <div class="profile_additional_info_box">
+                    <p class="text profile_additional_info_text">7 <br> Years of work <br> experience</p>
                 </div>
-                <div>
-                    <p>50+</p>
-                    <p>Completed <br> projects</p>
+                <div class="profile_additional_info_box">
+                    <p class="text profile_additional_info_text">50+ <br> Completed <br> projects</p>
                 </div>
-                <div>
-                    <p>20+</p>
-                    <p>Satisfied <br> customers</p>
+                <div class="profile_additional_info_box">
+                    <p class="text profile_additional_info_text">20+ <br> Satisfied <br> customers</p>
                 </div>
             </div>
         </article>
-        <article class="action_buttons">
-            <button class="download_button">Download CV</button>
-            <button class="contact_button">Contact me</button>
-        </article>
+        <section class="action_buttons">
+            <button class="text action_buttons_download">Download CV</button>
+            <button class="text action_buttons_contact">Contact me</button>
+        </section>
         <article class="portfolio">
             <div class="portfolio_buttons">
-                <button class="portfolio_active_button">Portfolio</button>
-                <button class="portfolio_inactive_button">Skills</button>
+                <button class="text portfolio_button portfolio_buttons_active">Portfolio</button>
+                <button class="text portfolio_button portfolio_buttons_inactive">Skills</button>
             </div>
             <div class="portfolio_examples">
-                <!-- <img src="./assets/images/portfolio/1.png" alt="first portofilio example"> -->
-                <div class="portfolio_example_first">
-                    <h3>SmarterTrading411</h3>
-                    <p>Landing page of SmarterTrading411 created <br> using wordPress</p>
-                    <a>
-                        <img class="link" src="./assets/icons/link.svg" alt="link on portfolio">
+                <div class="portfolio_example">
+                    <h3 class="text portfolio_example_title">SmarterTrading411</h3>
+                    <p class="text portfolio_example_text">Landing page of SmarterTrading411 created <br> using wordPress</p>
+                    <a class="portfolio_example_link">
+                        <img class="portfolio_example_link_icon" src="./assets/icons/link.svg" alt="link on portfolio">
                     </a>
                 </div>
                 <img class="portfolio_example" src="./assets/images/portfolio/2.png" alt="second portofilio example">
@@ -81,8 +78,8 @@
             </div>
         </article>
     </main>
-    <footer>
-        <p class="author">© Victor Alvarado. 2022 All rigths reserved</p>
+    <footer class="footer">
+        <p class="text footer_author">© Victor Alvarado. 2022 All rigths reserved</p>
     </footer>
 </body>
 </html>
