@@ -7,7 +7,6 @@
 
 .portfolio_buttons {
     width: 80vw;
-    padding: 3vw;
     display: flex;
     max-width: 760px;
     align-items: center;
@@ -18,7 +17,7 @@
 
 .portfolio_button {
     width: 48%;
-    height: 17vw;
+    height: 13vw;
     border: none;
     cursor: pointer;
     max-width: 350px;
