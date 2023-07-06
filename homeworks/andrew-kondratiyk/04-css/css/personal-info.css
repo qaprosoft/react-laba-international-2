@@ -71,6 +71,10 @@
 	padding: 2.5rem 4rem;
 	width: 100%;
 	background-color: var(--color-primary);
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
 }
 
 .personal-info__download-cv span {
