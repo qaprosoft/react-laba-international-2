@@ -75,10 +75,6 @@
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
-}
-
-.personal-info__download-cv span {
-	margin-left: 2rem;
 	color: #000000;
 }
 

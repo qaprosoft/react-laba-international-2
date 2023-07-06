@@ -8,10 +8,35 @@
 	html {
 		font-size: 8px;
 	}
+
+	.personal-info__top {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.personal-info__links {
+		justify-content: center;
+	}
+
+	.personal-info__cta {
+		flex-direction: column;
+	}
+
+	.about__portfolio {
+		grid-template-columns: 1fr;
+	}
+
+	.about__card-overlay {
+		font-size: 1.6rem;
+	}
 }
 
 @media (max-width: 480px) {
 	html {
 		font-size: 7px;
+	}
+
+	.about__card-overlay {
+		font-size: 1.3rem;
 	}
 }

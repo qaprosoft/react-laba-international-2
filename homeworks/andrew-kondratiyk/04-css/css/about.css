@@ -39,8 +39,8 @@
 .about__portfolio {
 	margin-top: 7.5rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-	grid-auto-rows: 225px;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-auto-rows: auto;
 	row-gap: 50px;
 	column-gap: 30px;
 	justify-content: center;
@@ -53,12 +53,9 @@
 }
 
 .about__card-bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
 	object-fit: cover;
+	width: 100%;
+	height: 100%;
 	border-radius: var(--border-radius-3);
 }
 
@@ -77,6 +74,7 @@
 	text-align: center;
 	opacity: 0;
 	transition: 0.3s;
+	font-size: 1rem;
 }
 
 .about__card:hover .about__card-overlay {
@@ -97,17 +95,21 @@
 
 .about__card-title {
 	color: #3D3D3D;
+	font-size: 2.2em;
+	line-height: 1.6em;
 }
 
 .about__card-subtitle {
 	margin-top: 0.5rem;
 	color: #3D3D3D;
-	font-size: 1.4rem;
-	line-height: 2.1rem;
+	font-size: 1.4em;
+	line-height: 2.1em;
 }
 
 .about__card-link {
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 38px;
 	height: 38px;
 	background-color: #ffffff;
