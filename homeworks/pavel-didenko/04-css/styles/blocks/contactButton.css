@@ -1,5 +1,5 @@
 .contact-button {
-  width: 16rem;
+  width: 18.125rem;
   height: 5rem;
   border-radius: 0.625rem;
   border: 0px solid #3E64AA;
@@ -23,6 +23,12 @@
   position: relative;
   left: 1rem;
   top: 0.1rem;
+}
+
+@media (max-width: 616px){
+  .contact-button{
+    width: 15rem;
+  }
 }
 
 @media(max-width: 534px){
