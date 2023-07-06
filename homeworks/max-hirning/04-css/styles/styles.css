@@ -3,24 +3,6 @@
     margin-inline: 0px;
 }
 
-/*dark*/
-/* :root {
-    --text-color: #A3ABB2;
-    --title-color: #F1F2F4;
-    --main-bg-color: #0C151D; 
-    --profile-avatar-bg: white;
-    --download-btn-color: #3D3D3D;
-    --portfolio-example-link: white;
-    --contact-btn-bg-color: #171F26;
-    --download-btn-bg-color: #FFE071;
-    --portfolio-example-text: #3D3D3D;
-    --portfolio-example-title: #3D3D3D;
-    --portfolio-btns-bg-color: #171F26;
-    --toggle-switcher-bg-color: #171F26;
-    --profile-avatar-border-color: #FFE071;
-    --portfolio-btn-active-bg-color: #0C151D;
-} */
-
 body {
     padding-block: 2rem;
     padding-inline: 10px;
