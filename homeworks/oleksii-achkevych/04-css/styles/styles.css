@@ -11,7 +11,6 @@
   width: 80px;
   height: 80px;
   overflow: hidden;
-  margin-right: 40px;
 }
 .theme-switch img{
   width: 34px;
@@ -94,7 +93,7 @@
   display: flex;
   text-align: center;
   margin-top: 68px;
-  gap: 90px;
+  gap: 4vw;
 }
 .achievements-item-title{
   color: #3D3D3D;
@@ -107,7 +106,7 @@
   margin-bottom: 15px;
   margin-top: 60px;
   display: flex;
-  gap: 38px;
+  gap: 2vw;
 }
 .btn_style {
   color: #3D3D3D;
@@ -183,12 +182,39 @@
 .grid-item::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+}
+.tab-content #tab1 .grid-item:hover::before {
+  background-color: #FFE071E0;
+  opacity: 0.9;
+  cursor: pointer;
+}
+.tab-content #tab1 .grid-item p.grid-item-title{
+  font-size: 22px;
+}
+.tab-content #tab1 .grid-item p.grid-item-subtitle{
+  font-size: 14px;
+}
+.tab-content #tab1 .grid-item p.grid-item-title,
+.tab-content #tab1 .grid-item p.grid-item-subtitle {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+.tab-content #tab1 .grid-item p.grid-item-subtitle {
+  margin-top: 25px;
+}
+.tab-content #tab1 .grid-item:hover p.grid-item-title,
+.tab-content #tab1 .grid-item:hover p.grid-item-subtitle {
+  opacity: 1;
 }
 .grid-item img {
   border-radius: 10px;
@@ -197,13 +223,10 @@
   object-fit: cover;
 }
 /* tab*/
-
-
-
 /* footer*/
 footer {
+  text-align: center;
   margin-bottom: 80px;
   margin-top: 80px;
 }
-
 /* footer*/
