@@ -39,6 +39,10 @@
         height: 124px;
         background-color: transparent !important;
     }
+
+    .portfolio_buttons {
+        border-radius: 10px !important;
+    }
 }
 
 @media screen and (max-width: 321px) {

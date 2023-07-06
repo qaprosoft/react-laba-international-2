@@ -6,9 +6,10 @@
 }
 
 .portfolio_buttons {
-    width: 760px;
-    padding: 15px;
+    width: 80vw;
+    padding: 3vw;
     display: flex;
+    max-width: 760px;
     align-items: center;
     border-radius: 20px;
     background-color: #171F26;
@@ -16,11 +17,13 @@
 }
 
 .portfolio_button {
-    width: 350px;
-    height: 80px;
+    width: 48%;
+    height: 17vw;
     border: none;
     cursor: pointer;
-    border-radius: 20px;
+    max-width: 350px;
+    max-height: 80px;
+    border-radius: 10px;
 }
 
 .portfolio_buttons_active {
@@ -36,13 +39,16 @@
     flex-wrap: wrap;
     max-width: 757px;
     margin-top: 2rem;
+    align-items: center;
     justify-content: space-between;
 }
 
 .portfolio_example {
-    width: 362px;
-    height: 226px;
+    width: 95%;
+    height: 100vw;
     display: flex;
+    max-width: 362px;
+    max-height: 226px;
     margin-block: 15px;
     text-align: center;
     border-radius: 22px;
