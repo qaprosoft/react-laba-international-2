@@ -1,0 +1,37 @@
+@media screen and (max-width: 769px) {
+    .profile_main_info {
+        flex-direction: column;
+    }
+
+    .profile_info {
+        margin-top: 1rem;
+        align-items: center;
+    }
+
+    .portfolio_examples {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 597px) {
+    .text {
+        font-size: 14px;
+    }
+
+    .title {    
+        font-size: 32px; 
+    }
+
+    .social_media_link_icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .profile_avatar {
+        width: 124px;
+        height: 124px;
+        background-color: transparent !important;
+    }
+}
