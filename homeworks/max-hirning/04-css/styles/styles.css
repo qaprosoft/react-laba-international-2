@@ -17,14 +17,12 @@ body {
 
 .text {
     font-size: 22px;
-    /* font-size: 2vw; */
     color: #A3ABB2;
     font-family: Poppins;
 }
 
 .title {
     font-size: 46px;
-    /* font-size: 4.5vw; */
     color: #F1F2F4;
     font-family: Poppins;
 }

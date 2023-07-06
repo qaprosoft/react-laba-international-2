@@ -18,6 +18,11 @@
         font-size: 14px;
     }
 
+    .download_icon {
+        width: 22px;
+        height: 22px;
+    }
+
     .title {    
         font-size: 32px; 
     }
@@ -33,5 +38,16 @@
         width: 124px;
         height: 124px;
         background-color: transparent !important;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .action_button {
+        font-size: 12px;
+    }
+
+    .download_icon {
+        width: 16px;
+        height: 16px;
     }
 }

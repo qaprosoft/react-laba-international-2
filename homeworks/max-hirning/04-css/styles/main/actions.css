@@ -1,31 +1,40 @@
 .action_buttons {
-    width: 65%;
+    width: 100%;
     display: flex;
-    max-width: 618px;
+    max-width: 640px;
     margin-block: 2rem;
     align-items: center;
     justify-content: space-between;
 }
 
-.action_buttons_download {
+.action_button {
+    width: 45%;
     border: none;
-    height: 80px;
-    width: 290px;
+    height: 13vw;
+    display: flex;
     cursor: pointer;
-    color: #3D3D3D;
-    border-radius: 20px;
-    background-color: #FFE071;
-    background-position-x: 220px;
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-image: url("../../assets/icons/download.svg");
+    max-height: 80px;
+    max-width: 290px;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
 }
 
-.action_buttons_contact {
-    border: none;
-    height: 80px;
-    width: 290px;
-    cursor: pointer;
-    border-radius: 20px;
+.action_button_download {
+    color: #3D3D3D;
+    /* background-size: 11%;
+    background-position-x: 90%; */
+    background-color: #FFE071;
+    /* background-repeat: no-repeat;
+    background-position-y: center;
+    background-image: url("../../assets/icons/download.svg"); */
+}
+
+.download_icon {
+    max-width: 26px;
+    max-height: 26px;
+}
+
+.action_button_contact {
     background-color: #171F26;
 }
