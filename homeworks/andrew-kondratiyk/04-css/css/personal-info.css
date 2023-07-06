@@ -1,5 +1,5 @@
 .personal-info {
-	margin-top: 65px;
+	margin-top: 6.5rem;
 	max-width: 631px;
 }
 
@@ -38,7 +38,7 @@
 	display: flex;
 	gap: 30px;
 	align-items: center;
-	margin-top: 15px;
+	margin-top: 1.5rem;
 }
 
 .personal-info__link {
@@ -46,7 +46,7 @@
 }
 
 .personal-info__experience {
-	margin-top: 50px;
+	margin-top: 5rem;
 	display: flex;
 	justify-content: space-around;
 }
@@ -61,7 +61,7 @@
 }
 
 .personal-info__cta {
-	margin-top: 70px;
+	margin-top: 7rem;
 	display: flex;
 	gap: 35px;
 }
@@ -74,7 +74,7 @@
 }
 
 .personal-info__download-cv span {
-	margin-left: 20px;
+	margin-left: 2rem;
 	color: #000000;
 }
 

@@ -1,6 +1,6 @@
 .about {
 	width: 100%;
-	margin-top: 85px;
+	margin-top: 8.5rem;
 }
 
 .about__tabs {
@@ -37,7 +37,7 @@
 }
 
 .about__portfolio {
-	margin-top: 75px;
+	margin-top: 7.5rem;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 	grid-auto-rows: 225px;
@@ -100,7 +100,7 @@
 }
 
 .about__card-subtitle {
-	margin-top: 5px;
+	margin-top: 0.5rem;
 	color: #3D3D3D;
 	font-size: 1.4rem;
 	line-height: 2.1rem;
@@ -112,5 +112,5 @@
 	height: 38px;
 	background-color: #ffffff;
 	border-radius: 100%;
-	margin-top: 20px;
+	margin-top: 2rem;
 }
