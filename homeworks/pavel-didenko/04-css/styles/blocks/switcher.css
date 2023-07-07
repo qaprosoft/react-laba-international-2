@@ -6,6 +6,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.switcher:hover{
   cursor: pointer;
 }
 

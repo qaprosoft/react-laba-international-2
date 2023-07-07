@@ -15,6 +15,9 @@
   position: relative;
   top: 0.938rem;
   left: 1.484rem;
+}
+
+.about__button:hover{
   cursor: pointer;
 }
 

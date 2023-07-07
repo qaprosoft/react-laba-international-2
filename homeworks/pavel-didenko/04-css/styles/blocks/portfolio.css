@@ -7,6 +7,9 @@
 
 .portfolio__project{
   margin-top: 1rem;
+}
+
+.portfolio__project:hover{
   cursor: pointer;
 }
 
