@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  width: 47.5rem;;
+  width: 47.5rem;
+  max-width: 100%;
 }
 
 .portfolio__project{
@@ -28,11 +29,8 @@
 
   .portfolio__project{
     width: 21.25rem;
+    max-width: 100%;
     height: 13.125rem;
     border-radius: 0.9375rem;
   }
-
-  /* .portfolio__project{
-    margin-top: 0.3rem;
-  } */
 }

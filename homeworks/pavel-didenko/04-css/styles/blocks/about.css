@@ -1,5 +1,6 @@
 .about{
   width: 47.5rem;
+  max-width: 100%;
   height: 6.875rem;
   border-radius: 1.25rem;
   background: #FFF;
@@ -8,6 +9,7 @@
 
 .about__button{
   width: 21.965rem;
+  max-width: 100%;
   height: 5rem;
   display: flex;
   align-items: center;
