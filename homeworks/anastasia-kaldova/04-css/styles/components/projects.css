@@ -1,0 +1,36 @@
+.projects__container {
+    padding-top: 3.91em;
+    padding-bottom: 3.55em;
+}
+
+.projects__btns {
+    padding: 0.68em 1.09em;
+    margin-bottom: 2.95em;
+    border-radius: calc(var(--border-radius) * 2);
+    background-color: var(--white-color);
+}
+
+.projects__btns-btn {
+padding: 1.09em 5.91em;
+}
+
+.projects__box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.18em 1em;
+}
+
+.projects__item {
+
+}
+
+.projects__link {
+    display: block;
+    width: 362px;
+    height: 226px;
+    border-radius: calc(var(--border-radius) * 1.5);
+}
+
+.projects__img {
+    object-fit: cover;
+}

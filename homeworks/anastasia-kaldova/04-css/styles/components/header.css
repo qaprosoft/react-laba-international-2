@@ -1,0 +1,71 @@
+.menu {
+    padding-top: 1.5em;
+    padding-bottom: 2.95em;
+}
+
+.menu__btn {
+    padding: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;   
+    background: var(--white-color) url("../../assets/icons/switch-color-dark.svg") no-repeat center/40px 40px;
+ 
+}
+
+.header__container {
+    padding-bottom: 2.18em;
+}
+
+.header__img {
+    margin-right: 1.8em;
+    width: 215px;
+    height: 215px;
+    border-radius: 100%;
+    border: 4px solid var(--accent-color);
+    background:  var(--white-color) url("../../assets/images/candidate.png") no-repeat center/192px 192px;
+}
+
+.header__heading {
+    font-size: 2.09rem;
+    padding-bottom: 0.3em;
+}
+
+.header__profession {
+    padding-bottom: 0.55em;
+    color: var(--color-text-secondary);
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social__item:not(:last-child) {
+    margin-right: 1.18em;
+}
+
+.social__link {
+	display: block;
+    width: 36px;
+	height: 36px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.social__link--gh {
+	background-image: url(../../assets/icons/social/github.svg);
+}
+
+.social__link--tw {
+	background-image: url(../../assets/icons/social/twitter.svg);
+}
+
+.social__link--lin {
+	background-image: url(../../assets/icons/social/linkedin.svg);
+}
+
+.social__link--yt {
+	background-image: url(../../assets/icons/social/youtube.svg);
+}

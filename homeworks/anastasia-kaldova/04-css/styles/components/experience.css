@@ -1,0 +1,19 @@
+.experience__container {
+    padding: 0.9em 1.4em;
+}
+
+.experience__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.experience__item:not(:last-child) {
+    margin-right: 4.09em;
+}
+
+.experience__item-descr {
+    text-align: center;
+    color: var(--color-text-secondary);
+}

@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <div class="site-container">
-        <div class="menu container">
-            <button class="btn"></button>
+        <div class="container container--center menu">
+            <button class="btn menu__btn"></button>
         </div>
         <header class="header">
-            <div class="container">
-                <img src="" alt="" class="header__img">
+            <div class="container container--center header__container">
+                <div class="header__img" title="Candidate image">  
+                     <!-- <img src="" alt="" class="header__img"> -->
+                </div>    
                 <div class="header__info">
                     <h1 class="header__heading">Victor Alvarado</h1>
-                    <span class="header__profession">Software Engineer</span>
+                    <p class="header__profession">Software Engineer</p>
                     <ul class="header__social social">
                         <li class="social__item"><a href="#" class="social__link social__link--gh"></a></li>
                         <li class="social__item"><a href="#" class="social__link social__link--tw"></a></li>
@@ -30,7 +30,7 @@
         </header>
         <main class="main">
             <section class="experience">
-                <div class="container">
+                <div class="container container--center experience__container">
                     <div class="experience__item">
                         <span class="experience__item-numb">7</span>
                         <p class="experience__item-descr">Years of work experience</p>
@@ -46,13 +46,13 @@
                 </div>
             </section>
             <section class="contacts">
-                <div class="container">
-                    <button class="contacts__btn btn btn--accent">Download CV</button>
-                    <button class="contacts__btn btn">Contact me</button>
+                <div class="container container--center contacts__container">
+                    <button class="btn btn--accent contacts__btn contacts__btn--download">Download CV</button>
+                    <button class="btn contacts__btn ">Contact me</button>
                 </div>
             </section>
             <section class="projects">
-                <div class="container">
+                <div class="container projects__container">
                     <div class="projects__btns">
                         <button class="projects__btns-btn btn btn--active">Portfolio</button>
                         <button class="projects__btns-btn btn">Skills</button>
@@ -60,32 +60,32 @@
                     <div class="projects__box">
                         <div class="projects__item">
                             <a href="" class="projects__link">
-                                <img src="" alt="" class="projects__img">
+                                <img src="./assets/images/project1.png" alt="Project1" class="projects__img">
                             </a>
                         </div>
                         <div class="projects__item">
                             <a href="" class="projects__link">
-                                <img src="" alt="" class="projects__img">
+                                <img src="./assets/images/project2.png" alt="Project2" class="projects__img">
                             </a>
                         </div>
                         <div class="projects__item">
                             <a href="" class="projects__link">
-                                <img src="" alt="" class="projects__img">
+                                <img src="./assets/images/project3.png" alt="Project3" class="projects__img">
                             </a>
                         </div>
                         <div class="projects__item">
                             <a href="" class="projects__link">
-                                <img src="" alt="" class="projects__img">
+                                <img src="./assets/images/project4.png" alt="Project4" class="projects__img">
                             </a>
                         </div>
                         <div class="projects__item">
                             <a href="" class="projects__link">
-                                <img src="" alt="" class="projects__img">
+                                <img src="./assets/images/project5.png" alt="Project5" class="projects__img">
                             </a>
                         </div>
                         <div class="projects__item">
                             <a href="" class="projects__link">
-                                <img src="" alt="" class="projects__img">
+                                <img src="./assets/images/project6.png" alt="Project6" class="projects__img">
                             </a>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
             </section>
         </main>
         <footer class="footer">
-            <div class="container">
+            <div class="container container--center footer__container">
                 <p class="footer__rights">&copy Victor Alvarado. 2022 All rigths reserved</p>
             </div>
         </footer>

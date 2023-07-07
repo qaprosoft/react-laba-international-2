@@ -1,18 +1,44 @@
 :root {
     --white-color: #fff;
     --accent-color: #fbd144;
-    --grey-color: #d7d7d7;
+    --color-active: #d7d7d7;
     --color-text-primary: #3d3d3d;
     --color-text-secondary: #575757;
     --color-bgr-main: #e5e5e5;
+
+    --border-radius: 10px;
   }
   
   .container {
-    max-width: px;
-    padding: 0 0px;
+    max-width: 757px;
+    padding: 0 5px;
     margin: 0 auto;
+  }
+
+  .container--center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .site-container {
     overflow: hidden;
+  }
+
+  .btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    border-radius: var(--border-radius);
+    padding: 1.09em 3.68em;
+    color: var(--color-text-primary);
+    background-color: var(--white-color);
+  }
+
+  .btn--accent {
+    background-color: var(--accent-color);
+  }
+
+  .btn--active {
+    background-color: var(--color-active);
   }
