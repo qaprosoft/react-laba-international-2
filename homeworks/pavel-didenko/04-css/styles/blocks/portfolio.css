@@ -6,12 +6,81 @@
   max-width: 100%;
 }
 
+.portfolio__img-wrapper{
+  position: relative;
+  overflow-y: hidden ;
+}
+
+
 .portfolio__project{
   margin-top: 1rem;
 }
 
 .portfolio__project:hover{
   cursor: pointer;
+}
+
+.portfolio__project:hover ~ .portfolio__description{
+  transform: translateY(-14.3rem);
+}
+
+.portfolio__description{
+  width: 22.625rem;
+  height: 14.125rem;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  background-color: #FBD144;
+  opacity: 0.88;
+  border-radius: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.7s ease-in-out;
+}
+
+.portfolio__description:hover{
+  transform: translateY(-14.3rem);
+  cursor: url('../../assets/img/icons/navigation.svg'), pointer;
+}
+
+
+.portfolio__project-name{
+  color: #3D3D3D;
+  text-align: center;
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  font-style: var(--main-font-style);
+  font-weight: var(--main-font-weight);
+  line-height: var(--main-line-height);
+  letter-spacing: -0.03319rem;
+}
+
+.portfolio__project-description{
+  width: 17.9375rem;
+  max-width: 100%;
+  color: #3D3D3D;
+  text-align: center;
+  letter-spacing: -0.03319rem;
+  font-family: var(--main-font-family);
+  font-size: 0.875rem;
+  font-style: var(--main-font-style);
+  font-weight: 400;
+  line-height: var(--main-line-height);
+}
+
+.portfolio__link-wrapper{
+  width: 2.375rem;
+  height: 2.375rem;
+  max-width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 1.3rem;
 }
 
 @media (max-width: 761px){

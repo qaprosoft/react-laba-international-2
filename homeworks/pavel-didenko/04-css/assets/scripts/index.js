@@ -12,6 +12,7 @@ const jobTitle = document.querySelector('.person__job-title');
 const achievements = document.querySelectorAll('.achievements__bullet');
 const aboutText = document.querySelectorAll('.about__text');
 const copyRightsText = document.querySelector('.copy-rights');
+const portfolioDescriptionBlock = document.querySelectorAll('.portfolio__description')
 
 //Dark theme background colors
 const darkBackground = "#0C151D";
@@ -21,6 +22,7 @@ const aboutDarkColor = "#171F26";
 const aboutButtonDarkColor = "#0C151D"
 const switcherDarkColor = "#171F26"
 const darkBasicFontColor = "#A3ABB2"
+const darkPortfolioDescription = "#FFE071E0"
 
 
 function setDarkTheme(){
@@ -48,6 +50,10 @@ function setDarkTheme(){
   aboutText.forEach((item) => {
     item.style.color = darkBasicFontColor;
   })
+  
+  portfolioDescriptionBlock.forEach((element) => {
+    element.style.backgroundColor = darkPortfolioDescription
+  });
 
   copyRightsText.style.color = darkBasicFontColor;
 }
@@ -74,6 +80,10 @@ function setLightTheme(){
   aboutText.forEach((item) => {
     item.removeAttribute('style');
   })
+  
+  portfolioDescriptionBlock.forEach((element) => {
+    element.removeAttribute('style');
+  });
   copyRightsText.removeAttribute('style');
 }
 
