@@ -23,7 +23,7 @@
   cursor: pointer;
 }
 
-#about-button__active{
+#about-button_active{
   border-radius: 0.625rem;
   border: 0px solid #3E64AA;
   background: #D7D7D7;
