@@ -17,7 +17,12 @@
     max-width: 290px;
     align-items: center;
     border-radius: 10px;
+    transition-duration: 1s;
     justify-content: center;
+}
+
+.action_button:hover {
+    transform: scale(1.25);
 }
 
 .action_button_download {

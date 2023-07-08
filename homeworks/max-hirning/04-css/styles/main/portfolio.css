@@ -20,13 +20,19 @@
     height: 13vw;
     border: none;
     cursor: pointer;
+    transition: 0.5s;
     max-width: 350px;
     max-height: 80px;
     border-radius: 10px;
 }
 
+.portfolio_button:hover {
+    transform: scale(0.75);
+    color: var(--download-btn-bg-color);
+}
+
 .portfolio_buttons_active {
-    background-color:var(--portfolio-btn-active-bg-color);
+    background-color: var(--portfolio-btn-active-bg-color);
 }
 
 .portfolio_buttons_inactive {

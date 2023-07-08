@@ -40,6 +40,7 @@ changeAppTheme(darkTheme, "dark");
 
 downloadCVButton.addEventListener("click", openCV);
 themeToggleButton.addEventListener("click", () => {
+    themeToggleButton.classList.toggle('header_theme_toogle_rotate');
     switch(currentTheme) {
         case "dark":
             changeAppTheme(lightTheme, "light");
@@ -50,6 +51,9 @@ themeToggleButton.addEventListener("click", () => {
         default:
             changeAppTheme(darkTheme, "dark");
     }
+    setTimeout(() => {
+        themeToggleButton.classList.toggle('header_theme_toogle_rotate');
+    }, 1000);
 })
 skillsButton.addEventListener("click", portfolioSkillsSwitcher);
 portfolioButton.addEventListener("click", portfolioSkillsSwitcher);
@@ -67,5 +71,5 @@ function changeAppTheme(themeObj, themeLabel) {
     Object.entries(themeObj).map((el) => {
         document.body.style.setProperty(el[0], el[1]);
     });
-    currentTheme = themeLabel
+    currentTheme = themeLabel;
 }

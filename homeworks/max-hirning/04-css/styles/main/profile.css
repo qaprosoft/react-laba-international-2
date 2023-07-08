@@ -36,6 +36,11 @@
 
 .social_media_link {
     cursor: pointer;
+    transition-duration: 1s;
+}
+
+.social_media_link:hover {
+    transform: scale(1.25);
 }
 
 .social_media_link_icon {
