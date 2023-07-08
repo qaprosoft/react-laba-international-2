@@ -83,6 +83,12 @@
   top: 1.3rem;
 }
 
+.portfolio__link-wrapper:hover{
+  cursor: pointer;
+}
+
+
+
 @media (max-width: 761px){
   .portfolio{
     width: 100%;

@@ -26,66 +26,66 @@ const darkPortfolioDescription = "#FFE071E0"
 
 
 function setDarkTheme(){
-  localStorage.setItem('lightTheme', 'false')
-  body.style.backgroundColor = darkBackground;
-  contactButton.forEach((item) => {
-    item.style.backgroundColor = darkContactButton;
-    item.style.color = darkBasicFontColor;
-  });
-  contactButtonActive.style.backgroundColor = darkContactActiveButton;
-  contactButtonActive.style.color = "#3D3D3D";
-  about.style.backgroundColor = aboutDarkColor;
-  aboutButton.style.backgroundColor = aboutButtonDarkColor;
-  switcher.style.backgroundColor = switcherDarkColor;
-  switcherIMG.setAttribute('src', './assets/img/icons/switcher-dark-theme.svg');
-  socialIcons.forEach((icon) => {
-    icon.style.filter = "brightness(2)";
-  })
+    localStorage.setItem('lightTheme', 'false')
+    body.style.backgroundColor = darkBackground;
+    contactButton.forEach((item) => {
+      item.style.backgroundColor = darkContactButton;
+      item.style.color = darkBasicFontColor;
+    });
+    contactButtonActive.style.backgroundColor = darkContactActiveButton;
+    contactButtonActive.style.color = "#3D3D3D";
+    about.style.backgroundColor = aboutDarkColor;
+    aboutButton.style.backgroundColor = aboutButtonDarkColor;
+    switcher.style.backgroundColor = switcherDarkColor;
+    switcherIMG.setAttribute('src', './assets/img/icons/switcher-dark-theme.svg');
+    socialIcons.forEach((icon) => {
+      icon.style.filter = "brightness(2)";
+    })
 
-  fullName.style.color = "#A3ABB2";
-  jobTitle.style.color = darkBasicFontColor;
-  achievements.forEach((item) => {
-    item.style.color = darkBasicFontColor;
-  })
-  aboutText.forEach((item) => {
-    item.style.color = darkBasicFontColor;
-  })
+    fullName.style.color = "#A3ABB2";
+    jobTitle.style.color = darkBasicFontColor;
+    achievements.forEach((item) => {
+      item.style.color = darkBasicFontColor;
+    })
+    aboutText.forEach((item) => {
+      item.style.color = darkBasicFontColor;
+    })
   
-  portfolioDescriptionBlock.forEach((element) => {
-    element.style.backgroundColor = darkPortfolioDescription
-  });
+    portfolioDescriptionBlock.forEach((element) => {
+      element.style.backgroundColor = darkPortfolioDescription
+    });
 
-  copyRightsText.style.color = darkBasicFontColor;
-}
+    copyRightsText.style.color = darkBasicFontColor;
+  }
 
 function setLightTheme(){
-  localStorage.setItem('lightTheme', 'true');
-  body.removeAttribute('style');
-  contactButton.forEach((item) => {
-    item.removeAttribute('style');
-  });
-  contactButtonActive.removeAttribute('style');
-  about.removeAttribute('style')
-  aboutButton.removeAttribute('style');
-  switcher.removeAttribute('style');
-  switcherIMG.setAttribute('src', './assets/img/icons/switcher-light-theme.svg');
-  socialIcons.forEach((icon) => {
-    icon.removeAttribute('style');
-  })
-  fullName.removeAttribute('style');
-  jobTitle.removeAttribute('style');
-  achievements.forEach((item) => {
-    item.removeAttribute('style');
-  })
-  aboutText.forEach((item) => {
-    item.removeAttribute('style');
-  })
+    localStorage.setItem('lightTheme', 'true');
+    body.removeAttribute('style');
+    contactButton.forEach((item) => {
+      item.removeAttribute('style');
+    });
+    contactButtonActive.removeAttribute('style');
+    about.removeAttribute('style')
+    aboutButton.removeAttribute('style');
+    switcher.removeAttribute('style');
+    switcherIMG.setAttribute('src', './assets/img/icons/switcher-light-theme.svg');
+    socialIcons.forEach((icon) => {
+      icon.removeAttribute('style');
+    })
+    fullName.removeAttribute('style');
+    jobTitle.removeAttribute('style');
+    achievements.forEach((item) => {
+      item.removeAttribute('style');
+    })
+    aboutText.forEach((item) => {
+      item.removeAttribute('style');
+    })
   
-  portfolioDescriptionBlock.forEach((element) => {
-    element.removeAttribute('style');
-  });
-  copyRightsText.removeAttribute('style');
-}
+    portfolioDescriptionBlock.forEach((element) => {
+      element.removeAttribute('style');
+    });
+    copyRightsText.removeAttribute('style');
+  }
 
 //Set Light or Dark theme depending on the value in localStorage
 if(!localStorage.getItem('lightTheme') || localStorage.getItem('lightTheme') === 'true'){
@@ -95,9 +95,9 @@ if(!localStorage.getItem('lightTheme') || localStorage.getItem('lightTheme') ===
 }
 
 switcher.addEventListener('click', () => {
-  if(localStorage.getItem('lightTheme') === 'true'){
+    if(localStorage.getItem('lightTheme') === 'true'){
     setDarkTheme()
-  }else{
-    setLightTheme()
-  }
+    }else{
+      setLightTheme()
+    }
 })
