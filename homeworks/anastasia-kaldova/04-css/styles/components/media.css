@@ -1,0 +1,29 @@
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    .social__link {
+        width: 24px;
+        height: 24px;
+    }
+    
+}
+
+@media (max-width: 375px) {
+    body {
+        font-size: 12px;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+
+    .projects__btns-btn {
+        padding: 1.25em 4.33em;
+    }
+}

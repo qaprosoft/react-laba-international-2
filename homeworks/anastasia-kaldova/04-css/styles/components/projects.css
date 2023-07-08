@@ -4,6 +4,10 @@
 }
 
 .projects__btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     padding: 0.68em 1.09em;
     margin-bottom: 2.95em;
     border-radius: calc(var(--border-radius) * 2);
@@ -11,11 +15,13 @@
 }
 
 .projects__btns-btn {
-padding: 1.09em 5.91em;
+padding: 1.09em 5.5em;
 }
 
 .projects__box {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 2.18em 1em;
 }
