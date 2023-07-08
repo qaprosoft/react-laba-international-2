@@ -15,9 +15,9 @@ section {
 }
 
 body {
+    box-sizing: border-box;
     font-family: Poppins;
     font-weight: 500;
-    font-size: 22px;
     color: #575757;
     margin: 0 auto;
     background: #E9EBEC;
@@ -40,14 +40,12 @@ button {
     border: none;
     cursor: pointer;
     font-family: Poppins;
-    font-size: 22px;
     border-radius: 10px;
 }
 
 .portfolio {
     padding-top: 65px;
     padding-bottom: 75px;
-    width: 724px;
     margin: 0 auto;
 }
 
@@ -62,10 +60,6 @@ button {
     margin-right: 40px;
 }
 
-.info_name {
-    font-size: 46px;
-}
-
 .portfolio__links {
     padding-top: 12px;
     width: 222px;
@@ -75,7 +69,7 @@ button {
 
 .portfolio__facts {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px 30px;
     text-align: center;
     margin-bottom: 27px;
@@ -90,18 +84,15 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
     color: #3D3D3D;
 }
 
 .btn_download {
-    width: 290px;
     background-color: #FBD144;
     margin-right: 38px;
 }
 
 .btn_contact {
-    width: 290px;
     background-color: #fff;
 }
 
@@ -113,9 +104,7 @@ button {
 
 .tabs__container {
     display: flex;
-    width: 760px;
     border-radius: 10px;
-    outline: solid 20px #fff;
     background-color: #fff;
 }
 
@@ -133,8 +122,6 @@ button {
     margin: 0 auto;
     width: 757px;
     display: grid;
-    grid-template-columns: 362px 362px;
-    gap: 48px 32px;
     padding-bottom: 52px;
 }
 
@@ -149,15 +136,19 @@ button {
     text-align: center;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
 
     body,
     button {
         font-size: 14px;
     }
 
+    .info_name {
+        font-size: 36px;
+    }
+
     .portfolio__btn {
-        height: 44px;
+        height: 64px;
     }
 
     .btn_download,
@@ -166,12 +157,78 @@ button {
     }
 
     .tabs__container {
-        width: 460px;
+        width: 360px;
         outline: solid 10px #fff;
     }
 
     .tabs_content {
         grid-template-columns: 362px;
         margin-left: 25%;
+    }
+}
+
+@media (min-width: 601px) {
+
+    body,
+    button {
+        font-size: 18px;
+    }
+
+    img {
+        margin: 10px;
+    }
+
+    .info_name {
+        font-size: 40px;
+    }
+
+    .portfolio__btn {
+        height: 44px;
+    }
+
+    .btn_download,
+    .btn_contact {
+        width: 224px;
+    }
+
+    .tabs__container {
+        width: 510px;
+        outline: solid 10px #fff;
+    }
+
+    .tabs_content {
+        grid-template-columns: 362px;
+        margin-left: 25%;
+    }
+}
+
+@media (min-width: 1025px) {
+
+    body,
+    button {
+        font-size: 22px;
+    }
+
+    .info_name {
+        font-size: 46px;
+    }
+
+    .portfolio__btn {
+        height: 80px;
+    }
+
+    .btn_download,
+    .btn_contact {
+        width: 290px;
+    }
+
+    .tabs__container {
+        width: 760px;
+        outline: solid 20px #fff;
+    }
+
+    .tabs_content {
+        grid-template-columns: 362px 362px;
+        gap: 48px 32px;
     }
 }
