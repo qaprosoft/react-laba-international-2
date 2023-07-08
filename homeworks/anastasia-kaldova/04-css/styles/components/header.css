@@ -9,7 +9,6 @@
     height: 80px;
     border-radius: 100%;   
     background: var(--white-color) url("../../assets/icons/switch-color-dark.svg") no-repeat center/50% 50%;
- 
 }
 
 .header__container {

@@ -23,6 +23,17 @@
         font-size: 12px;
     }
 
+    .menu__btn {
+        padding: 0;
+        width: 48px;
+        height: 48px;
+    }
+
+    .projects__item {
+        width: 340px;
+        height: 210px;
+    }
+
     .projects__btns-btn {
         padding: 1.25em 4.33em;
     }
