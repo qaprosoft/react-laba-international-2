@@ -1,0 +1,14 @@
+@keyframes switchToGreenColor{
+  0% {     
+    background-color: green;   
+  }   
+  50% {     
+    background-color: yellow;   
+  } 
+  100% {
+    background-color: blue;
+   }
+}
+.contact-button:active{
+  animation: switchToGreenColor 1s infinite;
+}
