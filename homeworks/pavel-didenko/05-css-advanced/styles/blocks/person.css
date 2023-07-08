@@ -45,6 +45,13 @@
   gap: 1.625rem;
 }
 
+.person__sm-icon:hover{
+  transition: .8s;
+  background-color: #F7D039;
+  border-radius: 1rem;
+  transform: scale(1.1);
+}
+
 
 @media (max-width: 603px){
   .person{
