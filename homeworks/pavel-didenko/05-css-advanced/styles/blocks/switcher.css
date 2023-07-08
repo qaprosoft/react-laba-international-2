@@ -6,10 +6,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 1s;
 }
 
 .switcher:hover{
   cursor: pointer;
+  transform: rotate(0.5turn);
 }
 
 @media (max-width: 376px){

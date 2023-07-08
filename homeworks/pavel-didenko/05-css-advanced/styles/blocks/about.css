@@ -21,7 +21,6 @@
 
 .about__button:active{
   animation: switchToGreenColor 1s infinite;
-  /* background-color: green; */
 }
 
 .about__button:hover{
