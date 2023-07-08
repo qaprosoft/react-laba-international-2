@@ -22,6 +22,8 @@ body {
     margin: 0 auto;
     background: #E9EBEC;
     padding-top: 33px;
+    padding-right: 30%;
+    padding-left: 30%;
 }
 
 ul,
@@ -117,10 +119,13 @@ button {
     padding: 23px;
 }
 
-.tabs_content {
+.tabs_content_flex {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs_content_grid {
     padding-top: 65px;
-    margin: 0 auto;
-    width: 757px;
     display: grid;
     padding-bottom: 52px;
 }
@@ -153,7 +158,8 @@ button {
 
     .btn_download,
     .btn_contact {
-        width: 158px;
+        padding: 10px 20px;
+        width: 290px;
     }
 
     .tabs__container {
@@ -161,9 +167,8 @@ button {
         outline: solid 10px #fff;
     }
 
-    .tabs_content {
+    .tabs_content_grid {
         grid-template-columns: 362px;
-        margin-left: 25%;
     }
 }
 
@@ -171,7 +176,7 @@ button {
 
     body,
     button {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     img {
@@ -188,7 +193,7 @@ button {
 
     .btn_download,
     .btn_contact {
-        width: 224px;
+        width: 250px;
     }
 
     .tabs__container {
@@ -196,9 +201,8 @@ button {
         outline: solid 10px #fff;
     }
 
-    .tabs_content {
+    .tabs_content_grid {
         grid-template-columns: 362px;
-        margin-left: 25%;
     }
 }
 
@@ -227,7 +231,7 @@ button {
         outline: solid 20px #fff;
     }
 
-    .tabs_content {
+    .tabs_content_grid {
         grid-template-columns: 362px 362px;
         gap: 48px 32px;
     }
