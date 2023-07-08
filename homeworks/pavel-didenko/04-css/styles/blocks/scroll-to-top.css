@@ -2,7 +2,7 @@
   width: 40px;
   height: 40px;
   position: fixed;
-  bottom: 1rem;
+  bottom: 0rem;
   display: none;
   z-index: 1;
 }
