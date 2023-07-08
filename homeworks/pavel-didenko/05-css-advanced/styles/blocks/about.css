@@ -19,11 +19,16 @@
   left: 1.484rem;
 }
 
+.about__button:active{
+  animation: switchToGreenColor 1s infinite;
+  /* background-color: green; */
+}
+
 .about__button:hover{
   cursor: pointer;
   transition: 1s;
   transform: scale(1.1);
-  border-radius: 1rem;;
+  border-radius: 1rem;
 }
 
 #about-button_active{
