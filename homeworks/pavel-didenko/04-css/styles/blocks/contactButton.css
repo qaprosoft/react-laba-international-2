@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.contact-button:active{
+  animation: switchToGreenColor 1s infinite;
+}
+
 #active-contact-button{
   background: #FBD144;
 }

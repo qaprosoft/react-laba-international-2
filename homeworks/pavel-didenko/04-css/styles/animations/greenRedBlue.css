@@ -9,6 +9,3 @@
     background-color: blue;
    }
 }
-.contact-button:active{
-  animation: switchToGreenColor 1s infinite;
-}
