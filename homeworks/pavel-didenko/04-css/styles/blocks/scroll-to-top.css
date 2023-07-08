@@ -1,0 +1,18 @@
+.scroll-to-top{
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 1rem;
+  display: none;
+  z-index: 1;
+}
+
+.scroll-to-top:hover{
+  cursor: pointer;
+}
+
+@media (max-width: 600px){
+  .scroll-to-top{
+    display: block;
+  }
+}
