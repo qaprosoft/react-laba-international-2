@@ -76,3 +76,9 @@
         font-size: 34px;
     }
 }
+
+@media (max-width: 600px) {
+    .arrow-top {
+        display: block;
+    }
+}

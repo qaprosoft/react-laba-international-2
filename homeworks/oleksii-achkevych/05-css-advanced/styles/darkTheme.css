@@ -56,3 +56,7 @@ body.dark-theme .tab-button.active {
 body.dark-theme .tab-button {
   color: #A3ABB2;
 }
+
+/* body.dark-theme .arrow-top img {
+  filter: invert(100%);
+} */
