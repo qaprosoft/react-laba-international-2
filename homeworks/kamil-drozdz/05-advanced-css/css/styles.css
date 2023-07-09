@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  transition: background-color 0.5s;
+  background-color: #E9EBEC;
+  color: #575757;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 2rem;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+button {
+  all: unset;
+}
+
+#scrollTop {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  width: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 18px;
+  color: #E9EBEC;
+  background-color: #0C151D;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.theme-switcher {
+  display: none;
+}
+
+.theme-switcher-label {
+  top: 8px;
+  position: absolute;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 2.25rem;
+  width: 50px;
+  height: 50px;
+  background: url("../assets/sun.svg") no-repeat;
+  background-size: cover;
+  background-color: #FFFFFF;
+}
+.theme-switcher-label:hover {
+  transition: background-color 0.3s ease-in-out;
+  background-color: #0C151D;
+}
+
+.theme-switcher:checked ~ #scrollTop {
+  background-color: #E9EBEC;
+  color: #171F26;
+}
+
+.theme-switcher:checked ~ .content, .theme-switcher:checked ~ footer {
+  background-color: #0C151D;
+  color: #A3ABB2;
+}
+.theme-switcher:checked ~ .content .section__buttons, .theme-switcher:checked ~ .content .section__buttons a, .theme-switcher:checked ~ .content .section__contact--contact {
+  background-color: #171F26;
+  color: #A3ABB2;
+}
+
+.theme-switcher:checked + .theme-switcher-label {
+  background: url("../assets/moon.svg") no-repeat;
+  background-size: cover;
+  background-color: #A3ABB2;
+  justify-self: start;
+}
+.theme-switcher:checked + .theme-switcher-label:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #E9EBEC;
+}
+
+#portfolio:not(:target) ~ a:not(:visited) {
+  background: #D7D7D7;
+}
+
+.content {
+  transition: background-color 0.5s;
+  background-color: #E9EBEC;
+  color: #575757;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 10rem;
+}
+.content .header {
+  margin-top: 6rem;
+}
+.content .header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+.content .header__logo img {
+  animation: pulse 1s infinite;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 12rem;
+  outline: #FFFFFF solid 4px;
+}
+.content .header__title--navigation {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 1.625rem;
+}
+.content .header__title--navigation img {
+  width: 1.75rem;
+  height: 1.75rem;
+  outline: none;
+}
+.content .section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 0.125rem;
+  gap: 5.625rem;
+}
+.content .section__item {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.content .section__item--heading {
+  text-align: center;
+}
+.content .section__contact {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.375rem;
+  cursor: pointer;
+  line-height: normal;
+  letter-spacing: -0.03319rem;
+  gap: 2.375rem;
+  font-weight: bold;
+  text-align: center;
+}
+.content .section__contact--download {
+  display: flex;
+  justify-content: center;
+  color: #3D3D3D;
+  border-radius: 0.625rem;
+  padding: 1rem 2rem;
+  height: 100%;
+  background: #FFE071;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.content .section__contact--download img {
+  margin-left: 1rem;
+  height: 28px;
+}
+.content .section__contact--download:hover {
+  transition: background-color 0.3s ease;
+  background: #f7d24c;
+  color: #161616;
+}
+.content .section__contact--contact {
+  border-radius: 0.625rem;
+  padding: 1rem 2rem;
+  background: #FFFFFF;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.content .section__contact--contact:hover {
+  transition: background-color 0.3s ease;
+  background: #fcf8f8;
+}
+.content .section__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  width: 100%;
+  padding: 0.1rem;
+  border-radius: 0.5rem;
+  max-width: 40.5rem;
+  background: #FFFFFF;
+  gap: 0;
+  font-weight: bold;
+}
+.content .section__buttons a {
+  color: #19191B;
+  text-decoration: none;
+  padding: 1rem 1rem;
+  margin: 0.5rem;
+  border: none;
+  width: 50%;
+  text-align: center;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+.content .section__buttons a:target {
+  background: #D7D7D7 !important;
+}
+.content .section__buttons a:hover {
+  transition: background-color ease-in-out 0.3s;
+  background: #D7D7D7;
+}
+.content .section__image {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+.content .section__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 22rem;
+  flex: 0 0 40%;
+  height: 14rem;
+  border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 786px) {
+  .content .header__logo {
+    flex-direction: column;
+  }
+  .content .header__title--subheading {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .content .section {
+    margin: auto 1rem;
+  }
+  .content .section__item {
+    font-size: 0.8rem;
+  }
+  .content .section__experience {
+    gap: 2rem;
+  }
+  .content .section__buttons {
+    width: auto;
+  }
+  .content .section__buttons a {
+    padding: 0.3rem;
+  }
+  .content .section__contact {
+    font-size: 0.8rem;
+    gap: 1rem;
+  }
+  .content .section__contact--download, .content .section__contact--contact {
+    width: 100%;
+    height: 100%;
+  }
+  .content .section__contact--download img, .content .section__contact--contact img {
+    height: 18px;
+  }
+  .content .section__image img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=styles.css.map */
