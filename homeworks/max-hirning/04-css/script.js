@@ -71,7 +71,6 @@ portfolioButton.addEventListener("click", portfolioSkillsSwitcher);
 function openCV() {
     window.open("./assets/FullStack_Frontend_ReactNative_developer.pdf");
 }
-
 function scrollToTop() {
     window.scrollTo({
         top: 0,
@@ -81,10 +80,11 @@ function scrollToTop() {
 function detectScrollEnd() {
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
+    const isOpenedOnMobile = window.matchMedia("only screen and (max-width: 426px)").matches;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
     const scrollThreshold = (4 / 5) * documentHeight;
 
-    if (scrollTop + windowHeight >= scrollThreshold) {
+    if ((scrollTop + windowHeight >= scrollThreshold) && isOpenedOnMobile) {
         goUpButton.classList.remove("hide_el");
     } else {
         goUpButton.classList.add("hide_el");
