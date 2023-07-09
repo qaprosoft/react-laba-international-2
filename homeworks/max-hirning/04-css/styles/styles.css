@@ -27,6 +27,31 @@ body {
     color: var(--title-color);
 }
 
+.go_up_button {
+    opacity: 1;
+    right: 1rem;
+    width: 3rem;
+    bottom: 1rem;
+    z-index: 100;
+    height: 3rem;
+    border: none;
+    display: flex;
+    position: fixed;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.5s ease;
+    background-color: var(--download-btn-bg-color);
+}
+
+.up_icon {
+    width: 2rem;
+}
+
+.hide_el {
+    opacity: 0;
+}
+
 /*Fonts*/
 @font-face {
     font-family: Poppins;

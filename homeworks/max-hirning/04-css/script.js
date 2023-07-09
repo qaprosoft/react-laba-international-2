@@ -32,34 +32,63 @@ const lightTheme = {
 }
 let currentTheme = "dark";
 const skillsButton = document.querySelector("#skills");
+const goUpButton = document.querySelector("#go_up_button");
 const portfolioButton = document.querySelector("#portfolio");
 const downloadCVButton = document.querySelector("#downloadCV");
 const themeToggleButton = document.querySelector("#theme_toogle");
+const themeToogleIcon = document.querySelector(".theme_toogle_icon");
 
 changeAppTheme(darkTheme, "dark");
 
+goUpButton.addEventListener('click', scrollToTop);
+window.addEventListener('scroll', detectScrollEnd);
 downloadCVButton.addEventListener("click", openCV);
 themeToggleButton.addEventListener("click", () => {
     themeToggleButton.classList.toggle('header_theme_toogle_rotate');
     switch(currentTheme) {
         case "dark":
             changeAppTheme(lightTheme, "light");
+            themeToogleIcon.src="./assets/icons/theme-switcher/light.svg";
             break;
         case "light":
             changeAppTheme(darkTheme, "dark");
+            themeToogleIcon.src="./assets/icons/theme-switcher/dark.svg";
             break;
         default:
             changeAppTheme(darkTheme, "dark");
+            themeToogleIcon.src="./assets/icons/theme-switcher/dark.svg";
     }
     setTimeout(() => {
         themeToggleButton.classList.toggle('header_theme_toogle_rotate');
     }, 1000);
-})
+});
 skillsButton.addEventListener("click", portfolioSkillsSwitcher);
 portfolioButton.addEventListener("click", portfolioSkillsSwitcher);
 
+
+
+
 function openCV() {
     window.open("./assets/FullStack_Frontend_ReactNative_developer.pdf");
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+function detectScrollEnd() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollThreshold = (4 / 5) * documentHeight;
+
+    if (scrollTop + windowHeight >= scrollThreshold) {
+        goUpButton.classList.remove("hide_el");
+    } else {
+        goUpButton.classList.add("hide_el");
+    }
 }
 function portfolioSkillsSwitcher() {
     skillsButton.classList.toggle("portfolio_buttons_active");
