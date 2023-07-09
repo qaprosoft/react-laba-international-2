@@ -9,7 +9,7 @@
 <body>
     <div class="site-container">
         <div class="container container--center menu">
-            <button class="btn menu__btn"></button>
+            <button class="btn menu__btn" aria-label="Change color theme of the site"></button>
         </div>
         <header class="header">
             <div class="container container--center header__container">
@@ -18,10 +18,10 @@
                     <h1 class="header__heading">Victor Alvarado</h1>
                     <p class="header__profession">Software Engineer</p>
                     <ul class="header__social social">
-                        <li class="social__item"><a href="https://github.com/" class="social__link social__link--gh" target="_blank"></a></li>
-                        <li class="social__item"><a href="https://twitter.com/" class="social__link social__link--tw" target="_blank"></a></li>
-                        <li class="social__item"><a href="https://www.linkedin.com/" class="social__link social__link--lin" target="_blank"></a></li>
-                        <li class="social__item"><a href="https://www.youtube.com/" class="social__link social__link--yt" target="_blank"></a></li>
+                        <li class="social__item"><a href="https://github.com/" class="social__link social__link--gh" target="_blank" aria-label="Go to GitHub"></a></li>
+                        <li class="social__item"><a href="https://twitter.com/" class="social__link social__link--tw" target="_blank" aria-label="Go to Twitter"></a></li>
+                        <li class="social__item"><a href="https://www.linkedin.com/" class="social__link social__link--lin" target="_blank" aria-label="Go to LinkedIn"></a></li>
+                        <li class="social__item"><a href="https://www.youtube.com/" class="social__link social__link--yt" target="_blank" aria-label="Go to YouTube"></a></li>
                     </ul>
                 </div>
             </div>
@@ -47,8 +47,8 @@
             <section class="contacts">
                 <div class="container container--center contacts__container">
                     <h2 class="header-hidden">Section contacts</h2>
-                    <a class="btn btn--accent contacts__btn contacts__btn--download" href="#" download>Download CV</a>
-                    <a class="btn contacts__btn" href="#" target="_blank">Contact me</a>
+                    <a class="btn btn--accent contacts__btn contacts__btn--download" href="#" download aria-label="Downoland CV">Download CV</a>
+                    <a class="btn contacts__btn" href="#" target="_blank" aria-label="Go to contact page">Contact me</a>
                 </div>
             </section>
             <section class="projects">
@@ -129,5 +129,6 @@
             </div>
         </footer>
     </div> 
+    <script src="./js/script.js"></script>
 </body>
 </html>

@@ -21,6 +21,10 @@
     background-color: var(--white-color);
 }
 
+.projects__btns--dark {
+    background-color: var(--grey-dark-color);
+}
+
 .projects__btns-btn {
 padding: 1.09em 5.5em;
 }
@@ -67,6 +71,9 @@ padding: 1.09em 5.5em;
     height: 100%;
     opacity: 0;
     background-color: rgba(251, 209, 68, 0.88);
+    -webkit-transition: opacity .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
 }
 
 .projects__item:hover .overlay {
