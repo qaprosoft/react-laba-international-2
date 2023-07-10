@@ -1,0 +1,40 @@
+.action_buttons {
+    width: 100%;
+    display: flex;
+    max-width: 640px;
+    margin-block: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action_button {
+    width: 45%;
+    border: none;
+    height: 13vw;
+    display: flex;
+    cursor: pointer;
+    max-height: 80px;
+    max-width: 290px;
+    align-items: center;
+    border-radius: 10px;
+    transition-duration: 1s;
+    justify-content: center;
+}
+
+.action_button:hover {
+    transform: scale(1.25);
+}
+
+.action_button_download {
+    color: var(--download-btn-color);
+    background-color: var(--download-btn-bg-color);
+}
+
+.download_icon {
+    max-width: 26px;
+    max-height: 26px;
+}
+
+.action_button_contact {
+    background-color: var(--contact-btn-bg-color);
+}
