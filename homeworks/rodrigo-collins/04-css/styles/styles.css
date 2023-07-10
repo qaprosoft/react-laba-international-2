@@ -1,0 +1,449 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Root styles */
+:root {
+    --font-size-xl: 2.875em;
+    --font-size-large: 2.0625em;
+    --font-size-medium: 1.5em;
+    --font-size-small: 0.875em;
+
+    --color-primary: #333;
+    --color-secondary: #F1F2F4;
+
+    --font-weight-primary: 500;
+}
+
+
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: var(--font-weight-primary);
+    line-height: 1.5;
+    color: var(--color-primary);
+    background-color: #E9EBEC;
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+    section {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Dark mode styles */
+
+/* General styles for dark mode */
+body.dark-mode {
+    font-family: 'Poppins', sans-serif;
+    font-weight: var(--font-weight-primary);
+    line-height: 1.5;
+    color: var(--color-secondary);
+    background-color: #0C151D;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for toggler in dark mode */
+body.dark-mode .switch-container {
+    background-color: #171F26;
+}
+
+body.dark-mode .switch {
+    filter: brightness(500%) saturate(0%) hue-rotate(0deg);
+    opacity: 0.9;
+}
+
+/* Styles for profile icons in dark mode */
+body.dark-mode .profile__social-icon {
+    filter: brightness(500%) saturate(0%) hue-rotate(0deg);
+    opacity: 0.9;
+}
+
+/* Styles for secondary buttons in dark mode */
+body.dark-mode .button--secondary {
+    background-color: #171F26;
+    color: var(--color-secondary);
+}
+
+/* Styles for custom button container in dark mode */
+body.dark-mode .custom-button-container {
+    background-color: #171F26;
+}
+
+/* Styles for primary buttons in dark mode */
+body.dark-mode .custom-button--primary {
+    background-color: #0C151D;
+}
+
+
+/* Header */
+
+.switch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+}
+
+.switch {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 768px) {
+    .switch-container {
+        width: 48px;
+        height: 48px;
+    }
+
+    .switch {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+/* Profile */
+.profile {
+    display: flex;
+    width: 631px;
+    height: 215px;
+    align-items: center;
+}
+
+.profile__avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.profile__avatar img {
+    position: absolute;
+    top: 10;
+    left: 10;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.profile__avatar img:first-child {
+    z-index: 2;
+}
+
+.profile__avatar img:last-child {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    margin: -5% -5%;
+}
+
+.profile__info {
+    width: 65%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.profile__info-container {
+    width: 372px;
+    height: 186px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.profile__name {
+    font-size: var(--font-size-xl);
+    line-height: 69px;
+}
+
+.profile__description {
+    font-size: var(--font-size-medium);
+    line-height: 33px;
+}
+
+.profile__social-icons {
+    width: 222px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.profile__social-icon {
+    width: 36px;
+    height: 36px;
+}
+
+@media(max-width: 768px) {
+
+    .profile,
+    .profile__info-container {
+        width: 362px;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .profile__avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 144px;
+        height: 144px;
+    }
+
+    .profile__avatar img {
+        position: absolute;
+        top: 10;
+        left: 10;
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+    }
+
+    .profile__info {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile__info-container {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .profile__name {
+        font-size: var(--font-size-large);
+    }
+
+    .profile__description {
+        font-size: var(--font-size-small);
+    }
+
+    .profile__social-icons {
+        width: 174px;
+    }
+
+    .profile__social-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Blocks */
+.block-container {
+    display: flex;
+    width: 634px;
+    height: 142px;
+}
+
+.block {
+    flex-grow: 1;
+    text-align: center;
+    font-size: var(--font-size-medium);
+}
+
+@media(max-width: 768px) {
+    .block-container {
+        width: 362px;
+        height: auto;
+    }
+
+    .block {
+        font-size: var(--font-size-small);
+    }
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    width: 618px;
+    height: 80px;
+    justify-content: space-between;
+}
+
+.button {
+    width: 290px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: var(--font-size-medium);
+}
+
+.button__svg {
+    margin-left: 4px;
+}
+
+.button--primary {
+    background-color: #FBD144;
+}
+
+.button--secondary {
+    background-color: #FFFFFF;
+}
+
+.button__link {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.custom-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 760px;
+    height: 110px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+.custom-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 355px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: var(--font-size-medium);
+}
+
+.custom-button--primary {
+    background-color: #D7D7D7;
+}
+
+@media(max-width: 768px) {
+
+    .button-container {
+        width: 362px;
+        height: 44px;
+    }
+
+    .custom-button-container {
+        width: 330px;
+        height: 64px;
+    }
+
+    .button {
+        width: 158px;
+        height: 44px;
+        font-size: var(--font-size-small);
+    }
+
+    .custom-button {
+        width: 154px;
+        height: 50.3px;
+        font-size: var(--font-size-small);
+    }
+}
+
+
+/* Cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+}
+
+.card {
+    width: 362px;
+    height: 226px;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+}
+
+@media(max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+/* Footer */
+footer p {
+    margin-top: 40px;
+    font-size: var(--font-size-small);
+}
+
+@media(max-width:768px) {
+    footer p {
+        margin-top: 20px;
+        font-size: var(--font-size-small);
+    }
+}
+
+/* scroll to top button */
+
+.scroll-to-top-button {
+    display: none;
+}
+
+@media(max-width:768px) {
+    .scroll-to-top-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    body.dark-mode .scroll-to-top-button img {
+        filter: brightness(500%) saturate(0%) hue-rotate(0deg);
+        opacity: 0.9;
+    }
+
+    .scroll-to-top-button img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .scroll-to-top-button.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
