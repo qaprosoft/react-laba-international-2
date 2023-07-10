@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Simple Portfolio</title>
+  </head>
+
+  <body class="body">
+    <div class="container page-wrapper">
+      <header class="container header">
+        <button class="container header__theme-switch" aria-label="Enable dark mode" id="theme-switch">
+          <i class="fa-regular fa-moon fa-xl header__icon"></i>
+        </button>
+      </header>
+      <main>
+        <section class="profile">
+          <div class="container profile__content">
+            <div class="profile__picture">
+              <img src="./assets/img/profile.png" alt="Profile picture" class="profile__image">
+            </div>
+            <div class="container profile__info">
+              <h1 class="profile__title text--bold">Victor Alvarado</h1>
+              <h2 class="profile__subtitle">Software Engineer</h2>
+              <div class="profile__social-media">
+                <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" class="profile__link">
+                  <i class="fa-brands fa-github fa-lg profile__icon"></i>
+                </a>
+                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="profile__link">
+                  <i class="fa-brands fa-twitter fa-lg profile__icon"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="profile__link">
+                  <i class="fa-brands fa-linkedin fa-lg profile__icon"></i>
+                </a>
+                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="profile__link">
+                  <i class="fa-brands fa-youtube fa-lg profile__icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="container work-info">
+            <div class="work-info__fact">
+              <p class="work-info__text"><span class="text--bold">7</span><br>Years of work<br>experience</p>
+            </div>
+            <div class="work-info__fact">
+              <p class="work-info__text"><span class="text--bold">50+</span><br>Completed<br>projects</p>
+            </div>
+            <div class="work-info__fact">
+              <p class="work-info__text"><span class="text--bold">20+</span><br>Satisfied<br>customers</p>
+            </div>
+          </div>
+          <div class="container contact">
+            <button class="button contact__button button--primary"> Download CV
+              <i class="fa-regular fa-arrow-down-to-line fa-lg portfolio__icon"></i>
+              <img src="./assets/icons/download.svg" alt="Download CV" class="portfolio__icon">
+            </button>
+            <button class="button contact__button button--secondary">Contact me</button>
+          </div>
+        </section>
+        <section class="container portfolio">
+          <div class="container portfolio__tab">
+            <button class="button button--active portfolio__button">Portfolio</button>
+            <button class="button button--secondary portfolio__button">Skills</button>
+          </div>
+          <div class="container projects">
+            <div class="projects__item">
+              <img src="./assets/img/project1.jpg" alt="" class="project__image">
+            </div>
+            <div class="projects__item">
+              <img src="./assets/img/project2.jpg" alt="" class="project__image">
+            </div>
+            <div class="projects__item">
+              <img src="./assets/img/project3.jpg" alt="" class="project__image">
+            </div>
+            <div class="projects__item">
+              <img src="./assets/img/project4.jpg" alt="" class="project__image">
+            </div>
+            <div class="projects__item">
+              <img src="./assets/img/project5.jpg" alt="" class="project__image">
+            </div>
+            <div class="projects__item">
+              <img src="./assets/img/project6.jpg" alt="" class="project__image">
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="container footer">
+        <p class="footer__text">&#169; Victor Alvarado. 2023 All rights reserved</p>
+      </footer>
+    </div>
+    <script src="./js/scripts.js"></script>
+    <script src="https://kit.fontawesome.com/e74ee4c4fa.js" crossorigin="anonymous"></script>
+  </body>
+
+</html>
