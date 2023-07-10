@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   gap: 2rem;
   width: 47.5rem;
-  max-width: 100%;
+  max-width: 90%;
+  justify-content: center;
 }
 
 .portfolio__img-wrapper{
@@ -88,15 +89,13 @@
 }
 
 
-
 @media (max-width: 761px){
   .portfolio{
-    width: 100%;
     justify-content: center;
   }
 }
 
-@media (max-width: 376px){
+@media (max-width: 404px){
 
   .portfolio{
     gap: 0.88rem;
@@ -110,10 +109,10 @@
   }
 }
 
-@media (max-width: 370px){
+/* @media (max-width: 370px){
   .portfolio__project{
     width: 18rem;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
   }
-}
+} */
