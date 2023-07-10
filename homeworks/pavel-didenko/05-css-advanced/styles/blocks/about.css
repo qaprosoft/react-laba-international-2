@@ -5,6 +5,7 @@
   border-radius: 1.25rem;
   background: #FFF;
   display: flex;
+  max-width: 90%;
 }
 
 .about__button{
@@ -111,9 +112,9 @@
 
 @media (max-width: 335px){
 
-  .about{
+  /* .about{
     width: 90%;
-  }
+  } */
 
   .about__button{
     width: 6rem;
