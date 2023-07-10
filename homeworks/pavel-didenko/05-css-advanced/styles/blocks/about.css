@@ -49,6 +49,7 @@
 @media(max-width: 761px){
   .about{
     width: 100%;
+    justify-content: center;
   }
 
   .about__button{
@@ -57,20 +58,20 @@
   }
 }
 
-@media(max-width: 637px){
+@media(max-width: 654px){
   .about__button {
     width: 17rem;
   }
 }
 
-@media(max-width: 570px){
+@media(max-width: 592px){
   .about__button{
     width: 15rem;
     height: 4.5rem
   }
 }
 
-@media(max-width: 504px){
+@media(max-width: 527px){
   .about__button{
     width: 13rem;
     height: 4rem
@@ -81,13 +82,13 @@
   }
 }
 
-@media (max-width: 441px){
+@media (max-width: 464px){
   .about__button{
     width: 11rem;
   }
 }
 
-@media (max-width: 376px){
+@media (max-width: 399px){
 
   .about{
     width: 20.625rem;
