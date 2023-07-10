@@ -71,3 +71,11 @@
   }
 }
 
+@media (max-width: 331px){
+  .contact-button{
+    width: 7rem;
+    height: 2.75rem;
+    font-size: 0.75rem;;
+  }
+}
+

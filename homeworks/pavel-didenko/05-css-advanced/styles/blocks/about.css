@@ -109,3 +109,14 @@
   }
 }
 
+@media (max-width: 335px){
+
+  .about{
+    width: 90%;
+  }
+
+  .about__button{
+    width: 6rem;
+    height: 2rem;
+  }
+}
