@@ -89,10 +89,27 @@ button {
     color: #3D3D3D;
 }
 
+.btn_download:hover, .btn_contact:hover{
+    animation: buttonAnimation 1s infinite; /* Apply the animation */
+}
+
 .btn_download {
     background-color: #FBD144;
     margin-right: 38px;
+
 }
+
+@keyframes buttonAnimation {
+    0% {
+      transform: scale(1); /* Initial scale */
+    }
+    50% {
+      transform: scale(1.2); /* Scale up */
+    }
+    100% {
+      transform: scale(1); /* Back to original scale */
+    }
+  }
 
 .btn_contact {
     background-color: #fff;
@@ -135,6 +152,18 @@ button {
     cursor: pointer;
 }
 
+.scroll_btn{
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    background-color: #FED753;
+    border: 5px solid #fff;
+    padding: 10px 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .4s;
+}
+
 .footer {
     padding-top: 78px;
     padding-bottom: 80px;
@@ -169,6 +198,11 @@ button {
 
     .tabs_content_grid {
         grid-template-columns: 362px;
+    }
+
+    .scroll_btn.active {
+        opacity: 1;
+        pointer-events: auto;
     }
 }
 
@@ -236,3 +270,12 @@ button {
         gap: 48px 32px;
     }
 }
+
+@keyframes rotateAnimation {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(180deg);
+    }
+  }
