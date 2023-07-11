@@ -18,15 +18,20 @@
 }
 
 :root.light {
-
+  // page
   --clr-page-bg: var(--clr-light-1);
 
+  // GENERAL
   --clr-yellow: var(--clr-yellow-1);
 
+  // TEXT
+  //      primary
   --clr-primary-text: var(--clr-gray-1);
-
+  //      secondary
   --clr-secondary-text: var(--clr-gray-2);
-
+  
+  // BUTTONS
+  //      primary
   --clr-primary-button-bg: var(--clr-yellow);
   --clr-primary-button-text: var(--clr-gray-1);
   --clr-primary-button-bg--hover: var(--clr-blue);
@@ -35,12 +40,13 @@
   --clr-secondary-button-bg: var(--clr-white);
   --clr-secondary-button-text: var(--clr-gray-1);
   --clr-secondary-button-bg--hover: transparent;
-  --clr-sendaary-button-border--hover: var(--clr-blue);
+  --clr-secondary-button-border--hover: var(--clr-blue);
   --clr-secondary-button-text--hover: var(--clr-blue);
 
-    // TABS
-    --clr-tab-bg: var(--clr-gray);
-    --clr-tab-text: var(--clr-dark);
+  // TABS
+  --clr-tabs-bg: var(--clr-white);
+  --clr-tab-text: var(--clr-dark);
+  --clr-tab-bg--active: var(--clr-light-gray-2);
 }
 
 :root.dark {
@@ -54,22 +60,22 @@
   //      primary
   --clr-primary-text: var(--clr-light-2);
   //      secondary
-  --clr-secondary-text: var(--clr-light-gray);
+  --clr-secondary-text: var(--clr-light-gray-1);
 
   // BUTTONS
   //      primary
   --clr-primary-button-bg: var(--clr-yellow);
-  --clr-primary-button-text: var(--clr-gray);
+  --clr-primary-button-text: var(--clr-gray-1);
   --clr-primary-button-bg--hover: var(--clr-blue);
   --clr-primary-button-text--hover: var(--clr-primary-text);
   //      secondary
-  --clr-secondary-button-bg: var(--color-dark-blue-2);
+  --clr-secondary-button-bg: var(--clr-dark-blue-2);
   --clr-secondary-button-text: var(--clr-secondary-text);
   --clr-secondary-button-bg--hover: transparent;
-  --clr-sendaary-button-border--hover: var(--clr-blue);
+  --clr-secondary-button-border--hover: var(--clr-blue);
   --clr-secondary-button-text--hover: var(--clr-blue);
 
   // TABS
-  --clr-tab-bg: var(--clr-dark-blue);
-  --clr-tab-text: var(--clr-light-gray);
+  --clr-tabs-bg: var(--clr-dark-blue-2);
+  --clr-tab-bg--active: var(--clr-dark-blue-1);
 }

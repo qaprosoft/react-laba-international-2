@@ -7,15 +7,62 @@
   <link rel="stylesheet" href="styles/scss/_main.scss">
 </head>
 <body class="page">
-  <header class="header">
+  <header class="page__wrapper header">
     <button id="theme-switcher" class="theme-switcher theme-switcher--light">
       <img class="theme-switcher__icon" src="assets/icons/theme-switcher.svg" alt="Light theme" onload="SVGInject(this)">
     </button>
+    <section class="profile">
+      <div class="profile-avatar">
+        <img class="profile-avatar__image" src="assets/images/profile.jpg" height="200" alt="Stanisław Królikiewicz">
+        <div class="profile-avatar__info">
+          <h1 class="profile-avatar__name">Stanisław Królikiewicz</h1>
+          <h2 class="profile-avatar__occupation">Front-end Developer</h2>
+          <nav class="profile-avatar__socials">
+            <a class="profile-avatar__link" href="https://github.com/stkrolikiewicz" target="_blank">
+              <img class="profile-avatar__icon" src="assets/icons/github.svg" alt="GitHub" onload="SVGInject(this)">
+            </a>
+            <a class="profile-avatar__link" href="https://twitter.com/" target="_blank">
+              <img class="profile-avatar__icon" src="assets/icons/twitter.svg" alt="Twitter" onload="SVGInject(this)">
+            </a>
+            <a class="profile-avatar__link" href="https://www.linkedin.com/in/stanis%C5%82aw-kr%C3%B3likiewicz-b712a31a9/" target="_blank">
+              <img class="profile-avatar__icon" src="assets/icons/linkedin.svg" alt="LinkedIn" onload="SVGInject(this)">
+            </a>
+            <a class="profile-avatar__link" href="https://www.youtube.com/" target="_blank">
+              <img class="profile-avatar__icon" src="assets/icons/youtube.svg" alt="YouTube" onload="SVGInject(this)">
+            </a>
+          </nav>
+        </div>
+      </div>
+      <div class="profile-facts">
+        <div class="profile-facts__item">
+          <h3 class="profile-facts__value">1</h3>
+          <p class="profile-facts__name">Year of experience</p>
+        </div>
+        <div class="profile-facts__item">
+          <h3 class="profile-facts__value">10+</h3>
+          <p class="profile-facts__name">Completed projects</p>
+        </div>
+        <div class="profile-facts__item">
+          <h3 class="profile-facts__value">5+</h3>
+          <p class="profile-facts__name">Satisfied customers</p>
+        </div>
+      </div>
+      <div class="links">
+        <a class="links__link button button--primary" href="assets/files/resume.pdf" download>
+          Download CV
+          <img class="links__icon" src="assets/icons/download.svg" alt="Download" onload="SVGInject(this)">
+        </a>
+        <a class="links__link button button--secondary" href="mailto:st.krolikiewicz@gmail.com">Contact me</a>
+      </div>
+    </section>
+    <nav class="tabs">
+      <button class="tabs__button tabs__button--active button">Portfolio</button>
+      <button class="tabs__button button">Skills</button>
+    </nav>
   </header>
-  <main class="main">
-    <h1>test</h1>
+  <main class="page__wrapper main">
   </main>
-  <footer class="footer">
+  <footer class="page__wrapper footer">
   </footer>
   <script src="scripts/svgInject.js"></script>
   <script src="scripts/switchTheme.js"></script>

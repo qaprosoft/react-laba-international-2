@@ -1,5 +1,8 @@
 @import 'variables';
 @import 'themeSwitcher';
+@import 'header';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+$max-width: 760px;
 
 * {
   box-sizing: border-box;
@@ -8,7 +11,66 @@
 }
 
 .page {
+  font-family: 'Poppins', sans-serif;
   background-color: var(--clr-page-bg);
   color: var(--clr-primary-text);
   transition: all 0.3s ease-in-out;
+}
+
+.page__wrapper {
+  max-width: $max-width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.button {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  font-size: 22px;
+  line-height: 33px;
+  font-weight: 500;
+  background-color: transparent;
+  cursor: pointer;
+  &:active {
+    transition: all 0.1s ease-in-out;
+    scale: 0.95;
+  }
+  @at-root &--primary {
+    background-color: var(--clr-primary-button-bg);
+    color: var(--clr-primary-button-text);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: var(--clr-primary-button-bg--hover);
+      color: var(--clr-primary-button-text--hover);
+      svg {
+        fill: var(--clr-primary-button-text--hover);
+      }
+    }
+    svg {
+      fill: var(--clr-primary-button-text);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  @at-root &--secondary {
+    background-color: var(--clr-secondary-button-bg);
+    color: var(--clr-secondary-button-text);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: var(--clr-secondary-button-bg--hover);
+      color: var(--clr-secondary-button-text--hover);
+      border: 2px solid var(--clr-secondary-button-border--hover);
+      svg {
+        fill: var(--clr-secondary-button-text--hover);
+      }
+    }
+    svg {
+      fill: var(--clr-secondary-button-text);
+      transition: all 0.3s ease-in-out;
+    }
+  }
 }
