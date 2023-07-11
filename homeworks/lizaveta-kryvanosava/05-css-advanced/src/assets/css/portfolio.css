@@ -30,6 +30,7 @@
 }
 
 .portfolio__content {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
@@ -50,6 +51,7 @@
 }
 
 .portfolio__skills {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: stretch;
