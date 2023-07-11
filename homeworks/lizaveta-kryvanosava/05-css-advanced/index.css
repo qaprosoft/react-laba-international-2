@@ -6,6 +6,7 @@ html {
   background-color: var(--color-main-background);
   font-family: poppins;
   font-size: 22px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -232,11 +233,10 @@ main {
   bottom: 1rem;
   right: 1rem;
   z-index: 2;
-  border: none;
   border-radius: 3rem;
+  padding: 0.2rem;
   width: 3rem;
   height: 3rem;
-  padding: 0.5rem;
   background-color: var(--color-yellow);
   cursor: pointer;
 }
