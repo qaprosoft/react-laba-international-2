@@ -27,7 +27,7 @@ body {
     color: var(--title-color);
 }
 
-.go_up_button {
+.go-up-button {
     opacity: 1;
     right: 1rem;
     width: 3rem;
@@ -44,12 +44,13 @@ body {
     background-color: var(--download-btn-bg-color);
 }
 
-.up_icon {
+.go-up-button-icon {
     width: 2rem;
 }
 
-.hide_el {
+.hide-el {
     opacity: 0;
+    display: none;
 }
 
 /*Fonts*/

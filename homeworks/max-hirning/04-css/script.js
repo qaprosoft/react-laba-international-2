@@ -32,11 +32,11 @@ const lightTheme = {
 }
 let currentTheme = "dark";
 const skillsButton = document.querySelector("#skills");
-const goUpButton = document.querySelector("#go_up_button");
+const goUpButton = document.querySelector("#go-up-button");
 const portfolioButton = document.querySelector("#portfolio");
-const downloadCVButton = document.querySelector("#downloadCV");
-const themeToggleButton = document.querySelector("#theme_toogle");
-const themeToogleIcon = document.querySelector(".theme_toogle_icon");
+const downloadCVButton = document.querySelector("#download-cv");
+const themeToggleButton = document.querySelector("#theme-toogle");
+const themeToogleIcon = document.querySelector("#theme-toogle-icon");
 
 changeAppTheme(darkTheme, "dark");
 
@@ -44,7 +44,7 @@ goUpButton.addEventListener('click', scrollToTop);
 window.addEventListener('scroll', detectScrollEnd);
 downloadCVButton.addEventListener("click", openCV);
 themeToggleButton.addEventListener("click", () => {
-    themeToggleButton.classList.toggle('header_theme_toogle_rotate');
+    themeToggleButton.classList.toggle('header__theme-toogle-rotate');
     switch(currentTheme) {
         case "dark":
             changeAppTheme(lightTheme, "light");
@@ -59,7 +59,7 @@ themeToggleButton.addEventListener("click", () => {
             themeToogleIcon.src="./assets/icons/theme-switcher/dark.svg";
     }
     setTimeout(() => {
-        themeToggleButton.classList.toggle('header_theme_toogle_rotate');
+        themeToggleButton.classList.toggle('header__theme-toogle-rotate');
     }, 1000);
 });
 skillsButton.addEventListener("click", portfolioSkillsSwitcher);
@@ -85,16 +85,18 @@ function detectScrollEnd() {
     const scrollThreshold = (4 / 5) * documentHeight;
 
     if ((scrollTop + windowHeight >= scrollThreshold) && isOpenedOnMobile) {
-        goUpButton.classList.remove("hide_el");
+        console.log('sdv');
+        goUpButton.classList.remove("hide-el");
     } else {
-        goUpButton.classList.add("hide_el");
+        console.log('asaaa');
+        goUpButton.classList.add("hide-el");
     }
 }
 function portfolioSkillsSwitcher() {
-    skillsButton.classList.toggle("portfolio_buttons_active");
-    skillsButton.classList.toggle("portfolio_buttons_inactive");
-    portfolioButton.classList.toggle("portfolio_buttons_active");
-    portfolioButton.classList.toggle("portfolio_buttons_inactive");
+    skillsButton.classList.toggle("portfolio__button-active");
+    skillsButton.classList.toggle("portfolio__button-inactive");
+    portfolioButton.classList.toggle("portfolio__button-active");
+    portfolioButton.classList.toggle("portfolio__button-inactive");
 }
 function changeAppTheme(themeObj, themeLabel) {
     Object.entries(themeObj).map((el) => {

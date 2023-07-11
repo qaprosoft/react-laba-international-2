@@ -1,4 +1,4 @@
-.action_buttons {
+.action-buttons {
     width: 100%;
     display: flex;
     max-width: 640px;
@@ -7,7 +7,7 @@
     justify-content: space-between;
 }
 
-.action_button {
+.action-button {
     width: 45%;
     border: none;
     height: 13vw;
@@ -21,20 +21,20 @@
     justify-content: center;
 }
 
-.action_button:hover {
+.action-button:hover {
     transform: scale(1.25);
 }
 
-.action_button_download {
+.action-buttons__download {
     color: var(--download-btn-color);
     background-color: var(--download-btn-bg-color);
 }
 
-.download_icon {
+.download-icon {
     max-width: 26px;
     max-height: 26px;
 }
 
-.action_button_contact {
+.action-buttons__contact {
     background-color: var(--contact-btn-bg-color);
 }
