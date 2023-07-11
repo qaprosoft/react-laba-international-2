@@ -27,7 +27,9 @@ $padding: 1.25rem;
     border-radius: 50%;
     padding: calc($padding - 2px);
     background-color: transparent;
-    @at-root &--light {
+  }
+  @at-root &--light {
+    .theme-switcher__icon {
       background-color: $clr-bg--light;
       fill: $clr-fill--light;
       border-color: $clr-border-light;
@@ -37,7 +39,9 @@ $padding: 1.25rem;
         border-color: $clr-border-dark;
       }
     }
-    @at-root &--dark {
+  }
+  @at-root &--dark {
+    .theme-switcher__icon {
       background-color: $clr-bg--dark;
       fill: $clr-fill--dark;
       border-color: $clr-border-dark;

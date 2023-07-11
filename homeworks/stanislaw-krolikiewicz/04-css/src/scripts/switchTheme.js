@@ -1,15 +1,15 @@
+// code downloaded from https://github.com/iconfu/svg-inject
+
 let currentTheme = localStorage.getItem('theme') || 'light';
 const body = document.querySelector('body');
 const themeSwitcher = document.getElementById('theme-switcher');
-const themeSwitcherIcon = document.getElementById('theme-switcher__icon');
-
 const setTheme = (theme) => {
   if (theme === 'dark') {
-    themeSwitcherIcon.classList
-      .replace('theme-switcher__icon--light', 'theme-switcher__icon--dark');
+    themeSwitcher.classList
+      .replace('theme-switcher--light', 'theme-switcher--dark');
   } else {
-    themeSwitcherIcon.classList
-      .replace('theme-switcher__icon--dark', 'theme-switcher__icon--light');
+    themeSwitcher.classList
+      .replace('theme-switcher--dark', 'theme-switcher--light');
   }
   document.documentElement.className = theme;
 };
