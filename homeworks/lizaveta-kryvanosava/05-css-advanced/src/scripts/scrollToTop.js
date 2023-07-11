@@ -15,6 +15,8 @@ function showScroll() {
 }
 
 function scrollToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
