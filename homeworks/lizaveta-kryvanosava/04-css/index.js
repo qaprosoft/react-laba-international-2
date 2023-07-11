@@ -19,5 +19,4 @@ function changeTabInPortfolio(event) {
   currentTabInPortfolio.classList.add('hidden');
   currentTabInPortfolio = document.querySelector(`.${event.target.value}`);
   currentTabInPortfolio.classList.remove('hidden');
-  console.log(currentTabInPortfolio);
 }
