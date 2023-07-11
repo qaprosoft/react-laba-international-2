@@ -32,6 +32,7 @@ button {
     margin-top: 65px;
     width: 631px;
     display: flex;
+    justify-content: center;
     column-gap: 40px;
     align-items: center;
 }
@@ -50,4 +51,52 @@ button {
     margin-top: 12px;
     display: flex;
     column-gap: 26px;
+}
+
+.profile__facts {
+    display: flex;
+    justify-content: center;
+    column-gap: 90px;
+    font-size: 22px;
+    color: #A3ABB2;
+    margin: 0 auto;
+    margin-top: 48px;
+    padding: 20px 31px;
+}
+
+.profile__facts-descr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 148px;
+}
+
+.profile__buttons {
+    display: flex;
+    justify-content: center;
+    width: 618px;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: 47px;
+}
+
+.profile__buttons-btn {
+    width: 290px;
+    height: 80px;
+    background-color: #171F26;
+    border-radius: 10px;
+    margin: 0 auto;
+    font-size: 22px;
+    color: #A3ABB2;
+}
+.profile__buttons-btn-download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 25px;
+}
+
+.profile__buttons-btn:hover {
+    background-color: #FFE071;
+    color: #3D3D3D;
 }
