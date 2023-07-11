@@ -68,10 +68,11 @@
   background-color: var(--color-yellow);
   text-align: center;
   color: var(--color-permanent-font);
+  transition: opacity 0.3s ease-in;
 }
 
 .portfolio__shield:hover {
-  opacity: 0.8;
+  opacity: 0.9;
   cursor: url('../icons/cursor.svg'), auto;
 }
 
