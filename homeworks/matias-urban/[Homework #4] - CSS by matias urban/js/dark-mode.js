@@ -15,15 +15,15 @@ const title =
   document.querySelector("#title");
 const buttonArea =
   document.querySelector(
-    ".button-container"
+    ".button-container-portfolio-box"
   );
 const buttonPortfolio =
   document.querySelector(
-    ".button-container__button1"
+    ".button-container-portfolio-box__button1"
   );
 const buttonSkills =
   document.querySelector(
-    ".button-container__button2"
+    ".button-container-portfolio-box__button2"
   );
 btn.addEventListener("click", () => {
   console.log("click");
