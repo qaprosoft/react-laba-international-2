@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'themeSwitcher';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  background-color: var(--clr-page-bg);
+  color: var(--clr-primary-text);
+  transition: all 0.3s ease-in-out;
+}
