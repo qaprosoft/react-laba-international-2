@@ -15,7 +15,7 @@ body {
     margin: 0 auto;
 }
 
-button {
+.switch {
     width: 80px;
     height: 80px;
     background-color: #171F26;
@@ -88,6 +88,7 @@ button {
     margin: 0 auto;
     font-size: 22px;
     color: #A3ABB2;
+    border: none;
 }
 .profile__buttons-btn-download {
     display: flex;
@@ -99,4 +100,34 @@ button {
 .profile__buttons-btn:hover {
     background-color: #FFE071;
     color: #3D3D3D;
+    cursor: pointer;
+}
+
+.tabs__wrapper {
+    padding: 23px 18px;
+    background-color: #171F26;
+    width: 756px;
+    height: 132px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.tabs__item {
+    width: 349.6px;
+    height: 80px;
+    font-size: 22px;
+    color: #A3ABB2;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+
+}
+.tabs__item.active {
+    background-color: #0C151D;
 }
