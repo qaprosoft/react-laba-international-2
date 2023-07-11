@@ -1,5 +1,0 @@
-@media (max-width: 1024px) {
-  .portfolio__skills {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}

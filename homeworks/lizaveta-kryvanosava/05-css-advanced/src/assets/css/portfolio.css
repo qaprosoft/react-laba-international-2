@@ -34,6 +34,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  overflow: hidden;
 }
 
 .portfolio__item {
@@ -53,9 +54,21 @@
 .portfolio__skills {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: stretch;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
   gap: 0.5rem;
+  overflow: hidden;
+}
+
+.portfolio__skills img {
+  transition: transform 100ms ease-in-out;
+  object-fit: cover;
+  width: 12.5rem;
+  height: 3rem;
+}
+
+.portfolio__skills img:hover {
+  transform: scale(1.1);
 }
 
 .portfolio__shield {

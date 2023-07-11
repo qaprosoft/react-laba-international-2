@@ -1,6 +1,5 @@
 const modal = document.querySelector('#modal');
 const form = document.querySelector('.modal__form');
-
 const openButton = document.querySelector('#open-modal');
 const closeButton = document.querySelector('#close-modal');
 
@@ -13,8 +12,8 @@ closeButton.onclick = function () {
   form.style.animation = 'scale-out .5s ease-in-out';
 };
 
-form.addEventListener('animationend', ({animationName}) => {
+form.onanimationend = function ({animationName}) {
   if (animationName === 'scale-out') {
     modal.style.display = 'none';
   }
-});
+};

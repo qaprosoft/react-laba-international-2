@@ -10,7 +10,6 @@
     />
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./src/assets/css/phoneMedia.css" />
-    <link rel="stylesheet" href="./src/assets/css/tabletMedia.css" />
     <title>Portfolio</title>
   </head>
   <body>
@@ -240,13 +239,14 @@
       </section>
 
       <div id="modal" class="modal">
-        <form class="modal__form">
+        <form class="modal__form" id="modal-form">
           <button type="button" class="modal__form--close" id="close-modal">
             <img src="./src/assets/icons/cross.svg" alt="close modal" />
           </button>
 
           <div class="modal__section">
             <input
+              name="first-name"
               class="modal__input"
               type="text"
               placeholder="*First Name..."
@@ -254,6 +254,7 @@
             />
 
             <input
+              name="last-name"
               class="modal__input"
               type="text"
               placeholder="*Last Name..."
@@ -263,21 +264,21 @@
 
           <div class="modal__section">
             <input
-              class="modal__input"
               type="number"
               name="number"
-              id="number"
+              class="modal__input"
               placeholder="*Phone..."
               required
             />
 
             <input
+              name="countries"
               class="modal__input"
-              list="countrys"
+              list="countries"
               placeholder="Your country..."
             />
 
-            <datalist id="countrys">
+            <datalist id="countries">
               <option value="Belarus" />
               <option value="Ukraine" />
               <option value="Georgia" />
@@ -289,6 +290,7 @@
 
           <div class="modal__form--section">
             <textarea
+              name="modal-textarea"
               class="modal__input"
               placeholder="Your message..."
             ></textarea>

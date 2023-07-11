@@ -1,8 +1,6 @@
 const scroll = document.querySelector('#scroll-to-top');
 
-window.addEventListener('scroll', hideScroll);
-
-function hideScroll() {
+window.onscroll = function () {
   if (
     window.matchMedia('(max-width: 600px)').matches &&
     (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
@@ -11,4 +9,4 @@ function hideScroll() {
   } else {
     scroll.style.display = 'none';
   }
-}
+};

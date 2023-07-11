@@ -29,10 +29,6 @@ main {
   gap: 3rem;
 }
 
-footer {
-  padding: 2rem 1rem;
-}
-
 .theme-toggle {
   border: none;
   border-radius: 3rem;
