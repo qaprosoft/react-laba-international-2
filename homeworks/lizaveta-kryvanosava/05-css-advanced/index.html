@@ -104,7 +104,9 @@
             <img src="./src/assets/icons/download.svg" alt="download cv" />
           </a>
 
-          <a class="preview__action-buttons--white"> Contact me </a>
+          <a class="preview__action-buttons--white" id="open-modal">
+            Contact me
+          </a>
         </div>
       </section>
 
@@ -236,6 +238,68 @@
           <img alt="heroku" src="./src/assets/icons/skills/heroku.svg" />
         </div>
       </section>
+
+      <div id="modal" class="modal">
+        <form class="modal__form">
+          <button type="button" class="modal__form--close" id="close-modal">
+            <img src="./src/assets/icons/cross.svg" alt="close modal" />
+          </button>
+
+          <div class="modal__section">
+            <input
+              class="modal__input"
+              type="text"
+              placeholder="*First Name..."
+              required
+            />
+
+            <input
+              class="modal__input"
+              type="text"
+              placeholder="*Last Name..."
+              required
+            />
+          </div>
+
+          <div class="modal__section">
+            <input
+              class="modal__input"
+              type="number"
+              name="number"
+              id="number"
+              placeholder="*Phone..."
+              required
+            />
+
+            <input
+              class="modal__input"
+              list="countrys"
+              placeholder="Your country..."
+            />
+
+            <datalist id="countrys">
+              <option value="Belarus" />
+              <option value="Ukraine" />
+              <option value="Georgia" />
+              <option value="Poland" />
+              <option value="United States" />
+              <option value="other" />
+            </datalist>
+          </div>
+
+          <div class="modal__form--section">
+            <textarea
+              class="modal__input"
+              placeholder="Your message..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="modal__form--submit">Submit</button>
+          <button type="reset" class="modal__form--reset">Reset form</button>
+        </form>
+
+        <div class="modal__shield"></div>
+      </div>
     </main>
 
     <footer>
@@ -249,4 +313,5 @@
   <script src="./src/scripts/theme.js"></script>
   <script src="./src/scripts/portfolioTabs.js"></script>
   <script src="./src/scripts/hideScroll.js"></script>
+  <script src="./src/scripts/modal.js"></script>
 </html>

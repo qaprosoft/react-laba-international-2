@@ -47,4 +47,9 @@
   .portfolio__skills {
     grid-template-columns: 1fr;
   }
+
+  .modal__form--section {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }

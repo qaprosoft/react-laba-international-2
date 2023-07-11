@@ -1,4 +1,4 @@
-[color-scheme="light"] {
+[color-scheme='light'] {
   color-scheme: light;
   --color-main-background: #e7e7e7;
   --color-font: #575757;
@@ -10,9 +10,11 @@
   --color-black: #000000;
   --color-portfolio-name: #3d3d3d;
   --color-permanent-font: #575757;
+  --color-green: #4eefac;
+  --color-red: #e26060;
 }
 
-[color-scheme="dark"] {
+[color-scheme='dark'] {
   color-scheme: dark;
   --color-main-background: #0c151d;
   --color-font: #a3abb2;
@@ -24,4 +26,6 @@
   --color-black: #000000;
   --color-portfolio-name: #f1f2f4;
   --color-permanent-font: #575757;
+  --color-green: #30ab78;
+  --color-red: #ae4040;
 }
