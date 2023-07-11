@@ -176,8 +176,10 @@ main {
 }
 
 .portfolio__skills {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: stretch;
+  gap: 0.5rem;
 }
 
 .portfolio__shield {
