@@ -19,3 +19,8 @@ portfolioImg.addEventListener("mouseover", function() {
 portfolioImg.addEventListener("mouseout", function() {
   portfolioImg.style.animation = "none";
 });
+
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
