@@ -4,9 +4,11 @@ window.addEventListener('scroll', showScroll);
 scrollButton.addEventListener('click', scrollToTop);
 
 function showScroll() {
+  const matchesMediaQuery = window.matchMedia('(max-width: 600px)');
+
   if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
+    matchesMediaQuery.matches &&
+    (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200)
   ) {
     scrollButton.style.display = 'block';
   } else {
