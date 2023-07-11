@@ -1,0 +1,335 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    background: #E9EBEC;
+    font-size: 16px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer {
+    position: static;
+}
+
+.switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+    animation: switcher 10s linear alternate;
+}
+@keyframes switcher {
+    0% {background-color: #FFFFFF}
+    50% {background-color: #171f26}
+    100% {background-color: #FFFFFF;}
+}
+    
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.user__avatar {
+    margin: 1.875em;
+    width: 12em;
+    height: 12em;
+    background-size: cover;
+    background-position: center;
+    gap: 40px;
+}
+
+.user__avatar-rounded-circle {
+    display: flex;
+    border-radius: 50%;
+    background-image: url(./assets/myPhoto.jpg);
+}
+
+
+.information__name {
+    color: #3d3d3d;
+    font-family: poppins;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+     margin: 0.1875em;
+}
+
+.information__ocupation {
+    color: #575757;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+}
+
+.social-media__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.animated-icon {
+    transition: width 2s, height 2s, transform 2s;
+    transition-timing-function: ease-in-out;
+}
+
+.animated-icon:hover {
+    position: relative;
+    z-index: 0;
+    transform: scale(1.5) rotate(360deg)
+}
+.facts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 39.625em;
+    padding: 1.25em 0.125em;
+    gap: 90px;
+}
+
+.fact__experience {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 9.25em;
+    flex-shrink: 0;
+}
+
+.fact__number {
+    display: flex;
+    justify-content: center;
+    color: #3A3A3A;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.fact__text {
+    color: #575757;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 38.625em;
+    height: 5em;
+    gap: 38px;
+    flex-shrink: 0;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18.125em;
+    height: 5em;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+.button__content {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.button_color-yellow {
+    background: #FBD144;
+}
+
+.button_color-white {
+    border: 0px solid #3E64AA;
+    background: #FFF;
+}
+
+.button__text {
+    flex-shrink: 0;
+    color: #3D3D3D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.5312px;
+    line-height: normal;
+}
+
+.button_color-yellow:hover {
+    background: #c7a227;
+    
+}
+
+.button_color-white:hover {
+    background: #ccc4c4;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 5.375em;
+    width: 47.5em;
+    height: 6.875em;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #FFF;
+}
+
+.tab-button {
+    width: 21.9653em;
+    height: 5em;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    border: 0px solid #3E64AA;
+}
+
+.tab-button_color-grey {
+    background: #D7D7D7;
+}
+
+.tab-button__text {
+    color: #19191B;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    line-height: normal;
+}
+
+.tab-content {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-around;
+    flex-wrap: wrap;
+    width: 47.3125em;
+    height: 51.625em;
+    flex-shrink: 0;
+    border-radius: 20px;
+}
+
+.tab-content__project{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 22.625em;
+    height: 14.125em;
+    flex-shrink: 0;
+}
+
+.footer__text {
+    text-align: center;
+    color: #575757;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.scroll-button {
+    background-image: url(./assets/scroll-to-top.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3.125rem;
+    height: 3.125rem;
+    position: fixed;
+    bottom: 0rem;
+    display: none;
+    z-index: 1;
+}
+
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+        height: 100%;
+        font-size: 9px;
+    }
+    .user__social-media {
+        display: flex;
+        justify-content: space-between;
+    }
+    .facts {
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+    .facts__experience .facts__projects {
+        display: flex;
+        max-width: max-content;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .fact__text {
+        font-size: 15px;
+    }
+    .button__text {
+        font-size: 15px;
+        max-width:max-content;
+    }
+    .tabs {
+        max-width: min-content;
+    }
+    .tab-button__text{
+        font-size: 15px;
+    }
+
+    .tab-content__project {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        margin: 1.875em 0 1.875em 0;
+    }
+    .tab-content {
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin: auto;
+        background-size: cover;
+    }
+    .scroll-button {
+        display: block;
+    }
+    .footer__text {
+        font-size: 15px;
+    }
+
+}
+
