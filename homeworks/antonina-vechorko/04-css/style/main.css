@@ -1,0 +1,147 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 760px;
+}
+
+nav {
+    max-height: 132px;
+}
+
+.navigation-form {
+    height: 100%;
+    display: flex;
+    border-radius: 0.7rem;
+    padding: 0.7rem 1rem 0.7rem;
+    background-color: var(--secondary-color);
+    justify-content: space-between;
+}
+
+.portfolio__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 0.7rem;
+    cursor: pointer;
+    height: 80px;
+    font-weight: 500;
+    width: 364px;
+    color: var(--text-color-additional2);
+}
+
+.navigation-form input:checked + label {
+    background-color: var(--nav-active-color);
+}
+
+form#tab-toggle {
+    width: 760px;
+}
+
+.main-container {
+    max-width: 760px;
+}
+
+.portfolio-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.portfolio__img-wrapper {
+    max-width: 362px;
+    max-height: 226px;
+    margin-bottom: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.portfolio__project img{
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio__description {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.3rem;
+    top: 18%;
+    padding: 0 1.5rem 0;
+    color: var(--text-color-secondary);
+}
+
+.portfolio__img-wrapper:hover > .portfolio__description {
+    display: flex;
+}
+
+.portfolio__img-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(251, 209, 68, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.portfolio__img-wrapper:hover::before {
+    opacity: 1;
+}
+
+h3 {
+    margin: 0;
+    font-weight: 500;
+}
+
+.portfolio__project-description {
+    margin: 0;
+    font-size: 14px;
+    line-height: 140%;
+}
+
+.portfolio__link-wrapper {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio__link img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.skill-container {
+    display: none;
+    max-width: 760%;
+    color: var(--text-color-secondary);
+}
+
+.skill__title {
+    margin-left: 2.3rem;
+    text-decoration: underline;
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 0.8rem;
+}
