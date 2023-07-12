@@ -1,5 +1,8 @@
 body{
     background-color: #E9EBEC;
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
 header{
@@ -7,7 +10,7 @@ header{
 }
 
 
-.dark-mode-button {
+.darkModeButton {
     width: 80px;
     height: 80px;
     border-radius: 100%;
@@ -16,27 +19,31 @@ header{
     margin-top: 33px;
 }
 
-#dark-mode-image{
+#darkModeImage{
     width: 50%;
 }
 
-.dark-mode-button:hover{
+.darkModeButton:hover{
     background-color:grey ;
 }       
 main{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
 }
-.portfolio-presentation{
+.portfolioPresentation{
     width: 631px;
     height: 215px;
     display: flex;
-
+    justify-content: space-between;
+    margin: auto;
     margin-top: 65px;
     
 }
 
-.photo-container{
+.photoContainer{
     justify-self: center;
     width: 215px;
     height: 215px;
@@ -44,22 +51,22 @@ main{
     align-items: center;
     justify-content: center;
     
-    
 }
 
-.photo-container img {
+#profileImage {
     width: 192px;
     height: 192px;
     border-radius: 100%;
     border: 5px white solid;
 }
 
-.title-logos{
+.titleLogos{
     
     align-self: center;
     display: flex;
     flex-direction: column;
     height: 156px;
+    width: 372px;
     margin: 0 auto;
     align-content: flex-start;
     
@@ -67,7 +74,7 @@ main{
     
 }
 
-.title-logos h1{
+.titleLogos h1{
     
     font-size: 46px;
     font-weight: 500;
@@ -77,7 +84,7 @@ main{
     
 }
 
-.title-logos h4 {
+.titleLogos h4 {
     font-size: 22px;
     font-weight: 500;
     line-height: 33px;
@@ -87,7 +94,7 @@ main{
     
     
 }
-.portfolio-presentation .socials{
+.portfolioPresentation .socials{
     display: flex;
     justify-content: space-between;
     width: 222px;
@@ -96,7 +103,105 @@ main{
     
 
 }
-.socials-logos {
+.socialsLogo {
     width: 36px;
     height: 36px;
 }
+
+.experienceStats {
+    width: 634px;
+    padding: 20px 2px 20px 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.experienceStatsDiv{
+    margin: auto;
+}
+
+.experienceStatsNumber{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    margin-bottom: 0;
+}
+
+.experienceStatsText{
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 33px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.cvContactButtonsContainer{
+    width: 618px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.cvContactButtonsContainer button{
+    width: 290px;
+    height: 80px;
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+}
+
+.sliderContainer{
+    width: 760px;
+    height: 110px;
+    margin: 0 auto;
+}
+
+.sliderPortfolioSkills{
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px 0 15px 0;
+    margin: 11px 0;
+    border-radius: 20px;
+}
+
+.sliderButton{
+    width: 351.45px;
+    height: 80px;
+    border-radius: 10px;
+    border: none;
+    background-color: #FFFFFF;
+    margin: auto 0;
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 500;
+}
+
+.sliderButton:focus{
+    background-color: #D7D7D7;
+}
+
+.projectsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 760px;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.projectsContainer div{
+    width: 45%;
+    margin: 25px auto;
+    
+}
+
+.projectsContainer div img{
+    width: 100%;
+}
+
+
