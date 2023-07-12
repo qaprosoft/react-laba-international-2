@@ -1,4 +1,4 @@
-# [Homework #4] - CSS by Stanisław Królikiewicz
+# [Homework #5] - CSS Advanced by Stanisław Królikiewicz
 
 ## Prerequisites
 In order to use this repo:
