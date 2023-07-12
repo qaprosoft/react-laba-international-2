@@ -13,27 +13,29 @@ portfolioTab.addEventListener('click', () => {
     portfolioContainer.style.display = 'flex';
 });
 
-// const themeSwitch = document.querySelector('.theme-switch');
-// const body = document.body;
-//
-// themeSwitch.addEventListener('click', () => {
-//     body.classList.toggle('dark-mode');
-// });
-
 const body = document.body;
 const themeSwitch = document.querySelector('.theme-switch');
 const themeSwitchIcon = document.querySelector('.theme-switch__icon')
-const darkSmIcon = document.querySelectorAll('.person__sm-icon')
+const darkSmIcon1 = document.querySelector('.icon1');
+const darkSmIcon2 = document.querySelector('.icon2');
+const darkSmIcon3 = document.querySelector('.icon3');
+const darkSmIcon4 = document.querySelector('.icon4');
 
-// Check if the user's preference is already saved in local storage
 const updateIcons = () => {
     if (body.classList.contains('dark-mode')) {
-        themeSwitchIcon.src = 'assets/dark-switcher.svg'
+        themeSwitchIcon.src = 'assets/dark-switcher.svg';
+        darkSmIcon1.src = 'assets/dark-github.svg';
+        darkSmIcon2.src = 'assets/dark-twitter.svg';
+        darkSmIcon3.src = 'assets/dark-linkedin.svg';
+        darkSmIcon4.src = 'assets/dark-youtube.svg';
     } else {
-        themeSwitchIcon.src = 'assets/theme-switch.svg'
+        themeSwitchIcon.src = 'assets/theme-switch.svg';
+        darkSmIcon1.src = 'assets/github.svg';
+        darkSmIcon2.src = 'assets/twitter.svg';
+        darkSmIcon3.src = 'assets/linkedin.svg';
+        darkSmIcon4.src = 'assets/youtube.svg';
     }
 }
-
 
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
