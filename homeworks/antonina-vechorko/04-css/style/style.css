@@ -187,6 +187,10 @@ h1 {
     background-color: var(--nav-active-color);
 }
 
+.dark-mode .btn_contact {
+    color: var( --text-color-primary);
+}
+
 .arrow-icon {
     width: 24px;
     height: 27px
@@ -272,6 +276,10 @@ form#tab-toggle {
     color: var(--text-color-secondary);
 }
 
+.dark-mode .portfolio__description {
+    color: #3D3D3D;
+}
+
 .portfolio__img-wrapper:hover > .portfolio__description {
     display: flex;
 }
@@ -283,7 +291,7 @@ form#tab-toggle {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(251, 209, 68, 0.5);
+    background-color: rgb(251, 209, 68, 0.8);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -315,6 +323,10 @@ h3 {
     justify-content: center;
 }
 
+.dark-mode .portfolio__link-wrapper {
+    background-color: #FFFFFF;
+}
+
 .portfolio__link img {
     width: 20px;
     height: 20px;
@@ -326,6 +338,7 @@ h3 {
 .skill-container {
     display: none;
     max-width: 760%;
+    color: var(--text-color-secondary);
 }
 
 .skill__title {
