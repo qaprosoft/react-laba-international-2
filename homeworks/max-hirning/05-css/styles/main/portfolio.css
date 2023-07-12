@@ -1,0 +1,49 @@
+.portfolio {
+    display: flex;
+    margin-block: 2rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.portfolio__buttons {
+    width: 80vw;
+    display: flex;
+    max-width: 760px;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: space-between;
+    background-color: var(--portfolio-btns-bg-color);
+}
+
+.portfolio-button {
+    width: 48%;
+    height: 13vw;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    max-width: 350px;
+    max-height: 80px;
+    border-radius: 10px;
+}
+
+.portfolio-button:hover {
+    transform: scale(0.75);
+    color: var(--download-btn-bg-color);
+}
+
+.portfolio__button-active {
+    background-color: var(--portfolio-btn-active-bg-color);
+}
+
+.portfolio__button-inactive {
+    background-color: transparent;
+}
+
+.portfolio__examples {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 757px;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
