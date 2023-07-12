@@ -37,7 +37,7 @@ nav {
 }
 
 form#tab-toggle {
-    width: 760px;
+    max-width: 760px;
 }
 
 .main-container {
@@ -50,6 +50,7 @@ form#tab-toggle {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem;
+    max-width: 760px;
 }
 
 .portfolio__img-wrapper {
