@@ -22,3 +22,28 @@ galleryImages.forEach(img => {
         }, 500)
     })
 })
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cvButtons = document.querySelectorAll(".cv-buttons__button")
+    const navButtons = document.querySelectorAll(".nav__button")
+
+    function toggleSelected(buttons, selectedButton) {
+        buttons.forEach(button => {
+            button.classList.remove("selected")
+        })
+        selectedButton.classList.add("selected")
+    }
+
+    cvButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            toggleSelected(cvButtons, button)
+        })
+    })
+
+    navButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            toggleSelected(navButtons, button)
+        })
+    })
+})
