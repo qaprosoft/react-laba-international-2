@@ -1,28 +1,38 @@
 let currentTabInPortfolio = document.querySelector('.portfolio__content');
-let height = 0;
+let previousTabInPortfolio = document.querySelector('.portfolio__skills');
 let progress = 0;
-let count;
 
 document.querySelector('#tab-toggle').onchange = function (event) {
-  currentTabInPortfolio.classList.add('hidden');
+  previousTabInPortfolio = currentTabInPortfolio;
   currentTabInPortfolio = document.querySelector(`.${event.target.value}`);
-  currentTabInPortfolio.classList.remove('hidden');
 
-  height = currentTabInPortfolio.offsetHeight;
-  count = height / 30;
-
-  currentTabInPortfolio.style.height = '0%';
-
-  window.requestAnimationFrame(step);
+  window.requestAnimationFrame(stepOut);
 };
 
-function step() {
-  progress += count;
+function stepOut() {
+  progress += 10;
 
-  currentTabInPortfolio.style.height = `${progress}px`;
+  previousTabInPortfolio.style.transform = `translateX(${progress}%)`;
 
-  if (progress < height) {
-    window.requestAnimationFrame(step);
+  if (progress < 130) {
+    window.requestAnimationFrame(stepOut);
+  } else {
+    progress = 0;
+
+    currentTabInPortfolio.classList.remove('hidden');
+    previousTabInPortfolio.classList.add('hidden');
+
+    window.requestAnimationFrame(stepIn);
+  }
+}
+
+function stepIn() {
+  progress += 10;
+
+  currentTabInPortfolio.style.transform = `translateX(${progress - 130}%)`;
+
+  if (progress < 130) {
+    window.requestAnimationFrame(stepIn);
   } else {
     progress = 0;
   }
