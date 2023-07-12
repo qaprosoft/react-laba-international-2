@@ -1,6 +1,13 @@
+const body = document.body;
+const themeSwitch = document.querySelector('.theme-switch');
+const themeSwitchIcon = document.querySelector('.theme-switch__icon')
+const darkSmIcon1 = document.querySelector('.icon1');
+const darkSmIcon2 = document.querySelector('.icon2');
+const darkSmIcon3 = document.querySelector('.icon3');
+const darkSmIcon4 = document.querySelector('.icon4');
+const skillContainer = document.querySelector('.skill-container');
 const skillsTab = document.getElementById('skills-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
-const skillContainer = document.querySelector('.skill-container');
 const portfolioContainer = document.querySelector('.portfolio-container');
 
 skillsTab.addEventListener('click', () => {
@@ -12,14 +19,6 @@ portfolioTab.addEventListener('click', () => {
     skillContainer.style.display = 'none';
     portfolioContainer.style.display = 'flex';
 });
-
-const body = document.body;
-const themeSwitch = document.querySelector('.theme-switch');
-const themeSwitchIcon = document.querySelector('.theme-switch__icon')
-const darkSmIcon1 = document.querySelector('.icon1');
-const darkSmIcon2 = document.querySelector('.icon2');
-const darkSmIcon3 = document.querySelector('.icon3');
-const darkSmIcon4 = document.querySelector('.icon4');
 
 const updateIcons = () => {
     if (body.classList.contains('dark-mode')) {
