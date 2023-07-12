@@ -1,0 +1,25 @@
+.switcher {
+  width: 5rem;
+  height: 5rem;
+  background-color: #FFFFFF;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switcher:hover{
+  cursor: pointer;
+}
+
+@media (max-width: 376px){
+  .switcher {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .switcher__icon{
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

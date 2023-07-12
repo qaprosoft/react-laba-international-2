@@ -1,0 +1,103 @@
+.about{
+  width: 47.5rem;
+  max-width: 100%;
+  height: 6.875rem;
+  border-radius: 1.25rem;
+  background: #FFF;
+  display: flex;
+}
+
+.about__button{
+  width: 21.965rem;
+  max-width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0.938rem;
+  left: 1.484rem;
+}
+
+.about__button:hover{
+  cursor: pointer;
+}
+
+#about-button_active{
+  border-radius: 0.625rem;
+  border: 0px solid #3E64AA;
+  background: #D7D7D7;
+}
+
+.about__text{
+  color: #19191B;
+  text-align: center;
+  font-size: var(--main-font-size);
+  font-family: var(--main-font-family);
+  font-style: var(--main-font-style);
+  font-weight: var(--main-font-weight);
+  line-height: var(--main-line-height);
+}
+
+@media(max-width: 761px){
+  .about{
+    width: 100%;
+  }
+
+  .about__button{
+    width: 19rem;
+    height: 4.5rem
+  }
+}
+
+@media(max-width: 637px){
+  .about__button {
+    width: 17rem;
+  }
+}
+
+@media(max-width: 570px){
+  .about__button{
+    width: 15rem;
+    height: 4.5rem
+  }
+}
+
+@media(max-width: 504px){
+  .about__button{
+    width: 13rem;
+    height: 4rem
+  }
+
+  .about{
+    height: 6rem;
+  }
+}
+
+@media (max-width: 441px){
+  .about__button{
+    width: 11rem;
+  }
+}
+
+@media (max-width: 376px){
+
+  .about{
+    width: 20.625rem;
+    height: 3.5rem;
+    padding: 0.3125rem 0.125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5625rem;
+  }
+
+  .about__button{
+    width: 9.625rem;
+    height: 3.14394rem;
+    top: 0rem;
+    left: 0.25rem;
+    border-radius: 0.625rem;
+    border: 0px solid #3E64AA;
+  }
+}
+
