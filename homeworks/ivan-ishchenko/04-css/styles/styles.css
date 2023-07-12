@@ -61,6 +61,10 @@ html {
   height: 35px;
 }
 
+.page--theme-dark .theme_toggle__icon {
+  filter: invert(1);
+}
+
 .footer {
   padding: 80px 0;
   text-align: center;

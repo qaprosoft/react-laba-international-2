@@ -40,6 +40,10 @@
   height: 35px;
 }
 
+.page--theme-dark .profile__social_icon {
+  filter: invert(1);
+}
+
 /* Profile statistics */
 .statistics {
   display: flex;
@@ -92,7 +96,11 @@
 
 .action_buttons__btn--accent {
   background-color: var(--accent-color);
-  color: var(--on-accent-text-color)
+  
+}
+
+.action_buttons__btn--accent .action_buttons__btn_text {
+  color: var(--on-accent-text-color);
 }
 
 .action_buttons__btn_text {
