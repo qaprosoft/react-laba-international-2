@@ -108,18 +108,18 @@ h1 {
     gap: 1rem;
 }
 
-.achievements-item-title, .achievements-item-subtitle {
+.achievements-item_title, .achievements-item_subtitle {
     text-align: center;
     font-weight: 500;
     color: var(--text-color-primary);
 }
 
-.achievements-item-title {
+.achievements-item_title {
     font-size: 24px;
     color: var(--text-color-additional);
 }
 
-.achievements-item-subtitle {
+.achievements-item_subtitle {
     letter-spacing: 0.1rem;
     line-height: 140%;
 }

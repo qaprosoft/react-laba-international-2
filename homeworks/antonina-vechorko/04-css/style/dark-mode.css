@@ -10,3 +10,6 @@
     background-color: #FFFFFF;
 }
 
+.dark-mode .btn_contact:hover {
+    filter: contrast(120%);
+}
