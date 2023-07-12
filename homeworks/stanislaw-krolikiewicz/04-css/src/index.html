@@ -11,7 +11,7 @@
     <button id="theme-switcher" class="theme-switcher theme-switcher--light">
       <img class="theme-switcher__icon" src="assets/icons/theme-switcher.svg" alt="Light theme" onload="SVGInject(this)">
     </button>
-    <section class="profile">
+    <section id="profile" class="profile">
       <div class="profile-avatar">
         <img class="profile-avatar__image" src="assets/images/profile.jpg" height="200" alt="Stanisław Królikiewicz">
         <div class="profile-avatar__info">
@@ -61,8 +61,71 @@
     </nav>
   </header>
   <main class="page__wrapper main">
+    <section id="portfolio" class="portfolio">
+      <article class="portfolio__card">
+        <img class="portfolio__image" src="assets/images/photos-gallery.png" alt="Photos Gallery">
+        <div class="portfolio__info">
+          <h3 class="portfolio__title">Photos Gallery</h3>
+          <p class="portfolio__description">Photos gallery built in Next.js based on Flickr's public API.</p>
+          <a class="portfolio__link button" href="https://flickr-photos-gallery.vercel.app/" target="_blank">
+            <img class="portfolio__icon" src="assets/icons/external-link.svg" alt="External link" onload="SVGInject(this)">
+          </a>
+        </div>
+      </article>
+      <article class="portfolio__card">
+        <img class="portfolio__image" src="assets/images/instamock.png" alt="Instamock">
+        <div class="portfolio__info">
+          <h3 class="portfolio__title">Instamock</h3>
+          <p class="portfolio__description">A Vue app that mocks instagram based on data stored inside supabase cloud.</p>
+          <a class="portfolio__link button" href="https://main--animated-wisp-65b379.netlify.app/profile/stachkrol" target="_blank">
+            <img class="portfolio__icon" src="assets/icons/external-link.svg" alt="External link" onload="SVGInject(this)">
+          </a>
+        </div>
+      </article>
+      <article class="portfolio__card">
+        <img class="portfolio__image" src="assets/images/trivial-quiz.png" alt="Trivial Quiz">
+        <div class="portfolio__info">
+          <h3 class="portfolio__title">Trivial Quiz</h3>
+          <p class="portfolio__description">A React app with quizes based on data retrieved from Open Trivia Database.</p>
+          <a class="portfolio__link button" href="https://stkrolikiewicz.github.io/trivial-quiz-app" target="_blank">
+            <img class="portfolio__icon" src="assets/icons/external-link.svg" alt="External link" onload="SVGInject(this)">
+          </a>
+        </div>
+      </article>
+      <article class="portfolio__card">
+        <img class="portfolio__image" src="assets/images/what-the-beer.png" alt="What the Beer">
+        <div class="portfolio__info">
+          <h3 class="portfolio__title">What The Beer</h3>
+          <p class="portfolio__description">Next.js app depicting information about different types of beers fetched from Punk API.</p>
+          <a class="portfolio__link button" href="https://what-the-beer.vercel.app/" target="_blank">
+            <img class="portfolio__icon" src="assets/icons/external-link.svg" alt="External link" onload="SVGInject(this)">
+          </a>
+        </div>
+      </article>
+      <article class="portfolio__card">
+        <img class="portfolio__image" src="assets/images/carts-manipulator.png" alt="Carts Manipulator">
+        <div class="portfolio__info">
+          <h3 class="portfolio__title">Carts Manipulator</h3>
+          <p class="portfolio__description">Next.js App created to show and manipulate list of ready to use carts fetched from an external API.</p>
+          <a class="portfolio__link button" href="https://carts-manipulator.vercel.app/" target="_blank">
+            <img class="portfolio__icon" src="assets/icons/external-link.svg" alt="External link" onload="SVGInject(this)">
+          </a>
+        </div>
+      </article>
+      <article class="portfolio__card">
+        <img class="portfolio__image" src="assets/images/playlist-creator.png" alt="Playlist Creator">
+        <div class="portfolio__info">
+          <h3 class="portfolio__title">Playlist Creator</h3>
+          <p class="portfolio__description">Next.js app using Spotify API for developers.  Project created during DaftAcademy course with the entire group.</p>
+          <a class="portfolio__link button" href="https://github.com/DaftAcademy-Web-App-Development-2022/cls-5-stkrolikiewicz" target="_blank">
+            <img class="portfolio__icon" src="assets/icons/external-link.svg" alt="External link" onload="SVGInject(this)">
+          </a>
+        </div>
+      </article>
+    </section>
   </main>
   <footer class="page__wrapper footer">
+    <p class="footer__text">© Stanisław Królikiewicz. 2023 All rights reserved.</p>
   </footer>
   <script src="scripts/svgInject.js"></script>
   <script src="scripts/switchTheme.js"></script>
