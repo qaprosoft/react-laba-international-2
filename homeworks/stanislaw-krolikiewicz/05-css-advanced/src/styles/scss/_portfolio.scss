@@ -1,3 +1,5 @@
+$mobile: 600px;
+
 .portfolio {
   width: 100%;
   display: grid;
@@ -5,6 +7,12 @@
   row-gap: 3rem;
   column-gap: 2rem;
   padding-bottom: 130px;
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+    column-gap: 0;
+    padding-bottom: 50px;
+  }
   @at-root &__card {
     border-radius: 15px;
     width: 100%;

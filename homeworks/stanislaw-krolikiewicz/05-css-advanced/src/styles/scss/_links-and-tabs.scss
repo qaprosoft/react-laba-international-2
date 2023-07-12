@@ -1,20 +1,33 @@
+$mobile: 600px;
+$tablet: 1024px;
+
 .links {
-  width: 618px;
+  max-width: 618px;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 38px;
+  @media (max-width: $mobile) {
+    gap: 14px;
+    margin-block: 18px;
+  }
   @at-root &__link {
     flex: 1;
     font-size: 22px;
     line-height: 33px;
     font-weight: 500;
     text-decoration: none;
-    gap: 1.5rem;
     color: var(--clr-secondary-text);
     transition: all 0.3s ease-in-out;
     &:hover {
       color: var(--clr-blue);
     }
+    @media (max-width: $mobile) {
+      max-width: 158px;
+    }
+  }
+  @at-root &__icon {
+    height: 1em;
   }
 }
 
@@ -30,12 +43,26 @@
   padding-block: 15px;
   gap: 24px;
   transition: all 0.3s ease-in-out;
+  @media (max-width: $mobile) {
+    border-radius: 10px;
+    padding-inline: 6.5px;
+    padding-block: 6.85px;
+    height: 64px;
+    gap: 9px;
+    margin-block: 10px;
+  }
   @at-root &__button {
     flex: 1;
     color: var(--clr-tab-text);
     transition: all 0.3s ease-in-out;
     &:hover {
       background-color: var(--clr-tab-bg--active);
+    }
+    @media (max-width: $mobile) {
+      border-radius: 10px !important;
+      height: 100% !important;
+      font-size: 14px !important;
+      line-height: 21px !important;
     }
     @at-root &--active {
       background-color: var(--clr-tab-bg--active) !important;

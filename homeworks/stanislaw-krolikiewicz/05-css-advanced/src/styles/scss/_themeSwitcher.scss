@@ -6,6 +6,9 @@ $clr-border-light: var(--clr-light-3);
 $clr-border-dark: var(--clr-dark-blue-1);
 $size: 2.5rem;
 $padding: 1.25rem;
+$mobile-size: 20px;
+$mobile-padding: 14px;
+$mobile: 600px;
 
 .theme-switcher {
   width: calc($size + 2 * $padding);
@@ -14,8 +17,13 @@ $padding: 1.25rem;
   background-color: transparent;
   border-radius: 50%;
   overflow: hidden;
+  z-index: 2 ;
   &:hover {
     cursor: pointer;
+  }
+  @media (max-width: $mobile) {
+    width: calc($mobile-size + 2 * $mobile-padding);
+    height: calc($mobile-size + 2 * $mobile-padding);
   }
   @at-root &__icon {
     width: 100%;
@@ -24,6 +32,9 @@ $padding: 1.25rem;
     border: 1px solid;
     border-radius: 50%;
     padding: calc($padding - 2px);
+    @media (max-width: $mobile) {
+      padding: calc($mobile-padding - 2px);
+    }
     background-color: transparent;
   }
   @at-root &--light {
