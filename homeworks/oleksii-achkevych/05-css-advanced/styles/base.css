@@ -8,10 +8,13 @@
 
 body {
   background-color: #E9EBEC;
+<<<<<<< HEAD
   font-family: 'poppins';
   color: #575757;
   font-weight: 500;
   font-size: 22px;
+=======
+>>>>>>> 5d53e5b2da1e1e1f2f060f3eb632de61c67067cf
 }
 
 a {
@@ -23,6 +26,27 @@ li {
   list-style-type: none;
 }
 
+<<<<<<< HEAD
+=======
+h1,
+h2,
+h3,
+p,
+a,
+button,
+li {
+  font-family: 'poppins';
+  color: #575757;
+  font-weight: 500;
+}
+
+p,
+button,
+li {
+  font-size: 22px;
+}
+
+>>>>>>> 5d53e5b2da1e1e1f2f060f3eb632de61c67067cf
 .container {
   display: flex;
   justify-content: center;
