@@ -1,14 +1,3 @@
-@import 'variables';
-
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 33px;
-  padding-bottom: 76px;
-}
-
 .profile {
   width: 631px;
   display: flex;
@@ -73,7 +62,7 @@
         }
       }
       &:active {
-        scale: 0.9;
+        transform: scale(0.9);
       }
     }
 
@@ -112,50 +101,6 @@
       font-weight: 500;
       color: var(--clr-secondary-text);
       transition: all 0.3s ease-in-out;
-    }
-  }
-}
-
-.links {
-  width: 618px;
-  display: flex;
-  justify-content: center;
-  gap: 38px;
-  @at-root &__link {
-    flex: 1;
-    font-size: 22px;
-    line-height: 33px;
-    font-weight: 500;
-    text-decoration: none;
-    gap: 1.5rem;
-    color: var(--clr-secondary-text);
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      color: var(--clr-blue);
-    }
-  }
-}
-
-
-.tabs {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--clr-tabs-bg);
-  border-radius: 20px;
-  padding-inline: 24px;
-  padding-block: 15px;
-  gap: 24px;
-  @at-root &__button {
-    flex: 1;
-    color: var(--clr-tab-text);
-    transition: all 0.1s ease-in-out;
-    &:hover {
-      background-color: var(--clr-tab-bg--active);
-    }
-    @at-root &--active {
-      background-color: var(--clr-tab-bg--active) !important;
     }
   }
 }
