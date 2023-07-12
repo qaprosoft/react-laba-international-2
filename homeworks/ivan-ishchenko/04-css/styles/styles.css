@@ -17,6 +17,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html {
+  font-size: 10px;
+}
+
 /* Page */
 .page {
   font-family: Poppins;
@@ -24,8 +28,9 @@
 }
 
 .page__container {
-  max-width: 760px;
+  max-width: 775px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 /* Theme toggle */
@@ -41,6 +46,7 @@
   position: fixed;
   z-index: 100;
   left: 50%;
+  transform: translateX(-50%);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   cursor: pointer;
   transition: .3s;
@@ -58,7 +64,29 @@
 .footer {
   padding: 80px 0;
   text-align: center;
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: 500;
   color: var(--secondary-text-color)
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 9px;
+  }
+
+  .theme_toggle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .theme_toggle__icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 6px;
+  }
 }

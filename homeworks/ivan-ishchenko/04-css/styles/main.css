@@ -10,16 +10,28 @@
 
 .tabs__item {
   border-radius: 10px;
-  width: 350px;
+  width: 50%;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: 500;
   color: var(--primary-text-color);
   cursor: pointer;
   transition: .3s;
+}
+
+@media screen and (max-width: 900px) {
+  .tabs__item {
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tabs__item {
+    height: 60px;
+  }
 }
 
 .tabs__item:hover {
@@ -36,7 +48,8 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 10px
 }
 
 .portfolio__item {
@@ -78,13 +91,13 @@
 }
 
 .portfolio__item_name {
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: 500;
   color: var(--on-accent-text-color);
 }
 
 .portfolio__item_description {
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
   margin-top: 3px;
   color: var(--primary-text-color);
