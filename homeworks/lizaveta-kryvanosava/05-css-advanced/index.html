@@ -237,71 +237,6 @@
           <img alt="heroku" src="./src/assets/icons/skills/heroku.svg" />
         </div>
       </section>
-
-      <div id="modal" class="modal">
-        <form class="modal__form" id="modal-form">
-          <button type="button" class="modal__form--close" id="close-modal">
-            <img src="./src/assets/icons/cross.svg" alt="close modal" />
-          </button>
-
-          <div class="modal__section">
-            <input
-              name="first-name"
-              class="modal__input"
-              type="text"
-              placeholder="*First Name..."
-              required
-            />
-
-            <input
-              name="last-name"
-              class="modal__input"
-              type="text"
-              placeholder="*Last Name..."
-              required
-            />
-          </div>
-
-          <div class="modal__section">
-            <input
-              type="number"
-              name="number"
-              class="modal__input"
-              placeholder="*Phone..."
-              required
-            />
-
-            <input
-              name="countries"
-              class="modal__input"
-              list="countries"
-              placeholder="Your country..."
-            />
-
-            <datalist id="countries">
-              <option value="Belarus" />
-              <option value="Ukraine" />
-              <option value="Georgia" />
-              <option value="Poland" />
-              <option value="United States" />
-              <option value="other" />
-            </datalist>
-          </div>
-
-          <div class="modal__form--section">
-            <textarea
-              name="modal-textarea"
-              class="modal__input"
-              placeholder="Your message..."
-            ></textarea>
-          </div>
-
-          <button type="submit" class="modal__form--submit">Submit</button>
-          <button type="reset" class="modal__form--reset">Reset form</button>
-        </form>
-
-        <div class="modal__shield"></div>
-      </div>
     </main>
 
     <footer>
@@ -311,6 +246,71 @@
     <a href="#scroll-to" id="scroll-to-top">
       <img src="./src/assets/icons/arrow.svg" alt="scroll to top" />
     </a>
+
+    <div id="modal" class="modal">
+      <form class="modal__form" id="modal-form">
+        <button type="button" class="modal__form--close" id="close-modal">
+          <img src="./src/assets/icons/cross.svg" alt="close modal" />
+        </button>
+
+        <div class="modal__section">
+          <input
+            name="first-name"
+            class="modal__input"
+            type="text"
+            placeholder="*First Name..."
+            required
+          />
+
+          <input
+            name="last-name"
+            class="modal__input"
+            type="text"
+            placeholder="*Last Name..."
+            required
+          />
+        </div>
+
+        <div class="modal__section">
+          <input
+            type="number"
+            name="number"
+            class="modal__input"
+            placeholder="*Phone..."
+            required
+          />
+
+          <input
+            name="countries"
+            class="modal__input"
+            list="countries"
+            placeholder="Your country..."
+          />
+
+          <datalist id="countries">
+            <option value="Belarus" />
+            <option value="Ukraine" />
+            <option value="Georgia" />
+            <option value="Poland" />
+            <option value="United States" />
+            <option value="other" />
+          </datalist>
+        </div>
+
+        <div class="modal__section">
+          <textarea
+            name="modal-textarea"
+            class="modal__input"
+            placeholder="Your message..."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="modal__form--submit">Submit</button>
+        <button type="reset" class="modal__form--reset">Reset form</button>
+      </form>
+
+      <div class="modal__shield"></div>
+    </div>
   </body>
   <script src="./src/scripts/theme.js"></script>
   <script src="./src/scripts/portfolioTabs.js"></script>
