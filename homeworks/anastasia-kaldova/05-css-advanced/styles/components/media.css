@@ -21,7 +21,10 @@
         width: 24px;
         height: 24px;
     }
-    
+
+    .projects__btns-btn {
+        padding: 1.25em 4.33em;
+    }
 }
 
 @media (max-width: 375px) {
@@ -44,7 +47,11 @@
         height: 210px;
     }
 
-    .projects__btns-btn {
+    /* .projects__btns-btn {
         padding: 1.25em 4.33em;
+    } */
+
+    .btnScrollTop {
+        display: block;
     }
 }

@@ -1,6 +1,8 @@
+// Change color theme
 const body = document.body,
-      colorThemeBtn = body.querySelector('.menu__btn'),
       headerHeading = body.querySelector('.person-card__heading'),
+
+      colorThemeBtn = body.querySelector('.menu__btn'),
       btns = body.querySelectorAll('.btn'),
       btnActive = body.querySelector('.btn--active'),
       projectsBtnsBox = body.querySelector('.projects__btns'),
@@ -27,3 +29,15 @@ function changeColorTheme(e) {
 }
 
 colorThemeBtn.addEventListener('click', changeColorTheme);
+
+// Scroll to top
+
+const btnScrollTop = body.querySelector('.btnScrollTop');
+
+function scrollToTop () {
+    body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+
+}
+
+btnScrollTop.addEventListener('click', scrollToTop);
