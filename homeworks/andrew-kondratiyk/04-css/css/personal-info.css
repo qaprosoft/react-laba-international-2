@@ -3,7 +3,7 @@
 	max-width: 631px;
 }
 
-.personal-info__top {
+.personal-info__main-info {
 	display: flex;
 	align-items: center;
 	gap: 40px;
