@@ -1,7 +1,6 @@
 // code downloaded from https://github.com/iconfu/svg-inject
 
 let currentTheme = localStorage.getItem('theme') || 'light';
-const body = document.querySelector('body');
 const themeSwitcher = document.getElementById('theme-switcher');
 const setTheme = (theme) => {
   if (theme === 'dark') {
