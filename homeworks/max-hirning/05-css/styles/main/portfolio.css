@@ -5,7 +5,7 @@
     flex-direction: column;
 }
 
-.portfolio_buttons {
+.portfolio__buttons {
     width: 80vw;
     display: flex;
     max-width: 760px;
@@ -15,7 +15,7 @@
     background-color: var(--portfolio-btns-bg-color);
 }
 
-.portfolio_button {
+.portfolio-button {
     width: 48%;
     height: 13vw;
     border: none;
@@ -26,20 +26,20 @@
     border-radius: 10px;
 }
 
-.portfolio_button:hover {
+.portfolio-button:hover {
     transform: scale(0.75);
     color: var(--download-btn-bg-color);
 }
 
-.portfolio_buttons_active {
+.portfolio__button-active {
     background-color: var(--portfolio-btn-active-bg-color);
 }
 
-.portfolio_buttons_inactive {
+.portfolio__button-inactive {
     background-color: transparent;
 }
 
-.portfolio_examples {
+.portfolio__examples {
     display: flex;
     flex-wrap: wrap;
     max-width: 757px;

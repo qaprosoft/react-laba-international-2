@@ -1,24 +1,24 @@
 @media screen and (min-width: 769px) {
-    .portfolio_buttons {
+    .portfolio__buttons {
         padding: 1.5vw;
     }
 }
 
 @media screen and (max-width: 769px) {
-    .profile_main_info {
+    .profile__main-info {
         flex-direction: column;
     }
 
-    .portfolio_buttons {
+    .portfolio__buttons {
         padding: 2vw;
     }
 
-    .profile_info {
+    .profile__info {
         margin-top: 1rem;
         align-items: center;
     }
 
-    .portfolio_examples {
+    .portfolio__examples {
         flex-direction: column;
     }
 }
@@ -28,7 +28,7 @@
         font-size: 14px;
     }
 
-    .download_icon {
+    .download-icon {
         width: 22px;
         height: 22px;
     }
@@ -37,20 +37,20 @@
         font-size: 32px; 
     }
 
-    .social_media_link_icon {
+    .social-media__link-icon {
         width: 20px;
         height: 20px;
     }
 }
 
 @media screen and (max-width: 426px) {
-    .profile_avatar {
+    .profile__avatar {
         width: 124px;
         height: 124px;
         background-color: transparent !important;
     }
 
-    .portfolio_buttons {
+    .portfolio__buttons {
         border-radius: 10px !important;
     }
 }
@@ -60,7 +60,7 @@
         font-size: 12px;
     }
 
-    .download_icon {
+    .download-icon {
         width: 16px;
         height: 16px;
     }

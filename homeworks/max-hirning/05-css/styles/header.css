@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-.theme_toogle {
+.theme-toogle {
     width: 45px;
     height: 45px;
     border: none;
@@ -16,12 +16,21 @@
     background: var(--toggle-switcher-bg-color);
 }
 
-.header_theme_toogle {
+.header__theme-toogle {
     transition-duration: 1s;
 }
 
-.header_theme_toogle:hover {
+.header__theme-toogle:hover {
     transform: scale(1.25);
+}
+
+.header__theme-toogle-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.header__theme-toogle-rotate {
+    animation: rotate360 0.5s linear;
 }
 
 @keyframes rotate360 {
@@ -31,13 +40,4 @@
     100% {
         transform: rotate(360deg);
     }
-}
-
-.header_theme_toogle_rotate {
-    animation: rotate360 0.5s linear;
-}
-
-.theme_toogle_icon {
-    width: 25px;
-    height: 25px;
 }

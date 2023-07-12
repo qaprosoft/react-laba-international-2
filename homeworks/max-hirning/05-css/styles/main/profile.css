@@ -4,51 +4,51 @@
     margin-block: 2rem;
 }
 
-.profile_main_info {
+.profile__main-info {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.profile_avatar {
+.profile__avatar {
     padding: 4px;
     border-radius: 100%;
     background-color: var(--profile-avatar-bg);
     border: 4px solid var(--profile-avatar-border-color);
 }
 
-.profile_info {
+.profile__info {
     display: flex;
     flex-direction: column;
 }
 
-.profile_info_position {
+.profile__info-position {
     margin-block: 1rem;
 }
 
-.social_media {
+.social-media {
     width: 65%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.social_media_link {
+.social-media__link {
     cursor: pointer;
     transition-duration: 1s;
 }
 
-.social_media_link:hover {
+.social-media__link:hover {
     transform: scale(1.25);
 }
 
-.social_media_link_icon {
+.social-media__link-icon {
     max-width: 30px;
     max-height: 30px;
 }
 
-.profile_additional_info {
+.profile__additional-info {
     width: 100%;
     display: flex;
     margin-top: 2rem;
@@ -56,13 +56,13 @@
     justify-content: space-around;
 }
 
-.profile_additional_info_box {
+.profile__info-box {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.profile_additional_info_text {
+.profile__info-text {
     text-align: center;
 }
