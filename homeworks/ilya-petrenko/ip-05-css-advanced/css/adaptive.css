@@ -1,22 +1,25 @@
 @media (min-width: 768px) {
-    .myPhoto {
-        width: 315px;
-        height: 315px;
+    .header__my-photo {
+        width: 215px;
+        height: 215px;
         border-radius: 50%;
         object-fit: cover;
     }
-    .description {
+    .header__description {
         font-size: x-large;
     }
-    .navButton {
+    .nav__button {
         font-size: x-large;
         width: 18rem;
         height: 6rem;
     }
-    .CVButton {
+    .cv-buttons__button {
         font-size: x-large;
         width: 16rem;
         height: 5rem;
+    }
+    .header__achievement {
+        font-size: 22px;
     }
 }
 
@@ -30,14 +33,22 @@
     .gallery img {
         width: 15rem;
     }
+    .header__icon img{
+        width: 24px;
+        height: 24px;
+    }
 }
 
 @media (max-width: 529px) {
-    .CVButton{
+    .cv-buttons__button{
         width: 9rem;
     }
-    .navButton{
+    .nav__button{
         width: 10rem;
+    }
+    .header__icon img{
+        width: 24px;
+        height: 24px;
     }
 }
 

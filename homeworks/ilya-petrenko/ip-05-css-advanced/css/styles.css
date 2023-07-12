@@ -8,32 +8,55 @@ header{
     margin-top: 2rem;
 }
 
-.description {
+.header__description {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 }
 
-h1 {
-    color: white;
+.theme-toggle {
+    display: block;
+    margin: 0 auto 3rem;
+    width: 40px;
+    height: 40px;
 }
 
-.experience {
+.theme-toggle:hover {
+    opacity: 20%;
+    color: #A3ABB2;
+    cursor: pointer;
+}
+
+.header__full-name {
+    color: white;
+    margin-bottom: 0;
+}
+
+.header__experience {
     margin-top: 2rem;
     gap: 3rem;
     display: flex;
     justify-content: center;
 }
 
-.myPhoto {
+.header__my-photo {
     width: 215px;
     height: 215px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.main_info {
+.header__icon{
+    text-decoration: none;
+}
+
+.header__icon img{
+    width: 36px;
+    height: 36px;
+}
+
+.header__main-info {
     display: flex;
     gap: 1rem;
     flex-direction: column;
@@ -43,26 +66,26 @@ button {
     cursor: pointer;
 }
 
-.icons {
+.header__icons {
     display: flex;
     justify-content: space-around;
 }
 
-.icons a {
+.header__icons a {
     transition: opacity 0.5s, color 0.5s;
 }
 
-.icons a:hover {
+.header__icons a:hover {
     opacity: 20%;
     color: #A3ABB2;
 }
 
-.profession {
+.header__profession {
     display: flex;
     justify-content: center;
 }
 
-.achievement {
+.header__achievement {
     text-align: center;
 }
 
@@ -72,7 +95,7 @@ button {
     justify-content: center;
 }
 
-.CVButtons {
+.cv-buttons {
     display: inline-flex;
     justify-content: center;
     gap: 2rem;
@@ -80,32 +103,32 @@ button {
     border-radius: 3%;
 }
 
-.CVButton {
+.cv-buttons__button {
     font-family: "Poppins", sans-serif;
+    background-color: #FFE071;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8%;
+    border-radius: 10px;
     color: black;
-    background-color: #FFE071;
     width: 10rem;
     height: 4rem;
     transition: opacity 0.5s, box-shadow 0.5s;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
-.CVButton img {
+.cv-buttons__button img {
     vertical-align: middle;
     margin-left: 0.5rem;
 }
 
-.CVButton:hover {
+.cv-buttons__button:hover {
     opacity: 0.9;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
     animation: buttonAnimation 1s ease-in-out forwards;
 }
 
-.CVButton:last-child {
+.cv-buttons__button:last-child {
     background-color: #171F26;
     color: #A3ABB2;
 }
@@ -115,7 +138,7 @@ button img {
     height: 1.1rem;
 }
 
-.navButtons {
+.nav__buttons {
     display: inline-flex;
     justify-content: center;
     gap: 2rem;
@@ -125,16 +148,20 @@ button img {
     color: #A3ABB2;
 }
 
-.navButton {
+.nav__button {
     font-family: "Poppins", sans-serif;
-    border-radius: 8%;
+    border-radius: 10px;
     color: #A3ABB2;
-    background-color: #0C151D;
+    background-color: #171F26;
     width: 11.5rem;
     height: 4rem;
 }
 
-.gallery_container {
+.nav__button.selected {
+    background-color: #0C151D;
+}
+
+.gallery-container {
     display: flex;
     justify-content: center;
 }
