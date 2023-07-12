@@ -9,10 +9,15 @@
     height: 80px;
     border-radius: 100%;   
     background: var(--white-color) url("../../assets/icons/switch-color.svg") no-repeat center/50% 50%;
+    transition: background-color .5s ease-in;
 }
 
 .menu__btn--dark {
     background: var(--grey-dark-color) url("../../assets/icons/swiitch-color--dark.svg") no-repeat center/50% 50%;
+}
+
+.menu__btn:hover, .menu__btn--dark:hover {
+    background-color: var(--accent-color);
 }
 
 .person-card__container {

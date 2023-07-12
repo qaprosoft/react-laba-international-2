@@ -13,6 +13,29 @@
 
     --border-radius: 10px;
   }
+
+  @keyframes move-up {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    25% {
+      -webkit-transform: translateY(-50px);
+      transform: translateY(-50px);
+    }
+    50% {
+      -webkit-transform: translateY(-70px);
+      transform: translateY(-70px);
+    }
+    75% {
+      -webkit-transform: translateY(-100px);
+      transform: translateY(-100px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
   
   .container {
     max-width: 757px;
@@ -92,4 +115,9 @@
     border-radius: 100%;
     border: 1px solid #7523c2;
     background: var(--accent-color) url("../assets/icons/scroll-to-top.svg") no-repeat center/50% 50%;
+    transition: background-color .5s ease-in;
+  }
+
+  .btnScrollTop:hover {
+    background-color: #575757;
   }

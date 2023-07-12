@@ -52,6 +52,10 @@ padding: 1.09em 5.5em;
     border-radius: calc(var(--border-radius) * 1.5);
 }
 
+.projects__item:hover {
+    animation: move-up 3s ease;
+}
+
 .projects__img {
     -o-object-fit: cover;
        object-fit: cover;
