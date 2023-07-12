@@ -29,6 +29,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .tabs {
+    margin-top: 60px;
+  }
+
   .tabs__item {
     height: 60px;
   }

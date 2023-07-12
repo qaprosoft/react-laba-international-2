@@ -36,8 +36,8 @@
 }
 
 .profile__social_icon {
-  width: 35px;
-  height: 35px;
+  width: 3.5rem;
+  height: 3.5rem;
 }
 
 .page--theme-dark .profile__social_icon {
@@ -127,11 +127,15 @@
   }
 
   .profile__name {
-    margin-top: 5px;
+    margin-top: 15px;
   }
 
   .profile__socials {
     justify-content: center;
+  }
+
+  .action_buttons {
+    margin-top: 50px ;
   }
 
   .action_buttons__btn {
@@ -141,6 +145,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .statistics {
+    margin-top: 25px;
+  }
+
   .action_buttons__btn {
     width: 200px;
     height: 60px;
