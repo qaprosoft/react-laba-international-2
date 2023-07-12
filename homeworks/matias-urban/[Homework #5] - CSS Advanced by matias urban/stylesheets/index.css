@@ -1,0 +1,476 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, "sans-serif";
+  font-weight: bold;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ebec;
+  flex-direction: column;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-button-dark-theme {
+  margin-top: 2.0625em;
+  cursor: pointer;
+}
+.container-button-dark-theme:hover {
+  -webkit-animation: rotate 5s normal
+    linear infinite;
+  animation: rotate 1.5s normal linear 1;
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate3d(
+      0,
+      0,
+      1,
+      0deg
+    );
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  25% {
+    -webkit-transform: rotate3d(
+      0,
+      0,
+      1,
+      90deg
+    );
+    transform: rotate3d(0, 0, 1, 90deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(
+      0,
+      0,
+      1,
+      180deg
+    );
+    transform: rotate3d(
+      0,
+      0,
+      1,
+      180deg
+    );
+  }
+  75% {
+    -webkit-transform: rotate3d(
+      0,
+      0,
+      1,
+      270deg
+    );
+    transform: rotate3d(
+      0,
+      0,
+      1,
+      270deg
+    );
+  }
+  100% {
+    -webkit-transform: rotate3d(
+      0,
+      0,
+      1,
+      360deg
+    );
+    transform: rotate3d(
+      0,
+      0,
+      1,
+      360deg
+    );
+  }
+}
+.container-button-dark-theme__button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 1.25em;
+  transition: 2s;
+}
+
+.profile-container {
+  margin-top: 4.0625em;
+  flex-direction: column;
+}
+
+.profile-container__profile-image {
+  width: 7.75em;
+  height: 7.75em;
+  background-color: white;
+  border-radius: 50%;
+  border: 0.25em solid #fbd144;
+}
+
+.profile-container__profile-img {
+  width: 6.6875em;
+  height: 6.6875em;
+}
+
+.profile-container__profile-title {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  color: #3d3d3d;
+  line-height: 4.3125em;
+  font-family: "Poppins", sans-serif;
+}
+
+.personal-info-container {
+  margin-top: 1.875em;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  gap: 1.5625em;
+  width: 23.4375em;
+}
+
+.profile-container__info {
+  font-size: 0.875em;
+  color: #575757;
+}
+
+.personal-info-container {
+  display: flex;
+}
+
+.personal-info-container__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+}
+
+.personal-info-container__top {
+  color: #3a3a3a;
+  font-size: 1em;
+}
+
+.personal-info-container__bottom {
+  color: #575757;
+  font-size: 0.875em;
+  padding: 0.375em 0;
+}
+
+.profile-container__network-logos {
+  display: flex;
+  justify-content: space-between;
+  width: 11em;
+  margin-top: 1.25em;
+}
+
+.profile-container__logo {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.container-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin-top: 1.875em;
+  padding: 1.125em 1.25em;
+  gap: 0.875em;
+}
+
+.container-buttons__download {
+  border-radius: 0.625em;
+  background: #fbd144;
+  padding: 0.8125em 0;
+  border: none;
+  color: #19191b;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 0.75em;
+  flex: 1;
+  cursor: pointer;
+}
+
+.container-buttons__download-button {
+  width: 0.75em;
+  height: 0.75em;
+}
+
+.container-buttons__contact {
+  flex: 1;
+  border-radius: 0.625em;
+  background: #fff;
+  padding: 0.8125em 0;
+  border: none;
+  color: #19191b;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+.button-container-portfolio-box {
+  border-radius: 0.625em;
+  background-color: white;
+  margin-top: 6.75em;
+}
+
+.button-container-portfolio-box__buttons {
+  flex: 1;
+  color: #19191b;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 0.875em;
+  border: none;
+  padding: 0.9375em 0;
+  margin: 0.3125em 0.625em;
+  border-radius: 0.625em;
+}
+
+.button-container-portfolio-box__button1 {
+  background-color: #d7d7d7;
+  cursor: pointer;
+}
+
+.button-container-portfolio-box__button2 {
+  background-color: white;
+  cursor: pointer;
+}
+
+.portfolio-images__container-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 23.4375em;
+  margin-top: 4em;
+}
+
+.portfolio-images__imgs {
+  margin: 0em 0.625em 3.125em 0.625em;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4em;
+}
+
+.footer__span {
+  color: #575757;
+  font-size: 0.875em;
+}
+.gototopbtn {
+  margin-top: 50px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 45%;
+  bottom: 25px;
+}
+.up-arrow {
+  width: 25px;
+  height: 25px;
+}
+.background-color-0c151d {
+  background-color: #0c151d;
+}
+
+.color-a3abb2 {
+  color: #a3abb2;
+}
+
+.color-F1F2F4 {
+  color: #f1f2f4;
+}
+
+.background-color-171F26 {
+  background-color: #171f26;
+}
+
+.background-color-ffe071 {
+  background-color: #ffe071;
+}
+
+.no-show {
+  display: none;
+}
+
+@media screen and (min-width: 601px) {
+  body {
+    width: 100%;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .profile-container {
+    margin-top: 5.5625em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2.1em;
+    height: auto;
+  }
+
+  .profile-container__info {
+    justify-content: flex-start;
+  }
+
+  .profile-container__profile-image {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.225em solid #fbd144;
+  }
+
+  .profile-container__profile-img {
+    width: 9.2em;
+    height: 9.2em;
+  }
+
+  .profile-container__profile-info {
+    flex-direction: column;
+  }
+
+  .profile-container__network-logos {
+    gap: 1.95em;
+  }
+
+  .profile-container__profile-title {
+    font-size: 2.1em;
+    line-height: 3em;
+  }
+
+  .personal-info-container {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    padding: 0.93em 0.093em 0.93em
+      0.093em;
+    gap: 2.1em;
+    width: 23.4em;
+  }
+
+  .personal-info-container__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+  }
+
+  .personal-info-container__top {
+    font-size: 1.125em;
+  }
+
+  .personal-info-container__bottom {
+    font-size: 1.03em;
+    padding: 0.281em 0;
+  }
+
+  .profile-container__info {
+    font-size: 1.55em;
+  }
+
+  .profile-container__network-logos {
+    display: flex;
+    justify-content: space-between;
+    width: 10.4em;
+    margin-top: 0.47em;
+  }
+
+  .profile-container__logo {
+    width: 1.7em;
+    height: 1.7em;
+  }
+
+  .container-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.5em;
+    width: 25.5em;
+    gap: 1.8em;
+  }
+
+  .container-buttons__download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.05em;
+  }
+
+  .container-buttons__download-button {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .container-buttons__contact {
+    font-size: 1.05em;
+  }
+
+  .button-container-portfolio-box {
+    margin-top: 4.25em;
+    border-radius: 0.625em;
+    padding: 0.15625em;
+  }
+
+  .portfolio-images {
+    margin-top: 3.75em;
+  }
+  .portfolio-images__imgs {
+    width: 17.5em;
+  }
+  .portfolio-images__container-images {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+    grid-auto-rows: auto;
+    grid-gap: 0.5rem;
+  }
+
+  .footer {
+    margin-top: 3.75em;
+  }
+  .portfolio-images__imgs {
+    transition: 1s;
+  }
+  .portfolio-images__imgs:hover {
+    transform: scale(1.5);
+  }
+  .gototopbtn {
+    display: none;
+  }
+}
