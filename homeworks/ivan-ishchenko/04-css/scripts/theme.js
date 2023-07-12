@@ -47,7 +47,17 @@ const toggleTheme = () => {
 }
 
 // set initial theme
-toggleTheme();
+if(localStorage.getItem('theme') === 'dark') {
+  setThemeDark();
+  body.classList.remove('page--theme-light')
+  body.classList.add('page--theme-dark')
+  localStorage.setItem('theme', 'dark');
+} else {
+  setThemeLight();
+  body.classList.remove('page--theme-dark')
+  body.classList.add('page--theme-light')
+  localStorage.setItem('theme', 'light');
+}
 
 const themeToggle = document.querySelector('.theme_toggle');
 themeToggle.onclick = toggleTheme;
