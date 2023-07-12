@@ -1,0 +1,18 @@
+:root {
+    --light-background-main: #E9EBEC;
+    --light-secondary-color: #FFFFFF;
+    --light-text-color-primary: #575757;
+    --light-text-color-secondary: #3D3D3D;
+    --light-accent-color: #FBD144;
+    --light-nav-active-color: #D7D7D7;
+
+    --dark-background-main: #0C151D;
+    --dark-secondary-color: #171F26;
+    --dark-text-color-primary: #A3ABB2;
+    --dark-text-color-secondary: #F1F2F4;
+    --dark-accent-color: #FFE071;
+    --dark-nav-active-color: #0C151D;
+
+    --main-font-family: Poppins;
+    --main-font-size: 22px;
+}
