@@ -6,41 +6,56 @@ const skillsContainer = document.getElementById("skills");
 const projectsContainer = document.getElementById("projectsContainer");
 const body = document.body;
 
-scrollToTopButton.addEventListener("click", (e)=>{
 
-    e.preventDefault();
-    console.log(portfolioButton)
-    window.scroll({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-});
+window.addEventListener("load", ()=>{
 
 
-darkModeButton.addEventListener("click", (e)=>{
-    e.preventDefault();
-    body.classList.toggle("darkMode")
-});
+    scrollToTopButton.addEventListener("click", (e)=>{
 
-portfolioButton.addEventListener("click", (e)=>{
-
-
-
-   projDisplay = projectsContainer.style.width;
-   skillDisplay = skillsContainer.style.display;
-    window.alert("hola " + projDisplay)
-   console.log(projectsContainer.style.display)
-
-    e.preventDefault();
-   if(projDisplay === "none" && skillDisplay === "none") { 
-            projDisplay = "flex"; + 111
-            portfolioButton.setAttribute("disabled");
-   } 
-   else if ( projDisplay === "none" && ! skillDisplay === "none")
-    {  skillDisplay = "none";
-       projDisplay = "flex";
-       portfolioButton.setAttribute("disabled");    
+        e.preventDefault();
+        console.log(portfolioButton)
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+    });
+    
+    
+   darkModeButton.addEventListener("click", (e)=>{
+        e.preventDefault();
+    
+        let dmIcon = document.getElementById("darkModeIcon");
+       
+        let style = document.getElementById("styleSheetElement");
+    if(style.getAttribute("href")==="./styles/index.css")
+    {
+        style.setAttribute("href", "./styles/darkmode.css");
+        dmIcon.classList.remove("fa-moon");
+        dmIcon.classList.add("fa-sun");
     }
+    else{
+        style.setAttribute("href", "./styles/index.css");
+        dmIcon.classList.remove("fa-sun");
+        dmIcon.classList.add("fa-moon");
+        
+    }
+    });
+    
+    portfolioButton.addEventListener("click", (e)=>{
+    
+        
+        
+      
+    
+    })
+    
+
+
+
 })
+
+
+
+
 

@@ -13,18 +13,13 @@
 
 
 body{
-   
-    background-color: #E9EBEC;
+    background-color: #0C151D;
     margin: 0;
     height: 100%;
     width: 100%;
-   
+   color: #A3ABB2;
 }
 
-.darkMode{
-    background-color: black;
-    color: white;
-}
 
 header{
     text-align: center;
@@ -34,27 +29,26 @@ header{
 
 #darkModeButton {
     border-radius: 100%;
-    background-color: white;
+    background-color: #171F26;
     transition: all 1000ms;
     margin-top: 25px;
-    border: none;  
+    border: none;
     
 }
 
+#darkModeButton:hover{
+    background-color: #0C151D;
+}
+
 #darkModeButton i{
+    color: grey;
     transition: color 1000ms;
 }
 
 
-
-
-#darkModeButton:hover{
-    background-color:#171F26;
-    
-}  
 #darkModeButton i:hover{
-    color: white;
-}     
+    color:white ;
+}       
 main{
     display: flex;
     flex-direction: column;
@@ -87,32 +81,32 @@ main{
     border: 3px black solid;
 }
 
-.titleLogos{
+.titleAndLogos{
     
     align-self: center;
     display: flex;
     flex-direction: column;
     width: 60%;
-    margin: 0 auto;
-    align-content: flex-start;
+    margin: 0;
+   
+    
 }
 
-.titleLogos h1{
+.titleAndLogos h1{
     
     font-size: 46px;
     font-weight: 500;
     line-height: 69px;
-    color: #3D3D3D; 
-    margin: 0 auto;
+    color: #F1F2F4; 
+    margin: 0;
     
 }
 
-.titleLogos h4 {
+.titleAndLogos h4 {
     font-size: 22px;
     font-weight: 500;
     line-height: 33px;
-    color: #575757;
-    margin: 0 ;
+    margin: 0;
 }
 
 
@@ -128,6 +122,7 @@ main{
 .socialsLogo {
     width: 36px;
     height: 36px;
+    color: #A3ABB2;
 }
 
 
@@ -185,8 +180,9 @@ main{
 }
 
 #contactButton{
-    background-color:#FFFFFF;
+    background-color:#171F26;
     transition: hover 200ms;
+    color: #A3ABB2;
 }
 
 
@@ -198,7 +194,7 @@ main{
 }
 
 .sliderPortfolioSkills{
-    background-color: #FFFFFF;
+    background-color: #171F26;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -208,11 +204,12 @@ main{
 }
 
 .sliderPortfolioSkills button{
+    color: #A3ABB2;
     width: 45%;
     height: 80px;
     border-radius: 10px;
     border: none;
-    background-color: #FFFFFF;
+    background-color: #171F26;
     margin: auto 0;
     font-size: 22px;
     line-height: 33px;
@@ -221,7 +218,7 @@ main{
 }
 
 .sliderPortfolioSkills button:focus{
-  background-color: grey;
+  background-color: #0C151D;
 }
 
 

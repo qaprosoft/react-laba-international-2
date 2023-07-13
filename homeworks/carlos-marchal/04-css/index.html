@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/index.css" type="text/css">
+    <link id="styleSheetElement" rel="stylesheet" href="./styles/index.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -23,9 +23,7 @@
     <header class="header">
 
         <button type="button" id="darkModeButton">
-
-            <img id="darkModeImage" src="./assets/images/darkmode-moon.png" alt="darkmode toogle button">
-
+            <i id="darkModeIcon" class="fa-regular fa-moon"></i>
         </button>
         
     </header>
@@ -57,8 +55,8 @@
 
         <div class="cvContactButtonsContainer">
            
-            <button id="cvButton" >Download CV </button>
-            <button id="contactButton"> Contact me</button>
+            <button type="button" id="cvButton" >Download CV </button>
+            <button type="button" id="contactButton"> Contact me</button>
 
         </div>
         
@@ -66,19 +64,19 @@
 
         <div class="sliderContainer">
             <div class="sliderPortfolioSkills">
-                <!--<div id="selectorAnimation"></div>-->
-            <button id="sliderButtonPortfolio">Portfolio</button>
-            <button id="sliderButtonSkills">Skills</button>
+               
+            <button type="button" id="sliderButtonPortfolio">Portfolio</button>
+            <button type="button" id="sliderButtonSkills">Skills</button>
             </div>
         </div>
         
-        <div id="projectsContainer" display="none">
-            <div><img src="./assets/images/projects-images/project-1.jpg" alt=""></div>
-            <div><img src="./assets/images/projects-images/project-2.jpg" alt=""></div>
-            <div><img src="./assets/images/projects-images/project-3.jpg" alt=""></div>
-            <div><img src="./assets/images/projects-images/project-4.jpg" alt=""></div>
-            <div><img src="./assets/images/projects-images/project-5.jpg" alt=""></div>
-            <div><img src="./assets/images/projects-images/project-6.jpg" alt=""></div>
+        <div id="projectsContainer">
+            <div><img src="./assets/images/projects-images/project-1.jpg" alt="project image"></div>
+            <div><img src="./assets/images/projects-images/project-2.jpg" alt="project image"></div>
+            <div><img src="./assets/images/projects-images/project-3.jpg" alt="project image"></div>
+            <div><img src="./assets/images/projects-images/project-4.jpg" alt="project image"></div>
+            <div><img src="./assets/images/projects-images/project-5.jpg" alt="project image"></div>
+            <div><img src="./assets/images/projects-images/project-6.jpg" alt="project image"></div>
         </div>
 
         <div id="skills">
@@ -89,6 +87,7 @@
             <p>React</p>
             <p>React</p>
         </div>
+    
     </main>
     <footer class="footer">
         <p> Carlos Marchal. 2023 All rights reserved</p>
