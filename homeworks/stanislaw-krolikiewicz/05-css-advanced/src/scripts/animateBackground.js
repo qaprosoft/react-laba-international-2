@@ -8,21 +8,16 @@ const bluredCircle = document.querySelector('.blured-circle');
 const circleWidth = bluredCircle.scrollWidth;
 const circleHeight = bluredCircle.scrollHeight;
 
-let { clientWidth, clientHeight } = body;
-
-window.addEventListener('resize', () => {
-  clientWidth = body.clientWidth;
-  clientHeight = body.clientHeight;
-});
-
 let x = 0, y = 0;
 let xDirection = 'right', yDirection = 'down';
 const animateBackground = () => {
-  console.log('clientWidth:', clientWidth, 'clientHeight:', clientHeight);
+  const { clientWidth, scrollHeight } = document.documentElement;
+  body.style.width = `${clientWidth}px`;
+  body.style.overflowX = `hidden`;
   if (x >= clientWidth - circleWidth) xDirection = 'right';
   else if (x <= 0) xDirection = 'left';
   
-  if (y >= clientHeight - circleHeight) yDirection = 'up';
+  if (y >= scrollHeight - circleHeight) yDirection = 'up';
   else if (y <= 0) yDirection = 'down';
 
   if (xDirection === 'left') x++;

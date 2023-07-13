@@ -1,7 +1,6 @@
 const scrollButton = document.getElementById('scroll-top');
 
 scrollButton.addEventListener('click', () => {
-  console.log('click');
   window.scrollTo({
     top: 0,
     left: 0,

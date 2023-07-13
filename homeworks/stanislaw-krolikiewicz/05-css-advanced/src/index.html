@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SK - Portfolio</title>
   <link rel="stylesheet" href="styles/scss/_main.scss">
+  <script src="scripts/svgInject.min.js"></script>
 </head>
 <body class="page">
   <header class="page__wrapper header">
@@ -59,7 +60,7 @@
       </div>
     </section>
     <nav class="tabs">
-      <div class="tabs__background"></div>
+      <div class="tabs__background "></div>
       <button class="tabs__button tabs__button--active button">Portfolio</button>
       <button class="tabs__button button">Skills</button>
     </nav>
@@ -81,7 +82,7 @@
         <div class="portfolio__info">
           <h3 class="portfolio__title">Instamock</h3>
           <p class="portfolio__description">A Vue app that mocks instagram based on data stored inside supabase cloud.</p>
-          <a class="portfolio__link button" href="https://main--animated-wisp-65b379.netlify.app/profile/stachkrol" target="_blank">
+          <a class="portfolio__link button" href="https://main--animated-wisp-65b379.netlify.app/" target="_blank">
             <img class="portfolio__icon" src="assets/icons/external-link.svg" alt="External link" onload="SVGInject(this)">
           </a>
         </div>
@@ -131,7 +132,6 @@
   <footer class="page__wrapper footer">
     <p class="footer__text">© Stanisław Królikiewicz. 2023 All rights reserved.</p>
   </footer>
-  <script src="scripts/svgInject.js"></script>
   <script src="scripts/switchTheme.js"></script>
   <script src="scripts/scrollToTop.js"></script>
   <script src="scripts/animateTabs.js"></script>
