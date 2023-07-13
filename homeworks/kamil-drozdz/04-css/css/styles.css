@@ -53,11 +53,11 @@ button {
   background-color: #FFFFFF;
 }
 
-.theme-switcher:checked ~ .content, .theme-switcher:checked ~ footer {
+.theme-switcher:checked ~ .person-card, .theme-switcher:checked ~ footer, .theme-switcher:checked ~ .header {
   background-color: #0C151D;
   color: #A3ABB2;
 }
-.theme-switcher:checked ~ .content .section__buttons, .theme-switcher:checked ~ .content .section__buttons a, .theme-switcher:checked ~ .content .section__contact--contact {
+.theme-switcher:checked ~ .person-card .person-card__buttons, .theme-switcher:checked ~ .person-card .person-card__buttons a, .theme-switcher:checked ~ .person-card .person-card__contact-button {
   background-color: #171F26;
   color: #A3ABB2;
 }
@@ -73,7 +73,38 @@ button {
   background: #D7D7D7;
 }
 
-.content {
+.header {
+  padding-top: 6rem;
+  width: 100%;
+  transition: background-color 0.5s;
+  background-color: #E9EBEC;
+  color: #575757;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1rem 0;
+}
+.header__logo img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 12rem;
+  outline: #FFFFFF solid 4px;
+}
+.header__navigation {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 1.625rem;
+}
+.header__navigation img {
+  width: 1.75rem;
+  height: 1.75rem;
+  outline: none;
+}
+
+.person-card {
   transition: background-color 0.5s;
   background-color: #E9EBEC;
   color: #575757;
@@ -81,49 +112,25 @@ button {
   width: 100%;
   padding-bottom: 10rem;
 }
-.content .header {
-  margin-top: 6rem;
-}
-.content .header__logo {
+.person-card__experience {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
-}
-.content .header__logo img {
-  width: 12rem;
-  height: 12rem;
-  border-radius: 12rem;
-  outline: #FFFFFF solid 4px;
-}
-.content .header__title--navigation {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 1.625rem;
-}
-.content .header__title--navigation img {
-  width: 1.75rem;
-  height: 1.75rem;
-  outline: none;
-}
-.content .section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.25rem 0.125rem;
+  margin: 1.25rem 0.125rem;
   gap: 5.625rem;
 }
-.content .section__item {
+.person-card__item {
   font-size: 1rem;
   display: flex;
   flex-direction: column;
 }
-.content .section__item--heading {
+.person-card__item-heading {
   text-align: center;
 }
-.content .section__contact {
+.person-card__contact {
   display: flex;
   flex-direction: row;
+  align-items: center jus;
   font-size: 1.375rem;
   cursor: pointer;
   line-height: normal;
@@ -132,7 +139,7 @@ button {
   font-weight: bold;
   text-align: center;
 }
-.content .section__contact--download {
+.person-card__contact__download {
   display: flex;
   justify-content: center;
   color: #3D3D3D;
@@ -143,35 +150,34 @@ button {
   text-decoration: none;
   white-space: nowrap;
 }
-.content .section__contact--download img {
+.person-card__contact__download img {
   margin-left: 1rem;
   height: 28px;
 }
-.content .section__contact--contact {
+.person-card__contact-button {
   border-radius: 0.625rem;
   padding: 1rem 2rem;
   background: #FFFFFF;
   cursor: pointer;
   white-space: nowrap;
 }
-.content .section__buttons {
+.person-card__buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 2rem auto;
   width: 100%;
-  padding: 0.1rem;
+  padding: 0.6rem;
   border-radius: 0.5rem;
   max-width: 40.5rem;
   background: #FFFFFF;
   gap: 0;
   font-weight: bold;
 }
-.content .section__buttons a {
+.person-card__buttons a {
   color: #19191B;
   text-decoration: none;
   padding: 1rem 1rem;
-  margin: 0.5rem;
   border: none;
   width: 50%;
   text-align: center;
@@ -179,17 +185,93 @@ button {
   outline: none;
   cursor: pointer;
 }
-.content .section__buttons a:target {
+.person-card__buttons a:target {
   background: #D7D7D7 !important;
 }
-.content .section__image {
+.person-card__experience {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.25rem 0.125rem;
+  gap: 5.625rem;
+}
+.person-card__experience__item {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.person-card__experience__item__heading {
+  text-align: center;
+}
+.person-card__contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.375rem;
+  cursor: pointer;
+  line-height: normal;
+  letter-spacing: -0.03319rem;
+  gap: 2.375rem;
+  font-weight: bold;
+}
+.person-card__contact-download {
+  display: flex;
+  justify-content: center;
+  color: #3D3D3D;
+  border-radius: 0.625rem;
+  padding: 1rem 2rem;
+  height: 100%;
+  background: #FFE071;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.person-card__contact-download img {
+  margin-left: 1rem;
+  height: 28px;
+}
+.person-card__contact-button {
+  border-radius: 0.625rem;
+  padding: 1rem 2rem;
+  background: #FFFFFF;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.person-card__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  max-width: 40.5rem;
+  background: #FFFFFF;
+  gap: 0;
+  font-weight: bold;
+}
+.person-card__buttons a {
+  color: #19191B;
+  text-decoration: none;
+  padding: 1rem 1rem;
+  border: none;
+  width: 50%;
+  text-align: center;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+.person-card__buttons a:target {
+  background: #D7D7D7 !important;
+}
+.person-card__images {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   max-width: 800px;
   margin: auto;
 }
-.content .section__image img {
+.person-card__images img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 22rem;
@@ -199,40 +281,38 @@ button {
 }
 
 @media only screen and (max-width: 786px) {
-  .content .header__logo {
+  .header__logo {
     flex-direction: column;
   }
-  .content .header__title--subheading {
+  .header__subheading {
     text-align: center;
     margin-bottom: 1rem;
   }
-  .content .section {
+  .person-card__experience {
     margin: auto 1rem;
-  }
-  .content .section__item {
-    font-size: 0.8rem;
-  }
-  .content .section__experience {
     gap: 2rem;
   }
-  .content .section__buttons {
+  .person-card__experience__item {
+    font-size: 0.8rem;
+  }
+  .person-card__buttons {
     width: auto;
   }
-  .content .section__buttons a {
+  .person-card__buttons a {
     padding: 0.3rem;
   }
-  .content .section__contact {
+  .person-card__contact {
     font-size: 0.8rem;
     gap: 1rem;
   }
-  .content .section__contact--download, .content .section__contact--contact {
+  .person-card__contact__download, .person-card__contact__contact-button {
     width: 100%;
     height: 100%;
   }
-  .content .section__contact--download img, .content .section__contact--contact img {
+  .person-card__contact__download img, .person-card__contact__contact-button img {
     height: 18px;
   }
-  .content .section__image img {
+  .person-card__images img {
     width: 100%;
     height: auto;
     -o-object-fit: contain;

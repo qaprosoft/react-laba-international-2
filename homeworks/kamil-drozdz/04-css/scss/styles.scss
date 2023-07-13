@@ -62,13 +62,13 @@ button{
     background-color: #FFFFFF; 
 }
 .theme-switcher:checked {
-    ~ .content, ~ footer{
+    ~ .person-card, ~ footer,~ .header{
       background-color: $color-background-dark;
       color: $color-text-dark;
     }
   
-    ~ .content {
-      .section__buttons, .section__buttons a, .section__contact--contact {
+    ~ .person-card {
+   .person-card__buttons, .person-card__buttons a, .person-card__contact-button {
         background-color: $color-dark;
         color: $color-text-dark;
       }
@@ -85,170 +85,243 @@ button{
 #portfolio:not(:target) ~ a:not(:visited) {
     background: #D7D7D7;
   }
-
-.content {
+ 
+.header {padding-top: 6rem;
+width: 100%;
+transition: background-color 0.5s;
+background-color: $color-background-light;
+color: $color-text-light;
+  &__logo {
+    @include flex-center;
+  gap: 2.5rem;
+  padding: 1rem 0 ;
+  img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 12rem;  outline: #FFFFFF solid 4px;
+  }
+  }
+  &__navigation {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 1.625rem;
+    img{
+        width: 1.75rem; 
+        height: 1.75rem;
+        outline: none;
+    }
+}
+}
+.person-card{
     transition: background-color 0.5s;
     background-color: $color-background-light;
     color: $color-text-light;
     height: 100%;
     width: 100%;
     padding-bottom: 10rem;
-    & .header {
-        margin-top: 6rem;
-      &__logo {
+    &__experience {
         @include flex-center;
-      gap: 2.5rem;
-      img {
-        width: 12rem;
-        height: 12rem;
-        border-radius: 12rem;  outline: #FFFFFF solid 4px;
-      }
-      }
-      &__title {
-        &--navigation {
-            display: inline-flex;
-            align-items: flex-start;
-            gap: 1.625rem;
-            img{
-                width: 1.75rem; 
-                height: 1.75rem;
-                outline: none;
+        margin: 1.25rem 0.125rem;
+        gap: 5.625rem;
+      
+    }
+    &__item {
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        &-heading {
+            text-align: center;
+        }
+    }
+    &__contact {
+        display: flex;
+        flex-direction: row;
+        align-items: center
+        jus;
+        font-size: 1.375rem;
+        cursor: pointer;
+        line-height: normal;
+        letter-spacing: -0.03319rem;
+        gap: 2.375rem;
+        font-weight: bold;
+        text-align: center;
+        &__download {
+            display: flex;
+            justify-content: center;
+            color: #3D3D3D;
+            border-radius: 0.625rem;
+            padding: 1rem 2rem;
+            height: 100%;
+            background: #FFE071;
+            text-decoration: none;
+            white-space: nowrap;
+            img {
+                margin-left: 1rem;
+                height: 28px;
             }
         }
-      }
-    }
-    & .section {
-        @include flex-center;
-        padding: 1.25rem 0.125rem;
-        gap: 5.625rem;
-        &__item{
-            font-size: 1rem;
-            display: flex;
-            flex-direction: column;
-            &--heading{
-                text-align: center;
-            }  
-        } 
-        &__contact {
-            display: flex;
-            flex-direction: row;
-            font-size: 1.375rem;
+        &-button {
+            border-radius: 0.625rem;
+            padding: 1rem 2rem;
+            background: $color-white;          
             cursor: pointer;
-            line-height: normal;
-            letter-spacing: -0.03319rem;
-            gap: 2.375rem;
-            font-weight: bold;
-            text-align: center;
-            &--download{
-                display: flex;
-                justify-content: center;
-                color: #3D3D3D;
-                border-radius: 0.625rem;
-                padding: 1rem 2rem;
-                height: 100%;
-                background: #FFE071 ;
-                text-decoration: none;
-                white-space: nowrap;
-                img{
-                    margin-left: 1rem;
-                    height: 28px;
-                }
-            }
-            &--contact{
-                border-radius: 0.625rem;
-                padding: 1rem 2rem;
-                background: $color-white;          
-                cursor: pointer;
-                white-space: nowrap;      
-        } 
-    } 
+            white-space: nowrap;      
+        }
+    }
+    
     &__buttons {
         @include flex-center;
         margin: 2rem auto;
         width: 100%;
-        padding: 0.1rem;
+        padding: 0.6rem;
         border-radius: 0.5rem;
         max-width: 40.5rem;
         background: $color-white;
         gap: 0;
         font-weight: bold;
         a {
-          color: #19191B;
-          text-decoration: none;
-          padding: 1rem 1rem;
-          margin: 0.5rem;
-          border: none;
-          width: 50%;
-          text-align: center;
-          border-radius: 0.5rem;
-          outline: none;
-          cursor: pointer;
-          &:target {
-            background: #D7D7D7 !important;
-          }
+            color: #19191B;
+            text-decoration: none;
+            padding: 1rem 1rem;
+            border: none;
+            width: 50%;
+            text-align: center;
+            border-radius: 0.5rem;
+            outline: none;
+            cursor: pointer;
+            &:target {
+                background: #D7D7D7 !important;
+            }
         }
-      }
-      &__image{
+    }
+    &__experience {
+        @include flex-center;
+        margin: 1.25rem 0.125rem;
+        gap: 5.625rem;
+        &__item {
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            &__heading {
+                text-align: center;
+            }
+        }
+    }
+    &__contact {
+        @include flex-center;
+        font-size: 1.375rem;
+        cursor: pointer;
+        line-height: normal;
+        letter-spacing: -0.03319rem;
+        gap: 2.375rem;
+        font-weight: bold;
+        &-download {
+            display: flex;
+            justify-content: center;
+            color: #3D3D3D;
+            border-radius: 0.625rem;
+            padding: 1rem 2rem;
+            height: 100%;
+            background: #FFE071;
+            text-decoration: none;
+            white-space: nowrap;
+            img {
+                margin-left: 1rem;
+                height: 28px;
+            }
+        }
+        &-button {
+            border-radius: 0.625rem;
+            padding: 1rem 2rem;
+            background: $color-white;          
+            cursor: pointer;
+            white-space: nowrap;      
+        }
+    }
+    
+    &__buttons {
+        @include flex-center;
+        margin: 2rem auto;
+        width: 100%;
+        padding: 0.6rem;
+        border-radius: 0.5rem;
+        max-width: 40.5rem;
+        background: $color-white;
+        gap: 0;
+        font-weight: bold;
+        a {
+            color: #19191B;
+            text-decoration: none;
+            padding: 1rem 1rem;
+            border: none;
+            width: 50%;
+            text-align: center;
+            border-radius: 0.5rem;
+            outline: none;
+            cursor: pointer;
+            &:target {
+                background: #D7D7D7 !important;
+            }
+        }
+}
+    &__images {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
         max-width: 800px;
         margin: auto;
-        img{
+        img {
             object-fit: cover;
             width: 22rem;
             flex: 0 0 40%;
             height: 14rem;
             border-radius: 0.5rem;
         }
-      }
     }
-  }
+}
 
-  @media only screen and (max-width: 786px) {
-    .content {
-        & .header {
-            &__logo{
-                flex-direction: column;
-            }
-            &__title{
-                &--subheading{
-                    text-align: center;
-             margin-bottom: 1rem;
-               }
-           }
-        }  & .section {
+@media only screen and (max-width: 786px) {
+   .header {
+        &__logo {
+            flex-direction: column;
+        }
+        &__subheading {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    }
+    .person-card {
+        &__experience {
             margin: auto 1rem;
-            &__item{
+            &__item {
                 font-size: 0.8rem;
             }
-            &__experience{
-                 gap:2rem;
-            }
-            &__buttons{
-                width: auto;
-              a{
+            gap: 2rem;
+        }
+        &__buttons {
+            width: auto;
+            a {
                 padding: 0.3rem;
-              }
             }
-            &__contact{
-                font-size: 0.8rem;
-                gap: 1rem;
-                &--download,&--contact{
-                    width: 100%;
-                    height: 100%;
-                    img{
-                        height: 18px;
-                    }
+        }
+        &__contact {
+            font-size: 0.8rem;
+            gap: 1rem;
+            &__download, &__contact-button {
+                width: 100%;
+                height: 100%;
+                img {
+                    height: 18px;
                 }
             }
-            &__image {
-               img{
+        }
+        &__images {
+            img {
                 width: 100%;
                 height: auto;
                 object-fit: contain;
-               }
             }
         }
     }
-  }
+}
