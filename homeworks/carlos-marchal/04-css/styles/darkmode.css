@@ -30,7 +30,7 @@ header{
 #darkModeButton {
     border-radius: 100%;
     background-color: #171F26;
-    transition: all 1000ms;
+    transition: all linear 1000ms;
     margin-top: 25px;
     border: none;
     
@@ -88,6 +88,7 @@ main{
     flex-direction: column;
     width: 60%;
     margin: 0;
+    
    
     
 }
@@ -110,18 +111,17 @@ main{
 }
 
 
+
 .portfolioPresentation .socials{
     display: flex;
-    justify-content: space-between;
-    margin: 0;
-    width: 100%;
+    gap: 26px;
+    margin: 25px 0 0 0;
+    width: 60%;
 }
 
 
 
-.socialsLogo {
-    width: 36px;
-    height: 36px;
+.socialsLogo{
     color: #A3ABB2;
 }
 
@@ -176,7 +176,7 @@ main{
 }
 #cvButton{
     background-color:#FBD144;
-   transition: hover 200ms;
+   transition: border 200ms;
 }
 
 #contactButton{
@@ -219,6 +219,7 @@ main{
 
 .sliderPortfolioSkills button:focus{
   background-color: #0C151D;
+  border: none;
 }
 
 
@@ -294,8 +295,10 @@ footer p{
     
 }
 
+
+
 button:hover{
-    border: 2px solid #3D3D3D;
+    border: 3px solid rgb(255, 255, 255);
 }
 @media (min-width:601px) and (max-width: 1040px) {
 

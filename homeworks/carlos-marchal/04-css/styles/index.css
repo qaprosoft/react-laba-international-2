@@ -87,49 +87,46 @@ main{
     border: 3px black solid;
 }
 
-.titleLogos{
+.titleAndLogos{
     
     align-self: center;
     display: flex;
     flex-direction: column;
     width: 60%;
-    margin: 0 auto;
-    align-content: flex-start;
+    margin: 0;
+   
+    
 }
 
-.titleLogos h1{
+.titleAndLogos h1{
     
     font-size: 46px;
     font-weight: 500;
     line-height: 69px;
     color: #3D3D3D; 
-    margin: 0 auto;
+    margin: 0;
     
 }
 
-.titleLogos h4 {
+.titleAndLogos h4 {
     font-size: 22px;
     font-weight: 500;
     line-height: 33px;
-    color: #575757;
-    margin: 0 ;
+    margin: 0;
 }
 
 
 .portfolioPresentation .socials{
     display: flex;
-    justify-content: space-between;
-    margin: 0;
-    width: 100%;
+    gap: 26px;
+    margin: 25px 0 0 0;
+    width: 60%;
 }
 
 
-
-.socialsLogo {
-    width: 36px;
-    height: 36px;
+.socialsLogo{
+    color: #575757;
 }
-
 
 
 .experienceStats {
@@ -221,7 +218,8 @@ main{
 }
 
 .sliderPortfolioSkills button:focus{
-  background-color: grey;
+  background-color: #D7D7D7;
+  border: none;
 }
 
 
