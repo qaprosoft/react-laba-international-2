@@ -19,11 +19,13 @@ body {
     font-family: Poppins;
     font-weight: 500;
     color: #575757;
-    margin: 0 auto;
     background: #E9EBEC;
     padding-top: 33px;
-    padding-right: 30%;
-    padding-left: 30%;
+}
+
+main{
+    max-width: 760px;
+    margin: 0 auto;
 }
 
 ul,
@@ -35,6 +37,7 @@ li {
     padding-bottom: 65px;
     display: flex;
     justify-content: center;
+    margin-bottom: 65px;
 }
 
 button {
@@ -46,7 +49,6 @@ button {
 }
 
 .portfolio {
-    padding-top: 65px;
     padding-bottom: 75px;
     margin: 0 auto;
 }
@@ -62,8 +64,11 @@ button {
     margin-right: 40px;
 }
 
+.info_description{
+    margin-bottom: 12px;
+}
+
 .portfolio__links {
-    padding-top: 12px;
     width: 222px;
     display: flex;
     justify-content: space-between;
@@ -90,26 +95,25 @@ button {
 }
 
 .btn_download:hover, .btn_contact:hover{
-    animation: buttonAnimation 1s infinite; /* Apply the animation */
+    animation: buttonAnimation 1s infinite; 
 }
 
 .btn_download {
     background-color: #FBD144;
     margin-right: 38px;
-
 }
 
 @keyframes buttonAnimation {
     0% {
-      transform: scale(1); /* Initial scale */
+      transform: scale(1); 
     }
     50% {
-      transform: scale(1.2); /* Scale up */
+      transform: scale(1.2); 
     }
     100% {
-      transform: scale(1); /* Back to original scale */
+      transform: scale(1); 
     }
-  }
+}
 
 .btn_contact {
     background-color: #fff;
@@ -119,6 +123,7 @@ button {
     display: flex;
     justify-content: center;
     color: #19191B;
+    margin-bottom: 65px;
 }
 
 .tabs__container {
@@ -136,15 +141,10 @@ button {
     padding: 23px;
 }
 
-.tabs_content_flex {
-    display: flex;
-    justify-content: center;
-}
-
 .tabs_content_grid {
-    padding-top: 65px;
     display: grid;
-    padding-bottom: 52px;
+    justify-content: center;
+    margin-bottom: 52px;
 }
 
 .tabs_content__img {
@@ -177,8 +177,16 @@ button {
         font-size: 14px;
     }
 
+    main{
+        max-width: 460px;
+    }
+
     .info_name {
         font-size: 36px;
+    }
+
+    .portfolio__links {
+        width: 172px;
     }
 
     .portfolio__btn {
@@ -193,7 +201,7 @@ button {
 
     .tabs__container {
         width: 360px;
-        outline: solid 10px #fff;
+        padding: 10px;
     }
 
     .tabs_content_grid {
@@ -232,7 +240,7 @@ button {
 
     .tabs__container {
         width: 510px;
-        outline: solid 10px #fff;
+        padding: 10px;
     }
 
     .tabs_content_grid {
@@ -262,7 +270,7 @@ button {
 
     .tabs__container {
         width: 760px;
-        outline: solid 20px #fff;
+        padding: 20px;
     }
 
     .tabs_content_grid {
