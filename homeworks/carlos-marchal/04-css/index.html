@@ -22,7 +22,7 @@
 
     <header class="header">
 
-        <button type="button" id="darkModeButton">
+        <button title="dark mode button" type="button" id="darkModeButton">
             <i id="darkModeIcon" class="fa-regular fa-moon"></i>
         </button>
         
@@ -36,10 +36,7 @@
                 <h1 class="title"> Carlos Marchal</h1>
                 <h4>Software Engineer</h4>
                 <div class="socials">
-                    <!--<img class="socialsLogo" src="./assets/images/socials-logos/github.svg" alt="git logo">
-                    <img class="socialsLogo" src="./assets/images/socials-logos/linkedin.svg" alt="linkedin logo">
-                    <img class="socialsLogo" src="./assets/images/socials-logos/twitter.svg" alt="twitter logo">
-                    <img class="socialsLogo" src="./assets/images/socials-logos/youtube.svg" alt="youtube logo">-->
+                  
                     <i class="fa-brands fa-github fa-xl socialsLogo"></i>
                     <i class="fa-brands fa-linkedin fa-xl socialsLogo"></i>    
                     <i class="fa-brands fa-twitter fa-xl socialsLogo"></i>
@@ -60,21 +57,22 @@
 
         <div class="cvContactButtonsContainer">
            
-            <button type="button" id="cvButton" >Download CV </button>
-            <button type="button" id="contactButton"> Contact me</button>
+            <button type="button" id="cvButton" >Download CV <i class="fa-solid fa-download"></i></button>
+            <button type="button" id="contactButton"> Contact me <i class="fa-solid fa-address-book"></i></button>
 
         </div>
         
 
 
-        <div class="sliderContainer">
+        <button title="slider button" type="button" class="sliderContainer" id="sliderButton">
             <div class="sliderPortfolioSkills">
                
-            <button type="button" id="sliderButtonPortfolio">Portfolio</button>
-            <button type="button" id="sliderButtonSkills">Skills</button>
+            <p id="sliderButtonPortfolio" class="selected">Portfolio</p>
+            <p id="sliderButtonSkills">Skills</p>
+           
             </div>
-        </div>
-        
+       </button>
+        <div class="skillsProjectsContainer">
         <div id="projectsContainer">
             <div><img src="./assets/images/projects-images/project-1.jpg" alt="project image"></div>
             <div><img src="./assets/images/projects-images/project-2.jpg" alt="project image"></div>
@@ -84,18 +82,22 @@
             <div><img src="./assets/images/projects-images/project-6.jpg" alt="project image"></div>
         </div>
 
-        <div id="skills">
-            <p>React</p>
-            <p>React</p>
-            <p>React</p>
-            <p>React</p>
-            <p>React</p>
-            <p>React</p>
+        <div id="skills" class="hidden">
+            <ul id="skillsList">
+                <li>React</li>
+                <li>javascript</li>
+                <li>Node.js</li>
+                <li>Typescript</li>
+                <li>Java</li>
+                <li>Git</li>
+                <li>SQL</li>
+            </ul>
+          
         </div>
-    
+    </div>
     </main>
     <footer class="footer">
-        <p> Carlos Marchal. 2023 All rights reserved</p>
+        <p> <i class="fa-solid fa-copyright"></i> Carlos Marchal. 2023 All rights reserved </p>
     </footer>
     <script type="text/javascript" src="./js/animation.js"></script>  
 </body>

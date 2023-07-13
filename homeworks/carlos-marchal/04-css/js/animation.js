@@ -1,19 +1,17 @@
-const darkModeButton = document.getElementById("darkModeButton");
-const scrollToTopButton = document.getElementById("autoScrollButton");
-const portfolioButton = document.getElementById("sliderButtonPortfolio");
-const skillsButton = document.getElementById("sliderButtonSkills");
-const skillsContainer = document.getElementById("skills");
-const projectsContainer = document.getElementById("projectsContainer");
-const body = document.body;
+
 
 
 window.addEventListener("load", ()=>{
 
+    const darkModeButton = document.getElementById("darkModeButton");
+    const scrollToTopButton = document.getElementById("autoScrollButton");
+    
+    const slider = document.getElementById("sliderButton");
 
-    scrollToTopButton.addEventListener("click", (e)=>{
 
-        e.preventDefault();
-        console.log(portfolioButton)
+
+    scrollToTopButton.addEventListener("click", ()=>{
+
         window.scroll({
             top: 0,
             left: 0,
@@ -22,8 +20,8 @@ window.addEventListener("load", ()=>{
     });
     
     
-   darkModeButton.addEventListener("click", (e)=>{
-        e.preventDefault();
+   darkModeButton.addEventListener("click", ()=>{
+        
     
         let dmIcon = document.getElementById("darkModeIcon");
        
@@ -42,15 +40,25 @@ window.addEventListener("load", ()=>{
     }
     });
     
-    portfolioButton.addEventListener("click", (e)=>{
     
-        
-        
-      
     
-    })
+    slider.addEventListener("click", (e)=>{
+
+e.preventDefault();
+        const skillsContainer = document.getElementById("skills");
+        const projectsContainer = document.getElementById("projectsContainer");
+        const portfolioButton = document.getElementById("sliderButtonPortfolio");
+        const skillsButton = document.getElementById("sliderButtonSkills");
+
+
+        skillsContainer.classList.toggle("hidden")
+        projectsContainer.classList.toggle("hidden")
+        skillsButton.classList.toggle("selected")
+        portfolioButton.classList.toggle("selected")
+        
     
 
+    });
 
 
 })

@@ -10,7 +10,9 @@
     to {opacity: 100%;}
   }
 
-
+  button:hover{
+    border: 2px solid #3D3D3D;
+}
 
 body{
    
@@ -187,10 +189,13 @@ main{
 }
 
 
-.sliderContainer{
+button.sliderContainer{
     width: 50%;
     height: 110px;
-    margin: 0 auto;
+    margin: auto;
+    border: none;
+    border-radius:20px;
+    padding: 0;
 
 }
 
@@ -198,39 +203,44 @@ main{
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
+    width: 100%;
+    height: 100%;
     justify-content: space-evenly;
-    padding: 15px 0 15px 0;
-    margin: 11px 0;
     border-radius: 20px;
 }
 
-.sliderPortfolioSkills button{
+.sliderPortfolioSkills p{
     width: 45%;
     height: 80px;
     border-radius: 10px;
+    text-align: center;
     border: none;
     background-color: #FFFFFF;
-    margin: auto 0;
+    margin: auto;
     font-size: 22px;
-    line-height: 33px;
+    line-height: 80px;
     font-weight: 500;
     transition: hover 200ms;
 }
 
-.sliderPortfolioSkills button:focus{
-  background-color: #D7D7D7;
-  border: none;
+p.selected{
+    background-color:#D7D7D7 ;
 }
 
 
-.hideDiv{
-    display:none
+
+
+.skillsProjectsContainer{
+    display: flex;
+    width: 50%;
+
+    flex-wrap: nowrap;
 }
 
 #projectsContainer{
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    width: 100%;
     justify-content: space-between;
     padding: 20px 0;
     align-content: center;
@@ -238,7 +248,13 @@ main{
 }
 
 
+div#projectsContainer.hidden{
+    display: none;
+}
 
+div#skills.hidden{
+    display: none;
+}
 
 #projectsContainer div{
     width: 45%;
@@ -260,7 +276,17 @@ main{
 
 
 #skills{
-    display: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 25px;
+    
+}
+
+#skillsList{
+    list-style-type:square;
 }
 
 #autoScrollButton{
@@ -295,8 +321,10 @@ footer p{
     
 }
 
-button:hover{
-    border: 2px solid #3D3D3D;
+
+
+button .active{
+    background-color: black;
 }
 @media (min-width:601px) and (max-width: 1040px) {
 
@@ -331,6 +359,8 @@ button:hover{
     .projectsContainer div{
         width: 45%;
     }
+
+   
 
 }
 

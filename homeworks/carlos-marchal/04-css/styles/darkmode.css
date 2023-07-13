@@ -217,7 +217,7 @@ main{
     transition: hover 200ms;
 }
 
-.sliderPortfolioSkills button:focus{
+.sliderPortfolioSkills p:focus{
   background-color: #0C151D;
   border: none;
 }
