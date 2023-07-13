@@ -1,0 +1,310 @@
+:root {
+    --background-color: #E7E7E7;
+    --text-color: #3D3D3D;
+    --title-color: #3D3D3D;
+    --tab-color: #fff;
+}
+
+.dark-theme {
+    --background-color: #0C151D;
+    --text-color: #A3ABB2;
+    --title-color: #F1F2F4;
+    --tab-color: #171F26;
+}
+
+body {
+    font-family: 'League Spartan', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    background-color: var(--background-color);
+    flex-wrap: wrap;
+}
+
+.set-theme {
+    display: flex;
+    justify-content: center;
+}
+
+#set-theme {
+    margin-top: 25px;
+    background-color: #fff;
+    border: 20px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.bio-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 720px;
+    margin-top: 65px;
+}
+
+.bio-content {
+    margin-left: 20px;
+}
+
+
+#profile-photo {
+    width: 215px;
+    margin-left: 20px;
+}
+
+#fullname {
+    font-size: 46px;
+    color: var(--title-color);
+}
+
+#job-title {
+    font-size: 22px;
+    color: var(--title-color);
+    margin-top: -15px;
+    font-weight: 500;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    margin-right: 10px;
+    color: var(--text-color);
+}
+
+.social-icons img {
+    color: var(--text-color);
+    margin-right: 30px;
+    margin-top: -5px;
+}
+
+.bio-achievements {
+    display: flex;
+    justify-content: space-between;
+    margin: 48px 20px 0 20px;
+    overflow: hidden;
+}
+
+.bio-achievements p {
+    font-size: 22px;
+    width: 150px;
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+
+
+.contact {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 48px;
+}
+
+.contact .resume {
+    width: 290px;
+    height: 80px;
+    background-color: #FBD144;
+    color: #3D3D3D;
+    font-size: 22px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact .contact-me {
+    width: 290px;
+    height: 80px;
+    background-color: var(--tab-color);
+    color: var(--text-color);
+    font-size: 22px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.portfolio-skills {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 760px;
+    height: 110px;
+    background-color: var(--tab-color);
+    margin-top: 75px;
+    border-radius: 20px;
+}
+
+.portfolio-btn {
+    height: 80px;
+    width: 350px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.skills-btn {
+    height: 80px;
+    width: 350px;
+    border: 1px solid var(--background-color);
+    border-radius: 10px;
+    background-color: var(--tab-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.portfolio-projects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 760px;
+    height: 820px;
+    margin-top: 65px;
+}
+
+.portfolio-projects img {
+    width: 362px;
+    height: 226px;
+    border-radius: 15px;
+}
+
+.footer-text {
+    font-size: 22px;
+    color: var(--text-color);
+}
+
+@media all and (max-width: 760px) {
+
+    .container {
+        display: flex;
+        justify-content: center;
+        max-width: 760px;
+    }
+
+    #set-theme {
+        width: 24px;
+        border: 10px solid #fff;
+    }
+
+    .bio-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: 65px;
+    }
+
+    .bio-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #profile-photo {
+        width: 124px;
+    }
+
+    #fullname {
+        font-size: 32px;
+    }
+
+    #job-title {
+        font-size: 14px;
+    }
+
+    .bio-achievements p {
+        font-size: 14px;
+        width: 75px;
+    }
+
+
+    .contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 760px;
+    }
+
+    .contact .resume {
+        width: 158px;
+        height: 44px;
+        font-size: 12px;
+        margin-right: 2rem;
+    }
+
+    .contact .contact-me {
+        width: 158px;
+        height: 44px;
+        font-size: 12px;
+    }
+
+
+    .portfolio-skills {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 760px;
+        height: 64px;
+        margin-top: 75px;
+        border-radius: 20px;
+    }
+
+    .portfolio-btn {
+        height: 50px;
+        width: 154px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        margin-right: 2rem;
+    }
+
+    .skills-btn {
+        height: 50px;
+        width: 154px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .portfolio-projects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 760px;
+        height: 1600px;
+        margin-top: 0;
+    }
+
+    .portfolio-projects img {
+        margin-top: 1rem;
+        width: 362px;
+        height: 226px;
+        border-radius: 15px;
+    }
+
+    .footer-text {
+        font-size: 14px;
+    }
+
+
+}
