@@ -82,7 +82,7 @@ $mobile: 600px;
   background-color: transparent;
   cursor: pointer;
   gap: 24px;
-  &:active {
+  &:active:not(.tabs__button--active) {
     transition: all 0.1s ease-in-out;
     transform: scale(0.95);
   }
@@ -158,6 +158,19 @@ $mobile: 600px;
     transform: translateY(0);
   }
 }
+
+.blured-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(70px);
+  background-color: var(--clr-blue);
+  z-index: -1;
+}
+
 
 input,
 textarea,

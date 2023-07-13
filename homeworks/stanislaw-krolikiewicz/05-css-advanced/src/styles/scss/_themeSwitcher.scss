@@ -42,6 +42,7 @@ $mobile: 600px;
       background-color: $clr-bg--light;
       fill: $clr-fill--light;
       border-color: $clr-border-light;
+      animation: forwards rotate180 0.3s ease-in-out;
       &:hover {
         background-color: $clr-bg--dark;
         fill: $clr-fill--dark;
@@ -54,11 +55,30 @@ $mobile: 600px;
       background-color: $clr-bg--dark;
       fill: $clr-fill--dark;
       border-color: $clr-border-dark;
+      animation: forwards counterRotate180 0.3s ease-in-out;
       &:hover {
         background-color: $clr-bg--light;
         fill: $clr-fill--light;
         border-color: $clr-border-light;
       }
     }
+  }
+}
+
+@keyframes rotate180 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes counterRotate180 {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
