@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <h1>Contact Me</h1>
+        <form action="/" method="post">
+            <label for="firstName">Full Name*</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="Your name..">
+            <input type="text" id="lastName" name="lastName" required placeholder="Your last name..">
+            <br>
+            <label for="phoneNumber">Phone Number*</label>
+            <input type="number" id="phoneNumber" name="phoneNumber" required placeholder="Your phone..">
+            <br>
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="option1">Australia</option>
+                <option value="option2">Poland</option>
+                <option value="option3">Ukraine</option>
+                <option value="option4">Argentina</option>
+            </select>
+            <br>
+            <textarea id="message" name="message" rows="12" placeholder="Your message.."></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <footer>
+        <hr>
+        <div>
+            <a target="_blank" href="https://www.facebook.com">
+                <img src="./assets/facebook.png" alt="Facebook link" width="30" height="30">
+            </a>
+            <a target="_blank" href="https://www.instagram.com/">
+                <img src="./assets/instagram.png" alt="Instagram link" width="30" height="30">
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/">
+                <img src="./assets/linkedin.png" alt="Linkedin link" width="30" height="30">
+            </a>
+            <a target="_blank" href="https://www.twitter.com/">
+                <img src="./assets/twitter.png" alt="Twitter link" width="30" height="30">
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

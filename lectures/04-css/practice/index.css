@@ -1,0 +1,12 @@
+/* .external {
+  color: blue;
+}
+*/
+
+#test-id {
+  color: yellow;
+}
+
+#test-id:hover {
+  color: red;
+}

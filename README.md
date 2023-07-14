@@ -29,7 +29,9 @@ Once PR is created you have to do the following things:
 | June 23th     | [Internet Basics](./lectures/01-basics/README.md)  | [task 🔗](./lectures/01-basics/task.md)       |
 | June 27th     | [Git](./lectures/02-git/README.md)                 | ---                                           |
 | June 30th     | [HTML](./lectures/03-html/README.md)               | [task 🔗](./lectures/03-html/task.md)         |
-| July 4th      | CSS Part 1                                         |                                               |
-| July 7th      | CSS Part 2                                         |                                               |
+| July 4th      | [CSS Part 1](./lectures/04-css/README.md)          | [task 🔗](./lectures/04-css/task.md)          |
+| July 5th      | [Workshop - Responsive design](./workshops/1-responsive_design.md)| ---                            |
+| July 6th      | [Workshop - Git](./workshops/2-git.md)             | ---                                           |
+| July 7th      | [CSS Part 2](./lectures/05-css-advanced/README.md) | [task 🔗](./lectures/05-css-advanced/task.md) |
 | July 10th-14th | Learning week                                     | ---                                           |
 | July 17th-21th | First block exam                                  | ---                                           |
