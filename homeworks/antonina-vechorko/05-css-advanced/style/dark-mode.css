@@ -1,0 +1,15 @@
+.dark-mode .btn_contact {
+    color: var( --text-color-primary);
+}
+
+.dark-mode .portfolio__description {
+    color: #3D3D3D;
+}
+
+.dark-mode .portfolio__link-wrapper {
+    background-color: #FFFFFF;
+}
+
+.dark-mode .btn_contact:hover {
+    filter: contrast(120%);
+}

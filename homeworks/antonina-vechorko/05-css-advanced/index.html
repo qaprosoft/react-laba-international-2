@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<header>
+    <div class="theme-switch">
+        <img src="assets/theme-switch.svg" class="theme-switch__icon" alt="Dark-theme">
+    </div>
+    <section class="person-container">
+        <div class="person-data">
+            <div class="person__avatar">
+                <img class="avatar" src="assets/avatar.svg" alt="Avatar">
+            </div>
+            <div class="person__info">
+                <h1 class="person__full-name">Victor Alvarado</h1>
+                <p class="person__job-title">Software Engineer</p>
+                <div class="person__social-media">
+                    <a href="https://github.com/qaprosoft/react-laba-international-2/tree/main" class="person__sm-link" target="blank">
+                        <img class="person__sm-icon icon1" src="assets/github.svg" alt="Github">
+                    </a>
+                    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F" class="person__sm-link" target="blank">
+                        <img class="person__sm-icon icon2" src="assets/twitter.svg" alt="Twitter">
+                    </a>
+                    <a href="https://www.linkedin.com/" class="person__sm-link" target="blank">
+                        <img class="person__sm-icon icon3" src="assets/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="https://www.youtube.com/" class="person__sm-link" target="blank">
+                        <img class="person__sm-icon icon4" src="assets/youtube.svg" alt="Youtube">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="achievements">
+            <div class="achievements-item">
+                <span class="achievements-item_title">7</span>
+                <span class="achievements-item_subtitle">Years of work<br>experience</span>
+            </div>
+            <div class="achievements-item">
+                <span class="achievements-item_title">50+</span>
+                <span class="achievements-item_subtitle">Completed<br>projects</span>
+            </div>
+            <div class="achievements-item">
+                <span class="achievements-item_title">20+</span>
+                <span class="achievements-item_subtitle">Satisfied<br>customers</span>
+            </div>
+        </div>
+        <div class="contact-btn">
+            <button class="btn btn_download">Download CV
+                <span class="arrow-icon">
+                        <img src="assets/arrow-btn.svg" alt="Arrow">
+                    </span>
+            </button>
+            <a href="mailto:example@example.com">
+                <button class="btn btn_contact">Contact Me</button>
+            </a>
+        </div>
+    </section>
+</header>
+<main>
+    <nav class="navigation-container">
+        <form class="navigation-form" id="tab-toggle">
+            <input
+                    type="radio"
+                    name="navigation"
+                    id="portfolio-tab"
+                    value="portfolio__content"
+                    checked
+                    hidden
+            />
+            <label class="portfolio__label" for="portfolio-tab">Portfolio</label>
+            <input
+                    type="radio"
+                    name="navigation"
+                    id="skills-tab"
+                    value="portfolio__skills"
+                    hidden
+            />
+            <label class="portfolio__label" for="skills-tab">Skills</label>
+        </form>
+    </nav>
+    <section class="main-container">
+        <div class="portfolio-container">
+            <div class="portfolio__img-wrapper">
+                <img class="portfolio__project" src="assets/project1.png" alt="Project-1">
+                <div class="portfolio__description">
+                    <h3 class="portfolio__project-name">SmarterTrading411</h3>
+                    <p class="portfolio__project-description">
+                        Landing page of SmarterTrading411 created using wordPress
+                    </p>
+                    <div class="portfolio__link-wrapper">
+                        <a class="portfolio__link" href="https://github.com/qaprosoft/react-laba-international-2" target="blank">
+                            <img src="assets/link.svg" alt="Link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio__img-wrapper">
+                <img class="portfolio__project" src="assets/project2.png" alt="Project-2">
+                <div class="portfolio__description">
+                    <h3 class="portfolio__project-name">SmarterTrading411</h3>
+                    <p class="portfolio__project-description">
+                        Landing page of SmarterTrading411 created using wordPress
+                    </p>
+                    <div class="portfolio__link-wrapper">
+                        <a class="portfolio__link" href="https://github.com/qaprosoft/react-laba-international-2" target="blank">
+                            <img src="assets/link.svg" alt="Link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio__img-wrapper">
+                <img class="portfolio__project" src="assets/project3.png" alt="Project-3">
+                <div class="portfolio__description">
+                    <h3 class="portfolio__project-name">SmarterTrading411</h3>
+                    <p class="portfolio__project-description">
+                        Landing page of SmarterTrading411 created using wordPress
+                    </p>
+                    <div class="portfolio__link-wrapper">
+                        <a class="portfolio__link" href="https://github.com/qaprosoft/react-laba-international-2" target="blank">
+                            <img src="assets/link.svg" alt="Link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio__img-wrapper">
+                <img class="portfolio__project" src="assets/project4.png" alt="Project-4">
+                <div class="portfolio__description">
+                    <h3 class="portfolio__project-name">SmarterTrading411</h3>
+                    <p class="portfolio__project-description">
+                        Landing page of SmarterTrading411 created using wordPress
+                    </p>
+                    <div class="portfolio__link-wrapper">
+                        <a class="portfolio__link" href="https://github.com/qaprosoft/react-laba-international-2" target="blank">
+                            <img src="assets/link.svg" alt="Link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio__img-wrapper">
+                <img class="portfolio__project" src="assets/project5.png" alt="Project-5">
+                <div class="portfolio__description">
+                    <h3 class="portfolio__project-name">SmarterTrading411</h3>
+                    <p class="portfolio__project-description">
+                        Landing page of SmarterTrading411 created using wordPress
+                    </p>
+                    <div class="portfolio__link-wrapper">
+                        <a class="portfolio__link" href="https://github.com/qaprosoft/react-laba-international-2" target="blank">
+                            <img src="assets/link.svg" alt="Link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio__img-wrapper">
+                <img class="portfolio__project" src="assets/project6.png" alt="Project-6">
+                <div class="portfolio__description">
+                    <h3 class="portfolio__project-name">SmarterTrading411</h3>
+                    <p class="portfolio__project-description">
+                        Landing page of SmarterTrading411 created using wordPress
+                    </p>
+                    <div class="portfolio__link-wrapper">
+                        <a class="portfolio__link" href="https://github.com/qaprosoft/react-laba-international-2" target="blank">
+                            <img src="assets/link.svg" alt="Link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skill-container">
+            <h3 class="skill__title">My skills:</h3>
+            <ul>
+                <li>Developed responsive web applications using HTML, CSS, and JavaScript.</li>
+                <li>Proficient in front-end frameworks such as React and Angular.</li>
+                <li>Skilled in UI/UX design principles and creating intuitive user interfaces.</li>
+                <li>Experienced in version control systems like Git for efficient code management.</li>
+                <li>Knowledgeable in web performance optimization techniques.</li>
+                <li>Familiar with agile development methodologies and working in sprints.</li>
+                <li>Strong problem-solving skills and a keen attention to detail.</li>
+                <li>Excellent communication and teamwork abilities.</li>
+                <li>Continuously learning and keeping up with the latest front-end development trends.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>© Victor Alvarado. 2022 All rigths reserved</p>
+</footer>
+<script src="index.js"></script>
+</body>
+</html>
