@@ -57,21 +57,21 @@
 
         <div class="cvContactButtonsContainer">
            
-            <button type="button" id="cvButton" >Download CV <i class="fa-solid fa-download"></i></button>
+            <a href="./assets/cv/CarlosJMarchalCVen.pdf" id="cvButton" download >Download CV <i class="fa-solid fa-download"></i></a>
             <button type="button" id="contactButton"> Contact me <i class="fa-solid fa-address-book"></i></button>
 
         </div>
         
 
 
-        <button title="slider button" type="button" class="sliderContainer" id="sliderButton">
+        <div title="slider button"  class="sliderContainer" id="sliderButton">
             <div class="sliderPortfolioSkills">
                
-            <p id="sliderButtonPortfolio" class="selected">Portfolio</p>
-            <p id="sliderButtonSkills">Skills</p>
+        <p id="sliderButtonPortfolio" class="selected">Portfolio</p>
+        <p id="sliderButtonSkills">Skills</p>
            
             </div>
-       </button>
+        </div>
         <div class="skillsProjectsContainer">
         <div id="projectsContainer">
             <div><img src="./assets/images/projects-images/project-1.jpg" alt="project image"></div>
@@ -83,14 +83,21 @@
         </div>
 
         <div id="skills" class="hidden">
-            <ul id="skillsList">
+            <ul class="skillsList">
                 <li>React</li>
                 <li>javascript</li>
                 <li>Node.js</li>
                 <li>Typescript</li>
                 <li>Java</li>
-                <li>Git</li>
+                
+                
+            </ul>
+            <ul class="skillsList">
+                <li>MongoDB</li>
                 <li>SQL</li>
+                <li>Git</li>
+                <li>HTML</li>
+                <li>Css</li>  
             </ul>
           
         </div>
@@ -99,7 +106,7 @@
     <footer class="footer">
         <p> <i class="fa-solid fa-copyright"></i> Carlos Marchal. 2023 All rights reserved </p>
     </footer>
-    <script type="text/javascript" src="./js/animation.js"></script>  
+    <script src="./js/animation.js"></script>  
 </body>
 
 </html>

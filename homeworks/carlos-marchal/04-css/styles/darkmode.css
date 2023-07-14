@@ -10,7 +10,9 @@
     to {opacity: 100%;}
   }
 
-
+  button:hover{
+    border: 2px solid rgb(255, 255, 255);
+}
 
 body{
     background-color: #0C151D;
@@ -33,7 +35,7 @@ header{
     transition: all linear 1000ms;
     margin-top: 25px;
     border: none;
-    
+    cursor: pointer;
 }
 
 #darkModeButton:hover{
@@ -70,6 +72,7 @@ main{
 .photoContainer{
     width: 192px;
     height: 192px;
+    flex-grow: 0.1;
 }
 
 #profileImage {
@@ -86,7 +89,7 @@ main{
     align-self: center;
     display: flex;
     flex-direction: column;
-    width: 60%;
+    flex-grow: 0.3;
     margin: 0;
     
    
@@ -108,6 +111,7 @@ main{
     font-weight: 500;
     line-height: 33px;
     margin: 0;
+    color: #A3ABB2;
 }
 
 
@@ -172,78 +176,100 @@ main{
     font-weight: 500;
     border-radius: 10px;
     border: none;
+    color: #A3ABB2;
+    cursor: pointer;
 
 }
 #cvButton{
+    width: 45%;
+    height: 80px;
+    font-size: 22px;
+    line-height: 80px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
     background-color:#FBD144;
-   transition: border 200ms;
+    transition: border 200ms;
+    text-align: center;
+    text-decoration: none;
+    color: #3D3D3D;
+    
 }
 
 #contactButton{
     background-color:#171F26;
-    transition: hover 200ms;
-    color: #A3ABB2;
+    transition: border 200ms;
+    
 }
 
 
-.sliderContainer{
+div.sliderContainer{
     width: 50%;
     height: 110px;
-    margin: 0 auto;
-
+    margin: auto;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    cursor: pointer;
 }
 
 .sliderPortfolioSkills{
     background-color: #171F26;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 15px 0 15px 0;
-    margin: 11px 0;
     border-radius: 20px;
 }
 
-.sliderPortfolioSkills button{
+.sliderPortfolioSkills p{
     color: #A3ABB2;
     width: 45%;
     height: 80px;
     border-radius: 10px;
+    text-align: center;
     border: none;
     background-color: #171F26;
-    margin: auto 0;
+    margin: auto;
     font-size: 22px;
-    line-height: 33px;
+    line-height: 80px;
     font-weight: 500;
-    transition: hover 200ms;
 }
 
-.sliderPortfolioSkills p:focus{
-  background-color: #0C151D;
-  border: none;
+p.selected{
+    background-color:#D7D7D7 ;
 }
 
-
-.hideDiv{
-    display:none
+.skillsProjectsContainer{
+    display: flex;
+    width: 50%;
+    flex-wrap: nowrap;
 }
 
 #projectsContainer{
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    width: 100%;
     justify-content: space-between;
     padding: 20px 0;
     align-content: center;
     
 }
 
+div#projectsContainer.hidden{
+    display: none;
+}
 
+div#skills.hidden{
+    display: none;
+}
 
 
 #projectsContainer div{
     width: 45%;
     margin: 25px auto;
-    height:225px;
+    height: 225px;
     
     
 }
@@ -252,15 +278,28 @@ main{
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    transition: scale 1000ms;
+    transition: box-shadow 300ms;
 }
+
 #projectsContainer div img:hover{
-    scale: 1.25;
+    box-shadow: 5px 10px #999999;
 }
+
 
 
 #skills{
-    display: none;
+    display: flex;
+    width: 100%;
+    font-size: 25px;
+    color: lightgrey;
+    align-items: center;
+    margin: auto 0;
+    justify-content: space-evenly;
+}
+
+.skillsList{
+    width: 40%;
+    list-style-type:square;
 }
 
 #autoScrollButton{
@@ -270,6 +309,7 @@ main{
     right: 5px;
     bottom: 5px;
     z-index: 99;
+    cursor: pointer;
     transition: background-color ease-in-out 1000ms
 }
 
@@ -297,12 +337,10 @@ footer p{
 
 
 
-button:hover{
-    border: 3px solid rgb(255, 255, 255);
-}
+
 @media (min-width:601px) and (max-width: 1040px) {
 
-    body{
+    .experienceStatsText{
         font-size: 18px;
     }
     .darkModeButton{
@@ -315,30 +353,42 @@ button:hover{
         align-items: center;
         text-align: center;
     }
+    .socials{
+        align-self: center;
+        justify-content: center;
+    }
     .experienceStats{
-        width: 75%;
+        width: 60%;
     }
 
     .cvContactButtonsContainer{
         width: 65%;
     }
-    .sliderContainer{
+    div.sliderContainer{
         width: 75%;
     }
-
-    .projectsContainer{
+    .skillsProjectsContainer{
         width: 75%;
     }
-
-    .projectsContainer div{
-        width: 45%;
+   
+    #cvButton, #contactButton, .sliderPortfolioSkills p, .experienceStatsNumber{
+        font-size: 20px;
     }
-
+   
+   
 }
 
 @media screen and (max-width: 600px)  {
     body{
         font-size: 14px;
+    }
+    h1{
+        font-size: 32px;
+        line-height: 48px;
+    }
+    h4{
+        font-size: 14px;
+        line-height: 21px;
     }
 
     .darkModeButton{
@@ -352,28 +402,67 @@ button:hover{
         text-align: center;
     }
 
+    .socials{
+        align-self: center;
+        justify-content:center;
+    }
+
     .experienceStats{
         width: 90%;
+    }
+
+    .experienceStatsNumber{
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .experienceStatsText{
+        font-size: 14px;
+        line-height: 21px;
     }
 
     .cvContactButtonsContainer{
         width: 90%;
     }
 
-    .sliderContainer{
-        width: 90%;
+    .cvContactButtonsContainer button{
+        font-size: 12px;
+        line-height: 18px;
+        height: 50px;
+    }
+    #cvButton{
+        font-size: 12px;
+        line-height: 50px;
+        height: 50px;
     }
 
-    .projectsContainer{
+    div.sliderContainer{
         width: 90%;
+        height: 60px;
     }
 
-    .projectsContainer div{
-        width: 90%;
+
+    .sliderPortfolioSkills{
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
     }
 
-    html{
-        color-scheme: light;
+    .sliderPortfolioSkills p{
+        height: 50px;
+        line-height: 50px;
     }
+    .skillsProjectsContainer{
+        width: 90%;
+    }
+    #projectsContainer{
+        width: 100%;
+    }
+
+    #projectsContainer div{
+        width: 100%;
+    }
+
+   
     
 }
