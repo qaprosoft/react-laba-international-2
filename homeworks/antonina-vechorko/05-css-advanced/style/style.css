@@ -5,6 +5,7 @@
 @import 'main.css';
 @import 'footer.css';
 @import 'dark-mode.css';
+@import 'media.css';
 
 body {
     max-width: 757px;
