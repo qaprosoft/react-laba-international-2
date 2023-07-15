@@ -9,7 +9,7 @@ nav {
     max-height: 132px;
 }
 
-.navigation-form {
+.main-nav__form {
     height: 100%;
     display: flex;
     border-radius: 0.7rem;
@@ -22,7 +22,7 @@ form#tab-toggle {
     max-width: 760px;
 }
 
-.portfolio__label {
+.main-nav__label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,15 +35,15 @@ form#tab-toggle {
     color: var(--text-color-additional2);
 }
 
-.navigation-form input:checked + label {
+.main-nav__form input:checked + label {
     background-color: var(--nav-active-color);
 }
 
-.main-container {
+.main {
     max-width: 760px;
 }
 
-.portfolio-container {
+.portfolio {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -52,7 +52,7 @@ form#tab-toggle {
     max-width: 760px;
 }
 
-.portfolio__img-wrapper {
+.portfolio__item {
     max-width: 362px;
     max-height: 226px;
     margin-bottom: 1.2rem;
@@ -61,12 +61,12 @@ form#tab-toggle {
     border-radius: 15px;
 }
 
-.portfolio__project img{
+.portfolio__item-img {
     width: 100%;
     height: 100%;
 }
 
-.portfolio__description {
+.portfolio__item-description {
     display: none;
     position: absolute;
     flex-direction: column;
@@ -79,11 +79,11 @@ form#tab-toggle {
     color: var(--text-color-secondary);
 }
 
-.portfolio__img-wrapper:hover > .portfolio__description {
+.portfolio__item:hover > .portfolio__item-description {
     display: flex;
 }
 
-.portfolio__img-wrapper::before {
+.portfolio__item::before {
     content: "";
     position: absolute;
     top: 0;
@@ -96,22 +96,22 @@ form#tab-toggle {
     pointer-events: none;
 }
 
-.portfolio__img-wrapper:hover::before {
+.portfolio__item:hover::before {
     opacity: 1;
 }
 
-.portfolio__project-name {
+.portfolio__item-name {
     margin: 0;
     font-weight: 500;
 }
 
-.portfolio__project-description {
+.portfolio__item-summary {
     margin: 0;
     font-size: 14px;
     line-height: 140%;
 }
 
-.portfolio__link-wrapper {
+.portfolio__item-link {
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -130,13 +130,13 @@ form#tab-toggle {
     left: 25%;
 }
 
-.skill-container {
+.skills {
     display: none;
     max-width: 760%;
     color: var(--text-color-secondary);
 }
 
-.skill__title {
+.skills__title {
     margin-left: 2.3rem;
     text-decoration: underline;
 }
