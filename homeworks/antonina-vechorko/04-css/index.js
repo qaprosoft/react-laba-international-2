@@ -1,14 +1,14 @@
 const body = document.body;
-const themeSwitch = document.querySelector('.theme-switch');
-const themeSwitchIcon = document.querySelector('.theme-switch__icon')
-const darkSmIcon1 = document.querySelector('.icon1');
-const darkSmIcon2 = document.querySelector('.icon2');
-const darkSmIcon3 = document.querySelector('.icon3');
-const darkSmIcon4 = document.querySelector('.icon4');
-const skillContainer = document.querySelector('.skill-container');
+const themeSwitch = document.querySelector('.header__theme-switch');
+const themeSwitchIcon = document.querySelector('.header__theme-switch-icon')
+const darkSmIcon1 = document.querySelector('.person__social-media-icon--github');
+const darkSmIcon2 = document.querySelector('.person__social-media-icon--twitter');
+const darkSmIcon3 = document.querySelector('.person__social-media-icon--linkedin');
+const darkSmIcon4 = document.querySelector('.person__social-media-icon--youtube');
+const skillContainer = document.querySelector('.skills');
 const skillsTab = document.getElementById('skills-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
-const portfolioContainer = document.querySelector('.portfolio-container');
+const portfolioContainer = document.querySelector('.portfolio');
 
 skillsTab.addEventListener('click', () => {
     skillContainer.style.display = 'block';
@@ -22,17 +22,17 @@ portfolioTab.addEventListener('click', () => {
 
 const updateIcons = () => {
     if (body.classList.contains('dark-mode')) {
-        themeSwitchIcon.src = 'assets/dark-switcher.svg';
-        darkSmIcon1.src = 'assets/dark-github.svg';
-        darkSmIcon2.src = 'assets/dark-twitter.svg';
-        darkSmIcon3.src = 'assets/dark-linkedin.svg';
-        darkSmIcon4.src = 'assets/dark-youtube.svg';
+        themeSwitchIcon.src = 'assets/icons/dark-switcher.svg';
+        darkSmIcon1.src = 'assets/icons/dark-github.svg';
+        darkSmIcon2.src = 'assets/icons/dark-twitter.svg';
+        darkSmIcon3.src = 'assets/icons/dark-linkedin.svg';
+        darkSmIcon4.src = 'assets/icons/dark-youtube.svg';
     } else {
-        themeSwitchIcon.src = 'assets/theme-switch.svg';
-        darkSmIcon1.src = 'assets/github.svg';
-        darkSmIcon2.src = 'assets/twitter.svg';
-        darkSmIcon3.src = 'assets/linkedin.svg';
-        darkSmIcon4.src = 'assets/youtube.svg';
+        themeSwitchIcon.src = 'assets/icons/theme-switch.svg';
+        darkSmIcon1.src = 'assets/icons/github.svg';
+        darkSmIcon2.src = 'assets/icons/twitter.svg';
+        darkSmIcon3.src = 'assets/icons/linkedin.svg';
+        darkSmIcon4.src = 'assets/icons/youtube.svg';
     }
 }
 

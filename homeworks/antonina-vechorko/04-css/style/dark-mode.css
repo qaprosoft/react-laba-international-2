@@ -1,15 +1,16 @@
-.dark-mode .btn_contact {
+.dark-mode .person__btn--contact {
     color: var( --text-color-primary);
 }
 
-.dark-mode .portfolio__description {
+.dark-mode .person__btn--contact:hover {
+    filter: contrast(120%);
+}
+
+.dark-mode .portfolio__item-description {
     color: #3D3D3D;
 }
 
-.dark-mode .portfolio__link-wrapper {
+.dark-mode .portfolio__item-link {
     background-color: #FFFFFF;
 }
 
-.dark-mode .btn_contact:hover {
-    filter: contrast(120%);
-}
