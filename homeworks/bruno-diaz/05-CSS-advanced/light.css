@@ -1,0 +1,339 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    background: #e9ebec;
+    font-size: 16px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: static;
+}
+.switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    background-color: #fffFFF;
+    animation: switcher 20s ease-in-out alternate infinite;
+    transition: 2s;
+    z-index: 1;
+}
+.switcher:hover {
+    transform: rotate(360deg);
+}
+
+@keyframes switcher {
+        0% {background-color: #FFFFFF}
+        25% {background-color: #171f26}
+        50% {background-color: #FFFFFF}
+        75% {background-color: #171f26}
+        100% {background-color: #FFFFFF}
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.profile__user {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2.5rem;
+}
+
+.user__photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fffFFF;
+    border: 4px solid #f7d039;
+    height: 13rem;
+    width: 13rem;
+    border-radius: 100%;
+}
+
+.photo__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./assets/pictures/myPhoto.jpg);
+    background-position: center;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 100%;
+}
+
+
+.information_name {
+    margin: 0;
+    color: #3D3D3D;
+    font-family: Poppins;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.information_occupation {
+    margin: 0;
+    color: #575757;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.animated-icon, .animated-button {
+    transition: width 2s, heigh 2s, transform 2s;
+    transition-timing-function: ease;
+}
+.animated-icon:hover {
+    position: relative;
+    z-index: 0;
+    transform: scale(1.5);
+}
+.animated-button:hover {
+    position: relative;
+    z-index: 0;
+    transform: scale(1.2);
+}
+.profile__experience {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 39.625rem;
+    padding: 1.25rem 0.125rem;
+    gap: 90px;
+}
+
+.fact__number {
+    display: flex;
+    justify-content: center;
+    color: #3A3A3A;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.fact__text {
+    color: #575757;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile__button {
+    display: flex;
+    gap: 2.375rem;
+    flex-shrink: 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18.125rem;
+    height: 5rem;
+    border-radius: 0.625rem;
+    flex-shrink: 0;
+}
+
+.button-content {
+    display: flex;
+    text-decoration: none;
+}
+
+.button-text {
+    color: #3D3D3D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.button_color-yellow {
+    background: #FBD144;
+}
+
+.button_color-white {
+    border: 0px solid #3E64AA;
+    background: #FFF;
+}
+
+.button_color-yellow:hover {
+    background: #a88a28;
+}
+.button_color-white:hover {
+    background: #b4afaf;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tab {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 3rem;
+    width: 47rem;
+    height: 7rem;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #FFF;
+}
+
+.tab-button {
+    width: 22rem;
+    height: 5rem;
+    border-radius: 10px;
+    border: 0px solid #3E64AA;
+}
+
+.tab-button_color-grey {
+    background: #D7D7D7;
+}
+
+.tab-button__text {
+    color: #19191B;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    line-height: normal;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 47rem;
+    height: 52rem;
+    flex-shrink: 0;
+    border-radius: 20px;
+}
+
+.project__content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 25rem;
+    height: 15rem;
+    flex-shrink: 0;
+}
+
+.scroll-container{
+    display: none;
+    position: fixed;
+    width: 6rem;
+    height: 6rem;
+    background-color: #FFF;
+    border-radius: 100%;
+}
+
+.scrollButton {
+    display: none;
+    position: fixed;
+    background: url(./assets/icons/scroll.svg) no-repeat;
+    width: 5rem;
+    height: 5rem;
+}
+
+.footer-text {
+    color: #575757;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media (max-width: 800px) {
+    body {
+        width: 50rem;
+        height: auto;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+    }
+    .profile__user {
+        justify-content: center;
+        flex-flow: column wrap;
+    }
+    .user__photo {
+        display: flex;
+        justify-content: center;
+    }
+    .profile__information {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+    .information_social-media {
+        display: flex;
+        justify-content: space-between;
+    }
+    .projects {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin: auto;
+        background-size: cover;
+    }
+    .project__content {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        margin: 1.875em 0 1.875em 0;
+    }
+    .scroll-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .scrollButton {
+        display: block;
+    }
+
+}
