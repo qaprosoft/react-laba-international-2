@@ -1,0 +1,27 @@
+.achievements {
+  display: flex;
+  justify-content: start;
+  gap: 2.5rem;
+}
+
+.achievements__bullet {
+  color: #575757;
+  text-align: center;
+  font-size: var(--main-font-size);
+  font-family: var(--main-font-family);
+  font-style: var(--main-font-style);
+  font-weight: var(--main-font-weight);
+  line-height: var(--main-line-height);
+}
+
+@media (max-width: 603px){
+  .achievements{
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 335px){
+  .achievements__bullet{
+    font-size: 0.7rem;
+  }
+}

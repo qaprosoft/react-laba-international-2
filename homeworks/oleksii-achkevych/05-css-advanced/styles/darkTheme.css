@@ -1,0 +1,56 @@
+body.dark-theme {
+  background-color: #0C151D;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme p,
+body.dark-theme a,
+body.dark-theme button,
+body.dark-theme li {
+  color: #A3ABB2;
+}
+
+body.dark-theme .theme__switch {
+  background-color: #171F26;
+}
+
+body.dark-theme .theme__switch img {
+  filter: invert(100%);
+}
+
+body.dark-theme .profile__info-items h1 {
+  color: #F1F2F4;
+}
+
+body.dark-theme .btn_style {
+  background-color: #171F26;
+}
+
+body.dark-theme .btn_style:hover {
+  color: #3D3D3D;
+  background-color: #FBD144;
+  transition-duration: 0.3s;
+}
+
+body.dark-theme .arrow-icon img {
+  filter: invert(100%);
+}
+
+body.dark-theme button:hover .arrow-icon img {
+  filter: invert(0%);
+  transition-duration: 0.3s;
+}
+
+body.dark-theme .tab-buttons-block {
+  background-color: #171F26;
+}
+
+body.dark-theme .tab__buttons-button.active {
+  background-color: #0C151D;
+}
+
+body.dark-theme .tab__buttons-button {
+  color: #A3ABB2;
+}
