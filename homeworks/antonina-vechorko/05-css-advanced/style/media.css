@@ -1,6 +1,18 @@
 @media (max-width: 768px) {
+    header, main {
+        max-width: 90vw;
+    }
+
     p, span, button, label {
         font-size: 18px;
+    }
+
+    footer {
+        margin-top: 1.5rem;
+    }
+
+    .footer p {
+        font-size: 16px;
     }
 
     .header__theme-switch {
@@ -19,8 +31,8 @@
     }
 
     .person__avatar {
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
     }
 
     .person__avatar-img {
@@ -41,6 +53,11 @@
         width: 30px;
     }
 
+    .person__achievements {
+        justify-content: center;
+        gap: 3rem;
+    }
+
     .person__contact-btn {
         max-width: 90vw;
         gap: 2rem;
@@ -51,83 +68,142 @@
         height: 70px;
     }
 
-    main {
-        max-width: 90vw;
+    .portfolio {
+        justify-content: center;
     }
 
+    .portfolio__item {
+        flex-basis: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
 
+    .portfolio__item-description {
+        top: 25%;
+        gap: 2rem;
+        padding: 0 2rem 0;
+    }
 
+    .portfolio__item-name {
+        font-size: 28px;
+    }
+
+    .portfolio__item-summary {
+        font-size: 18px;
+    }
+
+    .portfolio__item-link {
+        width: 46px;
+        height: 46px;
+    }
+
+    .portfolio__link img {
+        width: 22px;
+        height: 22px;
+    }
 }
 
-/*@media (max-width: 600px) {*/
-/*    .header {*/
-/*        margin-top: 0.5rem;*/
-/*        margin-bottom: 1.5rem;*/
-/*        gap: 1.5rem;*/
-/*    }*/
+@media (max-width: 480px) {
+    p, span, button, label {
+        font-size: 14px;
+    }
 
-/*    .person__avatar {*/
-/*        width: 100px;*/
-/*        height: 100px;*/
-/*    }*/
+    .footer p {
+        font-size: 12px;
+    }
 
-/*    h1 {*/
-/*        font-size: 24px;*/
-/*    }*/
+    .header__theme-switch {
+        width: 48px;
+        height: 48px;
+    }
 
-/*    .person__achievements {*/
-/*        gap: 1rem;*/
-/*    }*/
+    .header__theme-switch-icon {
+        width: 24px;
+        height: 24px;
+    }
 
-/*    .person__contact-btn {*/
-/*        flex-direction: column;*/
-/*        gap: 1rem;*/
-/*    }*/
+    .person__data {
+        flex-direction: column;
+        gap: 2rem;
+        margin: 1.5rem 0 1.5rem 0;
+    }
 
-/*    .person__btn {*/
-/*        width: 100%;*/
-/*        height: 50px;*/
-/*    }*/
+    .person__avatar {
+        width: 124px;
+        height: 124px;
+    }
 
-/*    .main-nav__label {*/
-/*        width: 140px;*/
-/*        font-size: 14px;*/
-/*    }*/
+    .person__avatar-img {
+        width: 100%;
+        height: 100%;
+    }
 
-/*    .portfolio__item {*/
-/*        flex-basis: 100%;*/
-/*        max-width: 100%;*/
-/*    }*/
+    .person__info {
+        align-items: center;
+        gap: 1rem;
+    }
 
-/*    .skills__title {*/
-/*        margin-left: 1rem;*/
-/*    }*/
-/*}*/
+    .person__achievements-item {
+        gap: 0.6rem;
+    }
 
-/*@media (max-width: 375px) {*/
-/*    body {*/
-/*        font-size: 12px;*/
-/*    }*/
+    .person__achievements-item-title {
+        font-size: 16px;
+    }
 
-/*    .btn {*/
-/*        font-size: 12px;*/
-/*    }*/
+    .person__contact-btn {
+        width: 100%;
+        justify-content: space-between;
+        gap: 1rem;
+    }
 
-/*    .menu__btn {*/
-/*        padding: 0;*/
-/*        width: 48px;*/
-/*        height: 48px;*/
-/*    }*/
+    .person__btn {
+        width: 190px;
+        height: 60px;
+    }
 
-/*    .projects__item {*/
-/*        width: 340px;*/
-/*        height: 210px;*/
-/*    }*/
+    .person__btn--download {
+        padding: 0;
+    }
 
-/*    !* .projects__btns-btn {*/
-/*        padding: 1.25em 4.33em;*/
-/*    } *!*/
+    .person__arrow-icon, .person__arrow-icon img {
+        width: 20px;
+        height: 23px;
+    }
 
-/*    .btnScrollTop {*/
-/*        display: block;*/
-/*    }*/
+    form#tab-toggle {
+        max-height: 80px;
+    }
+
+    .main-nav__label {
+        height: 60px;
+    }
+
+    .main-nav__form {
+        padding: 0.7rem;
+    }
+
+    .portfolio__item-description {
+        top: 22%;
+    }
+
+    .portfolio__item-description {
+        gap: 1.5rem;
+    }
+
+    .portfolio__item-name {
+        font-size: 24px;
+    }
+
+    .portfolio__item-summary {
+        font-size: 14px;
+    }
+
+    .skills__title {
+        font-size: 24px;
+    }
+
+    li {
+        font-size: 14px;
+    }
+}
