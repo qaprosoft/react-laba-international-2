@@ -139,7 +139,6 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
     flex-wrap: nowrap;
 }
 
@@ -161,5 +160,6 @@ h1 {
 
 .person__arrow-icon {
     width: 24px;
-    height: 27px
+    height: 27px;
+    margin-left: 1.5rem;
 }
