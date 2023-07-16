@@ -1,172 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Victor Alvarado | Software Engineer</title>
-</head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__container">
-      <div class="theme-toggler">
-        <img src="assets/icons/sun.svg" alt="Theme toggle icon" class="theme-toggle__icon">
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Victor Alvarado | Software Engineer</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header__container container flex flex_direction_v">
+        <a class="theme-toggler btn btn_shape_round">
+          <img
+            src="assets/icons/sun.svg"
+            alt="Theme toggle icon"
+            class="theme-toggle__icon"
+          />
+        </a>
 
-      <!-- Profile section -->
-      <section class="profile">
-        <div class="profile__picture-wrapper">
-          <img src="assets/images/selfie.png" alt="My picture">
+        <!-- Profile section -->
+        <section class="profile flex">
+          <div class="profile__picture-wrapper">
+            <img src="assets/images/selfie.png" alt="My picture" />
+          </div>
+          <div class="profile__info">
+            <h1 class="profile__name">Victor Alvarado</h1>
+            <p class="lead-text lead-text_weight_bold">Software Engineer</p>
+            <ul class="profile__links flex">
+              <li class="profile__link-item">
+                <a
+                  target="_blank"
+                  href="https://github.com"
+                  class="profile__link"
+                >
+                  <img src="assets/icons/github.svg" alt="Linkedin icon" />
+                </a>
+              </li>
+              <li class="profile__link-item">
+                <a
+                  target="_blank"
+                  href="https://twitter.com"
+                  class="profile__link"
+                >
+                  <img src="assets/icons/twitter.svg" alt="Twitter icon" />
+                </a>
+              </li>
+              <li class="profile__link-item">
+                <a
+                  target="_blank"
+                  href="https://linkedin.com"
+                  class="profile__link"
+                >
+                  <img src="assets/icons/linkedin.svg" alt="Linkedin icon" />
+                </a>
+              </li>
+              <li class="profile__link-item">
+                <a
+                  target="_blank"
+                  href="https://youtube.com"
+                  class="profile__link"
+                >
+                  <img src="assets/icons/youtube.svg" alt="Youtube icon" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <ul class="achievements flex">
+          <li class="achievements__item text-center lead-text">
+            <p class="achievements__quantity">7</p>
+            <p>Years of work experience</p>
+          </li>
+          <li class="achievements__item text-center lead-text">
+            <p class="achievements__quantity">50+</p>
+            <p>Completed projects</p>
+          </li>
+          <li class="achievements__item text-center lead-text">
+            <p class="achievements__quantity">20+</p>
+            <p>Satisfied customers</p>
+          </li>
+        </ul>
+
+        <div class="contact-buttons flex">
+          <a
+            href="assets/files/cv.pdf"
+            class="contact-buttons__item btn btn_bg_secondary"
+          >
+            <span>Download CV</span>
+            <div class="contact-buttons__download-icon">
+              <img src="assets/icons/arrow-down.svg" alt="Download icon" />
+            </div>
+          </a>
+          <a
+            href="mailto:u.umarbekovich@gmail.com"
+            class="contact-buttons__item btn"
+          >
+            Contact me
+          </a>
         </div>
-        <div class="profile__info">
-          <h1 class="profile__name">Victor Alvarado</h1>
-          <p class="lead-text lead-text_weight_bold">Software Engineer</p>
-          <ul class="profile__links">
-            <li class="profile__link-item">
-              <a href="https://github.com" class="profile__link">
-                <img src="assets/icons/github.svg" alt="Linkedin icon">
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="container">
+        <nav class="cv-nav">
+          <ul class="cv-nav__list flex">
+            <li class="cv-nav__list-item">
+              <a href="#portfolio" class="cv-nav__link cv-nav__link_active btn">
+                Portfolio
               </a>
             </li>
-            <li class="profile__link-item">
-              <a href="https://twitter.com" class="profile__link">
-                <img src="assets/icons/twitter.svg" alt="Twitter icon">
-              </a>
-            </li>
-            <li class="profile__link-item">
-              <a href="https://linkedin.com" class="profile__link">
-                <img src="assets/icons/linkedin.svg" alt="Linkedin icon">
-              </a>
-            </li>
-            <li class="profile__link-item">
-              <a href="https://youtube.com" class="profile__link">
-                <img src="assets/icons/youtube.svg" alt="Youtube icon">
-              </a>
+            <li class="cv-nav__list-item">
+              <a href="#portfolio" class="cv-nav__link btn">Skills</a>
             </li>
           </ul>
-        </div>
-      </section>
+        </nav>
 
-      <div class="achievements">
-        <ul class="achievements__list">
-          <li class="achievements__list-item">
-            <pre class="lead-text">
-              <span class="lead-text lead-text_weight_bold">7</span>
-              Years of work
-              experience
-            </pre>
-          </li>
-          <li class="achievements__list-item">
-            <pre class="lead-text text-center">
-              <span class="lead-text lead-text_weight_bold">50+</span>
-              Completed
-              projects
-            </pre>
-          </li>
-          <li class="achievements__list-item">
-            <pre class="lead-text text-center">
-              <span class="lead-text lead-text_weight_bold">20+</span>
-              Satisfied
-              customers
-            </pre>
-          </li>
-        </ul>
+        <!-- Portfolio section -->
+        <section class="portfolio grid" id="portfolio">
+          <div class="portfolio__project">
+            <img
+              src="assets/images/portfolio/project-1.png"
+              alt="SmarterTrading411"
+              class="portfolio__project-img"
+            />
+            <div
+              class="portfolio__project-info flex flex_direction_v text-center"
+            >
+              <h2 class="portfolio__project-name">SmarterTrading411</h2>
+              <p class="portfolio__project-description">
+                Landing page of SmarterTrading411 created using wordPress
+              </p>
+              <a href="#" class="portfolio__project-link btn btn_shape_round">
+                <img src="assets/icons/link.svg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="portfolio__project">
+            <img
+              src="assets/images/portfolio/project-2.png"
+              alt="SmarterTrading411"
+              class="portfolio__project-img"
+            />
+            <div
+              class="portfolio__project-info flex flex_direction_v text-center"
+            >
+              <h2 class="portfolio__project-name">SmarterTrading411</h2>
+              <p class="portfolio__project-description">
+                Landing page of SmarterTrading411 created using wordPress
+              </p>
+              <a href="#" class="portfolio__project-link btn btn_shape_round">
+                <img src="assets/icons/link.svg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="portfolio__project">
+            <img
+              src="assets/images/portfolio/project-3.png"
+              alt="SmarterTrading411"
+              class="portfolio__project-img"
+            />
+            <div
+              class="portfolio__project-info flex flex_direction_v text-center"
+            >
+              <h2 class="portfolio__project-name">SmarterTrading411</h2>
+              <p class="portfolio__project-description">
+                Landing page of SmarterTrading411 created using wordPress
+              </p>
+              <a href="#" class="portfolio__project-link btn btn_shape_round">
+                <img src="assets/icons/link.svg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="portfolio__project">
+            <img
+              src="assets/images/portfolio/project-4.png"
+              alt="SmarterTrading411"
+              class="portfolio__project-img"
+            />
+            <div
+              class="portfolio__project-info flex flex_direction_v text-center"
+            >
+              <h2 class="portfolio__project-name">SmarterTrading411</h2>
+              <p class="portfolio__project-description">
+                Landing page of SmarterTrading411 created using wordPress
+              </p>
+              <a href="#" class="portfolio__project-link btn btn_shape_round">
+                <img src="assets/icons/link.svg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="portfolio__project">
+            <img
+              src="assets/images/portfolio/project-5.png"
+              alt="SmarterTrading411"
+              class="portfolio__project-img"
+            />
+            <div
+              class="portfolio__project-info flex flex_direction_v text-center"
+            >
+              <h2 class="portfolio__project-name">SmarterTrading411</h2>
+              <p class="portfolio__project-description">
+                Landing page of SmarterTrading411 created using wordPress
+              </p>
+              <a href="#" class="portfolio__project-link btn btn_shape_round">
+                <img src="assets/icons/link.svg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="portfolio__project">
+            <img
+              src="assets/images/portfolio/project-6.png"
+              alt="SmarterTrading411"
+              class="portfolio__project-img"
+            />
+            <div
+              class="portfolio__project-info flex flex_direction_v text-center"
+            >
+              <h2 class="portfolio__project-name">SmarterTrading411</h2>
+              <p class="portfolio__project-description">
+                Landing page of SmarterTrading411 created using wordPress
+              </p>
+              <a href="#" class="portfolio__project-link btn btn_shape_round">
+                <img src="assets/icons/link.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
+    </main>
 
-      <div class="contact-buttons">
-        <a href="assets/files/cv.pdf" class="contact-buttons__cv btn_bg_primary">
-          <span>Download CV</span>
-          <img src="assets/icons/arrow-down.svg" alt="Download icon">
-        </a>
-        <a href="mailto:u.umarbekovich@gmail.com" class="btn">
-          Contact me
-        </a>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="lead-text lead-text_weight_bold text-center">
+          &copy; Victor Alvarado, 2022 All rights reserved
+        </p>
       </div>
-    </div>
-  </header>
-
-  <!-- Main -->
-  <main class="main">
-    <div class="container">
-      <nav class="cv-nav">
-        <ul class="cv-nav__list">
-          <li class="cv-nav__list-item">
-            <a href="#portfolio" class="cv-nav__link cv-nav__link_active btn">Portfolio</a>
-          </li>
-          <li class="cv-nav__list-item">
-            <a href="#" class="cv-nav__link btn">Skills</a>
-          </li>
-        </ul>
-      </nav>
-
-      <!-- Portfolio section -->
-      <section id="portfolio">
-        <div class="portfolio__project">
-          <img src="assets/images/portfolio/project-1.png" alt="SmarterTrading411" class="portfolio__project-img">
-          <div class="portfolio__project-info">
-            <h2 class="portfolio__project-name">SmarterTrading411</h2>
-            <p class="portfolio__project-description">Landing page of SmarterTrading411 created using wordPress</p>
-            <a href="#" class="portfolio__project-link">
-              <img src="assets/icons/link.svg" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="portfolio__project">
-          <img src="assets/images/portfolio/project-2.png" alt="SmarterTrading411" class="portfolio__project-img">
-          <div class="portfolio__project-info">
-            <h2 class="portfolio__project-name">SmarterTrading411</h2>
-            <p class="portfolio__project-description">Landing page of SmarterTrading411 created using wordPress</p>
-            <a href="#" class="portfolio__project-link">
-              <img src="assets/icons/link.svg" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="portfolio__project">
-          <img src="assets/images/portfolio/project-3.png" alt="SmarterTrading411" class="portfolio__project-img">
-          <div class="portfolio__project-info">
-            <h2 class="portfolio__project-name">SmarterTrading411</h2>
-            <p class="portfolio__project-description">Landing page of SmarterTrading411 created using wordPress</p>
-            <a href="#" class="portfolio__project-link">
-              <img src="assets/icons/link.svg" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="portfolio__project">
-          <img src="assets/images/portfolio/project-4.png" alt="SmarterTrading411" class="portfolio__project-img">
-          <div class="portfolio__project-info">
-            <h2 class="portfolio__project-name">SmarterTrading411</h2>
-            <p class="portfolio__project-description">Landing page of SmarterTrading411 created using wordPress</p>
-            <a href="#" class="portfolio__project-link">
-              <img src="assets/icons/link.svg" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="portfolio__project">
-          <img src="assets/images/portfolio/project-5.png" alt="SmarterTrading411" class="portfolio__project-img">
-          <div class="portfolio__project-info">
-            <h2 class="portfolio__project-name">SmarterTrading411</h2>
-            <p class="portfolio__project-description">Landing page of SmarterTrading411 created using wordPress</p>
-            <a href="#" class="portfolio__project-link">
-              <img src="assets/icons/link.svg" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="portfolio__project">
-          <img src="assets/images/portfolio/project-6.png" alt="SmarterTrading411" class="portfolio__project-img">
-          <div class="portfolio__project-info">
-            <h2 class="portfolio__project-name">SmarterTrading411</h2>
-            <p class="portfolio__project-description">Landing page of SmarterTrading411 created using wordPress</p>
-            <a href="#" class="portfolio__project-link">
-              <img src="assets/icons/link.svg" alt="">
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-  
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; Victor Alvarado, 2022 All rights reserved</p>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
