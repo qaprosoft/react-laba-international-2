@@ -1,4 +1,8 @@
 @media (max-width: 768px) {
+    p, span, button, label {
+        font-size: 18px;
+    }
+
     .header__theme-switch {
         width: 60px;
         height: 60px;
@@ -10,7 +14,7 @@
     }
 
     .person, .person__data {
-        gap: 2.5rem;
+        gap: 3rem;
         justify-content: center;
     }
 
@@ -23,6 +27,34 @@
         width: 100%;
         height: 100%;
     }
+
+    .person__full-name {
+        font-size: 30px;
+    }
+
+    .person__social-media {
+        gap: 1rem;
+    }
+
+    .person__social-media-link {
+        height: 30px;
+        width: 30px;
+    }
+
+    .person__contact-btn {
+        max-width: 90vw;
+        gap: 2rem;
+    }
+
+    .person__btn {
+        width: 260px;
+        height: 70px;
+    }
+
+    main {
+        max-width: 90vw;
+    }
+
 
 
 }

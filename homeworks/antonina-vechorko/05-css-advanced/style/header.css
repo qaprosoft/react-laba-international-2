@@ -125,11 +125,11 @@ h1 {
 }
 
 .person__contact-btn {
-    max-height: 80px;
-    max-width: 618px;
+    max-height: 100%;
+    max-width: 100%;
     display: flex;
-    justify-content: space-between;
-    gap: 2.5rem;
+    justify-content: center;
+    gap: 4rem;
 }
 
 .person__btn {
@@ -140,6 +140,7 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    flex-wrap: nowrap;
 }
 
 .person__btn--download {
