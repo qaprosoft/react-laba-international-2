@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
 .header__theme-switch:hover {
@@ -49,6 +50,24 @@
 .person__avatar {
     width: 215px;
     height: 215px;
+}
+
+@keyframes scale-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.person__avatar-img:hover {
+    animation-name: scale-animation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
 }
 
 .person__info {
@@ -144,14 +163,16 @@ h1 {
 
 .person__btn--download {
     background-color: var(--accent-color);
+    transition: background-color 0.3s ease;
 }
 
 .person__btn--download:hover {
-    filter: contrast(120%);
+    background-color: #fac810;
 }
 
 .person__btn--contact {
     background-color: var(--secondary-color);
+    transition: background-color 0.3s ease;
 }
 
 .person__btn--contact:hover {

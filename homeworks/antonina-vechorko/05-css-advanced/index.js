@@ -1,6 +1,7 @@
 const body = document.body;
 const themeSwitch = document.querySelector('.header__theme-switch');
-const themeSwitchIcon = document.querySelector('.header__theme-switch-icon')
+const themeSwitchIcon = document.querySelector('.header__theme-switch-icon');
+const socialMediaIcons = document.querySelectorAll('.person__social-media-icon');
 const darkSmIcon1 = document.querySelector('.person__social-media-icon--github');
 const darkSmIcon2 = document.querySelector('.person__social-media-icon--twitter');
 const darkSmIcon3 = document.querySelector('.person__social-media-icon--linkedin');
@@ -9,6 +10,7 @@ const skillContainer = document.querySelector('.skills');
 const skillsTab = document.getElementById('skills-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
 const portfolioContainer = document.querySelector('.portfolio');
+const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
 
 skillsTab.addEventListener('click', () => {
     skillContainer.style.display = 'block';
@@ -18,6 +20,18 @@ skillsTab.addEventListener('click', () => {
 portfolioTab.addEventListener('click', () => {
     skillContainer.style.display = 'none';
     portfolioContainer.style.display = 'flex';
+});
+
+socialMediaIcons.forEach((icon) => {
+    icon.addEventListener('mouseenter', function() {
+        this.style.transform = 'rotate(360deg)';
+        this.style.transition = 'transform 0.5s ease';
+    });
+
+    icon.addEventListener('mouseleave', function() {
+        this.style.transform = 'rotate(0deg)';
+        this.style.transition = 'transform 0.5s ease';
+    });
 });
 
 const updateIcons = () => {
@@ -54,3 +68,30 @@ const changeTheme = () => {
 }
 
 themeSwitch.addEventListener('click', changeTheme);
+
+document.addEventListener('DOMContentLoaded', () => {
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    const handleScroll = () => {
+        const scrollPosition = window.pageYOffset;
+        const viewportWidth = window.innerWidth;
+
+        if (viewportWidth <= 767 && scrollPosition > 500) {
+            // Show the button
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            // Hide the button
+            scrollToTopBtn.style.display = 'none';
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+
+    handleScroll();
+});

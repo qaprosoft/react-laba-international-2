@@ -59,6 +59,7 @@ form#tab-toggle {
     position: relative;
     overflow: hidden;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .portfolio__item-img {
