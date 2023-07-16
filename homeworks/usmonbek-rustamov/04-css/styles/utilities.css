@@ -1,0 +1,64 @@
+/* Containers */
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex_direction_v {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Text blocks */
+.lead-text {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--primary-text);
+}
+
+.lead-text_weight_bold {
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 2rem 4rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: var(--primary-bg);
+  color: var(--primary-text-darker);
+  font-size: 2.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover,
+.btn:active {
+  transform: scale(1.03);
+}
+
+.btn_bg_secondary {
+  background-color: var(--secondary-bg-darker);
+}
+
+.btn_shape_round {
+  padding: 2rem;
+  border-radius: 50%;
+}
