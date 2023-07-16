@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" aria-label="Home link">Home</a>
+        <a href="contact.html" aria-label="Contact link">Contact</a>
+      </nav>
+      <hr />
+    </header>
+    <main>
+      <section>
+        <h1>Contact Me</h1>
+
+        <form>
+          <div>
+            <label for="name">Full Name*</label>
+
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your name..."
+              required
+            />
+
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="Your last name..."
+              required
+            />
+          </div>
+
+          <div>
+            <label for="number">Phone number*</label>
+
+            <input
+              type="number"
+              name="number"
+              id="number"
+              placeholder="Your phone..."
+              required
+            />
+          </div>
+
+          <div>
+            <label for="country">Country</label>
+
+            <select name="country" id="country">
+              <option value="Belarus" default>Belarus</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Poland">Poland</option>
+              <option value="United States">United States</option>
+              <option value="other">other</option>
+            </select>
+          </div>
+
+          <div>
+            <textarea
+              name="message"
+              id="message"
+              cols="20"
+              rows="15"
+              placeholder="Your message..."
+            ></textarea>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <hr />
+
+    <footer>
+      <a href="https://www.facebook.com" target="_blank"
+        ><img
+          src="./assets/icons/facebook.svg"
+          alt="Facebook link"
+          width="35"
+          height="35"
+      /></a>
+
+      <a href="https://www.instagram.com" target="_blank"
+        ><img
+          src="./assets/icons/instagram.svg"
+          alt="Instagram link"
+          width="35"
+          height="35"
+      /></a>
+
+      <a href="https://www.linkedin.com" target="_blank"
+        ><img
+          src="./assets/icons/linkedin.svg"
+          alt="Linkedin link"
+          width="35"
+          height="35"
+      /></a>
+
+      <a href="https://www.twitter.com" target="_blank"
+        ><img
+          src="./assets/icons/twitter.svg"
+          alt="Twitter link"
+          width="35"
+          height="35"
+      /></a>
+    </footer>
+  </body>
+</html>
