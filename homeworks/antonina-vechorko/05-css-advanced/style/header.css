@@ -161,6 +161,15 @@ h1 {
     flex-wrap: nowrap;
 }
 
+.person__btn a:active,
+.person__btn a:focus {
+    text-decoration: none;
+}
+
+.person__btn a {
+    color: var(--text-color-secondary);
+}
+
 .person__btn--download {
     background-color: var(--accent-color);
     transition: background-color 0.3s ease;
