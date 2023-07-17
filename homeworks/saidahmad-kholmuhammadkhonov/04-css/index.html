@@ -12,16 +12,16 @@
 </head>
 <body>
     <div class="container">
+        <div class="theme-switcher">
+           <img id="theme-switcher" src="icons/sun-regular.svg" width="40px" alt="">
+        </div>
         <header class="header">
-            <div class="set-theme">
-                <img id="set-theme" src="icons/sun-regular.svg" width="40px" alt="">
-            </div>
-            <div class="bio-container">
-                <img id="profile-photo" src="images/profile-photo.png" alt="">
-                <div class="bio-content">
-                    <h1 id="fullname">Saidahmad Saidasror</h1>
-                    <p id="job-title">Front-End Developer</p>
-                    <div class="social-icons">
+            <div class="header__bio">
+                <img id="header__profile-photo" src="images/profile-photo.png" alt="">
+                <div class="header__bio-profile">
+                    <h1 id="header__fullname">Saidahmad Saidasror</h1>
+                    <p id="header__job-title">Front-End Developer</p>
+                    <div class="header__social-icons">
                         <a href=""><img src="icons/github.svg" width="24px" alt="Github icon"></a>
                         <a href=""><img src="icons/linkedin.svg" width="24px" alt="Linkedin icon"></a>
                         <a href=""><img src="icons/square-twitter.svg" width="24px" alt="Twitter icon"></a>
@@ -29,22 +29,22 @@
                     </div>
                 </div>
             </div>
-            <div class="bio-achievements">
+            <div class="header__bio-achievements">
                 <p>1<br> year of work experience</p>
                 <p>10+ <br> completed projects</p>
                 <p>10+<br> satisfied customers</p>
             </div>
         </header>
         <main class="main">
-            <div class="contact">
-                <a href="files/SaidahmadFrontEndDev.pdf" download><button class="resume">Download CV <img src="icons/download-solid.svg" width="16px" alt="Download icon"></button></a>
-                <a href="" ><button class="contact-me">Contact Me</button></a>
+            <div class="main__contact-section">
+                <a href="files/SaidahmadFrontEndDev.pdf" download><button class="main__download-btn">Download CV <img src="icons/download-solid.svg" width="16px" alt="Download icon"></button></a>
+                <a href="" ><button class="main__contact-me-btn">Contact Me</button></a>
             </div>
-            <div class="portfolio-skills">
-                <a href=""><button class="portfolio-btn">Portfolio</button></a>
-                <a href=""><button class="skills-btn">Skills</button></a>
+            <div class="main__highlights">
+                <a href=""><button class="main__portfolio-btn">Portfolio</button></a>
+                <a href=""><button class="main__skills-btn">Skills</button></a>
             </div>
-            <div class="portfolio-projects">
+            <div class="main__projects">
                 <a href=""><img src="images/project1.jpg" alt="Project 1 image"></a>
                 <a href=""><img src="images/project2.jpg" alt="Project 2 image"></a>
                 <a href=""><img src="images/project3.jpg" alt="Project 3 image"></a>
@@ -54,9 +54,11 @@
             </div>
         </main>
         <footer class="footer">
-            <div><p class="footer-text">&#169 Saidahmad Saidasror. 2023 All rights reserved.</p></div>
+            <div><p class="footer__text">&#169 Saidahmad Saidasror. 2023 All rights reserved.</p></div>
         </footer>
     </div>
     <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

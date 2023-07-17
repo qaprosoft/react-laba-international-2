@@ -18,23 +18,28 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+
 }
 
 .container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     max-width: 800px;
     background-color: var(--background-color);
     flex-wrap: wrap;
+    position: relative;
 }
 
-.set-theme {
+.theme-switcher {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
-#set-theme {
+#theme-switcher {
+    position: absolute;
     margin-top: 25px;
     background-color: #fff;
     border: 20px solid #fff;
@@ -42,36 +47,36 @@ body {
     cursor: pointer;
 }
 
-.bio-container {
+.header__bio {
     display: flex;
     justify-content: space-between;
     max-width: 720px;
-    margin-top: 65px;
+    margin-top: 100px;
 }
 
-.bio-content {
+.header__bio-profile {
     margin-left: 20px;
 }
 
 
-#profile-photo {
+#header__profile-photo {
     width: 215px;
     margin-left: 20px;
 }
 
-#fullname {
+#header__fullname {
     font-size: 46px;
     color: var(--title-color);
 }
 
-#job-title {
+#header__job-title {
     font-size: 22px;
     color: var(--title-color);
     margin-top: -15px;
     font-weight: 500;
 }
 
-.social-icons {
+.header__social-icons {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -80,20 +85,20 @@ body {
     color: var(--text-color);
 }
 
-.social-icons img {
+.header__social-icons img {
     color: var(--text-color);
     margin-right: 30px;
     margin-top: -5px;
 }
 
-.bio-achievements {
+.header__bio-achievements {
     display: flex;
     justify-content: space-between;
     margin: 48px 20px 0 20px;
     overflow: hidden;
 }
 
-.bio-achievements p {
+.header__bio-achievements p {
     font-size: 22px;
     width: 150px;
     text-align: center;
@@ -102,14 +107,13 @@ body {
 }
 
 
-
-.contact {
+.main__contact-section {
     display: flex;
     justify-content: space-evenly;
     margin-top: 48px;
 }
 
-.contact .resume {
+.main__download-btn {
     width: 290px;
     height: 80px;
     background-color: #FBD144;
@@ -121,7 +125,7 @@ body {
     cursor: pointer;
 }
 
-.contact .contact-me {
+.main__contact-me-btn {
     width: 290px;
     height: 80px;
     background-color: var(--tab-color);
@@ -133,7 +137,7 @@ body {
     cursor: pointer;
 }
 
-.portfolio-skills {
+.main__highlights {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -144,7 +148,7 @@ body {
     border-radius: 20px;
 }
 
-.portfolio-btn {
+.main__portfolio-btn {
     height: 80px;
     width: 350px;
     border: none;
@@ -156,7 +160,7 @@ body {
     font-weight: 500;
 }
 
-.skills-btn {
+.main__skills-btn {
     height: 80px;
     width: 350px;
     border: 1px solid var(--background-color);
@@ -168,22 +172,23 @@ body {
     font-weight: 500;
 }
 
-.portfolio-projects {
+.main__projects {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     width: 760px;
     height: 820px;
     margin-top: 65px;
 }
 
-.portfolio-projects img {
+.main__projects img {
     width: 362px;
     height: 226px;
     border-radius: 15px;
+    margin: 0 0.5rem 0 0.5rem;
 }
 
-.footer-text {
+.footer__text {
     font-size: 22px;
     color: var(--text-color);
 }
@@ -196,12 +201,12 @@ body {
         max-width: 760px;
     }
 
-    #set-theme {
+    #theme-switcher {
         width: 24px;
         border: 10px solid #fff;
     }
 
-    .bio-container {
+    .header__bio {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -210,53 +215,53 @@ body {
         margin-top: 65px;
     }
 
-    .bio-content {
+    .header__bio-profile {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
 
-    #profile-photo {
+    #header__profile-photo {
         width: 124px;
     }
 
-    #fullname {
+    #header__fullname {
         font-size: 32px;
     }
 
-    #job-title {
+    #header__job-title {
         font-size: 14px;
     }
 
-    .bio-achievements p {
+    .header__bio-achievements p {
         font-size: 14px;
         width: 75px;
     }
 
 
-    .contact {
+    .main__contact-section {
         display: flex;
         justify-content: center;
         align-items: center;
         max-width: 760px;
     }
 
-    .contact .resume {
+    .main__download-btn {
         width: 158px;
         height: 44px;
         font-size: 12px;
         margin-right: 2rem;
     }
 
-    .contact .contact-me {
+    .main__contact-me-btn {
         width: 158px;
         height: 44px;
         font-size: 12px;
     }
 
 
-    .portfolio-skills {
+    .main__highlights {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -266,7 +271,7 @@ body {
         border-radius: 20px;
     }
 
-    .portfolio-btn {
+    .main__portfolio-btn {
         height: 50px;
         width: 154px;
         border: none;
@@ -277,7 +282,7 @@ body {
         margin-right: 2rem;
     }
 
-    .skills-btn {
+    .main__skills-btn {
         height: 50px;
         width: 154px;
         border-radius: 10px;
@@ -286,23 +291,25 @@ body {
         font-weight: 500;
     }
 
-    .portfolio-projects {
+    .main__projects {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
         max-width: 760px;
         height: 1600px;
-        margin-top: 0;
+        margin-top: 0px;
     }
 
-    .portfolio-projects img {
+    .main__projects img {
         margin-top: 1rem;
         width: 362px;
-        height: 226px;
+        height: auto;
         border-radius: 15px;
     }
 
-    .footer-text {
+    .footer__text {
         font-size: 14px;
     }
 
