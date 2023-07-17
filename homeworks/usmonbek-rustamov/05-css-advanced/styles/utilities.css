@@ -67,8 +67,29 @@
   border-radius: 50%;
 }
 
+.btn-scroll {
+  display: none;
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+
+  width: 8.5rem;
+  height: 8.5rem;
+  opacity: 0.75;
+}
+
+.btn-scroll:hover,
+.btn-scroll:active {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
 @media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .btn-scroll {
+    display: flex;
   }
 }
