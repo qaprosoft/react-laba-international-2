@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function(event) {
       event.preventDefault();
   
-      if (styleSheet.getAttribute('href') === 'light.css') {
-        styleSheet.setAttribute('href', 'dark.css');
+      if (styleSheet.getAttribute('href') === './styles/light.css') {
+        styleSheet.setAttribute('href', './styles/dark.css');
       } else {
-        styleSheet.setAttribute('href', 'light.css');
+        styleSheet.setAttribute('href', './styles/light.css');
       }
     });
   });
