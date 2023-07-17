@@ -66,3 +66,9 @@
   padding: 2rem;
   border-radius: 50%;
 }
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

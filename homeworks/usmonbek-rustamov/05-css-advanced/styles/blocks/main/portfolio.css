@@ -58,14 +58,14 @@
   font-weight: 500;
   color: #3d3d3d;
   transform: translateX(-300%);
-  transition: transform 0.3s ease-in-out 0.3s;
+  transition: transform 0.3s ease-in-out 0.35s;
 }
 
 .portfolio__project-description {
   font-size: 1.4rem;
   color: #575757;
   transform: translateX(300%);
-  transition: transform 0.3s ease-in-out 0.3s;
+  transition: transform 0.3s ease-in-out 0.35s;
 }
 
 .portfolio__project:hover .portfolio__project-name,
@@ -75,4 +75,35 @@
 .portfolio__project:active .portfolio__project-description,
 .portfolio__project:active .portfolio__project-link {
   transform: translate(0, 0);
+}
+
+@media (max-width: 600px) {
+  .portfolio__project {
+    border-radius: 2.5rem;
+  }
+
+  .portfolio__project-info {
+    width: 110%;
+    height: 110%;
+    padding: 8rem;
+    border-radius: 0%;
+  }
+
+  .portfolio__project:hover .portfolio__project-info {
+    animation: grow-horizontal 0.3s ease-in-out backwards;
+  }
+
+  .portfolio__project-name {
+    font-size: 4rem;
+  }
+
+  .portfolio__project-description {
+    font-size: 2.2rem;
+  }
+
+  .portfolio__project-link {
+    width: 6.5rem;
+    height: 6.5rem;
+    margin-top: 3rem;
+  }
 }
