@@ -29,28 +29,28 @@ header{
 }
 
 
-#darkModeButton {
+.dark-mode-button {
     border-radius: 100%;
     background-color: #171F26;
     transition: all linear 1000ms;
-    margin-top: 25px;
     border: none;
     cursor: pointer;
 }
 
-#darkModeButton:hover{
+.dark-mode-button:hover{
     background-color: #0C151D;
 }
 
-#darkModeButton i{
+.dark-mode-button__dark-mode-icon{
     color: grey;
     transition: color 1000ms;
 }
 
 
-#darkModeButton i:hover{
+.dark-mode-button__dark-mode-icon:hover{
     color:white ;
-}       
+}  
+
 main{
     display: flex;
     flex-direction: column;
@@ -59,7 +59,7 @@ main{
     margin-bottom: 10px;
 
 }
-.portfolioPresentation{
+.portfolio-presentation{
     width: 40%;
     display: flex;
     justify-content: space-evenly;
@@ -69,13 +69,13 @@ main{
     
 }
 
-.photoContainer{
+.portfolio-presentation__photo-container{
     width: 192px;
     height: 192px;
     flex-grow: 0.1;
 }
 
-#profileImage {
+.portfolio-presentation__profile-image  {
     width: 100%;
     height: 100%;
     border-radius: 100%;
@@ -84,7 +84,7 @@ main{
     border: 3px black solid;
 }
 
-.titleAndLogos{
+.portfolio-presentation__title-logos-container{
     
     align-self: center;
     display: flex;
@@ -96,7 +96,7 @@ main{
     
 }
 
-.titleAndLogos h1{
+.portfolio-presentation__full-name-h1{
     
     font-size: 46px;
     font-weight: 500;
@@ -106,7 +106,7 @@ main{
     
 }
 
-.titleAndLogos h4 {
+.portfolio-presentation__job-title-h4 {
     font-size: 22px;
     font-weight: 500;
     line-height: 33px;
@@ -116,7 +116,7 @@ main{
 
 
 
-.portfolioPresentation .socials{
+.portfolio-presentation__logos-container{
     display: flex;
     gap: 26px;
     margin: 25px 0 0 0;
@@ -125,15 +125,14 @@ main{
 
 
 
-.socialsLogo{
+.portfolio-presentation__logo{
     color: #A3ABB2;
 }
 
 
 
-.experienceStats {
+.experience-stats{
     width: 40%;
-    padding: 20px 2px 20px 2px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,18 +140,18 @@ main{
     margin: auto;
 }
 
-.experienceStatsDiv{
+.experience-stats__experience-stats-container{
     margin: auto;
 }
 
-.experienceStatsNumber{
+.experience-stats__stats-numbers{
     font-size: 24px;
     font-weight: 500;
     line-height: 36px;
     margin-bottom: 0;
 }
 
-.experienceStatsText{
+.experience-stats__stats-texts{
     font-size: 22px;
     font-weight: 500;
     line-height: 33px;
@@ -160,7 +159,7 @@ main{
     margin-top: 0;
 }
 
-.cvContactButtonsContainer{
+.cv-contact-btn-container{
     width: 40%;
     display: flex;
     justify-content: space-between;
@@ -168,7 +167,7 @@ main{
     
 }
 
-.cvContactButtonsContainer button{
+.cv-contact-btn-container__contact-btn{
     width: 45%;
     height: 80px;
     font-size: 22px;
@@ -178,9 +177,11 @@ main{
     border: none;
     color: #A3ABB2;
     cursor: pointer;
+    background-color:#171F26;
+    transition: border 200ms;
 
 }
-#cvButton{
+.cv-contact-btn-container__cv-btn{
     width: 45%;
     height: 80px;
     font-size: 22px;
@@ -196,14 +197,9 @@ main{
     
 }
 
-#contactButton{
-    background-color:#171F26;
-    transition: border 200ms;
-    
-}
 
 
-div.sliderContainer{
+.slider{
     width: 50%;
     height: 110px;
     margin: auto;
@@ -213,7 +209,7 @@ div.sliderContainer{
     cursor: pointer;
 }
 
-.sliderPortfolioSkills{
+.slider__slider-container{
     background-color: #171F26;
     width: 100%;
     height: 100%;
@@ -223,7 +219,7 @@ div.sliderContainer{
     border-radius: 20px;
 }
 
-.sliderPortfolioSkills p{
+.slider__btn{
     color: #A3ABB2;
     width: 45%;
     height: 80px;
@@ -237,17 +233,17 @@ div.sliderContainer{
     font-weight: 500;
 }
 
-p.selected{
+.slider__btn--selected{
     background-color:#D7D7D7 ;
 }
 
-.skillsProjectsContainer{
+.skills-projects{
     display: flex;
     width: 50%;
     flex-wrap: nowrap;
 }
 
-#projectsContainer{
+.skills-projects__projects-container{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -257,37 +253,28 @@ p.selected{
     
 }
 
-div#projectsContainer.hidden{
-    display: none;
-}
 
-div#skills.hidden{
-    display: none;
-}
-
-
-#projectsContainer div{
+.skills-projects__project-display{
     width: 45%;
     margin: 25px auto;
     height: 225px;
-    
-    
+    cursor: pointer;
 }
 
-#projectsContainer div img{
+.skills-projects__project-img{
     width: 100%;
     height: 100%;
     border-radius: 15px;
     transition: box-shadow 300ms;
 }
 
-#projectsContainer div img:hover{
+.skills-projects__project-img:hover{
     box-shadow: 5px 10px #999999;
 }
 
 
 
-#skills{
+.skills-projects__skills-container{
     display: flex;
     width: 100%;
     font-size: 25px;
@@ -297,12 +284,19 @@ div#skills.hidden{
     justify-content: space-evenly;
 }
 
-.skillsList{
+
+
+.skills-projects__skills-list{
     width: 40%;
     list-style-type:square;
 }
 
-#autoScrollButton{
+.skills-projects__skills-container--hidden{
+    display: none;
+}
+
+
+.auto-scroll-button{
     position: fixed;
     border: solid 2px black;
     border-radius: 100%;
@@ -313,7 +307,7 @@ div#skills.hidden{
     transition: background-color ease-in-out 1000ms
 }
 
-#autoScrollButton:hover{
+.auto-scroll-button:hover{
     background-color: #FBD144;
 }
 
@@ -324,7 +318,7 @@ footer{
     top: 0;
    
 }
-footer p{
+.footer__copyright{
     
     text-align: center;
     font-size: 22px;

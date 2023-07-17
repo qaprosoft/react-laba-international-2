@@ -3,8 +3,8 @@
 
 window.addEventListener("load", ()=>{
 
-    const darkModeButton = document.getElementById("darkModeButton");
-    const scrollToTopButton = document.getElementById("autoScrollButton");
+    const darkModeButton = document.getElementById("dark-mode-button");
+    const scrollToTopButton = document.getElementById("auto-scroll-button");
     
     const slider = document.getElementById("sliderButton");
 
@@ -51,12 +51,11 @@ e.preventDefault();
         const skillsButton = document.getElementById("sliderButtonSkills");
 
 
-        skillsContainer.classList.toggle("hidden")
-        projectsContainer.classList.toggle("hidden")
-        skillsButton.classList.toggle("selected")
-        portfolioButton.classList.toggle("selected")
+        skillsContainer.classList.toggle("skills-projects__skills-container--hidden")
+        projectsContainer.classList.toggle("skills-projects__skills-container--hidden")
+        skillsButton.classList.toggle("slider__btn--selected")
+        portfolioButton.classList.toggle("slider__btn--selected")
         
-    
 
     });
 
