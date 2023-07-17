@@ -363,6 +363,15 @@ footer{
     .cv-contact-btn-container{
         width: 65%;
     }
+
+    .cv-contact-btn-container__contact-btn{
+        font-size: 18px;
+    }
+
+    .cv-contact-btn-container__cv-btn{
+        font-size: 18px;
+    }
+
     .slider{
         width: 75%;
     }

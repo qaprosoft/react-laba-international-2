@@ -335,38 +335,47 @@ footer{
 
 @media (min-width:601px) and (max-width: 1040px) {
 
-    .experienceStatsText{
+    .experience-stats__text{
         font-size: 18px;
     }
-    .darkModeButton{
-        width: 5%;
+    .dark-mode-button{
+        width: auto;
     }
 
-    .portfolioPresentation{
+    .portfolio-presentation{
         width: 100%;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    .socials{
+    .portfolio-presentation__logos-container{
         align-self: center;
         justify-content: center;
     }
-    .experienceStats{
+    .experience-stats{
         width: 60%;
     }
 
-    .cvContactButtonsContainer{
+    .cv-contact-btn-container{
         width: 65%;
     }
-    div.sliderContainer{
+
+    .cv-contact-btn-container__contact-btn{
+        font-size: 18px;
+    }
+
+    .cv-contact-btn-container__cv-btn{
+        font-size: 18px;
+    }
+
+    .slider{
         width: 75%;
     }
-    .skillsProjectsContainer{
+    .skills-projects{
         width: 75%;
     }
    
-    #cvButton, #contactButton, .sliderPortfolioSkills p, .experienceStatsNumber{
+    .slider__btn, .experience-stats__number{
         font-size: 20px;
     }
    
@@ -377,87 +386,88 @@ footer{
     body{
         font-size: 14px;
     }
-    h1{
+    .portfolio-presentation__full-name-h1{
         font-size: 32px;
         line-height: 48px;
     }
-    h4{
+    .portfolio-presentation__job-title-h4{
         font-size: 14px;
         line-height: 21px;
     }
 
-    .darkModeButton{
-        width: 10%;
+    .dark-mode-button{
+        width: 5%;
     }
 
-    .portfolioPresentation{
+    .portfolio-presentation{
         width: 100%;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .socials{
+    .portfolio-presentation__logos-container{
         align-self: center;
         justify-content:center;
     }
 
-    .experienceStats{
+    .experience-stats{
         width: 90%;
     }
 
-    .experienceStatsNumber{
+    .experience-stats__number{
         font-size: 16px;
         line-height: 24px;
     }
 
-    .experienceStatsText{
+    .experience-stats__text{
         font-size: 14px;
         line-height: 21px;
     }
 
-    .cvContactButtonsContainer{
+    .cv-contact-btn-container{
         width: 90%;
     }
 
-    .cvContactButtonsContainer button{
+    .cv-contact-btn-container__contact-btn{
         font-size: 12px;
         line-height: 18px;
         height: 50px;
     }
-    #cvButton{
+    .cv-contact-btn-container__cv-btn{
         font-size: 12px;
         line-height: 50px;
         height: 50px;
     }
 
-    div.sliderContainer{
+    .slider{
         width: 90%;
         height: 60px;
     }
 
 
-    .sliderPortfolioSkills{
+    .slider__slider-container{
         width: 100%;
         height: auto;
         padding: 10px 0;
     }
 
-    .sliderPortfolioSkills p{
+    .slider__btn{
         height: 50px;
         line-height: 50px;
     }
-    .skillsProjectsContainer{
+    .skills-projects{
         width: 90%;
     }
-    #projectsContainer{
+    .skills-projects__projects-container{
         width: 100%;
     }
 
-    #projectsContainer div{
+    .skills-projects__project-display{
         width: 100%;
     }
 
+   
    
     
 }
