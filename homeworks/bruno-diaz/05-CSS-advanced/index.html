@@ -4,8 +4,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="dark.css">
-    <link id="light-style" rel="stylesheet" type="text/css" href="light.css">
+    <link rel="stylesheet" type="text/css" href="./styles/dark.css">
+    <link id="light-style" rel="stylesheet" type="text/css" href="./styles/light.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
@@ -21,80 +21,101 @@
     <main>
         <section class="profile">
             <div class="profile__user">
-                <div class="user__photo">
-                    <div class="photo__container"></div>
+                <div class="profile__avatar">
+                    <div class="profile__photo"></div>
                 </div>
                 <div class="profile__information">
-                    <h1 class="information_name">Bruno Diaz</h1>
-                    <p class="information_occupation">Front-end Developer</p>
-                    <div class="information_social-media">
-                        <a href="https://github.com/BrunoDiaz7">
-                            <img src="./assets/icons/github.svg" alt="github" class="animated-icon">
-                        </a>
-                        <a href="https://twitter.com/">
-                            <img src="./assets/icons/twitter.svg" alt="twitter" class="animated-icon">
-                        </a>
-                        <a href="https://www.linkedin.com/in/bruno-diaz-838438238/">
-                            <img src="./assets/icons/linkedin.svg" alt="linkedin" class="animated-icon">
-                        </a>
-                        <a href="https://www.youtube.com/">
-                            <img src="./assets/icons/youtube.svg" alt="youtube" class="animated-icon">
-                        </a>
+                    <div class="profile__main">
+                        <h1 class="profile__name">Bruno Diaz</h1>
+                        <p class="profile__job">Front-end Developer</p>
+                        <div class="profile__social-media">
+                            <a href="#"><img src="./assets/icons/github.svg" alt="github" class="animated-icon"></a>
+                            <a href="#"><img src="./assets/icons/linkedin.svg" alt="linkedin" class="animated-icon"></a>
+                            <a href="#"><img src="./assets/icons/twitter.svg" alt="twitter" class="animated-icon"></a>
+                            <a href="#"><img src="./assets/icons/youtube.svg" alt="youtube" class="animated-icon"></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="profile__experience">
+                    <div class="profile__experience-info">
+                        <p class="profile__experience-info__text">
+                            7
+                            <br>
+                            Years of work
+                            <br>
+                            experience
+                        </p>
+                    </div>
+                    <div class="profile__experience-info">
+                        <p class="profile__experience-info__text">
+                            +50
+                            <br>
+                            Completed
+                            <br>
+                            cprojects
+                        </p>
+                    </div>
+                    <div class="profile__experience-info">
+                        <p class="profile__experience-info__text">
+                            +20
+                            <br>
+                            Satisfied
+                            <br>
+                            customers
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="profile__experience">
-                <div class="experience__fact">
-                    <p class="fact__number">7</p>
-                    <p class="fact__text">Years of work<br>experience</p>
-                </div>
-    
-                <div class="projects__fact">
-                    <p class="fact__number">50+</p>
-                    <p class="fact__text">Completed <br>projects</p>
-                </div>
-    
-                <div class="projects__fact">
-                    <p class="fact__number">20+</p>
-                    <p class="fact__text">Sastified <br> customers</p>
-                </div>
-            </div>
-            <div class="profile__button">
-                <div class="button-container button_color-yellow animated-button">
-                    <a class="button-content" href="./assets/files/brunoDiazResume.pdf" download="brunoDiazResume">
-                        <p class="button-text">Download CV</p>
+            <div class="profile__buttons">
+                <div class="button button--yellow button__animated">
+                    <a class="button__content" href="./assets/files/brunoDiazResume.pdf" download="brunoDiazResume">
+                        <p class="button__text">Download CV</p>
                         <img src="./assets/icons/download-arrow.svg" alt="download-arrow">
                     </a>
                 </div>
-                <div class="button-container button_color-white animated-button">
-                    <a class="button-content" href="https://www.instagram.com/_brunold/">
-                        <p class="button-text button-text_color-dark">Contact me</p>
+                <div class="button button--white button__animated">
+                    <a class="button__content" href="https://www.instagram.com/_brunold/">
+                        <p class="button__text">Contact me</p>
                     </a>
                 </div>
             </div>
         </section>
-        <div class="tab-container">
-            <div class="tab">
-                <div class="tab-button tab-button_color-grey">
-                    <p class="tab-button__text">Portfolio</p>
+        <section class="portfolio">
+            <div class="portfolio__buttons">
+                <div class="portfolio__button portfolio__button--active">
+                    <p class="portfolio__button__text">Portfolio</p>
                 </div>
-                <div class="tab-button">
-                    <p class="tab-button__text">Skills</p>
+                <div class="portfolio__button">
+                    <p class="portfolio__button__text">Skills</p>
                 </div>
             </div>
-        </div>
-        <div class="projects">
-            <div class="project__content"><a href="#"><img class="animated-button" src="./assets/pictures/project-1.png" alt="project-1"></a></div>
-            <div class="project__content"><a href="#"><img class="animated-button" src="./assets/pictures/project-2.png" alt="project-2"></a></div>
-            <div class="project__content"><a href="#"><img class="animated-button" src="./assets/pictures/project-3.png" alt="project-3"></a></div>
-            <div class="project__content"><a href="#"><img class="animated-button" src="./assets/pictures/project-4.png" alt="project-4"></a></div>
-            <div class="project__content"><a href="#"><img class="animated-button" src="./assets/pictures/project-5.png" alt="project-5"></a></div>
-            <div class="project__content"><a href="#"><img class="animated-button" src="./assets/pictures/project-6.png" alt="project-6"></a></div>
-        </div>  
+            <div class="portfolio__projects">
+                <div class="card button__animated">
+                    <img src="./assets/pictures/project-1.png" alt="project-1" class="card__image">
+                </div>
+                <div class="card button__animated">
+                    <img src="./assets/pictures/project-2.png" alt="project-2" class="card__image">
+                </div>
+                <div class="card button__animated">
+                    <img src="./assets/pictures/project-3.png" alt="project-3" class="card__image">
+                </div>
+                <div class="card button__animated">
+                    <img src="./assets/pictures/project-4.png" alt="project-4" class="card__image">
+                </div>
+                <div class="card button__animated">
+                    <img src="./assets/pictures/project-5.png" alt="project-5" class="card__image">
+                </div>
+                <div class="card button__animated">
+                    <img src="./assets/pictures/project-6.png" alt="project-6" class="card__image">
+                </div>
+            </div>
+        </section>
     </main>
-    <div class="scroll-container" id="scrollButton"></div>
-    <div class="scrollButton">
-        <a href="#"></a>
+    <div class="scroll-container" id="scrollButton">
+        <div class="scrollButton">
+            <a href="#"></a>
+        </div>
     </div>
     <footer>
         <p class="footer-text">© Bruno Leandro Diaz. 2023 All rigths reserved</p>

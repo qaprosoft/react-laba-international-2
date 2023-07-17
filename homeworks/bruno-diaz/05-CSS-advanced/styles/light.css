@@ -1,9 +1,10 @@
 body {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     margin-top: 0;
-    background: #0c151d;
+    background: #e9ebec;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 header {
@@ -14,16 +15,18 @@ header {
 
 main {
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
+    justify-content: center;
     align-items: center;
 }
 
 footer {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    align-items: center;
     position: static;
 }
+
 .switcher {
     display: flex;
     justify-content: center;
@@ -31,13 +34,15 @@ footer {
     width: 5rem;
     height: 5rem;
     border-radius: 100%;
-    background-color: #171f26;
+    background-color: #fffFFF;
+    transition: transform 2s;
     animation: switcher 20s ease-in-out alternate infinite;
-    transition: 2s;
 }
+
 .switcher:hover {
     transform: rotate(360deg);
 }
+
 @keyframes switcher {
     0% {background-color: #FFFFFF}
     25% {background-color: #171f26}
@@ -51,16 +56,16 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
+    margin: 2rem
 }
 
 .profile__user {
     display: flex;
-    flex-flow: row wrap;
-    gap: 2.5rem;
+    align-items: center;
+    gap: 40px;
 }
 
-.user__photo{
+.profile__avatar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,11 +76,11 @@ footer {
     border-radius: 100%;
 }
 
-.photo__container {
+.profile__photo {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./assets/pictures/myPhoto.jpg);
+    background-image: url(/assets/pictures/myPhoto.jpg);
     background-position: center;
     width: 12rem;
     height: 12rem;
@@ -83,19 +88,19 @@ footer {
 }
 
 
-.information_name {
+.profile__name {
     margin: 0;
-    color: #f1f2f4;
+    color: #3D3D3D;
     font-family: Poppins;
-    font-size: 46px;
+    font-size: 2.875rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 
-.information_occupation {
+.profile__job {
     margin: 0;
-    color: #a3abb2;
+    color: #575757;
     font-family: Poppins;
     font-size: 22px;
     font-style: normal;
@@ -103,20 +108,6 @@ footer {
     line-height: normal;
 }
 
-.animated-icon, .animated-button {
-    transition: width 2s, heigh 2s, transform 2s;
-    transition-timing-function: ease;
-}
-.animated-icon:hover {
-    position: relative;
-    z-index: 0;
-    transform: scale(1.5);
-}
-.animated-button:hover {
-    position: relative;
-    z-index: 0;
-    transform: scale(1.2);
-}
 .animated-icon {
     transition: width 2s, heigh 2s, transform 2s;
     transition-timing-function: ease;
@@ -128,43 +119,38 @@ footer {
 }
 
 .profile__experience {
+    width: 100%;
     display: flex;
-    justify-content: center;
+    margin-top: 2rem;
     align-items: center;
-    align-content: center;
-    width: 39.625rem;
-    padding: 1.25rem 0.125rem;
-    gap: 90px;
+    justify-content: space-between;
 }
 
-.fact__number {
+.profile__experience-info {
     display: flex;
-    justify-content: center;
-    color: #a3abb2;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.fact__text {
-    color: #575757;
+.profile__experience-info__text {
     text-align: center;
+    color: #3D3D3D;
     font-family: Poppins;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    
 }
 
-.profile__button {
+.profile__buttons {
     display: flex;
     gap: 2.375rem;
     flex-shrink: 0;
 }
 
-.button-container {
+.button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -174,12 +160,12 @@ footer {
     flex-shrink: 0;
 }
 
-.button-content {
+.button__content {
     display: flex;
     text-decoration: none;
 }
 
-.button-text {
+.button__text {
     color: #3D3D3D;
     text-align: center;
     font-family: Poppins;
@@ -190,32 +176,30 @@ footer {
     letter-spacing: -0.5px;
 }
 
-.button_color-yellow {
+.button--yellow {
     background: #FBD144;
 }
 
-.button_color-white {
+.button--white {
     border: 0px solid #3E64AA;
-    background: #171f26;
+    background: #FFF;
 }
 
-.button_color-yellow:hover {
+.button--yellow:hover {
     background: #a88a28;
 }
-.button_color-white:hover {
-    background: #3c4247;
-}
-.button-text_color-dark {
-    color: #a3abb2;
+.button--white:hover {
+    background: #b4afaf;
 }
 
-.tabs-container {
+.portfolio {
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    margin-block: 2rem;
 }
 
-.tab {
+.portfolio__buttons {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -224,22 +208,22 @@ footer {
     height: 7rem;
     flex-shrink: 0;
     border-radius: 20px;
-    background: #171f26;
+    background: #FFF;
 }
 
-.tab-button {
+.portfolio__button {
     width: 22rem;
     height: 5rem;
     border-radius: 10px;
     border: 0px solid #3E64AA;
 }
 
-.tab-button_color-grey {
-    background: #0c151d;
+.portfolio__button--active {
+    background: #b1a6a6;
 }
 
-.tab-button__text {
-    color: #a3abb2;
+.portfolio__button__text {
+    color: #19191B;
     text-align: center;
     font-family: Poppins;
     font-size: 22px;
@@ -249,29 +233,35 @@ footer {
     line-height: normal;
 }
 
-.projects {
+.portfolio__projects {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     flex-wrap: wrap;
-    width: 47rem;
-    height: 52rem;
-    flex-shrink: 0;
-    border-radius: 20px;
+    max-width: 47.3125rem;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.project__content{
+.card {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 25rem;
-    height: 15rem;
-    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    margin-block: 15px;
+}
+
+.card__img {
+    width: 95%;
+    height: 100vw;
+    max-width: 22.625rem;
+    max-height: 14.125rem;
+    margin-block: 15px;
+    border-radius: 22px;
 }
 
 .scroll-container{
     display: none;
     position: fixed;
+    bottom: 0;
     width: 6rem;
     height: 6rem;
     background-color: #FFF;
@@ -281,68 +271,62 @@ footer {
 .scrollButton {
     display: none;
     position: fixed;
-    background: url(./assets/icons/scroll.svg) no-repeat;
+    bottom: 1;
+    background: url(/assets/icons/scroll.svg) no-repeat;
     width: 5rem;
     height: 5rem;
 }
 
 .footer-text {
-    color: #a3abb2;
+    color: #575757;
     font-family: Poppins;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    align-items: center;
 }
 
 @media (max-width: 800px) {
     body {
-        width: 50rem;
-        height: auto;
         display: flex;
         flex-flow: column wrap;
-        justify-content: center;
-        align-items: center;
-        font-size: 10px;
+        width: 100%;
+        font-size: 20px;
     }
-    .profile__user {
-        justify-content: center;
-        flex-flow: column wrap;
+    .profile__user{
+        flex-direction: column;
     }
-    .user__photo {
-        display: flex;
-        justify-content: center;
+    .profile__avatar {
+        height: 17rem;
+        width: 17rem;
     }
-    .profile__information {
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
+    .profile__photo {
+        width: 16rem;
+        height: 16rem;
     }
-    .information_social-media {
+    .profile__social-media {
         display: flex;
         justify-content: space-between;
     }
-    .projects {
-        display: flex;
-        width: 100%;
-        height: auto;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        margin: auto;
-        background-size: cover;
+    .text {
+        font-size: 26px;
     }
-    .project__content {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: auto;
-        margin: 1.875em 0 1.875em 0;
+    .portfolio__buttons {
+        width: 45rem;
+    }
+    .portfolio__button {
+        width: 20rem;
+    }
+    .portfolio__projects {
+        display: block;
     }
     .scroll-container{
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .scrollButton {
         display: block;
     }
-
 }
