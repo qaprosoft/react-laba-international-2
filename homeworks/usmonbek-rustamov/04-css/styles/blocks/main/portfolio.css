@@ -1,0 +1,78 @@
+.portfolio {
+  gap: 5rem 3rem;
+  padding-top: 7rem;
+}
+
+.portfolio__project {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 1.5rem;
+}
+
+.portfolio__project-img {
+  height: 100%;
+}
+
+.portfolio__project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease-in-out;
+
+  width: 45rem;
+  height: 45rem;
+  padding: 6rem;
+  border-radius: 50%;
+  background-color: var(--secondary-bg);
+  opacity: 0.88;
+}
+
+.portfolio__project:hover .portfolio__project-info {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.portfolio__project-link {
+  width: 3.8rem;
+  height: 3.8rem;
+  padding: 1rem;
+  padding-left: 0.95rem;
+  margin-top: 2rem;
+  background-color: #fff;
+  transform: translateY(400%);
+  transition: transform 0.3s ease-in-out 0.3s, background-color 0.2s ease-in-out;
+}
+
+.portfolio__project-link:hover,
+.portfolio__project-link:active {
+  background-color: #e9ebec;
+}
+
+.portfolio__link-icon {
+  fill: #3a3a3a;
+}
+
+.portfolio__project-name {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #3d3d3d;
+  transform: translateX(-300%);
+  transition: transform 0.3s ease-in-out 0.3s;
+}
+
+.portfolio__project-description {
+  font-size: 1.4rem;
+  color: #575757;
+  transform: translateX(300%);
+  transition: transform 0.3s ease-in-out 0.3s;
+}
+
+.portfolio__project:hover .portfolio__project-name,
+.portfolio__project:hover .portfolio__project-description,
+.portfolio__project:hover .portfolio__project-link,
+.portfolio__project:active .portfolio__project-name,
+.portfolio__project:active .portfolio__project-description,
+.portfolio__project:active .portfolio__project-link {
+  transform: translate(0, 0);
+}
