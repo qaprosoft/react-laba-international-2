@@ -37,7 +37,10 @@
 
 /* Buttons */
 .btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   padding: 2rem 4rem;
   border: none;
   border-radius: 0.75rem;
@@ -56,6 +59,7 @@
 
 .btn_bg_secondary {
   background-color: var(--secondary-bg-darker);
+  color: #3d3d3d;
 }
 
 .btn_shape_round {
