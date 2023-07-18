@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rodrigo Collins - Contact</title>
+    <meta name="description"
+        content="Welcome to my portfolio. Here you'll find information about my projects and skills.">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <hr />
+    <main>
+        <section>
+            <h1>Contact Me</h1>
+            <form method="POST">
+                <label for="first_name">First Name*</label>
+                <input type="text" id="first_name" name="first_name" required placeholder="Your name..."
+                    title="Please enter your first name">
+                <input type="text" id="last_name" name="last_name" required placeholder="Your last name..."
+                    title="Please enter your last name">
+                <br>
+                <label for="phone">Phone Number*</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]+"
+                    title="Please enter a valid phone number" placeholder="Your phone...">
+                <br>
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="argentina" selected>Argentina</option>
+                    <option value="ukraine">Ukraine</option>
+                    <option value="spain">Spain</option>
+                    <option value="italy">Italy</option>
+                </select>
+                <br>
+                <textarea id="message" name="message" rows="8" cols="40" placeholder="Your message..."></textarea>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+    <hr />
+    <footer>
+        <nav>
+            <a href="https://www.facebook.com/rodricollins/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/social-icons/facebook-svgrepo-com.svg" alt="Facebook" width="40" height="40">
+            </a>
+            <a href="https://www.instagram.com/rodricollins/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/social-icons/instagram-svgrepo-com.svg" alt="Instagram" width="35" height="35">
+            </a>
+            <a href="https://www.linkedin.com/in/rodrigo-collins-812566209/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/social-icons/linkedin-svgrepo-com.svg" alt="LinkedIn" width="40" height="40">
+            </a>
+            <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/social-icons/twitter-svgrepo-com.svg" alt="Twitter" width="40" height="40">
+            </a>
+        </nav>
+    </footer>
+</body>
+
+</html>
