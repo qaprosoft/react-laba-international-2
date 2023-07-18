@@ -9,56 +9,57 @@
 </head>
 
 <body>
-
     <input type="checkbox" id="theme-switcher" class="theme-switcher">
     <label for="theme-switcher" class="theme-switcher-label"></label>
-    <main class="content">
-        <header class="header">
-            <div class="header__logo">
-                <img src="./assets/selfphoto.jpg" alt="Logo">
-                <div class="header__title">
-                    <h1 class="header__title--heading">Kamil Dróżdż</h1>
-                    <p class="header__title--subheading">Software Engineer</p>
-                    <nav class="header__title--navigation">
-                        <a href="https://github.com/Kamil-Drozdz?tab=repositories">
-                            <img src="./assets/github.svg" alt="GitHub"></a>
-                        <a href="https://twitter.com/">
-                            <img src="./assets/twitter.svg" alt="Twitter"></a>
-                        <a href="https://www.linkedin.com/in/kamil-dr%C3%B3%C5%BCd%C5%BC-919595198/">
-                            <img src="./assets/linkedin.svg" alt="LinkedIn"></a>
-                        <a href="https://youtube.com/">
-                            <img src="./assets/youtube.svg" alt="YouTube"></a>
-                    </nav>
-                </div>
+    <header class="header">
+        <div class="header__logo">
+            <img src="./assets/selfphoto.jpg" alt="Logo">
+            <div class="header__title">
+                <h1 class="header__heading">Kamil Dróżdż</h1>
+                <p class="header__subheading">Software Engineer</p>
+                <nav class="header__navigation">
+                    <a href="https://github.com/Kamil-Drozdz?tab=repositories">
+                        <img src="./assets/github.svg" alt="GitHub"></a>
+                    <a href="https://twitter.com/">
+                        <img src="./assets/twitter.svg" alt="Twitter"></a>
+                    <a href="https://www.linkedin.com/in/kamil-dr%C3%B3%C5%BCd%C5%BC-919595198/">
+                        <img src="./assets/linkedin.svg" alt="LinkedIn"></a>
+                    <a href="https://youtube.com/">
+                        <img src="./assets/youtube.svg" alt="YouTube"></a>
+                </nav>
             </div>
-        </header>
-        <section class="section section__experience">
-            <div class="section__item">
-                <h3 class="section__item--heading">1</h2>
-                    <p class="section__item--description">Year of Work <br />Experience</p>
+        </div>
+    </header>
+    <main class="person-card">
+        <section class="person-card__experience">
+            <div class="person-card__item">
+                <h3 class="person-card__item-heading">1</h3>
+                <p class="person-card__item-description">Year of Work <br />Experience</p>
             </div>
-            <div class="section__item">
-                <h3 class="section__item--heading">20+ </h2>
-                    <p class="section__item--description">Completed <br /> Projects</p>
+            <div class="person-card__item">
+                <h3 class="person-card__item-heading">20+</h3>
+                <p class="person-card__item-description">Completed <br /> Projects</p>
             </div>
-            <div class="section__item">
-                <h3 class="section__item--heading">10+</h2>
-                    <p class="section__item--description"> Satisfied <br />Customers</p>
+            <div class="person-card__item">
+                <h3 class="person-card__item-heading">10+</h3>
+                <p class="person-card__item-description"> Satisfied <br />Customers</p>
             </div>
         </section>
-        <section class="section section__contact">
-            <a class="section__contact--download" download="Kamil_Dróżdż_Frontend_Developer"
+        <section class="person-card__contact">
+            <a class="person-card__contact-download" download="Kamil_Dróżdż_Frontend_Developer"
                 href="./assets/Kamil Dróżdż Front-end Developer.pdf">
                 Download CV
                 <img src="./assets/bottom-alignment.svg" alt="Bottom Alignment">
             </a>
-            <button class="section__contact--contact">Contact me</button>
+            <button class="person-card__contact-button">Contact me</button>
         </section>
-        <section class="section section__buttons">
+
+        <section class="person-card__buttons">
             <a href="#portfolio" id="portfolio">Portfolio</a>
             <a href="#skills" id="skills">Skills</a>
         </section>
-        <section class="section section__image">
+
+        <section class="person-card__images">
             <a href="https://memy.vercel.app">
                 <img src="./assets/image1.png" alt="Image 1">
             </a>
@@ -79,6 +80,7 @@
             </a>
         </section>
     </main>
+
     <footer class="footer">
         <p class="footer__text">© Kamil Dróżdż. 2023 All rights reserved.</p>
     </footer>
