@@ -5,7 +5,6 @@
   --sub-title-color: #3a3a3a;
   --button-text-color: #3d3d3d;
   --button-background: #fff;
-  --download-btn-background: #fbd144;
   --tab-button-background: #d7d7d7;
   --tab-button-text: #19191b;
   --tab-container-background: #fff;
@@ -19,7 +18,6 @@
   --sub-title-color: #a3abb2;
   --button-text-color: #a3abb2;
   --button-background: #171f26;
-  --download-btn-background: #ffe071;
   --tab-button-background: #0c151d;
   --tab-button-text: #a3abb2;
   --tab-container-background: #171f26;
@@ -33,7 +31,6 @@ body {
   line-height: normal;
   font-weight: 500;
   margin: 0;
-  position: relative;
 }
 
 button {
@@ -88,27 +85,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation-name: borderColorAnimation;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes borderColorAnimation {
-  0% {
-    border-color: #f7d039;
-  }
-
-  25% {
-    border-color: #00d4ff;
-  }
-
-  50% {
-    border-color: #39f75f;
-  }
-
-  75% {
-    border-color: #f78839;
-  }
 }
 
 .profile-info_profile_name {
@@ -166,7 +142,7 @@ main {
   justify-content: center;
   text-align: center;
   border-radius: 10px;
-  background-color: var(--download-btn-background);
+  background-color: #fbd144;
   border: none;
   outline: none;
   cursor: pointer;
@@ -362,24 +338,6 @@ footer {
   width: 0;
 }
 
-#goToTopBtn {
-  outline: none;
-  border: none;
-  background-color: var(--button-background);
-  opacity: 70%;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  display: none;
-}
-
-#goToTopBtn svg {
-  fill: var(--icon-color);
-}
-
 @media screen and (max-width: 820px) {
   header {
     margin-top: 4.02vw;
@@ -513,7 +471,7 @@ footer {
   }
 
   .profile-info_profile-occupation {
-    font-size: 4vw;
+    font-size: 2.8vw;
   }
 
   .profile-info_profile-occupation {
@@ -522,22 +480,6 @@ footer {
 
   .profile-facts {
     margin-top: 6vw;
-  }
-
-  .profile-facts_fact {
-    font-size: 3.68vw;
-  }
-
-  .profile-facts_fact span {
-    font-size: 5vw;
-  }
-
-  .profile-buttons-container_download-cv > p {
-    font-size: 3vw;
-  }
-
-  .profile-buttons-container_contact-me {
-    font-size: 3vw;
   }
 
   .portfolio {
@@ -564,9 +506,5 @@ footer {
   .portfolio_item_additional-info > a {
     width: 10vw;
     height: 10vw;
-  }
-
-  footer {
-    font-size: 4vw;
   }
 }
