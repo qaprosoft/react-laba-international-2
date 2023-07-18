@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SK - Portfolio</title>
   <link rel="stylesheet" href="styles/scss/_main.scss">
+  <script src="scripts/svgInject.min.js"></script>
 </head>
 <body class="page">
   <header class="page__wrapper header">
+    <button id="scroll-top" class="scroll-top">
+      <img class="scroll-top__icon" src="assets/icons/scroll-top.svg" alt="Scroll top" onload="SVGInject(this)">
+    </button>
     <button id="theme-switcher" class="theme-switcher theme-switcher--light">
       <img class="theme-switcher__icon" src="assets/icons/theme-switcher.svg" alt="Light theme" onload="SVGInject(this)">
     </button>
@@ -56,6 +60,7 @@
       </div>
     </section>
     <nav class="tabs">
+      <div class="tabs__background "></div>
       <button class="tabs__button tabs__button--active button">Portfolio</button>
       <button class="tabs__button button">Skills</button>
     </nav>
@@ -63,7 +68,7 @@
   <main class="page__wrapper main">
     <div id="portfolio" class="portfolio">
       <article class="portfolio__card">
-        <img class="portfolio__image" src="assets/images/photos-gallery.png" alt="Photos Gallery">
+        <img class="portfolio__image" src="assets/images/photos-gallery.jpg" alt="Photos Gallery">
         <div class="portfolio__info">
           <h3 class="portfolio__title">Photos Gallery</h3>
           <p class="portfolio__description">Photos gallery built in Next.js based on Flickr's public API.</p>
@@ -73,17 +78,17 @@
         </div>
       </article>
       <article class="portfolio__card">
-        <img class="portfolio__image" src="assets/images/instamock.png" alt="Instamock">
+        <img class="portfolio__image" src="assets/images/instamock.jpg" alt="Instamock">
         <div class="portfolio__info">
           <h3 class="portfolio__title">Instamock</h3>
           <p class="portfolio__description">A Vue app that mocks instagram based on data stored inside supabase cloud.</p>
-          <a class="portfolio__link button" href="https://main--animated-wisp-65b379.netlify.app/profile/stachkrol" target="_blank">
+          <a class="portfolio__link button" href="https://main--animated-wisp-65b379.netlify.app/" target="_blank">
             <img class="portfolio__icon" src="assets/icons/external-link.svg" alt="External link" onload="SVGInject(this)">
           </a>
         </div>
       </article>
       <article class="portfolio__card">
-        <img class="portfolio__image" src="assets/images/trivial-quiz.png" alt="Trivial Quiz">
+        <img class="portfolio__image" src="assets/images/trivial-quiz.jpg" alt="Trivial Quiz">
         <div class="portfolio__info">
           <h3 class="portfolio__title">Trivial Quiz</h3>
           <p class="portfolio__description">A React app with quizes based on data retrieved from Open Trivia Database.</p>
@@ -93,7 +98,7 @@
         </div>
       </article>
       <article class="portfolio__card">
-        <img class="portfolio__image" src="assets/images/what-the-beer.png" alt="What the Beer">
+        <img class="portfolio__image" src="assets/images/what-the-beer.jpg" alt="What the Beer">
         <div class="portfolio__info">
           <h3 class="portfolio__title">What The Beer</h3>
           <p class="portfolio__description">Next.js app depicting information about different types of beers fetched from Punk API.</p>
@@ -103,7 +108,7 @@
         </div>
       </article>
       <article class="portfolio__card">
-        <img class="portfolio__image" src="assets/images/carts-manipulator.png" alt="Carts Manipulator">
+        <img class="portfolio__image" src="assets/images/carts-manipulator.jpg" alt="Carts Manipulator">
         <div class="portfolio__info">
           <h3 class="portfolio__title">Carts Manipulator</h3>
           <p class="portfolio__description">Next.js App created to show and manipulate list of ready to use carts fetched from an external API.</p>
@@ -113,7 +118,7 @@
         </div>
       </article>
       <article class="portfolio__card">
-        <img class="portfolio__image" src="assets/images/playlist-creator.png" alt="Playlist Creator">
+        <img class="portfolio__image" src="assets/images/playlist-creator.jpg" alt="Playlist Creator">
         <div class="portfolio__info">
           <h3 class="portfolio__title">Playlist Creator</h3>
           <p class="portfolio__description">Next.js app using Spotify API for developers.  Project created during DaftAcademy course with the entire group.</p>
@@ -127,7 +132,9 @@
   <footer class="page__wrapper footer">
     <p class="footer__text">© Stanisław Królikiewicz. 2023 All rights reserved.</p>
   </footer>
-  <script src="scripts/svgInject.js"></script>
   <script src="scripts/switchTheme.js"></script>
+  <script src="scripts/scrollToTop.js"></script>
+  <script src="scripts/animateTabs.js"></script>
+  <script src="scripts/animateBackground.js"></script>
 </body>
 </html>

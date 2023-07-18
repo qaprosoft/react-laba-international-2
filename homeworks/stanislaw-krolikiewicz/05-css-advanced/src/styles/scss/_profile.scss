@@ -1,16 +1,28 @@
+$mobile: 600px;
+
 .profile {
-  width: 631px;
+  max-width: 631px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 48px;
   padding-top: 65px;
   padding-bottom: 75px;
+  @media (max-width: $mobile) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    gap: 30px;
+  }
   @at-root &-avatar {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 40px;
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      gap: 30px;
+    }
 
     @at-root &__image {
       width: 215px;
@@ -22,11 +34,20 @@
       outline-offset: -0.25rem;
       object-fit: cover;
       transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        width: 124px;
+        height: 124px;
+        border: 0.75rem solid var(--clr-page-bg);
+      }
     }
 
     @at-root &__info {
       display: flex;
       flex-direction: column;
+      @media (max-width: $mobile) {
+        align-items: center;
+        text-align: center;
+      }
     }
 
     @at-root &__name {
@@ -36,6 +57,10 @@
       color: var(--clr-primary-text);
       padding-bottom: 3px;
       transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        font-size: 32px;
+        line-height: 48px;
+      }
     }
     @at-root &__occupation {
       font-size: 22px;
@@ -44,6 +69,11 @@
       color: var(--clr-secondary-text);
       padding-bottom: 12px;
       transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        font-size: 14px;
+        line-height: 21px;
+        padding-bottom: 20px;
+      }
     }
     @at-root &__socials {
       display: flex;
@@ -71,16 +101,28 @@
       height: 36px;
       fill: var(--clr-secondary-text);
       transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
   @at-root &-facts {
-    width: 634px;
+    max-width: 634px;
+    width: 100%;
     display: flex;
     flex-shrink: 1;
+    // flex-wrap: wrap;
     align-items: center;
-    padding-inline: 1.5rem;
+    padding-inline: 31px;
     justify-content: space-between;
     gap: 2rem;
+    @media (max-width: $mobile) {
+      padding-inline: 20px;
+    }
+    @media (max-width: 370px) {
+      flex-direction: column;
+    }
     @at-root &__item {
       display: flex;
       flex-direction: column;
@@ -94,6 +136,10 @@
       font-weight: 500;
       color: var(--clr-primary-text);
       transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        font-size: 16px;
+        line-height: 24px;
+      }
     }
     @at-root &__name {
       font-size: 22px;
@@ -101,6 +147,10 @@
       font-weight: 500;
       color: var(--clr-secondary-text);
       transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        font-size: 14px;
+        line-height: 21px;
+      }
     }
   }
 }
