@@ -24,5 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
 
-    handleScroll();
+    if (window.innerWidth > 767) {
+        scrollToTopBtn.style.display = 'none';
+    } else {
+        handleScroll();
+    }
 });
