@@ -10,6 +10,8 @@ body.light-theme {
   --primary-text: #575757;
   --primary-text-darker: #3d3d3d;
   --primary-text-darkest: #3a3a3a;
+
+  --icon-brightness: 1;
 }
 
 body.dark-theme {
@@ -24,4 +26,6 @@ body.dark-theme {
   --primary-text: #a3abb2;
   --primary-text-darker: #a3abb2;
   --primary-text-darkest: #a3abb2;
+
+  --icon-brightness: 2;
 }

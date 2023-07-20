@@ -17,9 +17,8 @@
   animation: come-from-top 0.5s ease-in 0.4s forwards;
 }
 
-.theme-toggler__icon,
-.profile__link-icon {
-  fill: var(--primary-text);
+.theme-toggler__icon {
+  filter: brightness(var(--icon-brightness));
 }
 
 /* Profile */
@@ -68,6 +67,7 @@
 .profile__link-icon {
   width: 3.6rem;
   height: 3.6rem;
+  filter: brightness(var(--icon-brightness));
 }
 
 .profile__link-item:hover,

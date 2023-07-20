@@ -29,11 +29,6 @@ img {
   width: 100%;
 }
 
-svg {
-  width: 100%;
-  height: 100%;
-}
-
 @media (max-width: 1024px) {
   html {
     font-size: 50%;
