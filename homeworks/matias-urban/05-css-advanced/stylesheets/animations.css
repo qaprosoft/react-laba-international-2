@@ -1,0 +1,73 @@
+.container-button-dark-theme:hover {
+    -webkit-animation: rotate 5s normal
+      linear infinite;
+    animation: rotate 1.5s normal linear 1;
+  }
+  @keyframes rotate {
+    0% {
+      -webkit-transform: rotate3d(
+        0,
+        0,
+        1,
+        0deg
+      );
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+    25% {
+      -webkit-transform: rotate3d(
+        0,
+        0,
+        1,
+        90deg
+      );
+      transform: rotate3d(0, 0, 1, 90deg);
+    }
+    50% {
+      -webkit-transform: rotate3d(
+        0,
+        0,
+        1,
+        180deg
+      );
+      transform: rotate3d(
+        0,
+        0,
+        1,
+        180deg
+      );
+    }
+    75% {
+      -webkit-transform: rotate3d(
+        0,
+        0,
+        1,
+        270deg
+      );
+      transform: rotate3d(
+        0,
+        0,
+        1,
+        270deg
+      );
+    }
+    100% {
+      -webkit-transform: rotate3d(
+        0,
+        0,
+        1,
+        360deg
+      );
+      transform: rotate3d(
+        0,
+        0,
+        1,
+        360deg
+      );
+    }
+  }
+  .portfolio-images__imgs {
+    transition: 1s;
+  }
+  .portfolio-images__imgs:hover {
+    transform: scale(1.5);
+  }

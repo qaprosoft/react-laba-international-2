@@ -1,0 +1,260 @@
+/* header */
+.theme-switch {
+  cursor: pointer;
+  margin-top: 40px;
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.theme-switch img {
+  width: 34px;
+  height: 34px;
+}
+
+.avatar-container {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+/* header */
+
+/* profile*/
+.profile {
+  margin-top: 65px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.profile .avatar {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  width: 192px;
+  height: 192px;
+  overflow: hidden;
+  margin-right: 40px;
+  border: 5px solid #FED855;
+}
+
+
+.avatar {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.avatar.enlarged {
+  margin-top: 200px;
+  z-index: 2;
+  transform: scale(3.2);
+}
+
+.profile .avatar img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 7px solid #ffffff;
+}
+
+.profile .profile-info {
+  font-weight: 300;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-info-items {
+  text-align: left;
+}
+
+.profile-info-items h1 {
+  font-size: 46px;
+  color: #3D3D3D;
+}
+
+.profile .social-icons {
+  margin-top: 15px;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.icon {
+  filter: brightness(0) invert(0.4);
+}
+
+/* profile*/
+
+
+/* achievments*/
+.achievements {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 68px;
+  gap: 4vw;
+}
+
+.achievements-item-title {
+  color: #3D3D3D;
+}
+
+/* achievments*/
+
+
+/* buttons*/
+.buttons {
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 60px;
+  display: flex;
+  gap: 2vw;
+}
+
+.btn_style {
+  color: #3D3D3D;
+  background-color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  width: 290px;
+  height: 80px;
+}
+
+.btn_style:hover {
+  background-color: #FBD144;
+  transition-duration: 0.3s;
+}
+
+.btn_contact {
+  background-color: #ffffff;
+}
+
+/* buttons*/
+
+
+/* tab*/
+.tab-buttons-block {
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  width: 760px;
+  height: 110px;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  height: 80%;
+}
+
+.tab-button {
+  color: #19191B;
+  border: none;
+  background-color: transparent;
+  flex: 1;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.tab-content .tab-panel {
+  display: none;
+}
+
+.tab-content .active {
+  margin-top: 80px;
+  display: block;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+
+.grid-item {
+  width: 360px;
+  height: 220px;
+  position: relative;
+}
+
+.grid-item::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.tab-content #tab1 .grid-item:hover::before {
+  background-color: #FFE071E0;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.tab-content #tab1 .grid-item p.grid-item-title {
+  font-size: 22px;
+}
+
+.tab-content #tab1 .grid-item p.grid-item-subtitle {
+  font-size: 14px;
+}
+
+.tab-content #tab1 .grid-item p.grid-item-title,
+.tab-content #tab1 .grid-item p.grid-item-subtitle {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+
+.tab-content #tab1 .grid-item p.grid-item-subtitle {
+  margin-top: 25px;
+}
+
+.tab-content #tab1 .grid-item:hover p.grid-item-title,
+.tab-content #tab1 .grid-item:hover p.grid-item-subtitle {
+  opacity: 1;
+}
+
+.grid-item img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* tab*/
+/* footer*/
+footer {
+  text-align: center;
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+
+/* footer*/

@@ -1,0 +1,146 @@
+@import url("colors.css");
+@import url("mobile.css")only screen and (max-width: 600px);
+@import url("tablet.css") only screen and (min-width:601px);
+@import url("animations.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, "sans-serif";
+  font-weight: bold;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-button-dark-theme {
+  margin-top: 2.0625em;
+  cursor: pointer;
+}
+
+.container-button-dark-theme__button {
+  border: none;
+  border-radius: 50%;
+  padding: 1.25em;
+  transition: 2s;
+}
+
+
+.profile-container__profile-title {
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.personal-info-container {
+  margin-top: 1.875em;
+  display: flex;
+  text-align: center;
+}
+
+.personal-info-container {
+  display: flex;
+}
+.personal-info-container__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+}
+
+.profile-container__network-logos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.container-buttons__download {
+  border-radius: 0.625em;
+  padding: 0.8125em 0;
+  border: none;
+  text-align: center;
+  font-family: Poppins;
+  flex: 1;
+  cursor: pointer;
+}
+
+.container-buttons__contact {
+  flex: 1;
+  border-radius: 0.625em;
+  background: #fff;
+  padding: 0.8125em 0;
+  border: none;
+  text-align: center;
+  font-family: Poppins;
+  cursor: pointer;
+}
+
+.button-container-portfolio-box {
+  border-radius: 0.625em;
+}
+
+.button-container-portfolio-box__buttons {
+  flex: 1;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 0.875em;
+  border: none;
+  padding: 0.9375em 0;
+  margin: 0.3125em 0.625em;
+  border-radius: 0.625em;
+}
+
+.button-container-portfolio-box__button1 {
+  cursor: pointer;
+}
+
+.button-container-portfolio-box__button2 {
+  cursor: pointer;
+}
+
+.portfolio-images__container-images {
+  margin-top: 4em;
+}
+
+.portfolio-images__imgs {
+  margin: 0em 0.625em 3.125em 0.625em;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4em;
+}
+
+.footer__span {
+  font-size: 0.875em;
+}
+
+
+.no-show {
+  display: none;
+  }

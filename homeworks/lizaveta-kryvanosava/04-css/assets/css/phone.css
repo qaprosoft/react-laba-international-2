@@ -1,0 +1,46 @@
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  .preview__profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .preview__photo {
+    width: 7rem;
+  }
+
+  .preview__info {
+    align-items: center;
+  }
+
+  .preview__name {
+    text-align: center;
+  }
+
+  .preview__action-buttons--yellow,
+  .preview__action-buttons--white {
+    font-size: 12px;
+    padding: 1rem 1rem;
+  }
+
+  .preview__action-buttons--yellow > img {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+
+  .preview__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .portfolio__content {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio__item {
+    height: auto;
+  }
+}

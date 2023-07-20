@@ -1,0 +1,333 @@
+body {
+    max-width: 100%;
+    height: 100%;
+    margin-top: 0;
+    background: #0c151d;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+}
+
+.switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    background-color: #171f26;
+    transition: transform 2s;
+    animation: switcher 20s ease-in-out alternate infinite;
+}
+
+.switcher:hover {
+    transform: rotate(360deg);
+}
+
+@keyframes switcher {
+    0% {background-color: #FFFFFF}
+    25% {background-color: #171f26}
+    50% {background-color: #FFFFFF}
+    75% {background-color: #171f26}
+    100% {background-color: #FFFFFF}
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem
+}
+
+.profile__user {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.profile__avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fffFFF;
+    border: 4px solid #f7d039;
+    height: 13rem;
+    width: 13rem;
+    border-radius: 100%;
+}
+
+.profile__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/assets/pictures/myPhoto.jpg);
+    background-position: center;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 100%;
+}
+
+
+.profile__name {
+    margin: 0;
+    color: #f1f2f4;
+    font-family: Poppins;
+    font-size: 2.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile__job {
+    margin: 0;
+    color: #a3abb2;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.animated-icon, .button__animated {
+    transition: width 2s, heigh 2s, transform 2s;
+    transition-timing-function: ease;
+}
+.animated-icon:hover {
+    position: relative;
+    z-index: 0;
+    transform: scale(1.5);
+}
+.button__animated:hover {
+    position: relative;
+    z-index: 0;
+    transform: scale(1.2);
+}
+
+.profile__experience {
+    width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile__experience-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile__experience-info__text {
+    text-align: center;
+    color: #a3abb2;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+}
+
+.profile__buttons {
+    display: flex;
+    gap: 2.375rem;
+    flex-shrink: 0;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18.125rem;
+    height: 5rem;
+    border-radius: 0.625rem;
+    flex-shrink: 0;
+}
+
+.button__content {
+    display: flex;
+    text-decoration: none;
+}
+
+.button__text {
+    color: #3d3d3d;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.button--yellow {
+    background: #FBD144;
+}
+
+.button--white {
+    border: 0px solid #3E64AA;
+    background: #171f26;
+}
+
+.button--yellow:hover {
+    background: #a88a28;
+}
+.button--white:hover {
+    background: #3c4247;
+}
+
+.portfolio {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-block: 2rem;
+}
+
+.portfolio__buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 3rem;
+    width: 47rem;
+    height: 7rem;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #171f26;
+}
+
+.portfolio__button {
+    width: 22rem;
+    height: 5rem;
+    border-radius: 10px;
+    border: 0px solid #3E64AA;
+}
+
+.portfolio__button--active {
+    background: #3d3d3d;
+}
+
+.portfolio__button__text {
+    color: #a3abb2;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    line-height: normal;
+}
+
+.portfolio__projects {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 47.3125rem;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 15px;
+}
+
+.card__img {
+    width: 95%;
+    height: 100vw;
+    max-width: 22.625rem;
+    max-height: 14.125rem;
+    margin-block: 15px;
+    border-radius: 22px;
+}
+
+.scroll-container{
+    display: none;
+    position: fixed;
+    width: 6rem;
+    height: 6rem;
+    background-color: #FFF;
+    border-radius: 100%;
+}
+
+.scrollButton {
+    display: none;
+    position: fixed;
+    background: url(/assets/icons/scroll.svg) no-repeat;
+    width: 5rem;
+    height: 5rem;
+}
+
+.footer-text {
+    color: #a3abb2;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media (max-width: 800px) {
+    body {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%;
+        font-size: 20px;
+    }
+    .profile__user {
+        flex-direction: column;
+    }
+    .profile__avatar {
+        height: 17rem;
+        width: 17rem;
+    }
+    .profile__photo {
+        width: 16rem;
+        height: 16rem;
+    }
+    .profile__social-media {
+        display: flex;
+        justify-content: space-between;
+    }
+    .text {
+        font-size: 26px;
+    }
+    .portfolio__buttons {
+        width: 45rem;
+    }
+    .portfolio__button {
+        width: 20rem;
+    }
+    .portfolio__projects {
+        display: block;
+    }
+    .scroll-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .scrollButton {
+        display: block;
+    }
+}

@@ -1,0 +1,84 @@
+.profile-container {
+    margin-top: 4.0625em;
+    flex-direction: column;
+  }
+  .profile-container__profile-image {
+    width: 7.75em;
+    height: 7.75em;
+    border-radius: 50%;
+    border: 0.25em solid #fbd144;
+  }
+  .profile-container__profile-img {
+    width: 6.6875em;
+    height: 6.6875em;
+  }
+  .profile-container__profile-title {
+    font-size: 2em;
+    line-height: 4.3125em;
+  }
+  
+  .personal-info-container {
+    justify-content: space-between;
+    gap: 1.5625em;
+    width: 23.4375em;
+  }
+  .profile-container__info {
+    font-size: 0.875em;
+  }
+  .personal-info-container__top {
+    font-size: 1em;
+  }
+  .personal-info-container__bottom {
+    font-size: 0.875em;
+    padding: 0.375em 0;
+  }
+  .profile-container__network-logos {
+    width: 11em;
+    margin-top: 1.25em;
+  }
+  .profile-container__logo {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .container-buttons {
+    margin-top: 1.875em;
+    padding: 1.125em 1.25em;
+    gap: 0.875em;
+  }
+  .container-buttons__download {
+    font-size: 0.75em;
+  }
+  .container-buttons__download-button {
+    width: 0.75em;
+    height: 0.75em;
+  }
+  .container-buttons__contact {
+    font-size: 0.75em;
+  }
+  .button-container-portfolio-box {
+    margin-top: 6.75em;
+  }
+  .portfolio-images__container-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 23.4375em;
+  }
+  .gototopbtn {
+    margin-top: 50px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 45%;
+    bottom: 25px;
+  }
+  .up-arrow {
+    width: 25px;
+    height: 25px;
+  }

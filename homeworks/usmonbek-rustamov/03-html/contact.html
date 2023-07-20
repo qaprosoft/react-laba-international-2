@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <hr />
+
+    <main>
+      <h1>Contact Me</h1>
+      <form method="post">
+        <div>
+          <label for="first-name">Full name</label>
+          <input
+            type="text"
+            id="first-name"
+            name="first-name"
+            placeholder="Your name.."
+            aria-label="Your first name"
+            required />
+          <input
+            type="text"
+            id="last-name"
+            name="last-name"
+            placeholder="Your last name.."
+            aria-label="Your last name"
+            required />
+        </div>
+        <div>
+          <label for="phone">Phone number</label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="Your phone.."
+            required />
+        </div>
+        <div>
+          <label for="country">Country</label>
+          <select name="country" id="country">
+            <option value="Australia">Australia</option>
+            <option value="Poland">Poland</option>
+            <option value="Uzbekistan">Uzbekistan</option>
+          </select>
+        </div>
+        <div>
+          <textarea
+            name="user-message"
+            id="user-message"
+            cols="30"
+            rows="10"
+            placeholder="Your message.."></textarea>
+        </div>
+        <div>
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </main>
+
+    <hr />
+
+    <footer>
+      <nav>
+        <a href="https://www.facebook.com/usmonbek1408" target="_blank">
+          <img src="assets/icons/facebook.svg" alt="Facebook link" />
+        </a>
+        <a href="https://www.instagram.com/usmonbek_rustamov/" target="_blank">
+          <img src="assets/icons/instagram.svg" alt="Instagram link" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/usmonbek-rustamov/"
+          target="_blank">
+          <img src="assets/icons/linkedin.svg" alt="Linkedin link" />
+        </a>
+        <a href="https://twitter.com/usmonbek_r_u" target="_blank">
+          <img src="assets/icons/twitter.svg" alt="Twitter link" />
+        </a>
+      </nav>
+    </footer>
+  </body>
+</html>
