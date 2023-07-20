@@ -1,0 +1,70 @@
+html, body,h1,h2,h3,h4, p, a,ul,li,div {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 22px;
+    color: #575757;
+    margin: 0 auto;
+    background: #E9EBEC;
+    padding-top: 33px;
+}
+ 
+ul,li{
+    list-style-type: none;
+}
+
+.header{
+  padding-bottom: 65px;  
+  display: flex;
+  justify-content: center;
+}
+
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.portfolio{
+  padding-top: 65px; 
+  width: 634px;
+  margin: 0 auto; 
+}
+
+.portfolio__head{
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+}
+
+.portfolio__img{
+    margin-right: 40px;
+} 
+
+.info_name{
+    font-size: 46px;
+}
+
+.portfolio__links{
+    padding-top: 12px;
+    width: 222px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.portfolio__facts{
+    padding-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.fact_item{
+    display: flex;
+    flex-direction: column;  
+}
