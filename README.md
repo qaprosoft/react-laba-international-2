@@ -53,4 +53,4 @@ Once PR is created you have to do the following things:
 | Aug 25th     | TypeScript                                                                    |                                                                 |
 | Aug 29th     | Patterns                                                                      |                                                                 |
 | Aug 29th - Sep 8th | Learning week                                                           |                                                                 |
-| Aug 11th-15th | Second block exam                                                            |                                                                 |
+| Sep 11th-15th | Second block exam                                                            |                                                                 |
