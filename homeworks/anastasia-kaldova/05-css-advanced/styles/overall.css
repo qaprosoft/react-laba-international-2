@@ -1,0 +1,123 @@
+:root {
+    --white-color: #fff;
+    --accent-color: #fbd144;
+    --color-active: #d7d7d7;
+    --color-text-primary: #575757 ;
+    --color-text-secondary: #3d3d3d;
+    --color-bgr-main: #e5e5e5;
+
+    --color-bgr-main-dark: #0c151d;
+    --grey-dark-color: #171f26;
+    --color-text-primary-dark:#a3abb2;
+    --color-text-secondary-dark: #f1f2f4 ;
+
+    --border-radius: 10px;
+  }
+
+  @keyframes move-up {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    25% {
+      -webkit-transform: translateY(-50px);
+      transform: translateY(-50px);
+    }
+    50% {
+      -webkit-transform: translateY(-70px);
+      transform: translateY(-70px);
+    }
+    75% {
+      -webkit-transform: translateY(-100px);
+      transform: translateY(-100px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  
+  .container {
+    max-width: 757px;
+    padding: 0 5px;
+    margin: 0 auto;
+  }
+
+  .container--center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .site-container {
+    overflow: hidden;
+  }
+
+  .btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    border-radius: var(--border-radius);
+    padding: 1.09em 3.68em;
+    color: var(--color-text-primary);
+    background-color: var(--white-color);
+  }
+
+  .btn--dark {
+    color: var(--color-text-primary-dark);
+    background-color: var(--grey-dark-color);
+  }
+
+  .btn--accent {
+    background-color: var(--accent-color);
+  }
+
+  .btn--active {
+    background-color: var(--color-active);
+  }
+
+  .btn--active-dark {
+    background-color: var(--color-bgr-main-dark);
+  }
+
+  .header-hidden {
+    display: none;
+  }
+
+  /* Change color theme */
+
+  .dark-theme {
+    color: var(--color-text-primary-dark);
+    background-color: var(--color-bgr-main-dark);
+  }
+
+/* Scroll to top */
+
+  .btnScrollTop {
+    display: none;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    /* position: relative;
+    bottom: 30px;
+    left: 50%; */
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%, 50%);
+    border-radius: 100%;
+    border: 1px solid #7523c2;
+    background: var(--accent-color) url("../assets/icons/scroll-to-top.svg") no-repeat center/50% 50%;
+    transition: background-color .5s ease-in;
+  }
+
+  .btnScrollTop:hover {
+    background-color: #575757;
+  }
