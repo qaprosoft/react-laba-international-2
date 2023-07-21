@@ -1,0 +1,421 @@
+/* variables-mode */
+:root{
+    --background-color:#E9EBEC;
+    --fonts-color:#3D3D3D;
+    --btn-bground-color:#fff;
+    --protfolio-bground:#D7D7D7;
+    --main-btn-bground: #fff;
+   
+ 
+}
+.dark-theme{
+    --background-color:#0C151D;
+    --fonts-color: white;
+    --btn-bground-color:#3D3D3D;
+    --main-btn-bground: #171F26;
+    --protfolio-bground:#0C151D;
+  
+}
+
+/* general styles */
+body{
+    background-color: var(--background-color);
+    color: var(--fonts-color);
+    font-weight: bolder;
+}
+
+/* theme btn styles */
+.theme-btn-conatiner{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px 40px 0px;
+}
+.theme-btn{
+    position: absolute;
+    color: var(--fonts-color);
+    padding-top: 0.7em;
+    cursor: pointer;
+}
+
+.theme-btn-circle{
+  background-color: var(--btn-bground-color);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* profile styles */
+.profile{
+    display: block;
+    justify-content: center;
+}
+
+.profile-main{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.profile-img{
+    display: flex;
+    justify-content: center;
+    width: 124px;
+    height: 124px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+   
+}
+
+.avatar{
+    position: absolute;
+    width: 107px;
+    height: 107px;
+    margin-top: 9px;
+   
+   
+}
+
+
+.profile-name{
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+   
+}
+
+.profile-description{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: var(--fonts-color);
+    font-weight: lighter;
+ 
+}
+
+.profile-social-media-bright{
+    display: flex;
+    justify-content:center;
+    gap: 0.5em;
+    margin-bottom: 30px;
+}
+
+.profile-social-media-bright img{
+   width: 25px;
+   height: 25px;
+}
+
+.profile-social-media{
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.profile-achivments{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--fonts-color);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+    margin-bottom: 30px;
+    font-weight: lighter;
+}
+
+.profile-buttons{
+    display: flex;
+    padding: 18px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.profile-buttons-download-cv{
+    width: 158px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #FFE071;
+    color: #3D3D3D;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.531px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.profile-buttons-download-cv a{
+    text-decoration: none;
+    color: #0C151D;
+}
+.profile-buttons-download-cv{
+    transition: all 1.5s ease-in-out;
+}
+
+.profile-buttons-download-cv:hover{
+   background-color: #3D3D3D;
+}
+
+
+
+.profile-buttons-contact{
+    width: 158px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 0px solid #3E64AA;
+    background: var(--btn-bground-color);
+    color: var(--fonts-color);
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    cursor: pointer;
+    transition: all 1.5s ease-in-out;
+}
+
+.profile-buttons-contact:hover{
+    background-color: #FFE071;
+    color: #0C151D
+}
+/* main selectors buttons styles */
+.main-content-buttons-selectors{
+    display: flex;
+    width: 330px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    color: var(--fonts-color);
+    background: var(--main-btn-bground);
+}
+
+.main-content-buttons-selectors-portfolio{
+    width: 154px;
+    height: 50px;
+    flex-shrink: 0;
+    background-color: var(--protfolio-bground);
+    border-radius: 10px;
+    border: 0px solid #3E64AA;
+    color: var(--fonts-color);
+    cursor: pointer;
+    transition: all 1.5s ease-in-out;
+}
+
+.main-content-buttons-selectors-portfolio:hover{
+    background-color: gray;
+}
+
+.main-content-buttons-selectors-skills{
+    width: 154px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 0px solid #3E64AA;
+    color: var(--fonts-color);
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 1.5s ease-in-out;
+
+}
+
+.main-content-buttons-selectors-skills:hover{
+   background-color: gray;
+
+}
+
+/* main cards styles */
+.main-content{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+.main-content-portfolio-cards{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.card{
+    width: 340px;
+    height: 210px;
+    transition: all 1.5s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.15);
+    
+}
+
+/* footer styles */
+footer{
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-copy-rights{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--fonts-color);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+    padding: 20px 0px 40px 0px;
+}
+
+/* medias query styles ------------------------------------------------------------------*/
+@media only screen and (min-width: 800px) {
+   
+    .profile-main{
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-img{
+        position: relative;
+        display: flex;
+        width: 215px;
+        height: 215px;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        padding-right: 40px;
+    }
+
+    .avatar{
+        position: absolute;
+        width: 192px;
+        height: 192px;
+        margin-top: 12px;
+        margin-right: -1px;
+       
+    }
+
+    .profile-main-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 4em;
+
+    }
+
+    .profile-name{
+        font-size: 46px;
+       
+    }
+    
+    .profile-description{
+        font-size: 22px;
+        margin-top: 0.5em;
+     
+    }
+
+    .profile-social-media{
+        gap: 0.6em;
+        display: flex;
+        justify-content: flex-start;
+        display: none;
+    }
+
+    .profile-social-media-bright img{
+        width: 36px;
+        height: 36px;
+     }
+
+    .profile-social-media-bright{
+        display: flex;
+        justify-content:flex-start;
+    }
+    
+     .profile-achivments{
+        display: flex;
+        justify-content: center;
+        gap: 4em;
+        font-size: 22px;
+    } 
+
+    .profile-buttons-download-cv{
+       font-size: 22px;
+       width: 290px;
+       height: 80px;
+    }
+    
+    .profile-buttons-contact{
+        font-size: 22px;
+        width: 290px;
+        height: 80px;
+    }
+
+    .main-content{
+        box-sizing: border-box;
+        max-width: 756px;
+    }
+
+    .main-content-buttons-selectors{
+       display: flex;
+       justify-content: center;
+       width: 756px;
+       height: 116px;
+       max-width: 100%;
+    }
+
+    .main-content-buttons-selectors-portfolio{
+       font-size: 22px;
+       width: 351px;
+       height: 80px;
+    }
+    
+    .main-content-buttons-selectors-skills{
+        font-size: 22px;
+        width: 351px;
+        height: 80px;
+    }
+
+    .main-content-portfolio-cards{
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+        
+        grid-auto-rows: auto;
+        
+        grid-gap: 1rem;
+    }
+    .main-content-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .card{
+        width: 362px;
+        height: 226px;
+    }
+  
+    .footer-copy-rights {
+        font-size: 22px;
+    }
+    
+  }
+
+
