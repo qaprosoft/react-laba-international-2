@@ -35,3 +35,22 @@ Once PR is created you have to do the following things:
 | July 7th      | [CSS Part 2](./lectures/05-css-advanced/README.md) | [task 🔗](./lectures/05-css-advanced/task.md) |
 | July 10th-14th | Learning week                                     | ---                                           |
 | July 17th-21th | First block exam                                  | ---                                           |
+
+
+### Block 2
+
+| Day          | Theme                                                                         | Homework                                                        |
+| :----------- | :---------------------------------------------------------------------------- | :-------------------------------------------------------------- |
+| July 25th    | Javascript, Part 1                                                            |                                                                 |
+| July 28th    | Javascript, Part 2                                                            |                                                                 |
+| Aug 1st      | Javascript, Part 3                                                            |                                                                 |
+| Aug 4th      | Javascript, Part 4                                                            |                                                                 |
+| Aug 8th      | Javascript, Part 5                                                            |                                                                 |
+| Aug 11th     | Javascript, DOM                                                               |                                                                 |
+| Aug 15th     | Data structures & algorithms                                                  |                                                                 |
+| Aug 18th     | Environment                                                                   |                                                                 |
+| Aug 22th     | Principles                                                                    |                                                                 |
+| Aug 25th     | TypeScript                                                                    |                                                                 |
+| Aug 29th     | Patterns                                                                      |                                                                 |
+| Aug 29th - Sep 8th | Learning week                                                           |                                                                 |
+| Sep 11th-15th | Second block exam                                                            |                                                                 |
