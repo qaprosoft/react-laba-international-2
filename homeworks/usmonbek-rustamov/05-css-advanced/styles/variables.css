@@ -1,0 +1,31 @@
+body.light-theme {
+  --primary-bg: #fff;
+  --primary-bg-darker: #e9ebec;
+  --primary-bg-darkest: #d7d7d7;
+
+  --secondary-bg: #ffe071;
+  --secondary-bg-darker: #fbd144;
+  --secondary-bg-darkest: #f7d039;
+
+  --primary-text: #575757;
+  --primary-text-darker: #3d3d3d;
+  --primary-text-darkest: #3a3a3a;
+
+  --icon-brightness: 1;
+}
+
+body.dark-theme {
+  --primary-bg: #171f26;
+  --primary-bg-darker: #0c151d;
+  --primary-bg-darkest: #0c151d;
+
+  --secondary-bg: #ffe071;
+  --secondary-bg-darker: #ffe071;
+  --secondary-bg-darkest: #ffe071;
+
+  --primary-text: #a3abb2;
+  --primary-text-darker: #a3abb2;
+  --primary-text-darkest: #a3abb2;
+
+  --icon-brightness: 2;
+}
