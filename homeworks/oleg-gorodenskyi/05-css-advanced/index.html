@@ -10,14 +10,19 @@
 </head>
 
 <body>
-    <button class="switch-theme">
-        <img class="switch-theme_animated" src="./assets/icons/switcher-dark-theme.svg" alt="Change theme">
-    </button>
+    <div class="container">
+        <button class="switch-theme">
+            <img class="switch-theme_animated" src="./assets/icons/switcher-dark-theme.svg" alt="Change theme">
+        </button>
 
-    <header class="profile">
+    </div>
+
+    <header class="profile" id="up">
         <div class="container">
             <section class="profile__info">
-                <img src="./assets/img/avatar.png" alt="avatar">
+                <div class="profile__info-avatar">
+                    <img src="./assets/img/avatar.png" alt="avatar">
+                </div>
                 <div class="profile__info-data">
                     <h1 class="profile__info-name">Victor Alvarado</h1>
                     <h2 class="profile__info-speciality">Software Engineer</h2>
@@ -151,6 +156,10 @@
     <footer>
         <div class="container">© Victor Alvarado. 2022 All rigths reserved</div>
     </footer>
+
+    <a href="#up" class="pageup">
+        <img src="assets/icons/circle-chevron-up-solid.svg" alt="up">
+    </a>
     <script src="js/script.js"></script>
 </body>
 

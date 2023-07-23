@@ -1,8 +1,7 @@
 .tabs__wrapper {
     padding: 23px 18px;
     background-color: #171F26;
-    width: 756px;
-    height: 132px;
+    max-width: 756px;
     border-radius: 10px;
     margin: 0 auto;
     margin-top: 75px;
