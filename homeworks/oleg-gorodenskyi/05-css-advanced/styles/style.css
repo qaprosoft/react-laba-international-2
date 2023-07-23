@@ -1,0 +1,39 @@
+@import url('base/animation.css');
+
+@import url('blocks/profile.css');
+@import url('blocks/tabs.css');
+@import url('blocks/portfolio.css');
+@import url('blocks/footer.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0C151D;
+    font-family: Poppins;
+}
+
+.container {
+    position: relative;
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.switch-theme {
+    width: 80px;
+    height: 80px;
+    background-color: #171F26;
+    border-radius: 100px;
+    border: none;
+    margin: 0 auto;
+    margin-top: 33px;
+    display: block;
+    cursor: pointer;
+}
+
+.switch-theme_animated {
+    animation: rotate 6s infinite ease;
+}
