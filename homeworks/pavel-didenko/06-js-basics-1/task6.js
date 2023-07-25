@@ -103,7 +103,7 @@ function getMiddle(s){
   }
 }
 
-//task7 http://www.codewars.com/kata/partition-on
+//task7: http://www.codewars.com/kata/partition-on
 
 function partitionOn(pred, items) {
   const falses = items.filter((item) => !pred(item));
@@ -115,12 +115,56 @@ function partitionOn(pred, items) {
   return falses.length;
 }
 
-//task8 http://www.codewars.com/kata/word-count
+//task8: http://www.codewars.com/kata/word-count
 
 //not available
 
 
-//task9 
+//task9: https://www.codewars.com/kata/find-the-odd-int/
+
+function countNumbersInArray(num, arr){
+  let counter = 0;
+
+  for(let value of arr){
+    if(value === num){
+      counter += 1;
+    }
+  }
+  return counter;
+}
+
+function findOdd(arr) {
+  for(let i = 0; i < arr.length; i++){
+    if(countNumbersInArray(arr[i], arr) % 2 > 0){
+      return arr[i];
+    }
+  }
+}
+
+//task 10: https://www.codewars.com/kata/find-the-parity-outlier
+
+function findOutlier(integers){
+
+  const evens = integers.filter((int) => int % 2 === 0);
+  const odds = integers.filter((int) => int % 2 !== 0);
+
+  return evens.length < odds.length? evens[0]: odds[0];
+}
+
+//task11: https://www.codewars.com/kata/zipwith
+
+function zipWith(fn, arr1, arr2) {
+  const result = [];
+
+  if(arr1.length <= arr2.length){
+    arr1.map((item, index) => result.push(fn(item, arr2[index])));
+  }else{
+    arr2.map((item, index) => result.push(fn(arr1[index], item)));
+  }
+
+  return result;
+}
+
 
 
 //task12: https://www.codewars.com/kata/filter-the-numbe
@@ -161,6 +205,43 @@ function nthFibo(n) {
   }
   return fibo[n-1];
 }
+
+//task14: https://www.codewars.com/kata/cat-and-mouse-2d-version/
+
+function catMouse(map,moves){
+  if(!map.includes('C') || !map.includes('m')){
+    return "boring without two animals";
+  }
+
+  const arrayedMap = map.split('\n');
+
+  let mouseRow = 0;
+  let mouseColumn = 0;
+
+  let catRow = 0;
+  let catColumn = 0;
+
+  arrayedMap.forEach((item, index) => {
+    if(item.includes('m')){
+      mouseRow = index + 1;
+      mouseColumn = item.indexOf('m') + 1;
+    }
+
+    if(item.includes('C')){
+      catRow = index + 1;
+      catColumn = item.indexOf('C') + 1;
+    }
+  })
+
+  const stepsNeeded = (Math.max(mouseRow, catRow) - Math.min(mouseRow, catRow)) + (Math.max(mouseColumn, catColumn) - Math.min(mouseColumn, catColumn));
+  
+  if(stepsNeeded <= moves){
+    return "Caught!";
+  }else{
+    return "Escaped!";
+  }
+}
+
 
 
 //task15: https://www.codewars.com/kata/duplicate-encoder
