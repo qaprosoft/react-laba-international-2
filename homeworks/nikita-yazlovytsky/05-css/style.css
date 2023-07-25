@@ -1,14 +1,14 @@
-body{
+body {
     --accent-color: #ffd966;
     --transition-delay: 1s;
-    --background-color: #f1e5ff;
+    --background-color: #E9EBEC;
     --button-text-color: #333;
-    --text-color:#232b2b;
+    --text-color: #232b2b;
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
-    margin-top:30px;
+    margin-top: 30px;
 
     background-color: var(--background-color);
     color: var(--text-color);
@@ -22,9 +22,12 @@ body.dark {
 }
 
 
-@media screen and (max-width: 900px){
-    h1,h2,h3 {
-        font-size:20px;
+@media screen and (max-width: 900px) {
+
+    h1,
+    h2,
+    h3 {
+        font-size: 20px;
     }
 }
 
@@ -35,18 +38,19 @@ body.dark {
 
 h2 {
     padding-bottom: 1px;
-    margin-bottom:1px;
+    margin-bottom: 1px;
 }
 
 p {
     font-size: smaller;
-    margin-top:1px;
-    margin-right:4vh;
+    margin-top: 1px;
+    margin-right: 4vh;
 }
 
 a {
     text-decoration: none;
 }
+
 .wrapper {
     display: flex;
     width: 600px;
@@ -71,7 +75,7 @@ a {
     border-width: 2vh;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
     .profile__picture {
         height: 110px;
         width: 110px;
@@ -91,7 +95,7 @@ a {
 
 .social-link {
     width: 2.5vh;
-    margin-right:1.4vh;
+    margin-right: 1.4vh;
 }
 
 .profile__achievements {
@@ -109,7 +113,7 @@ a {
 
 
 .contact__buttons-contact__button {
-    height:45px;
+    height: 45px;
     border: none;
     width: 175px;
     border-radius: 5px;
@@ -129,44 +133,58 @@ a {
 
 
 .contact__buttons-cv__button {
-    height:45px;
+    height: 45px;
     width: 175px;
     background-color: #ffd966;
     border-radius: 5px;
     border: none;
-    margin-right: 20px;
+    margin-right: 35px;
     color: #232b2b;
     cursor: pointer;
-    transition: 1s; 
+    transition: 1s;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px;
-    }
-    
-    .contact__buttons-cv__button-text{
-        margin-top:10px;
-        margin-left:20px;
-        font-size:13px;
-    }
+}
 
-    .contact__butonns-cv__button-inner{
-        display:flex;
-        justify-content: center;
-        align-items: center;
+@media screen and (max-width:900px) {
+    .contact__buttons-cv__button {
+        scale: 1.06;
+        margin-right: 45px;
     }
+}
 
-    .contact__buttons-cv__button-download{
-        width:20px;
-        margin-left: -10px;
+
+@media screen and (max-width:900px) {
+    .contact__buttons-contact__button {
+        scale: 1.06;
     }
+}
 
-    .contact__buttons-cv__button:hover {
+.contact__buttons-cv__button-text {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 13px;
+}
+
+.contact__butonns-cv__button-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact__buttons-cv__button-download {
+    width: 20px;
+    margin-left: -10px;
+}
+
+.contact__buttons-cv__button:hover {
     transform: scale(1.1);
 }
 
-.scroll__up{
-    border:none;
+.scroll__up {
+    border: none;
     height: 50px;
     width: 50px;
     border-radius: 100%;
@@ -188,28 +206,43 @@ a {
 .content__buttons {
     display: flex;
     justify-content: center;
-    margin-top: 5vh;
+    margin-top: 6vh;
     background-color: white;
     width: 60vh;
-    padding:1vh;
+    padding: 1vh;
     border-radius: 10px;
     transition: var(--transition-delay);
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
     .content__buttons {
-        width: 400px;
+        width: 405px;
+        margin-top: 8vh;
+        margin-bottom: 1vh;
     }
 }
+
+
+
+@media screen and (max-width: 700px) {
+    .content__picture {
+        width: 100%;
+        scale: 1.6;
+        margin: 100px;
+        margin-left: 125px;
+    }
+}
+
+
 
 .content__buttons.dark {
     background-color: #171f26;
 }
 
 .portfolio__button {
-    height:45px;
+    height: 45px;
     width: 175px;
-    background-color: rgb(204,204,204);
+    background-color: rgb(204, 204, 204);
     border-radius: 5px;
     border: none;
     margin-right: 20px;
@@ -217,17 +250,27 @@ a {
     transition: var(--transition-delay);
 }
 
+@media screen and (max-width:900px) {
+    .portfolio__button {
+        scale: 1.02;
+    }
+}
+
 .portfolio__button.dark {
-    background-color: #15121e;
-    color:#f1e5ff
+    background-color: #232b2b;
+    color: #f1e5ff
 }
 
 .portfolio__button:hover {
     transform: scale(1.1);
 }
 
+.content__picture-image {
+    width: 100px;
+}
+
 .skills__button {
-    height:45px;
+    height: 45px;
     width: 175px;
     background-color: white;
     border-radius: 5px;
@@ -243,7 +286,7 @@ a {
 
 .skills__button.dark {
     background-color: #171f26;
-    color:#f1e5ff
+    color: #f1e5ff
 }
 
 .content__options {
@@ -255,14 +298,16 @@ a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
     margin-top: 50px;
+
 }
 
 .posted-content {
     height: 170px;
-    margin: 1.4vh;
-    margin-top: 2vh;
-    margin-right: 2.6vh;
+    margin: 1.5vh;
+    margin-top: 1.9vh;
+    margin-right: 2.4vh;
     border-radius: 3%;
     transition: 1.2s;
 }
@@ -299,7 +344,7 @@ img {
     background-color: transparent;
     cursor: pointer;
     transition: var(--transition-delay);
-    color:white;    
+    color: white;
 }
 
 .content__pictures {
@@ -311,46 +356,109 @@ img {
 
 .content__pictures-post {
     height: 170px;
-    margin: 1.4vh;
-    margin-top: 2vh;
-    margin-right: 2.6vh;
     border-radius: 3%;
     transition: 1.2s;
-    display: block;
+
 }
 
 .content__pictures-post:hover {
     transform: scale(1.1);
 }
 
-.content__picture{ 
-        display: flex;
-        position: relative;
-        align-items: center;
-        justify-content: center;
+.content__picture {
+    margin-top: 20px;
+    width: 280px;
+    height: 180px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
-.content__picture-image{
+.content__picture-image {
     position: absolute;
-    top:0;
+    padding: 20px;
+    top: 0;
     left: 0;
-    width:96%;
-    height:96%;
-    background: #ffe382;
-    display:flex;
+    z-index: 1;
+    height: 94%;
+    width: 94%;
+    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    transition: .5s;
     opacity: 0;
+    max-width: 221px;
+    max-height: 135px;
+
 }
 
 .content__picture-image:hover {
     opacity: 0.9;
 }
 
-.content__picture-text{
-    font-size: 1em;
-    margin:10px;
+.content__picture:hover .content__picture-image {
+    opacity: 1;
+}
+
+.content__picture-image::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: var(--accent-color);
+    width: 100%;
+    height: 100%;
+    opacity: .85;
+}
+
+.content__picture-title {
+    font-size: 15px;
+}
+
+.portfolio__item_name {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--on-accent-text-color);
+}
+
+.portfolio__item_description {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-top: 3px;
+    color: var(--on-accent-text-color);
+    text-align: center;
+}
+
+.portfolio__item_link {
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+
+.content__picture-text {
+    font-size: 10px;
+    margin: 10px;
+}
+
+.content__picutre_link-icon {
+    margin-top: 15px;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .color__button:hover {
@@ -358,7 +466,7 @@ img {
 }
 
 .theme__changer-image {
-   transition: var(--transition-delay);
+    transition: var(--transition-delay);
 }
 
 .scroll__up_icon.dark {
@@ -392,6 +500,3 @@ img {
 .twitter__image.dark {
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
 }
-
-
-
