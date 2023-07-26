@@ -167,7 +167,7 @@ function zipWith(fn, arr1, arr2) {
 
 
 
-//task12: https://www.codewars.com/kata/filter-the-numbe
+//task12: https://www.codewars.com/kata/filter-the-number
 
 var filterString = function(value) {
 
@@ -271,3 +271,83 @@ function duplicateEncode(word){
   }
   return result;
 }
+
+// task16: https://www.codewars.com/kata/5693239fb761dc8670000001
+
+//TODO
+
+
+
+//task17: https://www.codewars.com/kata/576757b1df89ecf5bd00073b
+
+function towerBuilder(nFloors) {
+  let result = [];
+  let columns = 0;
+
+  for(let i = 0; i < nFloors; i++){
+    if(i === 0){
+      result.push('*');
+    }else{
+      result.push(result[i-1].concat('**'));
+    }
+  }
+
+  columns = result[result.length-1].length;
+
+  result = result.map((item, index, result) => {
+    let ln = result[index].length;
+    let leftIdent = ' '.repeat(Math.floor((columns - ln) / 2));
+    let rightIdent = ' '.repeat(Math.floor((columns - ln) / 2));
+    return leftIdent.concat(item, rightIdent);
+   
+  })
+
+  return result;
+}
+
+//task18: https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
+
+function wave(str){
+  const result = [];
+
+
+ for(let i = 0; i < str.length; i++){
+  if(str[i] !== ' '){
+    let newString = str.slice(0, i) + str[i].toUpperCase() + str.slice(i+1);
+    result.push(newString)
+  }
+ }
+
+  return result;
+}
+
+
+//task19: https://www.codewars.com/kata/59d398bb86a6fdf100000031
+
+function stringBreakers(n, string){
+  const stringSplited = string.split(' ').join('');
+
+  let result = '';
+
+  for(let i = 0; i < stringSplited.length; i++){
+    if((i + 1) % n === 0){
+      result += stringSplited[i];
+      result += i !== stringSplited.length - 1? '\n': '';
+    }else{
+      result += stringSplited[i];
+    }
+  }
+  return result;
+}
+
+//task20: https://www.codewars.com/kata/514a024011ea4fb54200004b
+
+function domainName(url){
+  url = url.replace('https://', '');
+  url = url.replace('http://', '');
+  url = url.replace('www.', '');
+  url = url.slice(0, url.indexOf('/'));
+
+  return url.slice(0, url.indexOf('.'));
+}
+
