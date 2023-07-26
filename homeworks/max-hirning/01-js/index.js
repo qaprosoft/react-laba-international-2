@@ -124,7 +124,7 @@ function partitionOn(pred, items) {
     return falseItems.length; // Return the index of the first true value (boundary index)
 }
 
-// task 8 http://www.codewars.com/kata/word-count
+// task 8 http://www.codewars.com/kata/word-count       //SKIP
 
 // task 9 https://www.codewars.com/kata/find-the-odd-int/
 function findOdd(A) {
@@ -257,6 +257,67 @@ function duplicateEncode(word) {
 }
 
 // task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
+function findAdditiveNumbers(num) {
+    for (let i = 0; i < num.length - 2; i++) {
+        const first = num.slice(0, i + 1);
+        for (let j = i + 1; j < num.length - 1; j++) {
+            const second = num.slice(i + 1, j + 1);
+            const remain = num.slice(j + 1);
+            
+            if (parseInt(first) + parseInt(second) > parseInt(remain)) {
+                break;
+            }
+
+            const temp = helper(remain, parseInt(first), parseInt(second), [first, second]);
+            if (!temp || temp.length <= 2) {
+                continue;
+            }
+
+            let flag = true;
+            for (let k = 0; k < temp.length - 2; k++) {
+                if (parseInt(temp[k]) + parseInt(temp[k + 1]) !== parseInt(temp[k + 2])) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag && temp.every((k) => k[0] !== "0" || (k[0] === "0" && k.length === 1))) {
+                return temp;
+            }
+        }
+    }
+    return [];
+}
+
+function helper(num, first, second, arr = []) {
+    if (num === "") {
+        return arr;
+    } else if (first + second > parseInt(num)) {
+        return null;
+    }
+
+    const res = (first + second).toString();
+    for (let i = 0; i < num.length; i++) {
+        const temp = num.slice(0, i + 1);
+        if ((temp.startsWith("0") && i !== 0) || temp[i] !== res[i]) {
+            break;
+        } else if (first + second === parseInt(temp)) {
+            return helper(num.slice(i + 1), second, parseInt(temp), [...arr, temp]);
+        }
+    }
+
+    arr[arr.length - 1] += num[0];
+    return helper(num.slice(1), first, second * 10 + parseInt(num[0]), arr);
+}
+
+console.log(findAdditiveNumbers('112358'),['1','1','2','3','5','8']);
+console.log(findAdditiveNumbers('199100199'),['1','99','100','199']);
+console.log(findAdditiveNumbers('1023'),[]);
+console.log(findAdditiveNumbers('112356'),[]);
+console.log(findAdditiveNumbers('101'),['1','0','1']);
+console.log(findAdditiveNumbers('198001519815'),["19800", "15", "19815"]);
+console.log(findAdditiveNumbers('10020120'),["100", "20", "120"]);
+console.log(findAdditiveNumbers('7916972717643273704501372383'),["7916", "9727", "17643", "27370", "45013", "72383"]);
 
 // task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 function towerBuilder(nFloors) {
