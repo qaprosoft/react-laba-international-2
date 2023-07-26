@@ -125,55 +125,104 @@ function opposite(number) {
   }
   
   function nine(operation) {
+
     if (!operation) {
       return 9;
     } else {
       return operation(9);
     }
+
   }
   
   function plus(secondParam) {
+
     return function (firstParam) {
+
       return firstParam + secondParam;
-    };
+
+    }
+
   }
   
   function minus(secondParam) {
+
     return function (firstParam) {
+
       return firstParam - secondParam;
-    };
+
+    }
+
   }
   
   function times(secondParam) {
+
     return function (firstParam) {
+
       return firstParam * secondParam;
-    };
+
+    }
+
   }
   
   function dividedBy(secondParam) {
+
     return function (firstParam) {
+
       return Math.floor(firstParam / secondParam);
-    };
+
+    }
+
   }
   
   
   // exercise 6 http://www.codewars.com/kata/get-the-middle-character
   
-  function getMiddle(s)
-  {
+  function getMiddle(s) {
+
     let stringLength = s.length;
     let middle = stringLength/2;
     
     if(stringLength%2 === 0 ){
        
-      return s.slice((middle-1), middle+1)
+      return s.slice((middle-1), middle+1);
       
     }
     else{
      
-      return s.charAt(Math.floor(middle))
+      return s.charAt(Math.floor(middle));
       
     }
   }
   
   // exercise 7 http://www.codewars.com/kata/partition-on
+
+  function partitionOn(pred, items) {
+  
+    let evenNumbers = items.filter(element => pred(element));
+    let unevenNumbers = items.filter(element => !pred(element));
+    
+    items.splice(0);
+    items.push(...unevenNumbers);
+    items.push(...evenNumbers);
+  
+    return unevenNumbers.length;
+  }
+
+  //exercise 8 https://www.codewars.com/kata/find-the-odd-int/
+
+  function findOdd(A) {
+    let result = 0;
+   A.forEach( element => {
+     
+    let filteredArray =  A.filter( filteredElement => filteredElement == element)
+    
+    console.log(filteredArray.length)
+    
+    if((filteredArray.length % 2)>0){
+      result = element
+    }  
+   }) 
+  return result
+  }
+
+  
