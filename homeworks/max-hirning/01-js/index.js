@@ -50,8 +50,11 @@ function printArray(array) {
 // task 4 http://www.codewars.com/kata/transportation-on-vacation
 function rentalCarCost(d) {
     let result = d * 40;
-    if(d >= 7) result -= 50;
-    if(d >= 3 && d < 7) result -= 20;
+    if (d >= 7) {
+        result -= 50;
+    } else if (d >= 3) {
+        result -= 20;
+    }
     return result;
 }
 
@@ -110,9 +113,9 @@ function partitionOn(pred, items) {
     // Separate items based on the pred into falseItems and trueItems arrays
     for (const item of items) {
         if (pred(item)) {
-        trueItems.push(item);
+            trueItems.push(item);
         } else {
-        falseItems.push(item);
+            falseItems.push(item);
         }
     }
 
@@ -213,13 +216,13 @@ function catAndMouse(map, moves) {
     // Find the positions of the cat and the mouse
     for (let row = 0; row < numRows; row++) {
         for (let col = 0; col < numCols; col++) {
-        if (rows[row][col] === "C") {
-            catRow = row;
-            catCol = col;
-        } else if (rows[row][col] === "m") {
-            mouseRow = row;
-            mouseCol = col;
-        }
+            if (rows[row][col] === "C") {
+                catRow = row;
+                catCol = col;
+            } else if (rows[row][col] === "m") {
+                mouseRow = row;
+                mouseCol = col;
+            }
         }
     }
 
