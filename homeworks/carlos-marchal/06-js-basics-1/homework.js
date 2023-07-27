@@ -328,4 +328,19 @@ function opposite(number) {
 
     // exercise 15 https://www.codewars.com/kata/duplicate-encoder
 
-    
+    function duplicateEncode(word){
+  
+      let chars = word.split('');
+      let resultString = "";
+      
+      
+      chars.forEach(char=>{
+        chars.filter(c => c.toLowerCase() === char.toLowerCase()).length>1? resultString += ')' : resultString += '('
+      })
+      
+      return resultString;
+      
+      
+        
+    }
+      
