@@ -290,79 +290,42 @@ function opposite(number) {
     
     }
 
-  //exercise 14
+  //exercise 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
+
 
   function catMouse(map,moves){
-    let catPosition = map.indexOf('C');
-    let ratPosition = map.indexOf('m');
-    let movesLeft = moves;
-    let result;
-    
-    if (ratPosition == -1 || catPosition == -1){
-      return'boring without two animals'
-    }
+
+   
+    let catPosition;
+    let mousePosition;
+    let separatedLines = map.split(/\r?\n/);
       
-     // map is 3 lines of 9
-      //0-8; 9-18; 19-28
+    if(map.indexOf('C') == -1 || map.indexOf('m') == -1){
       
-    if(ratPosition>=19){
-      
-      if(catPosition<=8){ 
-        
-        catPosition += 18;
-        movesLeft -= 2;
-        
-      }
-      else if (catPosition<=18 && catPosition >= 9){
-        
-        catPosition += 9;
-        movesLeft -= 1;
-        
-      }  
-      
-      Math.abs(ratPosition - catPosition) <= 5?  result = 'Caught!' : result = 'Escaped!'
-      
+      return "boring without two animals"
       
     } 
-      else if(ratPosition>=9 && ratPosition<=18){
       
-      if(catPosition<=8){ 
-        
-        catPosition += 9;
-        movesLeft -= 1;
-        
-      }
-      else if (catPosition >= 19){
-        
-        catPosition -= 9;
-        movesLeft -= 1;
-        
-      }  
+    separatedLines.forEach((mapLine, i) => {mapLine.includes('C')? catPosition = [mapLine.indexOf('C'), i] : null })
+    
+    separatedLines.forEach((mapLine, i)=> { mapLine.includes('m')? mousePosition = [mapLine.indexOf('m'), i] : null })  
       
-      Math.abs(ratPosition - catPosition) <= 5?  result = 'Caught!' : result = 'Escaped!'
       
+      
+      
+    let catPositionX = catPosition[0];
+    let catPositionY = catPosition[1];
+    let mousePositionX = mousePosition[0];
+    let mousePositionY = mousePosition[1];
+      console.log(mousePositionX)
+      
+    if(Math.abs(catPositionX - mousePositionX) + Math.abs(catPositionY - mousePositionY)>moves){
+      return 'Escaped!'
+    } else{
+      return 'Caught!'
     }
-      else {
-        
-        if(catPosition<=18 && catPosition >= 9){ 
-        
-        catPosition -= 9;
-        movesLeft -= 1;
-        
-      }
-      else if (catPosition >= 19){
-        
-        catPosition -= 18;
-        movesLeft -= 2;
-        
-      }  
-      
-      Math.abs(ratPosition - catPosition) <= 5?  result = 'Caught!' : result = 'Escaped!'
-      
-        
-      }
-      
-      
-      return result
-      
     }
+
+    // exercise 15 https://www.codewars.com/kata/duplicate-encoder
+
+    
