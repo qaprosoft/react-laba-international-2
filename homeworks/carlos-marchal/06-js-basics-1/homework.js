@@ -328,6 +328,8 @@ function opposite(number) {
 
     // exercise 15 https://www.codewars.com/kata/duplicate-encoder
 
+
+
     function duplicateEncode(word){
   
       let chars = word.split('');
@@ -343,4 +345,99 @@ function opposite(number) {
       
         
     }
+    
+    //exercise 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
+
+
+
+    function towerBuilder(nFloors) {
+      let resultArray = [];
+      let stringLength = nFloors + (nFloors-1);
+      let forString = "";
+      let asteriskQuantity;
+      let blankLength;
       
+      
+       
+     
+      
+      for(let i = 0; i<nFloors; i++){
+    
+      
+        asteriskQuantity = i+i+1;
+        blankLength = (stringLength-asteriskQuantity)/2;
+       
+        if(blankLength == 0){
+          forString = forString.padStart(stringLength, "*");
+          resultArray.push(forString);
+          forString = "";
+        } 
+        else {
+
+          forString = forString.padStart(blankLength, " ");
+          forString = forString.padEnd(blankLength+asteriskQuantity, "*");
+          forString = forString.padEnd(stringLength, " ");
+          resultArray.push(forString);
+          forString = "";
+                    
+            }
+      }
+      
+      return resultArray;
+    }
+
+
+// exercise 18  https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
+
+
+function wave(str){
+ 
+  
+  let length = str.length;
+  let resultArr = [];
+  let iterationString = str;
+  let forString = "";
+  
+  
+  
+  
+  for(let i=0; i<=length; i++){
+   
+    if(iterationString.charAt(i-1) === " "){
+      
+      resultArr.push(null)
+      forString = "";
+      
+    }
+    else if(!i==0){
+      resultArr.push(forString);
+      forString = "";
+    }
+    
+    
+    for(let j=0; j<length; j++){
+      
+      if(i==j){
+        
+        
+       forString += iterationString.charAt(j).toUpperCase()
+        
+      }
+     else{
+       
+         forString += iterationString.charAt(j)
+      }
+    }
+    
+    
+  }
+  
+  let result = resultArr.filter(element => element != null)
+  
+  
+  return result
+  
+  
+  }
+
+  // exercise 19 
