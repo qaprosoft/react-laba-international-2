@@ -208,7 +208,7 @@ function opposite(number) {
     return unevenNumbers.length;
   }
 
-  //exercise 8 https://www.codewars.com/kata/find-the-odd-int/
+  //exercise 9 https://www.codewars.com/kata/find-the-odd-int/
 
   function findOdd(A) {
     let result = 0;
@@ -225,4 +225,144 @@ function opposite(number) {
   return result
   }
 
+  //exercise 10 https://www.codewars.com/kata/find-the-parity-outlier
+
+  function findOutlier(integers){
+    let evenArray = integers.filter(element => element%2==0);
+    let oddArray = integers.filter(element => element%2!=0);
+    
+    if(oddArray.length>1){
+      return evenArray[0]
+    }
+    else{
+      return oddArray[0]
+    }
+  }
+
+  //exercise 11 https://www.codewars.com/kata/zipwith
+
+  function zipWith(fn,a0,a1) {
   
+    let resultArr = [];
+    let maxLength;
+    
+    a0.length>a1.length? maxLength=a1.length : maxLength=a0.length;
+    
+    for(let i = 0; i<maxLength; i++){
+      resultArr.push(fn(a0[i], a1[i]))
+    }
+    
+    return resultArr;
+  }
+
+  //exercise 12 https://www.codewars.com/kata/filter-the-number
+
+  var filterString = function(value) {
+  
+    let result = "";
+    
+    for(let i=0; i<value.length; i++){
+      
+        Number.isInteger(parseInt(value[i]))? result += value[i]  : null 
+        
+    }
+    
+    result = parseInt(result);
+    
+    return result;
+  }
+
+  //exercise 13 https://www.codewars.com/kata/n-th-fibonacci
+
+  function nthFibo(n) {
+    let arr = [];
+      
+      for(let i=0; i<n; i++){
+        if(arr.length<=1){
+          arr.push(i)
+        }
+        else{
+          arr.push(arr[i-1]+arr[i-2])
+        }
+        
+      }
+        return arr[n-1]
+    
+    }
+
+  //exercise 14
+
+  function catMouse(map,moves){
+    let catPosition = map.indexOf('C');
+    let ratPosition = map.indexOf('m');
+    let movesLeft = moves;
+    let result;
+    
+    if (ratPosition == -1 || catPosition == -1){
+      return'boring without two animals'
+    }
+      
+     // map is 3 lines of 9
+      //0-8; 9-18; 19-28
+      
+    if(ratPosition>=19){
+      
+      if(catPosition<=8){ 
+        
+        catPosition += 18;
+        movesLeft -= 2;
+        
+      }
+      else if (catPosition<=18 && catPosition >= 9){
+        
+        catPosition += 9;
+        movesLeft -= 1;
+        
+      }  
+      
+      Math.abs(ratPosition - catPosition) <= 5?  result = 'Caught!' : result = 'Escaped!'
+      
+      
+    } 
+      else if(ratPosition>=9 && ratPosition<=18){
+      
+      if(catPosition<=8){ 
+        
+        catPosition += 9;
+        movesLeft -= 1;
+        
+      }
+      else if (catPosition >= 19){
+        
+        catPosition -= 9;
+        movesLeft -= 1;
+        
+      }  
+      
+      Math.abs(ratPosition - catPosition) <= 5?  result = 'Caught!' : result = 'Escaped!'
+      
+    }
+      else {
+        
+        if(catPosition<=18 && catPosition >= 9){ 
+        
+        catPosition -= 9;
+        movesLeft -= 1;
+        
+      }
+      else if (catPosition >= 19){
+        
+        catPosition -= 18;
+        movesLeft -= 2;
+        
+      }  
+      
+      Math.abs(ratPosition - catPosition) <= 5?  result = 'Caught!' : result = 'Escaped!'
+      
+        
+      }
+      
+      
+      return result
+      
+    }
