@@ -111,6 +111,7 @@ function getMiddle(s) {
 function partitionOn(pred, items) {
     let part1 = [];
     let part2 = [];
+
     items.map(function(item){
         if (pred(item)) {
             part2.push(item);
@@ -118,6 +119,7 @@ function partitionOn(pred, items) {
             part1.push(item);
         }
     });
+
     items.splice(0, items.length).push.apply(items, part1.concat(part2));
     return part1.length;
 }
@@ -139,7 +141,7 @@ function findOutlier(int){
 
 // task 11 https://www.codewars.com/kata/zipwith
 function zipWith(fn, a0, a1) {
-    const resArr = [];
+    let resArr = [];
     let len1 = a0.length;
     let len2 = a1.length;
 
@@ -164,7 +166,7 @@ function nthFibo(n) {
 
 // task 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
 function catMouse(map,moves){
-    if(!map.includes('C') || !map.includes('m')){
+    if  (!map.includes('C') || !map.includes('m')) {
         return "boring without two animals";
     }
 
@@ -186,7 +188,7 @@ function catMouse(map,moves){
         }
     })
 
-    const stepsNeeded = (Math.max(mouseRow, catRow) - Math.min(mouseRow, catRow)) + (Math.max(mouseColumn, catColumn) - Math.min(mouseColumn, catColumn));
+    let stepsNeeded = (Math.max(mouseRow, catRow) - Math.min(mouseRow, catRow)) + (Math.max(mouseColumn, catColumn) - Math.min(mouseColumn, catColumn));
 
     if (stepsNeeded <= moves) {
         return "Caught!";
@@ -199,6 +201,7 @@ function catMouse(map,moves){
 function duplicateEncode(word){
     let  string= '';
     word = word.toLowerCase();
+
     for (let i=0; i < word.length; i++) {
         if (word.lastIndexOf(word[i]) == word.indexOf(word[i])) {
             string += '(';
@@ -211,14 +214,66 @@ function duplicateEncode(word){
 }
 
 //task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
+function findAdditiveNumbers(num) {
+    for (let i = 1; i < num.length - 1; ++i)
+        for (let j = i + 1; j < num.length; ++j) {
+            let a = [num.slice(0,i), num.slice(i, j)];
+            if (a[0][0] == '0' && a[0].length > 1 || a[1][0] == '0' && a[1].length > 1 ) continue;
+            let s = a.join('');
+            while (s.length < num.length) {
+                let sum = '' + (+a[a.length-1] + +a[a.length-2]);
+                s += sum;
+                a.push(sum);
+            }
+            if (s == num) return a;
+        }
+    return []
+}
 
+// task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
+function towerBuilder(nFloors) {
+    let space, star, tower = [];
 
+    for (i = 1; i <= nFloors; i++) {
+        space = " ".repeat(nFloors - i);
+        star  = "*".repeat((2 * i) - 1);
+        tower.push(`${space}${star}${space}`);
+    }
 
+    return tower;
+}
 
+//task 18 https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
+function wave(str){
+    let waveArr = [];
 
+    for (let i = 0; i < str.length; i++) {
+        let letter = str[i];
 
+        if (letter === " ") continue;
+        else {
+            waveArr.push(str.slice(0, i) + letter.toUpperCase() + str.slice(i + 1));
+        }
+    }
 
-// https://www.codewars.com/kata/576757b1df89ecf5bd00073b
-// https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
-// https://www.codewars.com/kata/59d398bb86a6fdf100000031
-// https://www.codewars.com/kata/514a024011ea4fb54200004b
+    return waveArr;
+}
+
+// task 19 https://www.codewars.com/kata/59d398bb86a6fdf100000031
+function stringBreakers(n, string){
+    string = string.replace(/\s/g,'');
+
+    let arr = [];
+    for (let i = 0; i < string.length; i += n) {
+        arr.push(string.slice(i, i+n));
+    }
+
+    return arr.join`\n`;
+}
+
+// task 20 https://www.codewars.com/kata/514a024011ea4fb54200004b
+function domainName(url){
+    let urlString = url.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
+    let domain = urlString.split(".")[0];
+    return domain;
+}
