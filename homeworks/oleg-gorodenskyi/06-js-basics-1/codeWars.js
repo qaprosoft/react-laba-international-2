@@ -42,7 +42,49 @@ function rentalCarCost(d) {
 }
 
 // task 5 http://www.codewars.com/kata/calculating-with-functions
+function zero(func) {
+  return func ? func(0) : 0;
+}
+function one(func) {
+  return func ? func(1) : 1;
+}
+function two(func) {
+  return func ? func(2) : 2;
+}
+function three(func) {
+  return func ? func(3) : 3;
+}
+function four(func) {
+  return func ? func(4) : 4;
+}
+function five(func) {
+  return func ? func(5) : 5;
+}
+function six(func) {
+  return func ? func(6) : 6;
+}
+function seven(func) {
+  return func ? func(7) : 7;
+}
+function eight(func) {
+  return func ? func(8) : 8;
+}
+function nine(func) {
+  return func ? func(9) : 9;
+}
 
+function plus(num) {
+  return (x) => x + num
+}
+function minus(num) {
+  return (x) => x - num
+}
+function times(num) {
+  return (x) => x * num
+}
+function dividedBy(num) {
+  return (x) => Math.floor(x / num)
+}
 
 // task 6 http://www.codewars.com/kata/get-the-middle-character
 function getMiddle(s) {
@@ -56,6 +98,23 @@ function getMiddle(s) {
 }
 
 // task 7 http://www.codewars.com/kata/partition-on
+function partitionOn(pred, items) {
+  let result = []
+  let trueArr = []
+  let falseArr = []
+  let firstTrueIndex;
+  for (let key of items) {
+    if (pred(key)) {
+      trueArr.push(key)
+    } else {
+      falseArr.push(key)
+    }
+
+    result = [...falseArr, ...trueArr]
+    firstTrueIndex = result.findIndex(pred)
+  }
+  return firstTrueIndex, result
+}
 
 
 // task 9 https://www.codewars.com/kata/find-the-odd-int/
@@ -116,41 +175,80 @@ var filterString = function (value) {
 }
 
 // task 13 https://www.codewars.com/kata/n-th-fibonacci
+function nthFibo(n) {
+  let startFibo = [0, 1];
+  for (let i = 0; i < n; i++) {
+    startFibo.push(startFibo[0 + i] + startFibo[i + 1])
+  }
+  return startFibo[n - 1]
+}
 
 
 // task 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
+function catMouse(map, moves) {
+  if (map.indexOf('C') === -1 || map.indexOf('m') === -1) {
+    return "boring without two animals"
+  }
+
+  const catIndex = map.indexOf('C');
+  const mouseIndex = map.indexOf('m');
+  const mapWidth = map.indexOf('\n') + 1
+
+  function calculateDistance(cat, mouse) {
+    const x1 = cat % mapWidth;
+    const y1 = Math.floor(cat / mapWidth)
+    const x2 = mouse % mapWidth;
+    const y2 = Math.floor(mouse / mapWidth)
+    return Math.abs(x1 - x2) + Math.abs(y1 - y2)
+  }
+
+  const distance = calculateDistance(catIndex, mouseIndex);
+  return distance <= moves ? 'Caught!' : 'Escaped!'
+}
 
 
 // task 15 https://www.codewars.com/kata/duplicate-encoder
-function duplicateEncode(word){
+function duplicateEncode(word) {
   let result = "";
   let lowerCase = word.toLowerCase()
-    
-    for (let i = 0; i < lowerCase.length; i++) {
-      let currentChar = lowerCase[i];
-      let count = 0;
-      
-      for (let j = 0; j < lowerCase.length; j++) {
-        if (currentChar === lowerCase[j]) {
-          count++;
-        }
-      }
-      
-      if (count === 1) {
-        result += "(";
-      } else {
-        result += ")";
+
+  for (let i = 0; i < lowerCase.length; i++) {
+    let currentChar = lowerCase[i];
+    let count = 0;
+
+    for (let j = 0; j < lowerCase.length; j++) {
+      if (currentChar === lowerCase[j]) {
+        count++;
       }
     }
-    
-    return result;
+
+    if (count === 1) {
+      result += "(";
+    } else {
+      result += ")";
+    }
   }
+
+  return result;
+}
 
 
 // task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
 
 
 // task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
+function towerBuilder(nFloors) {
+  let spaces = ' ';
+  let star = '*'
+  let result = [];
+  let quantityOfStars = 1;
+  for (let i = 1; i <= nFloors; i++) {
+    result.push(spaces.repeat(nFloors - i) + star.repeat(quantityOfStars) + spaces.repeat(nFloors - i))
+    quantityOfStars += 2
+  }
+  return result
+}
+
 
 
 // task 18 https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
@@ -166,6 +264,17 @@ function wave(str) {
 }
 
 // task 19 https://www.codewars.com/kata/59d398bb86a6fdf100000031
+function stringBreakers(n, string) {
+  let result = '';
+  let noSpaces = string.replace(/\s/g, '')
+  for (let i = 0; i < noSpaces.length; i += n) {
+    result += noSpaces.slice(i, i + n);
+    if (i + n < noSpaces.length) {
+      result += '\n'
+    }
+  }
+  return result
+}
 
 
 // task 20 https://www.codewars.com/kata/514a024011ea4fb54200004b
