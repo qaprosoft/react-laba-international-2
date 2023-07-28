@@ -274,7 +274,24 @@ function duplicateEncode(word){
 
 // task16: https://www.codewars.com/kata/5693239fb761dc8670000001
 
-//TODO
+
+function findAdditiveNumbers(num){
+  for(let i = 1; i < num.length; i++){
+    for(j = i + 1; j < num.length; j++){
+      let separatedArrays = [num.slice(0, i), num.slice(i, j)];
+      if(separatedArrays[0][0] === '0' && separatedArrays[0].length > 1 || separatedArrays[1][0] === '0' && separatedArrays[1].length > 1) continue;
+      let joinedArrays = separatedArrays.join('');
+      while(joinedArrays.length < num.length){
+        let sum = ((+separatedArrays[separatedArrays.length-1] + +separatedArrays[separatedArrays.length-2])).toString();
+        joinedArrays += sum;
+        separatedArrays.push(sum);
+      }
+      if(joinedArrays === num) return separatedArrays;
+    }
+  }
+  return [];
+}
+
 
 
 
