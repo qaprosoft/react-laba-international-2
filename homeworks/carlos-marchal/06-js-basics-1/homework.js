@@ -345,6 +345,8 @@ function opposite(number) {
       
         
     }
+
+    //exercise 16 
     
     //exercise 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 
@@ -440,4 +442,43 @@ function wave(str){
   
   }
 
-  // exercise 19 
+  // exercise 19 https://www.codewars.com/kata/59d398bb86a6fdf100000031
+
+
+  function stringBreakers(n, string){
+  
+let lineLength = string.length/n;
+let characterArray = string.split(' ').join('').split('');
+let resultArray = "";
+let counter = 0;
+let length = characterArray.length;
+
+
+  
+characterArray.map((char, i) => {
+  
+  resultArray += char
+  counter++
+ 
+  
+  if(counter == n){
+  
+    characterArray[i+1]? resultArray += '\n' : null
+    
+    counter = 0;
+  }
+})
+
+return resultArray
+ 
+  
+
+}
+
+// exercise 20 https://www.codewars.com/kata/514a024011ea4fb54200004b/train/javascript
+
+function domainName(url){
+  let regex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/;
+  let domain = url.match(regex)[1];
+  return domain.split('.')[0]; 
+}
