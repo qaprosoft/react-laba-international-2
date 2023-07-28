@@ -126,18 +126,98 @@ function partitionOn(pred, items) {
 // Kata is not available
 
 // task 9 https://www.codewars.com/kata/find-the-odd-int/
+function findOdd(A) {
+    return A.find((item, index) => A.filter(el => el == item).length % 2)
+}
+
+// task 10 https://www.codewars.com/kata/find-the-parity-outlier
+function findOutlier(int){
+    let even = int.filter(a => a % 2 === 0);
+    let odd = int.filter(a  => a % 2 !== 0);
+    return even.length === 1 ? even[0] : odd[0];
+}
+
+// task 11 https://www.codewars.com/kata/zipwith
+function zipWith(fn, a0, a1) {
+    const resArr = [];
+    let len1 = a0.length;
+    let len2 = a1.length;
+
+    for (let i = 0; i < len1 && i < len2; i++) {
+        resArr.push(fn(a0[i], a1[i]));
+    }
+
+    return resArr;
+}
+
+// task 12 https://www.codewars.com/kata/filter-the-number
+var FilterString = function(value) {
+    return +value.replace(/\D+/g, '');
+}
+
+// task 13 https://www.codewars.com/kata/n-th-fibonacci
+function nthFibo(n) {
+    let [prev, curr] = [0, 1];
+    for (let i = 1; i < n; i++) [prev, curr] = [curr, prev + curr];
+    return prev;
+}
+
+// task 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
+function catMouse(map,moves){
+    if(!map.includes('C') || !map.includes('m')){
+        return "boring without two animals";
+    }
+
+    let arrayedMap = map.split('\n');
+    let mouseRow = 0;
+    let mouseColumn = 0;
+    let catRow = 0;
+    let catColumn = 0;
+
+    arrayedMap.forEach((item, index) => {
+        if (item.includes('m')) {
+            mouseRow = index + 1;
+            mouseColumn = item.indexOf('m') + 1;
+        }
+
+        if (item.includes('C')) {
+            catRow = index + 1;
+            catColumn = item.indexOf('C') + 1;
+        }
+    })
+
+    const stepsNeeded = (Math.max(mouseRow, catRow) - Math.min(mouseRow, catRow)) + (Math.max(mouseColumn, catColumn) - Math.min(mouseColumn, catColumn));
+
+    if (stepsNeeded <= moves) {
+        return "Caught!";
+    } else {
+        return "Escaped!";
+    }
+}
+
+// task 15 https://www.codewars.com/kata/duplicate-encoder
+function duplicateEncode(word){
+    let  string= '';
+    word = word.toLowerCase();
+    for (let i=0; i < word.length; i++) {
+        if (word.lastIndexOf(word[i]) == word.indexOf(word[i])) {
+            string += '(';
+        }
+        else{
+            string += ')';
+        }
+    }
+    return string;
+}
+
+//task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
 
 
 
 
 
-// https://www.codewars.com/kata/find-the-parity-outlier
-// https://www.codewars.com/kata/zipwith
-// https://www.codewars.com/kata/filter-the-number
-// https://www.codewars.com/kata/n-th-fibonacci
-// https://www.codewars.com/kata/cat-and-mouse-2d-version/
-// https://www.codewars.com/kata/duplicate-encoder
-// https://www.codewars.com/kata/5693239fb761dc8670000001
+
+
 // https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 // https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
 // https://www.codewars.com/kata/59d398bb86a6fdf100000031
