@@ -149,3 +149,25 @@ function decipherThis(str) {
     }
   }).join(' ')
 };
+
+
+//task11: https://www.codewars.com/kata/578aa45ee9fd15ff4600090d;
+
+function sortArray(array) {
+  const odds = array.filter((item) => item%2 !== 0);
+  odds.sort((a, b) => {
+    if(a > b) return 1;
+    if (a === b) return 0;
+    if(a < b) return -1;
+  })
+
+  return array.map((item) => {
+    if(item % 2 === 0){
+      return item;
+    }else{
+      return odds.shift();
+    }
+  })
+}
+
+console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]));
