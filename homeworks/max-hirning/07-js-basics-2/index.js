@@ -143,27 +143,17 @@ class PaginationHelper {
             if(this.pageCount() > pageIndex+1) {
                 return this.itemsPerPage;
             } else {
-                return (pageIndex*this.itemsPerPage)-this.collection.length;
+                return Math.abs((pageIndex*this.itemsPerPage)-this.collection.length);
             }
         }
 	}
 	pageIndex(itemIndex) {
-	// determines what page an item is on. Zero based indexes this method should return -1 for itemIndex values that are out of range
-	}
+        if (itemIndex < 0 || itemIndex >= this.itemCount()) {
+            return -1;
+        }
+        return Math.floor(itemIndex / this.itemsPerPage);
+    }
 }
-
-const helper = new PaginationHelper(['a','b','c','d','e','f'], 4)
-// helper.pageCount(); // should == 2
-// helper.itemCount(); // should == 6
-// helper.pageItemCount(0); // should == 4
-// helper.pageItemCount(1); // last page - should == 2
-// helper.pageItemCount(2); // should == -1 since the page is invalid
-
-// pageIndex takes an item index and returns the page that it belongs on
-helper.pageIndex(5); // should == 1 (zero based index)
-helper.pageIndex(2); // should == 0
-helper.pageIndex(20); // should == -1
-helper.pageIndex(-10); // should == -1
 
 // task 2 https://www.codewars.com/kata/52597aa56021e91c93000cb0
 // task 3 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
