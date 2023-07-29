@@ -269,8 +269,7 @@ function catAndMouse(map, moves) {
 
 // task 15 https://www.codewars.com/kata/duplicate-encoder
 function duplicateEncode(word) {
-  word = word.toLowerCase();
-  const wordArr = word.split('');
+  const wordArr = word.toLowerCase().split('');
 
   const countedObj = wordArr.reduce((res, el) => {
     res[el] = res[el] ? res[el] + 1 : 1;
@@ -347,22 +346,6 @@ function helper(num, first, second, arr = []) {
   return helper(num.slice(1), first, second * 10 + parseInt(num[0]), arr);
 }
 
-// console.log(findAdditiveNumbers('112358'), ['1', '1', '2', '3', '5', '8']);
-// console.log(findAdditiveNumbers('199100199'), ['1', '99', '100', '199']);
-// console.log(findAdditiveNumbers('1023'), []);
-// console.log(findAdditiveNumbers('112356'), []);
-// console.log(findAdditiveNumbers('101'), ['1', '0', '1']);
-// console.log(findAdditiveNumbers('198001519815'), ['19800', '15', '19815']);
-// console.log(findAdditiveNumbers('10020120'), ['100', '20', '120']);
-// console.log(findAdditiveNumbers('7916972717643273704501372383'), [
-//   '7916',
-//   '9727',
-//   '17643',
-//   '27370',
-//   '45013',
-//   '72383',
-// ]);
-
 // task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 function towerBuilder(nFloors) {
   const tower = [];
@@ -395,7 +378,7 @@ function wave(str) {
 function stringBreakers(n, string) {
   let word = '';
   const res = [];
-  string.split('').map(el => {
+  string.split('').forEach(el => {
     if (el !== ' ') {
       if (n === word.length) {
         res.push(word);
