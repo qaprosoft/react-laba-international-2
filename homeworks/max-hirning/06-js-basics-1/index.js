@@ -19,7 +19,7 @@ function basicOp(operation, value1, value2) {
       return value1 / value2;
     default:
       throw new Error('Error: Invalid operation'); // also can use this throw "Error: Invalid operation"
-      // just heard that it's good experience write as class init
+    // just heard that it's good experience write as class init
   }
 }
 // or

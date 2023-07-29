@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write . --config ./.prettierrc",
-    "formatvl": "prettier --write ./homeworks/valerii-lozghachov --config ./.prettierrc",
+    "formatvl": "prettier --write ./homeworks/max-hirning/06-js-basics-1 --config ./.prettierrc",
     "prepare": "husky install"
   },
   "devDependencies": {
