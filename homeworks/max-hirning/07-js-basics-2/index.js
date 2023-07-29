@@ -156,5 +156,20 @@ class PaginationHelper {
 }
 
 // task 2 https://www.codewars.com/kata/52597aa56021e91c93000cb0
+function moveZeros(arr) {
+    const zeros = [];
+    const nonZeroElements = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 0) {
+            zeros.push(arr[i]);
+        } else {
+            nonZeroElements.push(arr[i]);
+        }
+    }
+
+    return nonZeroElements.concat(zeros);
+}
+
 // task 3 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
 // task 4 https://www.codewars.com/kata/5296bc77afba8baa690002d7
