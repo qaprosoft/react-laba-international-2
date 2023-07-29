@@ -18,7 +18,8 @@ function basicOp(operation, value1, value2) {
       }
       return value1 / value2;
     default:
-      return 'Error: Invalid operation';
+      throw new Error('Error: Invalid operation'); // also can use this throw "Error: Invalid operation"
+      // just heard that it's good experience write as class init
   }
 }
 // or
@@ -49,11 +50,15 @@ function printArray(array) {
 
 // task 4 http://www.codewars.com/kata/transportation-on-vacation
 function rentalCarCost(d) {
-  let result = d * 40;
+  const evereyDayRent = 40;
+  const sevenMoreDayOff = 50;
+  const threeMoreDayOff = 30;
+
+  let result = d * evereyDayRent;
   if (d >= 7) {
-    result -= 50;
+    result -= sevenMoreDayOff;
   } else if (d >= 3) {
-    result -= 20;
+    result -= threeMoreDayOff;
   }
   return result;
 }
