@@ -158,12 +158,14 @@ function partitionOn(pred, items) {
 function findOdd(A) {
   let result;
 
-  const countedObj =  Object.entries(A.reduce((res, el) => {
-    res[el] = res[el] ? res[el] + 1 : 1;
-    return res;
-  }, {}));
-  
-  for(let i = 0; i < countedObj.length; i++) {
+  const countedObj = Object.entries(
+    A.reduce((res, el) => {
+      res[el] = res[el] ? res[el] + 1 : 1;
+      return res;
+    }, {}),
+  );
+
+  for (let i = 0; i < countedObj.length; i++) {
     if (countedObj[i][1] % 2) {
       result = countedObj[i][0];
       break;
