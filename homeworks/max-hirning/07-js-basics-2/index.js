@@ -172,4 +172,19 @@ function moveZeros(arr) {
 }
 
 // task 3 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
+function findUniq(arr) {
+    let obj = {};
+    for (let i of arr) {
+        if (!i) {
+            continue;
+        }
+        obj[Array.from(new Set(i.toLowerCase())).sort().join('')] = (obj[Array.from(new Set(i.toLowerCase())).sort().join('')] || 0) + 1;
+    }
+    for (let i of arr) {
+        if (i && obj[Array.from(new Set(i.toLowerCase())).sort().join('')] === 1) {
+            return i;
+        }
+    }
+}
+
 // task 4 https://www.codewars.com/kata/5296bc77afba8baa690002d7
