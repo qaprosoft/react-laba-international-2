@@ -140,6 +140,160 @@ function sortArray(array) {
 }
 
 // Task 12: https://www.codewars.com/kata/515bb423de843ea99400000a
-// Task 13: https://www.codewars.com/kata/52597aa56021e91c93000cb0
-// Task 14: https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
-// Task 15: https://www.codewars.com/kata/5296bc77afba8baa690002d7
+class PaginationHelper {
+  constructor(collection, itemsPerPage) {
+    this.collection = collection;
+    this.itemsPerPage = itemsPerPage;
+    this.numberOfPages = Math.ceil(collection.length / itemsPerPage);
+  }
+
+  itemCount() {
+    return this.collection.length;
+  }
+
+  pageCount() {
+    return this.numberOfPages;
+  }
+
+  pageItemCount(pageIndex) {
+    // index is out of range
+    if (pageIndex < 0 || pageIndex >= this.numberOfPages) {
+      return -1;
+    }
+
+    // if it is not the last page, it is full
+    if (pageIndex < this.numberOfPages - 1) {
+      return this.itemsPerPage;
+    }
+
+    // last page
+    return this.collection.length - pageIndex * this.itemsPerPage;
+  }
+
+  pageIndex(itemIndex) {
+    // index is out of range
+    if (itemIndex < 0 || itemIndex >= this.collection.length) {
+      return -1;
+    }
+
+    // index is in range
+    return Math.floor(itemIndex / this.itemsPerPage);
+  }
+}
+
+// Task 13: https://www.codewars.com/kata/52597aa56021e91c93000cb0/train/javascript
+function moveZeros(arr) {
+  let firstZeroIndex = 0;
+  for (let currIndex = 0; currIndex < arr.length; currIndex++) {
+    // if it's not zero, then swap and update first zero index
+    if (arr[currIndex] !== 0) {
+      // swap them only if the indexes are differen
+      if (currIndex !== firstZeroIndex) {
+        const temp = arr[currIndex];
+        arr[currIndex] = arr[firstZeroIndex];
+        arr[firstZeroIndex] = temp;
+      }
+
+      firstZeroIndex++;
+    }
+  }
+
+  return arr;
+}
+
+// Task 14: https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3/train/javascript
+function findUniq(arr) {
+  const firstThreeStrings = arr.slice(0, 3);
+  for (let i = 0; i < firstThreeStrings.length; i++) {
+    firstThreeStrings[i] = sortString(firstThreeStrings[i]);
+  }
+  firstThreeStrings.sort();
+
+  // middle string will be the common one
+  const commonChars = firstThreeStrings[1];
+
+  for (let str of arr) {
+    const sortedStr = sortString(str);
+    if (commonChars !== sortedStr) {
+      return str;
+    }
+  }
+}
+
+function sortString(str) {
+  // sort the string and remove repetative chars
+  return str
+    .replace(/\s/g, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('')
+    .replace(/(.)\1+/g, '$1');
+}
+
+// Task 15: https://www.codewars.com/kata/5296bc77afba8baa690002d7/train/javascript
+function sudoku(puzzle) {
+  const SIZE = 9;
+  completeSudoku();
+  return puzzle;
+
+  function completeSudoku() {
+    const cell = findEmptyCell();
+
+    // sudoku is complete
+    if (!cell) return true;
+
+    // get row and col
+    const [row, col] = cell;
+
+    // try every number 1 to 9
+    for (let number = 1; number <= SIZE; number++) {
+      if (isValid(row, col, number)) {
+        puzzle[row][col] = number;
+        // check if it completes the puzzle
+        if (completeSudoku()) {
+          return true;
+        }
+        // backtrack, wrong answer
+        puzzle[row][col] = 0;
+      }
+    }
+
+    // cell can't be filled
+    return false;
+  }
+
+  function findEmptyCell() {
+    for (let row = 0; row < SIZE; row++) {
+      for (let col = 0; col < SIZE; col++) {
+        if (puzzle[row][col] === 0) {
+          return [row, col];
+        }
+      }
+    }
+  }
+
+  function isValid(row, col, number) {
+    // check horizontal and vertical cells
+    for (let i = 0; i < SIZE; i++) {
+      if (puzzle[row][i] === number || puzzle[i][col] === number) {
+        return false;
+      }
+    }
+
+    // check inside the box
+    const boxSize = 3;
+    const boxRowStart = Math.floor(row / boxSize) * boxSize;
+    const boxColStart = Math.floor(col / boxSize) * boxSize;
+    for (let i = 0; i < boxSize; i++) {
+      for (let j = 0; j < boxSize; j++) {
+        if (puzzle[boxRowStart + i][boxColStart + j] === number) {
+          return false;
+        }
+      }
+    }
+
+    // valid
+    return true;
+  }
+}
