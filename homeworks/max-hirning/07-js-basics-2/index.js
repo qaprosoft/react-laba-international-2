@@ -29,19 +29,19 @@ function getEvenNumbers(numbersArray) {
 
 // task 5 https://www.codewars.com/kata/5a090c4e697598d0b9000004
 function solve(arr) {
-  arr.sort((a, b) => a - b); //from less to bigger
+  const sortedArr = [...arr].sort((a, b) => a - b); //from less to bigger
 
-  const n = arr.length;
+  const n = sortedArr.length;
   const result = [];
   let right = n - 1;
   let left = 0;
 
   while (left <= right) {
     if (left !== right) {
-      result.push(arr[right]);
-      result.push(arr[left]);
+      result.push(sortedArr[right]);
+      result.push(sortedArr[left]);
     } else {
-      result.push(arr[left]);
+      result.push(sortedArr[left]);
     }
     left++;
     right--;
@@ -77,18 +77,16 @@ function binaryArrayToNumber(arr) {
 
 // task 9 https://www.codewars.com/kata/585d7d5adb20cf33cb000235
 function findUniq(arr) {
-  arr.sort((a, b) => a - b);
+  sortedArr = [...arr].sort((a, b) => a - b);
 
-  if (arr[0] !== arr[1]) return arr[0];
+  if (sortedArr[0] !== sortedArr[1]) return sortedArr[0];
 
-  return arr[arr.length - 1];
+  return sortedArr[sortedArr.length - 1];
 }
 
 // task 10 https://www.codewars.com/kata/581e014b55f2c52bb00000f8
 function decipherThis(str) {
-  str = str.split(' ');
-
-  const res = str.map(el => {
+  const res = (str.split(' ')).map(el => {
     const matchResult = el.match(/\d+/);
     const number = matchResult ? parseInt(matchResult[0]) : null;
 
