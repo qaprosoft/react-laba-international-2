@@ -184,3 +184,75 @@ function findUniq(arr) {
 }
 
 // task 4 https://www.codewars.com/kata/5296bc77afba8baa690002d7
+function sudoku(board) {
+  const N = 9;
+
+  function isSafe(row, col, num) {
+    for (let i = 0; i < N; i++) {
+      if (board[row][i] === num || board[i][col] === num) {
+        return false;
+      }
+    }
+
+    const startRow = row - (row % 3);
+    const startCol = col - (col % 3);
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (board[i + startRow][j + startCol] === num) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  function findUnassignedCell() {
+    for (let i = 0; i < N; i++) {
+      for (let j = 0; j < N; j++) {
+        if (board[i][j] === 0) {
+          return [i, j];
+        }
+      }
+    }
+    return null;
+  }
+
+  function solve() {
+    const cell = findUnassignedCell();
+    if (!cell) {
+      return true; // is solved
+    }
+
+    const [row, col] = cell;
+
+    for (let num = 1; num <= 9; num++) {
+      if (isSafe(row, col, num)) {
+        board[row][col] = num;
+
+        if (solve()) {
+          return true;
+        }
+
+        board[row][col] = 0; // cancel choice and try next number
+      }
+    }
+
+    return false; // no solve for this situation
+  }
+
+  solve();
+  return board;
+}
+
+console.log(sudoku([
+  [5, 3, 0, 0, 7, 0, 0, 0, 0],
+  [6, 0, 0, 1, 9, 5, 0, 0, 0],
+  [0, 9, 8, 0, 0, 0, 0, 6, 0],
+  [8, 0, 0, 0, 6, 0, 0, 0, 3],
+  [4, 0, 0, 8, 0, 3, 0, 0, 1],
+  [7, 0, 0, 0, 2, 0, 0, 0, 6],
+  [0, 6, 0, 0, 0, 0, 2, 8, 0],
+  [0, 0, 0, 4, 1, 9, 0, 0, 5],
+  [0, 0, 0, 0, 8, 0, 0, 7, 9]
+]));
