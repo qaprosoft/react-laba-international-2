@@ -134,11 +134,9 @@ function findOdd(arr) {
     }
   });
 
-  const entries = Object.entries(obj);
-
-  for (let i = 0; i < entries.length; i++) {
-    if (entries[i][1] % 2 !== 0) {
-      return parseInt(entries[i][0]);
+  for (let key in obj) {
+    if (obj[key] % 2 !== 0) {
+      return parseInt(key);
     }
   }
 }
