@@ -254,10 +254,36 @@ function wave(str) {
 
   return wave;
 }
+
 //19 https://www.codewars.com/kata/59d398bb86a6fdf100000031
+function stringBreakers(n, string) {
+  const substrings = [];
+  let currentSubstring = '';
 
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+
+    if (char !== ' ') {
+      currentSubstring += char;
+    }
+
+    if (currentSubstring.length === n) {
+      substrings.push(currentSubstring);
+      currentSubstring = '';
+    }
+  }
+  if (currentSubstring.length > 0) {
+    substrings.push(currentSubstring.padEnd(n, ''));
+  }
+  return substrings.join('\n');
+}
 //20 https://www.codewars.com/kata/514a024011ea4fb54200004b
-
+function domainName(url) {
+  const domain = url.replace(/(https?:\/\/)?(www\.)?/, '').split('/')[0];
+  
+  const parts = domain.split('.');
+  return parts[0];
+}
 
 
 
