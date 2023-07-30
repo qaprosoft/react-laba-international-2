@@ -224,3 +224,41 @@ function moveZeros(arr) {
     }
   });
 }
+
+//task14 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3;
+
+function findUniq(arr) {
+  const uniqueChars = new Set(arr.map(item => item.split('')).flat());
+
+  const counter = {};
+
+  for (let item of uniqueChars) {
+    arr.forEach(unit => {
+      if (unit.toLowerCase().includes(item)) {
+        item in counter ? (counter[item] += 1) : (counter[item] = 1);
+      }
+    });
+  }
+
+  let uniqueString = '';
+  let letterCounter = Infinity;
+
+  for (let key in counter) {
+    if (counter[key] === 1) {
+      uniqueString = key;
+      break;
+    } else if (counter[key] < letterCounter) {
+      letterCounter = counter[key];
+      uniqueString = key;
+      if (letterCounter === 1) {
+        break;
+      }
+    }
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].toLowerCase().includes(uniqueString)) {
+      return arr[i];
+    }
+  }
+}
