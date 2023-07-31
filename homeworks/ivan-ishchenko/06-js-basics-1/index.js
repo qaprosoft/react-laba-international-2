@@ -164,96 +164,95 @@ const duplicateEncode = word => {
 
 // task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
 // check for leading 0
-const isInvalidNumber = (num) => num.length > 1 && num.charAt(0) === '0'
+const isInvalidNumber = num => num.length > 1 && num.charAt(0) === '0';
 
 // recursive function
 // checks if a and b add up to c
 // if not checks if it is possible to split c into two new numbers d and e
-// so that a + b == d 
+// so that a + b == d
 const checkSum = (res, a, b, c) => {
-	if(isInvalidNumber(a) || isInvalidNumber(b)) return false;
-    
+  if (isInvalidNumber(a) || isInvalidNumber(b)) return false;
+
   let sum = (parseInt(a) + parseInt(b)).toString();
-  if(sum === c) {
-  	res.push(sum);
+  if (sum === c) {
+    res.push(sum);
     return true;
   }
-    
+
   // check if there are possible next sequence
   // if sum length is greater than c
   // OR if c string doesn't start with sum,
-  // than no further sequence is possible 
-  if(c.length <= sum.length || sum !== c.slice(0, sum.length))
-  	return false;
+  // than no further sequence is possible
+  if (c.length <= sum.length || sum !== c.slice(0, sum.length)) return false;
   else {
-  	res.push(sum);
-    
+    res.push(sum);
+
     // check next couple of numbers
     // where b is first number, sum is second and
     // c string without sum prefix is third number
-    return checkSum(res, b, sum, c.slice(sum.length))
+    return checkSum(res, b, sum, c.slice(sum.length));
   }
-}
+};
 
-const findAdditiveNumbers = (num) => {
-	let res = [];
-  
-  for(let i = 1; i <= num.length / 2; i++) {
-  	for(let j = 1; j <= (num.length - i) / 2; j++) {
-    	const a = num.slice(0, i);
+const findAdditiveNumbers = num => {
+  let res = [];
+
+  for (let i = 1; i <= num.length / 2; i++) {
+    for (let j = 1; j <= (num.length - i) / 2; j++) {
+      const a = num.slice(0, i);
       const b = num.slice(i, i + j);
       const c = num.slice(i + j);
-      if(checkSum(res, a, b, c)) 
-      	// add first two numbers to the start
+      if (checkSum(res, a, b, c))
+        // add first two numbers to the start
         // if sequence was found
         return [a, b, ...res];
       // clear res for next iteration
       else res = [];
     }
   }
-  
+
   return res;
-} 
+};
 
 // task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
-const towerBuilder = (nFloors) => {
+const towerBuilder = nFloors => {
   const tower = [];
   const baseLength = nFloors * 2 - 1;
   const middleIndex = Math.floor(baseLength / 2);
-  for(let i = 1; i <= nFloors; i++) {
-  	const floor = Array.from({length: baseLength}, () => ' ');
+  for (let i = 1; i <= nFloors; i++) {
+    const floor = Array.from({length: baseLength}, () => ' ');
     floor[middleIndex] = '*';
-    for(let j = 1; j < i; j++) {
-    	floor[middleIndex + j] = '*'
-    	floor[middleIndex - j] = '*'
+    for (let j = 1; j < i; j++) {
+      floor[middleIndex + j] = '*';
+      floor[middleIndex - j] = '*';
     }
     tower.push(floor.join(''));
   }
   return tower;
-}
+};
 
 // task 18 https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
-const wave = (str) => {
+const wave = str => {
   const resultArr = [];
-  for(let i = 0; i < str.length; i++) {
-  	if(str[i] === " ") continue;
-    resultArr.push(str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1))
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ' ') continue;
+    resultArr.push(str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1));
   }
   return resultArr;
-}
+};
 
 // task 19 https://www.codewars.com/kata/59d398bb86a6fdf100000031
 const stringBreakers = (n, string) => {
-	const stringWithoutSpaces = string.replace(/ /g, '');
+  const stringWithoutSpaces = string.replace(/ /g, '');
   let result = '';
-  for(let i = 0; i * n < stringWithoutSpaces.length; i++) {
-  	result += stringWithoutSpaces.slice(i * n, (i + 1) * n) + '\n';
+  for (let i = 0; i * n < stringWithoutSpaces.length; i++) {
+    result += stringWithoutSpaces.slice(i * n, (i + 1) * n) + '\n';
   }
   return result.slice(0, -1); // remove last new line
-}
+};
 
 //task 20 https://www.codewars.com/kata/514a024011ea4fb54200004b
-const domainName = (url) => {
+const domainName = url => {
   let protocolRelativeUrl = url.replace(/(http[s]?:\/\/)|(www.)/g, '');
   return protocolRelativeUrl.slice(0, protocolRelativeUrl.indexOf('.'));
-}
+};
