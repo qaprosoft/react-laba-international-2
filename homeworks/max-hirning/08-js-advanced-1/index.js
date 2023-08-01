@@ -54,6 +54,13 @@ function NamedOne(first, last) {
 }
 
 // task 7 https://www.codewars.com/kata/54834b3559e638b39d0009a2
+function OnceNamedOne(first, last) {
+    this.firstName = first;
+    this.lastName = last;
+    this.fullName = this.firstName + ' ' + this.lastName;
+    Object.freeze(this);
+}
+
 // task 8 https://www.codewars.com/kata/partial-keys
 function partialKeys(obj) {
   return new Proxy(obj, {
