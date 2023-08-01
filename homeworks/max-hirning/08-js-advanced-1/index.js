@@ -20,7 +20,36 @@ function clone(obj) {
 }
 
 // task 3 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#3-a-long-time-ago
+function moment(inputString) {
+  const regex =
+    /^(\d{1,2})([\/.-])(\d{1,2})\2(\d{4})(?: (\d{1,2}):(\d{2}):(\d{2}))?$/;
+  const match = inputString.match(regex);
+
+  if (!match) throw new Error('Invalid date format');
+
+  const [, day, , month, year, hour, minute, second] = match;
+
+  const date = new Date();
+  date.setDate(day ?? 31);
+  date.setMonth(month ?? 12);
+  date.setFullYear(year ?? 2000);
+  date.setHours(hour ? +hour + 2 : 0);
+  date.setMinutes(minute ?? 0);
+  date.setSeconds(second ?? 0);
+
+  if (isNaN(date)) throw new Error('Invalid date');
+
+  return date;
+}
+
+// Test cases
+console.log(moment('23/02/2021 13:30:00'));
+console.log(moment('23.02.2021 13:30:10'));
+console.log(moment('23/02/2021'));
+console.log(moment('23-02-2021 13:40:00'));
+
 // task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#4-random-dates
+
 // task 5 https://www.codewars.com/kata/merged-objects
 function objConcat(arr) {
     return arr.reduce((res, el) => {
