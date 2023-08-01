@@ -56,7 +56,28 @@ function objConcat(arr) {
       return res
     }, {});
 }
+
 // task 6 https://www.codewars.com/kata/547f1a8d4a437abdf800055c
+function NamedOne(first, last) {
+  this.firstName = first;
+  this.lastName = last;
+
+  Object.defineProperty(this, 'fullName', {
+    get: function () {
+      return this.firstName + ' ' + this.lastName;
+    },
+    set: function (value) {
+      const names = value.split(' ');
+      if (names.length === 2) {
+        this.firstName = names[0];
+        this.lastName = names[1];
+      }
+    },
+    enumerable: true,
+    configurable: true,
+  });
+}
+
 // task 7 https://www.codewars.com/kata/54834b3559e638b39d0009a2
 // task 8 https://www.codewars.com/kata/partial-keys
 // task 9 https://www.codewars.com/kata/human-readable-time
