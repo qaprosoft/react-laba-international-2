@@ -47,6 +47,15 @@ clonedUser.preferences.sound.maxValue = 70;
 // task 3 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#3-a-long-time-ago
 // task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#4-random-dates
 // task 5 https://www.codewars.com/kata/merged-objects
+function objConcat(arr) {
+    return arr.reduce((res, el) => {
+        Object.entries(el).forEach(element => {
+          res[element[0]] = element[1];
+        });
+
+      return res
+    }, {});
+}
 // task 6 https://www.codewars.com/kata/547f1a8d4a437abdf800055c
 // task 7 https://www.codewars.com/kata/54834b3559e638b39d0009a2
 // task 8 https://www.codewars.com/kata/partial-keys
