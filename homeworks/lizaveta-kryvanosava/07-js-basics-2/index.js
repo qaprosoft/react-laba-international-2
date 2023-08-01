@@ -1,16 +1,13 @@
 // task 1 https://www.codewars.com/kata/5715eaedb436cf5606000381
 const positiveSum = arr =>
-  arr.reduce(
-    (accum, currentVal) => (accum += currentVal > 0 ? currentVal : 0),
-    0,
-  );
+  arr.reduce((accum, currentVal) => (accum += Math.max(currentVal, 0)), 0);
 
 // task 2 https://www.codewars.com/kata/5a3e1319b6486ac96f000049
 const pairs = arr => {
   let count = 0;
 
   for (let i = 0; i < arr.length; i += 2) {
-    if (Math.abs(arr[i] - arr[i + 1]) === 1) count += 1;
+    if (Math.abs(arr[i] - arr[i + 1]) === 1) count++;
   }
 
   return count;
@@ -54,17 +51,16 @@ const decipherThis = str =>
     .split(' ')
     .map(word =>
       word.length > 2
-        ? word[0] +
-          word[word.length - 1] +
-          word.slice(2, word.length - 1) +
-          word[1]
+        ? `${word[0]}${word[word.length - 1]}${word.slice(2, word.length - 1)}${
+            word[1]
+          }`
         : word,
     )
     .join(' ');
 
 // task 11 https://www.codewars.com/kata/578aa45ee9fd15ff4600090d
 const sortArray = array => {
-  const odd = [...array].filter(number => number % 2).sort((a, b) => a - b);
+  const odd = array.filter(number => number % 2).sort((a, b) => a - b);
 
   return array.map(number => (number % 2 ? odd.shift() : number));
 };
@@ -86,13 +82,11 @@ class PaginationHelper {
   }
 
   pageItemCount(pageIndex) {
-    const itemsPerPage = this.itemsPerPage;
-
     return pageIndex >= this.pageCount() || pageIndex < 0
       ? -1
       : this.collection.slice(
-          pageIndex * itemsPerPage,
-          (pageIndex + 1) * itemsPerPage,
+          pageIndex * this.itemsPerPage,
+          (pageIndex + 1) * this.itemsPerPage,
         ).length;
   }
 
@@ -114,8 +108,11 @@ function findUniq(arr) {
   );
 
   for (let string of sortedArr) {
-    if (sortedArr.indexOf(string) === sortedArr.lastIndexOf(string))
-      return arr[sortedArr.indexOf(string)];
+    const currentIndex = sortedArr.indexOf(string);
+
+    if (currentIndex === sortedArr.lastIndexOf(string)) {
+      return arr[currentIndex];
+    }
   }
 }
 
@@ -135,23 +132,25 @@ const sudoku = puzzle => {
     return null;
   };
 
-  const validate = (currentNumber, currentPosition) => {
-    const [row, column] = currentPosition;
+  const validate = (currNumber, currPosition) => {
+    const [currRow, currColumn] = currPosition;
 
-    for (let i = 0; i < puzzleSize; i++) {
-      if (puzzle[i][column] === currentNumber && i !== row) return false;
+    for (let row = 0; row < puzzleSize; row++) {
+      if (puzzle[row][currColumn] === currNumber && row !== currRow)
+        return false;
     }
 
-    for (let i = 0; i < puzzleSize; i++) {
-      if (puzzle[row][i] === currentNumber && i !== column) return false;
+    for (let column = 0; column < puzzleSize; column++) {
+      if (puzzle[currRow][column] === currNumber && column !== currColumn)
+        return false;
     }
 
-    const sectorRow = Math.floor(row / sectorSize) * sectorSize;
-    const sectorColumn = Math.floor(column / sectorSize) * sectorSize;
+    const sectorRow = Math.floor(currRow / sectorSize) * sectorSize;
+    const sectorColumn = Math.floor(currColumn / sectorSize) * sectorSize;
 
     for (let i = sectorRow; i < sectorRow + sectorSize; i++) {
       for (let j = sectorColumn; j < sectorColumn + sectorSize; j++) {
-        if (puzzle[i][j] === currentNumber && i !== row && j !== column)
+        if (puzzle[i][j] === currNumber && i !== currRow && j !== currColumn)
           return false;
       }
     }
@@ -160,17 +159,17 @@ const sudoku = puzzle => {
   };
 
   const solve = () => {
-    const currentPosition = findEmptyCell();
+    const currPosition = findEmptyCell();
 
-    if (currentPosition === null) return true;
+    if (currPosition === null) return true;
 
     for (let i = 1; i < puzzleSize + 1; i++) {
-      const currentNumber = i;
-      const isValid = validate(currentNumber, currentPosition);
+      const currNumber = i;
+      const isValid = validate(currNumber, currPosition);
 
       if (isValid) {
-        const [row, column] = currentPosition;
-        puzzle[row][column] = currentNumber;
+        const [row, column] = currPosition;
+        puzzle[row][column] = currNumber;
 
         if (solve()) {
           return true;
