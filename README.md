@@ -43,7 +43,7 @@ Once PR is created you have to do the following things:
 | :----------- | :---------------------------------------------------------------------------- | :-------------------------------------------------------------- |
 | July 25th    | [Javascript, Part 1](./lectures/06-js-basics-1/README.md)                     | [task 🔗](./lectures/06-js-basics-1/task.md)                    |
 | July 28th    | [Javascript, Part 2](./lectures/07-js-basics-2/README.md)                     | [task 🔗](./lectures/07-js-basics-2/task.md)                    |
-| Aug 1st      | Javascript, Part 3                                                            |                                                                 |
+| Aug 1st      | [Javascript, Part 3](./lectures/08-js-advanced-1/README.md)                   | [task 🔗](./lectures/08-js-advanced-1/task.md)                  |
 | Aug 4th      | Javascript, Part 4                                                            |                                                                 |
 | Aug 8th      | Javascript, Part 5                                                            |                                                                 |
 | Aug 11th     | Javascript, DOM                                                               |                                                                 |
