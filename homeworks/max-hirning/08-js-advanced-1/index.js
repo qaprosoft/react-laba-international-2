@@ -93,15 +93,19 @@ function partialKeys(obj) {
   });
 }
 
-// console.log(o.abcd === 1); // true
-// console.log(o.abc === 1) // true
-// console.log(o.ab === 1) // true
-// console.log(o.a === 1) // true
-
-// console.log(o.b === 1) // false!
-
-// console.log(Object.keys(o)) // ['abcd']
-
-console.log(o)
-
 // task 9 https://www.codewars.com/kata/human-readable-time
+function humanReadable(seconds) {
+  if (typeof seconds !== 'number' || seconds < 0 || seconds > 359999) {
+    throw new Error('Invalid input');
+  }
+
+  const h = Math.floor(seconds / 3600);
+  const min = Math.floor((seconds % 3600) / 60);
+  const restSec = seconds % 60;
+
+  const HH = h.toString().padStart(2, '0');
+  const MM = min.toString().padStart(2, '0');
+  const SS = restSec.toString().padStart(2, '0');
+
+  return(`${HH}:${MM}:${SS}`);
+}
