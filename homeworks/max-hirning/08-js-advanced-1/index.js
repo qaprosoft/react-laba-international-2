@@ -80,4 +80,28 @@ function NamedOne(first, last) {
 
 // task 7 https://www.codewars.com/kata/54834b3559e638b39d0009a2
 // task 8 https://www.codewars.com/kata/partial-keys
+function partialKeys(obj) {
+  return new Proxy(obj, {
+    get: function (target, name) {
+      let keys = Object.keys(target)
+        .filter(key => key.startsWith(name))
+        .sort();
+      if (keys.length > 0) {
+        return target[keys[0]];
+      }
+    },
+  });
+}
+
+// console.log(o.abcd === 1); // true
+// console.log(o.abc === 1) // true
+// console.log(o.ab === 1) // true
+// console.log(o.a === 1) // true
+
+// console.log(o.b === 1) // false!
+
+// console.log(Object.keys(o)) // ['abcd']
+
+console.log(o)
+
 // task 9 https://www.codewars.com/kata/human-readable-time
