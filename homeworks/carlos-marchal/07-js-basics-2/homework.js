@@ -160,3 +160,51 @@ function sortArray(array) {
    }
     return resultArray
   }
+
+  // task 12 https://www.codewars.com/kata/515bb423de843ea99400000a
+
+  class PaginationHelper {
+	constructor(collection, itemsPerPage) {
+    
+   this.collection = collection;
+    this.itemsPerPage = itemsPerPage;
+    // The constructor takes in an array of items and a integer indicating how many
+	// items fit within a single page
+	}
+	itemCount() {
+   
+    return this.collection.length;
+	// returns the number of items within the entire collection
+	}
+	pageCount() { 
+   
+    return Math.ceil(this.collection.length/this.itemsPerPage);
+	// returns the number of pages
+	}
+	pageItemCount(pageIndex) {
+    
+ 
+    if (pageIndex >= this.pageCount() || pageIndex < 0) {
+      return -1;
+    }else if(pageIndex === this.pageCount() - 1) {
+      return this.collection.length % this.itemsPerPage? this.collection.length % this.itemsPerPage : this.itemsPerPage;
+    } else {
+    return this.itemsPerPage;
+    }
+	// returns the number of items on the current page. page_index is zero based.
+	// this method should return -1 for pageIndex values that are out of range
+	}
+	pageIndex(itemIndex) {
+   
+    if(itemIndex<0 || itemIndex>=this.collection.length){
+      return -1;
+    } else {
+      return Math.floor(itemIndex/this.itemsPerPage);
+    }
+	// determines what page an item is on. Zero based indexes
+	// this method should return -1 for itemIndex values that are out of range
+	}
+}
+
+
+// task 13
