@@ -1,30 +1,31 @@
-// task 1 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#1-pluck
 const user = {
-    username: 'testuser1',
-    preferences: {
-        sound: {
-            maxValue: 50,
-            value: 30,
-        },
+  username: 'testuser1',
+  preferences: {
+    sound: {
+      maxValue: 50,
+      value: 30,
     },
+  },
 };
+
+// task 1 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#1-pluck
 const randomValue = Math.random();
 const nullValue = null;
 
 function pluck(obj, key) {
-    if (obj && typeof obj === 'object' && obj.constructor === Object) {
-      const result = key
-        .split('.')
-        .reduce(
-          (acc, currKey) =>
-            acc && typeof acc === 'object' ? acc[currKey] : null,
-          obj,
-        );
+  if (obj && typeof obj === 'object' && obj.constructor === Object) {
+    const result = key
+      .split('.')
+      .reduce(
+        (acc, currKey) =>
+          acc && typeof acc === 'object' ? acc[currKey] : null,
+        obj,
+      );
 
-      return result !== undefined ? result : null;
-    }
-    return null;
-};
+    return result !== undefined ? result : null;
+  }
+  return null;
+}
 
 // console.log(pluck(user, 'preferences.sound.value')); // 30
 // console.log(pluck(user, 'unknown.key')); // null
@@ -32,6 +33,17 @@ function pluck(obj, key) {
 // console.log(pluck(nullValue, 'unknown.key')); // null
 
 // task 2 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#2-deep-clone
+function clone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+const clonedUser = clone(user);
+
+clonedUser.preferences.sound.maxValue = 70;
+
+// console.log(
+//   user.preferences.sound.maxValue === clonedUser.preferences.sound.maxValue,
+// ); // false
+
 // task 3 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#3-a-long-time-ago
 // task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#4-random-dates
 // task 5 https://www.codewars.com/kata/merged-objects
