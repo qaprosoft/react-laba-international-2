@@ -346,7 +346,40 @@ function opposite(number) {
         
     }
 
-    //exercise 16 
+    //exercise 16 https://www.codewars.com/kata/5693239fb761dc8670000001 
+
+    function findAdditiveNumbers(num) {
+  
+      for (let i=1;i<=num.length/2+1;i++){
+        
+        let n1=+num.substr(0,i);
+        let n2=0;
+       
+        
+        for (let j=1;((n1+n2)+"").length<num.length-i-j+1;j++){
+          
+          n2=+num.substr(i,j);
+          
+          if(stringer([n1,n2])){
+            
+            return stringer([n1,n2]).map(n=>n+"");
+            
+          } 
+        }
+      }
+    
+      return [];
+    
+    
+      function stringer(arr){
+        while(arr.join("").length < num.length){
+          arr.push(arr[arr.length-1]+arr[arr.length-2]);
+        }
+        return arr.join("") == num? arr : false;
+      }
+      
+    
+   }
     
     //exercise 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 
