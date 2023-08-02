@@ -87,9 +87,9 @@ const partitionOn = (pred, items) => {
 // link is invalid
 
 // task 9 https://www.codewars.com/kata/find-the-odd-int/
-const findOdd = A => {
+const findOdd = numbers => {
   let numberCountMap = {};
-  A.forEach(n => {
+  numbers.forEach(n => {
     numberCountMap[n] ? (numberCountMap[n] += 1) : (numberCountMap[n] = 1);
   });
 
