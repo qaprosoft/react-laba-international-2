@@ -41,41 +41,32 @@ function moment(inputString) {
   return date;
 }
 
-function offset(date) {
-  const givenDate = new Date(date);
-  const today = new Date(moment('23/02/2021 14:00:00'));
-  if (isNaN(givenDate)) throw new Error('Invalid date');
+function offset(inputDate) {
+  const now = new Date(moment('23/02/2021 14:00:00'));
+  const timeDifference = now - inputDate;
 
-  const days = Math.abs(today.getDate() - givenDate.getDate());
-  const months = Math.abs(today.getMonth() - givenDate.getMonth());
-  const years = Math.abs(today.getFullYear() - givenDate.getFullYear());
-  const hours = Math.abs(today.getHours() - 2 - (givenDate.getHours() - 2));
-  const minutes = Math.abs(today.getMinutes() - givenDate.getMinutes());
-  const seconds = Math.abs(today.getSeconds() - givenDate.getSeconds());
+  // Format time units
+  const formatTimeUnit = (value, unit) => {
+    return `${value} ${unit}${value === 1 ? '' : 's'}`;
+  };
 
-  return buildTimeString(days, months, years, hours, minutes, seconds);
-}
-
-function buildTimeString(days, months, years, hours, minutes, seconds) {
-  let response = '';
-  if (years > 0) response += `${years} year${years > 1 ? 's' : ''} `;
-  if (months > 0) response += `${months} month${months > 1 ? 's' : ''} `;
-  if (days > 0) response += `${days} day${days > 1 ? 's' : ''} `;
-  if (hours > 0) response += `${hours} hour${hours > 1 ? 's' : ''} `;
-  if (minutes > 0) response += `${minutes} minute${minutes > 1 ? 's' : ''} `;
-  if (seconds > 0) response += `${seconds} second${seconds > 1 ? 's' : ''} `;
-  if (
-    !(
-      years > 0 ||
-      months > 0 ||
-      days > 0 ||
-      hours > 0 ||
-      minutes > 0 ||
-      seconds > 0
-    )
-  )
+  if (timeDifference < 60000) {
+    // Less than a minute ago
     return 'Just now';
-    return response + 'ago';
+  } else if (timeDifference < 3600000) {
+    // Less than an hour ago
+    const minutes = Math.floor(timeDifference / 60000);
+    return formatTimeUnit(minutes, 'minute');
+  } else if (timeDifference < 86400000) {
+    // Less than a day ago
+    const hours = Math.floor(timeDifference / 3600000);
+    const minutes = Math.floor((timeDifference % 3600000) / 60000);
+    return formatTimeUnit(hours, 'hour') + (minutes > 0 ? ` ${formatTimeUnit(minutes, 'minute')}` : '');
+  } else {
+    // A day or more ago
+    const days = Math.floor(timeDifference / 86400000);
+    return formatTimeUnit(days, 'day');
+  }
 }
 
 // task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#4-random-dates
