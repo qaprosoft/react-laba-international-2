@@ -58,7 +58,7 @@ const binaryArrayToNumber = arr => parseInt(arr.join(''), 2);
 // task 9 https://www.codewars.com/kata/585d7d5adb20cf33cb000235
 function findUniq(arr) {
   arr.sort();
-  // because all numbers are equal except for one 
+  // because all numbers are equal except for one
   // than after sort unique number will be either first or last
   return arr[0] == arr[1] ? arr[arr.length - 1] : arr[0];
 }
@@ -90,4 +90,128 @@ function sortArray(array) {
       return a - b;
     });
   return array.map(x => (x % 2 ? odd.shift() : x));
+}
+
+// Advanced tasks
+// task 1 https://www.codewars.com/kata/515bb423de843ea99400000a
+class PaginationHelper {
+  constructor(collection, itemsPerPage) {
+    // The constructor takes in an array of items and a integer indicating how many
+    // items fit within a single page
+    this.collection = collection;
+    this.itemsPerPage = itemsPerPage;
+  }
+  itemCount() {
+    // returns the number of items within the entire collection
+    return this.collection.length;
+  }
+  pageCount() {
+    // returns the number of pages
+    return Math.ceil(this.itemCount() / this.itemsPerPage);
+  }
+  pageItemCount(pageIndex) {
+    // returns the number of items on the current page. page_index is zero based.
+    // this method returns -1 for pageIndex values that are out of range
+    if (pageIndex >= this.pageCount() || pageIndex < 0) return -1;
+    if (pageIndex + 1 === this.pageCount()) {
+      let itemsOnPage = this.itemCount() % this.itemsPerPage;
+      if (itemsOnPage === 0) itemsOnPage = this.itemsPerPage;
+      return itemsOnPage;
+    }
+    return this.itemsPerPage;
+  }
+  pageIndex(itemIndex) {
+    // determines what page an item is on. Zero based indexes
+    // this method should return -1 for itemIndex values that are out of range
+    if (itemIndex >= this.itemCount() || itemIndex < 0) return -1;
+    return Math.floor(itemIndex / this.itemsPerPage);
+  }
+}
+
+// task 2 https://www.codewars.com/kata/52597aa56021e91c93000cb0
+const moveZeros = arr => {
+  return arr.filter(e => e !== 0).concat(arr.filter(e => e === 0));
+};
+
+// task 3 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
+function findUniq(arr) {
+  const charSet = new Set();
+
+  let transformedArr = arr.map(word => {
+    let newWord = word.toLowerCase();
+    for (let char of newWord) charSet.add(char);
+    return newWord;
+  });
+
+  for (let char of charSet) {
+    let occurences = transformedArr.filter(word => word.includes(char));
+    if (occurences.length === 1)
+      return arr[transformedArr.indexOf(occurences[0])];
+  }
+}
+
+// task 4 https://www.codewars.com/kata/5296bc77afba8baa690002d7
+// this function uses backtracking
+// it checks if a number can be placed in certain position
+// and than calculates whether this placement leads to a solution
+// if not it tries next possible number
+function sudoku(puzzle, row = 0, col = 0) {
+  // this if statement is used to end recursion
+  // if condition is fulfilled, solution was found
+  if (row == 8 && col == 9) return true;
+
+  // move to the next row
+  if (col == 9) {
+    row++;
+    col = 0;
+  }
+
+  // move to the next position if cell isn't empty
+  if (puzzle[row][col] != 0) return sudoku(puzzle, row, col + 1);
+
+  for (let i = 1; i <= 9; i++) {
+    // check if number can be placed
+    if (isSafe(puzzle, i, row, col)) {
+      puzzle[row][col] = i;
+      // move to the next empty spot
+      if (sudoku(puzzle, row, col + 1)) return puzzle;
+    }
+
+    // remove assigned num, because assumption was wrong
+    puzzle[row][col] = 0;
+  }
+
+  // if we reach this point the previously assigned number was wrong
+  return false;
+}
+
+// checks if it is safe to put number in certain position
+// if it's not already present in a given row, column or cell
+function isSafe(puzzle, num, row, col) {
+  return !(
+    rowContains(puzzle, row, num) ||
+    columnContains(puzzle, col, num) ||
+    cellContains(puzzle, row, col, num)
+  );
+}
+
+function rowContains(puzzle, row, num) {
+  return puzzle[row].includes(num);
+}
+
+function columnContains(puzzle, column, num) {
+  for (let i = 0; i < 9; i++) if (puzzle[i][column] === num) return true;
+
+  return false;
+}
+
+function cellContains(puzzle, row, column, num) {
+  let rowStart = row - (row % 3);
+  let columnStart = column - (column % 3);
+
+  for (let i = 0; i < 3; i++)
+    for (let j = 0; j < 3; j++)
+      if (puzzle[rowStart + i][columnStart + j] === num) return true;
+
+  return false;
 }
