@@ -26,14 +26,13 @@ function moment(inputString) {
   const match = inputString.match(regex);
 
   if (!match) throw new Error('Invalid date format');
-
   const [, day, , month, year, hour, minute, second] = match;
 
   const date = new Date();
   date.setDate(day ?? 31);
-  date.setMonth(month ?? 12);
+  date.setMonth(month ? +month - 1 : 11);
   date.setFullYear(year ?? 2000);
-  date.setHours(hour ? +hour + 2 : 0);
+  date.setHours(hour ? +hour + 2 : 12);
   date.setMinutes(minute ?? 0);
   date.setSeconds(second ?? 0);
 
@@ -80,6 +79,16 @@ function buildTimeString(days, months, years, hours, minutes, seconds) {
 }
 
 // task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#4-random-dates
+function randomDate(date1, date2) {
+  const startDate = new Date(date1);
+  const endDate = new Date(date2);
+
+  const timeDiff = endDate.getTime() - startDate.getTime();
+  const randomTime = Math.random() * timeDiff;
+  const randomDate = new Date(startDate.getTime() + randomTime);
+
+  return randomDate.toLocaleDateString('en-GB');
+}
 
 // task 5 https://www.codewars.com/kata/merged-objects
 function objConcat(arr) {
