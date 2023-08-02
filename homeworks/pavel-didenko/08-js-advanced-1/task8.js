@@ -200,3 +200,29 @@ class NamedOne {
     }
   }
 }
+
+//task7: https://www.codewars.com/kata/54834b3559e638b39d0009a2;
+
+function OnceNamedOne(first, last) {
+  // -- SHOULD be changed --
+  this.firstName = first;
+  this.lastName = last;
+  this.fullName = this.firstName + ' ' + this.lastName;
+  Object.freeze(this);
+}
+
+//task8: https://www.codewars.com/kata/partial-keys
+
+//not solved
+
+//task9: https://www.codewars.com/kata/human-readable-time;
+
+function humanReadable(seconds) {
+  let hours = Math.floor(seconds / 60 / 60);
+  let minutes = Math.floor((seconds / 60) % 60);
+  let secs = Math.floor((seconds % 60) % 60);
+
+  return `${hours > 9 ? hours : '0' + hours}:${
+    minutes > 9 ? minutes : '0' + minutes
+  }:${secs > 9 ? secs : '0' + secs}`;
+}
