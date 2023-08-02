@@ -118,8 +118,10 @@ function moment(pastDate, presentDate) {
 const date1 = moment('23/01/2021', 'DD/MM/YYYY');
 const date2 = moment('23/02/2021', 'DD/MM/YYYY');
 
-function randomDate(minDate, maxDate){
-  return new Date(Math.floor(Math.random() * (maxDate - minDate) + minDate.getTime()));
+function randomDate(minDate, maxDate) {
+  return new Date(
+    Math.floor(Math.random() * (maxDate - minDate) + minDate.getTime()),
+  );
 }
 
 Date.prototype.format = function (format) {
@@ -128,16 +130,73 @@ Date.prototype.format = function (format) {
   const obj = {
     YYYY: this.getFullYear(),
     MM: '0' + (this.getMonth() + 1),
-    DD: this.getDate() < 10? '0' + this.getDate().toString(): this.getDate().toString(),
+    DD:
+      this.getDate() < 10
+        ? '0' + this.getDate().toString()
+        : this.getDate().toString(),
   };
 
   let result = '';
 
-  for(let item of formatSplited){
+  for (let item of formatSplited) {
     result += obj[item] + '/';
   }
 
   return result.slice(0, -1);
+};
+
+// console.log(randomDate(date1, date2).format('DD/MM/YYYY'));
+
+//task5: https://www.codewars.com/kata/merged-objects
+
+function objConcat(arr) {
+  let result = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    Object.assign(result, arr[i]);
+  }
+
+  return result;
 }
 
-console.log(randomDate(date1, date2).format('DD/MM/YYYY'));
+//task6: https://www.codewars.com/kata/547f1a8d4a437abdf800055c
+
+class NamedOne {
+  // -- SHOULD be changed --
+  constructor(first, last) {
+    this._firstName = first;
+    this._lastName = last;
+    this._fullName = this.firstName + ' ' + this.lastName;
+  }
+
+  get firstName() {
+    return this._firstName;
+  }
+
+  get lastName() {
+    return this._lastName;
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  set firstName(name) {
+    this._firstName = name;
+    this._fullName = this.firstName + ' ' + this.lastName;
+  }
+
+  set lastName(lname) {
+    this._lastName = lname;
+    this._fullName = this.firstName + ' ' + this.lastName;
+  }
+
+  set fullName(fname) {
+    const splitedName = fname.split(' ');
+    if (splitedName.length > 1) {
+      this._firstName = splitedName[0];
+      this._lastName = splitedName[1];
+      this._fullName = this._firstName + ' ' + this._lastName;
+    }
+  }
+}
