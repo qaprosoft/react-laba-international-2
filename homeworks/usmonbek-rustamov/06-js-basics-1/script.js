@@ -5,7 +5,16 @@ function opposite(number) {
 
 // Task 2: https://www.codewars.com/kata/57356c55867b9b7a60000bd7/train/javascript
 function basicOp(operation, value1, value2) {
-  return eval(value1 + operation + value2);
+  switch (operation) {
+    case '-':
+      return value1 - value2;
+    case '*':
+      return value1 * value2;
+    case '/':
+      return value1 / value2;
+    default: // default is +
+      return value1 + value2;
+  }
 }
 
 // Task 3: https://www.codewars.com/kata/56e2f59fb2ed128081001328/train/javascript
@@ -229,8 +238,6 @@ function findAdditiveNumbers(digits) {
 // Task 17: https://www.codewars.com/kata/576757b1df89ecf5bd00073b/train/javascript
 function towerBuilder(nFloors) {
   const tower = [];
-  const maxStars = 2 * nFloors - 1;
-
   for (let i = 0; i < nFloors; i++) {
     const stars = '*'.repeat(2 * i + 1);
     const spaces = ' '.repeat(nFloors - i - 1);
