@@ -14,10 +14,35 @@ function pluck(obj, key) {
   return null;
 }
 
+const user = {
+  username: 'testuser1',
+  preferences: {
+    sound: {
+      maxValue: 50,
+      value: 30,
+    },
+  },
+};
+// const randomValue = Math.random();
+// const nullValue = null;
+
+// console.log(pluck(user, 'preferences.sound.value')); // 30
+// console.log(pluck(user, 'unknown.key')); // null
+// console.log(pluck(randomValue, 'unknown.key')); // null
+// console.log(pluck(nullValue, 'unknown.key')); // null
+
 // task 2 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#2-deep-clone
 function clone(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
+
+// const clonedUser = clone(user);
+
+// clonedUser.preferences.sound.maxValue = 70;
+
+// console.log(
+//   user.preferences.sound.maxValue === clonedUser.preferences.sound.maxValue,
+// ); // false
 
 // task 3 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#3-a-long-time-ago
 function moment(inputString) {
@@ -72,6 +97,22 @@ function offset(inputDate) {
   }
 }
 
+// // E.g. Today is 23.02.2021, 14:00:00
+// console.log(offset(moment('23/02/2021 13:30:00', 'DD/MM/YYYY hh:mm:ss')));
+// // 30 minutes ago
+
+// console.log(offset(moment('23/02/2021 13:00:00', 'DD/MM/YYYY hh:mm:ss')));
+// // 1 hour ago
+
+// console.log(offset(moment('23/02/2021 11:30:00', 'DD/MM/YYYY hh:mm:ss')));
+// // 2 hours 30 minutes ago
+
+// console.log(offset(moment('22/02/2021 14:00:00', 'DD/MM/YYYY hh:mm:ss')));
+// // 1 day ago
+
+// console.log(offset(moment('23/02/2020 10:00:00', 'DD/MM/YYYY hh:mm:ss')));
+// // 366 days ago
+
 // task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#4-random-dates
 function randomDate(date1, date2) {
   const startDate = new Date(date1);
@@ -83,6 +124,12 @@ function randomDate(date1, date2) {
 
   return randomDate.toLocaleDateString('en-GB');
 }
+
+// const date1 = moment('23/01/2021', 'DD/MM/YYYY');
+// const date2 = moment('23/02/2021', 'DD/MM/YYYY');
+
+// console.log(randomDate(date1, date2));
+// // 20/02/2021
 
 // task 5 https://www.codewars.com/kata/merged-objects
 function objConcat(arr) {
