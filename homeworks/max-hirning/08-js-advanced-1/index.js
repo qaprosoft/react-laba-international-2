@@ -16,7 +16,7 @@ function pluck(obj, key) {
 
 // task 2 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#2-deep-clone
 function clone(obj) {
-    return JSON.parse(JSON.stringify(obj));
+  return JSON.parse(JSON.stringify(obj));
 }
 
 // task 3 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#3-a-long-time-ago
@@ -61,7 +61,10 @@ function offset(inputDate) {
     // Less than a day ago
     const hours = Math.floor(timeDifference / 3600000);
     const minutes = Math.floor((timeDifference % 3600000) / 60000);
-    return formatTimeUnit(hours, 'hour') + (minutes > 0 ? ` ${formatTimeUnit(minutes, 'minute')}` : '');
+    return (
+      formatTimeUnit(hours, 'hour') +
+      (minutes > 0 ? ` ${formatTimeUnit(minutes, 'minute')}` : '')
+    );
   } else {
     // A day or more ago
     const days = Math.floor(timeDifference / 86400000);
@@ -83,13 +86,13 @@ function randomDate(date1, date2) {
 
 // task 5 https://www.codewars.com/kata/merged-objects
 function objConcat(arr) {
-    return arr.reduce((res, el) => {
-        Object.entries(el).forEach(element => {
-          res[element[0]] = element[1];
-        });
+  return arr.reduce((res, el) => {
+    Object.entries(el).forEach(element => {
+      res[element[0]] = element[1];
+    });
 
-      return res
-    }, {});
+    return res;
+  }, {});
 }
 
 // task 6 https://www.codewars.com/kata/547f1a8d4a437abdf800055c
@@ -115,10 +118,10 @@ function NamedOne(first, last) {
 
 // task 7 https://www.codewars.com/kata/54834b3559e638b39d0009a2
 function OnceNamedOne(first, last) {
-    this.firstName = first;
-    this.lastName = last;
-    this.fullName = this.firstName + ' ' + this.lastName;
-    Object.freeze(this);
+  this.firstName = first;
+  this.lastName = last;
+  this.fullName = this.firstName + ' ' + this.lastName;
+  Object.freeze(this);
 }
 
 // task 8 https://www.codewars.com/kata/partial-keys
@@ -149,5 +152,5 @@ function humanReadable(seconds) {
   const MM = min.toString().padStart(2, '0');
   const SS = restSec.toString().padStart(2, '0');
 
-  return(`${HH}:${MM}:${SS}`);
+  return `${HH}:${MM}:${SS}`;
 }
