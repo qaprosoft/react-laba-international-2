@@ -42,11 +42,42 @@ function moment(inputString) {
   return date;
 }
 
-// Test cases
-console.log(moment('23/02/2021 13:30:00'));
-console.log(moment('23.02.2021 13:30:10'));
-console.log(moment('23/02/2021'));
-console.log(moment('23-02-2021 13:40:00'));
+function offset(date) {
+  const givenDate = new Date(date);
+  const today = new Date(moment('23/02/2021 14:00:00'));
+  if (isNaN(givenDate)) throw new Error('Invalid date');
+
+  const days = Math.abs(today.getDate() - givenDate.getDate());
+  const months = Math.abs(today.getMonth() - givenDate.getMonth());
+  const years = Math.abs(today.getFullYear() - givenDate.getFullYear());
+  const hours = Math.abs(today.getHours() - 2 - (givenDate.getHours() - 2));
+  const minutes = Math.abs(today.getMinutes() - givenDate.getMinutes());
+  const seconds = Math.abs(today.getSeconds() - givenDate.getSeconds());
+
+  return buildTimeString(days, months, years, hours, minutes, seconds);
+}
+
+function buildTimeString(days, months, years, hours, minutes, seconds) {
+  let response = '';
+  if (years > 0) response += `${years} year${years > 1 ? 's' : ''} `;
+  if (months > 0) response += `${months} month${months > 1 ? 's' : ''} `;
+  if (days > 0) response += `${days} day${days > 1 ? 's' : ''} `;
+  if (hours > 0) response += `${hours} hour${hours > 1 ? 's' : ''} `;
+  if (minutes > 0) response += `${minutes} minute${minutes > 1 ? 's' : ''} `;
+  if (seconds > 0) response += `${seconds} second${seconds > 1 ? 's' : ''} `;
+  if (
+    !(
+      years > 0 ||
+      months > 0 ||
+      days > 0 ||
+      hours > 0 ||
+      minutes > 0 ||
+      seconds > 0
+    )
+  )
+    return 'Just now';
+    return response + 'ago';
+}
 
 // task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#4-random-dates
 
