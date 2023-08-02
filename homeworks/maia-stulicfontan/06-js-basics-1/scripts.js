@@ -25,9 +25,16 @@ function printArray(array) {
 }
 
 // task 4: http://www.codewars.com/kata/transportation-on-vacation
-function rentalCarCost(d) {
-  let totalCost = d * 40;
-  return d >= 7 ? totalCost - 50 : d >= 3 ? totalCost - 20 : totalCost;
+function rentalCarCost(totalDays) {
+  const COST_PER_DAY = 40;
+  const THREE_DAYS_DISCOUNT = 20;
+  const SEVEN_DAYS_DISCOUNT = 50;
+  const totalCost = totalDays * COST_PER_DAY;
+  return totalDays >= 7
+    ? totalCost - SEVEN_DAYS_DISCOUNT
+    : totalDays >= 3
+    ? totalCost - THREE_DAYS_DISCOUNT
+    : totalCost;
 }
 
 // task 5: http://www.codewars.com/kata/calculating-with-functions
@@ -76,17 +83,17 @@ function dividedBy(number) {
 }
 
 // task 6: http://www.codewars.com/kata/get-the-middle-character
-function getMiddle(s) {
-  let midLength = Math.floor(s.length / 2);
-  return s.length % 2 == 0
-    ? s.substring(midLength - 1, midLength + 1)
-    : s[midLength];
+function getMiddle(word) {
+  const midLength = Math.floor(word.length / 2);
+  return word.length % 2 == 0
+    ? word.substring(midLength - 1, midLength + 1)
+    : word[midLength];
 }
 
 // task 7: http://www.codewars.com/kata/partition-on
 function partitionOn(pred, items) {
-  let falseArray = items.filter(element => !pred(element));
-  let trueArray = items.filter(element => pred(element));
+  const falseArray = items.filter(element => !pred(element));
+  const trueArray = items.filter(element => pred(element));
   items.splice(0, items.length, ...falseArray.concat(trueArray));
   return falseArray.length;
 }
@@ -94,56 +101,57 @@ function partitionOn(pred, items) {
 // task 8: http://www.codewars.com/kata/word-count -- link not working
 
 // task 9: https://www.codewars.com/kata/find-the-odd-int/
-function findOdd(A) {
-  for (let number of A) {
-    if (A.filter(element => element == number).length % 2 !== 0) return number;
+function findOdd(integerArray) {
+  for (let number of integerArray) {
+    if (integerArray.filter(element => element == number).length % 2 !== 0)
+      return number;
   }
 }
 // task 10: https://www.codewars.com/kata/find-the-parity-outlier
 function findOutlier(integers) {
-  let evenArray = integers.filter(element => element % 2 == 0);
+  const evenArray = integers.filter(element => element % 2 == 0);
   return evenArray.length == 1
     ? evenArray[0]
     : integers.find(element => !evenArray.includes(element));
 }
 
 // task 11: https://www.codewars.com/kata/zipwith
-function zipWith(fn, a0, a1) {
-  let zipped = [];
-  for (let i = 0; i < Math.min(a0.length, a1.length); i++) {
-    zipped.push(fn(a0[i], a1[i]));
+function zipWith(fn, array0, array1) {
+  const zipped = [];
+  for (let i = 0; i < Math.min(array0.length, array1.length); i++) {
+    zipped.push(fn(array0[i], array1[i]));
   }
   return zipped;
 }
 
 // task 12: https://www.codewars.com/kata/filter-the-number
-var filterString = function (value) {
+const filterString = function (value) {
   return parseInt(value.match(/\d/g).join(''));
 };
 
 // task 13: https://www.codewars.com/kata/n-th-fibonacci
-function nthFibo(n) {
-  let fiboArray = [0, 1];
-  for (let i = 2; i < n; i++) {
+function nthFibo(number) {
+  const fiboArray = [0, 1];
+  for (let i = 2; i < number; i++) {
     fiboArray.push(fiboArray[i - 2] + fiboArray[i - 1]);
   }
-  return fiboArray[n - 1];
+  return fiboArray[number - 1];
 }
 // task 14: https://www.codewars.com/kata/cat-and-mouse-2d-version/
 function catMouse(map, moves) {
   if (!map.includes('C') || !map.includes('m'))
     return 'boring without two animals';
 
-  let floorLength = map.indexOf('\n');
-  let flat = map.replace(/\s/g, '');
-  let catPosition = flat.indexOf('C');
-  let mousePosition = flat.indexOf('m');
+  const floorLength = map.indexOf('\n');
+  const flat = map.replace(/\s/g, '');
+  const catPosition = flat.indexOf('C');
+  const mousePosition = flat.indexOf('m');
 
-  let verticalDistance = Math.abs(
+  const verticalDistance = Math.abs(
     Math.floor(mousePosition / floorLength) -
       Math.floor(catPosition / floorLength),
   );
-  let horizontalDistance = Math.abs(
+  const horizontalDistance = Math.abs(
     (mousePosition % floorLength) - (catPosition % floorLength),
   );
 
@@ -168,11 +176,11 @@ function findAdditiveNumbers(num) {
   for (let i = 1; i < num.length - 1; i++) {
     for (let j = i + 1; j < num.length; j++) {
       if (num[i] == '0' && j - i > 1) continue; // if second number starts with a 0 and has more than one digit (leading zeros)
-      let first = parseInt(num.substring(0, i));
-      let second = parseInt(num.substring(i, j));
+      const first = parseInt(num.substring(0, i));
+      const second = parseInt(num.substring(i, j));
 
       // calculate rest of the sequence from first two numbers
-      let sequence = Array.of(first.toString(), second.toString());
+      const sequence = Array.of(first.toString(), second.toString());
       let seqStringLength = sequence[0].length + sequence[1].length;
       while (seqStringLength < num.length) {
         sequence.push(
@@ -191,10 +199,10 @@ function findAdditiveNumbers(num) {
 
 // task 17: https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 function towerBuilder(nFloors) {
-  let tower = [];
+  const tower = [];
   for (let i = 1; i <= nFloors; i++) {
-    let spaces = ' '.repeat(nFloors - i);
-    let asterisks = '*'.repeat(i * 2 - 1);
+    const spaces = ' '.repeat(nFloors - i);
+    const asterisks = '*'.repeat(i * 2 - 1);
     tower.push(spaces + asterisks + spaces);
   }
   return tower;
@@ -202,7 +210,7 @@ function towerBuilder(nFloors) {
 
 // task 18: https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
 function wave(str) {
-  let result = [];
+  const result = [];
   for (let i = 0; i < str.length; i++) {
     if (str[i] === ' ') continue;
     result.push(
@@ -213,11 +221,11 @@ function wave(str) {
 }
 
 // task 19: https://www.codewars.com/kata/59d398bb86a6fdf100000031
-function stringBreakers(n, string) {
-  let flat = string.replace(/\s/g, '');
-  let result = [];
-  for (let i = 0; i < flat.length; i += n) {
-    result.push(flat.substring(i, n + i));
+function stringBreakers(number, string) {
+  const flat = string.replace(/\s/g, '');
+  const result = [];
+  for (let i = 0; i < flat.length; i += number) {
+    result.push(flat.substring(i, number + i));
   }
   return result.join('\n');
 }
