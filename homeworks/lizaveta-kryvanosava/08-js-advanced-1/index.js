@@ -47,27 +47,29 @@ const moment = (date, pattern) => {
 };
 
 const offset = moment => {
-  const msPerMinute = 60 * 1000;
-  const msPerHour = msPerMinute * 60;
-  const msPerDay = msPerHour * 24;
-  const msPerMonth = msPerDay * 30;
-  const msPerYear = msPerDay * 365;
+  const result = [];
 
-  const ms = new Date() - moment;
+  let seconds = (new Date() - moment) / 1000;
+  const secPassed = Math.floor(seconds % 60);
 
-  if (ms < msPerMinute) {
-    return Math.round(ms / 1000) + ' seconds ago';
-  } else if (ms < msPerHour) {
-    return Math.round(ms / msPerMinute) + ' minutes ago';
-  } else if (ms < msPerDay) {
-    return Math.round(ms / msPerHour) + ' hours ago';
-  } else if (ms < msPerMonth) {
-    return Math.round(ms / msPerDay) + ' days ago';
-  } else if (ms < msPerYear) {
-    return Math.round(ms / msPerMonth) + ' months ago';
-  } else {
-    return Math.round(ms / msPerYear) + ' years ago';
-  }
+  seconds = (seconds - secPassed) / 60;
+  const minutes = Math.floor(seconds % 60);
+
+  seconds = (seconds - minutes) / 60;
+  const hours = Math.floor(seconds % 24);
+
+  seconds = (seconds - hours) / 24;
+  const days = Math.floor(seconds % 365);
+
+  seconds = (seconds - days) / 365;
+  const years = Math.floor(seconds);
+
+  if (years) result.push(years + ' year' + (years > 1 ? 's' : ''));
+  if (days) result.push(days + ' day' + (days > 1 ? 's' : ''));
+  if (hours) result.push(hours + ' hour' + (hours > 1 ? 's' : ''));
+  if (minutes) result.push(minutes + ' minute' + (minutes > 1 ? 's' : ''));
+
+  return result.join(' ') + ' ago';
 };
 
 //task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#4-random-dates
