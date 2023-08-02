@@ -302,4 +302,4 @@ const solution20 = function (n, string){
     }
     return arr.join('');
 }
-console.log(solution20(5, "hola como estas mi nombre es matias djsadlkas jdas jwqkltqwlkew"));
+
