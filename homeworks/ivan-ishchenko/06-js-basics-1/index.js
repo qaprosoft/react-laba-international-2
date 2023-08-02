@@ -2,8 +2,20 @@
 const opposite = number => -number;
 
 // task 2 http://www.codewars.com/kata/basic-mathematical-operations
-const basicOp = (operation, value1, value2) =>
-  eval(value1 + operation + value2);
+const basicOp = (operation, value1, value2) => {
+  switch (operation) {
+    case '+':
+      return value1 + value2;
+    case '-':
+      return value1 - value2;
+    case '*':
+      return value1 * value2;
+    case '/':
+      return value1 / value2;
+    default:
+      return 'Operation must be one of + - * /';
+  }
+}
 
 // task 3 http://www.codewars.com/kata/printing-array-elements-with-comma-delimiters
 const printArray = array => array.join(',');
