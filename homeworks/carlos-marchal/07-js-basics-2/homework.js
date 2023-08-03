@@ -207,4 +207,22 @@ function sortArray(array) {
 }
 
 
-// task 13
+// task 13 https://www.codewars.com/kata/52597aa56021e91c93000cb0
+
+function moveZeros(arr) {
+  arr.reverse();
+  let resultArr = [];
+  arr.forEach((e, i)=>{e==0  && Number.isInteger(e)? resultArr.push(e) : resultArr.unshift(e)});
+  return resultArr;
+}
+
+// task 14 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
+
+function findUniq(arr) {
+  
+   let result = arr.sort().filter((element, index, arr) =>
+     element.match(new RegExp(`[^${arr[1]}]`, 'i'))
+  );
+  
+  return result[0]
+ }
