@@ -57,3 +57,42 @@ function randomDate(date1, date2) {
     return result.toLocaleDateString('en-GB')
 }
 
+// task 5 https://www.codewars.com/kata/merged-objects
+function objConcat(o) {
+    let result = {}
+    o.map(object => {
+        for (let key in object) {
+            result[key] = object[key]
+        }
+    })
+    return result
+}
+
+// Optional (advanced)
+
+// task 9 https://www.codewars.com/kata/partial-keys
+// Unfortunately I managed to do only partially. Don't know how to prevent adding extra keys.
+// I will be grateful for the hint.
+function partialKeys(obj) {
+    const sortedKeys = Object.keys(obj).sort()
+    const result = {};
+
+    sortedKeys.forEach(key => {
+        for (let i = 1; i <= key.length; i++) {
+            let partialKey = key.slice(0, i)
+            if (!result.hasOwnProperty(partialKey)) {
+                result[partialKey] = obj[key]
+            }
+        }
+    }); return result
+}
+
+// task 10 https://www.codewars.com/kata/human-readable-time
+function humanReadable(seconds) {
+    let hours = (Math.floor((seconds / 60) / 60)).toString().padStart(2, '0');
+    let minutes = (Math.floor(seconds / 60) % 60).toString().padStart(2, '0');
+    let sec = (seconds % 60).toString().padStart(2, '0')
+
+    return `${hours}:${minutes}:${sec}`;
+}
+
