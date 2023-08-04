@@ -14,7 +14,6 @@
         return value1 * value2;
       case "/":
         return value1 / value2;
-      //break;
       default:
         return "Please, write operation as a string";
     }
