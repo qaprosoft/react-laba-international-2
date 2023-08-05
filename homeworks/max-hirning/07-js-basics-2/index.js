@@ -77,7 +77,7 @@ function binaryArrayToNumber(arr) {
 
 // task 9 https://www.codewars.com/kata/585d7d5adb20cf33cb000235
 function findUniq(arr) {
-  sortedArr = [...arr].sort((a, b) => a - b);
+  const sortedArr = [...arr].sort((a, b) => a - b);
 
   if (sortedArr[0] !== sortedArr[1]) return sortedArr[0];
 
@@ -184,8 +184,9 @@ function findUniq(arr) {
 }
 
 // task 4 https://www.codewars.com/kata/5296bc77afba8baa690002d7
-function sudoku(board) {
+function sudoku(givenBoard) {
   const N = 9;
+  const board = givenBoard;
 
   function isSafe(row, col, num) {
     for (let i = 0; i < N; i++) {
