@@ -12,7 +12,6 @@ function positiveSum(arr) {
 //task2: https://www.codewars.com/kata/5a3e1319b6486ac96f000049/train/javascript;
 
 function pairs(arr) {
-  const paired = [];
   let count = 0;
 
   arr.forEach((item, index, array) => {
@@ -47,11 +46,7 @@ function getEvenNumbers(numbersArray) {
 function solve(arr) {
   const result = [];
 
-  arr.sort((a, b) => {
-    if (a > b) return -1;
-    if (a === b) return 0;
-    if (a < b) return 1;
-  });
+  arr.sort((a, b) => b - a);
 
   const length = arr.length;
 
@@ -101,11 +96,7 @@ const binaryArrayToNumber = arr => {
 //task9: https://www.codewars.com/kata/585d7d5adb20cf33cb000235;
 
 function findUniq(arr) {
-  arr.sort((a, b) => {
-    if (a < b) return -1;
-    if (a === b) return 0;
-    if (a > b) return 1;
-  });
+  arr.sort((a, b) => a - b);
 
   if (arr[0] === arr[1]) {
     return arr[arr.length - 1];
