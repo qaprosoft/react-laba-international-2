@@ -29,14 +29,13 @@ function printArray(array) {
 
 // task 4 http://www.codewars.com/kata/transportation-on-vacation
 function rentalCarCost(days) {
-  const costPerDay = 40
-  const discount3To6Days = 20
-  const discount7OrMoreDays = 50
-  if (days < 3) return days * costPerDay
-  if (7 > days && days >= 3) return days * costPerDay - discount3To6Days
-  if (days >= 7) return days * costPerDay - discount7OrMoreDays
+  const costPerDay = 40;
+  const discount3To6Days = 20;
+  const discount7OrMoreDays = 50;
+  if (days < 3) return days * costPerDay;
+  if (7 > days && days >= 3) return days * costPerDay - discount3To6Days;
+  if (days >= 7) return days * costPerDay - discount7OrMoreDays;
 }
-
 
 // task 5 http://www.codewars.com/kata/calculating-with-functions
 const n = d => f => f ? f(d) : d;
