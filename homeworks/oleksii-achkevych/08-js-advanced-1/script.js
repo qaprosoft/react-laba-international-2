@@ -1,43 +1,40 @@
 // // 1. Pluck. https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#1-pluck
 
-function pluck(obj, path) {   
-    if (typeof obj !== 'object' || obj === null) {
-      return null;
-    }
-
-    const keys = path.split('.');
-    let value = obj;
-
-    for (const key of keys) {
-      if (value.hasOwnProperty(key)) {
-        value = value[key];
-      } else {
-        return null;
-      }
-    }
-
-    return value;
+function pluck(obj, path) {
+  if (typeof obj !== 'object' || obj === null) {
+    return null;
   }
 
+  const keys = path.split('.');
+  let value = obj;
 
-    //example
-  const user = {
-    username: 'testuser1',
-    preferences: {
-      sound: {
-        maxValue: 50,
-        value: 30,
-      },
+  for (const key of keys) {
+    if (value.hasOwnProperty(key)) {
+      value = value[key];
+    } else {
+      return null;
+    }
+  }
+
+  return value;
+}
+
+//example
+const user = {
+  username: 'testuser1',
+  preferences: {
+    sound: {
+      maxValue: 50,
+      value: 30,
     },
-  };
-  const randomValue = Math.random();
-  const nullValue = null;
-  console.log(pluck(user, 'preferences.sound.value')); 
-  console.log(pluck(user, 'unknown.key')); 
-  console.log(pluck(randomValue, 'unknown.key')); 
-  console.log(pluck(nullValue, 'unknown.key')); 
-
-
+  },
+};
+const randomValue = Math.random();
+const nullValue = null;
+console.log(pluck(user, 'preferences.sound.value'));
+console.log(pluck(user, 'unknown.key'));
+console.log(pluck(randomValue, 'unknown.key'));
+console.log(pluck(nullValue, 'unknown.key'));
 
 // 2. Deep Clone https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#2-deep-clone
 function clone(obj) {
@@ -68,8 +65,7 @@ const clonedUser = clone(user2);
 clonedUser.preferences.sound.maxValue = 40;
 console.log(
   user2.preferences.sound.maxValue === clonedUser.preferences.sound.maxValue,
-); 
-
+);
 
 // 3. "A long time ago" https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#3-a-long-time-ago
 
@@ -107,7 +103,8 @@ function randomDate(secondDate) {
   const currentTime = new Date();
   const secondTimestamp = secondDate.getTime();
 
-  const randomTimestamp = secondTimestamp + Math.random() * (currentTime - secondTimestamp);
+  const randomTimestamp =
+    secondTimestamp + Math.random() * (currentTime - secondTimestamp);
   const randomDate = new Date(randomTimestamp);
 
   return randomDate;
@@ -116,11 +113,11 @@ function randomDate(secondDate) {
 // example
 const date1 = new Date('2021-01-23');
 const randomDateResult = randomDate(date1);
-console.log(randomDateResult)
+console.log(randomDateResult);
 
 // Codewars
 // 5. https://www.codewars.com/kata/merged-objects
-var objConcat = (o) => {
+var objConcat = o => {
   let merged = {};
 
   for (let obj of o) {
@@ -172,12 +169,12 @@ function OnceNamedOne(firstName, lastName) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.fullName = this.firstName + ' ' + this.lastName;
-   Object.freeze(this);
+  Object.freeze(this);
 }
 // 8. https://www.codewars.com/kata/partial-keys
 function partialKeys(obj) {
   const result = {};
-  
+
   for (const key in obj) {
     result[key] = obj[key];
     for (let i = 1; i < key.length; i++) {
@@ -191,17 +188,17 @@ function partialKeys(obj) {
 }
 
 // 9. https://www.codewars.com/kata/human-readable-time
-function humanReadable (seconds) {
+function humanReadable(seconds) {
   if (seconds < 0 || seconds > 359999) {
-    throw new Error("Invalid input.");
+    throw new Error('Invalid input.');
   }
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
   const remainingSeconds = seconds % 60;
 
-  const formattedHours = String(hours).padStart(2, "0");
-  const formattedMinutes = String(minutes).padStart(2, "0");
-  const formattedSeconds = String(remainingSeconds).padStart(2, "0");
+  const formattedHours = String(hours).padStart(2, '0');
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(remainingSeconds).padStart(2, '0');
 
   return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
