@@ -1,10 +1,12 @@
 // 1. https://www.codewars.com/kata/5715eaedb436cf5606000381
 function positiveSum(array) {
-  let sum = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] > 0) sum += array[i];
-  }
-  return sum;
+  return array.reduce((sum, currentValue) => {
+    if (currentValue > 0) {
+      return sum + currentValue;
+    } else {
+      return sum;
+    }
+  }, 0);
 }
 // 2. https://www.codewars.com/kata/5a3e1319b6486ac96f000049
 function pairs(array) {
