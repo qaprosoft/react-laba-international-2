@@ -4,25 +4,24 @@ function opposite(number) {
 }
 
 // task 2 http://www.codewars.com/kata/basic-mathematical-operations
-function basicOp(operation, value1, value2)
-{
+function basicOp(operation, value1, value2) {
     switch (operation) {
-        case '+':
+        case "+":
             return value1 + value2;
-        case '-':
+        case "-":
             return value1 - value2;
-        case '*':
+        case "*":
             return value1 * value2;
-        case '/':
+        case "/":
             return value1 / value2;
         default:
-            return 'Wrong operation sign, should be String';
+            return "Wrong operation sign, should be String";
     }
 }
 
 // task 3 http://www.codewars.com/kata/printing-array-elements-with-comma-delimiters
-function printArray(array){
-    return array.join(',');
+function printArray(array) {
+    return array.join(",");
 }
 
 // task 4 http://www.codewars.com/kata/transportation-on-vacation
@@ -33,15 +32,12 @@ function rentalCarCost(d) {
 
     if (d > 0 && d < 3) {
         return rentCostPerDay * d;
-    }
-    else if (d >= 3 && d < 7) {
-        return ((rentCostPerDay * d) - discountForThreeDays);
-    }
-    else if (d => 7) {
-        return ((rentCostPerDay * d) - discountForSevenDays);
-    }
-    else {
-        return 'Wrong data';
+    } else if (d >= 3 && d < 7) {
+        return rentCostPerDay * d - discountForThreeDays;
+    } else if ((d) => 7) {
+        return rentCostPerDay * d - discountForSevenDays;
+    } else {
+        return "Wrong data";
     }
 }
 
@@ -49,51 +45,63 @@ function rentalCarCost(d) {
 function zero(operation) {
     return operation ? operation(0) : 0;
 }
+
 function one(operation) {
     return operation ? operation(1) : 1;
 }
+
 function two(operation) {
     return operation ? operation(2) : 2;
 }
+
 function three(operation) {
     return operation ? operation(3) : 3;
 }
+
 function four(operation) {
     return operation ? operation(4) : 4;
 }
+
 function five(operation) {
     return operation ? operation(5) : 5;
 }
+
 function six(operation) {
     return operation ? operation(6) : 6;
 }
+
 function seven(operation) {
     return operation ? operation(7) : 7;
 }
+
 function eight(operation) {
     return operation ? operation(8) : 8;
 }
+
 function nine(operation) {
     return operation ? operation(9) : 9;
 }
 
 function plus(b) {
-    return function(a) {
+    return function (a) {
         return a + b;
     };
 }
+
 function minus(b) {
-    return function(a) {
+    return function (a) {
         return a - b;
     };
 }
+
 function times(b) {
-    return function(a) {
+    return function (a) {
         return a * b;
     };
 }
+
 function dividedBy(b) {
-    return function(a) {
+    return function (a) {
         return Math.floor(a / b);
     };
 }
@@ -112,7 +120,7 @@ function partitionOn(pred, items) {
     let part1 = [];
     let part2 = [];
 
-    items.map(function(item){
+    items.map(function (item) {
         if (pred(item)) {
             part2.push(item);
         } else {
@@ -129,13 +137,13 @@ function partitionOn(pred, items) {
 
 // task 9 https://www.codewars.com/kata/find-the-odd-int/
 function findOdd(A) {
-    return A.find((item, index) => A.filter(el => el == item).length % 2)
+    return A.find((item, index) => A.filter((el) => el == item).length % 2);
 }
 
 // task 10 https://www.codewars.com/kata/find-the-parity-outlier
-function findOutlier(int){
-    let even = int.filter(a => a % 2 === 0);
-    let odd = int.filter(a  => a % 2 !== 0);
+function findOutlier(int) {
+    let even = int.filter((a) => a % 2 === 0);
+    let odd = int.filter((a) => a % 2 !== 0);
     return even.length === 1 ? even[0] : odd[0];
 }
 
@@ -153,9 +161,9 @@ function zipWith(fn, a0, a1) {
 }
 
 // task 12 https://www.codewars.com/kata/filter-the-number
-var FilterString = function(value) {
-    return +value.replace(/\D+/g, '');
-}
+var FilterString = function (value) {
+    return +value.replace(/\D+/g, "");
+};
 
 // task 13 https://www.codewars.com/kata/n-th-fibonacci
 function nthFibo(n) {
@@ -165,30 +173,33 @@ function nthFibo(n) {
 }
 
 // task 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
-function catMouse(map,moves){
-    if  (!map.includes('C') || !map.includes('m')) {
+function catMouse(map, moves) {
+    if (!map.includes("C") || !map.includes("m")) {
         return "boring without two animals";
     }
 
-    let arrayedMap = map.split('\n');
+    let arrayedMap = map.split("\n");
     let mouseRow = 0;
     let mouseColumn = 0;
     let catRow = 0;
     let catColumn = 0;
 
     arrayedMap.forEach((item, index) => {
-        if (item.includes('m')) {
+        if (item.includes("m")) {
             mouseRow = index + 1;
-            mouseColumn = item.indexOf('m') + 1;
+            mouseColumn = item.indexOf("m") + 1;
         }
 
-        if (item.includes('C')) {
+        if (item.includes("C")) {
             catRow = index + 1;
-            catColumn = item.indexOf('C') + 1;
+            catColumn = item.indexOf("C") + 1;
         }
-    })
+    });
 
-    let stepsNeeded = (Math.max(mouseRow, catRow) - Math.min(mouseRow, catRow)) + (Math.max(mouseColumn, catColumn) - Math.min(mouseColumn, catColumn));
+    let stepsNeeded =
+        Math.max(mouseRow, catRow) -
+        Math.min(mouseRow, catRow) +
+        (Math.max(mouseColumn, catColumn) - Math.min(mouseColumn, catColumn));
 
     if (stepsNeeded <= moves) {
         return "Caught!";
@@ -198,16 +209,15 @@ function catMouse(map,moves){
 }
 
 // task 15 https://www.codewars.com/kata/duplicate-encoder
-function duplicateEncode(word){
-    let  string= '';
+function duplicateEncode(word) {
+    let string = "";
     word = word.toLowerCase();
 
-    for (let i=0; i < word.length; i++) {
+    for (let i = 0; i < word.length; i++) {
         if (word.lastIndexOf(word[i]) == word.indexOf(word[i])) {
-            string += '(';
-        }
-        else{
-            string += ')';
+            string += "(";
+        } else {
+            string += ")";
         }
     }
     return string;
@@ -217,26 +227,32 @@ function duplicateEncode(word){
 function findAdditiveNumbers(num) {
     for (let i = 1; i < num.length - 1; ++i)
         for (let j = i + 1; j < num.length; ++j) {
-            let a = [num.slice(0,i), num.slice(i, j)];
-            if (a[0][0] == '0' && a[0].length > 1 || a[1][0] == '0' && a[1].length > 1 ) continue;
-            let s = a.join('');
+            let a = [num.slice(0, i), num.slice(i, j)];
+            if (
+                (a[0][0] == "0" && a[0].length > 1) ||
+                (a[1][0] == "0" && a[1].length > 1)
+            )
+                continue;
+            let s = a.join("");
             while (s.length < num.length) {
-                let sum = '' + (+a[a.length-1] + +a[a.length-2]);
+                let sum = "" + (+a[a.length - 1] + +a[a.length - 2]);
                 s += sum;
                 a.push(sum);
             }
             if (s == num) return a;
         }
-    return []
+    return [];
 }
 
 // task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 function towerBuilder(nFloors) {
-    let space, star, tower = [];
+    let space,
+        star,
+        tower = [];
 
     for (i = 1; i <= nFloors; i++) {
         space = " ".repeat(nFloors - i);
-        star  = "*".repeat((2 * i) - 1);
+        star = "*".repeat(2 * i - 1);
         tower.push(`${space}${star}${space}`);
     }
 
@@ -244,7 +260,7 @@ function towerBuilder(nFloors) {
 }
 
 //task 18 https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
-function wave(str){
+function wave(str) {
     let waveArr = [];
 
     for (let i = 0; i < str.length; i++) {
@@ -260,20 +276,25 @@ function wave(str){
 }
 
 // task 19 https://www.codewars.com/kata/59d398bb86a6fdf100000031
-function stringBreakers(n, string){
-    string = string.replace(/\s/g,'');
+function stringBreakers(n, string) {
+    string = string.replace(/\s/g, "");
 
     let arr = [];
     for (let i = 0; i < string.length; i += n) {
-        arr.push(string.slice(i, i+n));
+        arr.push(string.slice(i, i + n));
     }
 
     return arr.join`\n`;
 }
 
 // task 20 https://www.codewars.com/kata/514a024011ea4fb54200004b
-function domainName(url){
-    let urlString = url.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
+function domainName(url) {
+    let urlString = url
+        .replace("http://", "")
+        .replace("https://", "")
+        .replace("www.", "")
+        .split(/[/?#]/)[0];
     let domain = urlString.split(".")[0];
     return domain;
 }
+
