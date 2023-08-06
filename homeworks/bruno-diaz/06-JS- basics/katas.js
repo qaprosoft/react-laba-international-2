@@ -1,129 +1,131 @@
 // task 1 http://www.codewars.com/kata/opposite-number
 
 const opposite = (number) => {
-    let oppositeNumber = number * -1;
-    return oppositeNumber;
-}
+  const oppositeNumber = number * -1;
+  return oppositeNumber;
+};
 
 // task 2 http://www.codewars.com/kata/basic-mathematical-operations
 
 function basicOp(operation, value1, value2) {
-    if (operation === "+") {
-      let result = value1 + value2;
-      return result;
-    } else if (operation === "-") {
-      let result = value1 - value2;
-      return result;
-    } else if (operation === "*") {
-      let result = value1 * value2;
-      return result;
-    } else {
-      let result = value1 / value2;
-      return result;
-    }
+  if (operation === "+") {
+    const result = value1 + value2;
+    return result;
+  } else if (operation === "-") {
+    const result = value1 - value2;
+    return result;
+  } else if (operation === "*") {
+    const result = value1 * value2;
+    return result;
+  } else {
+    const result = value1 / value2;
+    return result;
+  }
 }
 
 // task 3 http://www.codewars.com/kata/printing-array-elements-with-comma-delimiters
 
-function printArray(array){
-    let arrayToString = array.toString();
-    return arrayToString;
+function printArray(array) {
+  const arrayToString = array.toString();
+  return arrayToString;
 }
 
 // task 4 http://www.codewars.com/kata/transportation-on-vacation
 
 function rentalCarCost(d) {
-    if ( d >= 3 && d < 7 ) {
-      let cost = (d * 40) - 20;
-      return cost;
-    } else if (d >= 7) {
-      let cost = (d * 40) -50;
-      return cost;
-    } else {
-      return d * 40;
-    }
+  if (d >= 3 && d < 7) {
+    const cost = d * 40 - 20;
+    return cost;
+  } else if (d >= 7) {
+    const cost = d * 40 - 50;
+    return cost;
+  } else {
+    return d * 40;
   }
+}
 
 // task 5 http://www.codewars.com/kata/calculating-with-functions
 
 function zero(operation) {
-    return operation ? operation(0) : 0;
+  return operation ? operation(0) : 0;
 }
 function one(operation) {
-    return operation ? operation(1) : 1;
+  return operation ? operation(1) : 1;
 }
 function two(operation) {
-    return operation ? operation(2) : 2;
+  return operation ? operation(2) : 2;
 }
 function three(operation) {
-    return operation ? operation(3) : 3;
+  return operation ? operation(3) : 3;
 }
 function four(operation) {
-    return operation ? operation(4) : 4;
+  return operation ? operation(4) : 4;
 }
 function five(operation) {
-    return operation ? operation(5) : 5;
+  return operation ? operation(5) : 5;
 }
 function six(operation) {
-    return operation ? operation(6) : 6;
+  return operation ? operation(6) : 6;
 }
 function seven(operation) {
-    return operation ? operation(7) : 7;
+  return operation ? operation(7) : 7;
 }
 function eight(operation) {
-    return operation ? operation(8) : 8;
+  return operation ? operation(8) : 8;
 }
 function nine(operation) {
-    return operation ? operation(9) : 9;
+  return operation ? operation(9) : 9;
 }
-  
+
 function plus(value1) {
-    return function (value2) {
-      return value1 + value2;
-    };
+  return function (value2) {
+    return value1 + value2;
+  };
 }
-  
+
 function minus(value1) {
-    return function (value2) {
-      return value2 - value1;
-    };
+  return function (value2) {
+    return value2 - value1;
+  };
 }
-  
+
 function times(value1) {
-    return function (value2) {
-      return value1 * value2;
-    };
+  return function (value2) {
+    return value1 * value2;
+  };
 }
-  
+
 function dividedBy(value1) {
-    return function (value2) {
-      return Math.floor(value2 / value1);
-   };
+  return function (value2) {
+    return Math.floor(value2 / value1);
+  };
 }
 
 // task 6 http://www.codewars.com/kata/get-the-middle-character
 
 function getMiddle(s) {
-    if (s.length % 2 == 0) {
-      return s.substr(s.length / 2 - 1, 2)
-    } else {
-      return s.charAt(s.length / 2)
-    }
+  if (s.length % 2 == 0) {
+    return s.substr(s.length / 2 - 1, 2);
+  } else {
+    return s.charAt(s.length / 2);
+  }
 }
 
 // task 7 http://www.codewars.com/kata/partition-on
 
 function partitionOn(pred, items) {
-  var itsFalse = items.filter(function (i) { return !pred(i); });
-  var itsTrue = items.filter(pred);
+  let itsFalse = items.filter(function (i) {
+    return !pred(i);
+  });
+  let itsTrue = items.filter(pred);
   items.length = 0;
-  for (var i = 0; i < itsFalse.length; i++) { 
+  for (let i = 0; i < itsFalse.length; i++) {
     items.push(itsFalse[i]);
   }
-  for (var i = 0; i < itsTrue.length; i++) {
+  for (let i = 0; i < itsTrue.length; i++) {
     items.push(itsTrue[i]);
   }
-  
+
   return itsFalse.length;
 }
 
@@ -145,14 +147,14 @@ function findOutlier(integers) {
 
   for (let num of integers) {
     if (num % 2 === 0) {
-      evenContainer++
+      evenContainer++;
     } else {
-      oddContainer++
+      oddContainer++;
     }
   }
 
   if (oddContainer === 1) {
-    for(let num of integers) {
+    for (let num of integers) {
       if (num % 2 !== 0) {
         return num;
       }
@@ -160,7 +162,7 @@ function findOutlier(integers) {
   } else {
     for (let num of integers) {
       if (num % 2 === 0) {
-        return num
+        return num;
       }
     }
   }
@@ -168,23 +170,23 @@ function findOutlier(integers) {
 
 // task 11 https://www.codewars.com/kata/zipwith
 
-function zipWith(fn,a0,a1) {
-  let minLength = Math.min(a0.length, a1.length);
-  let result = [];
-  
+function zipWith(fn, a0, a1) {
+  const minLength = Math.min(a0.length, a1.length);
+  const result = [];
+
   for (let i = 0; i < minLength; i++) {
-    result.push(fn(a0[i], a1[i]))
+    result.push(fn(a0[i], a1[i]));
   }
   return result;
 }
 
 // task 12 https://www.codewars.com/kata/filter-the-number
 
-var filterString = function(value) {
+const filterString = function (value) {
   let onlyNumbers = value.replace(/\D/g, "");
   let numbers = parseInt(onlyNumbers);
   return numbers;
-}
+};
 
 // task 13 https://www.codewars.com/kata/n-th-fibonacci
 
@@ -194,57 +196,58 @@ function nthFibo(n) {
   } else if (n === 2) {
     return 1;
   } else {
-    return nthFibo(n -1) + nthFibo(n - 2);
+    return nthFibo(n - 1) + nthFibo(n - 2);
   }
 }
 
 // task 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
 
-function catMouse(map,moves){
-  if (map.indexOf('C') == -1 || map.indexOf('m') == -1) {
+function catMouse(map, moves) {
+  if (map.indexOf("C") == -1 || map.indexOf("m") == -1) {
     return "boring without two animals";
   }
-  
-  map = map.split('\n');  
-  let catPos = {x: 0, y: 0};
-  let micePos = {x: 0, y: 0};
-  
+
+  map = map.split("\n");
+  let catPos = { x: 0, y: 0 };
+  let micePos = { x: 0, y: 0 };
+
   for (let i = 0; i < map.length; i++) {
     for (let j = 0; j < map[i].length; j++) {
-      if (map[i][j] == 'C') {
+      if (map[i][j] == "C") {
         catPos.x = i;
         catPos.y = j;
       }
-      
-      if (map[i][j] == 'm') {
+
+      if (map[i][j] == "m") {
         micePos.x = i;
         micePos.y = j;
       }
     }
   }
-  let movesToMice = Math.abs(micePos.x - catPos.x) + Math.abs(micePos.y - catPos.y);
-  
-  return movesToMice <= moves ? 'Caught!' : 'Escaped!';
+  const movesToMice =
+    Math.abs(micePos.x - catPos.x) + Math.abs(micePos.y - catPos.y);
+
+  return movesToMice <= moves ? "Caught!" : "Escaped!";
 }
 
 // task 15 https://www.codewars.com/kata/duplicate-encoder
 
-function duplicateEncode(word){
+function duplicateEncode(word) {
   word = word.toLowerCase();
-let charCount = {};
-for (let char of word) {
-  charCount[char] = (charCount[char] || 0) + 1;
-}
-
-let newString = "";
-for (let char of word) {
-  if (charCount[char] === 1) {
-    newString += "(";
-  } else {
-    newString += ")";
+  const charCount = {};
+  for (let char of word) {
+    charCount[char] = (charCount[char] || 0) + 1;
   }
-}
-return newString;
+
+  let newString = "";
+  for (let char of word) {
+    if (charCount[char] === 1) {
+      newString += "(";
+    } else {
+      newString += ")";
+    }
+  }
+  return newString;
 }
 
 // task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
@@ -255,14 +258,14 @@ function towerBuilder(nFloors) {
   if (nFloors <= 0) {
     return [];
   }
-  
-  let tower = [];
-  let width = 2 * nFloors - 1;
-  
+
+  const tower = [];
+  const width = 2 * nFloors - 1;
+
   for (let floor = 1; floor <= nFloors; floor++) {
-    let stars = 2 * floor - 1;
-    let spaces = Math.floor((width - stars) / 2);
-    let row = " ".repeat(spaces) + "*".repeat(stars) + " ".repeat(spaces);
+    const stars = 2 * floor - 1;
+    const spaces = Math.floor((width - stars) / 2);
+    const row = " ".repeat(spaces) + "*".repeat(stars) + " ".repeat(spaces);
     tower.push(row);
   }
   return tower;
@@ -270,12 +273,12 @@ function towerBuilder(nFloors) {
 
 // task 18 https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
 
-function wave(str){
-  let waveArr = [];
-  
+function wave(str) {
+  const waveArr = [];
+
   for (let i = 0; i < str.length; i++) {
     if (str[i] !== " ") {
-      let waveStr = str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1);
+      const waveStr = str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1);
       waveArr.push(waveStr);
     }
   }
@@ -284,10 +287,10 @@ function wave(str){
 
 // task 19 https://www.codewars.com/kata/59d398bb86a6fdf100000031
 
-function stringBreakers(n, string){
+function stringBreakers(n, string) {
   let result = [];
   string = string.replace(/\s/g, "");
-  
+
   for (let i = 0; i < string.length; i += n) {
     result.push(string.substr(i, n));
   }
@@ -297,6 +300,6 @@ function stringBreakers(n, string){
 
 // task 20 https://www.codewars.com/kata/514a024011ea4fb54200004b
 
-function domainName(url){  
-  return url.replace(/.+\/\/|www.|\..+/g, '')
+function domainName(url) {
+  return url.replace(/.+\/\/|www.|\..+/g, "");
 }
