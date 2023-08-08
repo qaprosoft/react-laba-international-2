@@ -1,6 +1,8 @@
 // task 1 http://www.codewars.com/kata/opposite-number
 function opposite(number) {
-  return number * -1
+  if (number) {
+    return number * -1
+  } return number
 }
 
 // task 2 http://www.codewars.com/kata/basic-mathematical-operations
@@ -8,15 +10,18 @@ function basicOp(operation, value1, value2) {
   switch (operation) {
     case "+":
       return value1 + value2;
+      break;
     case "-":
       return value1 - value2;
+      break;
     case "*":
       return value1 * value2;
+      break;
     case "/":
       return value1 / value2;
+      break;
   }
 }
-
 
 // task 3 http://www.codewars.com/kata/printing-array-elements-with-comma-delimiters
 function printArray(array) {
@@ -25,19 +30,16 @@ function printArray(array) {
 
 // task 4 http://www.codewars.com/kata/transportation-on-vacation
 function rentalCarCost(d) {
-  const DAY_RENT_CAR = 40;
-  const DISCOUNT_3_DAYS = 20;
-  const DISCOUNT_7_DAYS = 50;
-
   if (d >= 3 && d < 7) {
-    return DAY_RENT_CAR * d - DISCOUNT_3_DAYS;
-  } else if (d >= 7) {
-    return DAY_RENT_CAR * d - DISCOUNT_7_DAYS;
-  } else {
-    return DAY_RENT_CAR * d;
+    return 40 * d - 20;
+  }
+  else if (d >= 7) {
+    return 40 * d - 50;
+  }
+  else {
+    return 40 * d;
   }
 }
-
 
 // task 5 http://www.codewars.com/kata/calculating-with-functions
 function zero(func) {
@@ -87,29 +89,37 @@ function dividedBy(num) {
 // task 6 http://www.codewars.com/kata/get-the-middle-character
 function getMiddle(s) {
   if (s.length % 2 === 0) {
-    const startMiddleChar = (s.length / 2) - 1;
+    let startMiddleChar = (s.length / 2) - 1;
     return s.slice(startMiddleChar, startMiddleChar + 2)
   } if (s.length % 2 === 1) {
-    const leftPartWord = Math.floor(s.length / 2);
+    let leftPartWord = Math.floor(s.length / 2);
     return s.slice(leftPartWord, leftPartWord + 1)
   }
 }
 
 // task 7 http://www.codewars.com/kata/partition-on
 function partitionOn(pred, items) {
-  const trueArr = items.filter(pred);
-  const falseArr = items.filter((item) => !pred(item));
+  let result = []
+  let trueArr = []
+  let falseArr = []
+  let firstTrueIndex;
+  for (let key of items) {
+    if (pred(key)) {
+      trueArr.push(key)
+    } else {
+      falseArr.push(key)
+    }
 
-  items.length = 0;
-  items.push(...falseArr, ...trueArr);
-
-  return falseArr.length;
+    result = [...falseArr, ...trueArr]
+    firstTrueIndex = result.findIndex(pred)
+  }
+  return firstTrueIndex, result
 }
 
 
 // task 9 https://www.codewars.com/kata/find-the-odd-int/
 function findOdd(A) {
-  const quantityOfIntegers = {};
+  let quantityOfIntegers = {};
   for (let key of A) {
     quantityOfIntegers[key] = quantityOfIntegers[key] ? quantityOfIntegers[key] += 1 : 1
   }
@@ -122,13 +132,15 @@ function findOdd(A) {
 
 // task 10 https://www.codewars.com/kata/find-the-parity-outlier
 function findOutlier(integers) {
-  const evenNumbers = integers.filter(num => num % 2 === 0);
-  const oddNumbers = integers.filter(num => num % 2 !== 0);
-
-  if (evenNumbers.length === 1) {
-    return evenNumbers[0];
-  } else {
-    return oddNumbers[0];
+  for (let i = 0; i < integers.length; i++) {
+    let count = 0;
+    for (let j = 0; j < integers.length; j++) {
+      if (Math.abs(integers[i] % 2) === Math.abs(integers[j] % 2)) {
+        count += 1
+      }
+    } if (count === 1) {
+      return integers[i]
+    }
   }
 }
 
@@ -198,7 +210,7 @@ function catMouse(map, moves) {
 // task 15 https://www.codewars.com/kata/duplicate-encoder
 function duplicateEncode(word) {
   let result = "";
-  const lowerCase = word.toLowerCase()
+  let lowerCase = word.toLowerCase()
 
   for (let i = 0; i < lowerCase.length; i++) {
     let currentChar = lowerCase[i];
