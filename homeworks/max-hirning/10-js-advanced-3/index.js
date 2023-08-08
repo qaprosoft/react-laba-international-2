@@ -24,6 +24,16 @@ function hasHTMLTags(inputString) {
 
 // task 2
 // task 3
+function timer() {
+    let second = 1;
+    const interval = setInterval(() => {
+        console.log(`Elapsed time: ${second} sec`);
+        if(second === 5) clearInterval(interval);
+        second++;
+    }, 1000);
+}
+
+
 // task 4
 // task 5
 // task 6
