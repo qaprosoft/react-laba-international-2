@@ -36,6 +36,79 @@ function timer() {
 
 // task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#4-event-loop
 // task 5 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#5-fetch-apixmlhttprequest
+const listContainer = document.querySelector(".list");
+
+class UsersAPI {
+    constructor(url) {
+        this.url = url;
+    }
+
+    async getUsers(gender, results) {
+        try {
+            const response = await fetch(this.url + '?' + new URLSearchParams({
+                gender,
+                results,
+            }));
+            const users = await response.json();
+            return users.results;
+        } catch (error) {
+            console.error("There was some ERROR!!!!!");
+            console.error(error);
+        }
+    }
+
+    getUsersXML(gender, results) {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', this.url + '?' + new URLSearchParams({
+                gender,
+                results,
+            }), true);
+    
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    const users = JSON.parse(xhr.responseText);
+                    resolve(users.results);
+                } else {
+                    console.error("There was some ERROR!!!!!");
+                    console.error(xhr.statusText);
+                    reject(xhr.statusText);
+                }
+            };
+    
+            xhr.onerror = function () {
+                console.error("There was some ERROR!!!!!");
+                console.error(xhr.statusText);
+                reject(xhr.statusText);
+            };
+    
+            xhr.send();
+        });
+    }
+    
+}
+
+async function displayList() {
+    try {
+        const usersAPI = new UsersAPI("https://randomuser.me/api");
+        const users = await usersAPI.getUsersXML("female", 10);
+        //or
+        // const users = await usersAPI.getUsers("female", 10);
+
+        users.forEach((user) => {
+            listContainer.innerHTML += `
+                <div class="card">
+                    <img src=${user.picture.medium} class="avatar" alt="${user.name.first}' avatar">
+                    <p class="name">${user.name.title} ${user.name.first} ${user.name.last}</p>
+                </div>
+            `
+        })
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+displayList()
 // task 6 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#6-digit-or-not
 // task 7 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#7-optional-advanced
 // task 8 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#8-optional-advanced
