@@ -109,6 +109,17 @@ async function displayList() {
 }
 
 displayList()
+
+
 // task 6 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#6-digit-or-not
+function startsWithDigit(inputString) {
+    const digitRegex = /^\d/;
+    return digitRegex.test(inputString);
+}
+console.log(startsWithDigit("123abc")); // Output: true
+console.log(startsWithDigit("abc123")); // Output: false
+console.log(startsWithDigit("xyz"));    // Output: false
+
+
 // task 7 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#7-optional-advanced
 // task 8 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#8-optional-advanced
