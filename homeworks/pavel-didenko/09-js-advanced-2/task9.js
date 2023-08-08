@@ -5,35 +5,51 @@ class Serializable {
 
   serialize() {
     if (this instanceof Serializable) {
-      let serialized = JSON.stringify(this);
-      Serializable.serializedData[serialized] = this;
-      return serialized;
-    } else {
-      throw new Error('Not instance of Serializable');
+      return JSON.stringify(this, this.nAnStringifier);
     }
   }
 
   wakeFrom(serialized) {
-    if (serialized in Serializable.serializedData) {
-      let result = Serializable.serializedData[serialized];
-      delete Serializable.serializedData[serialized];
-      return result;
-    } else {
-      throw new Error('Not instance of Serializable');
+    if(this instanceof Serializable){
+      const result = JSON.parse(serialized, this.dateReviver);
+      const resultKeys = Object.keys(result);
+      const constructorKeys = Object.keys(this);
+      for(let item of resultKeys){
+        if (!constructorKeys.includes(item)) {
+          throw new Error(`Not instance of ${this.constructor.name}`);
+        }
+      }
+      return new this.constructor(result);
     }
   }
+
+  nAnStringifier(key, value){
+    if (value === Infinity) {
+      return 'Infinity';
+    } else if (value === -Infinity) {
+      return '-Infinity';
+    } else if (value !== value) {
+      return 'NaN';
+    }
+    return value;
+  }
+
+  dateReviver(key, value) {
+  if ('string' === typeof value && /^\d{4}-[01]\d-[0-3]\dT[012]\d(?::[0-6]\d){2}\.\d{3}Z$/.test(value)) {
+    const date = new Date(value);
+    if (+date === +date) {
+      return date;
+    }
+  }
+  return value;
+}
 }
 
 //examples
 
 class UserDTO extends Serializable {
   constructor(
-    {firstName = '', lastName = '', phone = '', birth = ''} = {
-      firstName: '',
-      lastName: '',
-      phone: '',
-      birth: '',
-    },
+    {firstName, lastName, phone, birth} = {}
   ) {
     super();
 
@@ -59,7 +75,7 @@ let tolik = new UserDTO({
   birth: new Date('1999-01-02'),
 });
 
-tolik.printInfo(); //A. Nashovich - 2020327, 1999-01-02T00:00:00.000Z
+// tolik.printInfo(); //A. Nashovich - 2020327, 1999-01-02T00:00:00.000Z
 
 const serialized = tolik.serialize();
 tolik = null;
@@ -68,7 +84,7 @@ const resurrectedTolik = new UserDTO().wakeFrom(serialized);
 
 console.log(resurrectedTolik instanceof UserDTO); // true
 console.log(resurrectedTolik);
-// resurrectedTolik.printInfo(); // A. Nashovich - 2020327, 1999-01-02T00:00:00.000Z
+resurrectedTolik.printInfo(); // A. Nashovich - 2020327, 1999-01-02T00:00:00.000Z
 
 class Post extends Serializable {
   constructor(
@@ -106,6 +122,7 @@ class Singer extends Serializable {
     this.nan = NaN;
     this.infinite = Infinity;
     this.songs = songs;
+    this.zero = 0;
   }
 }
 
