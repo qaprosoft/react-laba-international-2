@@ -122,4 +122,18 @@ console.log(startsWithDigit("xyz"));    // Output: false
 
 
 // task 7 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#7-optional-advanced
+function isValidPhoneNumber(phoneNumber) {
+    const regexp = /^\+38\s0[1-9]\d{1}-\d{3}-\d{2}-\d{2}$/;
+    return regexp.test(phoneNumber);
+}
+
+console.log(isValidPhoneNumber("+38 011-429-38-32")); // Output: true
+console.log(isValidPhoneNumber("+38 099-429-38-32")); // Output: true
+console.log(isValidPhoneNumber("+38 055-45-678"));    // Output: false (not enough digits)
+console.log(isValidPhoneNumber("+38 000-429-38-32")); // Output: false (second and third digits must not be 0)
+console.log(isValidPhoneNumber("123-45-678"));        // Output: false (missing country code)
+
+
+
+
 // task 8 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#8-optional-advanced
