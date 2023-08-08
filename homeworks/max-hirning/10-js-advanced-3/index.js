@@ -22,8 +22,8 @@ function hasHTMLTags(inputString) {
 }
 
 
-// task 2
-// task 3
+// task 2 https://www.codewars.com/kata/5a353a478f27f244a1000076
+// task 3 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#3-settimeoutsetinterval
 function timer() {
     let second = 1;
     const interval = setInterval(() => {
@@ -34,8 +34,8 @@ function timer() {
 }
 
 
-// task 4
-// task 5
-// task 6
-// task 7
-// task 8
+// task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#4-event-loop
+// task 5 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#5-fetch-apixmlhttprequest
+// task 6 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#6-digit-or-not
+// task 7 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#7-optional-advanced
+// task 8 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#8-optional-advanced
