@@ -1,0 +1,32 @@
+*{
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.fetch{
+  text-align: center;
+  margin-top: 2em;
+}
+
+.users-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.users{
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10em;
+  width: 80em;
+  max-width: 100%;
+}
+
+.xml{
+  margin-top: 5em;
+}
