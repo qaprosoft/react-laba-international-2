@@ -25,7 +25,7 @@ function validateMessage(msg) {
 
 // async function sayJoke(apiUrl, jokeId) {
 //   let responseObj = '';
-//   try { 
+//   try {
 //     let response = await fetch(apiUrl);
 //     if (response.ok) {
 //       let json = await response.json();
@@ -40,9 +40,9 @@ function validateMessage(msg) {
 
 //task 3:
 
-function secondsInterval(){
+function secondsInterval() {
   let counter = 0;
-  let timerID = setInterval(function (){
+  let timerID = setInterval(function () {
     console.log(`Elapsed time: ${(counter += 1)} sec`);
     if (counter > 4) {
       clearInterval(timerID);
@@ -54,8 +54,23 @@ function secondsInterval(){
 
 //task6:
 
-function digitOrNot(str){
+function digitOrNot(str) {
   const checkDigit = /\d/;
   return checkDigit.test(str[0]);
 }
 
+//task7
+
+function isTelNumber(str) {
+  //pattern: +375 xxx xxx-xx-xx
+  const checkNum = /\+375\s\d{2,4}\s\d{3}-\d{2}-\d{2}/;
+
+  return checkNum.test(str);
+}
+
+//test cases:
+
+/* console.log(isTelNumber('+375 44 537-98-39'));
+console.log(isTelNumber('+375 44 537-98-39'));
+console.log(isTelNumber('+375 29 537-98-39'));
+console.log(isTelNumber('+375 17 795-36-38')); */
