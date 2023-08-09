@@ -52,3 +52,10 @@ function secondsInterval(){
 
 //task 5 - In the task5 folder
 
+//task6:
+
+function digitOrNot(str){
+  const checkDigit = /\d/;
+  return checkDigit.test(str[0]);
+}
+
