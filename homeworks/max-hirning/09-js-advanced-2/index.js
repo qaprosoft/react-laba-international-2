@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 class CustomJSONParser {
   constructor(jsonString) {
     this.parsedObject = jsonString;
   }
-  
+
   parseValue(value) {
     if (Array.isArray(value)) {
       return value.map(item => this.parseValue(item));
@@ -26,7 +26,7 @@ class CustomJSONParser {
     }
     return value;
   }
-  
+
   parse() {
     this.parsedObject = this.parseValue(this.parsedObject);
     return this.parsedObject;
@@ -43,21 +43,27 @@ class Serializable {
         ...this,
       },
       (key, value) => {
-        if (value instanceof Function || value instanceof Symbol || value instanceof Error) { // check if our value pass our condition
+        if (
+          value instanceof Function ||
+          value instanceof Symbol ||
+          value instanceof Error
+        ) {
+          // check if our value pass our condition
           throw new Error('Non-serializable property found');
         }
         if (typeof value === 'number' && (isNaN(value) || !isFinite(value))) {
           return value.toString();
         }
         return value;
-      }
+      },
     );
   }
 
   wakeFrom(serialized) {
     const data = JSON.parse(serialized);
     if (data && data.__class__) {
-      if(data.__class__ === this.constructor.name) { // check if our data children class name match our children class name
+      if (data.__class__ === this.constructor.name) {
+        // check if our data children class name match our children class name
         const customParser = new CustomJSONParser(data.data);
         const parsedObject = customParser.parse();
         return new this.constructor(parsedObject);
@@ -68,19 +74,18 @@ class Serializable {
       throw new Error('Invalid serialized data');
     }
   }
-  
 }
 
 class UserDTO extends Serializable {
   constructor(options) {
     super();
-    
+
     this.data = options;
   }
 }
 
 const obj = {
-  name: "Max",
+  name: 'Max',
   arr: [
     308,
     -Infinity,
@@ -89,16 +94,16 @@ const obj = {
     0,
     {
       date: new Date(),
-      arr: [new Date, Infinity, "Hello world"]
+      arr: [new Date(), Infinity, 'Hello world'],
     },
     [
       new Date(),
       {
         isAdmin: false,
-      }
-    ]
-  ]
-}
+      },
+    ],
+  ],
+};
 
 let tolik = new UserDTO(obj);
 
