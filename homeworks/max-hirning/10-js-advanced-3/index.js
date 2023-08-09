@@ -23,6 +23,9 @@ function hasHTMLTags(inputString) {
 
 
 // task 2 https://www.codewars.com/kata/5a353a478f27f244a1000076
+// SKIP, API IS NOT WORKING
+
+
 // task 3 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#3-settimeoutsetinterval
 function timer() {
     let second = 1;
@@ -34,7 +37,6 @@ function timer() {
 }
 
 
-// task 4 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#4-event-loop
 // task 5 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#5-fetch-apixmlhttprequest
 const listContainer = document.querySelector(".list");
 
@@ -132,8 +134,3 @@ console.log(isValidPhoneNumber("+38 099-429-38-32")); // Output: true
 console.log(isValidPhoneNumber("+38 055-45-678"));    // Output: false (not enough digits)
 console.log(isValidPhoneNumber("+38 000-429-38-32")); // Output: false (second and third digits must not be 0)
 console.log(isValidPhoneNumber("123-45-678"));        // Output: false (missing country code)
-
-
-
-
-// task 8 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#8-optional-advanced
