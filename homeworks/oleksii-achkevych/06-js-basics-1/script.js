@@ -1,8 +1,8 @@
 // 1 http://www.codewars.com/kata/opposite-number
 function opposite(number) {
-    return -number;
-  }
-  
+  return -number;
+}
+
 // 2 http://www.codewars.com/kata/basic-mathematical-operations
 function basicOp(operation, value1, value2) {
   switch (operation) {
@@ -109,11 +109,11 @@ function partitionOn(predicate, items) {
   const trueItems = items.filter(item => predicate(item));
   const result = [...falseItems, ...trueItems];
   const firstTrueIndex = falseItems.length;
-  
+
   for (let i = 0; i < items.length; i++) {
     items[i] = result[i];
   }
-  
+
   return firstTrueIndex;
 }
 // 8 http://www.codewars.com/kata/word-count
@@ -195,18 +195,18 @@ function catMouse(field, allowedMoves) {
   const mouseIndex = field.indexOf('m');
 
   if (catIndex === -1 || mouseIndex === -1) {
-    return "boring without two animals";
+    return 'boring without two animals';
   }
 
   const rows = field.indexOf('\n') + 1;
   const catRow = Math.floor(catIndex / rows) + 1;
-  const catCol = catIndex % rows + 1;
+  const catCol = (catIndex % rows) + 1;
   const mouseRow = Math.floor(mouseIndex / rows) + 1;
-  const mouseCol = mouseIndex % rows + 1;
+  const mouseCol = (mouseIndex % rows) + 1;
 
   const distance = Math.abs(catRow - mouseRow) + Math.abs(catCol - mouseCol);
 
-  return distance <= allowedMoves ? "Caught!" : "Escaped!";
+  return distance <= allowedMoves ? 'Caught!' : 'Escaped!';
 }
 //15 https://www.codewars.com/kata/duplicate-encoder
 function duplicateEncode(word) {
@@ -235,7 +235,7 @@ function towerBuilder(nFloors) {
     const stars = i * 2 + 1;
     const spaces = (maxWidth - stars) / 2;
 
-    const floor = " ".repeat(spaces) + "*".repeat(stars) + " ".repeat(spaces);
+    const floor = ' '.repeat(spaces) + '*'.repeat(stars) + ' '.repeat(spaces);
     tower.push(floor);
   }
 
@@ -247,7 +247,8 @@ function wave(str) {
 
   for (let i = 0; i < str.length; i++) {
     if (str[i] !== ' ') {
-      const wavedStr = str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1);
+      const wavedStr =
+        str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1);
       wave.push(wavedStr);
     }
   }
@@ -280,13 +281,7 @@ function stringBreakers(n, string) {
 //20 https://www.codewars.com/kata/514a024011ea4fb54200004b
 function domainName(url) {
   const domain = url.replace(/(https?:\/\/)?(www\.)?/, '').split('/')[0];
-  
+
   const parts = domain.split('.');
   return parts[0];
 }
-
-
-
-
-
-
