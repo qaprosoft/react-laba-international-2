@@ -126,4 +126,10 @@ console.log(digitOrNot('1asdas'));
 
 //task 7
 
-//not done
+function isFonNumber(str) {
+  const phoneNumber = str.replaceAll('-', '').replaceAll(' ', '');
+
+  return /^(\+375|375)(17|25|29|33|44|33|44)[0-9]{7}$/.test(phoneNumber);
+}
+
+console.log(isFonNumber('+375 4428-27-822'));
