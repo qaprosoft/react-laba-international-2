@@ -34,21 +34,22 @@ function getEvenNumbers(numbersArray) {
 
 // Task 5: https://www.codewars.com/kata/5a090c4e697598d0b9000004/train/javascript
 function solve(numbers) {
-  numbers.sort((a, b) => a - b);
+  const sortedNumbers = [...numbers];
+  sortedNumbers.sort((a, b) => a - b);
 
   const maxMinArray = [];
   let left = 0;
-  let right = numbers.length - 1;
+  let right = sortedNumbers.length - 1;
   while (left < right) {
-    maxMinArray.push(numbers[right]);
-    maxMinArray.push(numbers[left]);
+    maxMinArray.push(sortedNumbers[right]);
+    maxMinArray.push(sortedNumbers[left]);
     left++;
     right--;
   }
 
   // if there is a middle number left, add it
   if (left === right) {
-    maxMinArray.push(numbers[left]);
+    maxMinArray.push(sortedNumbers[left]);
   }
 
   return maxMinArray;
