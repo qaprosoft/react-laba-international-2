@@ -1,0 +1,13 @@
+#user-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1{
+    display: flex;
+    justify-content: center;
+}
