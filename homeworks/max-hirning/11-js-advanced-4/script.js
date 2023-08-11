@@ -1,53 +1,58 @@
-const numRows = 30;
-const numCols = 20;
-let activeRow = -1;
-let activeCol = -1;
 let selectedCells = new Set();
+const tbody = document.querySelector('tbody');
 
-const tbody = document.querySelector("tbody");
+drawGrid(30, 20);
 
-
-for (let i = 0; i < numRows; i++) {
-    const row = document.createElement("tr");
+function drawGrid(numRows, numCols) {
+  for (let i = 0; i < numRows; i++) {
+    const row = document.createElement('tr');
     for (let j = 0; j < numCols; j++) {
-        const cell = document.createElement("td");
-        cell.textContent = `${j + 1}/${i + 1}`;
-
-        cell.addEventListener("click", (event) => {
-            const clickedCell = event.target;
-            if (event.shiftKey) {
-                selectedCells.add(clickedCell);
-            } else {
-                selectedCells.forEach((cell) => {
-                    cell.classList.remove("selected");
-                });
-                selectedCells.clear();
-                selectedCells.add(clickedCell);
-            }
-            clickedCell.classList.add("selected");
-            activeRow = i;
-            activeCol = j;
-            updateActiveRowCol();
-        });
-
-        row.appendChild(cell);
+      const cell = document.createElement('td');
+      cell.setAttribute('data-row', i);
+      cell.setAttribute('data-col', j);
+      cell.addEventListener('click', event =>
+        onBlockClick({event, j, i, numRows, numCols}),
+      );
+      row.appendChild(cell);
     }
     tbody.appendChild(row);
+  }
 }
 
-function updateActiveRowCol() {
+function onBlockClick({event, j, i, numRows, numCols}) {
+  const clickedCell = event.target;
+  if (event.shiftKey) {
+    selectedCells.add(clickedCell); // it appears I have not done it right
+  } else {
+    selectedCells.forEach(cell => {
+      cell.classList.remove('selected');
+      cell.textContent = '';
+    });
+    selectedCells.clear();
+    selectedCells.add(clickedCell);
+  }
+  clickedCell.classList.add('selected');
+  clickedCell.textContent = `${j + 1}/${i + 1}`;
+  updateActiveRowCol(clickedCell, numRows, numCols);
+}
+
+function updateActiveRowCol(clickedCell, numRows, numCols) {
+  const activeRow = parseInt(clickedCell.getAttribute('data-row'));
+  const activeCol = parseInt(clickedCell.getAttribute('data-col'));
+
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      const cell = tbody.rows[i].cells[j];
+      cell.classList.remove('active');
+    }
+  }
+
+  if (activeRow !== -1 && activeCol !== -1) {
     for (let i = 0; i < numRows; i++) {
-        for (let j = 0; j < numCols; j++) {
-            const cell = tbody.rows[i].cells[j];
-            cell.classList.remove("active");
-        }
+      tbody.rows[i].cells[activeCol].classList.add('active');
     }
-    if (activeRow !== -1 && activeCol !== -1) {
-        for (let i = 0; i < numRows; i++) {
-            tbody.rows[i].cells[activeCol].classList.add("active");
-        }
-        for (let j = 0; j < numCols; j++) {
-            tbody.rows[activeRow].cells[j].classList.add("active");
-        }
+    for (let j = 0; j < numCols; j++) {
+      tbody.rows[activeRow].cells[j].classList.add('active');
     }
+  }
 }
