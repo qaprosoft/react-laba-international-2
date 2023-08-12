@@ -22,7 +22,7 @@ function drawGrid(numRows, numCols) {
 function onBlockClick({event, j, i, numRows, numCols}) {
   const clickedCell = event.target;
   if (event.shiftKey) {
-    selectedCells.add(clickedCell); // it appears I have not done it right
+    selectedCells.add(clickedCell);
   } else {
     selectedCells.forEach(cell => {
       cell.classList.remove('selected');
@@ -33,17 +33,21 @@ function onBlockClick({event, j, i, numRows, numCols}) {
   }
   clickedCell.classList.add('selected');
   clickedCell.textContent = `${j + 1}/${i + 1}`;
-  updateActiveRowCol(clickedCell, numRows, numCols);
+  for (const entry of selectedCells.entries()) {
+    updateActiveRowCol(entry[0], numRows, numCols, event.shiftKey);
+  }
 }
 
-function updateActiveRowCol(clickedCell, numRows, numCols) {
+function updateActiveRowCol(clickedCell, numRows, numCols, isShiftPressed) {
   const activeRow = parseInt(clickedCell.getAttribute('data-row'));
   const activeCol = parseInt(clickedCell.getAttribute('data-col'));
 
-  for (let i = 0; i < numRows; i++) {
-    for (let j = 0; j < numCols; j++) {
-      const cell = tbody.rows[i].cells[j];
-      cell.classList.remove('active');
+  if (!isShiftPressed) {
+    for (let i = 0; i < numRows; i++) {
+      for (let j = 0; j < numCols; j++) {
+        const cell = tbody.rows[i].cells[j];
+        cell.classList.remove('active');
+      }
     }
   }
 
