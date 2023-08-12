@@ -1,8 +1,6 @@
 'use strict';
 
 class Serializable {
-  static serializedData = {};
-
   serialize() {
     if (this instanceof Serializable) {
       return JSON.stringify(this, this.nAnStringifier);
@@ -10,11 +8,15 @@ class Serializable {
   }
 
   wakeFrom(serialized) {
-    if(this instanceof Serializable){
+    if(typeof serialized !== "string"){
+      throw new Error("An input has to be string to deserialize it");
+    }
+
+    if (this instanceof Serializable) {
       const result = JSON.parse(serialized, this.dateReviver);
       const resultKeys = Object.keys(result);
       const constructorKeys = Object.keys(this);
-      for(let item of resultKeys){
+      for (let item of resultKeys) {
         if (!constructorKeys.includes(item)) {
           throw new Error(`Not instance of ${this.constructor.name}`);
         }
@@ -23,7 +25,7 @@ class Serializable {
     }
   }
 
-  nAnStringifier(key, value){
+  nAnStringifier(_, value) {
     if (value === Infinity) {
       return 'Infinity';
     } else if (value === -Infinity) {
@@ -34,23 +36,26 @@ class Serializable {
     return value;
   }
 
-  dateReviver(key, value) {
-  if ('string' === typeof value && /^\d{4}-[01]\d-[0-3]\dT[012]\d(?::[0-6]\d){2}\.\d{3}Z$/.test(value)) {
-    const date = new Date(value);
-    if (+date === +date) {
-      return date;
+  dateReviver(_, value) {
+    if (
+      'string' === typeof value &&
+      /^\d{4}-[01]\d-[0-3]\dT[012]\d(?::[0-6]\d){2}\.\d{3}Z$/.test(value)
+    ) {
+      const date = new Date(value);
+      if (+date === +date) {
+        return date;
+      }
+    }else if('string' === typeof value && value === "Infinity"){
+      value = Infinity;
     }
+    return value;
   }
-  return value;
-}
 }
 
 //examples
 
 class UserDTO extends Serializable {
-  constructor(
-    {firstName, lastName, phone, birth} = {}
-  ) {
+  constructor({firstName, lastName, phone, birth} = {}) {
     super();
 
     this.firstName = firstName;
@@ -75,16 +80,36 @@ let tolik = new UserDTO({
   birth: new Date('1999-01-02'),
 });
 
+let vladik = new UserDTO({
+  firstName: "Vladislav",
+  lastName: Infinity,
+  phone: Infinity,
+  birth: null,
+})
+
+
+
+// console.log(vladik);
+
+// vladik = vladik.serialize();
+
+// console.log(vladik);
+
+// vladik = new UserDTO().wakeFrom(vladik);
+
+// console.log(vladik);
+
+
 // tolik.printInfo(); //A. Nashovich - 2020327, 1999-01-02T00:00:00.000Z
 
-const serialized = tolik.serialize();
-tolik = null;
+// const serialized = tolik.serialize();
+// tolik = null;
 
-const resurrectedTolik = new UserDTO().wakeFrom(serialized);
+// const resurrectedTolik = new UserDTO().wakeFrom(serialized);
 
-console.log(resurrectedTolik instanceof UserDTO); // true
-console.log(resurrectedTolik);
-resurrectedTolik.printInfo(); // A. Nashovich - 2020327, 1999-01-02T00:00:00.000Z
+// console.log(resurrectedTolik instanceof UserDTO); // true
+// console.log(resurrectedTolik);
+// resurrectedTolik.printInfo(); // A. Nashovich - 2020327, 1999-01-02T00:00:00.000Z
 
 class Post extends Serializable {
   constructor(
@@ -126,22 +151,24 @@ class Singer extends Serializable {
   }
 }
 
-let NattiNatasha = new Singer({
-  firstName: 'Natasha',
-  lastName: 'Batista ',
-  randomArr: [6, 4, 2, '5', '7', '10', 'hello', [1, 2, new Date()]],
-  songs: {
-    'Sin Pijama': '2018',
-    'Las noches en Miami': '2021',
-  },
-});
+// let NattiNatasha = new Singer({
+//   firstName: 'Natasha',
+//   lastName: 'Batista ',
+//   randomArr: [6, 4, 2, '5', '7', '10', 'hello', [1, 2, new Date()]],
+//   songs: {
+//     'Sin Pijama': '2018',
+//     'Las noches en Miami': '2021',
+//   },
+// });
 
-console.log(NattiNatasha);
+// console.log(NattiNatasha);
 
-let serializedNatti = NattiNatasha.serialize();
+// let serializedNatti = NattiNatasha.serialize();
 
-console.log(serializedNatti);
+// console.log(serializedNatti);
 
-console.log(new Singer().wakeFrom(serializedNatti));
+// serializedNatti = new Singer().wakeFrom(serializedNatti);
 
-console.log(NattiNatasha instanceof Serializable);
+// console.log(serializedNatti.infinite === Infinity);
+
+// console.log(NattiNatasha instanceof Serializable);
