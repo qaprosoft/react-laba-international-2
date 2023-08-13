@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(20, 40px);
+  grid-template-rows: repeat(30, 40px);
+}
+
+.cell {
+  border: 1px solid black;
+  margin-top: -1px;
+  margin-left: -1px;
+  cursor: pointer;
+}
+
+.selected-row,
+.selected-column {
+  background-color: lightblue;
+}
+
+.active {
+  background-color: blue;
+}
