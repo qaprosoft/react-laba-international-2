@@ -15,6 +15,10 @@ main {
   margin-top: -1px;
   margin-left: -1px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
 }
 
 .selected-row,

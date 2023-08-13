@@ -14,6 +14,7 @@ main.addEventListener('pointerdown', function (event) {
     const activeCells = document.querySelectorAll('.active');
     activeCells.forEach(e => {
       e.classList.remove('active');
+      e.innerHTML = '';
     });
     activeElements = [];
   }
@@ -47,5 +48,8 @@ main.addEventListener('pointerdown', function (event) {
   });
 
   activeElement = document.querySelector(`.cell-${cellID}`);
+  activeElement.innerHTML = `${cellColumn === 0 ? 20 : cellColumn}/${
+    cellRow + 1
+  }`;
   activeElement.classList.add('active');
 });
