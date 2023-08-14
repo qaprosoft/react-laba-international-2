@@ -42,11 +42,11 @@ Once PR is created you have to do the following things:
 | Day          | Theme                                                                         | Homework                                                        |
 | :----------- | :---------------------------------------------------------------------------- | :-------------------------------------------------------------- |
 | July 25th    | [Javascript, Part 1](./lectures/06-js-basics-1/README.md)                     | [task 🔗](./lectures/06-js-basics-1/task.md)                    |
-| July 28th    | Javascript, Part 2                                                            |                                                                 |
-| Aug 1st      | Javascript, Part 3                                                            |                                                                 |
-| Aug 4th      | Javascript, Part 4                                                            |                                                                 |
-| Aug 8th      | Javascript, Part 5                                                            |                                                                 |
-| Aug 11th     | Javascript, DOM                                                               |                                                                 |
+| July 28th    | [Javascript, Part 2](./lectures/07-js-basics-2/README.md)                     | [task 🔗](./lectures/07-js-basics-2/task.md)                    |
+| Aug 1st      | [Javascript, Part 3](./lectures/08-js-advanced-1/README.md)                   | [task 🔗](./lectures/08-js-advanced-1/task.md)                  |
+| Aug 4th      | [Javascript, Part 4](./lectures/09-js-advanced-2/README.md)                   | [task 🔗](./lectures/09-js-advanced-2/task.md)                  |
+| Aug 8th      | [Javascript, Part 5](./lectures/10-js-advanced-3/README.md)                   | [task 🔗](./lectures/10-js-advanced-3/task.md)                  |
+| Aug 11th     | [Javascript, DOM](./lectures/11-js-dom/README.md)                             | [task 🔗](./lectures/11-js-dom/task.md)                         |
 | Aug 15th     | Data structures & algorithms                                                  |                                                                 |
 | Aug 18th     | Environment                                                                   |                                                                 |
 | Aug 22th     | Principles                                                                    |                                                                 |
