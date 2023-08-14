@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(20, 40px);
+  grid-template-rows: repeat(30, 40px);
+  grid-gap: 1px;
+}
+
+#grid div {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 1px slategray;
+}
+
+#grid .highlight {
+  background: lightblue;
+}
+
+#grid .active {
+  background: blue;
+  color: white;
+}
