@@ -31,12 +31,12 @@ async function requestUsers(url) {
       let json = await response.json();
       users = json.results;
       return users;
+    }else{
+      console.log(response.status);
     }
   } catch (e) {
     console.log(e.message);
     console.log(e);
-  }finally{
-    console.log(response.status);
   }
 }
 
