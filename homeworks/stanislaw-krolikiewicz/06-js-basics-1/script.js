@@ -251,3 +251,104 @@ const catMouse = (map, moves) => {
   }
   else return 'boring without two animals'
 }
+
+// task 15 https://www.codewars.com/kata/duplicate-encoder
+const duplicateEncode = word => {
+  word = word.toLowerCase()
+  let encoded = ''
+  for (let i = 0; i < word.length; i++) {
+    let counter = Array.from(word).filter(item => item === word[i]).length
+    encoded += counter > 1 ? ')' : '('
+  }
+  return encoded
+}
+
+// task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
+// const findAdditiveNumbers = num => {
+//   let x = 3, offset = 0,flague = true, array = [], lastArrayLength = 2
+//   let div = parseInt(num.length / x)
+//     let [prev, curr] = [parseInt(num.slice(0, div - offset)), parseInt(num.slice(div - offset, div*2))]
+//     let [loopStart, loopEnd] = [div*2, div*2 + curr.toString().length]
+//   while (flague && loopEnd < num.length) {
+//     let next = ''
+//     for (let i = loopStart; i < loopEnd; i++) {
+//       if(parseInt(next) !== parseInt(prev + curr)) next += num[i]
+//       else {
+//         if (lastArrayLength === 2) {
+//           array.push(prev.toString(), curr.toString())
+//         }
+//         prev = curr
+//         curr = parseInt(next)
+//         array.push(curr.toString())
+//         [loopStart, loopEnd] = [i+1, i+1+curr.toString().length]
+//         break
+//       }
+//     }
+
+//     if (array.length <= lastArrayLength) {
+//       if (div - offset > 1 ) offset += 1
+//       else {
+//         if (div > 1 ) x += 1
+//         else {
+//           return []
+//         }
+//       }
+//       [prev, curr] = [parseInt(num.slice(0, div - offset)), parseInt(num.slice(div - offset, div*2))]
+//         [loopStart, loopEnd] = [div*2, div*2 + curr.toString().length]
+//     }
+//     else lastArrayLength = array.length
+//   }
+//   return array
+// }
+
+console.log(findAdditiveNumbers('112358'))
+
+// task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
+const towerBuilder = n => {
+  let tower = [], w =(n-1)*2+1
+  for (let i = 0; i < n; i++) {
+    let string = ''
+    for (let j = 0; j < i; j++) string += ' '
+    for (let j = 0; j < w-2*i; j++) string += '*'
+    for (let j = 0; j < i; j++) string += ' '
+    tower.unshift(string)
+  }
+  return tower
+}
+
+// task 18 https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
+const wave = string => {
+  let wave = []
+  for (let i =0; i < string.length; i++) {
+    if(string[i] !== ' ') {
+      let a = ''
+      for ( let j = 0; j < string.length; j++){
+        if (j === i) a += string[j].toUpperCase()
+        else a += string[j]
+      }
+      wave.push(a)
+    }
+  }
+
+  return wave
+}
+
+// task 19 https://www.codewars.com/kata/59d398bb86a6fdf100000031
+const stringBreakers = (n, string) => {
+  string = string.replace(/\s/g , '')
+  let edited = '', modulo = string.length % n
+  for (let i = 0; i < parseInt(string.length / n); i++) {
+    edited = edited + string.substring(i*n, (i+1)*n)
+    if (modulo === 0 && i < parseInt(string.length / n) - 1 || modulo !== 0 && i < parseInt(string.length / n)) edited += '\n'
+  }
+  if (modulo !== 0) edited += string.substring(string.length - modulo,string.length)
+  return edited
+}
+
+// task 20 https://www.codewars.com/kata/514a024011ea4fb54200004b
+const domainName = url => {
+  if (url.includes('//')) url = url.split('//')[1]
+  if (url.includes('www.')) url = url.split('www.')[1]
+  url = url.split('.')[0]
+  return url
+}
