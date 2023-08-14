@@ -24,12 +24,18 @@ async function generateUsers() {
 }
 
 async function requestUsers(url) {
-  let response = await fetch(url);
-  if (response.ok) {
-    let json = await response.json();
-    users = json.results;
-    return users;
-  } else {
+  let response
+  try {
+    response = await fetch(url);
+    if (response.ok) {
+      let json = await response.json();
+      users = json.results;
+      return users;
+    }
+  } catch (e) {
+    console.log(e.message);
+    console.log(e);
+  }finally{
     console.log(response.status);
   }
 }
