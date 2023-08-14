@@ -78,9 +78,9 @@ console.log(
 console.log(user2.arr[2].test === clonedUser.arr[2].test); // false
 
 // task 3 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#3-a-long-time-ago
-const offset = date => {
-  const today = new Date(/* '2021-02-23T14:00:00' */);
-  date = new Date(date);
+const offset = dateString => {
+  const today = new Date('2021-02-23T14:00:00');
+  const date = new Date(dateString);
 
   // difference between dates in seconds
   let seconds = (+today - +date) / 1000;
@@ -195,7 +195,8 @@ function partialKeys(obj) {
 }
 
 // task 9 https://www.codewars.com/kata/human-readable-time
-function humanReadable(seconds) {
+function humanReadable(sec) {
+  let seconds = sec;
   const hours = Math.floor(seconds / 3600)
     .toString()
     .padStart(2, '0');
