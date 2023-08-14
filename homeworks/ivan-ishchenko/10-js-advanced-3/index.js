@@ -31,3 +31,13 @@ const sayJoke = async (apiUrl, jokeId) => {
     sayPunchLine: () => joke.punchLine,
   };
 };
+
+
+// task 3
+let secondsElapsed = 0;
+const intervalId = setInterval(
+  () => console.log(`Elapsed time: ${++secondsElapsed} sec`),
+  1000,
+);
+
+setTimeout(() => clearInterval(intervalId), 5000);
