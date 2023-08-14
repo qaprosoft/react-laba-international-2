@@ -9,7 +9,7 @@ function pluck(obj, path) {
   let value = obj;
 
   for (const key of keys) {
-    if (value.hasOwnProperty(key)) {
+    if (value !== null && value.hasOwnProperty(key)) {
       value = value[key];
     } else {
       return null;
@@ -19,12 +19,21 @@ function pluck(obj, path) {
   return value;
 }
 //example
+// const user = {
+//   username: 'testuser1',
+//   preferences: {
+//     sound: {
+//       maxValue: 50,
+//       value: 30,
+//     },
+//   },
+// };
 const user = {
   username: 'testuser1',
   preferences: {
     sound: {
       maxValue: 50,
-      value: 30,
+      value: null,
     },
   },
 };
