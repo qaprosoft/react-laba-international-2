@@ -41,3 +41,15 @@ const intervalId = setInterval(
 );
 
 setTimeout(() => clearInterval(intervalId), 5000);
+
+// task 6
+const beginsWithDigit = s => !!s.match(/^\d/);
+
+console.log(beginsWithDigit('32test')); // true
+console.log(beginsWithDigit('test')); // false
+console.log(beginsWithDigit('te2st3')); // false
+
+// task 7
+// checking for format +380 XX XXX XX XX
+const isValidUAPhoneNumber = phone =>
+  !!phone.match(/\+380\s[0-9]{2}\s[0-9]{3}(\s[0-9]{2}){2}/);
