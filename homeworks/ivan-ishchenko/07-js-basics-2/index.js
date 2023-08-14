@@ -56,7 +56,8 @@ function gimme(triplet) {
 const binaryArrayToNumber = arr => parseInt(arr.join(''), 2);
 
 // task 9 https://www.codewars.com/kata/585d7d5adb20cf33cb000235
-function findUniq(arr) {
+function findUniq(numbers) {
+  const arr = [...numbers];
   arr.sort();
   // because all numbers are equal except for one
   // than after sort unique number will be either first or last
@@ -129,9 +130,8 @@ class PaginationHelper {
 }
 
 // task 2 https://www.codewars.com/kata/52597aa56021e91c93000cb0
-const moveZeros = arr => {
-  return arr.filter(e => e !== 0).concat(arr.filter(e => e === 0));
-};
+const moveZeros = arr =>
+  arr.filter(e => e !== 0).concat(arr.filter(e => e === 0));
 
 // task 3 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
 function findUniq(arr) {
