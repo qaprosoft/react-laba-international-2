@@ -24,23 +24,21 @@ const user = {
   },
 };
 
-let deepCloneCreator = function (obj) {
+const deepCloneCreator = function (obj) {
   return JSON.parse(JSON.stringify(obj));
   // return structuredClone(obj);
 };
 
-clonedUser.preferences.sound.maxValue = 70;
-
 // task 3 "A long time ago"
 
 function offset(date) {
-  let arrDate = date.split(' ');
-  let days = arrDate[0].split('/').reverse().join('-');
-  let fullDate = new Date(days + 'T' + arrDate[1]);
-  let millsPerHour = 3.6e6;
-  let millsPerDay = 8.64e7;
-  let millsPerYear = 3.154e10;
-  let millDifference = Date.now() - fullDate.getTime();
+  const arrDate = date.split(' ');
+  const days = arrDate[0].split('/').reverse().join('-');
+  const fullDate = new Date(days + 'T' + arrDate[1]);
+  const millsPerHour = 3.6e6;
+  const millsPerDay = 8.64e7;
+  const millsPerYear = 3.154e10;
+  const millDifference = Date.now() - fullDate.getTime();
 
   if (millDifference > millsPerYear) {
     return (
@@ -54,7 +52,9 @@ function offset(date) {
     );
   } else {
     return (
-      'the date was ' + (millDifference / millsPerHour).toFixed(2) + 'hours ago'
+      'the date was ' +
+      (millDifference / millsPerHour).toFixed(2) +
+      ' hours ago'
     );
   }
 }
@@ -62,10 +62,10 @@ function offset(date) {
 //task 4 Random dates
 
 function randomDate(date1, date2) {
-  let [year1, month1, day1] = date1.split('/').reverse();
-  let [year2, month2, day2] = date2.split('/').reverse();
-  let date1Milliseconds = new Date(year1, month1 - 1, day1).getTime();
-  let date2Milliseconds = new Date(year2, month2 - 1, day2).getTime();
+  const [year1, month1, day1] = date1.split('/').reverse();
+  const [year2, month2, day2] = date2.split('/').reverse();
+  const date1Milliseconds = new Date(year1, month1 - 1, day1).getTime();
+  const date2Milliseconds = new Date(year2, month2 - 1, day2).getTime();
 
   return date2Milliseconds > date1Milliseconds
     ? new Date(
@@ -81,7 +81,7 @@ function randomDate(date1, date2) {
 // task 5 https://www.codewars.com/kata/596cf5b0e1665a2d02000007
 
 function objConcat(o) {
-  let result = Object.assign({}, ...o);
+  const result = Object.assign({}, ...o);
 
   return result;
 }
@@ -130,7 +130,6 @@ function NamedOne(first, last) {
 // task 8 https://www.codewars.com/kata/54834b3559e638b39d0009a2
 
 function OnceNamedOne(first, last) {
-  // -- SHOULD be changed --
   this.first = first;
   this.last = last;
   Object.defineProperties(this, {
@@ -154,3 +153,27 @@ function OnceNamedOne(first, last) {
 }
 
 // task 9
+
+function partialKeys(obj) {
+  const getter = {
+    get: (obj, prop) => {
+      let res = Object.keys(obj)
+        .sort()
+        .find(key => key.indexOf(prop) === 0);
+      return res ? obj[res] : undefined;
+    },
+  };
+
+  return new Proxy(obj, getter);
+}
+
+// task 10
+
+function humanReadable(seconds) {
+  const hours = Math.floor(seconds / 60 / 60)
+    .toString()
+    .padStart(2, '0');
+  const minutes = (Math.floor(seconds / 60) % 60).toString().padStart(2, '0');
+  const sec = (seconds % 60).toString().padStart(2, '0');
+  return `${hours}:${minutes}:${sec}`;
+}
