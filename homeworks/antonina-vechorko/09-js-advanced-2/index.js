@@ -1,44 +1,24 @@
 class Serializable {
   serialize() {
-    const serializedData = {};
-
-    for (const prop in this) {
-      if (this[prop] !== null && this[prop] !== undefined) {
-        const propType = typeof this[prop];
-        if (
-          propType === 'object' ||
-          propType === 'number' ||
-          propType === 'string'
-        ) {
-          serializedData[prop] = this[prop];
-        } else if (propType === 'boolean') {
-          serializedData[prop] = this[prop] ? true : false;
-        } else if (this[prop] instanceof Date) {
-          serializedData[prop] = this[prop].toISOString();
-        }
+    const props = {};
+    for (const key in this) {
+      if (
+        this[key] !== undefined &&
+        this[key] !== null &&
+        this.hasOwnProperty(key)
+      ) {
+        props[key] = this[key];
       }
     }
-
-    return JSON.stringify(serializedData);
+    return JSON.stringify(props);
   }
 
   wakeFrom(serialized) {
-    const data = JSON.parse(serialized);
+    const props = JSON.parse(serialized);
     const instance = new this.constructor();
 
-    for (const prop in data) {
-      const propType = typeof instance[prop];
-      if (
-        propType === 'object' ||
-        propType === 'number' ||
-        propType === 'string'
-      ) {
-        instance[prop] = data[prop];
-      } else if (propType === 'boolean') {
-        instance[prop] = !!data[prop];
-      } else if (instance[prop] instanceof Date) {
-        instance[prop] = new Date(data[prop]);
-      }
+    for (const key in props) {
+      instance[key] = props[key];
     }
 
     return instance;
@@ -48,7 +28,6 @@ class Serializable {
 class UserDTO extends Serializable {
   constructor({firstName, lastName, phone, birth}) {
     super();
-
     this.firstName = firstName;
     this.lastName = lastName;
     this.phone = phone;
@@ -64,17 +43,7 @@ class UserDTO extends Serializable {
   }
 }
 
-class Post extends Serializable {
-  constructor({content, date, author}) {
-    super();
-
-    this.content = content;
-    this.date = date;
-    this.author = author;
-  }
-}
-
-let tolik = new UserDTO({
+const tolik = new UserDTO({
   firstName: 'Anatoliy',
   lastName: 'Nashovich',
   phone: '2020327',
@@ -84,11 +53,22 @@ let tolik = new UserDTO({
 tolik.printInfo();
 
 const serialized = tolik.serialize();
-tolik = null;
-
 const resurrectedTolik = new UserDTO().wakeFrom(serialized);
 
 console.log(resurrectedTolik instanceof UserDTO);
-console.log(resurrectedTolik.printInfo());
+resurrectedTolik.printInfo();
 
-console.log(new Post().wakeFrom(serialized));
+class Post extends Serializable {
+  constructor({content, date, author}) {
+    super();
+    this.content = content;
+    this.date = date;
+    this.author = author;
+  }
+}
+
+try {
+  new Post().wakeFrom(serialized);
+} catch (error) {
+  console.error(error.message);
+}
