@@ -1,5 +1,6 @@
 // task 1 http://www.codewars.com/kata/opposite-number
 const opposite = n => -n
+
 // task 2 http://www.codewars.com/kata/basic-mathematical-operations
 const basicOp = (operator, value1, value2) => {
   switch (operator) {
@@ -220,12 +221,6 @@ const nthFibo = n => {
   return sum
 }
 
-// const nthFibo = n => {
-//   let [prev, curr] = [0, 1]
-//   for (let i = 1; i < n; i++) [prev, curr] = [curr, prev + curr]
-//   return prev
-// }
-
 // task 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
 const catMouse = (map, moves) => {
   let C = {row: undefined, col: undefined}, m = {row: undefined, col: undefined}, minMoves, width = 0
@@ -264,44 +259,39 @@ const duplicateEncode = word => {
 }
 
 // task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
-// const findAdditiveNumbers = num => {
-//   let x = 3, offset = 0,flague = true, array = [], lastArrayLength = 2
-//   let div = parseInt(num.length / x)
-//     let [prev, curr] = [parseInt(num.slice(0, div - offset)), parseInt(num.slice(div - offset, div*2))]
-//     let [loopStart, loopEnd] = [div*2, div*2 + curr.toString().length]
-//   while (flague && loopEnd < num.length) {
-//     let next = ''
-//     for (let i = loopStart; i < loopEnd; i++) {
-//       if(parseInt(next) !== parseInt(prev + curr)) next += num[i]
-//       else {
-//         if (lastArrayLength === 2) {
-//           array.push(prev.toString(), curr.toString())
-//         }
-//         prev = curr
-//         curr = parseInt(next)
-//         array.push(curr.toString())
-//         [loopStart, loopEnd] = [i+1, i+1+curr.toString().length]
-//         break
-//       }
-//     }
+const findAdditiveNumbers = (num) => {
+  const additiveNumbers = []
 
-//     if (array.length <= lastArrayLength) {
-//       if (div - offset > 1 ) offset += 1
-//       else {
-//         if (div > 1 ) x += 1
-//         else {
-//           return []
-//         }
-//       }
-//       [prev, curr] = [parseInt(num.slice(0, div - offset)), parseInt(num.slice(div - offset, div*2))]
-//         [loopStart, loopEnd] = [div*2, div*2 + curr.toString().length]
-//     }
-//     else lastArrayLength = array.length
-//   }
-//   return array
-// }
+  const isAdditive = (start, array) => {
+    if (start === num.length) {
+      if (array.length >= 3) {
+        additiveNumbers.push(...array)
+      }
+      return
+    }
 
-console.log(findAdditiveNumbers('112358'))
+    for (let i = start + 1; i <= num.length; i++) {
+      const curr = num.slice(start, i)
+      if (curr.length > 1 && curr[0] === '0') break
+
+      if (array.length < 2 || Number(array[array.length - 1]) + Number(array[array.length - 2]) === Number(curr)) {
+        isAdditive(i, [...array, curr])
+      }
+    }
+  }
+
+  for (let i = 0; i < num.length - 1; i++) {
+    const n0 = num.slice(0, i + 1)
+    if (n0.length > 1 && n0[0] === '0') break
+    for (let j = i + 1; j < num.length; j++) {
+      const n1 = num.slice(i + 1, j + 1)
+      if (n1.length > 1 && n1[0] === '0') break
+      isAdditive(j + 1, [n0, n1])
+    }
+  }
+
+  return additiveNumbers
+};
 
 // task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 const towerBuilder = n => {
