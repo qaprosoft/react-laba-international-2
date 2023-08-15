@@ -12,12 +12,15 @@ const positiveSum = array => {
 // Task 2: https://www.codewars.com/kata/5a3e1319b6486ac96f000049
 const pairs = array => {
   let result = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] - 1 == array[i + 1] || array[i] + 1 == array[i + 1]) {
+  array.forEach((value, i) => {
+    if (
+      i < array.length - 1 &&
+      (value - 1 === array[i + 1] || value + 1 === array[i + 1])
+    ) {
       result++;
     }
-    i++;
-  }
+  });
+
   return result;
 };
 
@@ -62,10 +65,13 @@ const solve = array => {
 // Task 6: https://www.codewars.com/kata/566044325f8fddc1c000002c
 const evenChars = string => {
   const result = [];
+
   if (string.length >= 2 && string.length <= 100) {
-    for (let i = 1; i < string.length; i += 2) {
-      result.push(string[i]);
-    }
+    string.split('').forEach((char, index) => {
+      if (index % 2 !== 0) {
+        result.push(char);
+      }
+    });
     return result;
   } else {
     return 'invalid string';
