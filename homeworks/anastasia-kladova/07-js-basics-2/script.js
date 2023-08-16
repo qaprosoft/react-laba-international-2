@@ -172,6 +172,12 @@ function moveZeros(arr) {
   return resultArr;
 }
 
+//decision with sort
+// function moveZeros(arr) {
+//   const arrSorted = arr.sort((a, b) => b === 0 ? -1 : 0);
+//   return arrSorted;
+// }
+
 //task3 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
 function findUniq(arr) {
   let uniqueWord;

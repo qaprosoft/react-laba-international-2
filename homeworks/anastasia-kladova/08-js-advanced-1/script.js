@@ -42,6 +42,7 @@ const deepClone = (obj) => {
   return clonedObj;
 };
 
+//test for task2
 // const user = {
 //   username: "testuser1",
 //   preferences: {
@@ -114,14 +115,11 @@ const offset = (comparedDate) => {
   return resultString + "ago";
 };
 
+//test for task3
 // console.log(offset(moment("23/02/2021 13:30:00", "DD/MM/YYYY hh:mm:ss")));
-
 // console.log(offset(moment("23/02/2021 13:00:00", "DD/MM/YYYY hh:mm:ss")));
-
 // console.log(offset(moment("23/02/2021 11:30:00", "DD/MM/YYYY hh:mm:ss")));
-
 // console.log(offset(moment("22/02/2021 14:00:00", "DD/MM/YYYY hh:mm:ss")));
-
 // console.log(offset(moment("23/02/2020 10:00:00", "DD/MM/YYYY hh:mm:ss")));
 
 //task4
@@ -142,6 +140,7 @@ const randomDate = (date1, date2, format) => {
   return dateFormatted;
 };
 
+//test for task4
 // const date1 = moment("22/02/2021 14:00:00");
 // const date2 = moment("22/03/2021 14:00:00");
 // console.log(randomDate(date1, date2, "DD/MM/YY"));
@@ -174,7 +173,7 @@ function NamedOne(first, last) {
   return object;
 }
 
-//Optional
+//OPTIONAL
 
 //task8 https://www.codewars.com/kata/54834b3559e638b39d0009a2
 function OnceNamedOne(first, last) {
