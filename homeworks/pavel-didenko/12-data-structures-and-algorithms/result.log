@@ -5,7 +5,7 @@
   pack: 10
 }
  
-Function straightSearchAlgorithm executed in 4 ms
+Function straightSearchAlgorithm executed in 5 ms
  
 {
   sku: '77d523b4-1a64-4694-b0e1-7757c7ce57b1',
@@ -15,6 +15,8 @@ Function straightSearchAlgorithm executed in 4 ms
 }
  
 Function binarySearchAlgorithm executed in 1 ms
+ 
+insertionSort algorithm executed in 440 ms
  
 binarySearchAlgorithm test passed
  

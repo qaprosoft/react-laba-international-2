@@ -19,7 +19,7 @@ sortedForBinary.sort((a, b) => {
 });
 
 function binarySearchAlgorithm(key, value, data) {
-  if (data.length === 1 && data[0].name) {
+  if (data.length === 1 && data[0].name !== value) {
     return 'Not found';
   }
 
@@ -28,7 +28,11 @@ function binarySearchAlgorithm(key, value, data) {
   if (value === data[halfLength].name) {
     return data[halfLength];
   } else if (value > data[halfLength].name) {
-    return binarySearchAlgorithm(key, value, data.slice(halfLength, data.length));
+    return binarySearchAlgorithm(
+      key,
+      value,
+      data.slice(halfLength, data.length),
+    );
   } else if (value < data[halfLength].name) {
     return binarySearchAlgorithm(key, value, data.slice(0, halfLength));
   }
@@ -36,23 +40,48 @@ function binarySearchAlgorithm(key, value, data) {
 
 //Binary search test:
 
-function searchAlgorithmTest(callback){
+function searchAlgorithmTest(callback) {
   for (let i = 0; i < sortedForBinary.length; i++) {
     if (
-      callback('name', sortedForBinary[i].name, sortedForBinary) ===
-      'Not found'
+      callback('name', sortedForBinary[i].name, sortedForBinary) === 'Not found'
     ) {
-      throw new Error('Binary search is not working');
+      throw new Error(`${callback.name} is not working`);
     }
   }
 
-  if (callback('name', 'fail value', sortedForBinary) !== "Not found"){
-    throw new Error("Failed on unexisting value");
+  if (callback('name', 'fail value', sortedForBinary) !== 'Not found') {
+    throw new Error('Failed on unexisting value');
   }
-    return `${callback.name} test passed`;
+  return `${callback.name} test passed`;
 }
 
-function testFunctionSpeed(callback, key, value, data) {
+//Custom sort algorithm:
+
+function insertionSort(data, key) {
+  const result = [];
+  let min = data[0][key];
+  let minObj = {};
+
+  while (result.length < data.length) {
+    for (let item of data) {
+      if (item[key] < min && !result.includes(min)) {
+        min = item[key];
+        minObj = item;
+      }
+      if (data.indexOf(item) === data.length - 1) {
+        result.push(minObj);
+      }
+    }
+  }
+
+  return result;
+}
+
+// console.log(insertionSort(data, 'sku'));
+
+//Test are launched here:
+
+function testSearchSpeed(callback, key, value, data) {
   const start = performance.now();
 
   console.log(callback(key, value, data));
@@ -62,7 +91,12 @@ function testFunctionSpeed(callback, key, value, data) {
   return `Function ${callback.name} executed in ${Math.round(end - start)} ms`;
 }
 
-//Test are launched here:
+function testSortSpeed(callback, data, sku) {
+  let start = performance.now();
+  callback(data, sku);
+  let end = performance.now();
+  return `${callback.name} algorithm executed in ${Math.round(end - start)} ms`;
+}
 
 const fs = require('fs');
 const util = require('util');
@@ -75,7 +109,7 @@ console.log = function (d) {
 };
 
 console.log(
-  testFunctionSpeed(
+  testSearchSpeed(
     straightSearchAlgorithm,
     'name',
     'Wine - Gato Negro Cabernet',
@@ -83,13 +117,15 @@ console.log(
   ),
 );
 console.log(
-  testFunctionSpeed(
+  testSearchSpeed(
     binarySearchAlgorithm,
     'name',
     'Wine - Gato Negro Cabernet',
     sortedForBinary,
   ),
 );
+
+console.log(testSortSpeed(insertionSort, data, 'sku'));
 
 console.log(searchAlgorithmTest(binarySearchAlgorithm));
 console.log(searchAlgorithmTest(straightSearchAlgorithm));

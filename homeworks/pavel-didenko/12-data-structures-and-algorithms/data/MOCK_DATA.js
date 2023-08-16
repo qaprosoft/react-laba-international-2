@@ -3,7 +3,7 @@ module.exports = [
     sku: 'ccdb70f4-91f1-4543-93fa-8a93f980dc99',
     name: 'Pears - Fiorelle',
     price: '£22.47',
-    name: 20,
+    pack: 20,
   },
   {
     sku: '5ce1e0a6-1e39-406e-b2be-08bce24b33b3',
