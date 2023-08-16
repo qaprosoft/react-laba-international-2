@@ -1,5 +1,4 @@
 const data = require('./data/MOCK_DATA.js');
-const sampleData = require('./data/sample_data.js');
 
 function straightSearchAlgorithm(key, value, data) {
   for (let item of data) {
@@ -19,8 +18,7 @@ sortedForBinary.sort((a, b) => {
   if (a['name'] < b['name']) return -1;
 });
 
-function binarySearch(key, value, data) {
-
+function binarySearchAlgorithm(key, value, data) {
   if (data.length === 1 && data[0].name) {
     return 'Not found';
   }
@@ -30,21 +28,29 @@ function binarySearch(key, value, data) {
   if (value === data[halfLength].name) {
     return data[halfLength];
   } else if (value > data[halfLength].name) {
-    return binarySearch(key, value, data.slice(halfLength, data.length));
+    return binarySearchAlgorithm(key, value, data.slice(halfLength, data.length));
   } else if (value < data[halfLength].name) {
-    return binarySearch(key, value, data.slice(0, halfLength));
+    return binarySearchAlgorithm(key, value, data.slice(0, halfLength));
   }
 }
 
 //Binary search test:
 
-/* for(let i = 0; i < sortedForBinary.length; i++){
-  if(binarySearch('name', sortedForBinary[i].name, sortedForBinary) === "Not found"){
-    throw new Error("Binary search is not working");
-  }else{
-    console.log(binarySearch('name', sortedForBinary[i].name, sortedForBinary))
+function searchAlgorithmTest(callback){
+  for (let i = 0; i < sortedForBinary.length; i++) {
+    if (
+      callback('name', sortedForBinary[i].name, sortedForBinary) ===
+      'Not found'
+    ) {
+      throw new Error('Binary search is not working');
+    }
   }
-} */
+
+  if (callback('name', 'fail value', sortedForBinary) !== "Not found"){
+    throw new Error("Failed on unexisting value");
+  }
+    return `${callback.name} test passed`;
+}
 
 function testFunctionSpeed(callback, key, value, data) {
   const start = performance.now();
@@ -56,7 +62,17 @@ function testFunctionSpeed(callback, key, value, data) {
   return `Function ${callback.name} executed in ${Math.round(end - start)} ms`;
 }
 
-// console.log(binarySearch('name', 'Wine - Gato Negro Cabernet', sortedForBinary));
+//Test are launched here:
+
+const fs = require('fs');
+const util = require('util');
+const log_file = fs.createWriteStream(__dirname + '/result.log', {flags: 'w'});
+const log_stdout = process.stdout;
+
+console.log = function (d) {
+  log_file.write(util.format(d) + '\n \n');
+  log_stdout.write(util.format(d) + '\n \n');
+};
 
 console.log(
   testFunctionSpeed(
@@ -68,9 +84,12 @@ console.log(
 );
 console.log(
   testFunctionSpeed(
-    binarySearch,
+    binarySearchAlgorithm,
     'name',
     'Wine - Gato Negro Cabernet',
     sortedForBinary,
   ),
 );
+
+console.log(searchAlgorithmTest(binarySearchAlgorithm));
+console.log(searchAlgorithmTest(straightSearchAlgorithm));
