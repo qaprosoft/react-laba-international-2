@@ -1,3 +1,4 @@
+// task 1: https://www.codewars.com/kata/opposite-number
 const solution1 = num => num * -1;
 
 // task 2: http://www.codewars.com/kata/basic-mathematical-operations;
