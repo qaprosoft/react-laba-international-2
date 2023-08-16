@@ -1,0 +1,38 @@
+body {
+  background-color: #a7d8cb;
+  overflow-x: hidden;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.users__header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.users__container {
+  max-width: 1260px;
+  padding: 15px 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.user__avatar {
+  width: 70px;
+}
