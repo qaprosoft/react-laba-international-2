@@ -23,6 +23,27 @@ class HashTable {
   }
 }
 
+// Binary search
+
+const binarySearch = (data, userId) => {
+  const sortedData = [...data].sort((a, b) => a.sku - b.sku);
+  let left = 0;
+  let right = sortedData.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    if (sortedData[mid].sku === userId) {
+      return sortedData[mid];
+    } else if (sortedData[mid].sku < userId) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return null;
+}
 
 // Tests
 // Linear search
@@ -37,11 +58,17 @@ data.forEach(user => hashTable.insert(user));
 console.log(hashTable.search(userId));
 const hashTableEndTime = new Date().getMilliseconds();
 
+// Binary search
+const binarySearchStartTime = new Date().getMilliseconds();
+console.log(binarySearch(data, userId));
+const binarySearchEndTime = new Date().getMilliseconds();
+
 
 // Logging
 const logMessage = `
 Linear search time: ${linearSearchEndTime - linearSearchStartTime} мс 
 Hash table search time: ${hashTableEndTime - hashTableStartTime} мс 
+Binary search time: ${binarySearchEndTime - binarySearchStartTime} мс 
 =====================`;
 
 fs.appendFile('result.log', logMessage, (err) => {
