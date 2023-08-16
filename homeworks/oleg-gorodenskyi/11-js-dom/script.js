@@ -1,15 +1,31 @@
 const gridContainer = document.querySelector('.grid');
+const columns = 20;
+const rows = 30;
 
-for (let row = 1; row <= 30; row++) {
-  for (let col = 1; col <= 20; col++) {
-    const cell = document.createElement('div');
-    cell.classList.add('cell');
-    cell.setAttribute('id', `${col}/${row}`);
-    gridContainer.append(cell);
+createGrid(rows, columns);
+
+function createGrid(rows, columns) {
+  for (let row = 1; row <= rows; row++) {
+    for (let col = 1; col <= columns; col++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.setAttribute('id', `${col}/${row}`);
+      gridContainer.append(cell);
+    }
   }
 }
 
 const cell = document.querySelectorAll('.cell');
+
+function highlightRowColumn(item, positionX, positionY) {
+  const highlightLocation = item.getAttribute('id');
+  const [highlightLocationX, highlightLocationY] = highlightLocation.split('/');
+  item.classList.toggle(
+    'highlight',
+    highlightLocationX === positionX || highlightLocationY === positionY,
+  );
+}
+
 gridContainer.addEventListener('click', e => {
   const target = e.target;
   let position;
@@ -24,20 +40,10 @@ gridContainer.addEventListener('click', e => {
       console.log(position);
     }
   }
-  const positionX = position.split('/')[0];
-  const positionY = position.split('/')[1];
+
+  const [positionX, positionY] = position.split('/');
+
   cell.forEach(item => {
-    const highlightLocation = item.getAttribute('id');
-    const highlightLocationX = highlightLocation.substring(
-      0,
-      highlightLocation.indexOf('/'),
-    );
-    const highlightLocationY = highlightLocation.substring(
-      highlightLocation.indexOf('/') + 1,
-    );
-    item.classList.toggle(
-      'highlight',
-      highlightLocationX === positionX || highlightLocationY === positionY,
-    );
+    highlightRowColumn(item, positionX, positionY);
   });
 });
