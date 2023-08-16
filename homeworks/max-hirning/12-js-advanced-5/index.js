@@ -21,61 +21,85 @@ const needleList = [
   '1e63459f-0b18-4acf-9afc-e7287347bbeb',
   '83b65687-1774-4172-9e28-44537a619a7e',
 ];
-const filePath = "./homeworks/max-hirning/12-js-advanced-5/result.log";
 
-data.sort((a, b) => a.sku.localeCompare(b.sku));
-
-function test() {
-  deleteLogFile();
-
-  needleList.forEach((sku) => {
-    const straightStart = performance.now();
-    findByStraightSearch(sku);
-    const straightEnd = performance.now();
-
-
-    const binaryStart = performance.now();
-    findByBinarySearch(sku);
-    const binaryEnd = performance.now();
-
-    writeInLogFileResults(`Straight search ${(straightEnd-straightStart).toFixed(5)}    Binary search ${(binaryEnd-binaryStart).toFixed(5)}`);
-  })
-}
-function deleteLogFile() {
-  fs.unlink(filePath, (err) => {
-    if (err) console.error('Error deleting file:', err);
-  });
-}
-function findByStraightSearch(sku) {
-	const res = data.find(product => product.sku === sku);
-
-  return res ?? 'Product not found.'
-}
-function findByBinarySearch(targetSku) {
-	let left = 0;
-	const arr = data;
-  let right = arr.length - 1;
-
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
-    const midSku = arr[mid].sku;
-
-    if (midSku === targetSku) {
-      return arr[mid];
-    } else if (midSku < targetSku) {
-      left = mid + 1;
-    } else {
-      right = mid - 1;
-    }
+class Timer {
+  constructor() {
+    this.start = performance.now();
   }
 
-  return null;
-}
-function writeInLogFileResults(string) {
-  fs.appendFile(filePath, string + '\n', (err) => {
-    if (err) console.error('Error writing to file:', err);
-  });
+  stop() {
+    return (performance.now() - this.start).toFixed(5)
+  }
 }
 
+class FileActions {
+  constructor(path) {
+    this.filePath = path;
+  }
+
+  deleteFile() {
+    fs.unlink(this.filePath, (err) => {
+      if (err) console.error('Error deleting file:', err);
+    });
+  }
+
+  writeInFile(string) {
+    fs.appendFile(this.filePath, string + '\n', (err) => {
+      if (err) console.error('Error writing to file:', err);
+    });
+  }
+}
+
+class SortsActions {
+  constructor(arr) {
+    this.data = arr.sort((a, b) => a.sku.localeCompare(b.sku));;
+  }
+
+  findByStraightSearch(sku) {
+    const res = this.data.find(product => product.sku === sku);
+  
+    return res ?? 'Product not found.'
+  }
+  findByBinarySearch(sku) {
+    let left = 0;
+    const arr = data;
+    let right = arr.length - 1;
+  
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2);
+      const midSku = arr[mid].sku;
+  
+      if (midSku === sku) {
+        return arr[mid];
+      } else if (midSku < sku) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
+  
+    return null;
+  }
+}
+
+function test() {
+  const sorts = new SortsActions(data);
+  const file = new FileActions("./homeworks/max-hirning/12-js-advanced-5/result.log");
+  
+  file.deleteFile();
+
+  needleList.forEach((sku) => {
+    const straightTimer = new Timer();
+    sorts.findByStraightSearch(sku);
+    const straightTime = straightTimer.stop();
+
+
+    const binaryTimer = new Timer();
+    sorts.findByBinarySearch(sku)
+    const binaryTime = binaryTimer.stop();
+
+    file.writeInFile(`Straight search ${straightTime} ms    Binary search ${binaryTime} ms`)
+  })
+}
 
 test();
