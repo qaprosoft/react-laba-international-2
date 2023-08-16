@@ -1,0 +1,49 @@
+:root {
+    --grid-columns: 20;
+    --grid-rows: 30;
+    --main-color: #779ab8;
+    --accent-color: #7943a2;
+  }
+  
+  .container {
+    max-width: 1260px;
+    padding: 15px 15px;
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(var(--grid-rows), 1fr) / repeat(
+        var(--grid-columns),
+        1fr
+      );
+    gap: 5px;
+    height: 100vh;
+  }
+  
+  .cell {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid var(--main-color);
+    transition: background-color 0.5s ease-in;
+  }
+  
+  .highlighted {
+    background-color: var(--main-color);
+  }
+  
+  .selected {
+    background-color: var(--accent-color);
+  }
+  
+  .cell__info {
+    font-size: 10px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
