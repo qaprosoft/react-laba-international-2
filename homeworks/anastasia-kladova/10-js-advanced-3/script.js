@@ -35,7 +35,7 @@ function validateMessage(msg) {
   }
 
   //task3
-  //Part1
+  //part1
   let secondsPassed = 0;
 
   const countSeconds = () => {
@@ -44,7 +44,7 @@ function validateMessage(msg) {
   };
   let timerId = setInterval(() => countSeconds(), 1000);
 
-  //Part2
+  //part2
   const stopTimer = () => {
     clearInterval(timerId);
     setTimeout(() => console.log("The timer is stopped!"), 1000);
