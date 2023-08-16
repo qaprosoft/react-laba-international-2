@@ -13,7 +13,7 @@ module.exports = [
     },
     {
       sku: '0dd6bb31-3be6-40ed-8b97-51c33d0154d9',
-      name: 'Salmon - Smoked, Sliced',
+      name: 'Salmon - Smoke, Sliced',
       price: '£6.08',
       pack: 10,
     },
