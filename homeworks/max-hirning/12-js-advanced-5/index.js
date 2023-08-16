@@ -1,5 +1,5 @@
 const fs = require('fs');
-const data = require("../../../lectures/12-data-structures-and-algorithms/MOCK_DATA");
+const data = require('../../../lectures/12-data-structures-and-algorithms/MOCK_DATA');
 
 const needleList = [
   'd462bb76-81ee-46af-9fdb-ebfe53a93d3f',
@@ -28,7 +28,7 @@ class Timer {
   }
 
   stop() {
-    return (performance.now() - this.start).toFixed(5)
+    return (performance.now() - this.start).toFixed(5);
   }
 }
 
@@ -38,13 +38,13 @@ class FileActions {
   }
 
   deleteFile() {
-    fs.unlink(this.filePath, (err) => {
+    fs.unlink(this.filePath, err => {
       if (err) console.error('Error deleting file:', err);
     });
   }
 
   writeInFile(string) {
-    fs.appendFile(this.filePath, string + '\n', (err) => {
+    fs.appendFile(this.filePath, string + '\n', err => {
       if (err) console.error('Error writing to file:', err);
     });
   }
@@ -52,23 +52,23 @@ class FileActions {
 
 class SortsActions {
   constructor(arr) {
-    this.data = arr.sort((a, b) => a.sku.localeCompare(b.sku));;
+    this.data = arr.sort((a, b) => a.sku.localeCompare(b.sku));
   }
 
   findByStraightSearch(sku) {
     const res = this.data.find(product => product.sku === sku);
-  
-    return res ?? 'Product not found.'
+
+    return res ?? 'Product not found.';
   }
   findByBinarySearch(sku) {
     let left = 0;
     const arr = data;
     let right = arr.length - 1;
-  
+
     while (left <= right) {
       const mid = Math.floor((left + right) / 2);
       const midSku = arr[mid].sku;
-  
+
       if (midSku === sku) {
         return arr[mid];
       } else if (midSku < sku) {
@@ -77,29 +77,32 @@ class SortsActions {
         right = mid - 1;
       }
     }
-  
+
     return null;
   }
 }
 
 function test() {
   const sorts = new SortsActions(data);
-  const file = new FileActions("./homeworks/max-hirning/12-js-advanced-5/result.log");
-  
+  const file = new FileActions(
+    './homeworks/max-hirning/12-js-advanced-5/result.log',
+  );
+
   file.deleteFile();
 
-  needleList.forEach((sku) => {
+  needleList.forEach(sku => {
     const straightTimer = new Timer();
     sorts.findByStraightSearch(sku);
     const straightTime = straightTimer.stop();
 
-
     const binaryTimer = new Timer();
-    sorts.findByBinarySearch(sku)
+    sorts.findByBinarySearch(sku);
     const binaryTime = binaryTimer.stop();
 
-    file.writeInFile(`Straight search ${straightTime} ms    Binary search ${binaryTime} ms`)
-  })
+    file.writeInFile(
+      `Straight search ${straightTime} ms    Binary search ${binaryTime} ms`,
+    );
+  });
 }
 
 test();
