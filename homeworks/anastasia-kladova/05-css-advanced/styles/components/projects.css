@@ -1,0 +1,125 @@
+.projects__container {
+    margin-bottom: 3.55em;
+}
+
+.projects__btns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 0.68em 1.09em;
+    margin-bottom: 2.95em;
+    border-radius: calc(var(--border-radius) * 2);
+    background-color: var(--white-color);
+}
+
+.projects__btns--dark {
+    background-color: var(--grey-dark-color);
+}
+
+.projects__btns-btn {
+padding: 1.09em 5.5em;
+}
+
+.projects__box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 2.18em 1em;
+}
+
+.projects__item {
+    position: relative;
+    width: 362px;
+    height: 226px;
+    overflow: hidden;
+    border-radius: calc(var(--border-radius) * 1.5);
+}
+
+.projects__item:hover {
+    animation: move-up 3s ease;
+}
+
+.projects__img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+	height: 100%;
+}
+
+/* Overlay */
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(251, 209, 68, 0.88);
+    -webkit-transition: opacity .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+.projects__item:hover .overlay {
+    opacity: 1;
+    z-index: 10;
+}
+
+.overlay__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay__header {
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.overlay__descr {
+    font-size: 0.64rem;
+    margin-bottom: 0.82em;
+    width: 70%;
+    text-align: center;
+}
+
+.overlay__btn {
+    display: block;
+    padding: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;  
+    background: var(--white-color) url("../../assets/icons/link.svg") no-repeat center/50% 50%; 
+}
+

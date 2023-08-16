@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --bg-color: #e7e7e7;
+  --primary-color: white;
+  --secondary-color: #d7d7d7;
+  --accent-color: #FBD144;
+  --primary-text-color: #3D3D3D;
+  --secondary-text-color: #575757;
+  --on-accent-text-color: #3D3D3D;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Page */
+.page {
+  font-family: Poppins;
+  background-color: var(--bg-color);
+}
+
+.page__container {
+  max-width: 775px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Theme toggle */
+.theme_toggle {
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  margin-top: 30px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.theme_toggle:hover {
+  filter: invert(1);
+}
+
+.theme_toggle__icon {
+  width: 35px;
+  height: 35px;
+}
+
+.page--theme-dark .theme_toggle__icon {
+  filter: invert(1);
+}
+
+/* Scroll to top */
+.scroll-to-top {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  margin-top: 30px;
+  position: fixed;
+  z-index: 100;
+  bottom: 10%;
+  right: 5%;
+  transform: translateX(-50%);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.scroll-to-top:hover {
+  filter: invert(1);
+}
+
+.scroll-to-top__icon {
+  width: 25px;
+  height: 25px;
+}
+
+.page--theme-dark .scroll-to-top__icon {
+  filter: invert(1);
+}
+
+/* Footer */
+.footer {
+  padding: 80px 0;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--secondary-text-color)
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 9px;
+  }
+
+  .theme_toggle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .theme_toggle__icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 6px;
+  }
+}

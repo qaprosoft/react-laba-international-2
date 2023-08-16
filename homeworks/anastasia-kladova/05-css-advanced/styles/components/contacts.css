@@ -1,0 +1,9 @@
+.contacts__container {
+    margin-bottom: 3.4em;
+}
+
+.contacts__btn--download {
+    margin-right: 1.73em;
+    background: var(--accent-color) url("../../assets/icons/download.svg") no-repeat 90% center /25% 23%;
+}
+

@@ -1,0 +1,60 @@
+* {
+    margin-block: 0px;
+    margin-inline: 0px;
+}
+
+body {
+    padding-block: 2rem;
+    padding-inline: 10px;
+    background-color: var(--main-bg-color);
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text {
+    font-size: 22px;
+    font-family: Poppins;
+    color: var(--text-color);
+}
+
+.title {
+    font-size: 46px;
+    font-family: Poppins;
+    color: var(--title-color);
+}
+
+.go-up-button {
+    opacity: 1;
+    right: 1rem;
+    width: 3rem;
+    bottom: 1rem;
+    z-index: 100;
+    height: 3rem;
+    border: none;
+    display: flex;
+    position: fixed;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.5s ease;
+    background-color: var(--download-btn-bg-color);
+}
+
+.go-up-button-icon {
+    width: 2rem;
+}
+
+.hide-el {
+    opacity: 0;
+    display: none;
+}
+
+/*Fonts*/
+@font-face {
+    font-family: Poppins;
+    src: url('../assets/fonts/Poppins-Regular.ttf');
+}

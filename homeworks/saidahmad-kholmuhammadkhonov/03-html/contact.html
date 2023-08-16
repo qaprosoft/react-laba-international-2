@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="contact.html">Contact Me</a>
+        <hr>
+    </nav>
+    <header>
+            <h1>Contact Me</h1>     
+    </header>
+    <main>
+        <form action="" method="post">
+                Full name*
+               <label for="firstname"> <input type="text" id="firstname" name="firstname" placeholder="Your name" required/> </label>
+               <label for="lastname"> <input type="text" id="lastname" name="lastname" placeholder="Your last name" required/> </label> 
+            <br>
+            <label for="phone-number">
+                Phone number*
+                <input type="tel" id="phone-number" name="phoneNumber" required/>
+            </label>
+            <br>
+            <label for="country">
+                Country 
+                <select id="country" name="country">
+                    <option>Austria</option>
+                    <option>Belgium</option>
+                    <option>Czechia</option>
+                    <option>Denmark</option>
+                    <option>Poland</option>
+                </select>
+            </label>
+            <br>
+            <textarea cols="30" rows="10" placeholder="Your message..."></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+       <hr>
+    </main>
+    <footer>
+        <a href=""><img src="icons/square-facebook.svg" alt="facebook" width="50px"></a>
+        <a href=""><img src="icons/square-instagram.svg" alt="instagram" width="50px"></a>
+        <a href=""><img src="icons/linkedin.svg" alt="linkedin" width="50px"></a>
+        <a href=""><img src="icons/square-twitter.svg" alt="twitter" width="50px"></a>
+    </footer>
+</body>
+</html>

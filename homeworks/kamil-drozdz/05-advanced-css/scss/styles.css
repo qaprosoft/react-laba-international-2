@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  transition: background-color 0.5s;
+  background-color: #E9EBEC;
+  color: #575757;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 2rem;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+button {
+  all: unset;
+}
+
+#scrollTop {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  width: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 18px;
+  color: #E9EBEC;
+  background-color: #0C151D;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.theme-switcher {
+  display: none;
+}
+
+.theme-switcher-label {
+  top: 8px;
+  position: absolute;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 2.25rem;
+  width: 50px;
+  height: 50px;
+  background: url("../assets/sun.svg") no-repeat;
+  background-size: cover;
+  background-color: #FFFFFF;
+}
+.theme-switcher-label:hover {
+  transition: background-color 0.3s ease-in-out;
+  background-color: #0C151D;
+}
+
+.theme-switcher:checked ~ #scrollTop {
+  background-color: #E9EBEC;
+  color: #171F26;
+}
+
+.theme-switcher:checked ~ .person-card, .theme-switcher:checked ~ footer, .theme-switcher:checked ~ .header {
+  background-color: #0C151D;
+  color: #A3ABB2;
+}
+
+.theme-switcher:checked ~ .person-card .person-card__buttons, .theme-switcher:checked ~ .person-card .person-card__buttons a, .theme-switcher:checked ~ .person-card .person-card__contact-button {
+  background-color: #171F26;
+  color: #A3ABB2;
+}
+
+.theme-switcher:checked + .theme-switcher-label {
+  background: url("../assets/moon.svg") no-repeat;
+  background-size: cover;
+  background-color: #A3ABB2;
+  justify-self: start;
+}
+.theme-switcher:checked + .theme-switcher-label:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #E9EBEC;
+}
+
+#portfolio:not(:target) ~ a:not(:visited) {
+  background: #D7D7D7;
+}
+
+.header {
+  padding-top: 6rem;
+  width: 100%;
+  transition: background-color 0.5s;
+  background-color: #E9EBEC;
+  color: #575757;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1rem 0;
+}
+.header__logo img {
+  animation: pulse 1s infinite;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 12rem;
+  outline: #FFFFFF solid 4px;
+}
+.header__navigation {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 1.625rem;
+}
+.header__navigation img {
+  opacity: 1;
+  width: 1.75rem;
+  height: 1.75rem;
+  outline: none;
+}
+.header__navigation img:hover {
+  transition: opacity 0.3s ease-out;
+  opacity: 0.5;
+}
+
+.person-card {
+  transition: background-color 0.5s;
+  background-color: #E9EBEC;
+  color: #575757;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 10rem;
+}
+.person-card__experience {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.25rem 0.125rem;
+  gap: 5.625rem;
+}
+.person-card__item {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.person-card__item-heading {
+  text-align: center;
+}
+.person-card__contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.375rem;
+  cursor: pointer;
+  line-height: normal;
+  letter-spacing: -0.03319rem;
+  gap: 2.375rem;
+  font-weight: bold;
+  text-align: center;
+}
+.person-card__contact__download {
+  display: flex;
+  justify-content: center;
+  color: #3D3D3D;
+  border-radius: 0.625rem;
+  padding: 1rem 2rem;
+  height: 100%;
+  background: #FFE071;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.person-card__contact__download img {
+  margin-left: 1rem;
+  height: 28px;
+}
+.person-card__contact-button {
+  border-radius: 0.625rem;
+  padding: 1rem 2rem;
+  background: #FFFFFF;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.person-card__contact-button:hover {
+  transition: opacity 0.3s ease-out;
+  border: 1px solid gray;
+}
+.person-card__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  max-width: 40.5rem;
+  background: #FFFFFF;
+  gap: 0;
+  font-weight: bold;
+}
+.person-card__buttons a {
+  color: #19191B;
+  text-decoration: none;
+  padding: 1rem 1rem;
+  border: none;
+  width: 50%;
+  text-align: center;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+.person-card__buttons a:target {
+  background: #D7D7D7 !important;
+}
+.person-card__experience {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.25rem 0.125rem;
+  gap: 5.625rem;
+}
+.person-card__experience__item {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.person-card__experience__item__heading {
+  text-align: center;
+}
+.person-card__contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.375rem;
+  cursor: pointer;
+  line-height: normal;
+  letter-spacing: -0.03319rem;
+  gap: 2.375rem;
+  font-weight: bold;
+}
+.person-card__contact-download {
+  display: flex;
+  justify-content: center;
+  color: #3D3D3D;
+  border-radius: 0.625rem;
+  padding: 1rem 2rem;
+  height: 100%;
+  background: #FFE071;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.person-card__contact-download:hover {
+  transition: background-color 0.3s ease;
+  background: #f7d24c;
+  color: #161616;
+}
+.person-card__contact-download img {
+  margin-left: 1rem;
+  height: 28px;
+}
+.person-card__contact-button {
+  border-radius: 0.625rem;
+  padding: 1rem 2rem;
+  background: #FFFFFF;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.person-card__contact-button:hover {
+  transition: background-color 0.3s ease;
+  background: #fcf8f8;
+}
+.person-card__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  max-width: 40.5rem;
+  background: #FFFFFF;
+  gap: 0;
+  font-weight: bold;
+}
+.person-card__buttons a {
+  color: #19191B;
+  text-decoration: none;
+  padding: 1rem 1rem;
+  border: none;
+  width: 50%;
+  text-align: center;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+.person-card__buttons a:target {
+  background: #D7D7D7 !important;
+}
+.person-card__buttons a:hover {
+  transition: background-color ease-in-out 0.3s;
+  background: #D7D7D7;
+}
+.person-card__images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+.person-card__images img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 22rem;
+  flex: 0 0 40%;
+  height: 14rem;
+  border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 786px) {
+  .header__logo {
+    flex-direction: column;
+  }
+  .header__subheading {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .person-card__experience {
+    margin: auto 1rem;
+    gap: 2rem;
+  }
+  .person-card__experience__item {
+    font-size: 0.8rem;
+  }
+  .person-card__buttons {
+    width: auto;
+  }
+  .person-card__buttons a {
+    padding: 0.3rem;
+  }
+  .person-card__contact {
+    font-size: 0.8rem;
+    gap: 1rem;
+  }
+  .person-card__contact__download, .person-card__contact__contact-button {
+    width: 100%;
+    height: 100%;
+  }
+  .person-card__contact__download img, .person-card__contact__contact-button img {
+    height: 18px;
+  }
+  .person-card__images img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=styles.css.map */

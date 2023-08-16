@@ -1,0 +1,98 @@
+$mobile: 600px;
+
+.links {
+  max-width: 618px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+  @media (max-width: $mobile) {
+    gap: 14px;
+    margin-block: 18px;
+  }
+  @at-root &__link {
+    flex: 1;
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--clr-secondary-text);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: var(--clr-blue);
+    }
+    @media (max-width: $mobile) {
+      max-width: 158px;
+    }
+  }
+  @at-root &__icon {
+    height: 1em;
+  }
+}
+
+$padding-inline: 24px;
+$padding-block: 15px;
+$gap: 24px;
+$padding-inline-mobile: 6.5px;
+$padding-block-mobile: 6.85px;
+$gap-mobile: 9px;
+
+.tabs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-tabs-bg);
+  border-radius: 20px;
+  padding-inline: $padding-inline;
+  padding-block: $padding-block;
+  gap: $gap;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  @at-root &__background {
+    content: '';
+    position: absolute;
+    top: $padding-block;
+    left: $padding-inline;
+    width: calc(50% - $padding-inline - $gap/2);
+    height: calc(100% - 2*$padding-block);
+    border-radius: 10px;
+    background-color: var(--clr-tab-bg--active);
+    transition: all 0.3s ease-in-out;
+    @media (max-width: $mobile) {
+      top: $padding-block-mobile;
+      left: $padding-inline-mobile;
+      width: calc(50% - $padding-inline-mobile - $gap-mobile/2);
+      height: calc(100% - 2*$padding-block-mobile);
+    }
+  }
+  @media (max-width: $mobile) {
+    border-radius: 10px;
+    padding-inline: 6.5px;
+    padding-block: 6.85px;
+    height: 64px;
+    gap: 9px;
+    margin-block: 10px;
+  }
+  @at-root &__button {
+    flex: 1;
+    color: var(--clr-tab-text);
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+    background-color: transparent !important;
+    border: 3px solid transparent;
+    &:hover:not(.tabs__button--active) {
+      transition: all 0.1s ease-in-out;
+      border: 3px solid var(--clr-tab-bg--active);
+    }
+    @at-root &--active {
+      cursor: default !important;
+    }
+    @media (max-width: $mobile) {
+      border-radius: 10px !important;
+      height: 100% !important;
+      font-size: 14px !important;
+      line-height: 21px !important;
+    }
+  }
+}
