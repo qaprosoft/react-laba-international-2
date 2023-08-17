@@ -31,9 +31,8 @@ function binarySearch(field, value, data, compareFunc = isMin) {
 
   // check if array is sorted
   if (!isSorted(field, data, compareFunc)) {
-    sortedData = [...data];
     // sort array
-    sortedData.sort((a, b) => (compareFunc(a[field], b[field]) ? -1 : 1));
+    sortedData = mergeSort([...data], compareFunc, field);
   }
 
   let startIndex = 0;
@@ -50,5 +49,44 @@ function binarySearch(field, value, data, compareFunc = isMin) {
   }
 }
 
-const res = binarySearch('name', 'haah', data);
-console.log(res);
+// Merge Sort
+function mergeSort(arr, compareFunction, field) {
+  // if array consists only of 1 element it's sorted
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  // split array into 2
+  const middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+  return merge(
+    mergeSort(left, compareFunction, field),
+    mergeSort(right, compareFunction, field),
+    compareFunction,
+    field,
+  );
+}
+
+// merges two arrays into one using provided compare function
+function merge(left, right, compareFunction, field) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (
+      compareFunction(left[leftIndex][field], right[rightIndex][field])
+    ) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  // concat is used to add remaining elements from left or right side if there are any
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
