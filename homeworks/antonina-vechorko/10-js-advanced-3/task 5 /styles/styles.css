@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f1ebfc;
+    padding: 50px;
+    display: flex;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: midnightblue;
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7.5rem;
+    justify-content: center;
+}
+
+p {
+    text-align: center;
+}
