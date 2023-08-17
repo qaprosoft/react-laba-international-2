@@ -1,0 +1,36 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(20, 40px);
+  grid-template-rows: repeat(30, 40px);
+  gap: 1rem;
+}
+
+.container__cell {
+  background-color: rgb(249, 224, 176);
+}
+
+.container__cell--highlighted {
+  background-color: rgb(166, 213, 229);
+}
+
+.container__cell--selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 163);
+}
+
+.container__cell--selected::after {
+  content: attr(data-x) '/' attr(data-y);
+  color: rgb(252, 252, 16);
+}
