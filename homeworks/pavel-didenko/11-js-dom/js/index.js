@@ -21,6 +21,12 @@ function fillGrid(colls, rows, grid) {
   }
 }
 
+function determineCellColor(cell, selectedCellColor, selectedRowColumnColor) {
+  if (getComputedStyle(cell).backgroundColor !== selectedCellColor) {
+    cell.style.backgroundColor = selectedRowColumnColor;
+  }
+}
+
 fillGrid(colls, rows, grid);
 
 grid.addEventListener('click', function (event) {
@@ -44,12 +50,10 @@ grid.addEventListener('click', function (event) {
         } else if (
           (child.firstChild.innerHTML.split('/')[0] === column ||
             child.firstChild.innerHTML.split('/')[1] === row) &&
-            event.shiftKey
+          event.shiftKey
         ) {
-          if (getComputedStyle(child).backgroundColor !== selectedCellColor){
-            child.style.backgroundColor = selectedRowColumnColor;
-          }
-            child.firstChild.style.display = 'block';
+          determineCellColor(child, selectedCellColor, selectedRowColumnColor);
+          child.firstChild.style.display = 'block';
         } else if (!event.shiftKey) {
           child.style.backgroundColor = '#FFFFFF';
           child.firstChild.style.display = 'none';
