@@ -16,9 +16,15 @@ const createGrid = () => {
 createGrid();
 
 const clearColors = () => {
-  const cells = document.querySelectorAll('.cell');
-  cells.forEach(cell => {
-    cell.classList.remove('axis', 'selected');
+  const prevSelected = document.querySelector('.selected');
+  if (prevSelected) {
+    prevSelected.classList.remove('selected');
+    prevSelected.textContent = '';
+  }
+
+  const prevAxis = document.querySelectorAll('.axis');
+  prevAxis.forEach(axis => {
+    axis.classList.remove('axis');
   });
 };
 
@@ -41,6 +47,8 @@ container.addEventListener('click', event => {
     const x = +clickedCell.getAttribute('data-col');
     const y = +clickedCell.getAttribute('data-row');
     clickedCell.textContent = `${x + 1} / ${y + 1}`;
-    changeColor(clickedCell, x, y);
+    clickedCell.classList.contains('selected')
+      ? clearColors()
+      : changeColor(clickedCell, x, y);
   }
 });
