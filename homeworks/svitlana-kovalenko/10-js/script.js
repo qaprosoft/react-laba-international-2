@@ -19,9 +19,9 @@ function validateMessage(msg) {
 // https://www.codewars.com/kata/5a353a478f27f244a1000076     I did use another API cause there it was broken(
 async function sayJoke(apiUrl, jokeId) {
   try {
-    let response = await fetch(apiUrl);
-    let res = await response.json();
-    let data = res.data;
+    const response = await fetch(apiUrl);
+    const res = await response.json();
+    const data = res.data;
     let result = [];
 
     data.forEach(el => {
@@ -37,13 +37,13 @@ async function sayJoke(apiUrl, jokeId) {
 sayJoke('https://catfact.ninja/facts', 38);
 // setTimeout/setInterval
 let i = 1;
-// let timer = setInterval(function () {
-//   console.log(`Elapsed time: ${i++} sec`);
-//   if (i > 6) {
-//     clearInterval(timer);
-//     console.clear();
-//   }
-// }, 1000);
+ let timer = setInterval(function () {
+   console.log(`Elapsed time: ${i++} sec`);
+   if (i > 6) {
+     clearInterval(timer);
+     console.clear();
+   }
+ }, 1000);
 
 // Fetch API/XMLHttpRequest
 async function getUser(api) {
