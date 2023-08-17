@@ -56,3 +56,21 @@ const displayElapsedTimeTillStop = () => {
 };
 
 const intervalIdTillStop = setInterval(displayElapsedTimeTillStop, 1000);
+
+//task 5 pls find in separate folder
+
+//task 6 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#regular-expressions
+const startsWithDigitOrNot = string => {
+  if (typeof string != 'string') {
+    console.log('It is not a string');
+  } else {
+    const pattern = /\d/;
+    return pattern.test(string);
+  }
+};
+
+// task 7 https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/10-js-advanced-3/task.md#7-optional-advanced
+function isPatternNumber(string) {
+  const pattern = /^\+54 \d{3}-\d{4}-\d{3}/;
+  return pattern.test(string);
+}

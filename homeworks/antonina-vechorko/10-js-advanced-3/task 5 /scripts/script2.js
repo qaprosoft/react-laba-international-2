@@ -8,9 +8,12 @@ const url = 'https://randomuser.me/api/?gender=female&results=10';
 const getUsers = () => {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url);
+  xhr.send();
 
   xhr.onload = () => {
-    if (xhr.status === 200) {
+    if (xhr.status !== 200) {
+      console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+    } else {
       const data = JSON.parse(xhr.responseText);
       const usersInfo = data.results.map(user => ({
         firstName: user.name.first,
@@ -18,16 +21,12 @@ const getUsers = () => {
         avatar: user.picture.large,
       }));
       displayUsers(usersInfo);
-    } else {
-      console.error(`Request failed with status: ${xhr.status}`);
     }
   };
 
   xhr.onerror = () => {
-    console.error('Request failed');
+    console.log('Request failed');
   };
-
-  xhr.send();
 };
 
 const displayUsers = usersInfo => {
