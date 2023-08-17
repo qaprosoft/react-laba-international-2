@@ -4,7 +4,7 @@ class Serializable {
       _type: this.constructor.name,
       _data: this.#serializeData(this),
     };
-    return JSON.stringify(serializedData, (key, value) => {
+    return JSON.stringify(serializedData, (_, value) => {
       if (typeof value === 'number' && isNaN(value)) return 'NaN';
       if (value === Infinity) return 'Infinity';
       if (value === -Infinity) return '-Infinity';
@@ -13,7 +13,7 @@ class Serializable {
   }
 
   wakeFrom(serialized) {
-    const parsedData = JSON.parse(serialized, (key, value) => {
+    const parsedData = JSON.parse(serialized, (_, value) => {
       if (value === 'NaN') return NaN;
       if (value === 'Infinity') return Infinity;
       if (value === '-Infinity') return -Infinity;
