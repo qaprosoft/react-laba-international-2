@@ -43,7 +43,8 @@ function binarySearchAlgorithm(key, value, data) {
 function searchAlgorithmTest(callback) {
   for (let i = 0; i < sortedForBinary.length; i++) {
     if (
-      callback('name', sortedForBinary[i].name, sortedForBinary) === 'Not found'
+      callback('name', sortedForBinary[i].name, sortedForBinary)['name'] !==
+      sortedForBinary[i].name
     ) {
       throw new Error(`${callback.name} is not working`);
     }
@@ -77,7 +78,6 @@ function insertionSort(data, key) {
   return result;
 }
 
-// console.log(insertionSort(data, 'sku'));
 
 //Test are launched here:
 
