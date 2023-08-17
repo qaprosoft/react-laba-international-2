@@ -35,18 +35,28 @@ grid.addEventListener('click', function (event) {
 
       for (let child of this.children) {
         if (
-          child.firstChild.innerHTML.split('/')[0] === column ||
-          (child.firstChild.innerHTML.split('/')[1] === row && !event.shiftKey)
+          (child.firstChild.innerHTML.split('/')[0] === column ||
+            child.firstChild.innerHTML.split('/')[1] === row) &&
+          !event.shiftKey
         ) {
           child.style.backgroundColor = selectedRowColumnColor;
           child.firstChild.style.display = 'block';
-          selectedCell.style.backgroundColor = selectedCellColor;
-          selectedCell.firstChild.style.display = 'block';
+        } else if (
+          (child.firstChild.innerHTML.split('/')[0] === column ||
+            child.firstChild.innerHTML.split('/')[1] === row) &&
+            event.shiftKey
+        ) {
+          if (getComputedStyle(child).backgroundColor !== selectedCellColor){
+            child.style.backgroundColor = selectedRowColumnColor;
+          }
+            child.firstChild.style.display = 'block';
         } else if (!event.shiftKey) {
           child.style.backgroundColor = '#FFFFFF';
           child.firstChild.style.display = 'none';
         }
       }
+      selectedCell.style.backgroundColor = selectedCellColor;
+      selectedCell.firstChild.style.display = 'block';
     }
   } catch (err) {
     console.log(err);
