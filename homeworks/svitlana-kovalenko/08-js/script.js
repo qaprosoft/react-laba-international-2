@@ -21,7 +21,7 @@ function pluck(obj, prop) {
       ? (result = obj = obj[property])
       : (result = null);
   }
-  return res;
+  return result;
 }
 
 console.log(pluck(user, 'preferences.sound.value')); // 30
