@@ -46,6 +46,7 @@ container.addEventListener('click', event => {
   if (clickedCell) {
     const x = +clickedCell.getAttribute('data-col');
     const y = +clickedCell.getAttribute('data-row');
+
     clickedCell.textContent = `${x + 1} / ${y + 1}`;
     clickedCell.classList.contains('selected')
       ? clearColors()
