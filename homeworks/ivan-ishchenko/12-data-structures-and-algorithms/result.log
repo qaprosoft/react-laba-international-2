@@ -1,0 +1,25 @@
+Tests from 2023-08-17T13:40:19.641Z
+Straight search tests
+Search by sku: 
+Passed in 0.09189999848604202 ms
+Search by name: 
+Passed in 0.05340000055730343 ms
+Binary search test
+Search by sku using isMax compare function: 
+Passed in 0.08269999921321869 ms
+Sort done in 3.521900000050664 ms
+Sort & search done in 3.6091999989002943 ms
+Search by sku using isMin compare function: 
+Passed in 0.012699998915195465 ms
+Sort done in 3.3101000003516674 ms
+Sort & search done in 3.3283999990671873 ms
+Search by name using isMax compare function: 
+Passed in 0.008899999782443047 ms
+Sort done in 3.9539000000804663 ms
+Sort & search done in 3.967299999669194 ms
+Search by name using isMin compare function: 
+Passed in 0.00390000082552433 ms
+Sort done in 2.2967000007629395 ms
+Sort & search done in 2.3056000005453825 ms
+
+
