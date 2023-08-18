@@ -40,7 +40,6 @@ function solve(arr) {
       result.push(sortedArr[j], sortedArr[i]);
     }
   }
-
   return result;
 }
 
@@ -54,17 +53,14 @@ function evenChars(string) {
   for (let i = 1; i < string.length; i += 2) {
     result.push(string[i]);
   }
-
   return result;
 }
 
 // task 7 https://www.codewars.com/kata/545a4c5a61aa4c6916000755
 function gimme(triplet) {
   const sortedArray = [...triplet].sort((a, b) => a - b);
-
   const middleValue = sortedArray[1];
   const middleIndex = triplet.indexOf(middleValue);
-
   return middleIndex;
 }
 
@@ -118,7 +114,6 @@ class PaginationHelper {
 
     const start = pageIndex * this.itemsPerPage;
     const end = Math.min(start + this.itemsPerPage, this.itemCount());
-
     return end - start;
   }
 
@@ -126,7 +121,6 @@ class PaginationHelper {
     if (itemIndex < 0 || itemIndex >= this.itemCount()) {
       return -1;
     }
-
     return Math.floor(itemIndex / this.itemsPerPage);
   }
 }
@@ -143,7 +137,6 @@ function moveZeros(arr) {
       zeros.push(element);
     }
   }
-
   return nonZeros.concat(zeros);
 }
 
@@ -182,7 +175,6 @@ function sudoku(puzzle) {
     }
     arr = createArr(puzzle);
   }
-
   return puzzle;
 }
 
@@ -209,7 +201,6 @@ function checkSquare(puzzle, i, j, array) {
       }
     }
   }
-
   return array;
 }
 
@@ -222,6 +213,5 @@ function checkLine(puzzle, i, j, array) {
       array.push(puzzle[x][j]);
     }
   }
-
   return array;
 }
