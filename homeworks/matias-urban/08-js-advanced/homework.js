@@ -36,21 +36,26 @@ const aLongTimeAgo = date => {
   const currentDate = moment();
   const duration = moment.duration(currentDate.diff(date));
 
-  const days = duration.days();
+  const years = duration.years();
+  const days = duration.days() + years * 365;
   const hours = duration.hours();
   const minutes = duration.minutes();
 
   let result = '';
 
   if (days > 0) {
-    if (result !== '') result += days + (days === 1 ? ' day' : ' days');
+    result += days + (days === 1 ? ' day' : ' days');
   }
   if (hours > 0) {
-    if (result !== '') result += ' ';
+    if (result !== '') {
+      result += ' ';
+    }
     result += hours + (hours === 1 ? ' hour' : ' hours');
   }
   if (minutes > 0) {
-    if (result !== '') result += ' ';
+    if (result !== '') {
+      result += ' ';
+    }
     result += minutes + (minutes === 1 ? ' minute' : ' minutes');
   }
 
@@ -87,44 +92,42 @@ const objConcat = array => {
   const newObj = {};
   for (obj of array) {
     Object.entries(obj).forEach(([element, value]) => {
-        newObj[element] = value;
-        
+      newObj[element] = value;
     });
   }
   return newObj;
-}
-
+};
 
 //Task 6: https://www.codewars.com/kata/547f1a8d4a437abdf800055c
 class NamedOne {
   constructor(firstName, lastName) {
     this._firstName = firstName;
     this._lastName = lastName;
-     this._fullName = `${firstName} ${lastName}`;
-   }
-    
-  get firstName() {
-      return this._firstName;
+    this._fullName = `${firstName} ${lastName}`;
   }
-    
+
+  get firstName() {
+    return this._firstName;
+  }
+
   set firstName(newFirstName) {
     this._firstName = newFirstName;
     this._fullName = `${newFirstName} ${this._lastName}`;
   }
-    
+
   get lastName() {
     return this._lastName;
   }
-    
+
   set lastName(newLastName) {
     this._lastName = newLastName;
     this._fullName = `${this._firstName} ${newLastName}`;
   }
-    
+
   get fullName() {
     return this._fullName;
   }
-    
+
   set fullName(newFullName) {
     const names = newFullName.split(' ');
     if (names.length === 2) {
