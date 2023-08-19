@@ -52,7 +52,7 @@ const binarySearch = (mockData, skuToFind) => {
 const quickSort = arr => {
   if (arr.length < 2) return arr;
 
-  let pivot = arr[0];
+  const pivot = arr[0];
   const left = [];
   const right = [];
 
