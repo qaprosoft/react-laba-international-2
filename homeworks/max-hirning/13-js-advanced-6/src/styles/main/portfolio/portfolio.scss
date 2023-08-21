@@ -17,8 +17,6 @@
 		background-color: $portfolioBtnsBgColor;
 	
 		.portfolio-button {
-			@include text(22px);
-	
 			width: 48%;
 			height: 10vw;
 			border: none;

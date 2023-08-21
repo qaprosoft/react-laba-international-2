@@ -2,9 +2,40 @@
 	.portfolio__buttons {
 			padding: 1.5vw;
 	}
+	.action-button {
+		@include text(22px);
+	}
+	.profile__additional-info {
+		div {
+			p {
+				@include text(22px);
+			}
+		}
+	}
+	.portfolio__buttons {
+		.portfolio-button {
+			@include text(22px);
+		}
+	}
 }
 
 @media screen and (max-width: 769px) {
+	.action-button {
+		@include text(18px);
+	}
+	.portfolio__buttons {
+		.portfolio-button {
+			@include text(18px);
+		}
+	}
+	.profile__additional-info {
+		div {
+			p {
+				@include text(14px);
+			}
+		}
+	}
+
 	.profile__main-info {
 			flex-direction: column;
 	}

@@ -5,5 +5,7 @@
 
 	p {
 		@include text(22px);
+
+		text-align: center;
 	}
 }
