@@ -48,7 +48,7 @@ Once PR is created you have to do the following things:
 | Aug 8th      | [Javascript, Part 5](./lectures/10-js-advanced-3/README.md)                   | [task 🔗](./lectures/10-js-advanced-3/task.md)                  |
 | Aug 11th     | [Javascript, DOM](./lectures/11-js-dom/README.md)                             | [task 🔗](./lectures/11-js-dom/task.md)                         |
 | Aug 15th     | [Data structures & algorithms](./lectures/12-data-structures-and-algorithms/README.md)| [task 🔗](./lectures/12-data-structures-and-algorithms/task.md) |
-| Aug 18th     | Environment                                                                   |                                                                 |
+| Aug 18th     | [Environment](./lectures/13-environment-and-preprocessors/README.md)             [task 🔗](./lectures/13-environment-and-preprocessors/task.md)                                                     |                                                                 |
 | Aug 22th     | Principles                                                                    |                                                                 |
 | Aug 25th     | TypeScript                                                                    |                                                                 |
 | Aug 29th     | Patterns                                                                      |                                                                 |
