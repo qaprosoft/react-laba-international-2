@@ -1,11 +1,11 @@
 @mixin text($fontSize) {
+  color: $textColor;
+	font-family: Poppins;
   font-size: $fontSize;
-  font-family: Poppins;
-  color: var(--text-color);
 }
 
-@mixin title {
-  font-size: 46px;
+@mixin title($fontSize) {
+  color: $titleColor;
+  font-size: $fontSize;
   font-family: Poppins;
-  color: var(--title-color);
 }

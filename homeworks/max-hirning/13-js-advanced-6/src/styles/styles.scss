@@ -1,21 +1,45 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: rgb(49, 49, 8);
+@import "./fonts.scss";
+@import "./colors.scss";
+@import "./mixins.scss";
+@import "./header.scss";
+@import "./footer.scss";
+@import "./adaptive.scss";
+@import "./scrollBar.scss";
+@import "./main/main.scss";
+
+* {
+  margin-block: 0px;
+  margin-inline: 0px;
 }
 
-header {
+body {
+  padding-block: 2rem;
+  padding-inline: 10px;
+  background-color: $mainBGColor;
+}
+
+.go-up-button {
+  opacity: 1;
+  right: 1rem;
+  width: 3rem;
+  bottom: 1rem;
+  z-index: 100;
+  height: 3rem;
+  border: none;
   display: flex;
+  position: fixed;
+  border-radius: 100%;
   align-items: center;
   justify-content: center;
-  button {
-    width: 45px;
-    height: 45px;
-    border: none;
-    display: flex;
-    cursor: pointer;
-    border-radius: 100%;
-    align-items: center;
-    justify-content: center;
-    background: green;
+  transition: opacity 1.5s ease;
+  background-color: $downloadBtnColor;
+
+  .go-up-button-icon {
+    width: 2rem;
   }
+}
+
+.hide-el {
+  opacity: 0;
+  display: none;
 }

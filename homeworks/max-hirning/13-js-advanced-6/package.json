@@ -4,13 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass ./src/styles:./dist",
-    "start": "sass --watch ./src/styles:./dist"
+    "build": "sass ./src/styles:./dist/styles",
+    "start": "sass --watch ./src/styles:./dist/styles"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "sass": "^1.66.1"
-  }
+  "license": "ISC"
 }
