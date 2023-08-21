@@ -1,11 +1,11 @@
 .footer {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	p {
-		@include text(22px);
+  p {
+    @include text(22px);
 
-		text-align: center;
-	}
+    text-align: center;
+  }
 }

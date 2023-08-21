@@ -1,63 +1,64 @@
 .card {
-	display: flex;
-	position: relative;
-	align-items: center;
-	justify-content: center;
-	
-	&:hover .card__info {
-		display: flex;
-	}
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
 
-	.card__image, .card__info {
-		width: 95%;
-		height: 100vw;
-		max-width: 362px;
-		max-height: 226px;
-		margin-block: 15px;
-		border-radius: 22px;
-	}
+  &:hover .card__info {
+    display: flex;
+  }
 
-	.card__info {
-		top: 0;
-		left: 9px;
-		z-index: 1;
-		display: none;
-		position: absolute;
-		text-align: center;
-		align-items: center;
-		flex-direction: column;
-		background-color: rgba(255, 224, 113, 0.88);
-	
-		.card__title {
-			@include text(22px);
+  .card__image,
+  .card__info {
+    width: 95%;
+    height: 100vw;
+    max-width: 362px;
+    max-height: 226px;
+    margin-block: 15px;
+    border-radius: 22px;
+  }
 
-			margin-top: 3rem;
-			color: var(--portfolio-example-title);
-		}
-		
-		.card__text {
-			@include text(14px);
+  .card__info {
+    top: 0;
+    left: 9px;
+    z-index: 1;
+    display: none;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 224, 113, 0.88);
 
-			font-size: 14px;
-			margin-top: 0.25rem;
-			color: var(--portfolio-example-text);
-		}
-		
-		.card__link {
-			width: 40px;
-			height: 40px;
-			display: flex;
-			cursor: pointer;
-			margin-top: 1rem;
-			border-radius: 100%;
-			align-items: center;
-			justify-content: center;
-			background-color: var(--portfolio-example-link);
+    .card__title {
+      @include text(22px);
 
-			.card__link-icon {
-				width: 25px;
-				height: 25px;
-			}
-		}
-	}
+      margin-top: 3rem;
+      color: var(--portfolio-example-title);
+    }
+
+    .card__text {
+      @include text(14px);
+
+      font-size: 14px;
+      margin-top: 0.25rem;
+      color: var(--portfolio-example-text);
+    }
+
+    .card__link {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      cursor: pointer;
+      margin-top: 1rem;
+      border-radius: 100%;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--portfolio-example-link);
+
+      .card__link-icon {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
 }

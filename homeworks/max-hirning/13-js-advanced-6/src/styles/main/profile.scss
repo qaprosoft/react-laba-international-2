@@ -1,76 +1,76 @@
 .profile {
-	width: 100%;
-	max-width: 640px;
-	margin-block: 2rem;
+  width: 100%;
+  max-width: 640px;
+  margin-block: 2rem;
 
-	.profile__main-info {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	
-		.profile__avatar {
-			padding: 4px;
-			border-radius: 100%;
-			background-color: var(--profile-avatar-bg);
-			border: 4px solid var(--profile-avatar-border-color);
-		}
+  .profile__main-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-		.profile__info {
-			display: flex;
-			flex-direction: column;
+    .profile__avatar {
+      padding: 4px;
+      border-radius: 100%;
+      background-color: var(--profile-avatar-bg);
+      border: 4px solid var(--profile-avatar-border-color);
+    }
 
-			h1 {
-				@include title(46px);
+    .profile__info {
+      display: flex;
+      flex-direction: column;
 
-				text-align: center;
-			}
+      h1 {
+        @include title(46px);
 
-			.profile__info-position {
-				@include title(22px);
+        text-align: center;
+      }
 
-				margin-block: 1rem;
-			}
+      .profile__info-position {
+        @include title(22px);
 
-			.social-media {
-				width: 65%;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
+        margin-block: 1rem;
+      }
 
-				.social-media__link {
-					cursor: pointer;
-					transition-duration: 1s;
+      .social-media {
+        width: 65%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-					&:hover {
-						transform: scale(1.25);
-					}
+        .social-media__link {
+          cursor: pointer;
+          transition-duration: 1s;
 
-					.social-media__link-icon {
-						max-width: 30px;
-						max-height: 30px;
-					}
-				}
-			}
-		}
-	}
+          &:hover {
+            transform: scale(1.25);
+          }
 
-	.profile__additional-info {
-		width: 100%;
-		display: flex;
-		margin-top: 2rem;
-		align-items: center;
-		justify-content: space-around;
+          .social-media__link-icon {
+            max-width: 30px;
+            max-height: 30px;
+          }
+        }
+      }
+    }
+  }
 
-		div {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			justify-content: space-between;
-		
-			p {
-				text-align: center;
-			}
-		}
-	}
+  .profile__additional-info {
+    width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: space-around;
+
+    div {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+
+      p {
+        text-align: center;
+      }
+    }
+  }
 }
