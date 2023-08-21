@@ -4,7 +4,7 @@ Here's you can find materials about "Environment & CSS Preprocessors"
 
 [Presentation](https://docs.google.com/presentation/d/1x7fzzujH25JKrSBDUF2YND_WJiPouAEc/edit?usp=sharing&ouid=100479166120620206544&rtpof=true&sd=true)
 
-<!-- [Video](https://drive.google.com/file/d/1d__llNfzahgr3p6d2uzQYeH2aA4f0aQq/view?usp=sharing) -->
+[Video](https://drive.google.com/file/d/1vkzxBXON7aj7f93655T775b7e4VnwDU2/view?usp=sharing)
 
 Useful links
 
