@@ -14,7 +14,7 @@
 		align-items: center;
 		border-radius: 20px;
 		justify-content: space-between;
-		background-color: $portfolioBtnsBgColor;
+		background-color: var(--portfolio-btns-bg-color);
 	
 		.portfolio-button {
 			width: 48%;
@@ -29,7 +29,7 @@
 		}
 	
 		.portfolio__button-active {
-			background-color: $portfolioBtnActiveBgColor;
+			background-color: var(--portfolio-btn-active-bg-color);
 		}
 		
 		.portfolio__button-inactive {

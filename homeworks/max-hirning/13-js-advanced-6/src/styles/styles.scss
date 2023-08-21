@@ -15,7 +15,7 @@
 body {
   padding-block: 2rem;
   padding-inline: 10px;
-  background-color: $mainBGColor;
+  background-color: var(--main-bg-color);
 }
 
 .go-up-button {
@@ -32,7 +32,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: opacity 1.5s ease;
-  background-color: $downloadBtnColor;
+  background-color: var(--download-btn-bg-color);
 
   .go-up-button-icon {
     width: 2rem;

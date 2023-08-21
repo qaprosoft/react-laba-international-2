@@ -12,7 +12,7 @@
 		border-radius: 100%;
 		align-items: center;
 		justify-content: center;
-		background: $toggleSwitcherBgColor;
+		background: var(--toggle-switcher-bg-color);
 	}
 	
 	.header__theme-toogle {

@@ -25,8 +25,8 @@
 	}
 	
 	.action-buttons__download {
-		color: $downloadBtnColor;
-		background-color: $downloadBtnBgColor;
+		color: var(--download-btn-color);
+		background-color: var(--download-btn-bg-color);
 	
 		.download-icon {
 			max-width: 26px;
@@ -35,6 +35,6 @@
 	}
 	
 	.action-buttons__contact {
-		background-color: $contactBtnBgColor;
+		background-color: var(--contact-btn-bg-color);
 	}
 }

@@ -32,7 +32,7 @@
 			@include text(22px);
 
 			margin-top: 3rem;
-			color: $portfolioExampleTitle;
+			color: var(--portfolio-example-title);
 		}
 		
 		.card__text {
@@ -40,7 +40,7 @@
 
 			font-size: 14px;
 			margin-top: 0.25rem;
-			color: $portfolioExampleText;
+			color: var(--portfolio-example-text);
 		}
 		
 		.card__link {
@@ -52,7 +52,7 @@
 			border-radius: 100%;
 			align-items: center;
 			justify-content: center;
-			background-color: $portfolioExampleLink;
+			background-color: var(--portfolio-example-link);
 
 			.card__link-icon {
 				width: 25px;

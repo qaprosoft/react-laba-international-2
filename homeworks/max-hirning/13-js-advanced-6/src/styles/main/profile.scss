@@ -12,8 +12,8 @@
 		.profile__avatar {
 			padding: 4px;
 			border-radius: 100%;
-			background-color: $profileAvatarColor;
-			border: 4px solid $portfolioBtnActiveBgColor;
+			background-color: var(--profile-avatar-bg);
+			border: 4px solid var(--profile-avatar-border-color);
 		}
 
 		.profile__info {
