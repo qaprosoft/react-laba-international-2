@@ -42,7 +42,7 @@ function onBlockClick(event) {
     selectedCells.add(clickedCell);
   }
   clickedCell.classList.add('selected');
-  clickedCell.textContent = `${blockColNum + 1}/${blockRowNum + 1}`;
+  clickedCell.textContent = `${+blockColNum + 1}/${+blockRowNum + 1}`;
   for (const entry of selectedCells.entries()) {
     updateActiveRowCol(entry[0], numRows, numCols, event.shiftKey);
   }
