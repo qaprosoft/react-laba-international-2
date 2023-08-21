@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(49, 49, 8);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    background: green;
+  }
+}
