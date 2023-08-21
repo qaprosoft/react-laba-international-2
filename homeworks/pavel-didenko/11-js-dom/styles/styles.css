@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.cells__wrapper {
+  border: 1px solid black;
+  width: 52.5em;
+  height: 79em;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem auto 0rem auto;
+}
+
+.cell {
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell__info {
+  display: none;
+}
