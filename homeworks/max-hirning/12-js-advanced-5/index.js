@@ -78,7 +78,7 @@ class SortsActions {
       }
     }
 
-    return null;
+    return 'Product not found.';
   }
 }
 
@@ -92,13 +92,17 @@ function test() {
 
   needleList.forEach(sku => {
     const straightTimer = new Timer();
-    sorts.findByStraightSearch(sku);
+    const straightSearchRes = sorts.findByStraightSearch(sku);
     const straightTime = straightTimer.stop();
 
     const binaryTimer = new Timer();
-    sorts.findByBinarySearch(sku);
+    const binarySearchRes = sorts.findByBinarySearch(sku);
     const binaryTime = binaryTimer.stop();
-
+    if(straightSearchRes.sku === binarySearchRes.sku) {
+      console.log(straightSearchRes);
+    } else {
+      throw new Error("Error in searching")
+    }
     file.writeInFile(
       `Straight search ${straightTime} ms    Binary search ${binaryTime} ms`,
     );
