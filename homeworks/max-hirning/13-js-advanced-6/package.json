@@ -4,8 +4,8 @@
   "description": "Move css to scss",
   "main": "index.js",
   "scripts": {
-    "build": "sass ./src/styles:./dist/styles",
-    "start": "sass --watch ./src/styles:./dist/styles"
+    "build": "sass ./src/styles/styles.scss:./dist/styles/styles.css",
+    "start": "sass --watch ./src/styles/styles.scss:./dist/styles/styles.css"
   },
   "repository": {
     "type": "git",
