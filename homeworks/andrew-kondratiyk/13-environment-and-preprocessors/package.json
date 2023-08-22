@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass ./styles:./dist/styles",
-    "start": "sass --watch ./styles:./dist/styles"
+    "build": "sass ./src/styles:./dist/styles",
+    "start": "sass --watch ./src/styles:./dist/styles"
   },
   "author": "Andrew Kondratiyk",
   "license": "ISC"
