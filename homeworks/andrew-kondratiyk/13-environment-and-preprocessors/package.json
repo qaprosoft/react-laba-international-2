@@ -1,0 +1,12 @@
+{
+  "name": "13-environment-and-preprocessors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass ./styles:./dist/styles",
+    "start": "sass --watch ./styles:./dist/styles"
+  },
+  "author": "Andrew Kondratiyk",
+  "license": "ISC"
+}
