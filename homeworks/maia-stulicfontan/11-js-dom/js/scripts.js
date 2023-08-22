@@ -33,7 +33,7 @@ container.addEventListener('mousemove', event => {
   }
 });
 
-container.addEventListener('mouseup', event => {
+container.addEventListener('mouseup', () => {
   if (isSelecting) {
     isMouseUp = true;
     isSelecting = false;
