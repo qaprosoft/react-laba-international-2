@@ -1,0 +1,37 @@
+.header {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template: repeat(30, 40px) / repeat(20, 40px);
+  grid-gap: 0.5px;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.cell {
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  color: white;
+  font: 12px/40px sans-serif;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.cell--active {
+  background-color: lightblue;
+}
+
+.cell--selected {
+  background-color: blue;
+}
