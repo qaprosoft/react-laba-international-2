@@ -46,14 +46,20 @@ const quickSort = array => {
 };
 
 //TESTS
-console.log(linearSearch(data, skuToFindReal));
-console.log(linearSearch(data, skuToFindNoReal));
+console.log('linear search real sku:', linearSearch(data, skuToFindReal));
+console.log('linear search no real sku:', linearSearch(data, skuToFindNoReal));
 
-console.log(binarySearch(sortedArray, skuToFindReal));
-console.log(binarySearch(sortedArray, skuToFindNoReal));
+console.log(
+  'binary search  real sku:',
+  binarySearch(sortedArray, skuToFindReal),
+);
+console.log(
+  'binary search no real sku:',
+  binarySearch(sortedArray, skuToFindNoReal),
+);
 
 const quickSortedArray = quickSort(data);
-//console.log(quickSortedArray);
+//console.log('quick sort:',quickSortedArray);
 
 //PERFOMANCE TESTS
 const fs = require('fs');
