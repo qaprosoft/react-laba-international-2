@@ -1,0 +1,25 @@
+{
+  "name": "13-environment-and-preprocessors",
+  "version": "1.0.0",
+  "description": "HW13",
+  "main": "script.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qaprosoft/react-laba-international-2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HW",
+    "13",
+    "environment",
+    "preprocessors"
+  ],
+  "author": "Anastasia Kladova",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
