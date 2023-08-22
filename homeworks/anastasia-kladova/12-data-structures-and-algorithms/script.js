@@ -27,3 +27,20 @@ const binarySearch = (array, sku) => {
 
   return 'The item not found';
 };
+
+//Quick sort
+const quickSort = array => {
+  if (array.length <= 1) return array;
+
+  const [pivot, smallerArray, biggerArray] = [array[0], [], []];
+
+  for (let i = 1; i < array.length; i++) {
+    const currentEl = array[i];
+
+    pivot.sku < currentEl.sku
+      ? smallerArray.push(currentEl)
+      : biggerArray.push(currentEl);
+  }
+
+  return [...quickSort(smallerArray), pivot, ...quickSort(biggerArray)];
+};
