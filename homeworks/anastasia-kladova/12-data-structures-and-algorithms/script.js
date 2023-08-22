@@ -44,3 +44,34 @@ const quickSort = array => {
 
   return [...quickSort(smallerArray), pivot, ...quickSort(biggerArray)];
 };
+
+//TESTS
+console.log(linearSearch(data, skuToFindReal));
+console.log(linearSearch(data, skuToFindNoReal));
+
+console.log(binarySearch(sortedArray, skuToFindReal));
+console.log(binarySearch(sortedArray, skuToFindNoReal));
+
+const quickSortedArray = quickSort(data);
+//console.log(quickSortedArray);
+
+//PERFOMANCE TESTS
+const fs = require('fs');
+const writer = fs.createWriteStream('result.log');
+
+const perfomanceTest = (functionTotest, dataToTest) => {
+  const start = performance.now();
+
+  for (let needle of needleList) {
+    functionTotest(dataToTest, needle);
+  }
+
+  const end = performance.now();
+  const elapsed = end - start;
+
+  const message = `${functionTotest.name} perfomance tests took ${elapsed}ms;\n`;
+  writer.write(message);
+};
+
+perfomanceTest(linearSearch, data);
+perfomanceTest(binarySearch, sortedArray);
