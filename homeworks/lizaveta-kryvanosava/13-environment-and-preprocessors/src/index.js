@@ -1,3 +1,5 @@
+import html from './index.html';
+
 let currentTabInPortfolio = document.querySelector('.portfolio__content');
 
 document.querySelector('.theme-toggle').addEventListener('click', changeTheme);

@@ -15,14 +15,15 @@
     "email": "ekrivinosova.laba@solvd.com"
   },
   "scripts": {
-    "build": "webpack --mode development",
-    "start": "webpack serve --hot --open"
+    "build": "webpack",
+    "start": "webpack serve"
   },
   "author": "Lizaveta Kryvanosava",
   "license": "ISC",
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
+    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "sass-loader": "^13.3.2",

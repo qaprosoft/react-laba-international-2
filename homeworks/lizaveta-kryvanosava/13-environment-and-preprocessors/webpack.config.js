@@ -5,23 +5,28 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: {
-    script: './src/index.js',
-    desctopStyles: './src/index.scss',
-    mobileStyles: './src/assets/scss/phone.scss',
-  },
+
+  entry: path.resolve(__dirname, '/src/index.js'),
+
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
 
   devServer: {
-    compress: true,
     port: 9000,
+    hot: true,
+    open: true,
+    compress: true,
   },
 
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+
       {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
