@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: __dirname + '/public',
     filename: 'script.js',
+    assetModuleFilename: 'assets/images/[name]-[hash][ext]',
   },
   devServer: {
     port: 5000,

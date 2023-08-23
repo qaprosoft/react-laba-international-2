@@ -137,10 +137,10 @@ button {
   width: 80px;
   height: 80px;
   border-radius: 100%;
-  background: var(--white-color) url(c98eeeb0bfb301c9cbf6.svg) no-repeat center/50% 50%;
+  background: var(--white-color) url(assets/images/switch-color-c98eeeb0bfb301c9cbf6.svg) no-repeat center/50% 50%;
 }
 .menu__btn--dark {
-  background: var(--grey-dark-color) url(6ea797a2ae13dab2ab50.svg) no-repeat center/50% 50%;
+  background: var(--grey-dark-color) url(assets/images/swiitch-color--dark-6ea797a2ae13dab2ab50.svg) no-repeat center/50% 50%;
 }
 
 .person-card__container {
@@ -162,7 +162,7 @@ button {
   height: 215px;
   border-radius: 100%;
   border: 4px solid var(--accent-color);
-  background: var(--white-color) url(c92456a85b26b7073bd3.png) no-repeat center/90% 90%;
+  background: var(--white-color) url(assets/images/candidate-c92456a85b26b7073bd3.png) no-repeat center/90% 90%;
 }
 .person-card__info {
   display: flex;
@@ -199,28 +199,28 @@ button {
   background-repeat: no-repeat;
 }
 .social__link--gh {
-  background-image: url(b996138fb6ff138bdd40.svg);
+  background-image: url(assets/images/github-b996138fb6ff138bdd40.svg);
 }
 .social__link--gh--dark {
-  background-image: url(70adfc6c7f5f8032d2af.svg);
+  background-image: url(assets/images/github--dark-70adfc6c7f5f8032d2af.svg);
 }
 .social__link--tw {
-  background-image: url(ba50c26022da279b3156.svg);
+  background-image: url(assets/images/twitter-ba50c26022da279b3156.svg);
 }
 .social__link--tw--dark {
-  background-image: url(8e17adec99712050e26e.svg);
+  background-image: url(assets/images/twitter--dark-8e17adec99712050e26e.svg);
 }
 .social__link--lin {
-  background-image: url(2ea7e8c8980cd2b0a70c.svg);
+  background-image: url(assets/images/linkedin-2ea7e8c8980cd2b0a70c.svg);
 }
 .social__link--lin--dark {
-  background-image: url(e71a524fdbb2667edce1.svg);
+  background-image: url(assets/images/linkedin--dark-e71a524fdbb2667edce1.svg);
 }
 .social__link--yt {
-  background-image: url(34648d228be396529b65.svg);
+  background-image: url(assets/images/youtube-34648d228be396529b65.svg);
 }
 .social__link--yt--dark {
-  background-image: url(d65517f3e2a5758c940d.svg);
+  background-image: url(assets/images/youtube--dark-d65517f3e2a5758c940d.svg);
 }
 
 .experience__container {
@@ -256,7 +256,7 @@ button {
 
 .contacts__btn--download {
   margin-right: 1.73em;
-  background: var(--accent-color) url(ac05cbc8b72c614a6fd7.svg) no-repeat 90% center/25% 23%;
+  background: var(--accent-color) url(assets/images/download-ac05cbc8b72c614a6fd7.svg) no-repeat 90% center/25% 23%;
 }
 
 .projects__container {
@@ -362,7 +362,7 @@ button {
   width: 38px;
   height: 38px;
   border-radius: 100%;
-  background: var(--white-color) url(587c781a6901e58c3b81.svg) no-repeat center/50% 50%;
+  background: var(--white-color) url(assets/images/link-587c781a6901e58c3b81.svg) no-repeat center/50% 50%;
 }
 
 .projects__item:hover .overlay {
