@@ -10,11 +10,11 @@
     flex-wrap: wrap;
     padding: 0.68em 1.09em;
     margin-bottom: 2.95em;
-    border-radius: calc($--border-radius * 2);
-    background-color: $--white-color;
+    border-radius: calc(var(--border-radius) * 2);
+    background-color: var(--white-color);
 
     &--dark {
-      background-color: $--grey-dark-color;
+      background-color: var(--grey-dark-color);
     }
   }
 
@@ -34,7 +34,7 @@
     width: 362px;
     height: 226px;
     overflow: hidden;
-    border-radius: calc($--border-radius * 1.5);
+    border-radius: calc(var(--border-radius) * 1.5);
   }
 
   &__img {
@@ -80,7 +80,7 @@
     width: 38px;
     height: 38px;
     border-radius: 100%;
-    background: $--white-color url('../../assets/icons/link.svg') no-repeat
+    background: var(--white-color) url('../assets/icons/link.svg') no-repeat
       center/50% 50%;
   }
 }

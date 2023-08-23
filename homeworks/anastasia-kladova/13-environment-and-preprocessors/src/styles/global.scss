@@ -12,12 +12,12 @@ html {
 }
 
 body {
-  font-family: $font-stack;
+  font-family: var(--font-stack);
   font-weight: 500;
   font-size: 22px;
   margin: 0;
-  color: $color-text-primary;
-  background-color: $color-bgr-main;
+  color: var(--color-text-primary);
+  background-color: var(--color-bgr-main);
 }
 
 h1,

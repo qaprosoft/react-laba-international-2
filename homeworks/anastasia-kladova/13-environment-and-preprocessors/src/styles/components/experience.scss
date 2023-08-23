@@ -7,7 +7,7 @@
     @include flexCenteredAll;
     @include flexColumn;
 
-    &: not(: last-child) {
+    &:not(:last-child) {
       margin-right: 4.09em;
     }
   }

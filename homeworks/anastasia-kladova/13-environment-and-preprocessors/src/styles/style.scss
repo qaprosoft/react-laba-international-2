@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-@import './global.css';
-@import './overall.css';
 @import './mixins.scss';
+@import './global.scss';
+@import './overall.scss';
 
 /* components import */
 
-@import '../styles/components/header.css';
-@import '../styles/components/experience.css';
-@import '../styles/components/contacts.css';
-@import '../styles/components/projects.css';
-@import '../styles/components/footer.css';
-@import '../styles/components/media.css';
+@import '../styles/components/header.scss';
+@import '../styles/components/experience.scss';
+@import '../styles/components/contacts.scss';
+@import '../styles/components/projects.scss';
+@import '../styles/components/footer.scss';
+@import '../styles/components/media.scss';

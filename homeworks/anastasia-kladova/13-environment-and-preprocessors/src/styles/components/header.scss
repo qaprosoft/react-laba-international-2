@@ -7,13 +7,12 @@
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    background: $--white-color url('../../assets/icons/switch-color.svg')
+    background: var(--white-color) url('../assets/icons/switch-color.svg')
       no-repeat center/50% 50%;
 
     &--dark {
-      background: $--grey-dark-color
-        url('../../assets/icons/swiitch-color--dark.svg') no-repeat center/50%
-        50%;
+      background: var(--grey-dark-color)
+        url('../assets/icons/swiitch-color--dark.svg') no-repeat center/50% 50%;
     }
   }
 }
@@ -30,8 +29,8 @@
     width: 215px;
     height: 215px;
     border-radius: 100%;
-    border: 4px solid $--accent-color;
-    background: $--white-color url('../../assets/images/candidate.png')
+    border: 4px solid var(--accent-color);
+    background: var(--white-color) url('../assets/images/candidate.png')
       no-repeat center/90% 90%;
   }
 
@@ -43,10 +42,10 @@
   &__heading {
     font-size: 2.09rem;
     padding-bottom: 0.3em;
-    color: $--color-text-secondary;
+    color: var(--color-text-secondary);
 
     &--dark {
-      color: $--color-text-secondary-dark;
+      color: var(--color-text-secondary-dark);
     }
   }
 
@@ -77,30 +76,30 @@
     background-repeat: no-repeat;
 
     &--gh {
-      background-image: url(../../assets/icons/social/github.svg);
+      background-image: url(../assets/icons/social/github.svg);
       &--dark {
-        background-image: url(../../assets/icons/social/github--dark.svg);
+        background-image: url(../assets/icons/social/github--dark.svg);
       }
     }
 
     &--tw {
-      background-image: url(../../assets/icons/social/twitter.svg);
+      background-image: url(../assets/icons/social/twitter.svg);
       &--dark {
-        background-image: url(../../assets/icons/social/twitter--dark.svg);
+        background-image: url(../assets/icons/social/twitter--dark.svg);
       }
     }
 
     &--lin {
-      background-image: url(../../assets/icons/social/linkedin.svg);
+      background-image: url(../assets/icons/social/linkedin.svg);
       &--dark {
-        background-image: url(../../assets/icons/social/linkedin--dark.svg);
+        background-image: url(../assets/icons/social/linkedin--dark.svg);
       }
     }
 
     &--yt {
-      background-image: url(../../assets/icons/social/youtube.svg);
+      background-image: url(../assets/icons/social/youtube.svg);
       &--dark {
-        background-image: url(../../assets/icons/social/youtube--dark.svg);
+        background-image: url(../assets/icons/social/youtube--dark.svg);
       }
     }
   }

@@ -8,19 +8,29 @@
     "url": "https://github.com/qaprosoft/react-laba-international-2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack serve"
   },
   "keywords": [
     "HW",
     "13",
     "environment",
     "preprocessors",
-    "react-laba-"
+    "react-laba"
   ],
   "author": "Anastasia Kladova",
   "license": "ISC",
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
