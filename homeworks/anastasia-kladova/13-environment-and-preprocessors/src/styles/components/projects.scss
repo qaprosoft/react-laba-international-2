@@ -1,0 +1,91 @@
+.projects {
+  &__container {
+    padding-top: 3.91em;
+    padding-bottom: 3.55em;
+  }
+
+  &__btns {
+    @include flexSpaceBetween;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.68em 1.09em;
+    margin-bottom: 2.95em;
+    border-radius: calc($--border-radius * 2);
+    background-color: $--white-color;
+
+    &--dark {
+      background-color: $--grey-dark-color;
+    }
+  }
+
+  &__btns-btn {
+    padding: 1.09em 5.5em;
+  }
+
+  &__box {
+    @include flexCenteredAll;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 2.18em 1em;
+  }
+
+  &__item {
+    position: relative;
+    width: 362px;
+    height: 226px;
+    overflow: hidden;
+    border-radius: calc($--border-radius * 1.5);
+  }
+
+  &__img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Overlay */
+
+.overlay {
+  @include posiitonToAllScreen;
+  @include maxWidthAndHeight;
+  opacity: 0;
+  background-color: rgba(251, 209, 68, 0.88);
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+
+  &__link {
+    @include flexCenteredAll;
+    @include flexColumn;
+    @include maxWidthAndHeight;
+  }
+
+  &__header {
+    font-size: 1rem;
+    margin-bottom: 3px;
+  }
+
+  &__descr {
+    font-size: 0.64rem;
+    margin-bottom: 0.82em;
+    width: 70%;
+    text-align: center;
+  }
+
+  &__btn {
+    display: block;
+    padding: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+    background: $--white-color url('../../assets/icons/link.svg') no-repeat
+      center/50% 50%;
+  }
+}
+
+.projects__item:hover .overlay {
+  opacity: 1;
+  z-index: 10;
+}
