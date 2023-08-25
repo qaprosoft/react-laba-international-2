@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Poppins:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="dist/main.css">
+    <title>portfolio</title>
+</head>
+
+<body>
+    <header class="header">
+        <button>
+            <img src="./src/img/btn-change-theme.svg" alt="change theme button" width="80" height="80">
+        </button>
+    </header>
+    <main>
+        <section class="portfolio">
+            <div class="portfolio__head">
+                <img class="portfolio__img" src="./src/img/profile-icon.png" alt="profile icon" width="192" height="192">
+                <div>
+                    <h2 class="portfolio__info info_name">Victor Alvarado</h2>
+                    <p class="portfolio__info info_description">Software Engineer</p>
+                    <ul class="portfolio__links">
+                        <li><a href="http://www.github.com" target="_blank"><img src='./src/img/github.svg' width="36"
+                                    height="36" alt="github logo"></a></li>
+                        <li><a href="http://www.twitter.com" target="_blank"><img src='./src/img/twitter.svg' width="36"
+                                    height="36" alt="twitter logo"></a></li>
+                        <li><a href="http://www.linkedin.com" target="_blank"><img src='./src/img/linkedin.svg' width="36"
+                                    height="36" alt="linkedin logo"></a></li>
+                        <li><a href="http://www.youtube.com" target="_blank"><img src='./src/img/youtube.svg' width="36"
+                                    height="36" alt="youtube logo"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="portfolio__facts">
+                <li class="portfolio__facts fact_item">
+                    <p>7 <br> Years of work experience</p>
+                </li>
+                <li class="portfolio__facts fact_item">
+                    <p>50+ <br> Completed projects</p>
+                </li>
+                <li class="portfolio__facts fact_item">
+                    <p>20+ <br> Satisfied customers</p>
+                </li>
+            </ul>
+            <div class="portfolio__btn">
+                <button class="portfolio__btn btn_download">Download CV
+                    <img src="./src/img/download.svg" alt="download arrow" width="18" height="20">
+                </button>
+                <button class="portfolio__btn btn_contact">Contact me</button>
+            </div>
+        </section>
+        <div class="tabs">
+            <div class="tabs__container">
+                <button class="tabs__portfolio tab--active">Portfolio</button>
+                <button class="tabs__portfolio">Skills</button>
+            </div>
+        </div>
+            <div class="tabs_content_grid">
+                <img src="./src/img/tab1.jpg" alt="" class="tabs_content__img" width="362" height="226">
+                <img src="./src/img/tab2.jpg" alt="" class="tabs_content__img" width="362" height="226">
+                <img src="./src/img/tab3.jpg" alt="" class="tabs_content__img" width="362" height="226">
+                <img src="./src/img/tab4.jpg" alt="" class="tabs_content__img" width="362" height="226">
+                <img src="./src/img/tab5.jpg" alt="" class="tabs_content__img" width="362" height="226">
+                <img src="./src/img/tab6.jpg" alt="" class="tabs_content__img" width="362" height="226">
+            </div>
+        <button class="scroll_btn">&#8593;</button>
+    </main>
+    <footer class="footer">&copy; Victor Alvarado. 2022 All rigths reserved</footer>
+    <script src="dist/main.js"></script>
+</body>
+</html>
