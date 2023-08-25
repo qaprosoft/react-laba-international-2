@@ -1,14 +1,14 @@
 {
-  "name": "13",
+  "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "portfolio page",
   "scripts": {
     "build:sass": "node-sass src/styles/main.scss dist/main.css --output-style compressed",
     "watch:webpack": "webpack --watch",
     "watch:sass": "npm run build:sass -- --watch",
     "start": "npm-run-all watch:webpack watch:sass"
   },
-  "author": "",
+  "author": "Svitlana Kovalenko",
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^9.0.0",
