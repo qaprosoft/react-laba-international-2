@@ -8,7 +8,8 @@ Your task is to build a TypeScript program that performs basic arithmetic calcul
 
 ### Definition of done
 
-- Create a Calculator interface that defines the following methods:add(num1: number, num2: number): Result
+- Create a Calculator interface that defines the following methods:
+  - `add(num1: number, num2: number): Result`
   - `subtract(num1: number, num2: number): Result`
   - `multiply(num1: number, num2: number): Result`
   - `divide(num1: number, num2: number): Result`
