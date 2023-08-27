@@ -1,4 +1,4 @@
-const api = 'https://randomuser.me/api/?gender=female&results=10'
+const api = 'https://randomuser.me/api/?gender=female&results=10';
 const usersList = document.querySelector('.usersList');
 
 const fetchUsers = async () => {
@@ -49,4 +49,3 @@ const fetchUsersWithXHR = () =>
     usersList.append(errorMessage);
   }
 })();
-
