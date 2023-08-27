@@ -1,22 +1,8 @@
-{
-  sku: 'bb829d2c-a00d-4335-a9b3-6a0807b44f56',
-  name: 'Wine - Gato Negro Cabernet',
-  price: '£9.86',
-  pack: 10
-}
+Function straightSearchAlgorithm executed in 0.10260000079870224 ms
  
-Function straightSearchAlgorithm executed in 5 ms
+Function binarySearchAlgorithm executed in 0.08180000633001328 ms
  
-{
-  sku: '77d523b4-1a64-4694-b0e1-7757c7ce57b1',
-  name: 'Wine - Gato Negro Cabernet',
-  price: '£1.41',
-  pack: 5
-}
- 
-Function binarySearchAlgorithm executed in 1 ms
- 
-insertionSort algorithm executed in 449 ms
+insertionSort algorithm executed in 482 ms
  
 binarySearchAlgorithm test passed
  

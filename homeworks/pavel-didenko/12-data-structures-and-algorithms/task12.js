@@ -84,11 +84,11 @@ function insertionSort(data, key) {
 function testSearchSpeed(callback, key, value, data) {
   const start = performance.now();
 
-  console.log(callback(key, value, data));
+  callback(key, value, data);
 
   const end = performance.now();
 
-  return `Function ${callback.name} executed in ${Math.round(end - start)} ms`;
+  return `Function ${callback.name} executed in ${end - start} ms`;
 }
 
 function testSortSpeed(callback, data, sku) {
