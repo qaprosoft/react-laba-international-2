@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const data = require('../../../lectures/12-data-structures-and-algorithms/MOCK_DATA');
 
 const needleList = [
@@ -84,9 +85,7 @@ class SortsActions {
 
 function test() {
   const sorts = new SortsActions(data);
-  const file = new FileActions(
-    './homeworks/max-hirning/12-js-advanced-5/result.log',
-  );
+  const file = new FileActions(path.join(__dirname, 'result.log'));
 
   file.deleteFile();
 
