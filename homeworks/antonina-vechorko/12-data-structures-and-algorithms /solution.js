@@ -1,5 +1,4 @@
-const data = require('MOCK_DATA');
-const fs = require('fs');
+const data = require('./MOCK_DATA');
 
 const needleList = [
   'd462bb76-81ee-46af-9fdb-ebfe53a93d3f',
@@ -31,5 +30,37 @@ function straightSearch(arr, target) {
   return -1;
 }
 
-straightSearch(data, needleList);
-console.log('hi');
+// Binary Search Function
+function binarySearch(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid].sku === target) {
+      return mid;
+    } else if (arr[mid].sku < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return -1;
+}
+
+//Testing
+const performanceTest = (searchFunction, searchName) => {
+  const start = performance.now();
+
+  for (const needle of needleList) {
+    searchFunction(needle, data);
+  }
+
+  const end = performance.now();
+  const elapsedTime = end - start;
+  console.log(`${searchName} took ${elapsedTime.toFixed(2)} milliseconds.`);
+};
+
+performanceTest(straightSearch, 'Straight Search');
+performanceTest(binarySearch, 'Binary Search');
