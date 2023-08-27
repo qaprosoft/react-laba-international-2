@@ -1,10 +1,10 @@
 interface IResult {
-	error: string;
-	value: number|null; //in case of erro result will be null(we return error msg in obj, not throw error)
+  error: string;
+  value: number | null; //in case of erro result will be null(we return error msg in obj, not throw error)
 }
 
 interface ICalculator {
-	add: (num1: number, num2: number) => IResult;
+  add: (num1: number, num2: number) => IResult;
   subtract: (num1: number, num2: number) => IResult;
   multiply: (num1: number, num2: number) => IResult;
   divide: (num1: number, num2: number) => IResult;
@@ -13,65 +13,72 @@ interface ICalculator {
 }
 
 class Calculator implements ICalculator {
-	result: IResult;
+  result: IResult;
 
-	constructor() {
-		this.result = {
-			error: "",
-			value: null,
-		} 
-	}
+  constructor() {
+    this.result = {
+      error: '',
+      value: null,
+    };
+  }
 
-	private resetResult() { //only methods of this class(Calculator) can call this method
-		this.result = {
-			error: "",
-			value: null,
-		} 
-	}
+  private resetResult() {
+    //only methods of this class(Calculator) can call this method
+    this.result = {
+      error: '',
+      value: null,
+    };
+  }
 
-	add(num1: number, num2: number) { //has public modificator as default
-		this.resetResult();
-		this.result.value = num1 + num2;
-		return this.result;
-	}
+  add(num1: number, num2: number) {
+    //has public modificator as default
+    this.resetResult();
+    this.result.value = num1 + num2;
+    return this.result;
+  }
 
-	subtract(num1: number, num2: number) { //has public modificator as default
-		this.resetResult();
-		this.result.value = num1 - num2;
-		return this.result;
-	}
+  subtract(num1: number, num2: number) {
+    //has public modificator as default
+    this.resetResult();
+    this.result.value = num1 - num2;
+    return this.result;
+  }
 
-	multiply(num1: number, num2: number) { //has public modificator as default
-		this.resetResult();
-		this.result.value = num1 * num2;
-		return this.result;
-	}
+  multiply(num1: number, num2: number) {
+    //has public modificator as default
+    this.resetResult();
+    this.result.value = num1 * num2;
+    return this.result;
+  }
 
-	divide(num1: number, num2: number) { //has public modificator as default
-		this.resetResult();
-		this.result.value = num1 / num2;
-		return this.result;
-	}
+  divide(num1: number, num2: number) {
+    //has public modificator as default
+    this.resetResult();
+    this.result.value = num1 / num2;
+    return this.result;
+  }
 
-	power(base: number, exponent: number) { //has public modificator as default
-		this.resetResult();
-		if (exponent > 0 && Number.isInteger(exponent)) {
-			this.result.value = Math.pow(base, exponent);
-		} else {
-			this.result.error = "Exponent must be a positive integer";
-		}
-		return this.result;
-	}
+  power(base: number, exponent: number) {
+    //has public modificator as default
+    this.resetResult();
+    if (exponent > 0 && Number.isInteger(exponent)) {
+      this.result.value = Math.pow(base, exponent);
+    } else {
+      this.result.error = 'Exponent must be a positive integer';
+    }
+    return this.result;
+  }
 
-	sqrt(num: number) { //has public modificator as default
-		this.resetResult();
-		if (num >= 0) {
-			this.result.value = Math.sqrt(num)
-		} else {
-			this.result.error = "Cannot calculate square root of negative number";
-		}
-		return this.result;
-	}
+  sqrt(num: number) {
+    //has public modificator as default
+    this.resetResult();
+    if (num >= 0) {
+      this.result.value = Math.sqrt(num);
+    } else {
+      this.result.error = 'Cannot calculate square root of negative number';
+    }
+    return this.result;
+  }
 }
 
 const calculator = new Calculator();
