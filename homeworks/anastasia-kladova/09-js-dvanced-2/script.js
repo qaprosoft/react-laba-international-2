@@ -1,38 +1,22 @@
 class Serializable {
-    serialize() {
-
-    }
-
-    wakeFrom(serialized) {
-        
-    }
-}
-
-class UserDTO extends Serializable {
-    constructor({firstName, lastName, phone, birth}) {
-      super();
-  
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.phone = phone;
-      this.birth = birth;
-    }
-  
-    printInfo() {
-      console.log(
-        `${this.firstName[0]}. ${this.lastName} - ${
-          this.phone
-        }, ${this.birth.toISOString()}`,
+  serialize() {
+    if (this instanceof Serializable) {
+      const serializedObj = JSON.stringify(
+        {
+          ...this,
+          className: this.constructor.name,
+        },
+        jsonReplacer,
       );
+
+      return serializedObj;
     }
   }
 
-  class Post extends Serializable {
-    constructor({content, date, author}) {
-      super();
-  
-      this.content = content;
-      this.date = date;
-      this.author = author;
-    }
+  wakeFrom(serialized) {
+    const objToWakeUp = JSON.parse(serialized, jsonReviver);
+    checkClassName(objToWakeUp, this.constructor);
+    wakeUpProp(objToWakeUp);
+    return Object.assign(this, objToWakeUp);
   }
+}
