@@ -1,6 +1,6 @@
 interface IResult {
 	error: string;
-	result: number|null; //in case of erro result will be null(we return error msg in obj, not throw error)
+	value: number|null; //in case of erro result will be null(we return error msg in obj, not throw error)
 }
 
 interface ICalculator {
@@ -18,45 +18,45 @@ class Calculator implements ICalculator {
 	constructor() {
 		this.result = {
 			error: "",
-			result: null,
+			value: null,
 		} 
 	}
 
 	private resetResult() { //only methods of this class(Calculator) can call this method
 		this.result = {
 			error: "",
-			result: null,
+			value: null,
 		} 
 	}
 
 	add(num1: number, num2: number) { //has public modificator as default
 		this.resetResult();
-		this.result.result = num1 + num2;
+		this.result.value = num1 + num2;
 		return this.result;
 	}
 
 	subtract(num1: number, num2: number) { //has public modificator as default
 		this.resetResult();
-		this.result.result = num1 - num2;
+		this.result.value = num1 - num2;
 		return this.result;
 	}
 
 	multiply(num1: number, num2: number) { //has public modificator as default
 		this.resetResult();
-		this.result.result = num1 * num2;
+		this.result.value = num1 * num2;
 		return this.result;
 	}
 
 	divide(num1: number, num2: number) { //has public modificator as default
 		this.resetResult();
-		this.result.result = num1 / num2;
+		this.result.value = num1 / num2;
 		return this.result;
 	}
 
 	power(base: number, exponent: number) { //has public modificator as default
 		this.resetResult();
 		if (exponent > 0 && Number.isInteger(exponent)) {
-			this.result.result = Math.pow(base, exponent);
+			this.result.value = Math.pow(base, exponent);
 		} else {
 			this.result.error = "Exponent must be a positive integer";
 		}
@@ -66,7 +66,7 @@ class Calculator implements ICalculator {
 	sqrt(num: number) { //has public modificator as default
 		this.resetResult();
 		if (num >= 0) {
-			this.result.result = Math.sqrt(num)
+			this.result.value = Math.sqrt(num)
 		} else {
 			this.result.error = "Cannot calculate square root of negative number";
 		}
