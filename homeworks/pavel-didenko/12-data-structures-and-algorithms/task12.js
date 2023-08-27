@@ -19,15 +19,15 @@ sortedForBinary.sort((a, b) => {
 });
 
 function binarySearchAlgorithm(key, value, data) {
-  if (data.length === 1 && data[0].name !== value) {
+  if (data.length === 1 && data[0][key] !== value) {
     return 'Not found';
   }
 
   const halfLength = Math.floor(data.length / 2);
 
-  if (value === data[halfLength].name) {
+  if (value === data[halfLength][key]) {
     return data[halfLength];
-  } else if (value > data[halfLength].name) {
+  } else if (value > data[halfLength][key]) {
     return binarySearchAlgorithm(
       key,
       value,
