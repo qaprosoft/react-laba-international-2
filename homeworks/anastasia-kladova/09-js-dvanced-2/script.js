@@ -30,8 +30,6 @@ function jsonReplacer(_, value) {
 }
 
 function jsonReviver(_, value) {
-  if (!isNaN(value)) return +value;
-
   switch (value) {
     case 'NaN':
       return NaN;
