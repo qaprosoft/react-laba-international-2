@@ -33,7 +33,7 @@ function binarySearchAlgorithm(key, value, data) {
       value,
       data.slice(halfLength, data.length),
     );
-  } else if (value < data[halfLength].name) {
+  } else if (value < data[halfLength][key]) {
     return binarySearchAlgorithm(key, value, data.slice(0, halfLength));
   }
 }

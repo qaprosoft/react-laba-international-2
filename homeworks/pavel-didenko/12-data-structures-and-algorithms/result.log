@@ -1,8 +1,8 @@
-Function straightSearchAlgorithm executed in 0.08980000019073486 ms
+Function straightSearchAlgorithm executed in 0.09790000319480896 ms
  
-Function binarySearchAlgorithm executed in 0.07649999856948853 ms
+Function binarySearchAlgorithm executed in 0.08160000294446945 ms
  
-insertionSort algorithm executed in 446 ms
+insertionSort algorithm executed in 519 ms
  
 binarySearchAlgorithm test passed
  
