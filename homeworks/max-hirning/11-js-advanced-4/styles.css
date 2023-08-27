@@ -1,0 +1,24 @@
+table {
+  overflow: scroll;
+  width: max-content;
+  border-collapse: collapse;
+}
+
+td {
+  width: 40px;
+  padding: 0px;
+  height: 40px;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #000;
+}
+
+.selected {
+  color: white;
+  background-color: blue;
+}
+
+.active {
+  background-color: lightblue;
+}
