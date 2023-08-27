@@ -1,0 +1,57 @@
+body.dark-theme {
+    background-color: #0C151D;
+  
+    h1,
+    h2,
+    h3,
+    p,
+    a,
+    button,
+    li {
+      color: #A3ABB2;
+    }
+  
+    .theme-switch {
+      background-color: #171F26;
+      
+      img {
+        filter: invert(100%);
+      }
+    }
+  
+    .profile-info-items h1 {
+      color: #F1F2F4;
+    }
+  
+    .btn_style {
+      background-color: #171F26;
+  
+      &:hover {
+        color: #3D3D3D;
+        background-color: #FBD144;
+        transition-duration: 0.3s;
+      }
+    }
+  
+    .arrow-icon img {
+      filter: invert(100%);
+  
+      &:hover {
+        filter: invert(0%);
+        transition-duration: 0.3s;
+      }
+    }
+  
+    .tab-buttons-block {
+      background-color: #171F26;
+    }
+  
+    .tab-button.active {
+      background-color: #0C151D;
+    }
+  
+    .tab-button {
+      color: #A3ABB2;
+    }
+  }
+  

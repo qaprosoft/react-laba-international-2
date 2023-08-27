@@ -1,0 +1,27 @@
+{
+  "name": "webpack_scss_bundler",
+  "version": "1.0.0",
+  "description": "webpack to make compressed scss file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qaprosoft/react-laba-international-2.git"
+  },
+  "keywords": [
+    "webpack",
+    "scss",
+    "css",
+    "bundler",
+    "js",
+    "styles"
+  ],
+  "author": "oleksii achkevych",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qaprosoft/react-laba-international-2/issues"
+  },
+  "homepage": "https://github.com/qaprosoft/react-laba-international-2#readme"
+}
