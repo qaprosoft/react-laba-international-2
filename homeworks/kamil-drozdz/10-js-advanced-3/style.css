@@ -1,0 +1,48 @@
+html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  margin: 2rem;
+  max-width: 75rem;
+  height: 100%;
+}
+
+.header {
+  color: #662a48;
+  font-size: 4rem;
+}
+
+.runnersList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7rem;
+}
+
+.runnersList__runner {
+  min-width: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.runnersList__runner img {
+  margin: 0 auto;
+  width: 4rem;
+  height: 4rem;
+  align-self: center;
+}
+
+p {
+  text-align: center;
+}
