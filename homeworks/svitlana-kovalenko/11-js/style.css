@@ -1,0 +1,32 @@
+.root{
+	font-size: 0;
+	margin:0 auto;
+	padding: 0;
+	border: none;
+    width: 850px;
+    height: 1250px;
+}
+.grid{
+    margin:0;
+	padding:0;
+	border: 1px solid #000;
+	outline:1px solid #000;
+	display:inline-block;
+    width: 40px;
+    height: 40px;
+	position: relative;
+}
+.highlight{
+    background-color: lightblue;
+}
+.blue{
+    background-color: blue;
+}
+p{
+	position: absolute;
+	top: -10px;
+	left: 5px;
+	padding: 0;
+	color: #fff;
+	font-size: 14px;
+}
