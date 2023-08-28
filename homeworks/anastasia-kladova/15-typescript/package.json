@@ -2,7 +2,7 @@
   "name": "15-typescript",
   "version": "1.0.0",
   "description": "Hw 15, typescript",
-  "main": "index.js",
+  "main": "iscript.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
