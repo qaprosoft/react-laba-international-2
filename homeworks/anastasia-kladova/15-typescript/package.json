@@ -1,0 +1,11 @@
+{
+  "name": "15-typescript",
+  "version": "1.0.0",
+  "description": "HW15 dedicated to typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anastasia Kladova",
+  "license": "ISC"
+}
