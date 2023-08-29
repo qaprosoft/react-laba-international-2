@@ -166,7 +166,7 @@
       background-color: var(--accent-color);
       transition: background-color 0.3s ease;
 
-      &hover {
+      &:hover {
         background-color: #fac810;
       }
     }
@@ -175,7 +175,7 @@
       background-color: var(--secondary-color);
       transition: background-color 0.3s ease;
 
-      &hover {
+      &:hover {
         background-color: var(--nav-active-color);
       }
     }

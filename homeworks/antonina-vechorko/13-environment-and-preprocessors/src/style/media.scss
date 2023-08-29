@@ -1,316 +1,331 @@
 @media (max-width: 768px) {
-    header, main {
-        max-width: 90vw;
+  header, main {
+    max-width: 90vw;
+  }
+
+  p, span, button, label {
+    font-size: 18px;
+  }
+
+  footer {
+    margin-top: 1.5rem;
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .header__theme-switch {
+    width: 60px;
+    height: 60px;
+
+    &-icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  %wrapper-position {
+    gap: 3rem;
+    justify-content: center;
+  }
+
+  .person {
+    @extend %wrapper-position;
+
+    &__data {
+      @extend %wrapper-position;
     }
 
-    p, span, button, label {
-        font-size: 18px;
-    }
+    &__avatar {
+      width: 160px;
+      height: 160px;
 
-    footer {
-        margin-top: 1.5rem;
-    }
-
-    .footer p {
-        font-size: 16px;
-    }
-
-    .header__theme-switch {
-        width: 60px;
-        height: 60px;
-    }
-
-    .header__theme-switch-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    .person, .person__data {
-        gap: 3rem;
-        justify-content: center;
-    }
-
-    .person__avatar {
-        width: 160px;
-        height: 160px;
-    }
-
-    .person__avatar-img {
+      &-img {
         width: 100%;
         height: 100%;
+      }
     }
 
-    .person__full-name {
-        font-size: 30px;
+    &__full-name {
+      font-size: 30px;
     }
 
-    .person__social-media {
-        gap: 1rem;
-    }
+    &__social-media {
+      gap: 1rem;
 
-    .person__social-media-link {
+      &-link {
         height: 30px;
         width: 30px;
+      }
     }
 
-    .person__achievements {
-        justify-content: center;
-        gap: 3rem;
-        margin: 0 1rem 0 1rem;
+    &__achievements {
+      justify-content: center;
+      gap: 3rem;
+      margin: 0 1rem 0 1rem;
     }
 
-    .person__contact-btn {
-        max-width: 90vw;
-        gap: 2rem;
+    &__contact-btn {
+      max-width: 90vw;
+      gap: 2rem;
     }
 
-    .person__btn {
-        width: 260px;
-        height: 70px;
+    &__btn {
+      width: 260px;
+      height: 70px;
     }
 
-    .person__arrow-icon {
-        margin-left: 1rem;
+    &__arrow-icon {
+      margin-left: 1rem;
     }
+  }
 
-    .portfolio {
-        justify-content: center;
-    }
+  .portfolio {
+    justify-content: center;
 
-    .portfolio__item {
-        flex-basis: 100%;
-        max-width: 100%;
-        max-height: 100%;
-    }
+    &__item {
+      flex-basis: 100%;
+      max-width: 100%;
+      max-height: 100%;
 
-    .portfolio__item-description {
+      &-description {
         gap: 1.8rem;
         width: 100%;
         padding: 0;
         top: 25%;
-    }
+      }
 
-    .portfolio__item-name {
+      &-name {
         font-size: 26px;
-    }
+      }
 
-    .portfolio__item-summary {
+      &-summary {
         font-size: 16px;
         padding: 0 1rem 0;
-    }
+      }
 
-    .portfolio__item-link {
+      &-link {
         width: 46px;
         height: 46px;
-    }
 
-    .portfolio__link img {
-        width: 22px;
-        height: 22px;
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
     }
+  }
 
-    .scroll-to-top-btn {
-        display: block;
-    }
+  .scroll-to-top-btn {
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
-    p, span, button, label {
-        font-size: 14px;
-    }
+  p, span, button, label {
+    font-size: 14px;
+  }
 
-    .footer p {
-        font-size: 12px;
-    }
+  .footer p {
+    font-size: 12px;
+  }
 
-    .header__theme-switch {
-        width: 48px;
-        height: 48px;
-    }
+  .header__theme-switch {
+    width: 48px;
+    height: 48px;
 
-    .header__theme-switch-icon {
-        width: 24px;
-        height: 24px;
+    &-icon {
+      width: 24px;
+      height: 24px;
     }
+  }
 
-    .person__data {
-        flex-direction: column;
-        gap: 2rem;
-        margin: 1.5rem 0 1.5rem 0;
+  .person__data {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 1.5rem 0 1.5rem 0;
+  }
+
+  .person__avatar {
+    width: 124px;
+    height: 124px;
+
+    &-img {
+      width: 100%;
+      height: 100%;
     }
+  }
 
-    .person__avatar {
-        width: 124px;
-        height: 124px;
-    }
+  .person__info {
+    align-items: center;
+    gap: 1rem;
+  }
 
-    .person__avatar-img {
-        width: 100%;
-        height: 100%;
-    }
+  .person__achievements {
+    width: 80vw;
+    align-items: flex-start;
 
-    .person__info {
-        align-items: center;
-        gap: 1rem;
-    }
+    &-item {
+      gap: 0.6rem;
 
-    .person__achievements {
-        width: 80vw;
-        align-items: flex-start;
-    }
-
-    .person__achievements-item {
-        gap: 0.6rem;
-    }
-
-    .person__achievements-item-title {
+      &--title {
         font-size: 16px;
+      }
     }
+  }
 
-    .person__contact-btn {
-        width: 100%;
-        justify-content: space-between;
-        gap: 1rem;
-    }
+  .person__contact-btn {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
 
-    .person__btn {
-        width: 190px;
-        height: 60px;
-    }
+  .person__btn {
+    width: 190px;
+    height: 60px;
 
-    .person__btn--download {
-        padding: 1rem;
+    &--download {
+      padding: 1rem;
     }
+  }
 
-    .person__arrow-icon, .person__arrow-icon img {
-        width: 20px;
-        height: 23px;
-    }
+  .person__arrow-icon, .person__arrow-icon img {
+    width: 20px;
+    height: 23px;
+    margin-left: 0.5rem;
 
-    .person__arrow-icon {
-        margin-left: 0.5rem;
+    img {
+      width: 20px;
+      height: 23px;
     }
+  }
 
-    form#tab-toggle {
-        max-height: 80px;
-    }
+  form#tab-toggle {
+    max-height: 80px;
+  }
 
-    .main-nav__label {
-        height: 60px;
-    }
+  .main-nav__label {
+    height: 60px;
+  }
 
-    .main-nav__form {
-        padding: 0.7rem;
-    }
+  .main-nav__form {
+    padding: 0.7rem;
+  }
 
-    .portfolio__item-description {
-        top: 22%;
-        gap: 1.5rem;
-    }
+  .portfolio__item-description {
+    top: 22%;
+    gap: 1.5rem;
+  }
 
-    .portfolio__item-name {
-        font-size: 24px;
-    }
+  .portfolio__item-name {
+    font-size: 24px;
+  }
 
-    .portfolio__item-summary {
-        font-size: 14px;
-    }
+  .portfolio__item-summary {
+    font-size: 14px;
+  }
 
-    .portfolio__item-link {
-        width: 38px;
-        height: 38px;
-    }
+  .portfolio__item-link {
+    width: 38px;
+    height: 38px;
 
-    .portfolio__item-link img {
-        width: 18px;
-        height: 18px;
+    img {
+      width: 18px;
+      height: 18px;
     }
+  }
 
-    .skills__title {
-        font-size: 24px;
-    }
+  .skills__title {
+    font-size: 24px;
+  }
 
-    li {
-        font-size: 14px;
-    }
+  li {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 375px) {
-    .person__achievements {
-        padding: 0;
-        gap: 0.8rem;
-    }
+  .person__achievements {
+    padding: 0;
+    gap: 0.8rem;
 
-    .person__achievements-item-subtitle {
-        font-size: 12px;
+    &-item-subtitle {
+      font-size: 12px;
     }
+  }
 
-    .person__btn {
-        font-size: 12px;
-        gap: 0.1rem;
-    }
+  .person__btn {
+    font-size: 12px;
+  }
 
-    .person__arrow-icon, .person__arrow-icon img {
-        width: 16px;
-        height: 14px;
-    }
+  .person__arrow-icon, .person__arrow-icon img {
+    width: 16px;
+    height: 14px;
+  }
 
-    .portfolio__item-description {
-        gap: 1.2rem;
-    }
+  .portfolio__item-description {
+    gap: 1.2rem;
+  }
 
-    .portfolio__item-name {
-        font-size: 18px;
-    }
+  .portfolio__item-name {
+    font-size: 18px;
+  }
 
-    .portfolio__item-summary {
-        font-size: 12px;
-    }
+  .portfolio__item-summary {
+    font-size: 12px;
+  }
 
-    .portfolio__item-link {
-        width: 30px;
-        height: 30px;
-    }
+  .portfolio__item-link {
+    width: 30px;
+    height: 30px;
 
-    .portfolio__item-link img {
-        width: 15px;
-        height: 15px;
+    img {
+      width: 15px;
+      height: 15px;
     }
-    .skills__title {
-        font-size: 20px;
-    }
+  }
+
+  .skills__title {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 280px) {
-    /*for Galaxy Fold*/
-    .person__achievements {
-        padding: 0;
-        gap: 0.2rem;
-    }
+  /*for Galaxy Fold*/
+  .person__achievements {
+    padding: 0;
+    gap: 0.2rem;
 
-    .person__achievements-item-title {
-        font-size: 14px;
+    &-item-title {
+      font-size: 14px;
     }
+  }
 
-    .person__btn {
-        padding: 0;
-        gap: 0;
-    }
+  .person__btn {
+    padding: 0;
+    gap: 0;
+    font-size: 10px;
 
-    .portfolio__item-description {
-        top: 18%;
-        gap: 0.8rem;
+    img {
+      margin: 0;
     }
+  }
 
-    .skills__title {
-        font-size: 16px;
-    }
+  .portfolio__item-description {
+    top: 18%;
+    gap: 0.8rem;
+  }
 
-    li {
-        font-size: 12px;
-    }
+  .skills__title {
+    font-size: 16px;
+  }
 
-    .footer p {
-        font-size: 12px;
-    }
+  li {
+    font-size: 12px;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
 }

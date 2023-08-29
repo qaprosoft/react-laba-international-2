@@ -15,8 +15,8 @@ body {
     align-items: center;
     margin: 0 auto;
     box-sizing: border-box;
-    font-family: var(--main-font-family);
-    font-size: var(--main-font-size);
+    font-family: $main-font-family;
+    font-size: $main-font-size;
     background-color: var(--background-main);
 }
 
