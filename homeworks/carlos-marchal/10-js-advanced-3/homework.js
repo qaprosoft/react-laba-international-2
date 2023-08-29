@@ -56,6 +56,7 @@ function checkDigit(string) {
 // task 7
 
 function isPhoneNumber(string) {
-  let phoneNumberRegex = /\+54-?0?\d{1,2}\d\d?\d?-?\d{3,6}\d-?\d\d\d\d?/;
+  let phoneNumberRegex = /\+54-?0?[0-2]\d{2,3}-?[46]\d-?\d{4}/;
   return phoneNumberRegex.test(string);
 }
+
