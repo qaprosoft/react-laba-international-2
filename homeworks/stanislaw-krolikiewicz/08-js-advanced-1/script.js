@@ -76,3 +76,48 @@ const randomDate = (startDate, endDate) => {
     },
   };
 };
+
+// task 5 https://www.codewars.com/kata/merged-objects
+const objConcat = objectsArray => {
+  let objectConcatenated = {};
+  for (const object of objectsArray) {
+    for (const key in object) {
+      objectConcatenated[key] = object[key];
+    }
+  }
+  return objectConcatenated;
+};
+
+// task 6 https://www.codewars.com/kata/547f1a8d4a437abdf800055c
+class NamedOne {
+  constructor(firstName, lastName) {
+    this._firstName = firstName;
+    this._lastName = lastName;
+    this._fullName = firstName + ' ' + lastName;
+  }
+  get firstName() {
+    return this._firstName;
+  }
+  get lastName() {
+    return this._lastName;
+  }
+  get fullName() {
+    return this._fullName;
+  }
+  set firstName(newFirstName) {
+    this._firstName = newFirstName;
+    this._fullName = newFirstName + ' ' + this._lastName;
+  }
+  set lastName(newLastName) {
+    this._lastName = newLastName;
+    this._fullName = this._firstName + ' ' + newLastName;
+  }
+  set fullName(newFullName) {
+    const fullNameArray = newFullName.split(' ');
+    if (fullNameArray.length === 2) {
+      this._firstName = fullNameArray[0];
+      this._lastName = fullNameArray[1];
+      this._fullName = newFullName;
+    }
+  }
+}
