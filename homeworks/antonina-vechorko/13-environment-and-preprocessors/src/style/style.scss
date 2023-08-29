@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-@import 'variables.css';
-@import 'header.css';
-@import 'main.css';
-@import 'footer.css';
-@import 'dark-mode.css';
-@import 'media.css';
+@import 'variables.scss';
+@import 'header.scss';
+@import 'main.scss';
+@import 'footer.scss';
+@import 'dark-mode.scss';
+@import 'media.scss';
 
 body {
     max-width: 757px;

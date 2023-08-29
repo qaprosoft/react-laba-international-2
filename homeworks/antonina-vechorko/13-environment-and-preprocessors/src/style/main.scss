@@ -9,6 +9,10 @@ nav {
     max-height: 132px;
 }
 
+form#tab-toggle {
+    max-width: 760px;
+}
+
 .main-nav__form {
     height: 100%;
     display: flex;
@@ -16,10 +20,10 @@ nav {
     padding: 0.7rem 1rem 0.7rem;
     background-color: var(--secondary-color);
     justify-content: space-between;
-}
 
-form#tab-toggle {
-    max-width: 760px;
+    input:checked + label {
+        background-color: var(--nav-active-color);
+    }
 }
 
 .main-nav__label {
@@ -35,14 +39,6 @@ form#tab-toggle {
     color: var(--text-color-additional2);
 }
 
-.main-nav__form input:checked + label {
-    background-color: var(--nav-active-color);
-}
-
-.main {
-    max-width: 760px;
-}
-
 .portfolio {
     display: flex;
     flex-direction: row;
@@ -50,34 +46,34 @@ form#tab-toggle {
     justify-content: space-between;
     gap: 1rem;
     max-width: 760px;
-}
 
-.portfolio__item {
-    max-width: 362px;
-    max-height: 226px;
-    margin-bottom: 1.2rem;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    cursor: pointer;
-}
+    &__item {
+        max-width: 362px;
+        max-height: 226px;
+        margin-bottom: 1.2rem;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        cursor: pointer;
 
-.portfolio__item-img {
-    width: 100%;
-    height: 100%;
-}
+        &-img {
+            width: 100%;
+            height: 100%;
+        }
 
-.portfolio__item-description {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1.3rem;
-    top: 18%;
-    padding: 0 1.5rem 0;
-    color: var(--text-color-secondary);
+        &-description {
+            display: none;
+            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.3rem;
+            top: 18%;
+            padding: 0 1.5rem 0;
+            color: var(--text-color-secondary);
+        }
+    }
 }
 
 .portfolio__item:hover > .portfolio__item-description {
