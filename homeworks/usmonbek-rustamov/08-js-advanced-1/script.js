@@ -180,18 +180,63 @@ function objConcat(objects) {
 function NamedOne(first, last) {
   this.firstName = first;
   this.lastName = last;
+
+  Object.defineProperty(this, 'fullName', {
+    get() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+
+    set(value) {
+      const parts = value.split(' ');
+      if (parts.length !== 2) return;
+
+      this.firstName = parts[0];
+      this.lastName = parts[1];
+    },
+  });
 }
 
-Object.defineProperty(NamedOne.prototype, 'fullName', {
-  get() {
-    return `${this.firstName} ${this.lastName}`;
-  },
+// Task 7: "this" is an other solution
+// https://www.codewars.com/kata/54834b3559e638b39d0009a2/train/javascript
+function OnceNamedOne(first, last) {
+  Object.defineProperties(this, {
+    firstName: {
+      value: first,
+    },
+    lastName: {
+      value: last,
+    },
+    fullName: {
+      value: `${first} ${last}`,
+    },
+  });
+}
 
-  set(value) {
-    const parts = value.split(' ');
-    if (parts.length !== 2) return;
+// Task 8: Partial Keys
+// https://www.codewars.com/kata/5e602796017122002e5bc2ed/train/javascript
+function partialKeys(obj) {
+  const orderedKeys = Object.keys(obj).sort();
 
-    this.firstName = parts[0];
-    this.lastName = parts[1];
-  },
-});
+  const handler = {
+    get(target, prop) {
+      for (let key of orderedKeys) {
+        if (key.startsWith(prop)) {
+          return target[key];
+        }
+      }
+    },
+  };
+
+  return new Proxy(obj, handler);
+}
+
+// Task 9: Human Readable Time
+// https://www.codewars.com/kata/52685f7382004e774f0001f7/train/javascript
+function humanReadable(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = (totalSeconds % 3600) % 60;
+
+  const pad = value => String(value).padStart(2, 0);
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+}
