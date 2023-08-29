@@ -1,0 +1,82 @@
+:root {
+  // GENERAL
+  --clr-white: #FFFFFF;
+  --clr-dark : #19191B;
+  --clr-light-1: #E9EBEC;
+  --clr-light-2: #F1F2F4;
+  --clr-light-3: #E7E7E7;
+  --clr-black: #000000;
+  --clr-blue: #3E64AA;
+  --clr-gray-1: #3D3D3D;
+  --clr-gray-2: #575757;
+  --clr-light-gray-1: #A3ABB2;
+  --clr-light-gray-2: #D7D7D7;
+  --clr-dark-blue-1: #0C151D;
+  --clr-dark-blue-2: #171F26;
+  --clr-yellow-1: #FBD144;
+  --clr-yellow-2: #FFE071;
+}
+
+:root.light {
+  // page
+  --clr-page-bg: var(--clr-light-1);
+
+  // GENERAL
+  --clr-yellow: var(--clr-yellow-1);
+
+  // TEXT
+  //      primary
+  --clr-primary-text: var(--clr-gray-1);
+  //      secondary
+  --clr-secondary-text: var(--clr-gray-2);
+  
+  // BUTTONS
+  //      primary
+  --clr-primary-button-bg: var(--clr-yellow);
+  --clr-primary-button-text: var(--clr-gray-1);
+  --clr-primary-button-bg--hover: var(--clr-blue);
+  --clr-primary-button-text--hover: var(--clr-white);
+  //      secondary
+  --clr-secondary-button-bg: var(--clr-white);
+  --clr-secondary-button-text: var(--clr-gray-1);
+  --clr-secondary-button-bg--hover: transparent;
+  --clr-secondary-button-border--hover: var(--clr-blue);
+  --clr-secondary-button-text--hover: var(--clr-blue);
+
+  // TABS
+  --clr-tabs-bg: var(--clr-white);
+  --clr-tab-text: var(--clr-dark);
+  --clr-tab-bg--active: var(--clr-light-gray-2);
+}
+
+:root.dark {
+  // page
+  --clr-page-bg: var(--clr-dark-blue-1);
+
+  // GENERAL
+  --clr-yellow: var(--clr-yellow-2);
+
+  // TEXT
+  //      primary
+  --clr-primary-text: var(--clr-light-2);
+  //      secondary
+  --clr-secondary-text: var(--clr-light-gray-1);
+
+  // BUTTONS
+  //      primary
+  --clr-primary-button-bg: var(--clr-yellow);
+  --clr-primary-button-text: var(--clr-gray-1);
+  --clr-primary-button-bg--hover: var(--clr-blue);
+  --clr-primary-button-text--hover: var(--clr-primary-text);
+  //      secondary
+  --clr-secondary-button-bg: var(--clr-dark-blue-2);
+  --clr-secondary-button-text: var(--clr-secondary-text);
+  --clr-secondary-button-bg--hover: transparent;
+  --clr-secondary-button-border--hover: var(--clr-blue);
+  --clr-secondary-button-text--hover: var(--clr-blue);
+
+  // TABS
+  --clr-tabs-bg: var(--clr-dark-blue-2);
+  --clr-tab-text: var(--clr-light-gray-2);
+  --clr-tab-bg--active: var(--clr-dark-blue-1);
+}

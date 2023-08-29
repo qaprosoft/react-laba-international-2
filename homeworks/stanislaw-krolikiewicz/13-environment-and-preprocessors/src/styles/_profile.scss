@@ -1,0 +1,156 @@
+$mobile: 600px;
+
+.profile {
+  max-width: 631px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding-top: 65px;
+  padding-bottom: 75px;
+  @media (max-width: $mobile) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    gap: 30px;
+  }
+  @at-root &-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    @at-root &__image {
+      width: 215px;
+      height: 215px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      border: 0.75rem solid var(--clr-white);
+      outline: 0.25rem solid var(--clr-yellow);
+      outline-offset: -0.25rem;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        width: 124px;
+        height: 124px;
+        border: 0.75rem solid var(--clr-page-bg);
+      }
+    }
+
+    @at-root &__info {
+      display: flex;
+      flex-direction: column;
+      @media (max-width: $mobile) {
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @at-root &__name {
+      font-size: 46px;
+      line-height: 69px;
+      font-weight: 500;
+      color: var(--clr-primary-text);
+      padding-bottom: 3px;
+      transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        font-size: 32px;
+        line-height: 48px;
+      }
+    }
+    @at-root &__occupation {
+      font-size: 22px;
+      line-height: 33px;
+      font-weight: 500;
+      color: var(--clr-secondary-text);
+      padding-bottom: 12px;
+      transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        font-size: 14px;
+        line-height: 21px;
+        padding-bottom: 20px;
+      }
+    }
+    @at-root &__socials {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 26px;
+    }
+    @at-root &__link {
+      height: fit-content;
+      width: fit-content;
+      display: flex;
+      transition: all 0.1s ease-in-out;
+      &:hover {
+        .profile-avatar__icon {
+          fill: var(--clr-blue);
+        }
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+
+    @at-root &__icon {
+      width: 36px;
+      height: 36px;
+      fill: var(--clr-secondary-text);
+      transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  @at-root &-facts {
+    max-width: 634px;
+    width: 100%;
+    display: flex;
+    flex-shrink: 1;
+    // flex-wrap: wrap;
+    align-items: center;
+    padding-inline: 31px;
+    justify-content: space-between;
+    gap: 2rem;
+    @media (max-width: $mobile) {
+      padding-inline: 20px;
+    }
+    @media (max-width: 370px) {
+      flex-direction: column;
+    }
+    @at-root &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+    @at-root &__value {
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 500;
+      color: var(--clr-primary-text);
+      transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+    @at-root &__name {
+      font-size: 22px;
+      line-height: 33px;
+      font-weight: 500;
+      color: var(--clr-secondary-text);
+      transition: all 0.3s ease-in-out;
+      @media (max-width: $mobile) {
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+}
