@@ -59,11 +59,13 @@ console.log(
 function daysOfDifference(date) {
   const today = new Date();
   const difference = today.getTime() - date.getTime();
+  const hour = 3.6e6; // miliseconds in an hour
+  const day = 8.64e7; // miliseconds in a day
 
-  if (difference < 3.6e6) {
+  if (difference < hour) {
     const result = Math.floor(difference / (1000 * 60));
     return result + (result === 1 ? " minute" : " minutes") + "ago";
-  } else if (difference < 8.64e7) {
+  } else if (difference < day) {
     const result = Math.floor(difference / (1000 * 60 * 60));
     return result + (result === 1 ? " hour" : " hours") + " ago";
   } else {
@@ -71,6 +73,7 @@ function daysOfDifference(date) {
     return result + (result === 1 ? " day" : " days") + " ago";
   }
 }
+
 
 // 4. Random dates
 
