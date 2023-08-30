@@ -2,13 +2,17 @@
 
 let currentTheme = localStorage.getItem('theme') || 'light';
 const themeSwitcher = document.getElementById('theme-switcher');
-const setTheme = (theme) => {
+const setTheme = theme => {
   if (theme === 'dark') {
-    themeSwitcher.classList
-      .replace('theme-switcher--light', 'theme-switcher--dark');
+    themeSwitcher.classList.replace(
+      'theme-switcher--light',
+      'theme-switcher--dark',
+    );
   } else {
-    themeSwitcher.classList
-      .replace('theme-switcher--dark', 'theme-switcher--light');
+    themeSwitcher.classList.replace(
+      'theme-switcher--dark',
+      'theme-switcher--light',
+    );
   }
   document.documentElement.className = theme;
 };
@@ -21,7 +25,7 @@ const switchTheme = () => {
     setTheme('light');
     currentTheme = 'light';
   }
-  
+
   localStorage.setItem('theme', currentTheme);
 };
 
