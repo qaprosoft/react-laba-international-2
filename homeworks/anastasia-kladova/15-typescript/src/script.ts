@@ -27,3 +27,14 @@ class BasicCalculator implements ICalculator {
       : {value: Math.sqrt(num), errorMessage: ''};
   }
 }
+
+const exampleCalculator = new BasicCalculator();
+
+console.log(exampleCalculator.add(1, 1));
+console.log(exampleCalculator.subtract(2, 1));
+console.log(exampleCalculator.multiply(2, 2));
+console.log(exampleCalculator.divide(4, 2));
+console.log(exampleCalculator.power(2, 2));
+console.log(exampleCalculator.power(2, -2));
+console.log(exampleCalculator.sqrt(9));
+console.log(exampleCalculator.sqrt(-1));
