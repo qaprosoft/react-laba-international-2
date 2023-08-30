@@ -12,7 +12,8 @@ const pluck = (object, string) => {
 };
 
 // task 2 Deep Clone https://github.com/qaprosoft/react-laba-international-2/blob/main/lectures/08-js-advanced-1/task.md#2-deep-clone
-const clone = object => JSON.parse(JSON.stringify(object));
+// const clone = object => JSON.parse(JSON.stringify(object));
+const clone = object => structuredClone(object);
 
 // task 3 "A long time ago"
 const moment = (dateString, format) => {
@@ -78,15 +79,7 @@ const randomDate = (startDate, endDate) => {
 };
 
 // task 5 https://www.codewars.com/kata/merged-objects
-const objConcat = objectsArray => {
-  let objectConcatenated = {};
-  for (const object of objectsArray) {
-    for (const key in object) {
-      objectConcatenated[key] = object[key];
-    }
-  }
-  return objectConcatenated;
-};
+const objConcat = objectsArray => Object.assign({}, ...objectsArray);
 
 // task 6 https://www.codewars.com/kata/547f1a8d4a437abdf800055c
 class NamedOne {
