@@ -1,6 +1,7 @@
 const gridContainer = document.querySelector('.grid');
 const columns = 20;
 const rows = 30;
+let shiftPressed = false;
 
 createGrid(rows, columns);
 
@@ -29,6 +30,12 @@ function highlightRowColumn(item, positionX, positionY) {
 gridContainer.addEventListener('click', e => {
   const target = e.target;
   let position;
+  if (!shiftPressed) {
+    cell.forEach(item => {
+      item.classList.remove('active', 'highlight');
+      item.innerHTML = '';
+    });
+  }
   if (target && target.classList.contains('cell')) {
     if (target.classList.contains('active')) {
       target.classList.remove('active');
@@ -37,7 +44,6 @@ gridContainer.addEventListener('click', e => {
       target.classList.add('active');
       position = target.getAttribute('id');
       target.textContent = position;
-      console.log(position);
     }
   }
 
@@ -46,4 +52,15 @@ gridContainer.addEventListener('click', e => {
   cell.forEach(item => {
     highlightRowColumn(item, positionX, positionY);
   });
+});
+
+window.addEventListener('keydown', e => {
+  if (e.key === 'Shift') {
+    shiftPressed = true;
+  }
+});
+window.addEventListener('keyup', e => {
+  if (e.key === 'Shift') {
+    shiftPressed = false;
+  }
 });
