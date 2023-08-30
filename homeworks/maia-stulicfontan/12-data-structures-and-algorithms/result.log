@@ -1,0 +1,59 @@
+------ Results for finding the first element of the list ------
+searchBySkuStraight: 0.049ms
+Expected result: {"sku":"ccdb70f4-91f1-4543-93fa-8a93f980dc99","name":"Pears - Fiorelle","price":"£22.47","pack":20}, 
+Actual result: {"sku":"ccdb70f4-91f1-4543-93fa-8a93f980dc99","name":"Pears - Fiorelle","price":"£22.47","pack":20}
+
+searchBySkuBinary: 0.091ms
+Expected result: {"sku":"00123ba6-75c4-47c7-bc51-550908a9ad31","name":"Syrup - Monin - Blue Curacao","price":"£21.18","pack":5}, 
+Actual result: {"sku":"00123ba6-75c4-47c7-bc51-550908a9ad31","name":"Syrup - Monin - Blue Curacao","price":"£21.18","pack":5}
+
+------ Results for finding element in the middle of the list ------
+searchBySkuStraight: 0.023ms
+Expected result: {"sku":"bdf443b8-fbd5-4eb1-b35f-774059e77c1f","name":"Blue Curacao - Marie Brizard","price":"£18.18","pack":25}, 
+Actual result: {"sku":"bdf443b8-fbd5-4eb1-b35f-774059e77c1f","name":"Blue Curacao - Marie Brizard","price":"£18.18","pack":25}
+
+searchBySkuBinary: 0.002ms
+Expected result: {"sku":"7f6981ca-9a5f-4f3a-8ccb-e3ddcba4fa97","name":"Wine - Red, Lurton Merlot De","price":"£9.07","pack":20}, 
+Actual result: {"sku":"7f6981ca-9a5f-4f3a-8ccb-e3ddcba4fa97","name":"Wine - Red, Lurton Merlot De","price":"£9.07","pack":20}
+
+------ Results for finding the last element of the list ------
+searchBySkuStraight: 0.024ms
+Expected result: {"sku":"83b65687-1774-4172-9e28-44537a619a7e","name":"Pork - Bacon, Double Smoked","price":"£19.88","pack":1}, 
+Actual result: {"sku":"83b65687-1774-4172-9e28-44537a619a7e","name":"Pork - Bacon, Double Smoked","price":"£19.88","pack":1}
+
+searchBySkuBinary: 0.008ms
+Expected result: {"sku":"ffe211f9-f809-4bf5-b8a5-be6f4a1c1033","name":"Bread - Calabrese Baguette","price":"£18.70","pack":20}, 
+Actual result: {"sku":"ffe211f9-f809-4bf5-b8a5-be6f4a1c1033","name":"Bread - Calabrese Baguette","price":"£18.70","pack":20}
+
+------ Results for finding element near start of the list ------
+searchBySkuStraight: 0.007ms
+Expected result: {"sku":"5992e373-5d90-4c5c-8056-507a14bf9e4d","name":"Bacardi Breezer - Strawberry","price":"£22.65","pack":5}, 
+Actual result: {"sku":"5992e373-5d90-4c5c-8056-507a14bf9e4d","name":"Bacardi Breezer - Strawberry","price":"£22.65","pack":5}
+
+searchBySkuBinary: 0.008ms
+Expected result: {"sku":"324986bf-9971-4b31-9f7b-7db2e1cbf62b","name":"Saskatoon Berries - Frozen","price":"£1.06","pack":1}, 
+Actual result: {"sku":"324986bf-9971-4b31-9f7b-7db2e1cbf62b","name":"Saskatoon Berries - Frozen","price":"£1.06","pack":1}
+
+------ Results for finding element near end of the list ------
+searchBySkuStraight: 0.018ms
+Expected result: {"sku":"46294e8d-ca2a-445f-bee7-2d31d3b7a487","name":"Flavouring Vanilla Artificial","price":"£24.25","pack":1}, 
+Actual result: {"sku":"46294e8d-ca2a-445f-bee7-2d31d3b7a487","name":"Flavouring Vanilla Artificial","price":"£24.25","pack":1}
+
+searchBySkuBinary: 0.017ms
+Expected result: {"sku":"cb4642b3-aba5-46ba-8c92-f52fd6e7c306","name":"Flour - All Purpose","price":"£15.62","pack":20}, 
+Actual result: {"sku":"cb4642b3-aba5-46ba-8c92-f52fd6e7c306","name":"Flour - All Purpose","price":"£15.62","pack":20}
+
+------ Results for trying to find non-existent element ------
+searchBySkuStraight: 0.023ms
+Expected result: {}, 
+Actual result: {}
+
+searchBySkuBinary: 0.007ms
+Expected result: {}, 
+Actual result: {}
+
+
+---- Bonus: testing sorting algorithms ----
+sortArrayBySku: 1.674ms
+sortArrayBySkuMerge: 0.731ms
+Custom sorting using JS sort() and Merge sort provide same result?: true
