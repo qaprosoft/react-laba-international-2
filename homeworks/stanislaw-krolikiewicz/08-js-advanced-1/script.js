@@ -115,8 +115,7 @@ class NamedOne {
   set fullName(newFullName) {
     const fullNameArray = newFullName.split(' ');
     if (fullNameArray.length === 2) {
-      this._firstName = fullNameArray[0];
-      this._lastName = fullNameArray[1];
+      [this._firstName, this._lastName] = fullNameArray;
       this._fullName = newFullName;
     }
   }
