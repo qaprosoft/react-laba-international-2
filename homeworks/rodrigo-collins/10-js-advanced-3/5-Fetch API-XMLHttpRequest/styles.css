@@ -1,0 +1,37 @@
+h1,
+h2 {
+    font-family: Lato;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 60px;
+}
+
+div {
+    padding: 20px;
+}
+
+.user-item {
+    display: flex;
+    width: 120px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin: 10px;
+    background-color: #fafafa;
+}
