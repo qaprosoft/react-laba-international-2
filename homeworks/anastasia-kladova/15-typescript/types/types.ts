@@ -1,9 +1,9 @@
-type BaseOperation = (num1: number, num2: number) => IResult;
-type SqrtOperation = (num: number) => IResult;
+export type BaseOperation = (num1: number, num2: number) => IResult;
+export type SqrtOperation = (num: number) => IResult;
 
-interface IResult {
-  value: number;
-  error: string;
+export interface IResult {
+  value: number | null;
+  errorMessage: string;
 }
 
 export interface ICalculator {
