@@ -164,6 +164,25 @@ function randomDate(date1, date2) {
   return new Date(Math.floor(Math.random() * (maxDate - minDate) + minDate));
 }
 
+Date.prototype.format = function (format) {
+  const placeholders = {
+    YYYY: String(this.getFullYear()),
+    YY: String(this.getFullYear()),
+    MM: String(this.getMonth() + 1).padStart(2, 0),
+    DD: String(this.getDate()).padStart(2, 0),
+    hh: String(this.getHours()).padStart(2, 0),
+    mm: String(this.getMinutes()).padStart(2, 0),
+    ss: String(this.getSeconds()).padStart(2, 0),
+  };
+
+  const formatted = format.replace(
+    /YYYY|YY|MM|DD|hh|mm|ss/g,
+    match => placeholders[match],
+  );
+
+  return formatted;
+};
+
 // const date1 = moment('23/01/2021', 'DD/MM/YYYY');
 // const date2 = moment('23/02/2021', 'DD/MM/YYYY');
 
