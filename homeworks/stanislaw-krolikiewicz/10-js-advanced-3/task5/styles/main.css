@@ -1,0 +1,28 @@
+header {
+  text-align: center;
+  color: darkred;
+}
+
+#runners-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 5rem;
+}
+
+article {
+  border: 1px solid black;
+  border-radius: 0.2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+img {
+  border-radius: 0.2rem;
+}
+
+.error {
+  color: red;
+}
