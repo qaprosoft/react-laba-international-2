@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .theme-toogle {
+    width: 45px;
+    height: 45px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    background: var(--toggle-switcher-bg-color);
+  }
+
+  .header__theme-toogle {
+    transition-duration: 1s;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+
+    .header__theme-toogle-icon {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  .header__theme-toogle-rotate {
+    animation: rotate360 0.5s linear;
+
+    @keyframes rotate360 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

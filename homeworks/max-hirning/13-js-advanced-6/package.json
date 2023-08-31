@@ -1,0 +1,17 @@
+{
+  "name": "13-js-advanced-6",
+  "version": "1.0.0",
+  "description": "Move css to scss",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass ./src/styles/styles.scss:./dist/styles/styles.css",
+    "start": "sass --watch ./src/styles/styles.scss:./dist/styles/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qaprosoft/react-laba-international-2.git"
+  },
+  "keywords": [],
+  "author": "Max Hirning",
+  "license": "ISC"
+}
