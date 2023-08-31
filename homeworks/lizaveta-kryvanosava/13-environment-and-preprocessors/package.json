@@ -1,0 +1,37 @@
+{
+  "name": "13-environment-and-preprocessors",
+  "version": "1.0.0",
+  "private": true,
+  "description": "13-environment-and-preprocessors homework",
+  "keywords": [
+    "portfolio",
+    "sass",
+    "module bundler",
+    "Webpack"
+  ],
+  "homepage": "https://github.com/qaprosoft/react-laba-international-2",
+  "bugs": {
+    "url": "https://github.com/qaprosoft/react-laba-international-2/issues",
+    "email": "ekrivinosova.laba@solvd.com"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "author": "Lizaveta Kryvanosava",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass-loader": "^13.3.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "sass": "^1.66.1"
+  }
+}

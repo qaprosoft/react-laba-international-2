@@ -49,6 +49,6 @@ Once PR is created you have to do the following things:
 | Aug 18th           | [Environment](./lectures/13-environment-and-preprocessors/README.md)                   | [task 🔗](./lectures/13-environment-and-preprocessors/task.md)  |
 | Aug 22th           | [Principles](./lectures/14-principles/README.md)                                       | no task for this lecture                                        |
 | Aug 25th           | [Typescript](./lectures/15-typescript/README.md)                                       | [task 🔗](./lectures/15-typescript/task.md)                     |
-| Aug 29th           | Patterns                                                                               |                                                                 |
+| Aug 29th           | [Patterns](./lectures/16-patterns/README.md)                                           | no task for this lecture                                        |
 | Aug 29th - Sep 8th | Learning week                                                                          |                                                                 |
 | Sep 11th-15th      | Second block exam                                                                      |                                                                 |
