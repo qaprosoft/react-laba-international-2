@@ -5,11 +5,15 @@
     gap: 1px;
   }
 
-.grid_cell{
+.grid__cell{
   border: solid black 2px;
   text-align: center;
   font-size: 15px;
 }  
-.grid_cell--selected{
+.grid__cell--selected{
   background-color: blue;
+}
+
+.grid__cell--secondary{
+  background-color: lightblue;
 }
