@@ -17,3 +17,8 @@
 .grid__cell--secondary{
   background-color: lightblue;
 }
+
+.grid__cell p{
+  display: none;
+  margin: auto;
+}

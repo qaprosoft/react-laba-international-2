@@ -9,9 +9,11 @@ let selectedColumn;
 function createGrid(){
 for (let row = 0; row < rows; row++) {
     for (let col = 0; col < columns; col++) {
-        const gridCell = document.createElement('div');
-        gridCell.classList.add('grid__cell');
-        gridCell.textContent = `y=${row + 1}, x=${col + 1}`;
+        const gridCell = document.createElement("div");
+        gridCell.classList.add("grid__cell");
+        const gridCoordsP = document.createElement("p");
+        gridCoordsP.textContent = `y=${row + 1}, x=${col + 1}`;
+        gridCell.appendChild(gridCoordsP);
         gridCell.setAttribute("row", `${row+1}`);
         gridCell.setAttribute("column", `${col+1}`);
         gridContainer.appendChild(gridCell);
@@ -32,8 +34,7 @@ cells.forEach(e => {
         } else if( selectedCell === e){
             toggleSelection(selectedCell, selectedRow, selectedColumn);
         }
-        toggleSelection(selectedCell, selectedRow, selectedColumn)
-      
+        toggleSelection(selectedCell, selectedRow, selectedColumn);
         toggleSelection(e, e.getAttribute("row"), e.getAttribute("column"));
         
     })
@@ -43,10 +44,8 @@ cells.forEach(e => {
 
 
 function getCellsByRowOrCol(axis, value){
-    const cells = document.querySelectorAll(".grid__cell");
-    const resultArr = [];
-    cells.forEach(e=>{e.getAttribute(axis)==value? resultArr.push(e):null});
-    return resultArr;
+    const cells = document.querySelectorAll(`[${axis}="${value}"]`);
+    return cells;
 };
 
 function toggleSelection(element, row, column){
