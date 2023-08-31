@@ -1,0 +1,98 @@
+@media screen and (min-width: 769px) {
+  .portfolio__buttons {
+    padding: 1.5vw;
+  }
+  .action-button {
+    @include text(22px);
+  }
+  .profile__additional-info {
+    div {
+      p {
+        @include text(22px);
+      }
+    }
+  }
+  .portfolio__buttons {
+    .portfolio-button {
+      @include text(22px);
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .action-button {
+    @include text(18px);
+  }
+  .portfolio__buttons {
+    .portfolio-button {
+      @include text(18px);
+    }
+  }
+  .profile__additional-info {
+    div {
+      p {
+        @include text(14px);
+      }
+    }
+  }
+
+  .profile__main-info {
+    flex-direction: column;
+  }
+
+  .portfolio__buttons {
+    padding: 2vw;
+  }
+
+  .profile__info {
+    margin-top: 1rem;
+    align-items: center;
+  }
+
+  .portfolio__examples {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 597px) {
+  .text {
+    font-size: 14px;
+  }
+
+  .download-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .social-media__link-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .profile__avatar {
+    width: 124px;
+    height: 124px;
+    background-color: transparent !important;
+  }
+
+  .portfolio__buttons {
+    border-radius: 10px !important;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .action_button {
+    font-size: 12px;
+  }
+
+  .download-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
