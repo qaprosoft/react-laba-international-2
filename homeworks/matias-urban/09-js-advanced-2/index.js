@@ -20,6 +20,8 @@ class Serializable {
       if (data.hasOwnProperty(prop) && wokeUpData[prop] !== undefined) {
         if (data[prop] && data[prop].type === 'Date') {
           wokeUpData[prop] = new Date(data[prop].value);
+        } else if (data[prop] == -0 && prop === 'phone') {
+          wokeUpData[prop] = 0;
         } else {
           wokeUpData[prop] = data[prop];
         }
@@ -60,7 +62,7 @@ class Post extends Serializable {
 const tolik = new UserDTO({
   firstName: 'Anatoliy',
   lastName: 'Nashovich',
-  phone: '2020327',
+  phone: '-0',
   birth: new Date('1999-01-02'),
 });
 
