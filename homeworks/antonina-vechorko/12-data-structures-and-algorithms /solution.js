@@ -24,7 +24,7 @@ const needleList = [
 function straightSearch(arr, target) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].sku === target) {
-      return i;
+      return target;
     }
   }
   return -1;
@@ -52,11 +52,7 @@ function binarySearch(arr, target) {
 //Testing
 const performanceTest = (searchFunction, searchName) => {
   const start = performance.now();
-
-  for (const needle of needleList) {
-    searchFunction(needle, data);
-  }
-
+  searchFunction(needleList, data);
   const end = performance.now();
   const elapsedTime = end - start;
   console.log(`${searchName} took ${elapsedTime.toFixed(2)} milliseconds.`);
