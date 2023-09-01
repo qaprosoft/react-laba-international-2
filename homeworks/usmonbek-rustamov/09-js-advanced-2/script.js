@@ -40,7 +40,7 @@ class Serializable {
 
   static _JSONReplacer(key, value) {
     if (!Serializable._isSupported(value)) {
-      throw new Error(`"${key}"is not supported to serialize`);
+      throw new Error(`"${key}" property is not supported to serialize`);
     }
 
     if (typeof value === 'number') {
@@ -161,23 +161,23 @@ class Student extends Serializable {
   }
 }
 
-// let student = new Student({
-//   firstName: 'Kyle',
-//   lastName: 'Walker',
-//   age: 24,
-//   classes: ['Math', 'History', 'Programming'],
-//   grades: {
-//     Math: 4.2,
-//     History: 3.6,
-//     Programming: 4.5,
-//   },
-// });
+let student = new Student({
+  firstName: 'Kyle',
+  lastName: 'Walker',
+  age: 24,
+  classes: new Set(['Math', 'History', 'Programming']),
+  grades: {
+    Math: 4.2,
+    History: 3.6,
+    Programming: 4.5,
+  },
+});
 
-// console.log(student.getStudentInfo());
-// console.log(student.nan, student.infinity);
+console.log(student.getStudentInfo());
+console.log(student.nan, student.infinity);
 
-// const serialized = student.serialize();
-// student = null;
+const serialized = student.serialize();
+student = null;
 
 // const resurrectedStudentInfo = new Student().wakeFrom(serialized);
 
