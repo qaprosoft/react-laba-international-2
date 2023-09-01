@@ -1,0 +1,44 @@
+header {
+  text-align: center;
+  color: darkred;
+}
+
+main > h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.runners-section {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 5rem;
+  padding: 1.5rem 2.5rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+img {
+  border-radius: 0.2rem;
+}
+
+.error {
+  color: red;
+}
+
+.loader {
+  color: darkblue;
+}
