@@ -22,7 +22,7 @@ function createGrid(){
 
 
 function eventHandler(e, div){
-
+  e.preventDefault();
   if(e.shiftKey){
       div === document.querySelector(".grid__cell--selected")? deselect() : select(div)
   } else {
