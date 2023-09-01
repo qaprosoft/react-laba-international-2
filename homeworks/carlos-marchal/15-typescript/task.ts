@@ -1,66 +1,66 @@
 interface Result {
-  value: number | null;
-  error?: string;
+  value?: number;
+  error: string;
 }
-
 interface Calculator {
   add(num1: number, num2: number): Result;
-  subtract(num1: number, num2: number): Result;
+  substract(num1: number, num2: number): Result;
   multiply(num1: number, num2: number): Result;
   divide(num1: number, num2: number): Result;
-  power(base: number, exponent: number): Result | Error;
-  sqrt(num: number): Result | Error;
+  power(base: number, exponent: number): Result;
+  sqrt(num: number): Result;
 }
 
 class BasicCalculator implements Calculator {
   add(num1: number, num2: number): Result {
     return {
       value: num1 + num2,
+      error: '',
     };
   }
-  subtract(num1: number, num2: number): Result {
+  substract(num1: number, num2: number): Result {
     return {
       value: num1 - num2,
+      error: '',
     };
   }
   multiply(num1: number, num2: number): Result {
     return {
       value: num1 * num2,
+      error: '',
     };
   }
   divide(num1: number, num2: number): Result {
     if (num2 === 0) {
       return {
-        value: Infinity,
         error: 'Cannot divide by zero',
       };
     }
     return {
       value: num1 / num2,
+      error: '',
     };
   }
-  power(base: number, exponent: number): Error | Result {
-    if (exponent < 0) {
+  power(base: number, exponent: number): Result {
+    if (exponent < 0 || !Number.isInteger(exponent)) {
       return {
-        value: null,
         error: 'Exponent must be a positive integer',
       };
     }
     return {
       value: base ** exponent,
+      error: '',
     };
   }
-  sqrt(num: number): Error | Result {
+  sqrt(num: number): Result {
     if (num < 0) {
       return {
-        value: null,
         error: 'Cannot calculate square root of negative number',
       };
     }
     return {
       value: Math.sqrt(num),
+      error: '',
     };
   }
 }
-
-const calculator = new BasicCalculator();
