@@ -1,0 +1,27 @@
+.footer {
+  margin: 4rem 0 1rem;
+  font-weight: 500;
+  color: var(--text-color-primary);
+}
+
+.scroll-to-top-btn {
+  display: none;
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+

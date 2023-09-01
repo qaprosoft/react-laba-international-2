@@ -1,0 +1,331 @@
+@media (max-width: 768px) {
+  header, main {
+    max-width: 90vw;
+  }
+
+  p, span, button, label {
+    font-size: 18px;
+  }
+
+  footer {
+    margin-top: 1.5rem;
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .header__theme-switch {
+    width: 60px;
+    height: 60px;
+
+    &-icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  %wrapper-position {
+    gap: 3rem;
+    justify-content: center;
+  }
+
+  .person {
+    @extend %wrapper-position;
+
+    &__data {
+      @extend %wrapper-position;
+    }
+
+    &__avatar {
+      width: 160px;
+      height: 160px;
+
+      &-img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__full-name {
+      font-size: 30px;
+    }
+
+    &__social-media {
+      gap: 1rem;
+
+      &-link {
+        height: 30px;
+        width: 30px;
+      }
+    }
+
+    &__achievements {
+      justify-content: center;
+      gap: 3rem;
+      margin: 0 1rem 0 1rem;
+    }
+
+    &__contact-btn {
+      max-width: 90vw;
+      gap: 2rem;
+    }
+
+    &__btn {
+      width: 260px;
+      height: 70px;
+    }
+
+    &__arrow-icon {
+      margin-left: 1rem;
+    }
+  }
+
+  .portfolio {
+    justify-content: center;
+
+    &__item {
+      flex-basis: 100%;
+      max-width: 100%;
+      max-height: 100%;
+
+      &-description {
+        gap: 1.8rem;
+        width: 100%;
+        padding: 0;
+        top: 25%;
+      }
+
+      &-name {
+        font-size: 26px;
+      }
+
+      &-summary {
+        font-size: 16px;
+        padding: 0 1rem 0;
+      }
+
+      &-link {
+        width: 46px;
+        height: 46px;
+
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+
+  .scroll-to-top-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  p, span, button, label {
+    font-size: 14px;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+
+  .header__theme-switch {
+    width: 48px;
+    height: 48px;
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .person__data {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 1.5rem 0 1.5rem 0;
+  }
+
+  .person__avatar {
+    width: 124px;
+    height: 124px;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .person__info {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .person__achievements {
+    width: 80vw;
+    align-items: flex-start;
+
+    &-item {
+      gap: 0.6rem;
+
+      &--title {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .person__contact-btn {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .person__btn {
+    width: 190px;
+    height: 60px;
+
+    &--download {
+      padding: 1rem;
+    }
+  }
+
+  .person__arrow-icon, .person__arrow-icon img {
+    width: 20px;
+    height: 23px;
+    margin-left: 0.5rem;
+
+    img {
+      width: 20px;
+      height: 23px;
+    }
+  }
+
+  form#tab-toggle {
+    max-height: 80px;
+  }
+
+  .main-nav__label {
+    height: 60px;
+  }
+
+  .main-nav__form {
+    padding: 0.7rem;
+  }
+
+  .portfolio__item-description {
+    top: 22%;
+    gap: 1.5rem;
+  }
+
+  .portfolio__item-name {
+    font-size: 24px;
+  }
+
+  .portfolio__item-summary {
+    font-size: 14px;
+  }
+
+  .portfolio__item-link {
+    width: 38px;
+    height: 38px;
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .skills__title {
+    font-size: 24px;
+  }
+
+  li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .person__achievements {
+    padding: 0;
+    gap: 0.8rem;
+
+    &-item-subtitle {
+      font-size: 12px;
+    }
+  }
+
+  .person__btn {
+    font-size: 12px;
+  }
+
+  .person__arrow-icon, .person__arrow-icon img {
+    width: 16px;
+    height: 14px;
+  }
+
+  .portfolio__item-description {
+    gap: 1.2rem;
+  }
+
+  .portfolio__item-name {
+    font-size: 18px;
+  }
+
+  .portfolio__item-summary {
+    font-size: 12px;
+  }
+
+  .portfolio__item-link {
+    width: 30px;
+    height: 30px;
+
+    img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .skills__title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 280px) {
+  /*for Galaxy Fold*/
+  .person__achievements {
+    padding: 0;
+    gap: 0.2rem;
+
+    &-item-title {
+      font-size: 14px;
+    }
+  }
+
+  .person__btn {
+    padding: 0;
+    gap: 0;
+    font-size: 10px;
+
+    img {
+      margin: 0;
+    }
+  }
+
+  .portfolio__item-description {
+    top: 18%;
+    gap: 0.8rem;
+  }
+
+  .skills__title {
+    font-size: 16px;
+  }
+
+  li {
+    font-size: 12px;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}
