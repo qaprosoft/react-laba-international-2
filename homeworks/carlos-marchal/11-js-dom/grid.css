@@ -10,12 +10,14 @@
   text-align: center;
   font-size: 15px;
 }  
-.grid__cell--selected{
-  background-color: blue;
-}
+
 
 .grid__cell--secondary{
   background-color: lightblue;
+}
+
+.grid__cell--selected{
+  background-color: blue;
 }
 
 .grid__cell p{

@@ -1,65 +1,71 @@
-const gridContainer = document.querySelector(".grid");
 const rows = 30;
 const columns = 20;
-let selectedCell;
-let selectedRow;
-let selectedColumn;
 
 
 function createGrid(){
-for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < columns; col++) {
-        const gridCell = document.createElement("div");
-        gridCell.classList.add("grid__cell");
-        const gridCoordsP = document.createElement("p");
-        gridCoordsP.textContent = `y=${row + 1}, x=${col + 1}`;
-        gridCell.appendChild(gridCoordsP);
-        gridCell.setAttribute("row", `${row+1}`);
-        gridCell.setAttribute("column", `${col+1}`);
-        gridContainer.appendChild(gridCell);
-    }
-}
-}
+  const gridContainer = document.querySelector(".grid");
 
-createGrid();
+  for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < columns; col++) {
+          const gridCell = document.createElement('div');
+          gridCell.classList.add('grid__cell');
+          gridCell.setAttribute('row', `${row + 1}`);
+          gridCell.setAttribute('column', `${col + 1}`);
 
+          gridCell.addEventListener('click', e=> eventHandler(e, gridCell));
 
-
-const cells = document.querySelectorAll(".grid__cell");
-
-cells.forEach(e => {
-    e.addEventListener("click", ()=>{
-        if(selectedCell === undefined){
-            toggleSelection(e, e.getAttribute("row"), e.getAttribute("column"))
-        } else if( selectedCell === e){
-            toggleSelection(selectedCell, selectedRow, selectedColumn);
+          gridContainer.appendChild(gridCell);
         }
-        toggleSelection(selectedCell, selectedRow, selectedColumn);
-        toggleSelection(e, e.getAttribute("row"), e.getAttribute("column"));
-        
-    })
-});
+      }
+
+}
 
 
+function eventHandler(e, div){
+
+  if(e.shiftKey){
+      div === document.querySelector(".grid__cell--selected")? deselect() : select(div)
+  } else {
+    if(div===document.querySelector(".grid__cell--selected")){
+      deselect()
+    } else {
+      deselect();
+      select(div)
+    }
+  }
+  
+  }
 
 
-function getCellsByRowOrCol(axis, value){
-    const cells = document.querySelectorAll(`[${axis}="${value}"]`);
-    return cells;
+function deselect(){
+    const selected = document.querySelectorAll(".grid__cell--selected");
+    if(selected){
+      selected.forEach((e)=>{
+        e.classList.remove("grid__cell--selected");
+        e.textContent = "";
+      });
+
+      const secondarySelected = document.querySelectorAll(".grid__cell--secondary");
+      secondarySelected.forEach(e=>e.classList.remove("grid__cell--secondary"));
+
+    }
 };
 
-function toggleSelection(element, row, column){
-    getCellsByRowOrCol("row", row).forEach(e=>e.getAttribute("column")!=column? e.classList.toggle("grid__cell--secondary"): null);
-    getCellsByRowOrCol("column", column).forEach(e=>e.getAttribute("row")!=row? e.classList.toggle("grid__cell--secondary"): null);
-    element.classList.toggle("grid__cell--selected");
+function select(cell){
+ 
 
-    if(element.classList.contains("grid__cell--selected")){
-        selectedRow = element.getAttribute("row");
-        selectedColumn = element.getAttribute("column");
-        selectedCell = element;
-    } else {
-        selectedCell = undefined;
-        selectedRow = undefined;
-        selectedColumn = undefined;
-    }
-}
+  const column = cell.getAttribute("column");
+  const row = cell.getAttribute("row");
+  const alignedCells = document.querySelectorAll(
+    `div[row="${row}"], div[column="${column}"]`,
+  );
+ 
+  alignedCells.forEach(e=>e.classList.add("grid__cell--secondary"));
+
+  cell.classList.add("grid__cell--selected");
+  cell.textContent = `y=${column} x=${row}`;
+ 
+};
+
+
+createGrid();
