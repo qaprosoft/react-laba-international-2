@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack --mode development --watch"
-  },    
+    "start": "webpack-dev-server --mode development --open"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/qaprosoft/react-laba-international-2.git#main"
@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/qaprosoft/react-laba-international-2/tree/main#readme",
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "html-minimizer-webpack-plugin": "^4.4.0",
+    "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "node-sass": "^9.0.0",
     "sass": "^1.66.1",

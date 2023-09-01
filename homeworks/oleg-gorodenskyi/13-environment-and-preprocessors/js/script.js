@@ -1,3 +1,5 @@
+import '../src/style.scss'
+
 window.addEventListener("DOMContentLoaded", function() {
 
     const tabs = document.querySelectorAll('.tabs__item');
