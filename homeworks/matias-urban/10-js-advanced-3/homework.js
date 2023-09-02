@@ -67,7 +67,3 @@ const isTheFirstCharacterDigit = string => {
   const dig = /\d/g;
   return dig.test(string[0]);
 };
-console.log(isTheFirstCharacterDigit('1dsagasd3wq'));
-
-const date1994 = new Date(1994 - 6 - 8);
-const date1995 = new Date(1995 - 6 - 8);
