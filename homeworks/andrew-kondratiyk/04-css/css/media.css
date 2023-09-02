@@ -1,0 +1,47 @@
+@media (max-width: 768px) {
+	html {
+		font-size: 9px;
+	}
+}
+
+@media (max-width: 600px) {
+	html {
+		font-size: 8px;
+	}
+
+	.personal-info__main-info {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.personal-info__links {
+		justify-content: center;
+	}
+
+	.personal-info__cta {
+		flex-direction: column;
+	}
+
+	.about__portfolio {
+		grid-template-columns: 1fr;
+		row-gap: 30px;
+	}
+
+	.about__card-overlay {
+		font-size: 1.6rem;
+	}
+
+	.footer {
+		margin-top: 7rem;
+	}
+}
+
+@media (max-width: 480px) {
+	html {
+		font-size: 7px;
+	}
+
+	.about__card-overlay {
+		font-size: 1.3rem;
+	}
+}

@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import 'variables.scss';
+@import 'header.scss';
+@import 'main.scss';
+@import 'footer.scss';
+@import 'dark-mode.scss';
+@import 'media.scss';
+
+body {
+    max-width: 757px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: $main-font-family;
+    font-size: $main-font-size;
+    background-color: var(--background-main);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+
+

@@ -1,0 +1,18 @@
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+h1 {
+	text-align: center;
+}
+
+.random-users {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.random-user {
+	width: 200px;
+	text-align: center;
+}

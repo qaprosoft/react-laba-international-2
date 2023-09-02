@@ -1,0 +1,19 @@
+{
+  "name": "15-typescript",
+  "version": "1.0.0",
+  "description": "TypeScript calculator",
+  "main": "calculator.ts",
+  "keywords": [
+    "calculator",
+    "TypeScript"
+  ],
+  "scripts": {
+    "start": "ts-node calculator.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kryvanosava Lizaveta",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

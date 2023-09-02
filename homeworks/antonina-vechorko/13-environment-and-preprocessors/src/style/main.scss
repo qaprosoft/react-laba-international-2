@@ -1,0 +1,144 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 760px;
+}
+
+nav {
+  max-height: 132px;
+}
+
+form#tab-toggle {
+  max-width: 760px;
+}
+
+.main-nav__form {
+  height: 100%;
+  display: flex;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1rem 0.7rem;
+  background-color: var(--secondary-color);
+  justify-content: space-between;
+
+  input:checked + label {
+    background-color: var(--nav-active-color);
+  }
+}
+
+.main-nav__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  height: 80px;
+  font-weight: 500;
+  width: 364px;
+  color: var(--text-color-additional2);
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 760px;
+
+  &__item {
+    max-width: 362px;
+    max-height: 226px;
+    margin-bottom: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+
+    &:hover > .portfolio__item-description {
+      display: flex;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(251, 209, 68, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-description {
+      display: none;
+      position: absolute;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.3rem;
+      top: 18%;
+      padding: 0 1.5rem 0;
+      color: var(--text-color-secondary);
+    }
+
+    &-name {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    &-summary {
+      margin: 0;
+      font-size: 14px;
+      line-height: 140%;
+    }
+
+    &-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: var(--secondary-color);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__link img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+  }
+}
+
+.skills {
+  display: none;
+  max-width: 760px;
+  color: var(--text-color-secondary);
+
+  &__title {
+    margin: 0 0 1rem 2.4rem;
+    text-decoration: underline;
+  }
+}
+
+li {
+  font-size: 16px;
+  margin-bottom: 0.8rem;
+}

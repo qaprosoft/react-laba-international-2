@@ -1,0 +1,284 @@
+/* Light and dark mode color variables */
+:root {
+  --text-regular: #575757;
+  --text-bold: #3D3D3D;
+  --background-color: #EAEBEC;
+  --btn-primary: #FAD145;
+  --btn-secondary: #FFFFFF;
+  --btn-active: #D7D7D7;
+}
+
+[dark-theme] {
+  --background-color: #0C151D;
+  --text-regular: #A3ABB1;
+  --text-bold: #F1F2F4;
+  --btn-primary: #FFE071;
+  --btn-secondary: #181F26;
+  --btn-active: #0C151D;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+.body {
+  background: var(--background-color);
+}
+
+.container {
+  display: flex;
+}
+
+.page-wrapper {
+  max-width:  40%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex-direction: column;
+}
+
+.header {
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.header__theme-switch {
+  background: var(--btn-secondary);
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header__icon {
+  color: var(--text-regular)
+}
+
+.text--bold {
+  font-weight: 600;
+}
+
+.profile {
+  flex-direction: column;
+  justify-content: center; 
+  flex-wrap: wrap; 
+}
+
+.profile__content {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile__image {
+  margin: 0.5rem;
+  height: 10rem;
+}
+
+.profile__info {
+  margin: 0.5rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.profile__title {
+  font-size: 2rem;
+  color: var(--text-bold);
+  margin: 0.1rem 0;
+}
+
+.profile__subtitle {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--text-regular);
+  margin: 0.4rem 0;
+}
+
+.profile__social-media {
+  align-items: center;
+  margin: 0.4rem 0;
+}
+
+.profile__link {
+  text-decoration: none;
+  margin-right: 0.5rem;
+  color: var(--text-regular)
+}
+
+.profile__icon {
+  vertical-align: middle;
+}
+
+.work-info {
+  justify-content: center;
+  margin: 1rem 0;
+  gap: 5%;
+}
+
+.work-info__fact {
+  flex-direction: column;
+  justify-content: center;
+  margin: 0.5rem 1rem;
+}
+
+.work-info__text {
+  color: var(--text-regular);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.contact {
+  justify-content: center;
+  margin: 1.5rem 0;
+  gap: 1rem;
+}
+
+.button {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button--primary {
+  background: var(--btn-primary);
+}
+
+.button--secondary {
+  background: var(--btn-secondary);
+  color: var(--text-regular)
+}
+
+.button--active {
+  background: var(--btn-active);
+  color: var(--text-regular)
+}
+
+.contact__button {
+  min-width: 25%;
+  height: 3rem;
+}
+
+.portfolio {
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio__tab {
+  min-width: 80%;
+  justify-content: space-around;
+  background: var(--btn-secondary);
+  border-radius: 10px;
+  height: 3rem;
+  padding: 0.5rem 0;
+  margin: 1.5rem 0;
+  gap: 0.5rem;
+}
+
+.portfolio__button {
+  height: 3rem;
+  min-width: 45%;
+}
+
+.projects {
+  margin: 3rem 0;
+  justify-content: center;
+  max-width: 100%;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.projects__item {
+  max-width: 40%;
+}
+
+.project__image {  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5%;
+  filter: grayscale(0.9);
+}
+
+.project__image:hover {
+  filter: none;
+}
+
+.footer {
+  justify-content: center;
+}
+
+.footer__text {
+  color: var(--text-regular);
+  font-size: 0.8rem;
+}
+
+/* Media queries */
+/* Small devices (mobile) */
+@media (max-width: 600px) {
+  .page-wrapper {
+    max-width: 100%;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+
+  .header__theme-switch {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .profile__content {
+    flex-direction: column;
+  }
+
+  .profile__image {
+    height: 9rem;
+  }
+
+  .profile__title {
+    font-size: 1.5rem;
+  }
+
+  .profile__subtitle {
+    font-size: 0.8rem;
+  }
+
+  .profile__info {
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .work-info__text {
+    font-size: 0.7rem;
+  }
+
+  .contact__button {
+    width: 100%;
+  }
+
+  .portfolio__tab {
+    width: 100%;
+  }
+
+  .projects {
+    margin-top: 2rem;
+  }
+
+  .projects__item {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .project__image {
+    width: 100%;
+    height: auto;
+  }
+}
