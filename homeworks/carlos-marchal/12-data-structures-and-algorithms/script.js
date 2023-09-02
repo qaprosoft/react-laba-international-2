@@ -1,12 +1,13 @@
 const fs = require('fs');
 const logFile = fs.createWriteStream('./data/result.log');
 const mockData = require('./data/MOCK_DATA');
+// random sku for search purpose
 const sku = '17e8b37d-3825-43ed-824a-14ccfb8b024d';
 
 // clones to be use by binary search
 const bubbleSortData = structuredClone(mockData);
 const sortedData = structuredClone(mockData);
-const insertionSortData = structuredClone(mockData);
+
 
 // basic sort
 sortedData.sort((a, b) => {
@@ -16,37 +17,22 @@ sortedData.sort((a, b) => {
 });
 
 //bubble sort
-const bubbleSort = arr => {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - i - 1; j++) {
-      if (arr[j].sku > arr[j + 1].sku) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
+const bubbleSort = data => {
+  for (let i = 0; i < data.length; i++) {
+    for (let j = 0; j < data.length - i - 1; j++) {
+      if (data[j].sku > data[j + 1].sku) {
+        let temp = data[j];
+        data[j] = data[j + 1];
+        data[j + 1] = temp;
       }
     }
   }
 
-  return arr;
+  return data;
 };
 
 bubbleSort(bubbleSortData);
 
-// insertion sort
-
-const insertionSort = data => {
-  for (let i = 1; i < data.length; i++) {
-    let currentValue = data[i];
-    let j;
-    for (j = i - 1; j >= 0 && data[j] > currentValue; j--) {
-      arr[j + 1] = data[j];
-    }
-    data[j + 1] = currentValue;
-  }
-  return data;
-};
-
-insertionSort(insertionSortData);
 
 // straight search
 
@@ -96,16 +82,9 @@ const searchSpeedTest = (cb, data, sku, sortType) => {
 
 console.log(searchSpeedTest(binarySearch, bubbleSortData, sku, 'bubble sort'));
 console.log(
-  searchSpeedTest(binarySearch, sortedData, sku, 'insertion sort(.sort)'),
+  searchSpeedTest(binarySearch, sortedData, sku, '.sort'),
 );
-console.log(
-  searchSpeedTest(
-    binarySearch,
-    insertionSortData,
-    sku,
-    'custom insertion sort',
-  ),
-);
+
 
 // speed test for straight search using both types of sorted data
 
@@ -114,13 +93,5 @@ console.log(
   searchSpeedTest(straightSearch, bubbleSortData, sku, 'bubble sort'),
 );
 console.log(
-  searchSpeedTest(straightSearch, sortedData, sku, 'insertion sort(.sort)'),
-);
-console.log(
-  searchSpeedTest(
-    straightSearch,
-    insertionSortData,
-    sku,
-    'custom insertion sort',
-  ),
+  searchSpeedTest(straightSearch, sortedData, sku, '.sort'),
 );
