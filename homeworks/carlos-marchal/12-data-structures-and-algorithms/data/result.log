@@ -1,0 +1,7 @@
+The search time of binarySearch using bubble sort  was 0.05339998006820679
+The search time of binarySearch using insertion sort(.sort)  was 0.017300009727478027
+The search time of binarySearch using custom insertion sort  was 0.011399984359741211
+The search time of straightSearch using no sorting  was 0.08619999885559082
+The search time of straightSearch using bubble sort  was 0.024100005626678467
+The search time of straightSearch using insertion sort(.sort)  was 0.021000027656555176
+The search time of straightSearch using custom insertion sort  was 0.023599982261657715
