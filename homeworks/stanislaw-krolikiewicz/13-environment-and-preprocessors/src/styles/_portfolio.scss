@@ -1,0 +1,88 @@
+$mobile: 600px;
+
+.portfolio {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3rem;
+  column-gap: 2rem;
+  padding-bottom: 130px;
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+    column-gap: 0;
+    padding-bottom: 50px;
+  }
+  @at-root &__card {
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease-in-out;
+      background-color: var(--clr-black);
+      opacity: 0.2;
+    }
+  }
+  @at-root &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  @at-root &__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 35px;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--clr-yellow);
+    color: var(--clr-gray-1);
+    opacity: 0;
+    object-fit: cover;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &:hover {
+      opacity: 0.88;
+    }
+  }
+  @at-root &__title {
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  @at-root &__description {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    margin-bottom: 18px;
+  }
+  @at-root &__link {
+    text-decoration: none;
+    padding: 9px;
+    height: fit-content !important;
+    border-radius: 50% !important;
+    background-color: var(--clr-white) !important;
+    &:hover {
+      background-color: var(--clr-blue) !important;
+      svg {
+        fill: var(--clr-white) !important;
+      }
+    }
+  }
+}

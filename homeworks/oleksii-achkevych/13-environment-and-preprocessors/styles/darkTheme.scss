@@ -1,0 +1,72 @@
+$color_1: #A3ABB2;
+$color_2: #F1F2F4;
+$color_3: #3D3D3D;
+$background-color_1: #0C151D;
+$background-color_2: #171F26;
+$background-color_3: #FBD144;
+
+body.dark-theme {
+	background-color: $background-color_1;
+	h1 {
+		color: $color_1;
+	}
+	h2 {
+		color: $color_1;
+	}
+	h3 {
+		color: $color_1;
+	}
+	p {
+		color: $color_1;
+	}
+	a {
+		color: $color_1;
+	}
+	button {
+		color: $color_1;
+		&:hover {
+			.arrow-icon {
+				img {
+					filter: invert(0%);
+					transition-duration: 0.3s;
+				}
+			}
+		}
+	}
+	li {
+		color: $color_1;
+	}
+	.theme-switch {
+		background-color: $background-color_2;
+		img {
+			filter: invert(100%);
+		}
+	}
+	.profile-info-items {
+		h1 {
+			color: $color_2;
+		}
+	}
+	.btn_style {
+		background-color: $background-color_2;
+		&:hover {
+			color: $color_3;
+			background-color: $background-color_3;
+			transition-duration: 0.3s;
+		}
+	}
+	.arrow-icon {
+		img {
+			filter: invert(100%);
+		}
+	}
+	.tab-buttons-block {
+		background-color: $background-color_2;
+	}
+	.tab-button.active {
+		background-color: $background-color_1;
+	}
+	.tab-button {
+		color: $color_1;
+	}
+}

@@ -1,0 +1,81 @@
+@media (max-width: 1200px) {
+	.avatar.enlarged {
+		margin-top: 0;
+		transform: none;
+	}
+}
+
+@media (max-width: 780px) {
+	.profile {
+		.avatar {
+			margin-right: 0;
+		}
+	}
+
+	.profile-info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.profile-info-items {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.tab-buttons-block {
+		width: 90vw;
+		height: 110px;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: 1fr !important;
+		grid-gap: 30px;
+		justify-content: center ;
+		align-items: center;
+	}
+
+	.grid-item {
+		width: 100% !important;
+		height: 100% !important;
+		position: relative !important;
+	}
+}
+
+@media (max-width: 650px) {
+	.btn_style {
+		width: 44vw;
+		height: 80px;
+	}
+
+	.achievements-item-title {
+		font-size: 20px;
+	}
+
+	.achievements-item-subtitle {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 515px) {
+	.btn_style {
+		width: 44vw;
+		height: 80px;
+	}
+
+	.achievements-item-title {
+		font-size: 16px;
+	}
+
+	.achievements-item-subtitle {
+		font-size: 14px;
+	}
+
+	.profile-info-items {
+		h1 {
+			font-size: 34px;
+		}
+	}
+}

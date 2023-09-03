@@ -1,0 +1,28 @@
+.dark-mode .header__theme-switch {
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--accent-color);
+  }
+}
+
+.dark-mode .person__btn--contact {
+  color: var(--text-color-primary);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #394254;
+  }
+}
+
+.dark-mode .person__btn--download:hover {
+  background-color: #fac810;
+}
+
+.dark-mode .portfolio__item-description {
+  color: #3D3D3D;
+}
+
+.dark-mode .portfolio__item-link {
+  background-color: #FFFFFF;
+}
