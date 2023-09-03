@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(20, 40px);
+    grid-template-rows: repeat(30, 40px);
+    gap: 1px;
+    justify-content: center;
+    align-content: center;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: blue;
+    color: white;
+}
