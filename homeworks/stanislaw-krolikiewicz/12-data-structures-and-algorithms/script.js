@@ -1,5 +1,6 @@
 const fs = require('fs');
 const products = require('../../../lectures/12-data-structures-and-algorithms/MOCK_DATA');
+const needleList = require('./needleList');
 
 const resultLog = fs.createWriteStream(
   './homeworks/stanislaw-krolikiewicz/12-data-structures-and-algorithms/result.log',
@@ -8,31 +9,11 @@ const result = new console.Console(resultLog);
 
 const skuLength = products[0].sku.length;
 
-const needleList = [
-  'd462bb76-81ee-46af-9fdb-ebfe53a93d3f',
-  '6df55f86-e3f5-4d7b-9cd5-906d8d7e804a',
-  '1e63459f-0b18-4acf-9afc-e7287347bbeb',
-  'e04b6074-332f-4661-8f3a-4cdcb3adfb6a',
-  'be77abf7-29b0-4ed1-9379-f5d7576cb5ce',
-  '3c511860-d159-457d-8374-e8205904e6f5',
-  '1e63459f-0b18-4acf-9afc-e7287347bbeb',
-  'e04b6074-332f-4661-8f3a-4cdcb3adfb6a',
-  '9c4a0320-1d82-4a46-83b3-511ddffb7ee6',
-  '1e63459f-0b18-4acf-9afc-e7287347bbeb',
-  'e04b6074-332f-4661-8f3a-4cdcb3adfb6a',
-  'be77abf7-29b0-4ed1-9379-f5d7576cb5ce',
-  '3c511860-d159-457d-8374-e8205904e6f5',
-  '1e63459f-0b18-4acf-9afc-e7287347bbeb',
-  'd462bb76-81ee-46af-9fdb-ebfe53a93d3f',
-  '6df55f86-e3f5-4d7b-9cd5-906d8d7e804a',
-  '1e63459f-0b18-4acf-9afc-e7287347bbeb',
-];
-
-const straightSearch = sku => {
+const straightSearch = (sku, list) => {
   if (sku.length !== skuLength) return "Product's sku key is invalid!";
   let found;
-  for (let i = 0; i < products.length; i++) {
-    const item = products[i];
+  for (let i = 0; i < list.length; i++) {
+    const item = list[i];
     for (let j = 0; j < skuLength; j++) {
       if (sku[j] !== item.sku[j]) break;
       if (j === skuLength - 1) found = item;
@@ -46,7 +27,48 @@ const straightSearch = sku => {
   else result.log("There's no such a product in the list!");
 };
 
+const binarySearch = (sku, sortedList) => {
+  if (sku.length !== skuLength) return "Product's sku key is invalid!";
+  let found,
+    startIndex = 0,
+    endIndex = sortedList.length - 1;
+  while (startIndex <= endIndex) {
+    const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
+
+    if (sortedList[middleIndex].sku === sku) {
+      found = sortedList[middleIndex];
+      break;
+    }
+
+    if (sortedList[middleIndex].sku < sku) startIndex = middleIndex + 1;
+    else endIndex = middleIndex - 1;
+  }
+  if (found) result.log('Key', sku, 'found:', found);
+  else result.log("There's no such a product in the list!");
+};
+
 result.log('STRAIGHT SEARCH');
+const straightSearchStart = performance.now();
 needleList.forEach(sku => {
-  straightSearch(sku);
+  straightSearch(sku, products);
 });
+const straightSearchTime = performance.now() - straightSearchStart;
+
+result.log('BINARY SEARCH');
+const binarySearchWithSortingStart = performance.now();
+const sortedProducts = products.sort((a, b) => a.sku.localeCompare(b.sku));
+const binarySearchStart = performance.now();
+needleList.forEach(sku => {
+  binarySearch(sku, sortedProducts);
+});
+const binarySearchTime = performance.now() - binarySearchStart;
+const binarySearchWithSortingTime =
+  performance.now() - binarySearchWithSortingStart;
+
+result.log('MEASUREMENTS:');
+result.log('\tStraight search time:\t', straightSearchTime);
+result.log(
+  '\tBinary search time without sorting included:\t',
+  binarySearchTime,
+);
+result.log('\tBinary search time with sorting:\t', binarySearchWithSortingTime);
