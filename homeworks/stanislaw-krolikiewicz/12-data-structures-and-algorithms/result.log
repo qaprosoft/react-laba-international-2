@@ -205,6 +205,9 @@ Key 1e63459f-0b18-4acf-9afc-e7287347bbeb found: {
   pack: 10
 }
 MEASUREMENTS:
-	Straight search time:	 4.8878019992262125
-	Binary search time without sorting included:	 1.2923700008541346
-	Binary search time with sorting:	 13.650798000395298
+	SEARCHING:
+		Straight search time:	 5.282928001135588 ms
+		Binary search time without sorting included:	 2.0765900015830994 ms
+	SORTING:
+		Built in sort method:	 0.18270999938249588 ms
+		Quick sort:	 4.68902999907732 ms
