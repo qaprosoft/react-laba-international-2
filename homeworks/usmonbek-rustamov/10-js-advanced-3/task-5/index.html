@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random User</title>
+
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./script.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="users">
+        <div class="users__container">
+          <!-- Users generate request -->
+          <form class="users__request-form">
+            <div class="form-group">
+              <label for="request">Request</label>
+              <select name="request" id="request">
+                <option value="fetch">fetch</option>
+                <option value="xmlhttp">XMLHttpRequest</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="users-count">Number of users</label>
+              <input
+                type="number"
+                name="users-count"
+                id="users-count"
+                value="1"
+                min="1"
+                required
+              />
+            </div>
+            <input type="submit" id="generate-btn" value="Generate" />
+          </form>
+
+          <!-- Users List -->
+          <ul class="users__user-list"></ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
