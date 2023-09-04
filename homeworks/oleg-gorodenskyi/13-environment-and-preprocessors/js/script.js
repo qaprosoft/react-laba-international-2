@@ -36,9 +36,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   function scrollToTop() {
-    console.log(window.innerWidth);
     if (window.scrollY > 300 && window.innerWidth <= 599) {
-      console.log(window.scrollY);
       pageup.classList.add('show');
     } else {
       pageup.classList.remove('show');
