@@ -1,0 +1,18 @@
+/* Light and dark mode color variables */
+:root {
+  --text-regular: #575757;
+  --text-bold: #3d3d3d;
+  --background-color: #eaebec;
+  --btn-primary: #fad145;
+  --btn-secondary: #ffffff;
+  --btn-active: #d7d7d7;
+}
+
+[dark-theme] {
+  --background-color: #0c151d;
+  --text-regular: #a3abb1;
+  --text-bold: #f1f2f4;
+  --btn-primary: #ffe071;
+  --btn-secondary: #181f26;
+  --btn-active: #0c151d;
+}

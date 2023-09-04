@@ -1,0 +1,23 @@
+.button {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button--primary {
+  background: var(--btn-primary);
+  color: #3d3d3d;
+}
+
+.button--secondary {
+  background: var(--btn-secondary);
+  color: var(--text-regular);
+}
+
+.button--active {
+  background: var(--btn-active);
+  color: var(--text-regular);
+}

@@ -1,0 +1,19 @@
+.header {
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.header__theme-switch {
+  justify-content: center;
+  align-items: center;
+  background: var(--btn-secondary);
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header__icon {
+  color: var(--text-regular);
+}
