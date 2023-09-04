@@ -1,0 +1,278 @@
+/* general styles */
+body {
+  background-color: var(--background-color);
+  color: var(--fonts-color);
+  font-weight: bolder; }
+
+/* variables-mode */
+/* theme btn styles */
+.theme-btn-conatiner {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px 40px 0px; }
+  .theme-btn-conatiner .theme-btn {
+    position: absolute;
+    color: var(--fonts-color);
+    padding-top: 0.7em;
+    cursor: pointer; }
+  .theme-btn-conatiner .theme-btn-circle {
+    background-color: var(--btn-bground-color);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    z-index: -1; }
+
+/* profile styles */
+.profile {
+  display: block;
+  justify-content: center; }
+  .profile .profile-main {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center; }
+    .profile .profile-main .profile-img {
+      display: flex;
+      justify-content: center;
+      width: 124px;
+      height: 124px;
+      margin-top: 30px;
+      margin-bottom: 40px; }
+      .profile .profile-main .profile-img .avatar {
+        position: absolute;
+        width: 107px;
+        height: 107px;
+        margin-top: 9px; }
+    .profile .profile-main .profile-name {
+      display: flex;
+      justify-content: center;
+      font-size: 32px; }
+    .profile .profile-main .profile-description {
+      display: flex;
+      justify-content: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #3D3D3D;
+      font-weight: lighter; }
+    .profile .profile-main .profile-social-media-bright {
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+      margin-bottom: 30px; }
+      .profile .profile-main .profile-social-media-bright .profile-social-media-bright img {
+        width: 25px;
+        height: 25px; }
+    .profile .profile-main .profile-social-media {
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+      margin-bottom: 30px;
+      display: none; }
+  .profile .profile-achievements {
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #3D3D3D;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+    margin-bottom: 30px;
+    font-weight: lighter; }
+  .profile .profile-buttons {
+    display: flex;
+    padding: 18px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 30px; }
+    .profile .profile-buttons .profile-buttons-download-cv {
+      width: 158px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #FFE071;
+      color: #3D3D3D;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.531px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      text-decoration: none; }
+    .profile .profile-buttons .profile-buttons-download-cv a {
+      text-decoration: none;
+      color: #0C151D; }
+    .profile .profile-buttons .profile-buttons-download-cv {
+      transition: all 1.5s ease-in-out; }
+    .profile .profile-buttons .profile-buttons-download-cv:hover {
+      background-color: #3D3D3D; }
+    .profile .profile-buttons .profile-buttons-contact {
+      width: 158px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      border: 0px solid #3E64AA;
+      background: #fff;
+      color: #3D3D3D;
+      text-align: center;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.5px;
+      cursor: pointer;
+      transition: all 1.5s ease-in-out; }
+    .profile .profile-buttons .profile-buttons-contact:hover {
+      background-color: #FFE071;
+      color: #0C151D; }
+
+/* main cards styles */
+.main-content {
+  display: grid;
+  align-content: center;
+  justify-content: center; }
+  .main-content .main-content-buttons-selectors .main-content-buttons-selectors-skills {
+    width: 154px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 0px solid #3E64AA;
+    color: #3D3D3D;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 1.5s ease-in-out; }
+    .main-content .main-content-buttons-selectors .main-content-buttons-selectors-skills .main-content-buttons-selectors-skills:hover {
+      background-color: gray; }
+  .main-content .main-content-buttons-selectors .main-content-buttons-selectors-portfolio {
+    width: 154px;
+    height: 50px;
+    flex-shrink: 0;
+    background-color: #D7D7D7;
+    border-radius: 10px;
+    border: 0px solid #3E64AA;
+    color: #3D3D3D;
+    cursor: pointer;
+    transition: all 1.5s ease-in-out; }
+    .main-content .main-content-buttons-selectors .main-content-buttons-selectors-portfolio .main-content-buttons-selectors-portfolio:hover {
+      background-color: gray; }
+  .main-content .main-content-portfolio-cards {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px; }
+    .main-content .main-content-portfolio-cards .card {
+      width: 340px;
+      height: 210px;
+      transition: all 1.5s ease-in-out; }
+      .main-content .main-content-portfolio-cards .card .card:hover {
+        transform: scale(1.15); }
+
+/* medias query styles ------------------------------------------------------------------*/
+@media only screen and (min-width: 800px) {
+  /* profile media--------------------------------- */
+  .profile-main {
+    display: flex;
+    justify-content: center; }
+    .profile-main .profile-img {
+      position: relative;
+      display: flex;
+      width: 215px;
+      height: 215px;
+      margin-top: 30px;
+      margin-bottom: 40px;
+      padding-right: 40px; }
+      .profile-main .profile-img .avatar {
+        position: absolute;
+        width: 192px;
+        height: 192px;
+        margin-top: 12px;
+        margin-right: -1px; }
+    .profile-main .profile-main-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 4em; }
+      .profile-main .profile-main-info .profile-name {
+        font-size: 46px; }
+      .profile-main .profile-main-info .profile-description {
+        font-size: 22px;
+        margin-top: 0.5em; }
+      .profile-main .profile-main-info .profile-social-media {
+        gap: 0.6em;
+        display: flex;
+        justify-content: flex-start;
+        display: none; }
+      .profile-main .profile-main-info .profile-social-media-bright {
+        display: flex;
+        justify-content: flex-start; }
+        .profile-main .profile-main-info .profile-social-media-bright .profile-social-media-bright img {
+          width: 36px;
+          height: 36px; }
+    .profile-main .profile-achievements {
+      display: flex;
+      justify-content: center;
+      gap: 4em;
+      font-size: 22px; }
+    .profile-main .profile-buttons-download-cv {
+      font-size: 22px;
+      width: 290px;
+      height: 80px; }
+    .profile-main .profile-buttons-contact {
+      font-size: 22px;
+      width: 290px;
+      height: 80px; }
+  /* main media---------------------- */
+  .main-content-container {
+    display: flex;
+    justify-content: center; }
+    .main-content-container .main-content {
+      box-sizing: border-box;
+      max-width: 756px; }
+      .main-content-container .main-content .main-content-buttons-selectors {
+        display: flex;
+        justify-content: center;
+        width: 756px;
+        height: 116px;
+        max-width: 100%; }
+        .main-content-container .main-content .main-content-buttons-selectors .main-content-buttons-selectors-portfolio {
+          font-size: 22px;
+          width: 351px;
+          height: 80px; }
+        .main-content-container .main-content .main-content-buttons-selectors .main-content-buttons-selectors-skills {
+          font-size: 22px;
+          width: 351px;
+          height: 80px; }
+      .main-content-container .main-content .main-content-portfolio-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        grid-gap: 1rem; }
+      .main-content-container .main-content .card {
+        width: 362px;
+        height: 226px; }
+  /* footer media---------------------------- */
+  .footer-copy-rights {
+    font-size: 22px; } }
+
+/* footer styles */
+footer {
+  margin-top: 30px;
+  margin-bottom: 40px; }
+  footer .footer-copy-rights {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--fonts-color);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+    padding: 20px 0px 40px 0px; }
