@@ -1,0 +1,209 @@
+body {
+    background-color: #0C151D;
+    font-family: "Poppins", sans-serif;
+    color: #A3ABB2;
+
+    header {
+        margin-top: 2rem;
+
+        .header__description {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            display: block;
+            margin: 0 auto 3rem;
+            width: 40px;
+            height: 40px;
+
+            &:hover {
+                opacity: 20%;
+                color: #A3ABB2;
+                cursor: pointer;
+            }
+        }
+
+        .header__full-name {
+            color: white;
+            margin-bottom: 0;
+        }
+
+        .header__experience {
+            margin-top: 2rem;
+            gap: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header__my-photo {
+            width: 215px;
+            height: 215px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header__icon {
+            text-decoration: none;
+
+            img {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        .header__main-info {
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+        }
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .header__icons {
+        display: flex;
+        justify-content: space-around;
+
+        a {
+            transition: opacity 0.5s, color 0.5s;
+
+            &:hover {
+                opacity: 20%;
+                color: #A3ABB2;
+            }
+        }
+    }
+
+    .header__profession {
+        display: flex;
+        justify-content: center;
+    }
+
+    .header__achievement {
+        text-align: center;
+    }
+
+    .container {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+
+        .cv-buttons {
+            display: inline-flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0.5rem;
+            border-radius: 3%;
+
+            .cv-buttons__button {
+                font-family: "Poppins", sans-serif;
+                background-color: #FFE071;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                color: black;
+                width: 10rem;
+                height: 4rem;
+                transition: opacity 0.5s, box-shadow 0.5s;
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+
+                img {
+                    vertical-align: middle;
+                    margin-left: 0.5rem;
+                }
+
+                &:hover {
+                    opacity: 0.9;
+                    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+                    animation: buttonAnimation 1s ease-in-out forwards;
+                }
+
+                &:last-child {
+                    background-color: #171F26;
+                    color: #A3ABB2;
+                }
+            }
+        }
+
+        button {
+            img {
+                width: 1.1rem;
+                height: 1.1rem;
+            }
+        }
+    }
+
+    .nav__buttons {
+        display: inline-flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0.5rem;
+        border-radius: 5%;
+        background-color: #171F26;
+        color: #A3ABB2;
+
+        .nav__button {
+            font-family: "Poppins", sans-serif;
+            border-radius: 10px;
+            color: #A3ABB2;
+            background-color: #171F26;
+            width: 11.5rem;
+            height: 4rem;
+
+            &.selected {
+                background-color: #0C151D;
+            }
+        }
+    }
+
+    .gallery-container {
+        display: flex;
+        justify-content: center;
+
+        .gallery {
+            margin-top: 4rem;
+            display: flex;
+            width: 800px;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            img {
+                cursor: pointer;
+
+                &.highlight {
+                    opacity: 0.8;
+                    box-shadow: 0 0 5px 2px yellow;
+                }
+            }
+        }
+    }
+
+    footer {
+        padding-top: 5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    #scrollToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        background-color: #FFE071;
+        border-radius: 50%;
+        border: none;
+        color: #000;
+        cursor: pointer;
+        z-index: 9999;
+    }
+}

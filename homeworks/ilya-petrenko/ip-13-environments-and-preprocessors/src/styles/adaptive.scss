@@ -1,0 +1,59 @@
+@media (min-width: 768px) {
+    .header__my-photo {
+        width: 215px;
+        height: 215px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .header__description {
+        font-size: x-large;
+    }
+    .nav__button {
+        font-size: x-large;
+        width: 18rem;
+        height: 6rem;
+    }
+    .cv-buttons__button {
+        font-size: x-large;
+        width: 16rem;
+        height: 5rem;
+    }
+    .header__achievement {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 767px) {
+    .gallery img {
+        width: available;
+    }
+}
+
+@media (min-width: 530px) and (max-width: 767px) {
+    .gallery img {
+        width: 15rem;
+    }
+    .header__icon img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 529px) {
+    .cv-buttons__button {
+        width: 9rem;
+    }
+    .nav__button {
+        width: 10rem;
+    }
+    .header__icon img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    #scrollToTopBtn {
+        display: block;
+    }
+}
