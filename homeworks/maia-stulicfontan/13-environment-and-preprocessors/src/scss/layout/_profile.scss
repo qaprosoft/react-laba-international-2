@@ -1,0 +1,83 @@
+.profile {
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.profile__content {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile__image {
+  margin: 0.5rem;
+  height: 10rem;
+}
+
+.profile__info {
+  margin: 0.5rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.profile__title {
+  font-size: 2rem;
+  color: var(--text-bold);
+  margin: 0.1rem 0;
+}
+
+.profile__subtitle {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--text-regular);
+  margin: 0.4rem 0;
+}
+
+.profile__social-media {
+  margin: 0.4rem 0;
+  gap: 0.7rem;
+}
+
+.profile__link {
+  text-decoration: none;
+  color: var(--text-regular);
+}
+
+.profile__icon {
+  vertical-align: middle;
+}
+
+.work-info {
+  justify-content: center;
+  margin: 1rem 0;
+  gap: 5%;
+}
+
+.work-info__fact {
+  justify-content: center;
+  flex-direction: column;
+  margin: 0.5rem 1rem;
+}
+
+.work-info__text {
+  color: var(--text-regular);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.contact {
+  justify-content: center;
+  margin: 2vh 0;
+  gap: 2vw;
+}
+
+.contact__button {
+  min-width: 25%;
+  height: 3rem;
+}
+
+.text--bold {
+  font-weight: 600;
+}
