@@ -17,7 +17,7 @@
   },
   "author": "Maia Stulic Fontan <maiastulicfontan@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/qaprosoft/react-laba-international-2#readme",
+  "homepage": "https://github.com/qaprosoft/react-laba-international-2/homeworks/maia-stulicfontan/13-environment-and-preprocessors/README.md",
   "scripts": {
     "start": "webpack serve --open",
     "build": "webpack"
