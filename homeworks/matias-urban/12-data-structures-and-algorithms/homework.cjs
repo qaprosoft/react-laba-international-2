@@ -1,46 +1,31 @@
 const mockData = require('./MOCK_DATA.js');
 
 const straightSearch = (array, skuArray) => {
-  console.log("Straight Search: ");
-  console.time('Time taken')
-  const solution = []; 
+  console.log('Straight Search: ');
+  console.time('Time taken');
+  const solution = [];
   for (const code of skuArray) {
     const matchingObj = array.find(obj => obj.sku === code);
-
     if (matchingObj) {
-      const newObj = {
-        sku: matchingObj.sku,
-        name: matchingObj.name,
-        price: matchingObj.price,
-        pack: matchingObj.pack,
-      };
-      solution.push(newObj);
+      solution.push(matchingObj);
     }
   }
   console.timeEnd('Time taken');
   return solution;
-}
+};
 const binarySearch = (array, skuArray) => {
-  console.log("Binary Search: ");
+  console.log('Binary Search: ');
   console.time('Time taken');
   const solution = [];
   const sortedArray = [...array].sort((a, b) => a.sku.localeCompare(b.sku));
-  
+
   const recursiveSearch = (array, skuElem, start, finish, solution) => {
     if (start > finish) {
       return; // Exit condition for binary search
     }
-    
     const elemNumber = Math.floor((finish + start) / 2);
-    
     if (array[elemNumber].sku === skuElem) {
-      const newObj = {
-        sku: array[elemNumber].sku,
-        name: array[elemNumber].name,
-        price: array[elemNumber].price,
-        pack: array[elemNumber].pack,
-      };
-      solution.push(newObj);
+      solution.push(array[elemNumber]);
     } else if (array[elemNumber].sku.localeCompare(skuElem) > 0) {
       finish = elemNumber - 1;
       recursiveSearch(array, skuElem, start, finish, solution);
@@ -49,11 +34,9 @@ const binarySearch = (array, skuArray) => {
       recursiveSearch(array, skuElem, start, finish, solution);
     }
   };
-
   for (skuElem of skuArray) {
     recursiveSearch(sortedArray, skuElem, 0, sortedArray.length - 1, solution);
   }
-
   console.timeEnd('Time taken');
   return solution;
 };
