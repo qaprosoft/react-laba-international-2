@@ -1,0 +1,21 @@
+{
+  "name": "untitled40",
+  "version": "1.0.0",
+  "description": "HW13",
+  "main": "script.js",
+  "scripts": {
+    "start": "webpack --watch --mode development",
+    "build": "webpack --mode production"
+  },
+  "author": "ilya",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "node-sass": "^9.0.0",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
