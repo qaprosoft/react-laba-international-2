@@ -1,3 +1,4 @@
+
 *{
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
@@ -10,9 +11,6 @@
     to {opacity: 100%;}
   }
 
-  button:hover{
-    border: 2px solid #3D3D3D;
-}
 
 body{
    
@@ -21,8 +19,12 @@ body{
     height: 100%;
     width: 100%;
     color: #575757;
-}
 
+    &.--dark{
+        background-color:#0C151D;
+        color: #A3ABB2;
+    }
+}
 
 
 header{
@@ -38,19 +40,40 @@ header{
     border: none;  
     cursor: pointer;
     margin: auto;
+
+
+&__dark-mode-icon{
+    transition: color 1000ms;
+    
 }
 
-.dark-mode-button__dark-mode-icon{
-    transition: color 1000ms;
+&__dark-mode-icon:hover{
+    color: white;
+}  
+
+}
+
+.dark-mode-button--dark{
+    background-color:#171F26;
+
+    &__dark-mode-icon{
+        color: grey;
+    }
+
+    &__dark-mode-icon:hover{
+        color: white;
+    }
 }
 
 .dark-mode-button:hover{
     background-color:#171F26;
     
-}  
-.dark-mode-button__dark-mode-icon:hover{
-    color: white;
-}  
+} 
+
+.dark-mode-button--dark:hover{
+    background-color: #0C151D;
+}
+
 
 main{
     display: flex;
@@ -68,15 +91,15 @@ main{
     flex-wrap: wrap;
 
     
-}
 
-.portfolio-presentation__photo-container{
+
+&__photo-container{
     width: 192px;
     height: 192px;
     flex-grow: 0.1;
 }
 
-.portfolio-presentation__profile-image {
+&__profile-image {
     width: 100%;
     height: 100%;
     border-radius: 100%;
@@ -85,7 +108,7 @@ main{
     border: 3px black solid;
 }
 
-.portfolio-presentation__title-logos-container{
+&__title-logos-container{
     
     align-self: center;
     display: flex;
@@ -96,26 +119,36 @@ main{
     
 }
 
-.portfolio-presentation__full-name-h1{
+&__full-name-h1{
     
     font-size: 46px;
     font-weight: 500;
     line-height: 69px;
     color: #3D3D3D; 
     margin: 0;
+
+    &--dark{
+        color:#F1F2F4
+    }
     
 }
 
-.portfolio-presentation__job-title-h4{
+
+
+&__job-title-h4{
     font-size: 22px;
     color: #575757;
     font-weight: 500;
     line-height: 33px;
     margin: 0;
+    &--dark{
+        color: #A3ABB2;
+    }
 }
 
 
-.portfolio-presentation__logos-container{
+
+&__logos-container{
     display: flex;
     gap: 26px;
     margin: 25px 0 0 0;
@@ -123,11 +156,16 @@ main{
 }
 
 
-.portfolio-presentation__logo{
+&__logo{
     color: #575757;
+    &--dark{
+        color: #A3ABB2;
+    }
 }
 
 
+
+}
 .experience-stats{
     width: 40%;
     display: flex;
@@ -135,25 +173,26 @@ main{
     align-items: center;
     text-align: center;
     margin: auto;
-}
 
-.experience-stats__experience-stats-container{
+
+&__experience-stats-container{
     margin: auto;
 }
 
-.experience-stats__stats-numbers{
+&__stats-numbers{
     font-size: 24px;
     font-weight: 500;
     line-height: 36px;
     margin-bottom: 0;
 }
 
-.experience-stats__stats-texts{
+&__stats-texts{
     font-size: 22px;
     font-weight: 500;
     line-height: 33px;
     text-align: center;
     margin-top: 0;
+}
 }
 
 .cv-contact-btn-container{
@@ -163,10 +202,10 @@ main{
     margin: 0 auto;
     
     
-}
 
 
-.cv-contact-btn-container__cv-btn{
+
+&__cv-btn{
     width: 45%;
     height: 80px;
     font-size: 22px;
@@ -179,10 +218,14 @@ main{
     text-align: center;
     text-decoration: none;
     color: #3D3D3D;
-    
+    &--dark{
+        background-color: #FBD144;
+        color: #3D3D3D;
+    }
 }
 
-.cv-contact-btn-container__contact-btn{
+
+&__contact-btn{
     background-color:#FFFFFF;
     transition: border 200ms;
     width: 45%;
@@ -194,8 +237,13 @@ main{
     border: none;
     color: #3D3D3D;
     cursor: pointer;
+    &--dark{
+        background-color: #171F26;
+        color: #A3ABB2 ;
+    }
 }
 
+}
 
 .slider{
     width: 50%;
@@ -206,9 +254,9 @@ main{
     padding: 0;
     cursor: pointer;
 
-}
 
-.slider__slider-container{
+
+&__slider-container{
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -216,9 +264,14 @@ main{
     height: 100%;
     justify-content: space-evenly;
     border-radius: 20px;
+
+    &--dark{
+        background-color:#171F26
+    }
 }
 
-.slider__btn{
+
+&__btn{
     width: 45%;
     height: 80px;
     border-radius: 10px;
@@ -230,22 +283,26 @@ main{
     line-height: 80px;
     font-weight: 500;
     color: #19191B;
-    
+    &--dark{
+        background-color: #171F26;
+        color:#A3ABB2;
+    }
+
+    &--selected{
+        background-color:#D7D7D7
+    }
 }
 
 
-.slider__btn--selected{
-    background-color:#D7D7D7
+
 }
-
-
 .skills-projects{
     display: flex;
     width: 50%;
     flex-wrap: nowrap;
-}
 
-.skills-projects__projects-container{
+
+&__projects-container{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -256,7 +313,7 @@ main{
 }
 
 
-.skills-projects__project-display{
+&__project-display{
     width: 45%;
     margin: 25px auto;
     height: 225px;
@@ -264,18 +321,18 @@ main{
     
 }
 
-.skills-projects__project-img{
+&__project-img{
     width: 100%;
     height: 100%;
     border-radius: 15px;
     transition: box-shadow 300ms ;
 }
-.skills-projects__project-img:hover{
+&__project-img:hover{
     box-shadow: 5px 10px #888888;
 }
 
 
-.skills-projects__skills-container{
+&__skills-container{
 
     display: flex;
     width: 100%;
@@ -284,23 +341,24 @@ main{
     align-items: center;
     margin: auto 0;
     justify-content: space-evenly;
+
+    &--dark{
+        color: lightgrey;
+    }
+
+    &--hidden{
+        display: none;
+    }
     
 }
 
-.skills-projects__skills-container-hidden{
-    display: none;
-}
 
-.skills-projects__skills-list{
+&__skills-list{
     width: 40%;
     list-style-type:square;
 }
 
-
-.skills-projects__skills-container--hidden{
-    display: none;
 }
-
 .auto-scroll-button{
     position: fixed;
     border: solid 2px black;
@@ -322,18 +380,18 @@ footer{
     position: relative;
     top: 0;
    
-}
-.footer__copyright{
-    
+
+&__copyright{
     text-align: center;
     font-size: 22px;
     font-weight: 500;
     line-height: 33px;
     color: #575757;
     margin-bottom: 0;
+    margin: 0 auto;
     
 }
-
+}
 
 
 
@@ -351,17 +409,27 @@ footer{
         flex-direction: column;
         align-items: center;
         text-align: center;
-    }
-    .portfolio-presentation__logos-container{
+    
+    &__logos-container{
         align-self: center;
         justify-content: center;
     }
+}
     .experience-stats{
         width: 60%;
     }
 
     .cv-contact-btn-container{
         width: 65%;
+    
+
+    &__contact-btn{
+        font-size: 18px;
+    }
+
+    &__cv-btn{
+        font-size: 18px;
+    }
     }
     .slider{
         width: 75%;
@@ -384,12 +452,12 @@ footer{
     .portfolio-presentation__full-name-h1{
         font-size: 32px;
         line-height: 48px;
-    }
-    .portfolio-presentation__job-title-h4{
+    
+    &__job-title-h4{
         font-size: 14px;
         line-height: 21px;
     }
-
+    }
     .dark-mode-button{
         width: 5%;
     }
@@ -399,69 +467,70 @@ footer{
         flex-direction: column;
         align-items: center;
         text-align: center;
-    }
+    
 
-    .portfolio-presentation__logos-container{
+    &__logos-container{
         align-self: center;
         justify-content:center;
     }
+}
 
     .experience-stats{
         width: 90%;
-    }
+    
 
-    .experience-stats__number{
+    &__number{
         font-size: 16px;
         line-height: 24px;
     }
 
-    .experience-stats__text{
+    &__text{
         font-size: 14px;
         line-height: 21px;
     }
-
+    }
     .cv-contact-btn-container{
         width: 90%;
-    }
+    
 
-    .cv-contact-btn-container__contact-btn{
+    &__contact-btn{
         font-size: 12px;
         line-height: 18px;
         height: 50px;
     }
-    .cv-contact-btn-container__cv-btn{
+    &__cv-btn{
         font-size: 12px;
         line-height: 50px;
         height: 50px;
     }
-
+    }
     .slider{
         width: 90%;
         height: 60px;
-    }
+    
 
 
-    .slider__slider-container{
+    &__slider-container{
         width: 100%;
         height: auto;
         padding: 10px 0;
     }
 
-    .slider__btn{
+    &__btn{
         height: 50px;
         line-height: 50px;
-    }
+    }}
     .skills-projects{
         width: 90%;
-    }
-    .skills-projects__projects-container{
+    
+    &__projects-container{
         width: 100%;
     }
 
-    .skills-projects__project-display{
+    &__project-display{
         width: 100%;
     }
-
+    }
    
     
 }
