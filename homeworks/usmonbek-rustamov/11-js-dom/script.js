@@ -38,6 +38,8 @@ class Grid {
       }
 
       if (row === selectedRow || col === selectedCol) {
+        // if shift was pressed and this cell was selected before
+        // don't add highlighted class to it
         if (!cell.classList.contains('grid__cell_active')) {
           cell.classList.add('grid__cell_highlighted');
         }
