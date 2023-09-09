@@ -1,0 +1,21 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(20, 40px);
+    grid-template-rows: repeat(30, 40px);
+    gap: 1px;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.cell.selected {
+    background-color: blue;
+    color: white;
+}
