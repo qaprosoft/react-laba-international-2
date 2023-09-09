@@ -1,28 +1,33 @@
-body{
-    color: white;
-    background: rgb(28,36,0);
-    background: linear-gradient(90deg, rgba(28,36,0,0.8800770308123249) 0%, rgba(79,121,9,1) 42%, rgba(12,50,10,0.891281512605042) 100%);
+body {
+  color: white;
+  background: rgb(28, 36, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 36, 0, 0.8800770308123249) 0%,
+    rgba(79, 121, 9, 1) 42%,
+    rgba(12, 50, 10, 0.891281512605042) 100%
+  );
 }
-h1{
-    display: flex;
-    justify-content: center;
-    font-size: 5rem;
-    padding: 2rem;
-}
-
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem;
-    gap: 5rem;
-    flex-wrap: wrap;
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+  padding: 2rem;
 }
 
-.runners-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  gap: 5rem;
+  flex-wrap: wrap;
+}
+
+.runners-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
