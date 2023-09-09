@@ -1,0 +1,26 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(20, 40px);
+    grid-template-rows: repeat(30, 40px);
+    gap: 1px;
+  }
+
+.grid__cell{
+  border: solid black 2px;
+  text-align: center;
+  font-size: 15px;
+}  
+
+
+.grid__cell--secondary{
+  background-color: lightblue;
+}
+
+.grid__cell--selected{
+  background-color: blue;
+}
+
+.grid__cell p{
+  display: none;
+  margin: auto;
+}
