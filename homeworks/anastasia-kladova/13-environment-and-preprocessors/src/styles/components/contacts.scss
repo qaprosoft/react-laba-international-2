@@ -1,0 +1,14 @@
+.contacts {
+  &__container {
+    padding-top: 2.14em;
+    padding-bottom: 3.4em;
+  }
+}
+
+.contacts {
+  &__btn--download {
+    margin-right: 1.73em;
+    background: var(--accent-color) url('../assets/icons/download.svg')
+      no-repeat 90% center / 25% 23%;
+  }
+}
