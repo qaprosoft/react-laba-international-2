@@ -1,0 +1,28 @@
+.tabs__wrapper {
+  padding: 23px 18px;
+  background-color: #171f26;
+  max-width: 756px;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.tabs__item {
+  width: 349.6px;
+  height: 80px;
+  font-size: 22px;
+  color: #a3abb2;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.tabs__item.active {
+  background-color: #0c151d;
+}

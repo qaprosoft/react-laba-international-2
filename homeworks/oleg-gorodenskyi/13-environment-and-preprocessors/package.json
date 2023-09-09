@@ -1,0 +1,35 @@
+{
+  "name": "ogor-13-environment-and-preprocessors",
+  "version": "1.0.0",
+  "description": "builds compressed CSS and monitors scss",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qaprosoft/react-laba-international-2.git#main"
+  },
+  "author": "Oleg Gorodenskyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qaprosoft/react-laba-international-2/issues"
+  },
+  "homepage": "https://github.com/qaprosoft/react-laba-international-2/tree/main#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "html-minimizer-webpack-plugin": "^4.4.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "node-sass": "^9.0.0",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
