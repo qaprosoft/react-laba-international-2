@@ -1,0 +1,60 @@
+const MOCK_DATA = [
+    {
+        sku: 'd462bb76-81ee-46af-9fdb-ebfe53a93d3f',
+        name: 'Engine Oil Filter',
+        manufacturer: 'ACDelco',
+        partNumber: 'PF2232',
+        price: 9.99,
+        description: 'High-quality engine oil filter for most car models.',
+    },
+    {
+        sku: '6df55f86-e3f5-4d7b-9cd5-906d8d7e804a',
+        name: 'Brake Pad Set',
+        manufacturer: 'Bosch',
+        partNumber: 'BP1288',
+        price: 34.99,
+        description: 'Front and rear brake pad set for improved braking performance.',
+    },
+    {
+        sku: '1e63459f-0b18-4acf-9afc-e7287347bbeb',
+        name: 'Spark Plug',
+        manufacturer: 'NGK',
+        partNumber: 'BKR5E-11',
+        price: 2.49,
+        description: 'Standard spark plug for gasoline engines.',
+    },
+    {
+        sku: 'e04b6074-332f-4661-8f3a-4cdcb3adfb6a',
+        name: 'Air Filter',
+        manufacturer: 'Mann-Filter',
+        partNumber: 'C 3698/3-2',
+        price: 11.95,
+        description: 'High-flow air filter for improved engine performance.',
+    },
+    {
+        sku: 'be77abf7-29b0-4ed1-9379-f5d7576cb5ce',
+        name: 'Transmission Fluid',
+        manufacturer: 'Valvoline',
+        partNumber: 'ATF-6',
+        price: 14.99,
+        description: 'Automatic transmission fluid for smooth gear shifts.',
+    },
+    {
+        sku: '3c511860-d159-457d-8374-e8205904e6f5',
+        name: 'Radiator Hose',
+        manufacturer: 'Gates',
+        partNumber: '23578',
+        price: 8.75,
+        description: 'Flexible radiator hose for efficient cooling.',
+    },
+    {
+        sku: '9c4a0320-1d82-4a46-83b3-511ddffb7ee6',
+        name: 'Oxygen Sensor',
+        manufacturer: 'Denso',
+        partNumber: '234-4621',
+        price: 29.99,
+        description: 'Oxygen sensor for monitoring exhaust gases and optimizing fuel efficiency.',
+    },
+];
+
+module.exports = MOCK_DATA;

@@ -1,0 +1,154 @@
+.profile {
+  padding: 0 65px;
+
+  /* Profile main info */
+  &__main_info {
+    padding-top: 160px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__avatar {
+    height: 215px;
+    width: 215px;
+    margin-right: 40px;
+  }
+
+  &__name {
+    color: var(--primary-text-color);
+    font-size: 4.6rem;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  &__occupation {
+    color: var(--secondary-text-color);
+    font-size: 2.2rem;
+    font-weight: 500;
+  }
+
+  &__socials {
+    margin-top: 12px;
+    display: flex;
+    gap: 25px;
+  }
+
+  &__social_icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.page--theme-dark .profile__social_icon {
+  filter: invert(1);
+}
+
+/* Profile statistics */
+.statistics {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-around;
+  max-width: 630px;
+
+  &__item {
+    text-align: center;
+
+    &_number {
+      color: var(--primary-text-color);
+      font-size: 2.4rem;
+      font-weight: 500;
+    }
+
+    &_name {
+      color: var(--secondary-text-color);
+      font-size: 2.2rem;
+      font-weight: 500;
+    }
+  }
+}
+/* Action buttons */
+.action_buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 70px;
+
+  &__btn {
+    width: 280px;
+    height: 80px;
+    display: flex;
+    padding: 0 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+    &--accent {
+      background-color: var(--accent-color);
+
+      .action_buttons__btn_text {
+        color: var(--on-accent-text-color);
+      }
+    }
+
+    &_text {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--primary-text-color);
+    }
+
+    &_icon {
+      margin-left: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .profile__main_info {
+    padding-top: 120px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile__avatar {
+    width: 170px;
+    height: 170px;
+    margin-right: 0;
+  }
+
+  .profile__name {
+    margin-top: 15px;
+  }
+
+  .profile__socials {
+    justify-content: center;
+  }
+
+  .action_buttons {
+    margin-top: 50px;
+  }
+
+  .action_buttons__btn {
+    width: 230px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .statistics {
+    margin-top: 25px;
+  }
+
+  .action_buttons__btn {
+    width: 200px;
+    height: 60px;
+  }
+}

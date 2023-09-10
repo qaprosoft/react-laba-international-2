@@ -1,0 +1,38 @@
+.change-theme {
+	position: relative;
+	background-color: var(--color-secondary);
+	width: 80px;
+	height: 80px;
+	border-radius: 100%;
+
+	&__label {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 40px;
+		height: 40px;
+		background: url('../../assets/icons/theme/light.svg') center/cover no-repeat;
+		pointer-events: none;
+	}
+
+	&__input {
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+		appearance: none;
+		cursor: pointer;
+
+		&:checked + .change-theme__label {
+			background: url('../../assets/icons/theme/dark.svg') center/cover no-repeat;
+		}
+	}
+}
+
+:root:has(.change-theme__input:checked) {
+	--color-main: #0C151D;
+	--color-primary: #FFE071;
+	--color-secondary: #171F26;
+	--color-text: #F1F2F4;
+	--color-text-second: #A3ABB2;
+}
