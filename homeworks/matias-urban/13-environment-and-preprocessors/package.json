@@ -1,0 +1,15 @@
+{
+  "name": "13-environment-and-preprocessors",
+  "version": "1.0.0",
+  "description": "converting to SASS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass sass/main.scss stylesheets/main.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

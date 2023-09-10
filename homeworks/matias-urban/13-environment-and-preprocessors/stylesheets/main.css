@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, "sans-serif";
+  font-weight: bold; }
+
+html {
+  scroll-behavior: smooth; }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.no-show {
+  display: none; }
+
+body {
+  background-color: #e9ebec; }
+
+.container-button-dark-theme__button {
+  background-color: white; }
+
+.profile-container__profile-title {
+  color: #3d3d3d; }
+
+.profile-container__profile-image {
+  background-color: white; }
+
+.personal-info-container__top {
+  color: #3a3a3a; }
+
+.personal-info-container__bottom {
+  color: #575757; }
+
+.profile-container__info {
+  color: #575757; }
+
+.container-buttons__download {
+  color: #19191b; }
+
+.container-buttons__contact {
+  color: #19191b; }
+
+.button-container-portfolio-box {
+  background-color: white; }
+
+.button-container-portfolio-box__buttons {
+  color: #19191b; }
+
+.button-container-portfolio-box__button1 {
+  background-color: #d7d7d7; }
+
+.button-container-portfolio-box__button2 {
+  background-color: white; }
+
+.container-buttons__download {
+  background: #fbd144; }
+
+.footer__span {
+  color: #575757; }
+
+.background-color-0c151d {
+  background-color: #0c151d; }
+
+.color-a3abb2 {
+  color: #a3abb2; }
+
+.color-F1F2F4 {
+  color: #f1f2f4; }
+
+.background-color-171F26 {
+  background-color: #171f26; }
+
+.background-color-ffe071 {
+  background-color: #ffe071; }
+
+.container-button-dark-theme {
+  margin-top: 2.0625em;
+  cursor: pointer; }
+
+.container-button-dark-theme__button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 1.25em; }
+
+.profile-container {
+  margin-top: 4.0625em;
+  flex-direction: column; }
+  .profile-container .profile-container__profile-image {
+    width: 7.75em;
+    height: 7.75em;
+    background-color: white;
+    border-radius: 50%;
+    border: 0.25em solid #fbd144; }
+  .profile-container .profile-container__profile-img {
+    width: 6.6875em;
+    height: 6.6875em; }
+  .profile-container .profile-container__profile-title {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    color: #3d3d3d;
+    line-height: 4.3125em;
+    font-family: "Poppins", sans-serif; }
+
+.personal-info-container {
+  margin-top: 1.875em;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  gap: 1.5625em;
+  width: 23.4375em; }
+
+.profile-container__info {
+  font-size: 0.875em;
+  color: #575757; }
+
+.personal-info-container__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins; }
+
+.personal-info-container__top {
+  color: #3a3a3a;
+  font-size: 1em; }
+
+.personal-info-container__bottom {
+  color: #575757;
+  font-size: 0.875em;
+  padding: 0.375em 0; }
+
+.profile-container__network-logos {
+  display: flex;
+  justify-content: space-between;
+  width: 11em;
+  margin-top: 1.25em; }
+
+.profile-container__logo {
+  width: 1.5em;
+  height: 1.5em; }
+
+.container-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center; }
+  .container-buttons .container-buttons__download {
+    border-radius: 0.625em;
+    padding: 0.8125em 0;
+    border: none;
+    text-align: center;
+    font-family: Poppins;
+    flex: 1;
+    cursor: pointer; }
+  .container-buttons .container-buttons__contact {
+    flex: 1;
+    border-radius: 0.625em;
+    background: #fff;
+    padding: 0.8125em 0;
+    border: none;
+    text-align: center;
+    font-family: Poppins;
+    cursor: pointer; }
+
+.button-container-portfolio-box {
+  border-radius: 0.625em; }
+  .button-container-portfolio-box .button-container-portfolio-box__buttons {
+    flex: 1;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 0.875em;
+    border: none;
+    padding: 0.9375em 0;
+    margin: 0.3125em 0.625em;
+    border-radius: 0.625em; }
+  .button-container-portfolio-box .button-container-portfolio-box__button1 {
+    cursor: pointer; }
+  .button-container-portfolio-box .button-container-portfolio-box__button2 {
+    cursor: pointer; }
+
+.portfolio-images__container-images {
+  margin-top: 4em; }
+
+.portfolio-images__imgs {
+  margin: 0em 0.625em 3.125em 0.625em; }
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4em; }
+  .footer .footer__span {
+    font-size: 0.875em; }

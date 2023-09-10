@@ -1,0 +1,57 @@
+.container-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    .container-buttons__download {
+        border-radius: 0.625em;
+        padding: 0.8125em 0;
+        border: none;
+        text-align: center;
+        font-family: Poppins;
+        flex: 1;
+        cursor: pointer;
+      }
+    .container-buttons__contact {
+        flex: 1;
+        border-radius: 0.625em;
+        background: #fff;
+        padding: 0.8125em 0;
+        border: none;
+        text-align: center;
+        font-family: Poppins;
+        cursor: pointer;
+    }
+  }
+  
+  
+  
+  
+  .button-container-portfolio-box {
+    border-radius: 0.625em;
+    .button-container-portfolio-box__buttons {
+        flex: 1;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 0.875em;
+        border: none;
+        padding: 0.9375em 0;
+        margin: 0.3125em 0.625em;
+        border-radius: 0.625em;
+      }
+      .button-container-portfolio-box__button1 {
+        cursor: pointer;
+      }
+      
+      .button-container-portfolio-box__button2 {
+        cursor: pointer;
+      }
+  }
+  
+  .portfolio-images__container-images {
+    margin-top: 4em;
+  }
+  
+  .portfolio-images__imgs {
+    margin: 0em 0.625em 3.125em 0.625em;
+  }
