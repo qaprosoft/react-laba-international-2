@@ -1,0 +1,6 @@
+straightSearch test took 43 milliseconds to execute 1000000 times.
+The average time is 0.000043 milliseconds
+***************************
+binarySearch test took 4 milliseconds to execute 1000000 times.
+The average time is 0.000004 milliseconds
+***************************

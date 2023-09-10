@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="styleSheetElement" rel="stylesheet" href="../dist/index.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6e4f32b2c9.js" crossorigin="anonymous"></script>
+    <title>Task-13-SCSS</title>
+</head>
+<body>
+
+    
+        <button type="button" class="auto-scroll-button" title="auto Scroll Button" id="auto-scroll-button">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        
+
+    
+
+    <header class="header">
+
+        <button title="dark mode button" type="button" class="dark-mode-button" id="dark-mode-button">
+            <i id="darkModeIcon" class="dark-mode-button__dark-mode-icon fa-regular fa-moon"></i>
+        </button>
+        
+    </header>
+
+    <main class="main">
+
+        <section class="portfolio-presentation">
+            <div class="portfolio-presentation__photo-container"><img class="portfolio-presentation__profile-image" src="./assets/images/profile-picture.png" alt="profile picture"></div>
+            <div class="portfolio-presentation__title-logos-container">
+                <h1 class="portfolio-presentation__full-name-h1"> Carlos Marchal</h1>
+                <h4 class="portfolio-presentation__job-title-h4">Software Engineer</h4>
+                <div class="portfolio-presentation__logos-container">
+                  
+                    <i class="fa-brands fa-github fa-xl portfolio-presentation__logo"></i>
+                    <i class="fa-brands fa-linkedin fa-xl portfolio-presentation__logo"></i>    
+                    <i class="fa-brands fa-twitter fa-xl portfolio-presentation__logo"></i>
+                    <i class="fa-brands fa-youtube fa-xl portfolio-presentation__logo"></i>
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="experience-stats">
+            <div class="experience-stats__experience-stats-container"> <p class="experience-stats__number">7</p> <p class="experience-stats__text"> Years of work <br> experience</p></div>
+            <div class="experience-stats__experience-stats-container"> <p class="experience-stats__number">50+</p> <p class="experience-stats__text">Completed <br> projects</p></div>
+            <div class="experience-stats__experience-stats-container"> <p class="experience-stats__number">20+</p> <p class="experience-stats__text"> Satisfied <br> customers</p></div>
+        </div>
+
+
+
+        <div class="cv-contact-btn-container">
+           
+            <a href="./assets/cv/CarlosJMarchalCVen.pdf" class="cv-contact-btn-container__cv-btn" download >Download CV <i class="fa-solid fa-download"></i></a>
+            <button type="button" class="cv-contact-btn-container__contact-btn"> Contact me <i class="fa-solid fa-address-book"></i></button>
+
+        </div>
+        
+
+
+        <div title="slider button"  class="slider" id="sliderButton">
+            <div class="slider__slider-container">
+               
+        <p class="slider__btn slider__btn--selected" id="sliderButtonPortfolio">Portfolio</p>
+        <p class="slider__btn" id="sliderButtonSkills">Skills</p>
+           
+            </div>
+        </div>
+
+        <div class="skills-projects">
+        <div id="projectsContainer" class="skills-projects__projects-container">
+            <div class="skills-projects__project-display"><img class="skills-projects__project-img" src="./assets/images/projects-images/project-1.jpg" alt="project image"></div>
+            <div class="skills-projects__project-display" ><img class="skills-projects__project-img" src="./assets/images/projects-images/project-2.jpg" alt="project image"></div>
+            <div class="skills-projects__project-display" ><img class="skills-projects__project-img" src="./assets/images/projects-images/project-3.jpg" alt="project image"></div>
+            <div class="skills-projects__project-display" ><img class="skills-projects__project-img" src="./assets/images/projects-images/project-4.jpg" alt="project image"></div>
+            <div class="skills-projects__project-display" ><img class="skills-projects__project-img" src="./assets/images/projects-images/project-5.jpg" alt="project image"></div>
+            <div class="skills-projects__project-display" ><img class="skills-projects__project-img" src="./assets/images/projects-images/project-6.jpg" alt="project image"></div>
+        </div>
+
+        <div id="skills" class="skills-projects__skills-container skills-projects__skills-container--hidden">
+            <ul class="skills-projects__skills-list">
+                <li>React</li>
+                <li>javascript</li>
+                <li>Node.js</li>
+                <li>Typescript</li>
+                <li>Java</li>
+                
+                
+            </ul>
+            <ul class="skills-container__skills-list">
+                <li>MongoDB</li>
+                <li>SQL</li>
+                <li>Git</li>
+                <li>HTML</li>
+                <li>Css</li>  
+            </ul>
+          
+        </div>
+    </div>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright"> <i class="fa-solid fa-copyright"></i> Carlos Marchal. 2023 All rights reserved </p>
+    </footer>
+    <script src="../dist/bundle.js"></script>  
+</body>
+
+</html>
