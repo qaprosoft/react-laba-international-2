@@ -11,27 +11,31 @@ const makeGrid = (rows, columns) => {
       box.classList.add("box");
       newSpan.classList.add("hide");
       newSpan.classList.add("innerText");
-      newSpan.innerHTML = `Row: ${j} Column: ${i}`;
+      newSpan.innerHTML = `Row: ${i+1} Column: ${j+1}`;
       container.appendChild(box);
       box.appendChild(newSpan);
     }
   }
 }
 
-const highlightRowAndColumn = (row, column) => {
+const highlightRowAndColumn = (row, column, isClicked) => {
   const boxes = document.querySelectorAll(".box");
+  boxes.forEach((box) => {
+    box.classList.remove("light-blue");
+  });
   boxes.forEach((box, index) => {
     const boxRow = Math.floor(index / columns);
     const boxColumn = index % columns;
-
     if (boxRow === row || boxColumn === column) {
-      box.classList.toggle("light-blue");
-	  box.classList.add("light-blue");
-    } else {
-      box.classList.remove("light-blue");
+      box.classList.add("light-blue");
     }
   });
-}
+  if (isClicked) {
+    boxes.forEach((box) => {
+      box.classList.remove("light-blue");
+    });
+  }
+};
 
 container.addEventListener("click", (event) => {
   const clickedElement = event.target;
@@ -39,36 +43,28 @@ container.addEventListener("click", (event) => {
     const boxIndex = Array.from(clickedElement.parentElement.children).indexOf(clickedElement);
     const row = Math.floor(boxIndex / columns);
     const column = boxIndex % columns;
-
-    if (currentlyClickedElement !== null) {
-      currentlyClickedElement.classList.remove("clicked");
-      const span = currentlyClickedElement.querySelector(".innerText");
+    if (currentlyClickedElement === clickedElement) {
+      clickedElement.classList.remove("clicked");
+      const span = clickedElement.querySelector(".innerText");
       span.classList.add("hide");
+      highlightRowAndColumn(row, column, true);
+      currentlyClickedElement = null;
+    } else {
+      if (currentlyClickedElement !== null) {
+        currentlyClickedElement.classList.remove("clicked");
+        const span = currentlyClickedElement.querySelector(".innerText");
+        span.classList.add("hide");
+        const [prevRow, prevColumn] = currentlyClickedElement.dataset.coords.split(",").map(Number);
+        highlightRowAndColumn(prevRow, prevColumn, true);
+      }
+      const box = clickedElement;
+      box.classList.add("clicked");
+      const span = box.querySelector(".innerText");
+      span.classList.remove("hide");
+      highlightRowAndColumn(row, column);
+      currentlyClickedElement = box;
+      currentlyClickedElement.dataset.coords = `${row},${column}`;
     }
-
-    const box = clickedElement;
-    box.classList.add("clicked");
-    const span = box.querySelector(".innerText");
-    span.classList.remove("hide");
-    highlightRowAndColumn(row, column);
-    currentlyClickedElement = box;
-  }
-  if (clickedElement.classList.contains("innerText")) {
-    const box = clickedElement.parentElement;
-    const boxIndex = Array.from(box.parentElement.children).indexOf(box);
-    const row = Math.floor(boxIndex / columns);
-    const column = boxIndex % columns;
-
-    if (currentlyClickedElement !== null && currentlyClickedElement !== box) {
-      currentlyClickedElement.classList.remove("clicked");
-      const span = currentlyClickedElement.querySelector(".innerText");
-      span.classList.add("hide");
-    }
-    highlightRowAndColumn(row, column);
-    const span = clickedElement;
-    span.classList.toggle("hide");
-    box.classList.toggle("clicked");
-    currentlyClickedElement = box;
   }
 });
 
