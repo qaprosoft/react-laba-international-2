@@ -1,32 +1,28 @@
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Poppins, "sans-serif";
-    font-weight: bold;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .flex-centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-    
-  
-  
-  
-  .no-show {
-    display: none;
-    }
-  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, 'sans-serif';
+  font-weight: bold;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-show {
+  display: none;
+}
