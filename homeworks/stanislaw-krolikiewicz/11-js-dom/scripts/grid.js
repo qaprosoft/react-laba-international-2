@@ -1,5 +1,8 @@
-let prevCell;
+let prevCell,
+  prevActiveRows = [],
+  prevActiveColumns = [];
 
+// creating grid
 const grid = document.querySelector('tbody');
 
 for (let i = 0; i < 30; i++) {
@@ -7,6 +10,7 @@ for (let i = 0; i < 30; i++) {
   row.setAttribute('data-row', i + 1);
   for (let j = 0; j < 20; j++) {
     const cell = document.createElement('td');
+    // adding data attributes
     cell.setAttribute('data-row', i + 1);
     cell.setAttribute('data-col', j + 1);
     cell.classList.add('cell');
@@ -15,150 +19,99 @@ for (let i = 0; i < 30; i++) {
   grid.append(row);
 }
 
-const addActiveClass = element => {
+// style methods
+const addHighlight = element => {
   element.classList.add('active');
 };
-
-const removeActiveClass = element => {
+const removeHighlight = element => {
   element.classList.remove('active');
 };
-
 const setActiveCell = element => {
-  addActiveClass(element);
   element.innerText = element.dataset.col + '/' + element.dataset.row;
 };
-
 const removeActiveCell = element => {
-  removeActiveClass(element);
+  removeHighlight(element);
   element.innerText = '';
 };
 
 const handleClick = e => {
   if (e.target instanceof HTMLTableCellElement) {
-    const prevActiveCells = grid.querySelectorAll('td.active');
-    const prevActiveRows = grid.querySelectorAll('tr.active');
-    const prevActiveRow = prevActiveRows[0];
-    if (prevActiveCells.length > 0) {
-      prevActiveCells.forEach(element => {
-        removeActiveCell(element);
-      });
-      removeActiveClass(prevActiveRow);
-    }
+    const activeCell = e.target;
+    const {row: activeRow, col: activeCol} = activeCell.dataset;
 
     let activeCells = [],
-      activeRows = [];
-    activeColumnCells = [];
+      activeRows = [],
+      activeColumns = [];
 
-    const activeCell = e.target;
-
-    if (e.shiftKey && prevCell) {
-      const rowDiff = activeCell.dataset.row - prevCell.dataset.row;
-      const colDiff = activeCell.dataset.col - prevCell.dataset.col;
-      if (colDiff >= 0) {
-        for (
-          let i = Number(prevCell.dataset.col);
-          i <= Number(activeCell.dataset.col);
-          i++
-        )
-          activeColumnCells.push(
-            ...grid.querySelectorAll(`td[data-col="${i}"]`),
-          );
-      } else {
-        for (
-          let i = Number(activeCell.dataset.col);
-          i <= Number(prevCell.dataset.col);
-          i++
-        )
-          activeColumnCells.push(
-            ...grid.querySelectorAll(`td[data-col="${i}"]`),
-          );
-      }
-
-      if (rowDiff >= 0) {
-        for (
-          let i = Number(prevCell.dataset.row);
-          i <= Number(activeCell.dataset.row);
-          i++
-        ) {
-          const row = grid.querySelector(`tr[data-row="${i}"]`);
-          activeRows.push(row);
-          if (colDiff >= 0) {
-            for (
-              let j = Number(prevCell.dataset.col);
-              j <= Number(activeCell.dataset.col);
-              j++
-            ) {
-              const cell = row.querySelector(`td[data-col="${j}"]`);
-              activeCells.push(cell);
-            }
-          } else {
-            for (
-              let j = Number(activeCell.dataset.col);
-              j <= Number(prevCell.dataset.col);
-              j++
-            ) {
-              const cell = row.querySelector(`td[data-col="${j}"]`);
-              activeCells.push(cell);
-            }
-          }
-        }
-      } else {
-        for (
-          let i = Number(activeCell.dataset.row);
-          i <= Number(prevCell.dataset.row);
-          i++
-        ) {
-          const row = grid.querySelector(`tr[data-row="${i}"]`);
-          activeRows.push(row);
-          if (colDiff >= 0) {
-            for (
-              let j = Number(prevCell.dataset.col);
-              j <= Number(activeCell.dataset.col);
-              j++
-            ) {
-              const cell = row.querySelector(`td[data-col="${j}"]`);
-              activeCells.push(cell);
-            }
-          } else {
-            for (
-              let j = Number(activeCell.dataset.col);
-              j <= Number(prevCell.dataset.col);
-              j++
-            ) {
-              const cell = row.querySelector(`td[data-col="${j}"]`);
-              activeCells.push(cell);
-            }
-          }
-        }
-      }
-    } else if (!e.shiftKey)
-      activeColumnCells = grid.querySelectorAll(
-        `td[data-col="${activeCell.dataset.col}"]`,
-      );
-    const {row, col} = activeCell.dataset;
-    const activeRow = grid.querySelector(`tr[data-row="${row}"]`);
-    if (prevActiveRows.length > 0) {
-      prevActiveRows.forEach(element => {
-        element.classList.remove('active');
+    // removing highlight and active state from previous cells
+    if (prevActiveColumns.length > 0) {
+      prevActiveColumns.forEach(element => {
+        removeActiveCell(element);
       });
     }
-    addActiveClass(activeCell);
-    addActiveClass(activeRow);
-    activeColumnCells.forEach(element => {
-      addActiveClass(element);
-    });
-    prevActiveRows.forEach(element => {
-      removeActiveClass(element);
-    });
-    activeRows.forEach(element => {
-      addActiveClass(element);
-    });
+    if (prevActiveRows.length > 0) {
+      prevActiveRows.forEach(element => {
+        removeHighlight(element);
+      });
+    }
+
+    // selecting cells with shift key
+    if (e.shiftKey && prevCell) {
+      const {row: prevRow, col: prevCol} = prevCell.dataset;
+      const rowDiff = activeRow - prevRow;
+      const colDiff = activeCol - prevCol;
+
+      const pushActiveColumns = (smallerCol, biggerCol) => {
+        for (let i = Number(smallerCol); i <= Number(biggerCol); i++)
+          activeColumns.push(...grid.querySelectorAll(`td[data-col="${i}"]`));
+      };
+
+      //method for selecting cells in a row used in pushActiveRows
+      const pushActiveCells = (smallerCol, biggerCol, row) => {
+        for (let i = Number(smallerCol); i <= Number(biggerCol); i++) {
+          const cell = row.querySelector(`td[data-col="${i}"]`);
+          activeCells.push(cell);
+        }
+      };
+
+      const pushActiveRows = (smallerRow, biggerRow) => {
+        for (let i = Number(smallerRow); i <= Number(biggerRow); i++) {
+          const row = grid.querySelector(`tr[data-row="${i}"]`);
+          activeRows.push(row);
+          if (colDiff >= 0) pushActiveCells(prevCol, activeCol, row);
+          else pushActiveCells(activeCol, prevCol, row);
+        }
+      };
+
+      if (colDiff >= 0) pushActiveColumns(prevCol, activeCol);
+      else pushActiveColumns(activeCol, prevCol);
+
+      if (rowDiff >= 0) pushActiveRows(prevRow, activeRow);
+      else pushActiveRows(activeRow, prevRow);
+    } else {
+      // selecting single cell
+      activeColumns = grid.querySelectorAll(`td[data-col="${activeCol}"]`);
+      activeRows = grid.querySelectorAll(`tr[data-row="${activeRow}"]`);
+    }
+
+    // setting active cells
+    setActiveCell(activeCell);
     activeCells.forEach(element => {
       setActiveCell(element);
     });
-    setActiveCell(activeCell);
+
+    // highlighting active rows and columns
+    activeColumns.forEach(element => {
+      addHighlight(element);
+    });
+    activeRows.forEach(element => {
+      addHighlight(element);
+    });
+
+    // saving previous state
     prevCell = activeCell;
     prevActiveRows = activeRows;
+    prevActiveColumns = activeColumns;
   }
 };
 
