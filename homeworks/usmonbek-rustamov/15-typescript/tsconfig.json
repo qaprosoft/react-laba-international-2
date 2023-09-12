@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "noImplicitAny": true,
+    "module": "ES6",
+    "target": "ES2016",
+    "allowJs": true
+  }
+}
