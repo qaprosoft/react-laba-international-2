@@ -13,8 +13,8 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  background-color: var(--primary-bg-darker);
-  color: var(--primary-text);
+  background-color: $primary-bg-darker;
+  color: $primary-text;
 }
 
 li {

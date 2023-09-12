@@ -29,3 +29,17 @@ body.dark-theme {
 
   --icon-brightness: 2;
 }
+
+$primary-bg: var(--primary-bg);
+$primary-bg-darker: var(--primary-bg-darker);
+$primary-bg-darkest: var(--primary-bg-darkest);
+
+$secondary-bg: var(--secondary-bg);
+$secondary-bg-darker: var(--secondary-bg-darker);
+$secondary-bg-darkest: var(--secondary-bg-darkest);
+
+$primary-text: var(--primary-text);
+$primary-text-darker: var(--primary-text-darker);
+$primary-text-darkest: var(--primary-text-darkest);
+
+$icon-brightness: var(--icon-brightness);

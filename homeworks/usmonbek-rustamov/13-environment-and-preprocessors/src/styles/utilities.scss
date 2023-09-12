@@ -24,7 +24,7 @@
 .lead-text {
   font-size: 2.2rem;
   font-weight: 400;
-  color: var(--primary-text);
+  color: $primary-text;
 }
 
 .lead-text_weight_bold {
@@ -44,21 +44,21 @@
   padding: 2rem 4rem;
   border: none;
   border-radius: 0.75rem;
-  background-color: var(--primary-bg);
-  color: var(--primary-text-darker);
+  background-color: $primary-bg;
+  color: $primary-text-darker;
   font-size: 2.2rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-}
 
-.btn:hover,
-.btn:active {
-  transform: scale(1.03);
+  &:hover,
+  &:active {
+    transform: scale(1.03);
+  }
 }
 
 .btn_bg_secondary {
-  background-color: var(--secondary-bg-darker);
+  background-color: $secondary-bg-darker;
   color: #3d3d3d;
 }
 
@@ -76,12 +76,12 @@
   width: 8.5rem;
   height: 8.5rem;
   opacity: 0.75;
-}
 
-.btn-scroll:hover,
-.btn-scroll:active {
-  opacity: 1;
-  transform: scale(1.15);
+  &:hover,
+  &:active {
+    opacity: 1;
+    transform: scale(1.15);
+  }
 }
 
 @media (max-width: 600px) {
