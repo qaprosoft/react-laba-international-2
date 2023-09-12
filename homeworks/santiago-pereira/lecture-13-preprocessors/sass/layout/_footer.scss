@@ -1,0 +1,19 @@
+
+/* footer styles */
+footer{
+    margin-top: 30px;
+    margin-bottom: 40px;
+
+    .footer-copy-rights{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--fonts-color);
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        line-height: normal;
+        padding: 20px 0px 40px 0px;
+    }
+}
+

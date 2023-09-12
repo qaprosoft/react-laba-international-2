@@ -1,0 +1,23 @@
+/* theme btn styles */
+.theme-btn-conatiner{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px 40px 0px;
+
+    .theme-btn{
+        position: absolute;
+        color: var(--fonts-color);
+        padding-top: 0.7em;
+        cursor: pointer;
+    }
+
+    .theme-btn-circle{
+        background-color: var(--btn-bground-color);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        z-index: -1;
+      }
+};
+
+
