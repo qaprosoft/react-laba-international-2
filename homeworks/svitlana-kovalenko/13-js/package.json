@@ -1,0 +1,19 @@
+{
+  "name": "13",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:sass": "node-sass src/styles/main.scss dist/main.css --output-style compressed",
+    "watch:webpack": "webpack --watch",
+    "watch:sass": "npm run build:sass -- --watch",
+    "start": "npm-run-all watch:webpack watch:sass"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

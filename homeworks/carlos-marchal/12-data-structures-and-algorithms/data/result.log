@@ -1,0 +1,5 @@
+The search time of binarySearch using bubble sort  was 0.06379997730255127
+The search time of binarySearch using .sort  was 0.018899977207183838
+The search time of straightSearch using no sorting  was 0.07490003108978271
+The search time of straightSearch using bubble sort  was 0.01510000228881836
+The search time of straightSearch using .sort  was 0.024399995803833008

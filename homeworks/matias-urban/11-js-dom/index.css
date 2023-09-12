@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    max-width: 100%;
+    gap: 20px;
+    margin: 10px;
+}
+
+.box {
+    width: 40px;
+    height: 40px;
+    border: solid 2px black;
+    color: white;
+    font-size: 10px;
+}
+.hide {
+    display: none;
+}
+.light-blue {
+    background-color: lightblue;
+}
+.clicked {
+    background-color: blue;
+}

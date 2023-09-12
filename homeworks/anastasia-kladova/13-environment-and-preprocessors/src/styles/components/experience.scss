@@ -1,0 +1,19 @@
+.experience {
+  &__container {
+    padding: 0.9em 1.4em;
+  }
+
+  &__item {
+    @include flexCenteredAll;
+    @include flexColumn;
+
+    &:not(:last-child) {
+      margin-right: 4.09em;
+    }
+  }
+
+  &__item-descr {
+    text-align: center;
+    /* color: var(--color-text-secondary); */
+  }
+}
