@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+}
+
+.cell {
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+td:hover {
+  background: lightblue;
+  cursor: pointer;
+}
+
+.active {
+  background: lightblue;
+}
