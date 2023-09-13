@@ -1,0 +1,31 @@
+{
+  "name": "css-13",
+  "version": "1.0.0",
+  "description": "migrating css to sass.",
+  "keywords": [
+    "node",
+    "npm",
+    "module bundler",
+    "webpack",
+    "sass"
+  ],
+  "main": "main.js",
+  "scripts": {
+    "build": "postcss css/main.css --use cssnano --output css/styles.css",
+    "start": "node-sass sass/main.scss css/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qaprosoft/react-laba-international-2.git"
+  },
+  "author": "Santiago Pereira",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  },
+  "devDependencies": {
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.29",
+    "postcss-cli": "^10.1.0"
+  }
+}
