@@ -2,8 +2,8 @@
 
 ## Environments and preprocessors
 
-Task [05-css-advanced](./05-css-advanced) is modified to utilise a module bundler and a preprocessor.
-Project is bundle using **Webpack** and stylesheets is rewritten in **Sass**
+Task [05-css-advanced](./05-css-advanced) is modified to utilize a module bundler and a preprocessor.<br>
+The project is bundled using **Webpack** and stylesheets is rewritten in **Sass**
 
 ### Scripts
 
