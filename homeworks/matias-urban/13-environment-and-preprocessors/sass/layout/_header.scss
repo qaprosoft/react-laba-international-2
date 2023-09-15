@@ -1,0 +1,34 @@
+.container-button-dark-theme {
+  margin-top: 2.0625em;
+  cursor: pointer;
+  .container-button-dark-theme__button {
+    border: none;
+    border-radius: 50%;
+    padding: 1.25em;
+    transition: 2s;
+  }
+}
+
+.profile-container__profile-title {
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.personal-info-container {
+  margin-top: 1.875em;
+  display: flex;
+  text-align: center;
+  .personal-info-container__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+  }
+  .profile-container__network-logos {
+    display: flex;
+    justify-content: space-between;
+  }
+}
