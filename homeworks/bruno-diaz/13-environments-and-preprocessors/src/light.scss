@@ -1,0 +1,291 @@
+@mixin box($content: center) {
+    display: flex;
+    justify-content: $content;
+    align-items: center;
+}
+@mixin profile-text {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+$background-color_1: #fffFFF;
+$background-color_2: #171f26;
+
+body {
+    max-width: 100%;
+    height: 100%;
+    margin-top: 0;
+    background-color: #e9ebec;
+};
+
+header {
+    @include box;
+}
+
+main {
+    @include box;
+    flex-flow: column wrap;
+}
+
+footer {
+    @include box;
+    position: static;
+}
+
+.switcher {
+    @include box;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    background-color: $background-color_1;
+    animation: switcher 20s ease-in-out alternate infinite;
+    & :hover {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes switcher {
+    0% {background-color: $background-color_1}
+    25% {background-color: $background-color_2}
+    50% {background-color: $background-color_1}
+    75% {background-color: $background-color_2}
+    100% {background-color: $background-color_1}
+}
+
+.profile{
+    @include box;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.profile__user {
+    @include box;
+    gap: 40px;
+}
+
+.profile__avatar{
+    @include box();
+    background-color: $background-color_1;
+    border: 4px solid #f7d039;
+    height: 13rem;
+    width: 13rem;
+    border-radius: 100%;
+}
+
+.profile__photo {
+    @include box();
+    background-image: url(/assets/pictures/myPhoto.jpg);
+    background-position: center;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 100%;
+}
+
+.profile__name {
+    @include profile-text();
+    color: #3D3D3D;
+    font-size: 2.875rem;
+}
+
+.profile__job {
+    @include profile-text();
+    color: #575757;
+    font-size: 22px;
+}
+
+.animated-icon, .button__animated {
+    transition: width 2s, heigh 2s, transform 2s;
+    transition-timing-function: ease;
+}
+.animated-icon:hover {
+    position: relative;
+    z-index: 0;
+    transform: scale(1.5);
+}
+.button__animated {
+    position: relative;
+    z-index: 0;
+    transform: scale(1.2);
+}
+
+.profile__experience {
+    width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile__experience-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile__experience-info__text {
+    @include profile-text();
+    font-size: 22px;
+    color: #3D3D3D;
+    text-align: center;
+}
+
+.profile__buttons {
+    display: flex;
+    gap: 2.375rem;
+    flex-shrink: 0;
+}
+
+.button {
+    @include box();
+    width: 18.125rem;
+    height: 5rem;
+    border-radius: 0.625rem;
+    flex-shrink: 0;
+}
+
+.button__content {
+    display: flex;
+    text-decoration: none;
+}
+
+.button__text {
+    @include profile-text();
+    font-size: 22px;
+    color: #3D3D3D;
+    letter-spacing: -0.5px;
+
+}
+
+.button--yellow {
+    background: #fbd144;
+    &:hover{
+        background: #a88a28;
+    }
+}
+
+.button--white {
+    border: 0px solid #3e64aa;
+    background: #FFF;
+    &:hover{
+        background: #b4afaf;
+    }
+}
+
+.portfolio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-block: 2rem;
+}
+
+.portfolio__buttons {
+    @include box($content: space-around);
+    margin: 3rem;
+    width: 47rem;
+    height: 7rem;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #FFF;
+}
+
+.portfolio__button {
+    width: 22rem;
+    height: 5rem;
+    border-radius: 10px;
+    border: 0px solid #3e64aa;
+}
+
+.portfolio__button--active {
+    background: #b1a6a6;
+}
+
+.portfolio__button__text {
+    @include profile-text();
+    text-align: center;
+    font-size: 22px;
+    color: #19191b;
+    letter-spacing: -0.5px;
+}
+
+.card {
+    @include box();
+    margin-block: 15px;
+}
+
+.card__img {
+    width: 95%;
+    height: 100vw;
+    max-width: 22.625rem;
+    max-height: 14.125rem;
+    margin-block: 15px;
+    border-radius: 22px;
+}
+
+.scroll-container{
+    display: none;
+    position: fixed;
+    width: 6rem;
+    height: 6rem;
+    background-color: #FFF;
+    border-radius: 100%;
+}
+
+.scrollButton {
+    display: none;
+    position: fixed;
+    background: url(/assets/icons/scroll.svg) no-repeat;
+    width: 5rem;
+    height: 5rem;
+}
+
+.footer-text {
+    @include profile-text();
+    color: #575757;
+    font-size: 22px;
+}
+
+@media (max-widtg: 800px) {
+    body {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%;
+        font-size: 20px;
+    }
+    .profile__user{
+        flex-direction: column;
+    }
+    .profile__avatar {
+        height: 17rem;
+        width: 17rem;
+    }
+    .profile__photo {
+        width: 16rem;
+        height: 16rem;
+    }
+    .profile__social-media {
+        display: flex;
+        justify-content: space-between;
+    }
+    .text {
+        font-size: 26px;
+    }
+    .portfolio__buttons {
+        width: 45rem;
+    }
+    .portfolio__button {
+        width: 20rem;
+    }
+    .portfolio__projects {
+        display: block;
+    } 
+    .scroll-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .scrollButton {
+        display: block;
+    }
+}
