@@ -5,11 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:sass": "node-sass sass/main.scss stylesheets/main.css --watch"
+    "start": "node-sass sass/main.scss stylesheets/main.css --watch",
+    "build": "postcss stylesheets/main.css --use cssnano --output stylesheets/styles.css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-sass": "^9.0.0"
+  },
+  "devDependencies": {
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.29",
+    "postcss-cli": "^10.1.0"
   }
 }
