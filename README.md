@@ -55,14 +55,14 @@ Once PR is created you have to do the following things:
 
 ### Block 3
 
-| Day           | Theme                                              | Homework |
-| :------------ | :------------------------------------------------- | :------- |
-| Sep 19th      | [Overview of React library. React basics]          |          |
-| Sep 22th      | [React UI. Managing State]                         |          |
-| Sep 26th      | [Overview of Hooks]                                |          |
-| Sep 29th      | [React API]                                        |          |
-| Oct 3th       | [Overview of web application, key points. Next.js] |          |
-| Oct 6th       | [Next.js. Key features]                            |          |
-| Oct 10th      | [Testing]                                          |          |
-| Oct 9th-15th  | Learning week                                      |          |
-| Oct 16th-20th | Third block exam                                   |
+| Day           | Theme                                                  | Homework |
+| :------------ | :----------------------------------------------------- | :------- |
+| Sep 19th      | [Overview of React library. React basics]              |          |
+| Sep 22th      | [React UI. Managing State]                             |          |
+| Sep 26th      | [Overview of Hooks]                                    |          |
+| Sep 29th      | [React API]                                            |          |
+| Oct 3th       | [Overview of web application, key points. Next.js]     |          |
+| Oct 6th       | [Next.js. Key features]                                |          |
+| Oct 10th      | [Testing]                                              |          |
+| Oct 9th-20th  | Learning weeks. Finishing homeworks/preparing for exam |          |
+| Oct 23th-27th | Third block exam                                       |
