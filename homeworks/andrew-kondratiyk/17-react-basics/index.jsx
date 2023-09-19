@@ -16,9 +16,7 @@ function App() {
 
   return (
     <div className="body">
-      <Light state={state} colorIndex={0} />
-      <Light state={state} colorIndex={1} />
-      <Light state={state} colorIndex={2} />
+      {colors.map((_, index) => <Light key={index} state={state} colorIndex={index} />)}
     </div>
   )
 }
