@@ -32,8 +32,6 @@ const trafficLightSwitch = () => {
   let currentIndex = 0;
 
   const switchTrafficLight = () => {
-    const domContainer = document.querySelector('#root_container');
-    const root = ReactDOM.createRoot(domContainer);
     root.render(states[currentIndex]);
     currentIndex = (currentIndex + 1) % states.length;
   };
