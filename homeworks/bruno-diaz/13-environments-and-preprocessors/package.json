@@ -1,0 +1,37 @@
+{
+  "name": "task-13",
+  "version": "1.0.0",
+  "description": "migrating css to sass.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qaprosoft/react-laba-international-2.git"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "module",
+    "bundler",
+    "webpack",
+    "sass"
+  ],
+  "author": "Bruno Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qaprosoft/react-laba-international-2/issues"
+  },
+  "homepage": "https://github.com/qaprosoft/react-laba-international-2#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "sass": "^1.67.0",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
