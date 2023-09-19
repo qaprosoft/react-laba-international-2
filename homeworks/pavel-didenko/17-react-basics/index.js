@@ -1,7 +1,7 @@
 const App = () => {
   const [light, setLight] = React.useState('red');
 
-  function interval(){
+  function interval() {
     setTimeout(() => {
       if (light === 'red') {
         setLight('yellow');
@@ -17,11 +17,9 @@ const App = () => {
     }, 1000);
   }
 
-
   React.useEffect(() => {
     interval();
   }, [light]);
-
 
   return (
     <div className="traffic-light-wrapper">
