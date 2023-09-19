@@ -1,21 +1,47 @@
-const light = React.createElement('div', {
-  className: 'light',
-});
+const App = () => {
+  const [light, setLight] = React.useState('red');
 
-const frafficLightHead = React.createElement('div', {
-  className: 'traffic-light-head'
-})
+  function interval(){
+    setTimeout(() => {
+      if (light === 'red') {
+        setLight('yellow');
+      }
 
-const trafficLight = React.createElement('div', {
-  className: 'traffic-light',
-  children: [light, light, light],
-});
+      if (light === 'yellow') {
+        setLight('green');
+      }
 
-const trafficLightWrapper = React.createElement('div', {
-  className: 'traffic-light-wrapper',
-  children: [frafficLightHead, trafficLight],
-});
+      if (light === 'green') {
+        setLight('red');
+      }
+    }, 1000);
+  }
 
-const domContainer = document.querySelector('#root');
-const root = ReactDOM.createRoot(domContainer);
-root.render(trafficLightWrapper);
+
+  React.useEffect(() => {
+    interval();
+  }, [light]);
+
+
+  return (
+    <div className="traffic-light-wrapper">
+      <div className="traffic-light">
+        <div
+          className="light"
+          style={{backgroundColor: light === 'red' ? '#DF4040' : '#5B5B5B'}}
+        ></div>
+        <div
+          className="light"
+          style={{backgroundColor: light === 'yellow' ? '#E9EC6A' : '#5B5B5B'}}
+        ></div>
+        <div
+          className="light"
+          style={{backgroundColor: light === 'green' ? '#04CA00' : '#5B5B5B'}}
+        ></div>
+      </div>
+      <div className="traffic-light-head"></div>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
