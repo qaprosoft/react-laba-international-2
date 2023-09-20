@@ -1,39 +1,39 @@
 const colors = ['red', 'yellow', 'green'];
-let activeColorIndex = 0;
+let activeColorIndex = 2;
 
-function head() {
+function Head() {
   return React.createElement('div', {
     className: 'head',
   });
 }
 
-function ligthElement({color, activeColor}) {
+function LigthElement({color, activeColor}) {
   return React.createElement('div', {
     className: `ligth_element ${activeColor === color && color}`,
   });
 }
-function body() {
+function Body() {
   return React.createElement(
     'div',
     {
       className: 'body',
     },
     [
-      ligthElement({color: 'red', activeColor: colors[activeColorIndex]}),
-      ligthElement({color: 'yellow', activeColor: colors[activeColorIndex]}),
-      ligthElement({color: 'green', activeColor: colors[activeColorIndex]}),
+      LigthElement({color: 'red', activeColor: colors[activeColorIndex]}),
+      LigthElement({color: 'yellow', activeColor: colors[activeColorIndex]}),
+      LigthElement({color: 'green', activeColor: colors[activeColorIndex]}),
     ],
   );
 }
 
-function traficLight() {
+function TraficLight() {
   return React.createElement(
     'div',
     {
       id: 'traficLight',
       className: 'traficLight',
     },
-    [head(), body()],
+    [Head(), Body()],
   );
 }
 
@@ -48,7 +48,7 @@ function changeActiveColor() {
       activeColorIndex++;
     }
 
-    root.render(traficLight());
+    root.render(TraficLight());
 
     changeActiveColor();
   }, 1000);
