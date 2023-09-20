@@ -1,6 +1,25 @@
 const {createRoot} = ReactDOM;
 const {useState, useEffect} = React;
 
+const lightsSequence = [
+  {
+    lights: ['red'],
+    delay: 2000, // time of previous step
+  },
+  {
+    lights: ['red', 'amber'],
+    delay: 2000,
+  },
+  {
+    lights: ['green'],
+    delay: 2000,
+  },
+  {
+    lights: ['amber'],
+    delay: 4000,
+  },
+];
+
 const Light = ({color, activeLights}) => {
   return (
     <div
@@ -10,24 +29,6 @@ const Light = ({color, activeLights}) => {
 };
 
 const TrafficLights = () => {
-  const lightsSequence = [
-    {
-      lights: ['red'],
-      delay: 2000, // time of previous step
-    },
-    {
-      lights: ['red', 'amber'],
-      delay: 2000,
-    },
-    {
-      lights: ['green'],
-      delay: 2000,
-    },
-    {
-      lights: ['amber'],
-      delay: 4000,
-    },
-  ];
   const [activeLights, setActiveLights] = useState(['red']);
   const [step, setStep] = useState(1); // start with delay which of step no 0
 
