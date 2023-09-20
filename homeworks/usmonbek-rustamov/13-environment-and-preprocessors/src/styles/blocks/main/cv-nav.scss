@@ -1,0 +1,25 @@
+.cv-nav {
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: $primary-bg;
+
+  &__list {
+    justify-content: space-between;
+  }
+
+  &__list-item,
+  &__link {
+    width: 100%;
+  }
+
+  &__link {
+    &:not(&_active):hover,
+    &:not(&_active):active {
+      transform: none;
+    }
+  }
+
+  &__link_active {
+    background-color: $primary-bg-darkest;
+  }
+}

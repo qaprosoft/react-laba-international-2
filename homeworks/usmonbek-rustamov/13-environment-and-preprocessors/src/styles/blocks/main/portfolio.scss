@@ -1,0 +1,111 @@
+.portfolio {
+  gap: 5rem 3rem;
+  padding-top: 7rem;
+
+  &__project {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 1.5rem;
+
+    &-img {
+      height: 100%;
+    }
+
+    &-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.3s ease-in-out;
+
+      width: 45rem;
+      height: 45rem;
+      padding: 6rem;
+      border-radius: 50%;
+      background-color: $secondary-bg;
+      opacity: 0.88;
+    }
+
+    &-link {
+      $link-bg-color: #fff;
+
+      width: 3.8rem;
+      height: 3.8rem;
+      padding: 1rem;
+      padding-left: 0.95rem;
+      margin-top: 2rem;
+      background-color: $link-bg-color;
+      transform: translateY(400%);
+      transition: transform 0.3s ease-in-out 0.3s,
+        background-color 0.2s ease-in-out;
+
+      &:hover,
+      &:active {
+        background-color: darken($link-bg-color, 10%);
+      }
+    }
+
+    &-name {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #3d3d3d;
+      opacity: 0;
+      transform: translateX(-300%);
+      transition: all 0.3s ease-in-out 0.35s;
+    }
+
+    &-description {
+      font-size: 1.4rem;
+      color: #575757;
+      opacity: 0;
+      transform: translateX(300%);
+      transition: all 0.3s ease-in-out 0.35s;
+    }
+
+    &:hover &-info {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    &:hover &-name,
+    &:hover &-description,
+    &:hover &-link,
+    &:active &-name,
+    &:active &-description,
+    &:active &-link {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio__project {
+    border-radius: 2.5rem;
+
+    &-info {
+      width: 110%;
+      height: 110%;
+      padding: 8rem;
+      border-radius: 0%;
+    }
+
+    &-name {
+      font-size: 4rem;
+    }
+
+    &-description {
+      font-size: 2.2rem;
+    }
+
+    &-link {
+      width: 6.5rem;
+      height: 6.5rem;
+      margin-top: 3rem;
+    }
+
+    &:hover &-info {
+      animation: grow-horizontal 0.3s ease-in-out;
+    }
+  }
+}

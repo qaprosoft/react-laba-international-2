@@ -1,0 +1,254 @@
+/* profile styles */
+.profile{
+    display: block;
+    justify-content: center;
+
+    .profile-main{
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+
+        .profile-img{
+            display: flex;
+            justify-content: center;
+            width: 124px;
+            height: 124px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+
+            .avatar{
+                position: absolute;
+                width: 107px;
+                height: 107px;
+                margin-top: 9px; 
+            }
+           
+        }
+
+        .profile-name{
+            display: flex;
+            justify-content: center;
+            font-size: 32px;
+           
+        }
+
+        .profile-description{
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: $fonts-color;
+            font-weight: lighter;
+         
+        }
+
+        .profile-social-media-bright{
+            display: flex;
+            justify-content:center;
+            gap: 0.5em;
+            margin-bottom: 30px;
+
+            .profile-social-media-bright img{
+                width: 25px;
+                height: 25px;
+             }
+        }
+
+        .profile-social-media{
+            display: flex;
+            justify-content: center;
+            gap: 0.5em;
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+    }
+
+    .profile-achievements{
+        display: flex;
+        padding: 20px;
+        justify-content: space-evenly;
+        align-items: center;
+        color: $fonts-color;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        line-height: normal;
+        margin-bottom: 30px;
+        font-weight: lighter;
+    }
+
+    .profile-buttons{
+        display: flex;
+        padding: 18px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 30px;
+
+        .profile-buttons-download-cv{
+            width: 158px;
+            height: 44px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: #FFE071;
+            color: #3D3D3D;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: -0.531px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .profile-buttons-download-cv a{
+            text-decoration: none;
+            color: #0C151D;
+        }
+        .profile-buttons-download-cv{
+            transition: all 1.5s ease-in-out;
+        }
+        
+        .profile-buttons-download-cv:hover{
+           background-color: #3D3D3D;
+        }
+
+        .profile-buttons-contact{
+            width: 158px;
+            height: 44px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            border: 0px solid #3E64AA;
+            background: $btn-bground-color;
+            color: $fonts-color;
+            text-align: center;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+            transition: all 1.5s ease-in-out;
+        }
+        
+        .profile-buttons-contact:hover{
+            background-color: #FFE071;
+            color: #0C151D
+        }
+    }
+};
+
+
+/* main cards styles */
+.main-content{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+
+    .main-content-buttons-selectors{
+
+        .main-content-buttons-selectors-skills{
+            width: 154px;
+            height: 50px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            border: 0px solid #3E64AA;
+            color: $fonts-color;
+            cursor: pointer;
+            background-color: transparent;
+            transition: all 1.5s ease-in-out;
+    
+            .main-content-buttons-selectors-skills:hover{
+                background-color: gray;
+             
+             }
+        
+        }
+
+    .main-content-buttons-selectors-portfolio{
+        width: 154px;
+        height: 50px;
+        flex-shrink: 0;
+        background-color: $protfolio-bground;
+        border-radius: 10px;
+        border: 0px solid #3E64AA;
+        color: $fonts-color;
+        cursor: pointer;
+        transition: all 1.5s ease-in-out;
+
+        
+    .main-content-buttons-selectors-portfolio:hover{
+        background-color: gray;
+    }
+
+    }
+}
+
+    .main-content-portfolio-cards{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+
+        .card{
+            width: 340px;
+            height: 210px;
+            transition: all 1.5s ease-in-out;
+
+            .card:hover{
+                transform: scale(1.15);
+                
+            }
+        }
+    }
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

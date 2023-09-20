@@ -1,0 +1,139 @@
+@media only screen and (min-width:601px) {
+  body {
+    width: 100%;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .profile-container {
+    margin-top: 5.5625em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2.1em;
+    height: auto;
+  }
+
+  .profile-container__info {
+    justify-content: flex-start;
+  }
+
+  .profile-container__profile-image {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.225em solid #fbd144;
+  }
+
+  .profile-container__profile-img {
+    width: 9.2em;
+    height: 9.2em;
+  }
+
+  .profile-container__profile-info {
+    flex-direction: column;
+  }
+
+  .profile-container__network-logos {
+    gap: 1.95em;
+  }
+
+  .profile-container__profile-title {
+    font-size: 2.1em;
+    line-height: 3em;
+  }
+
+  .personal-info-container {
+    justify-content: space-around;
+    padding: 0.93em 0.093em 0.93em
+      0.093em;
+    gap: 2.1em;
+    width: 23.4em;
+  }
+
+  .personal-info-container__top {
+    font-size: 1.125em;
+  }
+
+  .personal-info-container__bottom {
+    font-size: 1.03em;
+    padding: 0.281em 0;
+  }
+
+  .profile-container__info {
+    font-size: 1.55em;
+  }
+
+  .profile-container__network-logos {
+    width: 10.4em;
+    margin-top: 0.47em;
+  }
+
+  .profile-container__logo {
+    width: 1.7em;
+    height: 1.7em;
+  }
+
+  .container-buttons {
+    margin-top: 1.5em;
+    width: 25.5em;
+    gap: 1.8em;
+  }
+
+  .container-buttons__download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.05em;
+  }
+
+  .container-buttons__download-button {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .container-buttons__contact {
+    font-size: 1.05em;
+  }
+
+  .button-container-portfolio-box {
+    margin-top: 4.25em;
+    padding: 0.15625em;
+  }
+
+  .portfolio-images {
+    margin-top: 3.75em;
+  }
+  .portfolio-images__imgs {
+    width: 17.5em;
+  }
+  .portfolio-images__container-images {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+    grid-auto-rows: auto;
+    grid-gap: 0.5rem;
+  }
+
+  .footer {
+    margin-top: 3.75em;
+  }
+
+  .gototopbtn {
+    display: none;
+  }
+}
+
