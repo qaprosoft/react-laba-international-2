@@ -1,8 +1,9 @@
 const {useState, useEffect} = React;
 
+const lights = ['red', 'yellow', 'green'];
+
 function TrafficLight() {
-  const lights = ['red', 'yellow', 'green'];
-  const [currentLight, setCurrentLight] = useState(0); 
+  const [currentLight, setCurrentLight] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,15 +16,15 @@ function TrafficLight() {
   }, []);
 
   const switchLight = () => {
-    setCurrentLight((prevLight) => (prevLight + 1) % lights.length);
+    setCurrentLight(prevLight => (prevLight + 1) % lights.length);
   };
   return (
     <div className="traffic-light">
       <div className="traffic-head"></div>
       <div className="light-container">
-        <div className={`circle red ${currentLight === 0 && 'active'}`}></div>
-        <div className={`circle yellow ${currentLight === 1 && 'active'}`}></div>
-        <div className={`circle green ${currentLight === 2 && 'active'}`}></div>
+        <div className={`circle ${currentLight === 0 && 'red'}`}></div>
+        <div className={`circle ${currentLight === 1 && 'yellow'}`}></div>
+        <div className={`circle ${currentLight === 2 && 'green'}`}></div>
       </div>
     </div>
   );
