@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --body-color: #585f68;
+  --head-color: #414447;
+  --red-color: #df4040;
+  --amber-color: #e9ec6a;
+  --green-color: #04ca00;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  height: 560px;
+  width: 240px;
+  border-radius: 60px;
+  background-color: var(--body-color);
+  box-shadow: 24px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.25));
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -32px;
+  left: 60px;
+  height: 32px;
+  width: 120px;
+  border-radius: 40px 40px 0 0;
+  background-color: var(--head-color);
+}
+
+.light {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+  box-shadow: 10px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+.active {
+  opacity: 1;
+}
+
+.green {
+  background-color: var(--green-color);
+}
+
+.amber {
+  background-color: var(--amber-color);
+}
+
+.red {
+  background-color: var(--red-color);
+}
