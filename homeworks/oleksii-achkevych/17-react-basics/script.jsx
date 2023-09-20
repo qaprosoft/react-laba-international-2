@@ -6,7 +6,7 @@ const TrafficLight = () => {
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
+      setCurrentColorIndex(prevIndex => (prevIndex + 1) % colors.length);
     }, 2000);
 
     return () => clearInterval(interval);
@@ -14,7 +14,7 @@ const TrafficLight = () => {
 
   return React.createElement(
     'div',
-    { id: 'traffic-light' },
+    {id: 'traffic-light'},
     React.createElement('div', {
       className: 'top-light',
     }),
@@ -25,9 +25,9 @@ const TrafficLight = () => {
         style: {
           background: currentColorIndex === index ? color : 'gray',
         },
-      })
-    )
+      }),
+    ),
   );
-}
+};
 
 ReactDOM.render(React.createElement(TrafficLight), rootContainer);
