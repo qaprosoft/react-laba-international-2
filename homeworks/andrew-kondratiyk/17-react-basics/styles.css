@@ -20,6 +20,7 @@ button {
 	background-color: rgba(199, 202, 132, 0.38);
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	user-select: none;
 }
 
 .container {
