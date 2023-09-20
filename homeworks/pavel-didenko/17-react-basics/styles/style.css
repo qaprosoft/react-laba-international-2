@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 14.5rem;
+}
+
+.traffic-light-wrapper {
+  position: relative;
+}
+
+.traffic-light {
+  width: 15rem;
+  height: 35rem;
+  border-radius: 3.75rem;
+  background: #585f68;
+  flex-shrink: 0;
+  box-shadow: 24px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.25));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.light {
+  width: 7.5rem;
+  height: 7.5rem;
+  flex-shrink: 0;
+  border-radius: 3.75rem;
+  background: #5b5b5b;
+  box-shadow: 10px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+.light:first-child {
+  margin-top: 5rem;
+}
+
+.traffic-light-head {
+  width: 7.5rem;
+  height: 23.625rem;
+  border-radius: 2.5rem;
+  background: #414447;
+  position: absolute;
+  top: -2rem;
+  left: 3.6rem;
+}
