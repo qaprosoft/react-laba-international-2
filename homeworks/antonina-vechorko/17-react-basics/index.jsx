@@ -21,9 +21,9 @@ function TrafficLight() {
     <div className="traffic-light">
       <div className="traffic-head"></div>
       <div className="light-container">
-        <div className={`circle red light ${currentLight === 0 && 'active'}`}></div>
-        <div className={`circle yellow light ${currentLight === 1 && 'active'}`}></div>
-        <div className={`circle green light ${currentLight === 2 && 'active'}`}></div>
+        <div className={`circle red ${currentLight === 0 && 'active'}`}></div>
+        <div className={`circle yellow ${currentLight === 1 && 'active'}`}></div>
+        <div className={`circle green ${currentLight === 2 && 'active'}`}></div>
       </div>
     </div>
   );
