@@ -25,7 +25,7 @@ const TrafficLights = () => {
     },
     {
       lights: ['amber'],
-      delay: 7000,
+      delay: 4000,
     },
   ];
   const [activeLights, setActiveLights] = useState(['red']);
@@ -44,7 +44,7 @@ const TrafficLights = () => {
   }, [step]);
 
   return (
-    <div>
+    <div className="container">
       <Light color="red" activeLights={activeLights} />
       <Light color="amber" activeLights={activeLights} />
       <Light color="green" activeLights={activeLights} />
