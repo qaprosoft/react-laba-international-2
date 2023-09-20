@@ -17,6 +17,21 @@ class TrafficLightEntity {
 
 const TrafficLightsContext = createContext(null);
 
+const Modal = memo(({ isOpen, title = '', children }) => {
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        <h2>{title}</h2>
+        {children}
+      </div>
+    </div>
+  );
+});
+
 const Light = memo(({color}) => {
   return (
     <div className="traffic-light__light" style={{backgroundColor: color}}></div>
@@ -63,26 +78,66 @@ const TrafficLightContainer = ({ id }) => {
 };
 
 function App() {
-  const [trafficLights, setTrafficLights] = useState(() =>
-      Array(trafficLightsCount)
-        .fill(null)
-        .map((_, index) => new TrafficLightEntity(index))
-  );
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [isStartModelOpen, setIsStartModelOpen] = useState(true);
+  const [isEndModelOpen, setIsEndModelOpen] = useState(false);
+  const [trafficLights, setTrafficLights] = useState(() => {
+    return Array(trafficLightsCount)
+      .fill(null)
+      .map((_, index) => new TrafficLightEntity(index))
+  });
 
   useEffect(() => {
+    if(!isGameStarted) {
+      return;
+    }
     const interval = setInterval(() => {
-      setTrafficLights(prevState => prevState.map(item => {
-        if (item.isWorking) {
-          item.value = item.value === 2 ? 0 : item.value + 1;
+      setTrafficLights(prevState => {
+        if(prevState.every(item => item.isWorking) && new Set(prevState.map(item => item.value)).size === 1) {
+          setIsGameStarted(false);
+          setIsEndModelOpen(true);
         }
-        return item;
-      }))
-    }, 2000);
+        return prevState.map(item => {
+          if (item.isWorking) {
+            item.value = item.value === 2 ? 0 : item.value + 1;
+          }
+          return item;
+        })
+      })
+
+    }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isEndModelOpen, isGameStarted]);
+
+  const handleStartGame = () => {
+    setIsStartModelOpen(false);
+    setIsGameStarted(true);
+    setTrafficLights(prevState => prevState.map(item => new TrafficLightEntity(item.id)));
+  }
+
+  const handleRestartGame = () => {
+    setIsEndModelOpen(false);
+    setIsGameStarted(true);
+    setTrafficLights(prevState => prevState.map(item => new TrafficLightEntity(item.id)));
+  }
+
+  const handleChangeSettings = () => {
+    setIsEndModelOpen(false);
+    setIsStartModelOpen(true);
+  }
 
   return (
     <TrafficLightsContext.Provider value={{trafficLights, setTrafficLights}}>
+      <Modal isOpen={isStartModelOpen} title='Start game'>
+        <p>Hello, there was an error, and all the traffic lights have broken. Help us synchronize them.
+          You can stop the traffic lights one by one and turn them on until they all synchronize.</p>
+        <button onClick={handleStartGame} className='button'>Start game</button>
+      </Modal>
+      <Modal isOpen={isEndModelOpen} title='End game'>
+        <p>Congratulations! You've successfully synchronized all the traffic lights and brought order back to the city's streets. Well done!</p>
+        <button onClick={handleRestartGame} className='button'>Restart game</button>
+        <button onClick={handleChangeSettings} className='button'>Change settings</button>
+      </Modal>
       <div className="container">
         {trafficLights.map(item => <TrafficLightContainer key={item.id} id={item.id} />)}
       </div>
