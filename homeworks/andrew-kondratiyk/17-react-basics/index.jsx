@@ -121,11 +121,6 @@ function App() {
     setTrafficLights(prevState => prevState.map(item => new TrafficLightEntity(item.id)));
   }
 
-  const handleChangeSettings = () => {
-    setIsEndModelOpen(false);
-    setIsStartModelOpen(true);
-  }
-
   return (
     <TrafficLightsContext.Provider value={{trafficLights, setTrafficLights}}>
       <Modal isOpen={isStartModelOpen} title='Start game'>
@@ -136,7 +131,6 @@ function App() {
       <Modal isOpen={isEndModelOpen} title='End game'>
         <p>Congratulations! You've successfully synchronized all the traffic lights and brought order back to the city's streets. Well done!</p>
         <button onClick={handleRestartGame} className='button'>Restart game</button>
-        <button onClick={handleChangeSettings} className='button'>Change settings</button>
       </Modal>
       <div className="container">
         {trafficLights.map(item => <TrafficLightContainer key={item.id} id={item.id} />)}
