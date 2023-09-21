@@ -1,0 +1,52 @@
+.light {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background: #abb6c5;
+  box-shadow: 10px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+.redLight {
+  background: #df4040;
+}
+
+.greenLight {
+  background: #04ca00;
+}
+
+.yellowLight {
+  background: #e9ec6a;
+}
+
+.traficLight {
+  margin: auto;
+  display: flex;
+  position: relative;
+  width: fit-content;
+  align-items: center;
+  flex-direction: column;
+}
+
+.traficLightBody {
+  top: 35px;
+  z-index: 10;
+  width: 240px;
+  height: 560px;
+  display: flex;
+  position: absolute;
+  border-radius: 60px;
+  align-items: center;
+  flex-direction: column;
+  background-color: #585f68;
+  justify-content: space-around;
+  box-shadow: 15px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.25));
+}
+
+.traficLightHeader {
+  z-index: 1;
+  width: 120px;
+  height: 378px;
+  border-radius: 40px;
+  background-color: #414447;
+}
