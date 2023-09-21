@@ -1,0 +1,37 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trafficLight__pole {
+  width: 120px;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  background: #414447;
+  height: 32px;
+  transform: translateX(50%);
+}
+
+.trafficLight__body {
+  width: 240px;
+  height: 560px;
+  border-radius: 60px;
+  background: #585f68;
+  box-shadow: 24px 0px 0px 0px #0000001a inset, 6px 6px 10px 0px #00000040;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.trafficLight__body__light {
+  transition: 1s;
+  width: 120px;
+  height: 120px;
+  box-shadow: 10px 0px 0px 0px #0000001a inset;
+  background: #5b5b5b;
+  border-radius: 100%;
+}
