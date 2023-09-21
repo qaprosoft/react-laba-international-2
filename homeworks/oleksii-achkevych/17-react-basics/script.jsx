@@ -1,7 +1,9 @@
 const rootContainer = document.querySelector('#root_container');
 
 
-  const colors = ['RGB(223, 64, 64)', 'RGB(233, 236, 106)', 'RGB(4, 202, 0)'];
+const colors = ['RGB(223, 64, 64)', 'RGB(233, 236, 106)', 'RGB(4, 202, 0)'];
+
+
 const TrafficLight = () => {
   const [currentColorIndex, setCurrentColorIndex] = React.useState(0);
 
@@ -16,7 +18,7 @@ const TrafficLight = () => {
 
   return React.createElement(
     'div',
-    {id: 'traffic-light'},
+    { id: 'traffic-light' },
     React.createElement('div', {
       className: 'top-light',
     }),
