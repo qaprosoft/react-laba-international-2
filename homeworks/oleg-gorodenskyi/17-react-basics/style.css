@@ -11,6 +11,10 @@ body {
   justify-content: center;
 }
 
+.container {
+  position: relative;
+}
+
 .traffic-light {
   position: relative;
   width: 240px;
@@ -22,10 +26,12 @@ body {
   justify-content: center;
   align-items: center;
   row-gap: 24px;
+  box-shadow: 24px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.25));
 }
 
 .traffic-light__stand {
-  top: 0px;
+  top: 18%;
   position: absolute;
   width: 120px;
   height: 378px;
@@ -38,4 +44,5 @@ body {
   height: 120px;
   border-radius: 60px;
   background-color: #5b5b5b;
+  box-shadow: 10px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
