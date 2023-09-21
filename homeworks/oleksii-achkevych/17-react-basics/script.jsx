@@ -1,8 +1,10 @@
 const rootContainer = document.querySelector('#root_container');
 
+
+  const colors = ['RGB(223, 64, 64)', 'RGB(233, 236, 106)', 'RGB(4, 202, 0)'];
 const TrafficLight = () => {
   const [currentColorIndex, setCurrentColorIndex] = React.useState(0);
-  const colors = ['RGB(223, 64, 64)', 'RGB(233, 236, 106)', 'RGB(4, 202, 0)'];
+
 
   React.useEffect(() => {
     const interval = setInterval(() => {
