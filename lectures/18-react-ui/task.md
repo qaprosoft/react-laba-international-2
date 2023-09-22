@@ -1,4 +1,4 @@
-# Class and Functional components
+# React UI. Managing State.
 
 [Template](https://www.figma.com/file/HJtTPFc67QoIF82yIqoB1T/%5BHomework%5D-Class-and-Functional-Components?node-id=0%3A1&t=wItenMikHEiPGOlV-1)
 (You have to sign up to see the styles. Let me know if you have any issues.)
