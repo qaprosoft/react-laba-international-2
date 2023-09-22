@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.image-wrapper {
+  width: 87rem;
+  height: 53rem;
+  max-width: 90%;
+  margin-top: 2.3rem;
+  padding-left: 0.9rem;
+}
+
+.refresh-button {
+  width: 15rem;
+  height: 2.5rem;
+  border-radius: 0.1875rem;
+  background: #02cc67;
+  color: #fff;
+  font-family: Basic;
+  font-size: 1.3125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  left: 40%;
+  bottom: 0.3rem;
+}
