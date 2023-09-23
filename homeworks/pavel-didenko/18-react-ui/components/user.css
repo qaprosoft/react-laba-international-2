@@ -1,0 +1,15 @@
+.user {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+}
+
+.user:hover > .user__refresh-foto {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.user__foto {
+  width: 100%;
+  height: 100%;
+}

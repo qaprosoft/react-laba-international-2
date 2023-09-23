@@ -10,6 +10,23 @@
   max-width: 90%;
   margin-top: 2.3rem;
   padding-left: 0.9rem;
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.add-user{
+  width: 15rem;
+  height: 15rem;
+}
+
+.user__refresh-foto {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity .5s;
 }
 
 .refresh-button {
