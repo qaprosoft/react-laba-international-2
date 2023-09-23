@@ -1,4 +1,4 @@
-import {getAvatar} from '@/api';
+import {getAvatar, getAvatars} from '@/api';
 import Avatar from '@/components/avatar/Avatar';
 import styles from '@/styles/Home.module.css';
 import {type AvatarResponse} from '@/types';
@@ -19,12 +19,30 @@ const Home = () => {
     setAvatars(updatedAvatars);
   };
 
+  const refreshAllAvatars = async () => {
+    const avatarsCount = avatars.length;
+    if (!avatarsCount) {
+      return;
+    }
+    const newAvatars = await getAvatars(avatarsCount);
+    setAvatars(newAvatars);
+  };
+
   return (
     <main className={styles.main}>
-      {avatars.map(avatar => (
-        <Avatar key={avatar.id} avatar={avatar} refreshAvatar={refreshAvatar} />
-      ))}
-      <button className={styles.addAvatarBtn} onClick={addAvatar}></button>
+      <div className={styles.container}>
+        {avatars.map(avatar => (
+          <Avatar
+            key={avatar.id}
+            avatar={avatar}
+            refreshAvatar={refreshAvatar}
+          />
+        ))}
+        <button className={styles.addAvatarBtn} onClick={addAvatar}></button>
+      </div>
+      <button className={styles.refreshAll} onClick={refreshAllAvatars}>
+        Refresh all
+      </button>
     </main>
   );
 };

@@ -1,11 +1,14 @@
 .main {
+	position: relative;
 	min-height: 100vh;
 	padding: 40px 24px;
+}
+
+.container {
 	display: flex;
 	gap: 40px;
 	flex-wrap: wrap;
 }
-
 
 .addAvatarBtn {
 	position: relative;
@@ -31,4 +34,19 @@
 
 .addAvatarBtn::after {
 	transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.refreshAll {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--color-primary);
+	color: #fff;
+	border-radius: 4px;
+	border: none;
+	outline: none;
+	padding: 10px 30px;
+	font-size: 20px;
+	cursor: pointer;
 }
