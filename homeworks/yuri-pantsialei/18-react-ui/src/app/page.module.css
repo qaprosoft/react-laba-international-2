@@ -1,0 +1,19 @@
+.main {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 78px 38px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tiles_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.button_wrapper {
+  margin: 0 auto;
+}

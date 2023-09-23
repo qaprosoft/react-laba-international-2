@@ -1,0 +1,18 @@
+.wrapper {
+  border-radius: 3px;
+  background-color: #02cc67;
+  color: #fff;
+  font-family: Basic;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 8px 76px 6px 68px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.disabled {
+  background-color: gray;
+  cursor: default;
+}
