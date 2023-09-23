@@ -33,7 +33,7 @@ const Home = () => {
       <div className={styles.container}>
         {avatars.map(avatar => (
           <Avatar
-            key={avatar.id}
+            key={avatar.custom_id}
             avatar={avatar}
             refreshAvatar={refreshAvatar}
           />

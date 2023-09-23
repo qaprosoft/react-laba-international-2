@@ -1,4 +1,4 @@
-export type AvatarResponse = {
+export type AvatarResponseApi = {
   approved: boolean;
   last_name: string;
   url: string;
@@ -16,4 +16,8 @@ export type AvatarSource = {
   id: number;
   name: string;
   updated_at: string;
+};
+
+export type AvatarResponse = AvatarResponseApi & {
+  custom_id: string;
 };
