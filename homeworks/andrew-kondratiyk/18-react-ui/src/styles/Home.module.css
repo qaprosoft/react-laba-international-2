@@ -6,13 +6,6 @@
 	flex-wrap: wrap;
 }
 
-.avatar {
-	width: 240px;
-	height: 240px;
-	border-radius: 5%;
-	overflow: hidden;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
 
 .addAvatarBtn {
 	position: relative;
