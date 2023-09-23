@@ -3,18 +3,18 @@ import styles from './button.module.css';
 type PropsType = {
   text: string;
   callback: () => void;
-  imageCount: number;
+  isDisabled: boolean;
 };
 
-export const Button = ({text, callback, imageCount}: PropsType) => {
+export const Button = ({text, callback, isDisabled}: PropsType) => {
   const onClickHandler = () => {
-    if (imageCount === 0) return;
+    if (isDisabled) return;
     callback();
   };
 
   return (
     <div
-      className={`${styles.wrapper} ${imageCount === 0 ? styles.disabled : ''}`}
+      className={`${styles.wrapper} ${isDisabled ? styles.disabled : ''}`}
       onClick={onClickHandler}
     >
       {text}

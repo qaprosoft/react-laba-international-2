@@ -8,6 +8,10 @@ type PropsType = {
   imageUrl: string;
   fullname: string;
   refreshImage: (key: number, index: number) => void;
+  isLoading: boolean;
+  selectTile: (imageId: number, index: number) => void;
+  isSelectMode: boolean;
+  isSelected: boolean;
 };
 
 export const ImageTile = memo(function ImageTile({
@@ -16,13 +20,26 @@ export const ImageTile = memo(function ImageTile({
   imageUrl,
   fullname,
   refreshImage,
+  isLoading,
+  selectTile,
+  isSelectMode,
+  isSelected,
 }: PropsType) {
   const onClickHandler = () => {
+    if (isSelectMode) {
+      selectTile(imageId, index);
+      return;
+    }
+    if (isLoading) return;
     refreshImage(imageId, index);
   };
 
   return (
-    <div className={styles.container} onClick={onClickHandler}>
+    <div
+      className={styles.container}
+      onClick={onClickHandler}
+      style={{outline: isSelected ? '4px solid #02CC67' : ''}}
+    >
       <Image
         className={styles.wrapper}
         src={imageUrl}
@@ -30,7 +47,10 @@ export const ImageTile = memo(function ImageTile({
         height={240}
         alt={fullname}
       />
-      <div className={styles.image_hover}>
+      <div
+        className={styles.image_hover}
+        style={{display: isLoading || isSelectMode ? 'none' : ''}}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100"

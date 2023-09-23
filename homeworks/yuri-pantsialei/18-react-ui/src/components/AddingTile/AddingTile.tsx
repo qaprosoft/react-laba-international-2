@@ -1,10 +1,16 @@
 import styles from './addingTile.module.css';
 
 type PropsType = {
-  onClickHandler: () => void;
+  callback: () => void;
+  isLoading: boolean;
 };
 
-export const AddingTile = ({onClickHandler}: PropsType) => {
+export const AddingTile = ({callback, isLoading}: PropsType) => {
+  const onClickHandler = () => {
+    if (isLoading) return;
+    callback();
+  };
+
   return (
     <div className={styles.wrapper} onClick={onClickHandler}>
       <svg

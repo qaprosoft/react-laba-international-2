@@ -16,4 +16,13 @@
 
 .button_wrapper {
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button_wrapper div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
