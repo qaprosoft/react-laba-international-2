@@ -1,0 +1,77 @@
+/*=========*/
+/* base*/
+/*=========*/
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat';
+  background-color: #F5F5F5;
+}
+
+a {
+  text-decoration: none;
+  color: #141414;
+}
+
+li {
+  list-style: none;
+}
+
+.App {
+  text-align: center;
+}
+.container {
+  max-width: 80%;
+  margin: 0px auto;
+}
+
+
+
+
+/*=========*/
+/* App.css */
+/*=========*/
+.App {
+  text-align: center;
+  padding: 40px;
+}
+
+.avatar-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.empty-square-button {
+  color: #02CC67;
+  font-size: 150px;
+  border: 4px solid #02CC67;
+  width: 240px; 
+  height: 240px;
+  background-color: transparent; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+button {
+  background-color: #02CC67;
+  color: white;
+  border: none;
+  padding: 10px 82px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+button:hover {
+  cursor: pointer;
+}
