@@ -3,8 +3,13 @@
 	width: 240px;
 	height: 240px;
 	border-radius: 5%;
-	overflow: hidden;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.avatarImg {
+	border-radius: 5%;
+	width: 100%;
+	height: 100%;
 }
 
 .avatarOverlay {
@@ -19,6 +24,7 @@
 	z-index: 1;
 	transition: 0.2s;
 	opacity: 0;
+	border-radius: 5%;
 }
 
 .avatar:hover .avatarOverlay{
@@ -37,5 +43,26 @@
 }
 
 .avatar:hover .refresh {
+	opacity: 1;
+}
+
+.deleteAvatarBtn {
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 2;
+	cursor: pointer;
+	border-radius: 50%;
+	opacity: 0;
+	transition: 0.2s;
+}
+
+.avatar:hover .deleteAvatarBtn {
 	opacity: 1;
 }

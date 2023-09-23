@@ -11,10 +11,10 @@ const Home = () => {
     setAvatars([...avatars, avatar]);
   };
 
-  const refreshAvatar = async (id: number) => {
+  const refreshAvatar = async (custom_id: string) => {
     const newAvatar = await getAvatar();
     const updatedAvatars = avatars.map(avatar =>
-      avatar.id === id ? newAvatar : avatar,
+      avatar.custom_id === custom_id ? newAvatar : avatar,
     );
     setAvatars(updatedAvatars);
   };
@@ -28,6 +28,13 @@ const Home = () => {
     setAvatars(newAvatars);
   };
 
+  const deleteAvatar = (custom_id: string) => {
+    const updatedAvatars = avatars.filter(
+      avatar => avatar.custom_id !== custom_id,
+    );
+    setAvatars(updatedAvatars);
+  };
+
   return (
     <main className={styles.main}>
       <div className={styles.container}>
@@ -35,7 +42,8 @@ const Home = () => {
           <Avatar
             key={avatar.custom_id}
             avatar={avatar}
-            refreshAvatar={refreshAvatar}
+            refreshAvatar={() => refreshAvatar(avatar.custom_id)}
+            deleteAvatar={() => deleteAvatar(avatar.custom_id)}
           />
         ))}
         <button className={styles.addAvatarBtn} onClick={addAvatar}></button>
