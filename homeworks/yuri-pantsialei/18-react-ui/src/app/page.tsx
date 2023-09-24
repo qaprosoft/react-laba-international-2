@@ -28,7 +28,7 @@ export default function Home() {
     setIsLoading(true);
     const imageInfo = await getTinyfaces();
     setIsLoading(false);
-    if (!imageInfo) return;
+    if (imageInfo.error) return;
     const {id, url, first_name, last_name} = imageInfo[0];
     setImages([...images, {id, url, fullname: `${first_name} ${last_name}`}]);
   };
