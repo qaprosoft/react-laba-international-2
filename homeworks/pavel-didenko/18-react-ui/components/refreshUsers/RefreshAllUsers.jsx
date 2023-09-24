@@ -1,15 +1,14 @@
-const RefreshAllUsers = ({setUsers, fetchUsers, allUsers, users}) => {
+const RefreshAllUsers = ({setUsers, fetchUsers, allUsers, users, setAllUsers}) => {
   async function refreshAll() {
     const newUsers = await fetchUsers();
-    setTimeout(() => {
-      setUsers(users => {
-        return users.map((_, index) => {
-          if (index < newUsers.length) {
-            return newUsers[index].url;
-          }
-        });
+    setAllUsers(newUsers);
+    setUsers(users => {
+      return users.map((_, index) => {
+        if (index < newUsers.length) {
+          return newUsers[index].url;
+        }
       });
-    }, 0)
+    });
     
   }
 

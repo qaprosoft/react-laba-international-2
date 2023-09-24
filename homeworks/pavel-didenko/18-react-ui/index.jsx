@@ -11,7 +11,6 @@ const App = () => {
     try {
       const response = await fetch(url);
       const json = await response.json();
-      setAllUsers(json);
       return json;
     } catch (err) {
       console.log(err.message);
@@ -19,7 +18,12 @@ const App = () => {
   }
 
   useEffect(() => {
-    fetchUsers();
+    async function requestUsersFromAPI() {
+      const users = await fetchUsers();
+      setAllUsers(users);
+    }
+
+    requestUsersFromAPI();
   }, []);
 
   function getRandomUser() {
@@ -30,7 +34,9 @@ const App = () => {
   }
 
   async function addUserToState() {
-    if (users.length < 50) {
+    const maxNumberOfPicturesOnThePage = 50;
+    
+    if (users.length < maxNumberOfPicturesOnThePage) {
       const userFoto = getRandomUser();
       setAllUsers(() => allUsers.filter(item => item.url !== userFoto));
       setUsers(users.concat(userFoto));
@@ -60,6 +66,7 @@ const App = () => {
         setUsers={setUsers}
         fetchUsers={fetchUsers}
         allUsers={allUsers}
+        setAllUsers={setAllUsers}
         users={users}
       />
     </main>
