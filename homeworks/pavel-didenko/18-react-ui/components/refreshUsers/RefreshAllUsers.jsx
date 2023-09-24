@@ -1,4 +1,4 @@
-const RefreshAllUsers = ({setUsers, fetchUsers, allUsers, users, setAllUsers}) => {
+const RefreshAllUsers = ({setUsers, fetchUsers, users, setAllUsers}) => {
   async function refreshAll() {
     const newUsers = await fetchUsers();
     setAllUsers(newUsers);

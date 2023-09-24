@@ -35,7 +35,7 @@ const App = () => {
 
   async function addUserToState() {
     const maxNumberOfPicturesOnThePage = 50;
-    
+
     if (users.length < maxNumberOfPicturesOnThePage) {
       const userFoto = getRandomUser();
       setAllUsers(() => allUsers.filter(item => item.url !== userFoto));
@@ -65,7 +65,6 @@ const App = () => {
       <RefreshAllUsers
         setUsers={setUsers}
         fetchUsers={fetchUsers}
-        allUsers={allUsers}
         setAllUsers={setAllUsers}
         users={users}
       />
