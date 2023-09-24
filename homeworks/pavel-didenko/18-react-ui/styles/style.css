@@ -8,7 +8,6 @@
   width: 87rem;
   max-width: 95%;
   min-height: 32rem;
-  /* max-height: 100%; */
   margin-top: 4.9rem;
   padding-left: 2.4rem;
   display: flex;
@@ -16,7 +15,7 @@
   flex-wrap: wrap;
 }
 
-.add-user{
+.add-user {
   width: 15rem;
   height: 15rem;
   cursor: pointer;
@@ -28,22 +27,5 @@
   top: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  transition: opacity .5s;
-}
-
-.refresh-button {
-  width: 15rem;
-  height: 2.5rem;
-  border-radius: 0.1875rem;
-  background: #02cc67;
-  color: #fff;
-  font-family: Basic;
-  font-size: 1.3125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  position: relative;
-  margin-top: 20.9rem;
-  left: 41.6%;
-  bottom: 0.3rem;
+  transition: opacity 0.5s;
 }
