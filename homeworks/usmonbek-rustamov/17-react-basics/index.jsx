@@ -23,8 +23,8 @@ function App() {
         {COLORS.map(color => (
           <TrafficColor
             key={color}
-            color={color}
-            currentColor={COLORS[colorIndex]}
+            mainColor={color}
+            activeColor={COLORS[colorIndex]}
           />
         ))}
       </div>
@@ -32,13 +32,9 @@ function App() {
   );
 }
 
-function TrafficColor({color, currentColor}) {
-  return (
-    <div
-      className="traffic-light__color"
-      style={{backgroundColor: color === currentColor ? color : DEFAULT_COLOR}}
-    ></div>
-  );
+function TrafficColor({mainColor, activeColor}) {
+  const backgroundColor = mainColor === activeColor ? mainColor : DEFAULT_COLOR;
+  return <div className="traffic-light__color" style={{backgroundColor}}></div>;
 }
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
