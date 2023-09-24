@@ -1,10 +1,10 @@
-const RefreshAllUsers = ({setUsers, fetchUsers, allUsers, setAllUsers, users}) => {
+const RefreshAllUsers = ({setUsers, fetchUsers, allUsers, users}) => {
   async function refreshAll() {
     await fetchUsers();
     setUsers(users => {
       return users.map((_, index) => {
         if (index < allUsers.length){
-          return {id: allUsers[index].id, url: allUsers[index].url};
+          return allUsers[index].url;
         }
       })
     });

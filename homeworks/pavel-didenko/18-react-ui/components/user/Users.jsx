@@ -3,7 +3,7 @@ const User = ({link, index, setUsers, url}) => {
     try{
        const response = await fetch(url);
        const json = await response.json();
-       return {id: json[0].id, url: json[0].url};
+       return json[0].url;
     }catch(err){
       console.log(err);
     }
