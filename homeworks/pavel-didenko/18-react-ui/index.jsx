@@ -48,10 +48,11 @@ const App = () => {
       <div className="image-wrapper">
         {users.map((user, index) => (
           <User
-            link={user ? user : ''}
+            link={user}
             key={index}
             index={index}
             setUsers={setUsers}
+            fetchUsers={fetchUsers}
             url={url}
           />
         ))}
