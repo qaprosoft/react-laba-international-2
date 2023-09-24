@@ -12,8 +12,9 @@ const App = () => {
       const response = await fetch(url);
       const json = await response.json();
       setAllUsers(json);
+      return json;
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
     }
   }
 
@@ -21,7 +22,7 @@ const App = () => {
     fetchUsers();
   }, []);
 
-  async function getRandomUser() {
+  function getRandomUser() {
     const min = 0;
     const max = Math.floor(allUsers.length - 1);
     const user = allUsers[Math.floor(Math.random() * (max - min) + min)];
@@ -30,7 +31,7 @@ const App = () => {
 
   async function addUserToState() {
     if (users.length < 50) {
-      const userFoto = await getRandomUser();
+      const userFoto = getRandomUser();
       setAllUsers(() => allUsers.filter(item => item.url !== userFoto));
       setUsers(users.concat(userFoto));
     }
@@ -39,19 +40,15 @@ const App = () => {
   return (
     <main>
       <div className="image-wrapper">
-        {users.map((user, index) =>
-          user ? (
-            <User
-              link={user ? user : ''}
-              key={index}
-              index={index}
-              setUsers={setUsers}
-              url={url}
-            />
-          ) : (
-            ''
-          ),
-        )}
+        {users.map((user, index) => (
+          <User
+            link={user ? user : ''}
+            key={index}
+            index={index}
+            setUsers={setUsers}
+            url={url}
+          />
+        ))}
         <img
           className="add-user"
           src="./assets/img/icons/add-user.svg"
