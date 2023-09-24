@@ -58,7 +58,7 @@ Once PR is created you have to do the following things:
 | Day           | Theme                                                                           | Homework                                      |
 | :------------ | :------------------------------------------------------------------------------ | :-------------------------------------------- |
 | Sep 19th      | [Overview of React library. React basics](./lectures/17-react-basics/README.md) | [task 🔗](./lectures/17-react-basics/task.md) |
-| Sep 22th      | React UI. Managing State.                                                       |                                               |
+| Sep 22th      | [React UI. Managing State.](./lectures/18-react-ui/README.md)    | [task 🔗](./lectures/18-react-ui/task.md)                                        |
 | Sep 26th      | Overview of Hooks.                                                              |                                               |
 | Sep 29th      | React API.                                                                      |                                               |
 | Oct 3th       | Overview of web application, key points. Next.js.                               |                                               |
