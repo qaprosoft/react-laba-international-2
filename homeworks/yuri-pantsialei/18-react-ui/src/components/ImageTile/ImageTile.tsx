@@ -14,7 +14,7 @@ type PropsType = {
   isSelected: boolean;
 };
 
-export const ImageTile = memo(function ImageTile({
+export const ImageTile = ({
   imageId,
   index,
   imageUrl,
@@ -24,7 +24,7 @@ export const ImageTile = memo(function ImageTile({
   selectTile,
   isSelectMode,
   isSelected,
-}: PropsType) {
+}: PropsType) => {
   const onClickHandler = () => {
     if (isSelectMode) {
       selectTile(imageId, index);
@@ -66,4 +66,4 @@ export const ImageTile = memo(function ImageTile({
       </div>
     </div>
   );
-});
+};
