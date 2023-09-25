@@ -4,6 +4,7 @@ import tile from './assets/tile.svg';
 
 function App() {
   const [avatar, setAvatar] = useState([]);
+  const [animationRefreshIcon, setAnimationRefreshIcon] = useState(false)
 
   async function fetchData() {
     const data = await fetch('https://tinyfac.es/api/avatar.jpg?&quality=0');
@@ -28,6 +29,7 @@ function App() {
   }
 
   async function replaceAvatar(index) {
+    handleAnimation()
     const response = await fetchData();
     const updatedElem = {url: response};
     const updatedAvatar = [...avatar];
@@ -35,12 +37,19 @@ function App() {
     setAvatar(updatedAvatar);
   }
 
+  function handleAnimation() {
+    setAnimationRefreshIcon(true);
+    setTimeout(() => {
+      setAnimationRefreshIcon(false)
+    }, 1000);
+  }
+
   return (
     <>
       <div className="rectangle">
         {avatar.map((photo, index) => (
           <div
-            className="icon_wrapper"
+            className={`icon_wrapper ${animationRefreshIcon ? 'start_animation' : ''}`}
             key={index}
             onClick={() => replaceAvatar(index)}
           >

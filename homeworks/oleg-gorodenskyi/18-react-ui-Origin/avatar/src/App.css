@@ -41,6 +41,10 @@
   transform-origin: center;
 }
 
+.icon_wrapper.start_animation::before {
+  animation: spin 1s 1 ease;
+}
+
 .tiles_avatar:hover {
   background: rgba(0, 0, 0, 0.4);
 }
@@ -76,4 +80,13 @@
 
 button {
   cursor: pointer;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
