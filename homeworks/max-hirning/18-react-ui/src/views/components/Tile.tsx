@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { refreshOne } from "../../redux/tiles";
-import { AppDispatch } from "../../redux/store";
+import { useEffect, useState } from "react";
 import RefreshIcon from "../../assets/refresh.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../redux/store";
 import styles from "../../styles/components/Tile.module.css";
+import { ITilesStore, refreshOneTile } from "../../redux/tiles";
 
 interface IProps {
   id: number;
@@ -13,25 +13,31 @@ interface IProps {
 
 export function Tile({id, image, alt}: IProps) {
   const dispatch: AppDispatch = useDispatch();
-  const [isRotating, setIsRotating] = useState<boolean>(false);
   const [showRefreshBtn, setShowRefreshBtn] = useState<boolean>(false);
+  const { isRefreshingOne, isRefreshingAll, loading, error }: ITilesStore = useSelector((state: RootState) => state.tiles);
 
+  useEffect(() => {
+    if(isRefreshingAll) {
+      setShowRefreshBtn(true);
+    }
+  }, [isRefreshingAll])
+
+  useEffect(() => {
+    if(loading === false && error === false) {
+      setShowRefreshBtn(false);
+    }
+  }, [loading, error])
 
   const refreshTile = () => {
     setShowRefreshBtn(true);
-    setIsRotating(true);
-    setTimeout(() => {
-      setIsRotating(false);
-      setShowRefreshBtn(false);
-      dispatch(refreshOne(id));
-    }, 1500);
+    dispatch(refreshOneTile(id));
   }
 
   return (
     <div 
       className={styles.tile}
       onMouseEnter={() => { setShowRefreshBtn(true); }}
-      onMouseLeave={() => { (!isRotating) && setShowRefreshBtn(false); }}
+      onMouseLeave={() => { (!(isRefreshingOne || isRefreshingAll)) && setShowRefreshBtn(false); }}
     >
       <img
         alt={alt}
@@ -46,7 +52,7 @@ export function Tile({id, image, alt}: IProps) {
         <img
           src={RefreshIcon}
           alt="refresh tile"
-          className={`${styles.icon} ${isRotating ? styles.rotate : ""}`} // Apply the rotation class conditionally
+          className={`${styles.icon} ${loading ? styles.rotate : ""}`} // Apply the rotation class conditionally
         />
       </button>
     </div>

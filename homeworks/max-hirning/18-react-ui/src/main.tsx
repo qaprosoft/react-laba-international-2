@@ -6,9 +6,10 @@ import ReactDOM from 'react-dom/client'
 import { MainPage } from './views/pages/MainPage'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <MainPage />
     </Provider>
-  </React.StrictMode>,
+  // </React.StrictMode>
+  ,
 )

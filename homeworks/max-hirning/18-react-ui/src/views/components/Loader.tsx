@@ -12,10 +12,10 @@ export function Loader({loading, error, children}: IProps) {
     return (
       <>
         {children}
-        <h1 className={styles.loader}>Loading...</h1>
+        <h1 className={styles.msg}>Loading...</h1>
       </>
     )
   }
-  if(error) return <h1>Natework Error</h1>
+  if(error) return <h1 className={styles.msg}>Network Error</h1>
   return children;
 }

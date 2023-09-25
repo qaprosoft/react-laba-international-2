@@ -9,14 +9,14 @@ import styles from "../../styles/pages/MainPage.module.css";
 import { RefreshAllButton } from "../components/RefreshAllButton";
 
 export function MainPage() {
-  const { data, error, loading }: ITilesStore = useSelector((state: RootState) => state.tiles);
+  const { data, error, loading, isRefreshingAll, isRefreshingOne }: ITilesStore = useSelector((state: RootState) => state.tiles);
 
   return (
     <>
       <main className={styles.main}>
         <Loader
           error={error}
-          loading={loading}
+          loading={(isRefreshingAll || isRefreshingOne) ? false : loading}
         >
           <>
             {

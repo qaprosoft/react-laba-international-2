@@ -11,22 +11,13 @@ export function AddButton() {
   const addTile = () => {
     dispatch(getOneTile());
   }
-  
-  const disabledStyle = (): object => {
-    if(loading) {
-      return {
-        opacity: "0.5",
-      };
-    }
-    return {};
-  }
 
   return (
     <button 
       onClick={addTile}
       disabled={loading}
       className={styles.button}
-      style={{...disabledStyle()}}
+      style={loading ? { opacity: 0.5 } : {}}
     >
       <img 
         src={AddIcon} 

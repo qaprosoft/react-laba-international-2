@@ -1,14 +1,27 @@
+import { ITile } from "../redux/tiles";
+
 class TilesAPI {
   constructor(private readonly url: string) {}
 
-  async getOne() {
+  async getOne(): Promise<ITile|void> {
     try {
       const response = await fetch(`${this.url}?limit=1`);
       if (!response.ok) throw new Error('Network response is not ok');
       const responseData = await response.json();
 
-      const {id, url, first_name, last_name} = responseData[0];
-      return {id, url, first_name, last_name};
+      return responseData[0];
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getMany(limit: number): Promise<ITile[]|void> {
+    try {
+      const response = await fetch(`${this.url}?limit=${limit}`);
+      if (!response.ok) throw new Error('Network response is not ok');
+      const responseData = await response.json();
+
+      return responseData;
     } catch (error) {
       console.error(error);
     }
