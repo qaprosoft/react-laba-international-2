@@ -3,42 +3,42 @@ const root = ReactDOM.createRoot(domContainer);
 root.render(<App />);
 
 function Light({color, isActive}) {
-  return (
-    <div
-      id={color}
-      data-active={isActive}
-      className={`light light--${color}`}
-    ></div>
-  );
+  return <div data-active={isActive} className={`light light--${color}`}></div>;
 }
 
+const nextColors = {
+  red: 'yellow',
+  yellow: 'green',
+  green: 'red',
+};
+
 function TrafficLightBody() {
+  const [lightColor, setColor] = React.useState('red');
+
+  React.useEffect(() => {
+    const interval = setInterval(
+      colorOrder => {
+        setColor(previousColor => colorOrder[previousColor]);
+      },
+      1000,
+      nextColors,
+    );
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div className="traffic-light__body">
-      <Light color="red" isActive={true}></Light>
-      <Light color="yellow" isActive={false}></Light>
-      <Light color="green" isActive={false}></Light>
+      <Light color="red" isActive={lightColor === 'red'}></Light>
+      <Light color="yellow" isActive={lightColor === 'yellow'}></Light>
+      <Light color="green" isActive={lightColor === 'green'}></Light>
     </div>
   );
 }
 
 function App() {
-  function changeColor(colorOrder) {
-    const activeLight = document.querySelector('.light[data-active="true"]');
-    activeLight.setAttribute('data-active', false);
-    document
-      .getElementById(colorOrder[activeLight.getAttribute('id')])
-      .setAttribute('data-active', true);
-  }
-
-  const nextColors = {
-    red: 'yellow',
-    yellow: 'green',
-    green: 'red',
-  };
-
-  setInterval(changeColor, 1000, nextColors);
-
   return (
     <section className="page-wrapper">
       <div className="traffic-light__head"></div>
