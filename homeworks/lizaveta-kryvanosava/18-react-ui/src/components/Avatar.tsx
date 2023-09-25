@@ -1,33 +1,40 @@
+import refreshButton from '@public/refresh.svg';
 import Image from 'next/image';
+import {useState} from 'react';
 
 import styles from '@/components/avatar.module.scss';
-
-import IAvatarResponse from '@/types/avatarResponse';
-import {useState} from 'react';
+import Loader from '@/components/Loader';
 import getNewAvatar from '@/helpers/getNewAvatar';
-import refreshButton from '../../public/refresh.svg';
-import Loader from './Loader';
+import IAvatarResponse from '@/types/avatarResponse';
 
-export default function Avatar({avatar}: {avatar: IAvatarResponse}) {
+export default function Avatar({
+  avatar,
+  isRefreshingAll,
+}: {
+  avatar: IAvatarResponse;
+  isRefreshingAll: boolean;
+}) {
   const [url, setUrl] = useState(avatar.url);
   const [isLoading, setIsLoading] = useState(false);
 
   const refreshAvatar = async () => {
-    setIsLoading(true);
-    // try catch finally
-    // in finally  setIsLoading(false);
-    const newAvatar = await getNewAvatar(1);
-    setUrl(newAvatar[0].url);
-
-    setIsLoading(false);
+    try {
+      setIsLoading(true);
+      const newAvatar = await getNewAvatar(1);
+      setUrl(newAvatar[0].url);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  return isLoading ? (
+  return isLoading || isRefreshingAll ? (
     <Loader />
   ) : (
     <div className={styles.tile}>
       <Image
-        className={styles['tile__image']}
+        className={styles.tile__image}
         width={240}
         height={240}
         unoptimized
@@ -35,13 +42,13 @@ export default function Avatar({avatar}: {avatar: IAvatarResponse}) {
         alt="Avatar"
       />
 
-      <div className={styles['tile__hidden']} onClick={refreshAvatar}>
+      <div className={styles.tile__hidden} onClick={refreshAvatar}>
         <Image
-          className={styles['tile__refresh']}
+          className={styles.tile__refresh}
           width={100}
           height={100}
           unoptimized
-          src={refreshButton}
+          src={refreshButton as string}
           alt="refresh"
         />
       </div>

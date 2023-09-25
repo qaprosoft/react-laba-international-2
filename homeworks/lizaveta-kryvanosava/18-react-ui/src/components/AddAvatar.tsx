@@ -1,8 +1,9 @@
 'use client';
 
 import {useState} from 'react';
-import styles from './addAvatar.module.scss';
-import Loader from './Loader';
+
+import styles from '@/components/addAvatar.module.scss';
+import Loader from '@/components/Loader';
 
 export default function AddAvatar({
   addNewAvatar,
@@ -12,11 +13,15 @@ export default function AddAvatar({
   const [isLoading, setIsLoading] = useState(false);
 
   const clickHandler = async () => {
-    setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    await addNewAvatar();
-
-    setIsLoading(false);
+      await addNewAvatar();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return isLoading ? (

@@ -1,12 +1,9 @@
+@use '../styles/tileMixin.scss' as *;
+
 .tile {
-  position: relative;
-
-  width: 12rem;
-  height: 12rem;
-
-  border: none;
-  border-radius: var(--border-radius);
+  @include tile;
   overflow: hidden;
+  border: none;
   background: center/contain no-repeat url(../../public/Avatar-Placeholder.jpg);
 
   &__image,

@@ -1,0 +1,7 @@
+@mixin tile {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--border-radius);
+}
