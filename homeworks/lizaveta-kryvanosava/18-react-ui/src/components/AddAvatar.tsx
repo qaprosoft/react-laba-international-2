@@ -17,16 +17,16 @@ export default function AddAvatar({
       setIsLoading(true);
 
       await addNewAvatar();
-    } catch (error) {
-      console.log(error);
+    } catch {
     } finally {
       setIsLoading(false);
     }
   };
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  if (isLoading) {
+    return <Loader />;
+  }
+  return (
     <div className={styles.tile} onClick={clickHandler}>
       <button className={styles.tile__button}></button>
     </div>

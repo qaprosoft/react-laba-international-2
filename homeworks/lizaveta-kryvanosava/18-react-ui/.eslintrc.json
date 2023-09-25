@@ -10,7 +10,7 @@
   ],
 
   "parserOptions": {
-    "project": "./homeworks/lizaveta-kryvanosava/18-react-ui/tsconfig.json",
+    "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },

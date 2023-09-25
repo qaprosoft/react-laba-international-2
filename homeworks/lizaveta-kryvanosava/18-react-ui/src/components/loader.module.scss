@@ -4,9 +4,9 @@
   justify-content: center;
   width: 12rem;
   height: 12rem;
-  background-color: var(--background-color);
+  background-color: var(--main-background);
   border: 4px solid var(--green);
-  border-radius: var(--border-radius);
+  border-radius: var(--tile-border-radius);
 
   &:after {
     content: ' ';
@@ -16,16 +16,16 @@
     margin: 0.4rem;
     border-radius: 50%;
     border: 6px solid var(--green);
-    border-color: var(--green) transparent var(--green) transparent;
+    border-color: var(--green) transparent;
     animation: lds-dual-ring 1.2s linear infinite;
   }
 }
 
 @keyframes lds-dual-ring {
   0% {
-    transform: rotate(0deg);
+    rotate: 0deg;
   }
   100% {
-    transform: rotate(360deg);
+    rotate: 360deg;
   }
 }

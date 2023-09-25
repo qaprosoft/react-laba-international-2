@@ -6,7 +6,6 @@
   gap: 4rem;
   padding: 3rem 2rem;
   height: 100%;
-  font-size: var(--font-size);
 
   &__avatars {
     display: flex;
@@ -24,5 +23,14 @@
     justify-content: center;
     padding-block: 1rem;
     width: 100%;
+
+    &-button {
+      width: 12rem;
+      height: 2rem;
+      border: none;
+      border-radius: 0.2rem;
+      color: var(--text-color);
+      background-color: var(--green);
+    }
   }
 }

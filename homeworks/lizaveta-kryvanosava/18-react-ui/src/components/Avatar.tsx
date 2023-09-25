@@ -1,50 +1,41 @@
 import refreshButton from '@public/refresh.svg';
 import Image from 'next/image';
-import { useState } from 'react';
+import { memo } from 'react';
 
 import styles from '@/components/avatar.module.scss';
 import Loader from '@/components/Loader';
-import getNewAvatars from '@/helpers/getNewAvatars';
 import IAvatarResponse from '@/types/avatarResponse';
 
-export default function Avatar({
+export default memo(function Avatar({
   avatar,
-  isRefreshingAll,
+  isLoading,
+  clickHandler,
 }: {
   avatar: IAvatarResponse;
-  isRefreshingAll: boolean;
+  isLoading: boolean;
+  clickHandler: (x: number) => void;
 }) {
-  const [url, setUrl] = useState(avatar.url);
-  const [isLoading, setIsLoading] = useState(false);
+  if (isLoading) {
+    return <Loader />;
+  }
 
-  const refreshAvatar = async () => {
-    try {
-      setIsLoading(true);
-      const newAvatar = await getNewAvatars(1);
-      setUrl(newAvatar[0].url);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  return isLoading || isRefreshingAll ? (
-    <Loader />
-  ) : (
+  return (
     <div className={styles.tile}>
       <Image
         className={styles.tile__image}
         width={240}
         height={240}
         unoptimized
-        src={url}
+        src={avatar.url}
         alt="Avatar"
       />
 
-      <div className={styles.tile__hidden} onClick={refreshAvatar}>
+      <div
+        className={styles.tile__refresh}
+        onClick={() => clickHandler(avatar.id)}
+      >
         <Image
-          className={styles.tile__refresh}
+          className={styles['tile__refresh-icon']}
           width={100}
           height={100}
           unoptimized
@@ -54,4 +45,4 @@ export default function Avatar({
       </div>
     </div>
   );
-}
+});
