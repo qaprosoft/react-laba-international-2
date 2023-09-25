@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { refreshOne } from "../../redux/tilse";
+import { refreshOne } from "../../redux/tiles";
 import { AppDispatch } from "../../redux/store";
 import RefreshIcon from "../../assets/refresh.svg";
 import styles from "../../styles/components/Tile.module.css";
@@ -25,7 +25,6 @@ export function Tile({id, image, alt}: IProps) {
       setShowRefreshBtn(false);
       dispatch(refreshOne(id));
     }, 1500);
-
   }
 
   return (

@@ -4,8 +4,8 @@ import { RootState } from "../../redux/store";
 import { Loader } from "../components/Loader";
 import { AddButton } from "../components/AddButton";
 import { useSelector } from "react-redux/es/exports";
-import styles from "../../styles/MainPage.module.css";
-import { ITile, ITilesStore } from "../../redux/tilse";
+import { ITile, ITilesStore } from "../../redux/tiles";
+import styles from "../../styles/pages/MainPage.module.css";
 import { RefreshAllButton } from "../components/RefreshAllButton";
 
 export function MainPage() {

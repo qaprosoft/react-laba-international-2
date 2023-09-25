@@ -1,6 +1,6 @@
 import AddIcon from "../../assets/add.svg";
 import { AppDispatch, RootState } from "../../redux/store";
-import { ITilesStore, getOneTile } from "../../redux/tilse";
+import { ITilesStore, getOneTile } from "../../redux/tiles";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import styles from "../../styles/components/AddButton.module.css";
 

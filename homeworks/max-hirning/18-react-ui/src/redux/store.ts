@@ -1,4 +1,4 @@
-import { tilesReducer } from './tilse'
+import { tilesReducer } from './tiles'
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({

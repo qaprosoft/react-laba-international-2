@@ -1,4 +1,4 @@
-import { refreshAll } from "../../redux/tilse";
+import { refreshAll } from "../../redux/tiles";
 import { AppDispatch } from "../../redux/store";
 import { useDispatch } from "react-redux/es/exports";
 import styles from "../../styles/components/RefreshAllButton.module.css";
