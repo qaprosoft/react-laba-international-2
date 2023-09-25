@@ -5,7 +5,7 @@ export default function RefreshButton({
   clickHandler,
 }: {
   text: string;
-  clickHandler: () => Promise<void>;
+  clickHandler: () => void;
 }) {
   return (
     <button onClick={clickHandler} className={styles.button}>

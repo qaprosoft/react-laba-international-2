@@ -1,10 +1,16 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier", "simple-import-sort", "import"],
-  "extends": ["next", "next/core-web-vitals", "airbnb-typescript/base", "plugin:@typescript-eslint/recommended", "prettier", "eslint:recommended"],
+  "plugins": ["@typescript-eslint", "simple-import-sort", "import"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended"
+  ],
 
   "parserOptions": {
-    "project": ["./tsconfig.json"],
+    "project": "./homeworks/lizaveta-kryvanosava/18-react-ui/tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
@@ -20,7 +26,6 @@
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
-    "prettier/prettier": "error",
     "import/extensions": "off",
     "@typescript-eslint/no-misused-promises": 0
   }

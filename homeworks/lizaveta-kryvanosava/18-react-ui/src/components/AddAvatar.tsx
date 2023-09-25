@@ -1,6 +1,6 @@
 'use client';
 
-import {useState} from 'react';
+import { useState } from 'react';
 
 import styles from '@/components/addAvatar.module.scss';
 import Loader from '@/components/Loader';
@@ -27,6 +27,8 @@ export default function AddAvatar({
   return isLoading ? (
     <Loader />
   ) : (
-    <button className={styles.tile} onClick={clickHandler}></button>
+    <div className={styles.tile} onClick={clickHandler}>
+      <button className={styles.tile__button}></button>
+    </div>
   );
 }

@@ -1,12 +1,13 @@
 'use client';
 
-import {useState} from 'react';
+import { useState } from 'react';
 
 import styles from '@/app/page.module.scss';
 import AddAvatar from '@/components/AddAvatar';
 import Avatar from '@/components/Avatar';
 import RefreshButton from '@/components/RefreshButton';
-import getNewAvatar from '@/helpers/getNewAvatar';
+import getNewAvatars from '@/helpers/getNewAvatars';
+import updateAllAvatars from '@/helpers/updateAllAvatars';
 import IAvatarResponse from '@/types/avatarResponse';
 
 export default function Home() {
@@ -15,24 +16,9 @@ export default function Home() {
 
   const addNewAvatar = async () => {
     try {
-      setAvatars([...avatars, ...(await getNewAvatar(1))]);
+      setAvatars([...avatars, ...(await getNewAvatars(1))]);
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const updateAllAvatars = async () => {
-    if (!avatars.length) return;
-
-    setIsRefreshing(true);
-
-    try {
-      const newAvatars = await getNewAvatar(avatars.length);
-      setAvatars(newAvatars);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsRefreshing(false);
     }
   };
 
@@ -52,7 +38,12 @@ export default function Home() {
       </section>
 
       <section className={styles.main__refresh}>
-        <RefreshButton text="Refresh All" clickHandler={updateAllAvatars} />
+        <RefreshButton
+          text="Refresh All"
+          clickHandler={() => {
+            updateAllAvatars(avatars, setAvatars, setIsRefreshing);
+          }}
+        />
       </section>
     </main>
   );

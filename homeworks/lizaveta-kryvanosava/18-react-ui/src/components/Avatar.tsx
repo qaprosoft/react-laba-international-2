@@ -1,10 +1,10 @@
 import refreshButton from '@public/refresh.svg';
 import Image from 'next/image';
-import {useState} from 'react';
+import { useState } from 'react';
 
 import styles from '@/components/avatar.module.scss';
 import Loader from '@/components/Loader';
-import getNewAvatar from '@/helpers/getNewAvatar';
+import getNewAvatars from '@/helpers/getNewAvatars';
 import IAvatarResponse from '@/types/avatarResponse';
 
 export default function Avatar({
@@ -20,7 +20,7 @@ export default function Avatar({
   const refreshAvatar = async () => {
     try {
       setIsLoading(true);
-      const newAvatar = await getNewAvatar(1);
+      const newAvatar = await getNewAvatars(1);
       setUrl(newAvatar[0].url);
     } catch (error) {
       console.log(error);
