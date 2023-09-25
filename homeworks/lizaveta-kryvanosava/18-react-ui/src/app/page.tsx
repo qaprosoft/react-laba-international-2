@@ -10,7 +10,7 @@ import IAvatarResponse from '@/types/avatarResponse';
 
 export default function Home() {
   const [avatars, setAvatars] = useState<IAvatarResponse[]>([]);
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isAllRefreshing, setIsAllRefreshing] = useState(false);
   const [refreshingIndex, setRefreshingIndex] = useState<number | null>(null);
 
   const addNewAvatar = async () => {
@@ -22,12 +22,12 @@ export default function Home() {
   const refreshAvatar = useCallback(
     async (avatarId: number) => {
       try {
-        const index = avatars.findIndex(({ id }) => id == avatarId);
+        const refreshingIndex = avatars.findIndex(({ id }) => id == avatarId);
 
-        setRefreshingIndex(index);
+        setRefreshingIndex(refreshingIndex);
 
         const newAvatars = [...avatars];
-        newAvatars[index] = (await getNewAvatars(1))[0];
+        newAvatars[refreshingIndex] = (await getNewAvatars(1))[0];
 
         setAvatars(newAvatars);
       } catch {
@@ -41,14 +41,14 @@ export default function Home() {
   const updateAllAvatars = async () => {
     if (!avatars.length) return;
 
-    setIsRefreshing(true);
+    setIsAllRefreshing(true);
 
     try {
       const newAvatars = await getNewAvatars(avatars.length);
       setAvatars(newAvatars);
     } catch {
     } finally {
-      setIsRefreshing(false);
+      setIsAllRefreshing(false);
     }
   };
 
@@ -58,7 +58,7 @@ export default function Home() {
         {avatars.map((avatar, index) => (
           <Avatar
             avatar={avatar}
-            isLoading={isRefreshing || refreshingIndex === index}
+            isLoading={isAllRefreshing || refreshingIndex === index}
             clickHandler={refreshAvatar}
             key={avatar.id}
           />
