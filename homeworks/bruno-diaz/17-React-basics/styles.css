@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.traffic-light-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.traffic-light-head {
+  position: absolute;
+  width: 120px;
+  height: 378px;
+  border-radius: 40px;
+  background: #414447;
+  top: 30px;
+}
+
+.traffic-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 240px;
+  height: 560px;
+  border-radius: 60px;
+  background: #585f68;
+  flex-shrink: 0;
+  box-shadow: 24px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  gap: 24px;
+}
+
+.light {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 60px;
+  background: #5b5b5b;
+  box-shadow: 10px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+.first-light {
+  margin-top: 80px;
+}
