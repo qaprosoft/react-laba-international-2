@@ -3,13 +3,14 @@
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useCallback, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import styles from '@/app/page.module.scss';
 import AddAvatar from '@/components/AddAvatar';
 import Avatar from '@/components/Avatar';
 import getNewAvatars from '@/helpers/getNewAvatars';
 import IAvatarResponse from '@/types/avatarResponse';
+import RefreshButton from '@/components/RefreshButton';
 
 export default function Home() {
   const [avatars, setAvatars] = useState<IAvatarResponse[]>([]);
@@ -73,16 +74,7 @@ export default function Home() {
         <AddAvatar addNewAvatar={addNewAvatar} />
       </section>
 
-      <section className={styles.main__refresh}>
-        <button
-          onClick={updateAllAvatars}
-          className={styles['main__refresh-button']}
-        >
-          Refresh All
-        </button>
-      </section>
-
-      <ToastContainer position="bottom-left" theme="colored" />
+      <RefreshButton updateAllAvatars={updateAllAvatars} />
     </main>
   );
 }
