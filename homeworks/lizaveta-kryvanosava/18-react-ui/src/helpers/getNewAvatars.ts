@@ -1,5 +1,5 @@
-import IAvatarResponse from '@/types/avatarResponse';
 import constants from '@/constants';
+import IAvatarResponse from '@/types/avatarResponse';
 
 export default async function getNewAvatars(
   limit: number,

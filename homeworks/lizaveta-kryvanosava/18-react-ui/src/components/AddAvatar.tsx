@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 import styles from '@/components/addAvatar.module.scss';
 import Loader from '@/components/Loader';
@@ -17,7 +18,8 @@ export default function AddAvatar({
       setIsLoading(true);
 
       await addNewAvatar();
-    } catch {
+    } catch (error) {
+      toast.error(`${error}`);
     } finally {
       setIsLoading(false);
     }

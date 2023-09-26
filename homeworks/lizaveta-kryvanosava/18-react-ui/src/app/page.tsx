@@ -1,6 +1,9 @@
 'use client';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useCallback, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 import styles from '@/app/page.module.scss';
 import AddAvatar from '@/components/AddAvatar';
@@ -16,7 +19,9 @@ export default function Home() {
   const addNewAvatar = async () => {
     try {
       setAvatars([...avatars, ...(await getNewAvatars(1))]);
-    } catch {}
+    } catch (error) {
+      toast.error(`${error}`);
+    }
   };
 
   const refreshAvatar = useCallback(
@@ -30,7 +35,8 @@ export default function Home() {
         newAvatars[refreshingIndex] = (await getNewAvatars(1))[0];
 
         setAvatars(newAvatars);
-      } catch {
+      } catch (error) {
+        toast.error(`${error}`);
       } finally {
         setRefreshingIndex(null);
       }
@@ -46,7 +52,8 @@ export default function Home() {
     try {
       const newAvatars = await getNewAvatars(avatars.length);
       setAvatars(newAvatars);
-    } catch {
+    } catch (error) {
+      toast.error(`${error}`);
     } finally {
       setIsAllRefreshing(false);
     }
@@ -74,6 +81,8 @@ export default function Home() {
           Refresh All
         </button>
       </section>
+
+      <ToastContainer position="bottom-left" theme="colored" />
     </main>
   );
 }
