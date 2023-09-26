@@ -1,15 +1,15 @@
-import {AvatarData} from '../http/avatars';
+import {AvatarData, CamelCase} from '../common/types';
 import refreshImg from '../assets/refresh.svg';
 
 type AvatarProps = {
   isLoading: boolean;
   onRefreshAvatar: (id: number) => void;
-} & AvatarData;
+} & CamelCase<AvatarData>;
 
 function Avatar({
   id,
-  first_name,
-  last_name,
+  firstName,
+  lastName,
   url,
   isLoading,
   onRefreshAvatar,
@@ -19,7 +19,7 @@ function Avatar({
       <img
         className="avatar__image"
         src={url}
-        alt={`${first_name} ${last_name}`}
+        alt={`${firstName} ${lastName}`}
       />
       <button
         className={`btn btn-square avatar__btn-refresh ${

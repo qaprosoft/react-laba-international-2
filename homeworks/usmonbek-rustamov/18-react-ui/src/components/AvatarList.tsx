@@ -1,5 +1,6 @@
 import {useState} from 'react';
-import {AvatarData, getAvatars} from '../http/avatars';
+import {getAvatars} from '../http/avatars';
+import {AvatarData} from '../common/types';
 import Avatar from './Avatar';
 import refreshImg from '../assets/refresh.svg';
 
@@ -63,8 +64,8 @@ function AvatarList() {
           <Avatar
             key={avatar.id}
             id={avatar.id}
-            first_name={avatar.first_name}
-            last_name={avatar.last_name}
+            firstName={avatar.first_name}
+            lastName={avatar.last_name}
             url={avatar.url}
             isLoading={loadingAvatarsId.includes(avatar.id)}
             onRefreshAvatar={handleRefreshAvatar}
