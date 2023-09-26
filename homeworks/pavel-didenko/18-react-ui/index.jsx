@@ -2,45 +2,64 @@ const useState = React.useState;
 const useEffect = React.useEffect;
 const useRef = React.useRef;
 
-const App = () => {
-  const [allUsers, setAllUsers] = useState([]);
-  const [users, setUsers] = useState([]);
-  const url = 'https://tinyfac.es/api/data?limit=50&quality=0';
 
-  async function fetchUsers() {
+const App = () => {
+  const [users, setUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
+
+
+  async function fetchUsers(url, limit, quality) {
+    const queryURL = `${url}?limit=${limit}&quality=${quality}`;
     try {
-      const response = await fetch(url);
+      const response = await fetch(queryURL);
       const json = await response.json();
+      console.log(json);
       return json;
     } catch (err) {
       console.log(err.message);
     }
   }
 
+  async function refreshAllUsers() {
+    const newUsers = await fetchUsers(url, users.length, avatarsQuality);
+    setAllUsers(newUsers);
+    setUsers(users => {
+      return users.map((_, index) => {
+        if (index < newUsers.length) {
+          return newUsers[index].url;
+        }
+      });
+    });
+  }
+
   useEffect(() => {
     async function requestUsersFromAPI() {
-      const users = await fetchUsers();
+      const users = await fetchUsers(url, avatarsLimit, avatarsQuality);
       setAllUsers(users);
     }
 
     requestUsersFromAPI();
   }, []);
 
-  function getRandomUser() {
-    const min = 0;
-    const max = Math.floor(allUsers.length - 1);
-    const user = allUsers[Math.floor(Math.random() * (max - min) + min)];
-    return user.url;
-  }
 
   async function addUserToState() {
     const maxNumberOfPicturesOnThePage = 50;
 
     if (users.length < maxNumberOfPicturesOnThePage) {
-      const userFoto = getRandomUser();
-      setAllUsers(() => allUsers.filter(item => item.url !== userFoto));
+      const userFoto = allUsers[users.length].url;
       setUsers(users.concat(userFoto));
     }
+  }
+
+  async function updateUserAvatar(event) {
+    const [newAvatar] = await fetchUsers(url, 1, avatarsQuality);
+    setUsers(users.map((item, i) => {
+      if(i.toString() !== event.target.getAttribute('index')){
+        return item
+      }else {
+        return newAvatar.url;
+      }
+    }))
   }
 
   return (
@@ -51,9 +70,7 @@ const App = () => {
             link={user}
             key={index}
             index={index}
-            setUsers={setUsers}
-            fetchUsers={fetchUsers}
-            url={url}
+            updateUserAvatar={updateUserAvatar}
           />
         ))}
         <img
@@ -63,12 +80,7 @@ const App = () => {
           onClick={addUserToState}
         />
       </div>
-      <RefreshAllUsers
-        setUsers={setUsers}
-        fetchUsers={fetchUsers}
-        setAllUsers={setAllUsers}
-        users={users}
-      />
+      <RefreshAllUsers refreshAllUsers={refreshAllUsers} />
     </main>
   );
 };

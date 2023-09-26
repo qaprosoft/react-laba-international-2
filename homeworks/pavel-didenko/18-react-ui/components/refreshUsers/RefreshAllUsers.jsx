@@ -1,23 +1,6 @@
-const RefreshAllUsers = ({setUsers, fetchUsers, users, setAllUsers}) => {
-  async function refreshAll() {
-    const newUsers = await fetchUsers();
-    setAllUsers(newUsers);
-    setUsers(users => {
-      return users.map((_, index) => {
-        if (index < newUsers.length) {
-          return newUsers[index].url;
-        }
-      });
-    });
-    
-  }
-
+const RefreshAllUsers = ({refreshAllUsers}) => {
   return (
-    <button
-      className="refresh-button"
-      onClick={refreshAll}
-      style={{marginTop: users.length < 10 ? '20.9rem' : '3rem'}}
-    >
+    <button className="refresh-button" onClick={refreshAllUsers}>
       Refresh All
     </button>
   );
