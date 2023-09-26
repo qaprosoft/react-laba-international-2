@@ -1,5 +1,5 @@
 import {AvatarData, CamelCase} from '../../common/types';
-import refreshImg from '../assets/refresh.svg';
+import refreshImg from '../../assets/refresh.svg';
 
 type AvatarProps = {
   isLoading: boolean;
