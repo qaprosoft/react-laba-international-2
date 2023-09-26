@@ -1,3 +1,5 @@
+import defaultImg from '../assets/default-placeholder.png'
+
 export const fetchRandomUser = async () => {
 
     let user: {} = {}
@@ -14,6 +16,10 @@ export const fetchRandomUser = async () => {
 
     } catch (err) {
         console.log(err)
+        user = {
+            name: 'Default User',
+            url: defaultImg,
+        };
     }
 
     return user

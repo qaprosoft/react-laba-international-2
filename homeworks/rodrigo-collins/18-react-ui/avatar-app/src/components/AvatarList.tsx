@@ -41,6 +41,8 @@ const AvatarList: React.FC = () => {
         setIsLoading(false);
     };
 
+    console.log(avatarList)
+
     const refreshAllAvatars = async () => {
         setIsLoading(true);
         const updatedList = await Promise.all(avatarList.map(async (_, index) => {

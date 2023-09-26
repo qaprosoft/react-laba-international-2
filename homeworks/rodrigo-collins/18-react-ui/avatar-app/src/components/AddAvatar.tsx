@@ -9,7 +9,7 @@ type AvatarItemProps = {
 const AddAvatar = ({ addAvatar, isLoading }: AvatarItemProps) => {
 
     return (
-        <img className={isLoading ? 'add-avatar-img--disabled' : 'add-avatar-img'} src={addSvg} onClick={isLoading ? undefined : addAvatar} />
+        <img className={isLoading ? 'add-avatar-img--disabled' : 'add-avatar-img'} src={addSvg} onClick={isLoading ? () => { } : addAvatar} />
     )
 }
 
