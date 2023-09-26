@@ -1,11 +1,9 @@
 const useState = React.useState;
 const useEffect = React.useEffect;
 
-
 const App = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-
 
   async function fetchUsers(url, limit, quality) {
     const queryURL = `${url}?limit=${limit}&quality=${quality}`;
@@ -31,31 +29,23 @@ const App = () => {
     setLoading(false);
   }
 
-
-
   async function addUserToState() {
     const newUser = await fetchUsers(url, 1, 1);
     setUsers(users.concat(newUser[0].url));
   }
 
-
   async function updateUserAvatar(event) {
-    const refreshIcon = event.target;
-    refreshIcon.style.animation = 'spinner 1.5s linear infinite';
-    refreshIcon.style.left = "30%";
-    refreshIcon.style.top = "30%";
-
+    
     const [newAvatar] = await fetchUsers(url, 1, 1);
-    setUsers(users.map((item, i) => {
-      if(i.toString() !== event.target.getAttribute('index')){
-        return item
-      }else {
-        return newAvatar.url;
-      }
-    }))
-    refreshIcon.style.animation = 'none';
-    refreshIcon.style.left = '50%';
-    refreshIcon.style.top = '50%';
+    setUsers(
+      users.map((item, i) => {
+        if (i.toString() !== event.target.getAttribute('index')) {
+          return item;
+        } else {
+          return newAvatar.url;
+        }
+      }),
+    );
   }
 
   return (

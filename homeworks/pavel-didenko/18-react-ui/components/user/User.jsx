@@ -10,15 +10,20 @@ const staticStyles = {
 };
 
 const User = ({link, updateUserAvatar, index, loading}) => {
+  const [avatarUpdate, setAvatarUpdate] = useState(false);
   return (
     <div className="user">
       <img className="user__foto" src={link} alt="user image" />
       <img
         className="user__refresh-foto"
         src="./assets/img/icons/update-user.svg"
-        onClick={updateUserAvatar}
+        onClick={async (event) => {
+          setAvatarUpdate(true);
+          await updateUserAvatar(event);
+          setAvatarUpdate(false);
+        }}
         index={index}
-        style={loading ? loadingStyles : staticStyles}
+        style={loading || avatarUpdate ? loadingStyles : staticStyles}
       />
     </div>
   );
