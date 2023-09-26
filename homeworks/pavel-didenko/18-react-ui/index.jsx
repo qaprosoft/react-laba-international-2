@@ -32,23 +32,11 @@ const App = () => {
     });
   }
 
-  useEffect(() => {
-    async function requestUsersFromAPI() {
-      const users = await fetchUsers(url, avatarsLimit, avatarsQuality);
-      setAllUsers(users);
-    }
-
-    requestUsersFromAPI();
-  }, []);
 
 
   async function addUserToState() {
-    const maxNumberOfPicturesOnThePage = 50;
-
-    if (users.length < maxNumberOfPicturesOnThePage) {
-      const userFoto = allUsers[users.length].url;
-      setUsers(users.concat(userFoto));
-    }
+    const newUser = await fetchUsers(url, 1, 1);
+    setUsers(users.concat(newUser[0].url));
   }
 
   async function updateUserAvatar(event) {
