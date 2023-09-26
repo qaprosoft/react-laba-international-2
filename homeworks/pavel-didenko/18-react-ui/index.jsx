@@ -1,11 +1,9 @@
 const useState = React.useState;
 const useEffect = React.useEffect;
-const useRef = React.useRef;
 
 
 const App = () => {
   const [users, setUsers] = useState([]);
-  const [allUsers, setAllUsers] = useState([]);
 
 
   async function fetchUsers(url, limit, quality) {
@@ -21,8 +19,7 @@ const App = () => {
   }
 
   async function refreshAllUsers() {
-    const newUsers = await fetchUsers(url, users.length, avatarsQuality);
-    setAllUsers(newUsers);
+    const newUsers = await fetchUsers(url, users.length, 1);
     setUsers(users => {
       return users.map((_, index) => {
         if (index < newUsers.length) {
@@ -40,7 +37,7 @@ const App = () => {
   }
 
   async function updateUserAvatar(event) {
-    const [newAvatar] = await fetchUsers(url, 1, avatarsQuality);
+    const [newAvatar] = await fetchUsers(url, 1, 1);
     setUsers(users.map((item, i) => {
       if(i.toString() !== event.target.getAttribute('index')){
         return item
