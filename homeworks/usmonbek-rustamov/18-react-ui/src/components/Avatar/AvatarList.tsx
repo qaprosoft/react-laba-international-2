@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {toast} from 'react-toastify';
 import {getAvatars} from '../../http/avatars';
 import {AvatarData} from '../../common/types';
 
@@ -20,7 +21,9 @@ function AvatarList() {
         return [...prevList, newAvatar];
       });
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) {
+        toast.error(error.message);
+      }
     } finally {
       setLoadingAvatarsId([]);
     }
@@ -40,7 +43,9 @@ function AvatarList() {
         });
       });
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) {
+        toast.error(error.message);
+      }
     } finally {
       setLoadingAvatarsId([]);
     }
@@ -54,7 +59,9 @@ function AvatarList() {
       const newAvatarList = await getAvatars(avatarList.length);
       setAvatarList(newAvatarList);
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) {
+        toast.error(error.message);
+      }
     } finally {
       setLoadingAvatarsId([]);
     }
