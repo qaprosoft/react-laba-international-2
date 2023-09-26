@@ -4,6 +4,7 @@ const useEffect = React.useEffect;
 
 const App = () => {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
 
   async function fetchUsers(url, limit, quality) {
@@ -11,7 +12,6 @@ const App = () => {
     try {
       const response = await fetch(queryURL);
       const json = await response.json();
-      console.log(json);
       return json;
     } catch (err) {
       console.log(err.message);
@@ -19,6 +19,7 @@ const App = () => {
   }
 
   async function refreshAllUsers() {
+    setLoading(true);
     const newUsers = await fetchUsers(url, users.length, 1);
     setUsers(users => {
       return users.map((_, index) => {
@@ -27,6 +28,7 @@ const App = () => {
         }
       });
     });
+    setLoading(false);
   }
 
 
@@ -36,7 +38,13 @@ const App = () => {
     setUsers(users.concat(newUser[0].url));
   }
 
+
   async function updateUserAvatar(event) {
+    const refreshIcon = event.target;
+    refreshIcon.style.animation = 'spinner 1.5s linear infinite';
+    refreshIcon.style.left = "30%";
+    refreshIcon.style.top = "30%";
+
     const [newAvatar] = await fetchUsers(url, 1, 1);
     setUsers(users.map((item, i) => {
       if(i.toString() !== event.target.getAttribute('index')){
@@ -45,6 +53,9 @@ const App = () => {
         return newAvatar.url;
       }
     }))
+    refreshIcon.style.animation = 'none';
+    refreshIcon.style.left = '50%';
+    refreshIcon.style.top = '50%';
   }
 
   return (
@@ -56,6 +67,7 @@ const App = () => {
             key={index}
             index={index}
             updateUserAvatar={updateUserAvatar}
+            loading={loading}
           />
         ))}
         <img
