@@ -1,12 +1,11 @@
 import IAvatarResponse from '@/types/avatarResponse';
+import constants from '@/constants';
 
 export default async function getNewAvatars(
   limit: number,
 ): Promise<IAvatarResponse[]> {
-  const URL = `https://tinyfac.es/api/data?limit=${limit}&quality=0`;
-
   try {
-    const response = await fetch(URL);
+    const response = await fetch(`${constants.avatarURL}limit=${limit}`);
     const avatars = (await response.json()) as IAvatarResponse[];
 
     return avatars.map((avatar: IAvatarResponse) => ({
