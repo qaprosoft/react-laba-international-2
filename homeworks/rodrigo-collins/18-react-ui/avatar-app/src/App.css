@@ -41,3 +41,14 @@
   align-self: center;
   cursor: pointer;
 }
+
+.loading-text {
+  color: #fafafa;
+  font-size: 26px;
+}
+
+.add-avatar-img--disabled {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  pointer-events: none;
+}
