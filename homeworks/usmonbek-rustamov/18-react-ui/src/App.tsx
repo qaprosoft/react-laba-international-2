@@ -1,4 +1,5 @@
-import AvatarList from './components/AvatarList';
+import {ToastContainer} from 'react-toastify';
+import AvatarList from './components/Avatar/AvatarList';
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <div className="container">
         <AvatarList />
       </div>
+      <ToastContainer />
     </main>
   );
 }
