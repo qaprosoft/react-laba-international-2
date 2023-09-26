@@ -1,15 +1,15 @@
-const User = ({link, updateUserAvatar, index, loading}) => {
-  const loadingStyles = {
-    animation: 'spinner 1.5s linear infinite',
-    opacity: '1',
-    left: '30%',
-    top: '30%'
+const loadingStyles = {
+  animation: 'spinner 1.5s linear infinite',
+  opacity: '1',
+  left: '30%',
+  top: '30%',
 };
-  const staticStyles = {
-    left: '50%',
-    top: '50%',
-  };
+const staticStyles = {
+  left: '50%',
+  top: '50%',
+};
 
+const User = ({link, updateUserAvatar, index, loading}) => {
   return (
     <div className="user">
       <img className="user__foto" src={link} alt="user image" />
