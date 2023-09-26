@@ -1,8 +1,11 @@
 import {useState} from 'react';
-import {getAvatars} from '../http/avatars';
-import {AvatarData} from '../common/types';
+import {getAvatars} from '../../http/avatars';
+import {AvatarData} from '../../common/types';
+
 import Avatar from './Avatar';
-import refreshImg from '../assets/refresh.svg';
+import AddAvatarButton from './AddAvatarButton';
+import RefreshAllAvatarsButton from './RefreshAllAvatarsButton';
+import Loader from '../Loader';
 
 function AvatarList() {
   const [avatarList, setAvatarList] = useState<AvatarData[]>([]);
@@ -73,24 +76,14 @@ function AvatarList() {
         ))}
         <li className="avatar">
           {loadingAvatarsId.includes(-1) ? (
-            <div className="loader">
-              <img
-                className="loader__image"
-                src={refreshImg}
-                alt="New avatar loading"
-              />
-            </div>
+            <Loader />
           ) : (
-            <button className="btn btn-square" onClick={handleAddAvatar}>
-              +
-            </button>
+            <AddAvatarButton onAddAvatar={handleAddAvatar} />
           )}
         </li>
       </ul>
 
-      <button className="btn btn-refresh" onClick={handleRefreshAllAvatars}>
-        Refresh All
-      </button>
+      <RefreshAllAvatarsButton onRefreshAllAvatars={handleRefreshAllAvatars} />
     </section>
   );
 }

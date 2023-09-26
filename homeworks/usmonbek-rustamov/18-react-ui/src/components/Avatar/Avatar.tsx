@@ -1,4 +1,4 @@
-import {AvatarData, CamelCase} from '../common/types';
+import {AvatarData, CamelCase} from '../../common/types';
 import refreshImg from '../assets/refresh.svg';
 
 type AvatarProps = {
