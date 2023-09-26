@@ -1,4 +1,4 @@
 export default interface IAvatarResponse {
-  id: number;
+  id: string;
   url: string;
 }

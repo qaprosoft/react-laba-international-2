@@ -13,7 +13,7 @@ export default memo(function Avatar({
 }: {
   avatar: IAvatarResponse;
   isLoading: boolean;
-  clickHandler: (id: number) => void;
+  clickHandler: (id: string) => void;
 }) {
   if (isLoading) {
     return <Loader />;

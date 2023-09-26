@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   const refreshAvatar = useCallback(
-    async (avatarId: number) => {
+    async (avatarId: string) => {
       try {
         const refreshingIndex = avatars.findIndex(({ id }) => id == avatarId);
 

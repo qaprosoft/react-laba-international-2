@@ -1,4 +1,5 @@
 import constants from '@/constants';
+import { v4 as uuidv4 } from 'uuid';
 import IAvatarResponse from '@/types/avatarResponse';
 
 export default async function getNewAvatars(
@@ -11,7 +12,7 @@ export default async function getNewAvatars(
     const avatars = (await response.json()) as IAvatarResponse[];
 
     return avatars.map((avatar: IAvatarResponse) => ({
-      id: avatar.id,
+      id: uuidv4(),
       url: avatar.url,
     }));
   } catch {
