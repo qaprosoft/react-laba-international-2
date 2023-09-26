@@ -1,13 +1,14 @@
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import refreshSvg from '../assets/refresh.svg'
 
 type AvatarItemProps = {
     imgUrl: string,
-    refreshAvatar: MouseEventHandler<HTMLImageElement>,
-    index: number | any
+    refreshAvatar: (index: number) => Promise<void>,
+    index: number | any,
+    isLoading: boolean,
 }
 
-const AvatarItem = ({ imgUrl, refreshAvatar, index }: AvatarItemProps) => {
+const AvatarItem = ({ imgUrl, refreshAvatar, index, isLoading }: AvatarItemProps) => {
     const [hovered, setHovered] = useState<boolean>(false);
     const bgStyle = {
         backgroundImage: `url(${imgUrl})`,
@@ -31,14 +32,17 @@ const AvatarItem = ({ imgUrl, refreshAvatar, index }: AvatarItemProps) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            {hovered && (
-                <img
-                    src={refreshSvg} // Reemplaza con la ruta de tu SVG
-                    alt='refresh svg'
-                    className="superimposed-svg"
-                />
+            {isLoading ? (
+                <p className="loading-text">Loading...</p>
+            ) : (
+                hovered && (
+                    <img
+                        src={refreshSvg}
+                        alt='refresh svg'
+                        className="superimposed-svg"
+                    />
+                )
             )}
-
         </div>
     )
 }
