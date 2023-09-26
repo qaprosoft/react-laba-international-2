@@ -1,0 +1,54 @@
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  --gray: #585f68;
+  --dark-gray: #414447;
+  --shadow: #0000001a;
+  --light-off: #5b5b5b;
+  --red: #df4040;
+  --yellow: #e9ec6a;
+  --green: #04ca00;
+}
+
+.traffic-light__head {
+  width: 120px;
+  height: 32px;
+  border-radius: 40px 40px 0 0;
+  background: var(--dark-gray);
+}
+
+.traffic-light__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 240px;
+  height: 560px;
+  border-radius: 60px;
+  background: var(--gray);
+  box-shadow: 15px 0px 0px 0px var(--shadow) inset;
+}
+
+.light {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  background: var(--light-off);
+  box-shadow: 10px 0px 0px 0px var(--shadow) inset;
+}
+
+.light--red[data-active='true'] {
+  background: var(--red);
+}
+
+.light--yellow[data-active='true'] {
+  background: var(--yellow);
+}
+
+.light--green[data-active='true'] {
+  background: var(--green);
+}
