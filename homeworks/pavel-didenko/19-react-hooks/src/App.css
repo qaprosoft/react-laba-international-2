@@ -1,0 +1,5 @@
+.main-container {
+  background-image: url('./assets/img/backgrounds/background.png');
+  min-height: 100vh;
+  background-size: cover;
+}
