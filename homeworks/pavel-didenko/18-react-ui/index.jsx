@@ -34,16 +34,12 @@ const App = () => {
     setUsers(users.concat(newUser[0].url));
   }
 
-  async function updateUserAvatar(event) {
+  async function updateUserAvatar(index) {
     
     const [newAvatar] = await fetchUsers(url, 1, 1);
     setUsers(
-      users.map((item) => {
-        const avatarToUpdate =
-          event.target.className === 'user__foto'
-            ? event.target
-            : event.target.previousElementSibling;
-        if (item !== avatarToUpdate.src) {
+      users.map((item, i) => {
+        if(i !== index){
           return item;
         } else {
           return newAvatar.url;
@@ -59,6 +55,7 @@ const App = () => {
           <User
             link={user}
             key={index}
+            index={index}
             updateUserAvatar={updateUserAvatar}
             loading={loading}
           />
