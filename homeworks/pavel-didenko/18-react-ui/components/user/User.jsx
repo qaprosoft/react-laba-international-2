@@ -9,21 +9,27 @@ const staticStyles = {
   top: '50%',
 };
 
-const User = ({link, updateUserAvatar, index, loading}) => {
+const User = ({link, updateUserAvatar, loading}) => {
   const [avatarUpdate, setAvatarUpdate] = useState(false);
+  async function clickHandler(event) {
+    setAvatarUpdate(true);
+    await updateUserAvatar(event);
+    setAvatarUpdate(false);
+  }
+
   return (
     <div className="user">
-      <img className="user__foto" src={link} alt="user image" />
+      <img
+        className="user__foto"
+        src={link}
+        alt="user image"
+        onClick={clickHandler}
+      />
       <img
         className="user__refresh-foto"
         src="./assets/img/icons/update-user.svg"
-        onClick={async (event) => {
-          setAvatarUpdate(true);
-          await updateUserAvatar(event);
-          setAvatarUpdate(false);
-        }}
-        index={index}
         style={loading || avatarUpdate ? loadingStyles : staticStyles}
+        onClick={clickHandler}
       />
     </div>
   );
