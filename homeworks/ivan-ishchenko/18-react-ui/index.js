@@ -1,10 +1,13 @@
 const App = () => {
   const [avatars, setAvatars] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const fetchUsers = async (limit = 1) => {
+    setIsLoading(true);
     const res = await fetch(
       `https://tinyfac.es/api/data?limit=${limit}&quality=0`,
     );
+    setIsLoading(false);
     const data = await res.json();
     return data;
   };
@@ -24,11 +27,14 @@ const App = () => {
   };
 
   const onRefreshAllHandler = async () => {
-    console.log(avatars);
     const data = await fetchUsers(avatars.length);
     const newAvatars = data.map(user => ({id: user.id, url: user.url}));
     setAvatars(newAvatars);
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <React.Fragment>

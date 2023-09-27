@@ -1,3 +1,27 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.spinner {
+  width: 100%;
+  text-align: center;
+  width: 70px;
+  height: 70px;
+  border: 7px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-top-color: #02cc67;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 .avatars {
   display: flex;
   flex-wrap: wrap;
