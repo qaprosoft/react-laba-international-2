@@ -3,7 +3,7 @@ const Avatar = ({imgSrc, onClick}) => {
     <div className="tile avatar">
       <img src={imgSrc} />
       <div className="overlay" onClick={onClick}>
-        <img src="./assets/icons/refresh.svg" />
+        <img className="tileIcon" src="./assets/icons/refresh.svg" />
       </div>
     </div>
   );

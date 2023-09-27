@@ -50,7 +50,7 @@ const App = () => {
   }
 
   return (
-    <React.Fragment>
+    <div className="container">
       <div className="avatars">
         {avatars.map(({id, url}, ind) => (
           <Avatar
@@ -64,7 +64,7 @@ const App = () => {
       <button className="refreshAll" onClick={onRefreshAllHandler}>
         Refresh All
       </button>
-    </React.Fragment>
+    </div>
   );
 };
 

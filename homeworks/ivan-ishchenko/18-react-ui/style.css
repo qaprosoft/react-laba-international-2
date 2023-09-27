@@ -1,3 +1,21 @@
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .loading {
   display: flex;
   justify-content: center;
@@ -35,15 +53,19 @@
   display: flex;
   flex-wrap: wrap;
   margin: 80px 40px;
-  gap: 20px;
+  gap: 2vw;
 }
 
 .tile {
-  width: 240px;
-  height: 240px;
+  width: calc(20% - 2vw);
+  aspect-ratio: 1 / 1;
   box-shadow: 2px 2px 8px 0px #00000080;
   border-radius: 6px;
   overflow: hidden;
+}
+
+.tile .tileIcon {
+  width: 50%;
 }
 
 .avatar {
@@ -75,10 +97,6 @@
   opacity: 1;
 }
 
-.avatar .overlay img {
-  width: 100px;
-}
-
 .addAvatar {
   box-sizing: border-box;
   display: flex;
@@ -86,7 +104,7 @@
   align-items: center;
   border: 4px solid #02cc67;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 .addAvatar:hover {
@@ -94,20 +112,21 @@
 }
 
 .refreshAll {
-  position: absolute;
-  width: 240px;
-  height: 40px;
+  max-width: 240px;
+  width: 60%;
   border-radius: 3px;
+  padding: 5px 10px;
   border: none;
   background: #02cc67;
   color: white;
-  font-size: 21px;
+  font-size: 1.3rem;
   font-weight: 400;
-  left: 50%;
-  bottom: 60px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  margin-left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 .refreshAll:hover {
