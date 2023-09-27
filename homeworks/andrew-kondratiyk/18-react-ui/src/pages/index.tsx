@@ -1,4 +1,4 @@
-import {getAvatar, getAvatars} from '@/api';
+import {getAvatars} from '@/api';
 import Avatar from '@/components/avatar/Avatar';
 import styles from '@/styles/Home.module.css';
 import {type AvatarResponse} from '@/types';
@@ -7,12 +7,12 @@ import {useState} from 'react';
 const Home = () => {
   const [avatars, setAvatars] = useState<AvatarResponse[]>([]);
   const addAvatar = async () => {
-    const avatar = await getAvatar();
+    const avatar = (await getAvatars())[0];
     setAvatars([...avatars, avatar]);
   };
 
   const refreshAvatar = async (custom_id: string) => {
-    const newAvatar = await getAvatar();
+    const newAvatar = (await getAvatars())[0];
     const updatedAvatars = avatars.map(avatar =>
       avatar.custom_id === custom_id ? newAvatar : avatar,
     );

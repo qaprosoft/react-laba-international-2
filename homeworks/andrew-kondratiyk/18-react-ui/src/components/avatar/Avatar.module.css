@@ -42,6 +42,19 @@
 	cursor: pointer;
 }
 
+.refresh.active {
+	animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
 .avatar:hover .refresh {
 	opacity: 1;
 }
