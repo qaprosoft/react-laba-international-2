@@ -1,10 +1,5 @@
 import styles from './button.module.css';
-
-type PropsType = {
-  text: string;
-  callback: () => void;
-  isDisabled: boolean;
-};
+import {PropsType} from './types';
 
 export const Button = ({text, callback, isDisabled}: PropsType) => {
   const onClickHandler = () => {

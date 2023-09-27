@@ -1,18 +1,6 @@
 import styles from './imageTile.module.css';
 import Image from 'next/image';
-import {memo} from 'react';
-
-type PropsType = {
-  imageId: number;
-  index: number;
-  imageUrl: string;
-  fullname: string;
-  refreshImage: (key: number, index: number) => void;
-  isLoading: boolean;
-  selectTile: (imageId: number, index: number) => void;
-  isSelectMode: boolean;
-  isSelected: boolean;
-};
+import {PropsType} from './types';
 
 export const ImageTile = ({
   imageId,
@@ -40,13 +28,7 @@ export const ImageTile = ({
       onClick={onClickHandler}
       style={{outline: isSelected ? '4px solid #02CC67' : ''}}
     >
-      <Image
-        className={styles.wrapper}
-        src={imageUrl}
-        width={240}
-        height={240}
-        alt={fullname}
-      />
+      <Image className={styles.wrapper} src={imageUrl} alt={fullname} fill />
       <div
         className={styles.image_hover}
         style={{display: isLoading || isSelectMode ? 'none' : ''}}

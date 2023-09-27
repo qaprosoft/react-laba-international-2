@@ -27,3 +27,14 @@
   justify-content: space-between;
   gap: 20px;
 }
+
+@media (max-width: 1440px) {
+  .main {
+    width: 75vw;
+    padding: 4.063vw 1.979vw;
+  }
+
+  .tiles_wrapper {
+    gap: 2.083vw;
+  }
+}

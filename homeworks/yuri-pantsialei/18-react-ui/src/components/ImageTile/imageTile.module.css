@@ -28,3 +28,31 @@
   left: 0;
   top: 0;
 }
+
+@media (max-width: 1440px) {
+  .container {
+    height: 12vw;
+    width: 12vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    height: 12.5vw;
+    width: 12.5vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    height: 16vw;
+    width: 16vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    height: 22vw;
+    width: 22vw;
+  }
+}
