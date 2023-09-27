@@ -1,0 +1,13 @@
+.main {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  padding-block: 10vh;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(to right, rgba(140, 114, 183, 1), rgba(255, 255, 255, 0.178));
+}
+
+.list {
+  margin-top: 2rem;
+}

@@ -1,0 +1,9 @@
+.input {
+  width: 554px;
+  height: 63px;
+  border: none;
+  font-size: 32px;
+  padding-left: 15%;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #ECF3FF;
+}
