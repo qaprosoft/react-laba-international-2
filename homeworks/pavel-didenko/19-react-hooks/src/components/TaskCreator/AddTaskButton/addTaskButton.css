@@ -6,4 +6,14 @@
   font-size: var(--main-font-size);
   font-style: var(--main-font-style);
   color: #fff;
+  padding-right: 1.3rem;
+}
+
+.add-task-button:hover {
+  cursor: pointer;
+  background-color: yellowgreen;
+}
+
+.add-task-button:active {
+  background-color: orangered;
 }
