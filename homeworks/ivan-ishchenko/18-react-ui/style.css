@@ -22,6 +22,15 @@
   }
 }
 
+.error {
+  background-color: rgb(248, 46, 46);
+  color: white;
+  width: 40%;
+  padding: 20px 30px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
 .avatars {
   display: flex;
   flex-wrap: wrap;
