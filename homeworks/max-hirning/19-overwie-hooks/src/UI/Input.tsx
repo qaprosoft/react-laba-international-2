@@ -4,12 +4,13 @@ import styles from "../styles/UI/Input.module.css";
 interface IProps {
   value: string;
   readonly?: boolean;
+  onClick?: () => void;
   placeholder?: string;
   customStyles?: object;
   changeValue: (value: string) => void
 }
 
-export default function InputUI({ customStyles, readonly, value, changeValue, placeholder=""}: IProps) {
+export default function InputUI({ onClick, customStyles, readonly, value, changeValue, placeholder=""}: IProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
@@ -26,6 +27,7 @@ export default function InputUI({ customStyles, readonly, value, changeValue, pl
     <input
       value={value}
       ref={inputRef}
+      onClick={onClick}
       readOnly={readonly}
       className={styles.input}
       placeholder={placeholder}

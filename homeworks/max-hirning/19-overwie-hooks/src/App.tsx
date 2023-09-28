@@ -24,6 +24,7 @@ export default function App() {
   return (
     <main className={styles.main}>
       <CreateTodoComponent
+        todos={list}
         addTodo={(todoEl: ITodo) => {
           setList((state: ITodo[]) => ([...state, todoEl]))
         }}
@@ -34,15 +35,24 @@ export default function App() {
             return (
               <TodoElComponent
                 key={id}
+                isDone={isDone}
                 todoValue={value}
                 deleteTodoEl={() => {
                   setList((state: ITodo[]) => state.filter((todo: ITodo) => todo.id !== id))
+                }}
+                changeTodoDoneStatus={() => {
+                  setList((state: ITodo[]) => {
+                    const stateClone = [...state];
+                    const changeTodoId = stateClone.findIndex((todo: ITodo) => todo.id === id);
+                    if(changeTodoId !== -1) stateClone.splice(index, 1, {value, isDone: !isDone, id});
+                    return stateClone;
+                  })
                 }}
                 changeTodoEl={(newValue: string) => {
                   setList((state: ITodo[]) => {
                     const stateClone = [...state];
                     const changeTodoId = stateClone.findIndex((todo: ITodo) => todo.id === id);
-                    if(changeTodoId !== -1) stateClone.splice(index, 1, {value: newValue, isDone, id});
+                    if(changeTodoId !== -1) stateClone.splice(index, 1, {value: newValue, isDone: false, id});
                     return stateClone;
                   })
                 }}

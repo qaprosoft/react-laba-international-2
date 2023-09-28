@@ -1,26 +1,26 @@
 import * as React from "react";
 import { ITodo } from "../App";
 import InputUI from "../UI/Input";
+import { checkTodoValue } from "../functions/error";
 import styles from "../styles/components/CreateTodo.module.css";
 
 interface IProps {
+  todos: ITodo[];
   addTodo: (todoEl: ITodo) => void;
 }
 
-export default function CreateTodoComponent({addTodo}: IProps) {
+export default function CreateTodoComponent({todos, addTodo}: IProps) {
   const [value, setValue] = React.useState<string>("");
 
   const createTodo = () => {
-    if(value.length > 0) {
+    checkTodoValue({value, todos}, () => {
       addTodo({
         value,
         isDone: false,
         id: (Date.now()).toString(),
       });
       setValue("");
-    } else {
-      alert("You can't create empty todo");
-    }
+    });
   }
 
   return (
