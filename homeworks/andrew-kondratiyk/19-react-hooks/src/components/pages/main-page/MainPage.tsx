@@ -1,3 +1,4 @@
+import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
 import styles from './MainPage.module.css';
 const MainPage = () => {
   return (
@@ -5,8 +6,8 @@ const MainPage = () => {
       <div className={styles.header}>
         <h1>Todos</h1>
         <div className={styles.buttons}>
-          <button>Clear finished todos</button>
-          <button>Clear all todos</button>
+          <button className={styles.button}>Clear finished todos</button>
+          <button className={styles.button}>Clear all todos</button>
         </div>
       </div>
       <div className={styles.divider}></div>

@@ -10,11 +10,8 @@ body {
 }
 
 button {
-	border: 1px solid #a0a0a0;
+	border: none;
 	outline: none;
-	padding: 8px 16px;
-	cursor: pointer;
 	border-radius: 5px;
-	font-size: 16px;
-	font-weight: 700;
+	cursor: pointer;
 }

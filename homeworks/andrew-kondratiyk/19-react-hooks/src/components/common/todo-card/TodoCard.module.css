@@ -40,3 +40,10 @@
 	font-size: 20px;
 	font-weight: 700;
 }
+
+.editBtn {
+	border: 1px solid #a0a0a0;
+	padding: 8px 16px;
+	font-size: 16px;
+	font-weight: 700;
+}
