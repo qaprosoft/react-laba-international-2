@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -12,12 +12,20 @@ import inputValidation from '@/helpers/inputValidation';
 import IToDo from '@/types/toDo';
 
 export default function Home() {
-  const [toDos, setToDos] = useState<IToDo[]>(
-    JSON.parse(localStorage.getItem('toDos') as string) || [],
-  );
+  const [toDos, setToDos] = useState<IToDo[]>([]);
+  const firstRenderRef = useRef(true);
 
   useEffect(() => {
-    localStorage.setItem('toDos', JSON.stringify(toDos));
+    const storedTasks = localStorage.getItem('toDos');
+    if (storedTasks) setToDos(JSON.parse(storedTasks));
+  }, []);
+
+  useEffect(() => {
+    if (firstRenderRef.current) {
+      firstRenderRef.current = false;
+    } else {
+      localStorage.setItem('toDos', JSON.stringify(toDos));
+    }
   }, [toDos]);
 
   const addToDo = (newToDo: string) => {
