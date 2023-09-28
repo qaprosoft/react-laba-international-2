@@ -1,22 +1,16 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import deleteImage from '@/assets/icons/delete.svg';
 import doneImage from '@/assets/icons/done.svg';
 import editImage from '@/assets/icons/write.svg';
 import styles from '@/components/toDo.module.scss';
-import IToDoProps from '@/types/toDoComponentProps';
 import constants from '@/constants';
+import IToDoProps from '@/types/toDoComponentProps';
 
 export default function ToDo({ toDoData, deleteToDo, editToDo }: IToDoProps) {
   const [editMode, setEditMode] = useState(false);
   const [inputValue, setInputValue] = useState(toDoData.value);
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      editButtonHandler();
-    }
-  };
 
   const editButtonHandler = () => {
     setEditMode(!editMode);
@@ -25,6 +19,12 @@ export default function ToDo({ toDoData, deleteToDo, editToDo }: IToDoProps) {
 
     if (!editToDo(toDoData.id, inputValue, constants.TaskFields.value)) {
       setInputValue(toDoData.value);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      editButtonHandler();
     }
   };
 

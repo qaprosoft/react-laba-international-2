@@ -6,9 +6,9 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from '@/app/page.module.scss';
 import AddToDoForm from '@/components/AddToDoForm';
 import ToDo from '@/components/ToDo';
+import { useEffectOnUpdateOnly } from '@/customHooks/useEffectOnUpdateOnly';
 import isValidInput from '@/helpers/isValidInput';
 import IToDo from '@/types/toDo';
-import { useEffectOnUpdateOnly } from '@/customHooks/useEffectOnUpdateOnly';
 
 export default function Home() {
   const [toDos, setToDos] = useState<IToDo[]>([]);
