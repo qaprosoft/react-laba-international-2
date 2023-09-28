@@ -1,0 +1,47 @@
+.registerPage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.registerContainer {
+	margin-top: 30px;
+	width: 400px;
+	background-color: #FFFFFF;
+	padding: 20px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.label {
+	color: #a3a3a3;
+}
+
+.input {
+	border: none;
+	outline: none;
+	background-color: #e5e5e5;
+	font-size: 18px;
+	padding: 10px 15px;
+}
+
+.submitBtn {
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: #0c0c0c;
+	color: #FFFFFF;
+	font-size: 20px;
+}
+
+.haveAccountText {
+	margin-top: 20px;
+}
+
+.haveAccountLink {
+	margin-top: 10px;
+	color: #fff;
+}
