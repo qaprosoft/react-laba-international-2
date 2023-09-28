@@ -1,0 +1,15 @@
+@use '@/styles/normalize.scss';
+@use '@/styles/variables';
+@use '@/styles/font.scss';
+
+html {
+  height: 100%;
+  font-family: Hind;
+}
+
+body {
+  height: 100%;
+  background: var(--gradient-background);
+  background-attachment: fixed;
+  margin: 0;
+}

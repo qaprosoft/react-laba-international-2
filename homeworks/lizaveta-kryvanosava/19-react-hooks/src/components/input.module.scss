@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40%;
+  height: 3rem;
+  overflow: hidden;
+
+  &__input {
+    width: 80%;
+    height: 100%;
+    padding: 1rem;
+    border: none;
+    background-color: var(--input-background);
+    text-align: center;
+  }
+  &__button {
+    width: 20%;
+    height: 100%;
+    border: none;
+    padding: 1rem 2rem 1rem 1rem;
+    background-color: var(--blue-color);
+    color: var(--white);
+  }
+
+  @media (max-width: 75rem) {
+    width: 60%;
+  }
+  @media (max-width: 40rem) {
+    width: 90%;
+  }
+}
