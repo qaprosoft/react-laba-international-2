@@ -3,7 +3,7 @@
   height: 63px;
   border: none;
   font-size: 32px;
-  padding-left: 15%;
+  padding-inline: 10px;
   color: rgba(0, 0, 0, 0.6);
   background-color: #ECF3FF;
 }

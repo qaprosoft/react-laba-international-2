@@ -1,4 +1,4 @@
 export function isValidValue(value: string) {
-  const regex = /^[a-zA-Z0-9\s]+$/;
+  const regex = /^[^#^&*\\|/<>`~]+$/;
   return regex.test(value);
 }

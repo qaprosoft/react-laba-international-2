@@ -1,11 +1,11 @@
 .main {
-  height: 80vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
+  min-height: 80%;
   padding-block: 10vh;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(to right, rgba(140, 114, 183, 1), rgba(255, 255, 255, 0.178));
+  background: linear-gradient(116.67deg, #8C72B7 0.58%, rgba(192, 46, 195, 0) 101.02%);
 }
 
 .list {

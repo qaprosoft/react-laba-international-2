@@ -1,5 +1,4 @@
 import * as React from "react";
-import { ITodo } from "../App";
 import InputUI from "../UI/Input";
 import SaveIcon from "../assets/save.svg";
 import EditIcon from "../assets/edit.svg";
