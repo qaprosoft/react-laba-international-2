@@ -11,7 +11,6 @@ enum Numbers {
 enum TaskFields {
   value = 'value',
   done = 'done',
-  __id = 'id',
 }
 
 export default { ErrorMessages, Numbers, TaskFields };

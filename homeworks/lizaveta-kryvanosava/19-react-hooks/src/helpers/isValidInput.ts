@@ -2,8 +2,8 @@ import { toast } from 'react-toastify';
 
 import constants from '@/constants';
 
-export default function inputValidation(input: string): boolean {
-  if (!input || !input.trim().length) {
+export default function isValidInput(input: string): boolean {
+  if (!input.trim().length) {
     toast.warning(constants.ErrorMessages.emptyInput);
     return false;
   }

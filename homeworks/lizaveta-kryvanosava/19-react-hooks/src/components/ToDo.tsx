@@ -5,7 +5,7 @@ import deleteImage from '@/assets/icons/delete.svg';
 import doneImage from '@/assets/icons/done.svg';
 import editImage from '@/assets/icons/write.svg';
 import styles from '@/components/toDo.module.scss';
-import inputValidation from '@/helpers/inputValidation';
+import isValidInput from '@/helpers/isValidInput';
 import IToDoProps from '@/types/toDoComponentProps';
 import constants from '@/constants';
 
@@ -16,7 +16,7 @@ export default function ToDo({ taskData, deleteToDo, editToDo }: IToDoProps) {
   const editButtonHandler = () => {
     setEditMode(!editMode);
 
-    if (taskData.value === newValue || !inputValidation(newValue)) return;
+    if (taskData.value === newValue || !isValidInput(newValue)) return;
 
     editToDo(taskData.id, newValue, constants.TaskFields.value);
   };

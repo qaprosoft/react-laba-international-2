@@ -8,24 +8,27 @@ import styles from '@/app/page.module.scss';
 import Input from '@/components/Input';
 import ToDo from '@/components/ToDo';
 import constants from '@/constants';
-import inputValidation from '@/helpers/inputValidation';
+import isValidInput from '@/helpers/isValidInput';
 import IToDo from '@/types/toDo';
-import { useDidMountEffect } from '@/customHooks/useDidMountEffect';
+import { useEffectOnUpdateOnly } from '@/customHooks/useEffectOnUpdateOnly';
 
 export default function Home() {
   const [toDos, setToDos] = useState<IToDo[]>([]);
 
   useEffect(() => {
     const storedTasks = localStorage.getItem('toDos');
-    if (storedTasks) setToDos(JSON.parse(storedTasks));
+
+    if (storedTasks) {
+      setToDos(JSON.parse(storedTasks));
+    }
   }, []);
 
-  useDidMountEffect(() => {
+  useEffectOnUpdateOnly(() => {
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }, [toDos]);
 
   const addToDo = (newToDo: string) => {
-    if (!inputValidation(newToDo)) return;
+    if (!isValidInput(newToDo)) return;
 
     if (toDos.some(item => item.value === newToDo)) {
       toast.warning(constants.ErrorMessages.duplicate);
