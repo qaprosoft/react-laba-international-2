@@ -6,6 +6,13 @@
   height: 3rem;
   overflow: hidden;
 
+  @media (max-width: 75rem) {
+    width: 60%;
+  }
+  @media (max-width: 40rem) {
+    width: 90%;
+  }
+
   &__input {
     width: 80%;
     height: 100%;
@@ -21,12 +28,5 @@
     padding: 1rem 2rem 1rem 1rem;
     background-color: var(--blue-color);
     color: var(--white-color);
-  }
-
-  @media (max-width: 75rem) {
-    width: 60%;
-  }
-  @media (max-width: 40rem) {
-    width: 90%;
   }
 }

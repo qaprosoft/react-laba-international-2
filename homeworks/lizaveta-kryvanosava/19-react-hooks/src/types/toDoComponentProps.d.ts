@@ -1,11 +1,11 @@
 import IToDo from './toDo';
 
 export default interface IToDoProps {
-  taskData: IToDo;
+  toDoData: IToDo;
   deleteToDo: (id: string) => void;
-  editToDo: (
+  editToDo: <T extends keyof IToDo>(
     id: string,
-    newValue: string | boolean,
-    keyToChange: keyof IToDo,
+    newValue: IToDo[T],
+    keyToChange: T,
   ) => void;
 }

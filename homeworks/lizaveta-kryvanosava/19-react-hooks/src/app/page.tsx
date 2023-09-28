@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 
 import styles from '@/app/page.module.scss';
-import Input from '@/components/Input';
+import AddToDoForm from '@/components/AddToDoForm';
 import ToDo from '@/components/ToDo';
 import constants from '@/constants';
 import isValidInput from '@/helpers/isValidInput';
@@ -16,10 +16,10 @@ export default function Home() {
   const [toDos, setToDos] = useState<IToDo[]>([]);
 
   useEffect(() => {
-    const storedTasks = localStorage.getItem('toDos');
+    const storedList = localStorage.getItem('toDos');
 
-    if (storedTasks) {
-      setToDos(JSON.parse(storedTasks));
+    if (storedList) {
+      setToDos(JSON.parse(storedList));
     }
   }, []);
 
@@ -27,25 +27,25 @@ export default function Home() {
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }, [toDos]);
 
-  const addToDo = (newToDo: string) => {
-    if (!isValidInput(newToDo)) return;
+  const addToDo = (newToDoValue: string) => {
+    if (!isValidInput(newToDoValue)) return;
 
-    if (toDos.some(item => item.value === newToDo)) {
+    if (toDos.some(item => item.value === newToDoValue)) {
       toast.warning(constants.ErrorMessages.duplicate);
       return;
     }
 
-    setToDos([...toDos, { value: newToDo, done: false, id: uuidv4() }]);
+    setToDos([...toDos, { value: newToDoValue, done: false, id: uuidv4() }]);
   };
 
   const deleteToDo = (id: string) => {
     setToDos(toDos.filter(toDo => toDo.id !== id));
   };
 
-  const editToDo = (
+  const editToDo = <T extends keyof IToDo>(
     id: string,
-    newValue: string | boolean,
-    keyToChange: keyof IToDo,
+    newValue: IToDo[T],
+    keyToChange: T,
   ) => {
     setToDos(
       toDos.map(toDo =>
@@ -56,19 +56,17 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Input addToDo={addToDo} />
+      <AddToDoForm addToDo={addToDo} />
 
       <div className={styles.main__list}>
-        {toDos.map(toDo => {
-          return (
-            <ToDo
-              key={toDo.id}
-              taskData={toDo}
-              deleteToDo={deleteToDo}
-              editToDo={editToDo}
-            />
-          );
-        })}
+        {toDos.map(toDo => (
+          <ToDo
+            key={toDo.id}
+            toDoData={toDo}
+            deleteToDo={deleteToDo}
+            editToDo={editToDo}
+          />
+        ))}
       </div>
     </main>
   );

@@ -9,16 +9,16 @@ import isValidInput from '@/helpers/isValidInput';
 import IToDoProps from '@/types/toDoComponentProps';
 import constants from '@/constants';
 
-export default function ToDo({ taskData, deleteToDo, editToDo }: IToDoProps) {
+export default function ToDo({ toDoData, deleteToDo, editToDo }: IToDoProps) {
   const [editMode, setEditMode] = useState(false);
-  const [newValue, setNewValue] = useState(taskData.value);
+  const [newValue, setNewValue] = useState(toDoData.value);
 
   const editButtonHandler = () => {
     setEditMode(!editMode);
 
-    if (taskData.value === newValue || !isValidInput(newValue)) return;
+    if (toDoData.value === newValue || !isValidInput(newValue)) return;
 
-    editToDo(taskData.id, newValue, constants.TaskFields.value);
+    editToDo(toDoData.id, newValue, constants.TaskFields.value);
   };
 
   return (
@@ -37,13 +37,13 @@ export default function ToDo({ taskData, deleteToDo, editToDo }: IToDoProps) {
         <div className={styles.todo__text}>
           <input
             type="checkbox"
-            checked={taskData.done}
+            checked={toDoData.done}
             onChange={() => {
-              editToDo(taskData.id, !taskData.done, constants.TaskFields.done);
+              editToDo(toDoData.id, !toDoData.done, constants.TaskFields.done);
             }}
           />
 
-          {taskData.value}
+          {toDoData.value}
         </div>
       )}
 
@@ -59,7 +59,7 @@ export default function ToDo({ taskData, deleteToDo, editToDo }: IToDoProps) {
           className={styles['todo__control--delete']}
           src={deleteImage}
           alt="delete button"
-          onClick={() => deleteToDo(taskData.id)}
+          onClick={() => deleteToDo(toDoData.id)}
         />
       </div>
     </div>
