@@ -1,13 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 
 import styles from '@/app/page.module.scss';
 import AddToDoForm from '@/components/AddToDoForm';
 import ToDo from '@/components/ToDo';
-import constants from '@/constants';
 import isValidInput from '@/helpers/isValidInput';
 import IToDo from '@/types/toDo';
 import { useEffectOnUpdateOnly } from '@/customHooks/useEffectOnUpdateOnly';
@@ -28,12 +26,7 @@ export default function Home() {
   }, [toDos]);
 
   const addToDo = (newToDoValue: string) => {
-    if (!isValidInput(newToDoValue)) return;
-
-    if (toDos.some(item => item.value === newToDoValue)) {
-      toast.warning(constants.ErrorMessages.duplicate);
-      return;
-    }
+    if (!isValidInput(toDos, newToDoValue)) return;
 
     setToDos([...toDos, { value: newToDoValue, done: false, id: uuidv4() }]);
   };
@@ -47,6 +40,12 @@ export default function Home() {
     newValue: IToDo[T],
     keyToChange: T,
   ) => {
+    if (
+      keyToChange === 'value' &&
+      !isValidInput(toDos, newValue as IToDo['value'])
+    )
+      return;
+
     setToDos(
       toDos.map(toDo =>
         toDo.id === id ? { ...toDo, [keyToChange]: newValue } : toDo,
