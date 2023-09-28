@@ -31,3 +31,11 @@
 	color: #fff;
 	font-weight: 600;
 }
+
+.siginButton {
+	padding: 10px 20px;
+	font-size: 24px;
+	font-weight: 700;
+	background-color: #0c0c0c;
+	color: #FFFFFF;
+}
