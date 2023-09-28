@@ -2,20 +2,43 @@ import React from 'react';
 import './taskCreator.css';
 import {useRef, useState} from 'react';
 
-const TaskCreator = ({createTask}) => {
+const taskExistsMessage = 'The task already exists';
+const taskLengthMessage = "Task length must be from 0 to 33 characters";
+
+const TaskCreator = ({createTask, tasks}) => {
   const addTaskInput = useRef(null);
   const [opacity, setOpacity] = useState(0);
+  const [taskExists, setTaskExists] = useState(false);
 
   function taskLengthHandler(minLength, maxLength, callback, taskText) {
-    const taskLength = addTaskInput.current.value.length;
+    const taskLength = taskText.length;
+    if (!validateDublicatedTask(taskText)) {
+      setTaskExists(true);
+      setOpacity(1);
+      return;
+    }
     if (taskLength >= minLength && taskLength <= maxLength) {
       callback(taskText);
       if (opacity === 1) {
         setOpacity(0);
       }
+
     } else {
+      setTaskExists(false);
       setOpacity(1);
     }
+  }
+
+  function validateDublicatedTask(task) {
+    let result = true;
+
+    for (let item of tasks) {
+      if (item.taskText === task) {
+        result = false;
+      }
+    }
+
+    return result;
   }
 
   return (
@@ -23,7 +46,7 @@ const TaskCreator = ({createTask}) => {
       <div>
         <input ref={addTaskInput} placeholder="Create-Todo-Task"></input>
         <p className="task-creator__warning" style={{opacity: opacity}}>
-          Task length must be from 0 to 33 characters
+          {taskExists ? taskExistsMessage : taskLengthMessage}
         </p>
       </div>
       <button

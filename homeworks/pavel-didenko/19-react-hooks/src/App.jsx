@@ -55,7 +55,7 @@ function App() {
   
   return (
     <div className="main-container">
-      <TaskCreator createTask={createTask} />
+      <TaskCreator createTask={createTask} tasks={tasks} />
       <div className="tasks-section">
         {tasks.map((task, index) => {
           return (
