@@ -31,7 +31,7 @@ const Task = ({
   }
 
   function taskLengthValidator(task, minLength, maxLength) {
-    if(task.length > minLength && task.length <= maxLength) {
+    if(task.length >= minLength && task.length <= maxLength) {
       modifyTaskHandler(task);
     } else {
       if(opacity === 0){
@@ -75,7 +75,7 @@ const Task = ({
         />
       </div>
       <p className="task-creator__warning" style={{opacity: opacity}}>
-        Task length must be from 0 to 33 characters
+        Task length must be from 1 to 33 characters
       </p>
     </div>
   );
