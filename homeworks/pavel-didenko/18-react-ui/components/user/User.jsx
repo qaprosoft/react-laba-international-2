@@ -9,11 +9,11 @@ const staticStyles = {
   top: '50%',
 };
 
-const User = ({link, updateUserAvatar, loading}) => {
+const User = ({link, updateUserAvatar, loading, index}) => {
   const [avatarUpdate, setAvatarUpdate] = useState(false);
   async function clickHandler(event) {
     setAvatarUpdate(true);
-    await updateUserAvatar(event);
+    await updateUserAvatar(index);
     setAvatarUpdate(false);
   }
 
