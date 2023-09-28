@@ -16,6 +16,7 @@ const Task = ({taskText, modifyTasks, index, removeTask}) => {
     }
   }
 
+
   return (
     <div className="task" onClick={e => e.stopPropagation()}>
       <input

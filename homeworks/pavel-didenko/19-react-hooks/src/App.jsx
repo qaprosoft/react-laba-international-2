@@ -6,23 +6,22 @@ import { useState } from 'react';
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  function modifyTasks (index, taskText) {
+  function modifyTasks (index, text) {
     setTasks(tasks => {
       return tasks.map((task, i) => {
         if (i !== index) {
           return task;
         } else {
-          return taskText;
+          task.taskText = text
+          task.id = Date.now();
+          return task;
         }
       });
     });
   }
 
   function removeTask(index) {
-    setTasks(tasks => {
-      const filteredTasks = tasks.filter((_, i) => i !== index);
-      return filteredTasks;
-    })
+    setTasks(tasks.filter((_, i) => i !== index));
   }
   
   return (
@@ -32,8 +31,8 @@ function App() {
         {tasks.map((task, index) => {
           return (
             <Task
-              taskText={task}
-              key={index}
+              taskText={task.taskText}
+              key={task.id}
               index={index}
               modifyTasks={modifyTasks}
               removeTask={removeTask}
