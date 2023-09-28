@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback, useRef} from 'react';
 import axios from 'axios';
 import './App.css';
 import Avatar from '../src/сomponents/Avatar/Avatar';
+import Button from './сomponents/Button/Button';
+import AddButton from './сomponents/AddButton/AddButton';
 
 const API_URL = 'https://tinyfac.es/api/data';
 
@@ -9,33 +11,39 @@ const App = () => {
   const [avatars, setAvatars] = useState([]);
   const [addedAvatarsCount, setAddedAvatarsCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [isUpdateButtonLoading, setIsUpdateButtonLoading] = useState(false);
   const [isAddButtonLoading, setIsAddButtonLoading] = useState(false);
 
-  useEffect(() => {
-    fetchAvatars();
-  }, []);
-
-  const fetchAvatars = async () => {
+  const fetchAvatars = useCallback(async () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
         `${API_URL}?limit=${20 + addedAvatarsCount}&quality=0`,
       );
-      setAvatars(response.data);
+      setAvatars(
+        response.data.map((avatarData, index) => ({...avatarData, id: index})),
+      );
     } catch (error) {
       console.error(error);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [addedAvatarsCount]);
 
-  const refreshAvatar = async index => {
+  const fetchAvatarsRef = useRef(fetchAvatars);
+
+  useEffect(() => {
+    fetchAvatarsRef.current();
+  }, []);
+
+  const refreshAvatar = async id => {
     try {
       const response = await axios.get(`${API_URL}?limit=1&quality=0`);
       setAvatars(prevAvatars => {
         const newAvatars = [...prevAvatars];
-        newAvatars[index] = response.data[0];
+        const index = newAvatars.findIndex(avatar => avatar.id === id);
+        if (index !== -1) {
+          newAvatars[index] = {...response.data[0], id};
+        }
         return newAvatars;
       });
     } catch (error) {
@@ -43,25 +51,12 @@ const App = () => {
     }
   };
 
-  const refreshAllAvatars = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(
-        `${API_URL}?limit=${20 + addedAvatarsCount}&quality=0`,
-      );
-      setAvatars(response.data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const addRandomAvatarTile = async () => {
     setIsAddButtonLoading(true);
     try {
       const response = await axios.get(`${API_URL}?limit=1&quality=0`);
-      setAvatars([...avatars, response.data[0]]);
+      const newAvatar = {...response.data[0], id: avatars.length};
+      setAvatars(prevAvatars => [...prevAvatars, newAvatar]);
       setAddedAvatarsCount(count => count + 1);
     } catch (error) {
       console.error(error);
@@ -73,30 +68,21 @@ const App = () => {
   return (
     <div className="App">
       <div className="avatar-container">
-        {avatars.map((avatar, index) => (
+        {avatars.map(avatar => (
           <Avatar
-            key={index}
+            key={avatar.id}
             avatarUrl={avatar.url}
-            refreshAvatar={() => refreshAvatar(index)}
+            refreshAvatar={() => refreshAvatar(avatar.id)}
           />
         ))}
         {avatars.length > 0 && (
-          <button
-            className="empty-square-button"
+          <AddButton
             onClick={addRandomAvatarTile}
-            style={{display: isAddButtonLoading ? 'none' : 'flex'}}
-          >
-            +
-          </button>
+            isLoading={isAddButtonLoading}
+          />
         )}
       </div>
-      <button
-        onClick={refreshAllAvatars}
-        disabled={isUpdateButtonLoading}
-        style={{display: isLoading ? 'none' : ''}}
-      >
-        Update
-      </button>
+      <Button onClick={fetchAvatars} text="Update" isLoading={isLoading} />
     </div>
   );
 };
