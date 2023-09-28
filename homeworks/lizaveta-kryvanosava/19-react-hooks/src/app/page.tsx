@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,7 +14,6 @@ import { useDidMountEffect } from '@/customHooks/useDidMountEffect';
 
 export default function Home() {
   const [toDos, setToDos] = useState<IToDo[]>([]);
-  const firstRenderRef = useRef(true);
 
   useEffect(() => {
     const storedTasks = localStorage.getItem('toDos');
