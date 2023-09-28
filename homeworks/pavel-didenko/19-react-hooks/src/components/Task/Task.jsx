@@ -19,6 +19,7 @@ const Task = ({
 }) => {
   const [disabledModification, setDisabledModification] = useState(true);
   const taskField = useRef(null);
+  const [opacity, setOpacity] = useState(0);
 
   function modifyTaskHandler(newTaskText) {
     if (disabledModification) {
@@ -33,44 +34,49 @@ const Task = ({
     if(task.length > minLength && task.length <= maxLength) {
       modifyTaskHandler(task);
     } else {
-      modifyTaskHandler(
-        `Task length must be from ${minLength} to ${maxLength} chars`,
-      );
+      if(opacity === 0){
+        setOpacity(1);
+      }
     }
   }
 
   return (
     <div className="task" onClick={e => e.stopPropagation()}>
-      <input
-        className="task__input"
-        defaultValue={taskText}
-        disabled={disabledModification}
-        ref={taskField}
-        style={completed ? taskCompletedStyles : {}}
-        onKeyUp={e => {
-          if (e.key === 'Enter') {
-            taskLengthValidator(taskField.current.value, 1, 33);
-          }
-        }}
-      ></input>
-      <img
-        className="task__icon"
-        src={modifyIcon}
-        alt="Modify task"
-        onClick={() => taskLengthValidator(taskField.current.value, 1, 33)}
-      />
-      <img
-        className="task__icon"
-        src={removeIcon}
-        alt="Remove task"
-        onClick={() => removeTask(index)}
-      />
-      <img
-        className="task__icon"
-        src={completeIcon}
-        alt="Complete icon"
-        onClick={() => setCompletedTask(index)}
-      />
+      <div className="task__inputs-wrapper">
+        <input
+          className="task__input"
+          defaultValue={taskText}
+          disabled={disabledModification}
+          ref={taskField}
+          style={completed ? taskCompletedStyles : {}}
+          onKeyUp={e => {
+            if (e.key === 'Enter') {
+              taskLengthValidator(taskField.current.value, 1, 33);
+            }
+          }}
+        ></input>
+        <img
+          className="task__icon"
+          src={modifyIcon}
+          alt="Modify task"
+          onClick={() => taskLengthValidator(taskField.current.value, 1, 33)}
+        />
+        <img
+          className="task__icon"
+          src={removeIcon}
+          alt="Remove task"
+          onClick={() => removeTask(index)}
+        />
+        <img
+          className="task__icon"
+          src={completeIcon}
+          alt="Complete icon"
+          onClick={() => setCompletedTask(index)}
+        />
+      </div>
+      <p className="task-creator__warning" style={{opacity: opacity}}>
+        Task length must be from 0 to 33 characters
+      </p>
     </div>
   );
 };

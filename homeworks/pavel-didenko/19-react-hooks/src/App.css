@@ -7,8 +7,8 @@
 .tasks-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0rem;
   justify-content: center;
   align-items: center;
-  margin-top: 1.3rem;
+  margin-top: 2.1rem;
 }
