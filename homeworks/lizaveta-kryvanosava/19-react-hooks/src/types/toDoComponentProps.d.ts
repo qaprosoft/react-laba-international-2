@@ -7,5 +7,5 @@ export default interface IToDoProps {
     id: string,
     newValue: IToDo[T],
     keyToChange: T,
-  ) => void;
+  ) => void | boolean;
 }

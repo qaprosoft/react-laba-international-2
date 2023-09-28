@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import deleteImage from '@/assets/icons/delete.svg';
 import doneImage from '@/assets/icons/done.svg';
@@ -23,8 +23,9 @@ export default function ToDo({ toDoData, deleteToDo, editToDo }: IToDoProps) {
 
     if (toDoData.value === inputValue) return;
 
-    editToDo(toDoData.id, inputValue, constants.TaskFields.value);
-    setInputValue(toDoData.value);
+    if (!editToDo(toDoData.id, inputValue, constants.TaskFields.value)) {
+      setInputValue(toDoData.value);
+    }
   };
 
   return (

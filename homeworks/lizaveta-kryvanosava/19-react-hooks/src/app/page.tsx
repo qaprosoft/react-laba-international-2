@@ -44,13 +44,15 @@ export default function Home() {
       keyToChange === 'value' &&
       !isValidInput(toDos, newValue as IToDo['value'])
     )
-      return;
+      return false;
 
     setToDos(
       toDos.map(toDo =>
         toDo.id === id ? { ...toDo, [keyToChange]: newValue } : toDo,
       ),
     );
+
+    return true;
   };
 
   return (
