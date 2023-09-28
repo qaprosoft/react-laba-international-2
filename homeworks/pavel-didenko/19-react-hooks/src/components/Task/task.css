@@ -5,4 +5,5 @@
 .task__icon{
   position: relative;
   top: 1.3rem;
+  cursor: pointer;
 }

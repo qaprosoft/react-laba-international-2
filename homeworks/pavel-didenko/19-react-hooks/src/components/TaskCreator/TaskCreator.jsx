@@ -1,18 +1,22 @@
 import React from 'react';
-import AddTaskButton from './AddTaskButton/AddTaskButton';
-
 import './taskCreator.css';
-import { useState } from 'react';
+import {useState, useRef} from 'react';
 
 const TaskCreator = ({setTasks}) => {
-  const [taskText, setTaskText] = useState('');
+  const addTaskButton = useRef(null);
+
+  function clickHandler(){
+    setTasks(tasks => [...tasks, addTaskButton.current.value]);
+  }
+
   return (
     <div className="task-creator-wrapper">
-      <input
-      ></input>
-      <AddTaskButton />
+      <input ref={addTaskButton}></input>
+      <button className="add-task-button" onClick={clickHandler}>
+        Add
+      </button>
     </div>
   );
-}
+};
 
 export default TaskCreator;
