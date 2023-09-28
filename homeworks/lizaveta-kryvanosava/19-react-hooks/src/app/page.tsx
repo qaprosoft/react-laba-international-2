@@ -10,6 +10,7 @@ import ToDo from '@/components/ToDo';
 import constants from '@/constants';
 import inputValidation from '@/helpers/inputValidation';
 import IToDo from '@/types/toDo';
+import { useDidMountEffect } from '@/customHooks/useDidMountEffect';
 
 export default function Home() {
   const [toDos, setToDos] = useState<IToDo[]>([]);
@@ -20,12 +21,8 @@ export default function Home() {
     if (storedTasks) setToDos(JSON.parse(storedTasks));
   }, []);
 
-  useEffect(() => {
-    if (firstRenderRef.current) {
-      firstRenderRef.current = false;
-    } else {
-      localStorage.setItem('toDos', JSON.stringify(toDos));
-    }
+  useDidMountEffect(() => {
+    localStorage.setItem('toDos', JSON.stringify(toDos));
   }, [toDos]);
 
   const addToDo = (newToDo: string) => {
