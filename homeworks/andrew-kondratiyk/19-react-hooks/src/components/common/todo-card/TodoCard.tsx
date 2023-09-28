@@ -1,5 +1,3 @@
-'use client';
-
 import {TodoResponse} from '@/models/todo';
 import {useRef, useState} from 'react';
 

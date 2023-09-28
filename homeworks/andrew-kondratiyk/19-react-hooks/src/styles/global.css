@@ -5,5 +5,16 @@
 }
 
 body {
-	background-color: #32a22e;
+	background-color: #43a05d;
+	color: #fff;
+}
+
+button {
+	border: 1px solid #a0a0a0;
+	outline: none;
+	padding: 8px 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 700;
 }
