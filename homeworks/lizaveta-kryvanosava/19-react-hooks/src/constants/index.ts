@@ -2,7 +2,6 @@ enum ErrorMessages {
   emptyInput = "You can't add empty task",
   tooLongInput = 'Task is too long',
   duplicate = 'This task already exist',
-  unexpectedError = 'Something went wrong',
 }
 
 enum Numbers {
