@@ -5,20 +5,26 @@ import deleteImage from '@/assets/icons/delete.svg';
 import doneImage from '@/assets/icons/done.svg';
 import editImage from '@/assets/icons/write.svg';
 import styles from '@/components/toDo.module.scss';
-import isValidInput from '@/helpers/isValidInput';
 import IToDoProps from '@/types/toDoComponentProps';
 import constants from '@/constants';
 
 export default function ToDo({ toDoData, deleteToDo, editToDo }: IToDoProps) {
   const [editMode, setEditMode] = useState(false);
-  const [newValue, setNewValue] = useState(toDoData.value);
+  const [inputValue, setInputValue] = useState(toDoData.value);
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      editButtonHandler();
+    }
+  };
 
   const editButtonHandler = () => {
     setEditMode(!editMode);
 
-    if (toDoData.value === newValue || !isValidInput(newValue)) return;
+    if (toDoData.value === inputValue) return;
 
-    editToDo(toDoData.id, newValue, constants.TaskFields.value);
+    editToDo(toDoData.id, inputValue, constants.TaskFields.value);
+    setInputValue(toDoData.value);
   };
 
   return (
@@ -26,12 +32,13 @@ export default function ToDo({ toDoData, deleteToDo, editToDo }: IToDoProps) {
       {editMode ? (
         <input
           autoFocus
-          value={newValue}
+          value={inputValue}
           type="text"
           className={styles.todo__text}
           onChange={event => {
-            setNewValue(event.target.value);
+            setInputValue(event.target.value);
           }}
+          onKeyDown={event => handleKeyDown(event)}
         />
       ) : (
         <div className={styles.todo__text}>
