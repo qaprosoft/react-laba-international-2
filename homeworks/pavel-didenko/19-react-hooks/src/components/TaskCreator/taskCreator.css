@@ -24,3 +24,11 @@
 .add-task-button:active {
   background-color: orangered;
 }
+
+.task-creator__warning{
+  color: rgb(223, 10, 10);
+  font-family: var(--main-font-family);
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity .7s;
+}

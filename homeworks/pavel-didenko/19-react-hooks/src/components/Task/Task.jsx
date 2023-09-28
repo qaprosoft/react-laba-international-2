@@ -20,12 +20,22 @@ const Task = ({
   const [disabledModification, setDisabledModification] = useState(true);
   const taskField = useRef(null);
 
-  function modifyTaskHandler() {
+  function modifyTaskHandler(newTaskText) {
     if (disabledModification) {
       setDisabledModification(false);
     } else {
       setDisabledModification(true);
-      modifyTasks(index, taskField.current.value);
+      modifyTasks(index, newTaskText);
+    }
+  }
+
+  function taskLengthValidator(task, minLength, maxLength) {
+    if(task.length > minLength && task.length <= maxLength) {
+      modifyTaskHandler(task);
+    } else {
+      modifyTaskHandler(
+        `Task length must be from ${minLength} to ${maxLength} chars`,
+      );
     }
   }
 
@@ -39,7 +49,7 @@ const Task = ({
         style={completed ? taskCompletedStyles : {}}
         onKeyUp={e => {
           if (e.key === 'Enter') {
-            modifyTaskHandler();
+            taskLengthValidator(taskField.current.value, 1, 33);
           }
         }}
       ></input>
@@ -47,7 +57,7 @@ const Task = ({
         className="task__icon"
         src={modifyIcon}
         alt="Modify task"
-        onClick={modifyTaskHandler}
+        onClick={() => taskLengthValidator(taskField.current.value, 1, 33)}
       />
       <img
         className="task__icon"

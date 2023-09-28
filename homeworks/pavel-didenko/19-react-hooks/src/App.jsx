@@ -67,6 +67,7 @@ function App() {
               modifyTasks={modifyTasks}
               removeTask={removeTask}
               setCompletedTask={setCompletedTask}
+              setTasks={setTasks}
             />
           );
         })}

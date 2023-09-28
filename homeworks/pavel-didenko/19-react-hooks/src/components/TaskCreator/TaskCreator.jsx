@@ -1,24 +1,31 @@
 import React from 'react';
 import './taskCreator.css';
-import {useRef} from 'react';
+import {useRef, useState} from 'react';
 
 const TaskCreator = ({createTask}) => {
   const addTaskInput = useRef(null);
+  const [opacity, setOpacity] = useState(0);
 
-  function taskLengthHandler(minTaskLength, maxTaskLength, callback, taskText) {
+  function taskLengthHandler(minLength, maxLength, callback, taskText) {
     const taskLength = addTaskInput.current.value.length;
-    if (taskLength >= minTaskLength && taskLength <= maxTaskLength) {
+    if (taskLength >= minLength && taskLength <= maxLength) {
       callback(taskText);
+      if (opacity === 1) {
+        setOpacity(0);
+      }
     } else {
-      alert(
-        `Task length must be minimum ${minTaskLength} and maximum ${maxTaskLength}`,
-      );
+      setOpacity(1);
     }
   }
 
   return (
     <div className="task-creator-wrapper">
-      <input ref={addTaskInput}></input>
+      <div>
+        <input ref={addTaskInput} placeholder="Create-Todo-Task"></input>
+        <p className="task-creator__warning" style={{opacity: opacity}}>
+          Task length must be from 0 to 33 characters
+        </p>
+      </div>
       <button
         className="add-task-button"
         onClick={() =>
