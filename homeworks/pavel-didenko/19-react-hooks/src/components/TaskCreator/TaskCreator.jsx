@@ -1,21 +1,17 @@
 import React from 'react';
 import './taskCreator.css';
-import {useState, useRef} from 'react';
+import { useRef } from 'react';
 
-const TaskCreator = ({setTasks}) => {
+const TaskCreator = ({createTask}) => {
   const addTaskInput = useRef(null);
-
-  function clickHandler(){
-    setTasks(tasks => [
-      ...tasks,
-      {id: Date.now(), taskText: addTaskInput.current.value},
-    ]);
-  }
 
   return (
     <div className="task-creator-wrapper">
       <input ref={addTaskInput}></input>
-      <button className="add-task-button" onClick={clickHandler}>
+      <button
+        className="add-task-button"
+        onClick={() => createTask(addTaskInput.current.value)}
+      >
         Add
       </button>
     </div>

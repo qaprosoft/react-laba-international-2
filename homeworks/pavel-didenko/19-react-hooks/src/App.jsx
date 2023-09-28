@@ -12,10 +12,14 @@ function App() {
       setTasks(JSON.parse(storedTasks));
     } 
   }, [])
-  
+
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
+
+  function createTask(newTaskText) {
+    setTasks(tasks => [...tasks, {id: Date.now(), taskText: newTaskText, completed: false}]);
+  }
 
 
   function modifyTasks (index, text) {
@@ -32,13 +36,26 @@ function App() {
     });
   }
 
+  function setCompletedTask(index) {
+    setTasks(tasks => {
+      return tasks.map((task, i) => {
+        if(i !== index) {
+          return task;
+        } else {
+          task.completed = !task.completed;
+          return task;
+        }
+      })
+    })
+  }
+
   function removeTask(index) {
     setTasks(tasks.filter((_, i) => i !== index));
   }
   
   return (
     <div className="main-container">
-      <TaskCreator setTasks={setTasks} />
+      <TaskCreator createTask={createTask} />
       <div className="tasks-section">
         {tasks.map((task, index) => {
           return (
@@ -46,8 +63,10 @@ function App() {
               taskText={task.taskText}
               key={task.id}
               index={index}
+              completed={task.completed}
               modifyTasks={modifyTasks}
               removeTask={removeTask}
+              setCompletedTask={setCompletedTask}
             />
           );
         })}
