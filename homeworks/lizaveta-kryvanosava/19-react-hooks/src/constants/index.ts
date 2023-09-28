@@ -4,6 +4,15 @@ enum ErrorMessages {
   duplicate = 'This task already exist',
   unexpectedError = 'Something went wrong',
 }
-const maxInputLength = 120;
 
-export default { ErrorMessages, maxInputLength };
+enum Numbers {
+  maxInputLength = 120,
+}
+
+enum TaskFields {
+  value = 'value',
+  done = 'done',
+  __id = 'id',
+}
+
+export default { ErrorMessages, Numbers, TaskFields };

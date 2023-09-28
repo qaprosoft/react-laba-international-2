@@ -8,7 +8,7 @@ export default function inputValidation(input: string): boolean {
     return false;
   }
 
-  if (input.length > constants.maxInputLength) {
+  if (input.length > constants.Numbers.maxInputLength) {
     toast.warning(constants.ErrorMessages.tooLongInput);
     return false;
   }

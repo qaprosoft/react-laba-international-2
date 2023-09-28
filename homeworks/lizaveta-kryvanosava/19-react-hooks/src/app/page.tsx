@@ -20,10 +20,10 @@ export default function Home() {
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }, [toDos]);
 
-  const addHandler = (newToDo: string): void => {
+  const addToDo = (newToDo: string) => {
     if (!inputValidation(newToDo)) return;
 
-    if (toDos.find(toDo => toDo.value === newToDo)) {
+    if (toDos.some(item => item.value === newToDo)) {
       toast.warning(constants.ErrorMessages.duplicate);
       return;
     }
@@ -31,11 +31,11 @@ export default function Home() {
     setToDos([...toDos, { value: newToDo, done: false, id: uuidv4() }]);
   };
 
-  const deleteHandler = (id: string) => {
+  const deleteToDo = (id: string) => {
     setToDos(toDos.filter(toDo => toDo.id !== id));
   };
 
-  const editHandler = (
+  const editToDo = (
     id: string,
     newValue: string | boolean,
     keyToChange: keyof IToDo,
@@ -49,16 +49,16 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Input addHandler={addHandler} />
+      <Input addToDo={addToDo} />
 
       <div className={styles.main__list}>
         {toDos.map(toDo => {
           return (
             <ToDo
               key={toDo.id}
-              data={toDo}
-              deleteHandler={deleteHandler}
-              editHandler={editHandler}
+              taskData={toDo}
+              deleteToDo={deleteToDo}
+              editToDo={editToDo}
             />
           );
         })}

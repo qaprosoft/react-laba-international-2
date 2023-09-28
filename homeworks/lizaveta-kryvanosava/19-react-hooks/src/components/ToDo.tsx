@@ -7,18 +7,18 @@ import editImage from '@/assets/icons/write.svg';
 import styles from '@/components/toDo.module.scss';
 import inputValidation from '@/helpers/inputValidation';
 import IToDoProps from '@/types/toDoComponentProps';
+import constants from '@/constants';
 
-export default function ToDo({ data, deleteHandler, editHandler }: IToDoProps) {
+export default function ToDo({ taskData, deleteToDo, editToDo }: IToDoProps) {
   const [editMode, setEditMode] = useState(false);
-  const [value, setValue] = useState<string>(data.value);
+  const [newValue, setNewValue] = useState(taskData.value);
 
   const editButtonHandler = () => {
     setEditMode(!editMode);
 
-    if (data.value === value) return;
-    if (!inputValidation(value)) return;
+    if (taskData.value === newValue || !inputValidation(newValue)) return;
 
-    editHandler(data.id, value, 'value');
+    editToDo(taskData.id, newValue, constants.TaskFields.value);
   };
 
   return (
@@ -26,24 +26,24 @@ export default function ToDo({ data, deleteHandler, editHandler }: IToDoProps) {
       {editMode ? (
         <input
           autoFocus
-          value={value}
+          value={newValue}
           type="text"
           className={styles.todo__text}
           onChange={event => {
-            setValue(event.target.value);
+            setNewValue(event.target.value);
           }}
         />
       ) : (
         <div className={styles.todo__text}>
           <input
             type="checkbox"
-            checked={data.done}
+            checked={taskData.done}
             onChange={() => {
-              editHandler(data.id, !data.done, 'done');
+              editToDo(taskData.id, !taskData.done, constants.TaskFields.done);
             }}
           />
 
-          {data.value}
+          {taskData.value}
         </div>
       )}
 
@@ -59,7 +59,7 @@ export default function ToDo({ data, deleteHandler, editHandler }: IToDoProps) {
           className={styles['todo__control--delete']}
           src={deleteImage}
           alt="delete button"
-          onClick={() => deleteHandler(data.id)}
+          onClick={() => deleteToDo(taskData.id)}
         />
       </div>
     </div>

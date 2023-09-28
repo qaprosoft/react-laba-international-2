@@ -1,36 +1,32 @@
-import { useState } from 'react';
-
 import styles from '@/components/input.module.scss';
 
 export default function Input({
-  addHandler,
+  addToDo,
 }: {
-  addHandler: (toDo: string) => void;
+  addToDo: (toDo: string) => void;
 }) {
-  const [toDo, setToDo] = useState('');
+  const submitHandler = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+
+    const target = event.target as typeof event.target & {
+      input: { value: string };
+    };
+
+    addToDo(target.input.value);
+    target.input.value = '';
+  };
 
   return (
-    <div className={styles.form}>
+    <form className={styles.form} onSubmit={submitHandler}>
       <input
         className={styles.form__input}
-        name="toDo"
         type="text"
-        value={toDo}
-        onChange={event => {
-          setToDo(event.target.value);
-        }}
+        name="input"
         placeholder="Create Todo-Task"
       />
-      <button
-        className={styles.form__button}
-        type="button"
-        onClick={() => {
-          addHandler(toDo);
-          setToDo('');
-        }}
-      >
+      <button className={styles.form__button} type="submit">
         Add
       </button>
-    </div>
+    </form>
   );
 }

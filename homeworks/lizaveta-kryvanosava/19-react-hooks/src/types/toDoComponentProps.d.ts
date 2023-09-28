@@ -1,9 +1,9 @@
 import IToDo from './toDo';
 
 export default interface IToDoProps {
-  data: IToDo;
-  deleteHandler: (id: string) => void;
-  editHandler: (
+  taskData: IToDo;
+  deleteToDo: (id: string) => void;
+  editToDo: (
     id: string,
     newValue: string | boolean,
     keyToChange: keyof IToDo,
