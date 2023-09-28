@@ -4,13 +4,13 @@ import styles from "../styles/UI/Input.module.css";
 interface IProps {
   value: string;
   readonly?: boolean;
-  customStyles: object;
   placeholder?: string;
+  customStyles?: object;
   changeValue: (value: string) => void
 }
 
 export default function InputUI({ customStyles, readonly, value, changeValue, placeholder=""}: IProps) {
-  const inputRef = React.useRef<any>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
     if(inputRef.current) {

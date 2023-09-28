@@ -7,7 +7,7 @@ import styles from "../styles/components/TodoEl.module.css";
 interface IProps {
   todoValue: string;
   deleteTodoEl: () => void;
-  changeTodoEl: (value: string) => void;
+  changeTodoEl: (newValue: string) => void;
 }
 
 export default function TodoElComponent({ todoValue, deleteTodoEl, changeTodoEl }: IProps) {
