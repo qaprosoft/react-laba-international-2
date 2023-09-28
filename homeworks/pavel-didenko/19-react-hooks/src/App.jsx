@@ -1,10 +1,22 @@
 import './App.css';
 import Task from './components/Task/Task';
 import TaskCreator from './components/TaskCreator/TaskCreator';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem('tasks');
+    if(storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    } 
+  }, [])
+  
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
 
   function modifyTasks (index, text) {
     setTasks(tasks => {
