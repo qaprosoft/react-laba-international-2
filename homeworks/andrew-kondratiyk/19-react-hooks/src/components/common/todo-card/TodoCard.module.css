@@ -1,0 +1,52 @@
+.todoCard {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.left {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.checkBox {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	background-color: #bc2d2d;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.checkBox::before {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 9px;
+	width: 7px;
+	height: 15px;
+	border-bottom: 4px solid #FFFFFF;
+	border-right: 4px solid #FFFFFF;
+	transform: rotateZ(45deg);
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.editBtn {
+	border: 1px solid #a0a0a0;
+	outline: none;
+	padding: 8px 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 700;
+}

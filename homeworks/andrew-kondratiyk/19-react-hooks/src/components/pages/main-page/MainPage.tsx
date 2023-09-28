@@ -1,9 +1,6 @@
+import styles from './MainPage.module.css';
 const MainPage = () => {
-  return (
-    <main>
-      <h1>Main page</h1>
-    </main>
-  );
+  return <main className={styles.container}></main>;
 };
 
 export default MainPage;

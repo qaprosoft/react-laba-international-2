@@ -1,9 +1,17 @@
 import {Schema, models, model, Document} from 'mongoose';
 
+export type TodoResponse = {
+  _id: string;
+  userId: string;
+  title: string;
+  note?: string;
+  completed: boolean;
+};
 export interface ITodo extends Document {
   userId: Schema.Types.ObjectId;
   title: string;
   note?: string;
+  completed: boolean;
 }
 
 const todoSchema = new Schema<ITodo>({
@@ -17,6 +25,10 @@ const todoSchema = new Schema<ITodo>({
   },
   note: {
     type: String,
+  },
+  completed: {
+    type: Boolean,
+    required: true,
   },
 });
 
