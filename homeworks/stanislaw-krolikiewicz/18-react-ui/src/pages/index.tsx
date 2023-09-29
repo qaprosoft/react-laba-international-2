@@ -1,8 +1,14 @@
 import {Basic} from 'next/font/google';
-import {Button, NewTileButton, Tile, Loader} from '@/components';
-import {ReactElement, useEffect, useState} from 'react';
+import {
+  Button,
+  NewTileButton,
+  Tile,
+  Loader,
+  Error as MyError,
+} from '@/components';
+import {ReactElement, use, useEffect, useState} from 'react';
 import {Avatar} from '@/types';
-
+import {AnimatePresence} from 'framer-motion';
 const basic = Basic({
   weight: '400',
   subsets: ['latin'],
@@ -18,7 +24,7 @@ export default function Home() {
     fetch('https://tinyfac.es/api/data?limit=1&quality=0')
       .then(res => res.json())
       .then(data => {
-        if (!data.length) throw new Error('No data');
+        if (!data.length) throw new Error('Failed to fetch avatar');
         setTiles([...tiles, <Tile key={data[0].id} avatarUrl={data[0].url} />]);
         setError(null);
         setLoading(false);
@@ -34,7 +40,7 @@ export default function Home() {
     fetch(`https://tinyfac.es/api/data?limit=${tiles.length}&quality=0`)
       .then(res => res.json())
       .then(data => {
-        if (!data.length) throw new Error('No data');
+        if (!data.length) throw new Error('Failed to fetch avatars!');
         console.log(data);
         setTiles(
           data.map((avatar: Avatar) => (
@@ -55,6 +61,14 @@ export default function Home() {
   useEffect(() => {
     if (tiles.length) fetchAvatars();
   }, []);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
+    }
+  }, [error]);
   return (
     <main
       className={`${basic.className} p-[40px] w-full flex flex-col items-center`}
@@ -66,6 +80,9 @@ export default function Home() {
       <Button onClick={fetchAvatars} className="fixed bottom-[24px] z-50">
         Refresh All
       </Button>
+      <AnimatePresence>
+        {error && <MyError key="modal" message={error} fullScreen={true} />}
+      </AnimatePresence>
       {loading && <Loader fullScreen={true} rotate={true} />}
     </main>
   );
