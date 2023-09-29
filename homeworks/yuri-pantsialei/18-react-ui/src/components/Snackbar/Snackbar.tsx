@@ -1,5 +1,5 @@
 import Snackbar from '@mui/material/Snackbar';
-import {forwardRef, useEffect, useState} from 'react';
+import {forwardRef} from 'react';
 import MuiAlert, {AlertProps} from '@mui/material/Alert';
 import {PropsType} from './types';
 
