@@ -15,10 +15,12 @@ const TaskCreator = ({createTask, tasks}) => {
     if (!validateDublicatedTask(taskText)) {
       setTaskExists(true);
       setOpacity(1);
+      addTaskInput.current.focus();
       return;
     }
     if (taskLength >= minLength && taskLength <= maxLength) {
       callback(taskText);
+      addTaskInput.current.focus();
       if (opacity === 1) {
         setOpacity(0);
       }
@@ -26,6 +28,7 @@ const TaskCreator = ({createTask, tasks}) => {
     } else {
       setTaskExists(false);
       setOpacity(1);
+      addTaskInput.current.focus();
     }
   }
 
