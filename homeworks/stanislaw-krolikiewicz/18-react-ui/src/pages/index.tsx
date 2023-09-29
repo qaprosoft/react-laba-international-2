@@ -41,7 +41,6 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         if (!data.length) throw new Error('Failed to fetch avatars!');
-        console.log(data);
         setTiles(
           data.map((avatar: Avatar) => (
             <Tile key={avatar.id} avatarUrl={avatar.url} />

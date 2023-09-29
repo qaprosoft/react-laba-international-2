@@ -12,7 +12,6 @@ export default ({avatarUrl: iAvatar}: Props) => {
   const [avatar, setAvatar] = useState<string | null>(iAvatar || null);
   const [loading, setLoading] = useState<boolean>(true);
   const [visible, setVisible] = useState<boolean>(false);
-  const [toggle, setToggle] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const fetchAvatar = () => {
@@ -48,9 +47,7 @@ export default ({avatarUrl: iAvatar}: Props) => {
   return (
     <button
       onClick={() => {
-        setToggle(!toggle);
         fetchAvatar();
-        console.log('click');
       }}
       onMouseEnter={() => {
         setVisible(true);
