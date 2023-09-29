@@ -1,15 +1,26 @@
 'use client';
 
-import {TodoResponse} from '@/models/todo';
-import {useState} from 'react';
+import {MainContext} from '@/context/MainContext';
+import {TodoCreateRequest, TodoResponse} from '@/types/todos';
+import {useSession} from 'next-auth/react';
+import {useContext, useState} from 'react';
 
 import styles from './EditTodoCard.module.css';
 
 type EditTodoCardProps = {
   todo?: TodoResponse;
+  onCancel?: () => void;
+  onSave: (todo: TodoCreateRequest) => void;
 };
-const EditTodoCard = ({todo}: EditTodoCardProps) => {
-  const [inputValue, setInputValue] = useState(todo?.title);
+const EditTodoCard = ({todo, onCancel, onSave}: EditTodoCardProps) => {
+  const {userId} = useContext(MainContext);
+  const [inputValue, setInputValue] = useState(todo?.title || '');
+
+  const handleSave = () => {
+    if (!inputValue) return;
+    onSave({title: inputValue, userId});
+  };
+
   return (
     <div className={styles.editTodoCard}>
       <input
@@ -20,10 +31,18 @@ const EditTodoCard = ({todo}: EditTodoCardProps) => {
         className={styles.input}
       />
       <div className={styles.footer}>
-        <button className={styles.deleteBtn}>Delete</button>
+        {todo ? (
+          <button className={styles.deleteBtn}>Delete</button>
+        ) : (
+          <div></div>
+        )}
         <div className={styles.right}>
-          <button className={styles.cancelBtn}>Cancel</button>
-          <button className={styles.saveBtn}>Save</button>
+          <button onClick={onCancel} className={styles.cancelBtn}>
+            Cancel
+          </button>
+          <button onClick={handleSave} className={styles.saveBtn}>
+            Save
+          </button>
         </div>
       </div>
     </div>

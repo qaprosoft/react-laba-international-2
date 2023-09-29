@@ -1,52 +1,88 @@
 'use client';
 
+import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
 import Modal from '@/components/common/modal/Modal';
 import TodoCard from '@/components/common/todo-card/TodoCard';
-import {TodoResponse} from '@/types/todos';
+import {queryClient} from '@/context/Providers';
+import {TodoCreateRequest, TodoResponse} from '@/types/todos';
 import axios from 'axios';
 import {signOut, useSession} from 'next-auth/react';
 import {useRouter} from 'next/navigation';
-import {useQuery} from 'react-query';
+import {useState} from 'react';
+import {useMutation, useQuery} from 'react-query';
 import styles from './MainPage.module.css';
+import {MainContext} from '@/context/MainContext';
+
 const MainPage = () => {
   const router = useRouter();
   const session = useSession();
+  // @ts-ignore
+  const userId = session.data?.user?._doc._id;
   const isLoggedIn = session.status === 'authenticated';
 
-  const {data: todos} = useQuery('todos', () => axios.get('/api/todos'));
+  const [isAddTodo, setIsAddTodo] = useState(false);
+
+  const {data: todos} = useQuery(['todos'], () => axios.get('/api/todos'));
+  const {mutate: createTodo} = useMutation(
+    ['todos'],
+    (todo: TodoCreateRequest) => axios.post('/api/todos', todo),
+    {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({queryKey: ['todos']});
+        setIsAddTodo(false);
+      },
+    },
+  );
 
   return (
-    <main className={styles.container}>
-      {isLoggedIn ? (
-        <>
-          <div className={styles.header}>
-            <h1>Todos</h1>
-            <div className={styles.buttons}>
-              <button className={styles.button}>Clear finished todos</button>
-              <button className={styles.button}>Clear all todos</button>
-              <button className={styles.button} onClick={() => signOut()}>
-                Sign out
-              </button>
+    <MainContext.Provider value={{userId}}>
+      <main className={styles.container}>
+        {isLoggedIn ? (
+          <>
+            <div className={styles.header}>
+              <h1>Todos</h1>
+              <div className={styles.buttons}>
+                <button className={styles.button}>Clear finished todos</button>
+                <button className={styles.button}>Clear all todos</button>
+                <button className={styles.button} onClick={() => signOut()}>
+                  Sign out
+                </button>
+              </div>
             </div>
-          </div>
-          <div className={styles.divider}></div>
-          <div className={styles.todosList}>
-            {todos?.data?.map((todo: TodoResponse) => (
-              <TodoCard todo={todo} key={todo._id} />
-            ))}
-          </div>
-        </>
-      ) : (
-        <Modal isOpen={true} title="Please, login to see your todos">
-          <button
-            className={styles.siginButton}
-            onClick={() => router.push('/login')}
-          >
-            Sign in
-          </button>
-        </Modal>
-      )}
-    </main>
+            <div className={styles.divider}></div>
+            <div className={styles.todosList}>
+              {todos?.data?.map((todo: TodoResponse) => (
+                <TodoCard todo={todo} key={todo._id} />
+              ))}
+            </div>
+            <div className={styles.addTaskContainer}>
+              {isAddTodo ? (
+                <EditTodoCard
+                  onCancel={() => setIsAddTodo(false)}
+                  onSave={createTodo}
+                />
+              ) : (
+                <div
+                  onClick={() => setIsAddTodo(true)}
+                  className={styles.addTodoBtn}
+                >
+                  Add Task
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <Modal isOpen={true} title="Please, login to see your todos">
+            <button
+              className={styles.siginButton}
+              onClick={() => router.push('/login')}
+            >
+              Sign in
+            </button>
+          </Modal>
+        )}
+      </main>
+    </MainContext.Provider>
   );
 };
 

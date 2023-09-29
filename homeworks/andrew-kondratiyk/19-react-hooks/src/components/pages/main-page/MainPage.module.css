@@ -2,6 +2,7 @@
 	width: 600px;
 	min-height: 100vh;
 	margin: 0 auto;
+	padding-bottom: 100px;
 }
 
 .header {
@@ -44,4 +45,27 @@
 	font-weight: 700;
 	background-color: #0c0c0c;
 	color: #FFFFFF;
+}
+
+.addTaskContainer {
+	margin-top: 30px;
+}
+
+.addTodoBtn {
+	width: 100%;
+	padding: 20px 30px;
+	text-align: center;
+	background-color: rgba(12, 12, 12, 0.15);
+	border-radius: 10px;
+	border: 2px dashed rgba(190, 190, 190, 0.64);
+	font-weight: 700;
+	color: #c7c7c7;
+	cursor: pointer;
+	user-select: none;
+	transition: 0.2s;
+}
+
+.addTodoBtn:hover {
+	border: 2px dashed rgba(216, 216, 216, 0.75);
+	color: #e2e2e2;
 }
