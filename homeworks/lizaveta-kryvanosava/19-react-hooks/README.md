@@ -1,10 +1,10 @@
-# Avatar app
+# To-Do list
 
 It can
 
-- add the tile with random avatar.
-- refresh the avatar.
-- refresh all avatars.
+- Implement a state to manage the list of to-do items. Provide an input field for adding new to-dos.
+- Save the to-do list in localStorage whenever it changes. When the component mounts, retrieve the list from localStorage.
+- Create, Read, Update, and Delete tasks.
 
 ## Run Locally
 
