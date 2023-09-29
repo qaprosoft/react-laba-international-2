@@ -7,7 +7,7 @@ export async function GET(req: NextRequest, {params}: {params: any}) {
   const {id} = params;
   await dbConnect();
   const todo = await Todo.findById(id);
-  return NextResponse.json({todo}, {status: 200});
+  return NextResponse.json(todo, {status: 200});
 }
 
 export async function PUT(req: NextRequest, {params}: {params: any}) {

@@ -12,5 +12,5 @@ export async function POST(req: NextRequest) {
 export async function GET() {
   await dbConnect();
   const todos = await Todo.find();
-  return NextResponse.json({todos});
+  return NextResponse.json(todos);
 }

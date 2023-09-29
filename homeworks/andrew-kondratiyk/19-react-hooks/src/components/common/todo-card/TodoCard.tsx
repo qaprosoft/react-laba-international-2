@@ -1,4 +1,4 @@
-import {TodoResponse} from '@/models/todo';
+import {TodoResponse} from '@/types/todos';
 import {useRef, useState} from 'react';
 
 import styles from './TodoCard.module.css';
