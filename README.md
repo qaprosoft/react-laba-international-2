@@ -60,7 +60,7 @@ Once PR is created you have to do the following things:
 | Sep 19th      | [Overview of React library. React basics](./lectures/17-react-basics/README.md) | [task 🔗](./lectures/17-react-basics/task.md) |
 | Sep 22th      | [React UI. Managing State.](./lectures/18-react-ui/README.md)                   | [task 🔗](./lectures/18-react-ui/task.md)     |
 | Sep 26th      | [Overview of Hooks](./lectures/19-react-hooks/README.md).                       | [task 🔗](./lectures/19-react-hooks/task.md)  |
-| Sep 29th      | React API.                                                                      |                                               |
+| Sep 29th      | [React API](./lectures/20-react-api/README.md).                                 | [task 🔗](./lectures/20-react-api/task.md)    |
 | Oct 3th       | Overview of web application, key points. Next.js.                               |                                               |
 | Oct 6th       | Next.js. Key features.                                                          |                                               |
 | Oct 10th      | Testing.                                                                        |                                               |
