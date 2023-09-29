@@ -1,8 +1,15 @@
 import AddNewTile from 'public/assets/icons/addNewTile.svg';
 
-export default () => {
+interface Props {
+  onClick: () => void;
+}
+
+export default ({onClick}: Props) => {
   return (
-    <button className="transition hover:opacity-90 active:scale-95">
+    <button
+      onClick={onClick}
+      className="transition hover:opacity-90 active:scale-95"
+    >
       <AddNewTile alt="Add new tile" />
     </button>
   );

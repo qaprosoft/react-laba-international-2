@@ -13,6 +13,7 @@ const config: Config = {
       green: '#02CC67',
       black: '#000',
       white: '#fff',
+      error: '#ff3333',
     },
     extend: {
       backgroundImage: {
