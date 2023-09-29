@@ -1,11 +1,16 @@
 'use client';
 
 import Modal from '@/components/common/modal/Modal';
+import {Session} from 'next-auth';
 import {useRouter} from 'next/navigation';
 import styles from './MainPage.module.css';
-const MainPage = () => {
+type MainPageProps = {
+  session: Session | null;
+};
+const MainPage = ({session}: MainPageProps) => {
   const router = useRouter();
   const isLoggedIn = false;
+  console.log(session);
   return (
     <main className={styles.container}>
       {isLoggedIn ? (

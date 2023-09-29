@@ -1,10 +1,10 @@
 import dbConnect from '@/lib/db-connect';
 import User, {IUser} from '@/models/user';
 import {compare} from 'bcryptjs';
-import NextAuth from 'next-auth';
+import NextAuth, {NextAuthOptions} from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-const handler = NextAuth({
+export const AuthOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       id: 'credentials',
@@ -21,7 +21,7 @@ const handler = NextAuth({
         }).select('+password');
 
         if (!user) {
-          throw new Error('Invalid credentials');
+          return null;
         }
 
         const isPasswordCorrect = await compare(
@@ -30,7 +30,7 @@ const handler = NextAuth({
         );
 
         if (!isPasswordCorrect) {
-          throw new Error('Invalid credentials');
+          return null;
         }
 
         return user;
@@ -56,6 +56,8 @@ const handler = NextAuth({
       return session;
     },
   },
-});
+};
+
+const handler = NextAuth(AuthOptions);
 
 export {handler as GET, handler as POST};
