@@ -12,10 +12,21 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [tiles, setTiles] = useState<ReactElement[]>([]);
-  const [key, setKey] = useState<number>(0);
+
   const addNewTile = () => {
-    setTiles([...tiles, <Tile key={key} />]);
-    setKey(key + 1);
+    setLoading(true);
+    fetch('https://tinyfac.es/api/data?limit=1&quality=0')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.length) throw new Error('No data');
+        setTiles([...tiles, <Tile key={data[0].id} avatarUrl={data[0].url} />]);
+        setError(null);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error.message);
+        setLoading(false);
+      });
   };
 
   const fetchAvatars = () => {

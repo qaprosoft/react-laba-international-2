@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Refresh from 'public/assets/icons/refresh.svg';
 import {useState, useEffect} from 'react';
 import {Loader} from '@/components';
 import styles from './Component.module.css';
@@ -12,7 +11,6 @@ export default ({avatarUrl: iAvatar}: Props) => {
   const [avatar, setAvatar] = useState<string | null>(iAvatar || null);
   const [loading, setLoading] = useState<boolean>(true);
   const [visible, setVisible] = useState<boolean>(false);
-  ``;
   const [toggle, setToggle] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,7 +24,6 @@ export default ({avatarUrl: iAvatar}: Props) => {
         setError(null);
       })
       .catch(error => {
-        setAvatar(null);
         setError(error.message);
         setLoading(false);
       })
