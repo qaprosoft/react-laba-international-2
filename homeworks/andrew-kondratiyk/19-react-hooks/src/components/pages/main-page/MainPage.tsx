@@ -34,6 +34,16 @@ const MainPage = () => {
     },
   );
 
+  const {mutate: deleteTodo} = useMutation(
+    ['todos'],
+    (id: string) => axios.delete(`/api/todos/${id}`),
+    {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({queryKey: ['todos']});
+      },
+    },
+  );
+
   return (
     <MainContext.Provider value={{userId}}>
       <main className={styles.container}>
@@ -52,7 +62,7 @@ const MainPage = () => {
             <div className={styles.divider}></div>
             <div className={styles.todosList}>
               {todos?.data?.map((todo: TodoResponse) => (
-                <TodoCard todo={todo} key={todo._id} />
+                <TodoCard onDelete={deleteTodo} todo={todo} key={todo._id} />
               ))}
             </div>
             <div className={styles.addTaskContainer}>

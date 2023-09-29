@@ -11,8 +11,14 @@ type EditTodoCardProps = {
   todo?: TodoResponse;
   onCancel?: () => void;
   onSave: (todo: TodoCreateRequest) => void;
+  onDelete?: () => void;
 };
-const EditTodoCard = ({todo, onCancel, onSave}: EditTodoCardProps) => {
+const EditTodoCard = ({
+  todo,
+  onCancel,
+  onSave,
+  onDelete,
+}: EditTodoCardProps) => {
   const {userId} = useContext(MainContext);
   const [inputValue, setInputValue] = useState(todo?.title || '');
 
@@ -32,7 +38,9 @@ const EditTodoCard = ({todo, onCancel, onSave}: EditTodoCardProps) => {
       />
       <div className={styles.footer}>
         {todo ? (
-          <button className={styles.deleteBtn}>Delete</button>
+          <button onClick={onDelete} className={styles.deleteBtn}>
+            Delete
+          </button>
         ) : (
           <div></div>
         )}
