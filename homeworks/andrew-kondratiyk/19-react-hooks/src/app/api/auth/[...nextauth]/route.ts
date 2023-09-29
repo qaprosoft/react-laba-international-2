@@ -16,24 +16,24 @@ export const AuthOptions: NextAuthOptions = {
       async authorize(credentials) {
         await dbConnect();
 
-        const user = await User.findOne({
+        const {password, ...userWithoutPass} = await User.findOne({
           name: credentials?.name,
         }).select('+password');
 
-        if (!user) {
+        if (!userWithoutPass) {
           return null;
         }
 
         const isPasswordCorrect = await compare(
           credentials!.password,
-          user.password,
+          password,
         );
 
         if (!isPasswordCorrect) {
           return null;
         }
 
-        return user;
+        return userWithoutPass;
       },
     }),
   ],

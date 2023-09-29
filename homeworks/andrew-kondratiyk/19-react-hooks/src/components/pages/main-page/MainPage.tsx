@@ -1,16 +1,13 @@
 'use client';
 
 import Modal from '@/components/common/modal/Modal';
-import {Session} from 'next-auth';
+import {signOut, useSession} from 'next-auth/react';
 import {useRouter} from 'next/navigation';
 import styles from './MainPage.module.css';
-type MainPageProps = {
-  session: Session | null;
-};
-const MainPage = ({session}: MainPageProps) => {
+const MainPage = () => {
   const router = useRouter();
-  const isLoggedIn = false;
-  console.log(session);
+  const session = useSession();
+  const isLoggedIn = session.status === 'authenticated';
   return (
     <main className={styles.container}>
       {isLoggedIn ? (
@@ -20,6 +17,9 @@ const MainPage = ({session}: MainPageProps) => {
             <div className={styles.buttons}>
               <button className={styles.button}>Clear finished todos</button>
               <button className={styles.button}>Clear all todos</button>
+              <button className={styles.button} onClick={() => signOut()}>
+                Sign out
+              </button>
             </div>
           </div>
           <div className={styles.divider}></div>
