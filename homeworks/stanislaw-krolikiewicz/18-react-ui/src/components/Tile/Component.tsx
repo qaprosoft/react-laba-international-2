@@ -1,7 +1,7 @@
-import {StaticImport} from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import Refresh from 'public/assets/icons/refresh.svg';
 import {useState, useEffect} from 'react';
+import {Loader} from '@/components';
 import styles from './Component.module.css';
 
 interface Props {
@@ -68,15 +68,7 @@ export default ({avatarUrl: iAvatar}: Props) => {
         />
       )}
       {error && <h2>Error: {error}!</h2>}
-      {(loading || visible) && (
-        <Refresh
-          alt="Refresh"
-          height={104}
-          width={100}
-          fill="#02CC67"
-          className={`text-green z-50 ${loading && 'animate-spin'} absolute`}
-        />
-      )}
+      {(loading || visible) && <Loader rotate={loading} />}
     </button>
   );
 };

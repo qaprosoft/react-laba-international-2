@@ -55,7 +55,7 @@ export default function Home() {
       <Button onClick={fetchAvatars} className="fixed bottom-[24px] z-50">
         Refresh All
       </Button>
-      {loading && <Loader />}
+      {loading && <Loader fullScreen={true} rotate={true} />}
     </main>
   );
 }
