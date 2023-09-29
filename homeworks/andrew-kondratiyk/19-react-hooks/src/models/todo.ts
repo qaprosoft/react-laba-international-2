@@ -1,12 +1,4 @@
 import {Schema, models, model, Document} from 'mongoose';
-
-export type TodoResponse = {
-  _id: string;
-  userId: string;
-  title: string;
-  note?: string;
-  completed: boolean;
-};
 export interface ITodo extends Document {
   userId: Schema.Types.ObjectId;
   title: string;
