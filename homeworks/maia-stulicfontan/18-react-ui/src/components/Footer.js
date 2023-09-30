@@ -1,7 +1,12 @@
-function Footer({onRefreshAll}) {
+function Footer({onRefreshAll, isDisabled}) {
   return (
     <footer className="footer">
-      <button className="footer__button" onClick={onRefreshAll}>
+      <button
+        type="button"
+        className="footer__button"
+        disabled={isDisabled}
+        onClick={onRefreshAll}
+      >
         Refresh All
       </button>
     </footer>

@@ -4,15 +4,13 @@ import Avatar from './Avatar';
 function Avatars({avatars, onAdd, onRefresh}) {
   return (
     <section className="avatars">
-      {avatars.map((avatar, index) => {
-        return (
-          <Avatar
-            avatar={avatar}
-            key={index}
-            onRefresh={() => onRefresh(index)}
-          ></Avatar>
-        );
-      })}
+      {avatars.map(avatar => (
+        <Avatar
+          avatar={avatar}
+          key={avatar.id}
+          onRefresh={() => onRefresh(avatar)}
+        ></Avatar>
+      ))}
       <div className="avatar__container border--green" onClick={onAdd}>
         <img className="avatar__icon" src={plus} alt="Plus sign"></img>
       </div>
