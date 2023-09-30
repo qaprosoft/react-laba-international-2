@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import * as React from "react";
+import styles from "./App.module.css";
+import TodoElComponent from "./components/TodoEl";
+import CreateTodoComponent from './components/CreateTodo';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export interface ITodo {
+  id: string;
+  value: string;
+  isDone: boolean;
 }
 
-export default App
+export default function App() {
+  const [list, setList] = React.useState<ITodo[]>([]);
+
+  React.useEffect(() => {
+    const result = localStorage.getItem("todos");
+    if(result) setList(JSON.parse(result));
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(list));
+  }, [list]);
+
+  return (
+    <main className={styles.main}>
+      <CreateTodoComponent
+        todos={list}
+        addTodo={(todoEl: ITodo) => {
+          setList((state: ITodo[]) => ([...state, todoEl]))
+        }}
+      />
+      <section className={styles.list}>
+        {
+          list.map(({ value, isDone, id }: ITodo, index: number) => {
+            return (
+              <TodoElComponent
+                key={id}
+                isDone={isDone}
+                todoValue={value}
+                deleteTodoEl={() => {
+                  setList((state: ITodo[]) => state.filter((todo: ITodo) => todo.id !== id))
+                }}
+                changeTodoDoneStatus={() => {
+                  setList((state: ITodo[]) => {
+                    const stateClone = [...state];
+                    const changeTodoId = stateClone.findIndex((todo: ITodo) => todo.id === id);
+                    if(changeTodoId !== -1) stateClone.splice(index, 1, {value, isDone: !isDone, id});
+                    return stateClone;
+                  })
+                }}
+                changeTodoEl={(newValue: string) => {
+                  setList((state: ITodo[]) => {
+                    const stateClone = [...state];
+                    const changeTodoId = stateClone.findIndex((todo: ITodo) => todo.id === id);
+                    if(changeTodoId !== -1) stateClone.splice(index, 1, {value: newValue, isDone: false, id});
+                    return stateClone;
+                  })
+                }}
+              />
+            )
+          })
+        }
+      </section>
+    </main>
+  )
+}

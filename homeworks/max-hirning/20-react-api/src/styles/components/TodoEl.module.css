@@ -1,0 +1,15 @@
+.container {
+  height: 65px;
+  display: flex;
+  margin-block: 3rem;
+  align-items: center;
+}
+
+.buttonsGroup {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  cursor: pointer;
+}
