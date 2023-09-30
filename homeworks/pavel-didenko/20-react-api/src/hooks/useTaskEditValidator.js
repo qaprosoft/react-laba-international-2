@@ -9,7 +9,7 @@ export default function useTaskEditValidator(
 
   const result = useMemo(() => {
     const length = task.length;
-    if (length > minLength && length < maxLength) {
+    if (length >= minLength && length <= maxLength) {
       setOpacity(0);
       return {opacity, unique: true};
     } else {

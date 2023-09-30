@@ -5,7 +5,7 @@ import completeIcon from '../../assets/img/icons/task-complete.svg';
 import './task.css';
 import {MainContext} from '../../contexts/mainContext';
 import useTaskEditValidator from '../../hooks/useTaskEditValidator';
-import { taskExistsMessage, taskLengthMessage } from '../../variables/errorMessages';
+import { taskLengthMessage } from '../../variables/errorMessages';
 
 const taskCompletedStyles = {
   textDecoration: 'line-through',
@@ -71,7 +71,7 @@ const Task = ({taskText, index, completed, state}) => {
         />
       </div>
       <p className="task-creator__warning" style={{opacity: opacity}}>
-        {unique? taskLengthMessage: taskExistsMessage}
+        {taskLengthMessage}
       </p>
     </div>
   );

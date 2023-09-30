@@ -1,13 +1,14 @@
 import './App.css';
 import Task from './components/Task/Task';
 import TaskCreator from './components/TaskCreator/TaskCreator';
-import {useEffect, useReducer, useMemo} from 'react';
+import {useEffect, useReducer, useMemo, callBack, useCallback} from 'react';
 import reducer from './functions/reducer';
 import { MainContext } from './contexts/mainContext';
 
 const App = function () {
   const [state, dispatch] = useReducer(reducer, []);
-  const tasks = useMemo(() => {
+
+  const tasksUploader = useCallback(() => {
     return state.map((task, index) => {
       return (
         <Task
@@ -22,7 +23,7 @@ const App = function () {
         />
       );
     });
-  }, [state])
+  }, [state]);
 
   useEffect(() => {
     const storedTasks = localStorage.getItem('tasks');
@@ -69,7 +70,7 @@ const App = function () {
       <div className="main-container">
         <TaskCreator state={state} />
         <div className="tasks-section">
-          {tasks}
+          {tasksUploader()}
           <button
             className="clear-completed-tasks"
             onClick={removeCompletedTasks}
