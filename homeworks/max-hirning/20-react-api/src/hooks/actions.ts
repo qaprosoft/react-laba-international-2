@@ -5,6 +5,14 @@ export function useTodoActions() {
   const todos = React.useContext(TodosContext);
   const [isEditable, setIsEditable] = React.useState<boolean>(false);
 
+  const deleteTodoEl = (id: string) => {
+    todos?.deleteTodo(id);
+  }
+
+  const changeTodoDoneStatus = (id: string) => {
+    todos?.toggleTodo(id);
+  }
+
   const editTodo = (id: string, newValue: string) => {
     if(!isEditable) {
       setIsEditable(true);
@@ -12,14 +20,6 @@ export function useTodoActions() {
       todos?.updateTodo(id, newValue);
       setIsEditable(false);
     }
-  }
-
-  const deleteTodoEl = (id: string) => {
-    todos?.deleteTodo(id);
-  }
-
-  const changeTodoDoneStatus = (id: string) => {
-    todos?.toggleTodo(id);
   }
 
   return { isEditable, editTodo, deleteTodoEl, changeTodoDoneStatus };

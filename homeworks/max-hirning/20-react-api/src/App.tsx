@@ -9,10 +9,9 @@ export default function App() {
   const { todos, deleteTodo, addTodo, toggleTodo, updateTodo, setTodos } = useTodosStore();
 
   React.useEffect(() => {
-    console.log('set todos');
     const result = localStorage.getItem("todos");
     if(result) setTodos(JSON.parse(result));
-  }, []);
+  }, [setTodos]);
 
   React.useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));

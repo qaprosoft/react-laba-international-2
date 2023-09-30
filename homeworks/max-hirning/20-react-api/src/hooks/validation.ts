@@ -6,5 +6,10 @@ export function useStringValidation(value: string, compareWithExistingValues?: b
   const regex = /^[^#^&*\\|/<>`~]+$/;
   const todos = React.useContext(TodosContext);
 
-  return !regex.test(value) || value.length === 0 || Boolean(compareWithExistingValues ? todos?.todos.some((el: ITodo) => el.value === value) : false);
+  const doesTodoAllreadyExists = React.useMemo(() => {
+    if(compareWithExistingValues) return todos?.todos.some((el: ITodo) => el.value === value);
+    return false;
+  }, [todos?.todos, compareWithExistingValues, value])
+
+  return !regex.test(value) || value.length === 0 || Boolean(doesTodoAllreadyExists);
 }
