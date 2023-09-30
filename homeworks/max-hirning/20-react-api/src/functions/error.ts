@@ -1,4 +1,4 @@
-import { ITodo } from "../App";
+import { ITodo } from "../store/types";
 import { isValidValue } from "./string";
 
 export function checkTodoValue({ value, todos }: { value: string, todos?: ITodo[] }, callBack: () => void) {
@@ -6,7 +6,7 @@ export function checkTodoValue({ value, todos }: { value: string, todos?: ITodo[
     alert("You can't create empty todo");
     return;
   }
-  if(todos && (todos.some((el: ITodo) => el.value === value))) {
+  if(todos?.some((el: ITodo) => el.value === value)) {
     alert("You can't create existing todo");
     return;
   }

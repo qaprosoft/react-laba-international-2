@@ -1,24 +1,16 @@
 import * as React from "react";
-import { ITodo } from "../App";
 import InputUI from "../UI/Input";
+import { TodosContext } from "../store/todos"; 
 import { checkTodoValue } from "../functions/error";
 import styles from "../styles/components/CreateTodo.module.css";
 
-interface IProps {
-  todos: ITodo[];
-  addTodo: (todoEl: ITodo) => void;
-}
-
-export default function CreateTodoComponent({todos, addTodo}: IProps) {
+export default function CreateTodoComponent() {
+  const todos = React.useContext(TodosContext);
   const [value, setValue] = React.useState<string>("");
 
   const createTodo = () => {
-    checkTodoValue({value, todos}, () => {
-      addTodo({
-        value,
-        isDone: false,
-        id: (Date.now()).toString(),
-      });
+    checkTodoValue({value, todos: todos?.todos}, () => {
+      todos?.addTodo(value);
       setValue("");
     });
   }

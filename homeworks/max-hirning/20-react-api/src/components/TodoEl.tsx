@@ -1,52 +1,55 @@
 import * as React from "react";
 import InputUI from "../UI/Input";
+import { ITodo } from "../store/types";
 import SaveIcon from "../assets/save.svg";
 import EditIcon from "../assets/edit.svg";
+import { TodosContext } from "../store/todos";
 import DeleteIcon from "../assets/delete.svg";
 import { checkTodoValue } from "../functions/error";
 import styles from "../styles/components/TodoEl.module.css";
 
-interface IProps {
-  isDone: boolean;
-  todoValue: string;
-  deleteTodoEl: () => void;
-  changeTodoDoneStatus: () => void;
-  changeTodoEl: (newValue: string) => void;
-}
-
-export default function TodoElComponent({ isDone, todoValue, deleteTodoEl, changeTodoEl, changeTodoDoneStatus }: IProps) {
-  const [value, setValue] = React.useState<string>("");
+export default function TodoElComponent({ id, isDone, value }: ITodo) {
+  const todos = React.useContext(TodosContext);
+  const [newValue, setNewValue] = React.useState<string>("");
   const [isEditable, setIsEditable] = React.useState<boolean>(false);
   
   React.useEffect(() => {
-    setValue(todoValue);
-  }, [todoValue]);
+    setNewValue(value);
+  }, [value]);
 
   const editTodo = () => {
     if(!isEditable) {
       setIsEditable(true);
     } else {
-      checkTodoValue({value}, () => {
-        changeTodoEl(value);
+      checkTodoValue({value: newValue}, () => {
+        todos?.updateTodo(id, newValue);
         setIsEditable(false);
       })
     }
   }
 
+  const deleteTodoEl = () => {
+    todos?.deleteTodo(id);
+  }
+
+  const changeTodoDoneStatus = () => {
+    todos?.toggleTodo(id);
+  }
+
   return (
     <div className={styles.container}>
       <InputUI
-        value={value}
+        value={newValue}
         customStyles={{ 
           cursor: isEditable ? "text" : "pointer", 
-          textDecoration: (isDone && !isEditable) ? "line-through" : "auto",
           backgroundColor: isEditable ? "yellow" : "#ECF3FF",
+          textDecoration: (isDone && !isEditable) ? "line-through" : "auto",
         }}
         onClick={() => {
           if(!isEditable) changeTodoDoneStatus();
         }}
         readonly={!isEditable}
-        changeValue={(value: string) => setValue(value)}
+        changeValue={(newValue: string) => setNewValue(newValue)}
       />
       <div className={styles.buttonsGroup}>
         {

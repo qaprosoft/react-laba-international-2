@@ -1,66 +1,43 @@
 import * as React from "react";
 import styles from "./App.module.css";
-import TodoElComponent from "./components/TodoEl";
+import TodosListComponent from "./components/TodosList";
 import CreateTodoComponent from './components/CreateTodo';
-
-export interface ITodo {
-  id: string;
-  value: string;
-  isDone: boolean;
-}
+import { TodosContext, todosReducer } from "./store/todos";
 
 export default function App() {
-  const [list, setList] = React.useState<ITodo[]>([]);
+  const [todos, dispatch] = React.useReducer(todosReducer, []);
 
   React.useEffect(() => {
     const result = localStorage.getItem("todos");
-    if(result) setList(JSON.parse(result));
+    if(result) dispatch({ type: 'SET_TODO', payload: JSON.parse(result) });
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(list));
-  }, [list]);
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  const deleteTodo = (id: string): void => {
+    dispatch({ type: 'DELETE_TODO', payload: { id } });
+  };
+
+  const addTodo = (value: string): void => {
+    dispatch({ type: 'ADD_TODO', payload: { id: (Date.now()).toString(), value, isDone: false } });
+  };
+
+  const toggleTodo = (id: string): void => {
+    dispatch({ type: 'TOGGLE_TODO', payload: { id } });
+  };
+
+  const updateTodo = (id: string, value: string): void => {
+    dispatch({ type: 'UPDATE_TODO', payload: { id, value } });
+  };
 
   return (
-    <main className={styles.main}>
-      <CreateTodoComponent
-        todos={list}
-        addTodo={(todoEl: ITodo) => {
-          setList((state: ITodo[]) => ([...state, todoEl]))
-        }}
-      />
-      <section className={styles.list}>
-        {
-          list.map(({ value, isDone, id }: ITodo, index: number) => {
-            return (
-              <TodoElComponent
-                key={id}
-                isDone={isDone}
-                todoValue={value}
-                deleteTodoEl={() => {
-                  setList((state: ITodo[]) => state.filter((todo: ITodo) => todo.id !== id))
-                }}
-                changeTodoDoneStatus={() => {
-                  setList((state: ITodo[]) => {
-                    const stateClone = [...state];
-                    const changeTodoId = stateClone.findIndex((todo: ITodo) => todo.id === id);
-                    if(changeTodoId !== -1) stateClone.splice(index, 1, {value, isDone: !isDone, id});
-                    return stateClone;
-                  })
-                }}
-                changeTodoEl={(newValue: string) => {
-                  setList((state: ITodo[]) => {
-                    const stateClone = [...state];
-                    const changeTodoId = stateClone.findIndex((todo: ITodo) => todo.id === id);
-                    if(changeTodoId !== -1) stateClone.splice(index, 1, {value: newValue, isDone: false, id});
-                    return stateClone;
-                  })
-                }}
-              />
-            )
-          })
-        }
-      </section>
-    </main>
+    <TodosContext.Provider value={{ todos, addTodo, updateTodo, toggleTodo, deleteTodo }}>
+      <main className={styles.main}>
+        <CreateTodoComponent/>
+        <TodosListComponent/>
+      </main>
+    </TodosContext.Provider>
   )
 }
