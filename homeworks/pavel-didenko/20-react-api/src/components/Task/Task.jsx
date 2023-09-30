@@ -3,23 +3,20 @@ import modifyIcon from '../../assets/img/icons/write.svg';
 import removeIcon from '../../assets/img/icons/delete.svg';
 import completeIcon from '../../assets/img/icons/task-complete.svg';
 import './task.css';
-import { MainContext } from '../../contexts/mainContext';
+import {MainContext} from '../../contexts/mainContext';
 
 const taskCompletedStyles = {
   textDecoration: 'line-through',
   color: 'green',
 };
 
-const Task = ({
-  taskText,
-  index,
-  completed,
-}) => {
+const Task = ({taskText, index, completed}) => {
   const [disabledModification, setDisabledModification] = useState(true);
-  const taskField = useRef(null);
   const [opacity, setOpacity] = useState(0);
+  const [newTaskText, setNewTaskText] = useState(taskText);
   const {modifyTasks, removeTask, setCompletedTask} = useContext(MainContext);
 
+  
 
   function modifyTaskHandler(newTaskText) {
     if (disabledModification) {
@@ -31,10 +28,10 @@ const Task = ({
   }
 
   function taskLengthValidator(task, minLength, maxLength) {
-    if(task.length >= minLength && task.length <= maxLength) {
+    if (task.length >= minLength && task.length <= maxLength) {
       modifyTaskHandler(task);
     } else {
-      if(opacity === 0){
+      if (opacity === 0) {
         setOpacity(1);
       }
     }
@@ -47,11 +44,13 @@ const Task = ({
           className="task__input"
           defaultValue={taskText}
           disabled={disabledModification}
-          ref={taskField}
           style={completed ? taskCompletedStyles : {}}
+          onChange={e => {
+            setNewTaskText(e.target.value);
+          }}
           onKeyUp={e => {
             if (e.key === 'Enter') {
-              taskLengthValidator(taskField.current.value, 1, 33);
+              taskLengthValidator(newTaskText, 1, 33);
             }
           }}
         ></input>
@@ -59,7 +58,9 @@ const Task = ({
           className="task__icon"
           src={modifyIcon}
           alt="Modify task"
-          onClick={() => taskLengthValidator(taskField.current.value, 1, 33)}
+          onClick={() => {
+            taskLengthValidator(newTaskText, 1, 33);
+          }}
         />
         <img
           className="task__icon"

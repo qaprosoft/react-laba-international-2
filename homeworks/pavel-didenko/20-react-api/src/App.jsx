@@ -1,12 +1,27 @@
 import './App.css';
 import Task from './components/Task/Task';
 import TaskCreator from './components/TaskCreator/TaskCreator';
-import {useEffect, useReducer} from 'react';
+import {useEffect, useReducer, useMemo, useCallback} from 'react';
 import reducer from './functions/reducer';
 import { MainContext } from './contexts/mainContext';
 
 const App = function () {
   const [state, dispatch] = useReducer(reducer, []);
+  const tasks = useMemo(() => {
+    return state.map((task, index) => {
+      return (
+        <Task
+          taskText={task.taskText}
+          key={task.id}
+          index={index}
+          completed={task.completed}
+          modifyTasks={modifyTasks}
+          removeTask={removeTask}
+          setCompletedTask={setCompletedTask}
+        />
+      );
+    });
+  }, [state])
 
   useEffect(() => {
     const storedTasks = localStorage.getItem('tasks');
@@ -53,19 +68,7 @@ const App = function () {
       <div className="main-container">
         <TaskCreator state={state} />
         <div className="tasks-section">
-          {state.map((task, index) => {
-            return (
-              <Task
-                taskText={task.taskText}
-                key={task.id}
-                index={index}
-                completed={task.completed}
-                modifyTasks={modifyTasks}
-                removeTask={removeTask}
-                setCompletedTask={setCompletedTask}
-              />
-            );
-          })}
+          {tasks}
           <button
             className="clear-completed-tasks"
             onClick={removeCompletedTasks}

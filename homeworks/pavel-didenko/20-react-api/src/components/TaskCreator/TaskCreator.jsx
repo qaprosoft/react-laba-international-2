@@ -10,6 +10,7 @@ const TaskCreator = ({ state}) => {
   const addTaskInput = useRef(null);
   const [opacity, setOpacity] = useState(0);
   const [taskExists, setTaskExists] = useState(false);
+  const [taskText, setTastText] = useState('');
   const {createTask} = useContext(MainContext);
 
 
@@ -50,16 +51,20 @@ const TaskCreator = ({ state}) => {
   return (
     <div className="task-creator-wrapper">
       <div>
-        <input ref={addTaskInput} placeholder="Create-Todo-Task"></input>
+        <input
+          ref={addTaskInput}
+          placeholder="Create-Todo-Task"
+          onChange={e => {
+            setTastText(e.target.value);
+          }}
+        ></input>
         <p className="task-creator__warning" style={{opacity: opacity}}>
           {taskExists ? taskExistsMessage : taskLengthMessage}
         </p>
       </div>
       <button
         className="add-task-button"
-        onClick={() =>
-          taskLengthHandler(1, 33, createTask, addTaskInput.current.value)
-        }
+        onClick={() => taskLengthHandler(1, 33, createTask, taskText)}
       >
         Add
       </button>
