@@ -1,6 +1,7 @@
 import {useState, useMemo} from 'react';
+import validateDublicatedTask from '../functions/validateDublicatedTasks';
 
-export default function useLengthHandler(
+export default function useTaskCreationValidator(
   minLength,
   maxLength,
   taskText,
@@ -12,17 +13,6 @@ export default function useLengthHandler(
   const result = useMemo(() => {
     let result = false;
 
-    function validateDublicatedTask(task, state) {
-      let result = true;
-
-      for (let item of state) {
-        if (item.taskText === task) {
-          result = false;
-        }
-      }
-
-      return result;
-    }
 
     const taskLength = taskText.length;
     if (!validateDublicatedTask(taskText, state)) {

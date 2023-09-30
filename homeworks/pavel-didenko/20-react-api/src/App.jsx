@@ -1,7 +1,7 @@
 import './App.css';
 import Task from './components/Task/Task';
 import TaskCreator from './components/TaskCreator/TaskCreator';
-import {useEffect, useReducer, useMemo, useCallback} from 'react';
+import {useEffect, useReducer, useMemo} from 'react';
 import reducer from './functions/reducer';
 import { MainContext } from './contexts/mainContext';
 
@@ -18,6 +18,7 @@ const App = function () {
           modifyTasks={modifyTasks}
           removeTask={removeTask}
           setCompletedTask={setCompletedTask}
+          state={state}
         />
       );
     });

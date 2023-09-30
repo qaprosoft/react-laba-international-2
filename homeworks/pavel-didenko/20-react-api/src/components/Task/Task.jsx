@@ -4,18 +4,20 @@ import removeIcon from '../../assets/img/icons/delete.svg';
 import completeIcon from '../../assets/img/icons/task-complete.svg';
 import './task.css';
 import {MainContext} from '../../contexts/mainContext';
+import useTaskEditValidator from '../../hooks/useTaskEditValidator';
+import { taskExistsMessage, taskLengthMessage } from '../../variables/errorMessages';
 
 const taskCompletedStyles = {
   textDecoration: 'line-through',
   color: 'green',
 };
 
-const Task = ({taskText, index, completed}) => {
+const Task = ({taskText, index, completed, state}) => {
   const [disabledModification, setDisabledModification] = useState(true);
   const {modifyTasks, removeTask, setCompletedTask} = useContext(MainContext);
-  //task validation
-  const [opacity, setOpacity] = useState(0);
   const [newTaskText, setNewTaskText] = useState(taskText);
+  const {opacity, unique} = useTaskEditValidator(newTaskText, 1, 33);
+
 
   
 
@@ -25,16 +27,6 @@ const Task = ({taskText, index, completed}) => {
     } else {
       setDisabledModification(true);
       modifyTasks(index, newTaskText);
-    }
-  }
-
-  function taskLengthValidator(task, minLength, maxLength) {
-    if (task.length >= minLength && task.length <= maxLength) {
-      modifyTaskHandler(task);
-    } else {
-      if (opacity === 0) {
-        setOpacity(1);
-      }
     }
   }
 
@@ -50,8 +42,8 @@ const Task = ({taskText, index, completed}) => {
             setNewTaskText(e.target.value);
           }}
           onKeyUp={e => {
-            if (e.key === 'Enter') {
-              taskLengthValidator(newTaskText, 1, 33);
+            if (e.key === 'Enter' && opacity === 0) {
+              modifyTaskHandler(newTaskText);
             }
           }}
         ></input>
@@ -60,7 +52,9 @@ const Task = ({taskText, index, completed}) => {
           src={modifyIcon}
           alt="Modify task"
           onClick={() => {
-            taskLengthValidator(newTaskText, 1, 33);
+            if (opacity === 0 && unique) {
+              modifyTaskHandler(newTaskText);
+            }
           }}
         />
         <img
@@ -77,7 +71,7 @@ const Task = ({taskText, index, completed}) => {
         />
       </div>
       <p className="task-creator__warning" style={{opacity: opacity}}>
-        Task length must be from 1 to 33 characters
+        {unique? taskLengthMessage: taskExistsMessage}
       </p>
     </div>
   );

@@ -1,10 +1,9 @@
 import './taskCreator.css';
 import {useRef, useState, useContext} from 'react';
 import {MainContext} from '../../contexts/mainContext';
-import useLengthHandler from '../../hooks/useLengthHandler';
+import useTaskCreationValidator from '../../hooks/useTaskCreationValidator';
+import { taskExistsMessage, taskLengthMessage } from '../../variables/errorMessages';
 
-const taskExistsMessage = 'The task already exists';
-const taskLengthMessage = 'Task length must be from 1 to 33 characters';
 
 const TaskCreator = ({state}) => {
   const addTaskInput = useRef(null);
@@ -13,7 +12,12 @@ const TaskCreator = ({state}) => {
 
 
 
-  const {taskExists, opacity, result} = useLengthHandler(1, 33, taskText, state);
+  const {taskExists, opacity, result} = useTaskCreationValidator(
+    1,
+    33,
+    taskText,
+    state,
+  );
 
   return (
     <div className="task-creator-wrapper">
