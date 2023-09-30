@@ -1,46 +1,10 @@
 import './App.css';
 import Task from './components/Task/Task';
 import TaskCreator from './components/TaskCreator/TaskCreator';
-import {useState, useEffect, useReducer} from 'react';
-
-function reducer(state, action) {
-
-  switch (action.type) {
-    case 'task_added': {
-      return [
-        ...state,
-        {id: Date.now(), taskText: action.text, completed: false},
-      ];
-    }
-
-    case 'task_modified': {
-      return state.map((task, index) => {
-        if (index !== action.index) {
-          return task;
-        } else {
-          task.taskText = action.text;
-          task.id = Date.now();
-          return task;
-        }
-      });
-    }
-
-    case 'task_removed': {
-      return state.filter((_, index) => index !== action.index);
-    }
-
-    case 'tasks_extracted': {
-      return action.tasks;
-    }
-
-    default: {
-      throw new Error('Unknows use case');
-    }
-  }
-}
+import {useEffect, useReducer} from 'react';
+import reducer from './functions/reducer';
 
 const App = function () {
-  const [tasks, setTasks] = useState([]);
   const [state, dispatch] = useReducer(reducer, []);
 
   useEffect(() => {
@@ -64,16 +28,7 @@ const App = function () {
   }
 
   function setCompletedTask(index) {
-    setTasks(tasks => {
-      return tasks.map((task, i) => {
-        if (i !== index) {
-          return task;
-        } else {
-          task.completed = !task.completed;
-          return task;
-        }
-      });
-    });
+    dispatch({type: 'task_completed', 'index': index});
   }
 
   function removeTask(index) {
@@ -81,7 +36,7 @@ const App = function () {
   }
 
   function removeCompletedTasks() {
-    setTasks(tasks.filter(task => !task.completed));
+    dispatch({type: 'remove_completed_tasks'});
   }
 
   return (
@@ -98,7 +53,6 @@ const App = function () {
               modifyTasks={modifyTasks}
               removeTask={removeTask}
               setCompletedTask={setCompletedTask}
-              setTasks={setTasks}
             />
           );
         })}
