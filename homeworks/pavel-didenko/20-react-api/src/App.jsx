@@ -3,6 +3,7 @@ import Task from './components/Task/Task';
 import TaskCreator from './components/TaskCreator/TaskCreator';
 import {useEffect, useReducer} from 'react';
 import reducer from './functions/reducer';
+import { MainContext } from './contexts/mainContext';
 
 const App = function () {
   const [state, dispatch] = useReducer(reducer, []);
@@ -40,30 +41,40 @@ const App = function () {
   }
 
   return (
-    <div className="main-container">
-      <TaskCreator createTask={createTask} state={state} />
-      <div className="tasks-section">
-        {state.map((task, index) => {
-          return (
-            <Task
-              taskText={task.taskText}
-              key={task.id}
-              index={index}
-              completed={task.completed}
-              modifyTasks={modifyTasks}
-              removeTask={removeTask}
-              setCompletedTask={setCompletedTask}
-            />
-          );
-        })}
-        <button
-          className="clear-completed-tasks"
-          onClick={removeCompletedTasks}
-        >
-          Clear completed tasks
-        </button>
+    <MainContext.Provider
+      value={{
+        createTask,
+        modifyTasks,
+        setCompletedTask,
+        removeTask,
+        removeCompletedTasks,
+      }}
+    >
+      <div className="main-container">
+        <TaskCreator state={state} />
+        <div className="tasks-section">
+          {state.map((task, index) => {
+            return (
+              <Task
+                taskText={task.taskText}
+                key={task.id}
+                index={index}
+                completed={task.completed}
+                modifyTasks={modifyTasks}
+                removeTask={removeTask}
+                setCompletedTask={setCompletedTask}
+              />
+            );
+          })}
+          <button
+            className="clear-completed-tasks"
+            onClick={removeCompletedTasks}
+          >
+            Clear completed tasks
+          </button>
+        </div>
       </div>
-    </div>
+    </MainContext.Provider>
   );
 };
 

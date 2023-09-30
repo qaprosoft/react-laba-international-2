@@ -1,8 +1,9 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
 import modifyIcon from '../../assets/img/icons/write.svg';
 import removeIcon from '../../assets/img/icons/delete.svg';
 import completeIcon from '../../assets/img/icons/task-complete.svg';
 import './task.css';
+import { MainContext } from '../../contexts/mainContext';
 
 const taskCompletedStyles = {
   textDecoration: 'line-through',
@@ -11,15 +12,14 @@ const taskCompletedStyles = {
 
 const Task = ({
   taskText,
-  modifyTasks,
   index,
-  removeTask,
   completed,
-  setCompletedTask,
 }) => {
   const [disabledModification, setDisabledModification] = useState(true);
   const taskField = useRef(null);
   const [opacity, setOpacity] = useState(0);
+  const {modifyTasks, removeTask, setCompletedTask} = useContext(MainContext);
+
 
   function modifyTaskHandler(newTaskText) {
     if (disabledModification) {

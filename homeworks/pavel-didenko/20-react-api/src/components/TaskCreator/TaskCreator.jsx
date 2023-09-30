@@ -1,14 +1,17 @@
 import React from 'react';
 import './taskCreator.css';
-import {useRef, useState} from 'react';
+import {useRef, useState, useContext} from 'react';
+import {MainContext} from '../../contexts/mainContext';
 
 const taskExistsMessage = 'The task already exists';
 const taskLengthMessage = "Task length must be from 0 to 33 characters";
 
-const TaskCreator = ({createTask, state}) => {
+const TaskCreator = ({ state}) => {
   const addTaskInput = useRef(null);
   const [opacity, setOpacity] = useState(0);
   const [taskExists, setTaskExists] = useState(false);
+  const {createTask} = useContext(MainContext);
+
 
   function validateDublicatedTask(task) {
     let result = true;
