@@ -1,10 +1,21 @@
 import './App.css';
 import Task from './components/Task/Task';
 import TaskCreator from './components/TaskCreator/TaskCreator';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useReducer} from 'react';
 
-function App() {
+function reducer(state, action) {
+  if(action.type === "task_added"){
+    return [
+      ...state,
+      {id: Date.now(), taskText: action.text, completed: false},
+    ];
+  }
+}
+
+
+const App = function () {
   const [tasks, setTasks] = useState([]);
+  const [state, dispatch] = useReducer(reducer, [])
 
   useEffect(() => {
     const storedTasks = localStorage.getItem('tasks');
@@ -17,11 +28,16 @@ function App() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
+  // function createTask(newTaskText) {
+  //   setTasks(tasks => [
+  //     ...tasks,
+  //     {id: Date.now(), taskText: newTaskText, completed: false},
+  //   ]);
+  // }
+
   function createTask(newTaskText) {
-    setTasks(tasks => [
-      ...tasks,
-      {id: Date.now(), taskText: newTaskText, completed: false},
-    ]);
+    dispatch({type: 'task_added', text: newTaskText});
+    console.log(state)
   }
 
   function modifyTasks(index, text) {
@@ -63,7 +79,7 @@ function App() {
     <div className="main-container">
       <TaskCreator createTask={createTask} tasks={tasks} />
       <div className="tasks-section">
-        {tasks.map((task, index) => {
+        {state.map((task, index) => {
           return (
             <Task
               taskText={task.taskText}
