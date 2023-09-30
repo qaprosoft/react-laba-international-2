@@ -1,0 +1,87 @@
+.App {
+    padding: 99px 0 266px 0;
+}
+
+.form {
+    width: 676px;
+}
+
+input {
+    width: 554px;
+    height: 65px;
+    background: #ECF3FF;
+    border: none;
+    padding: 0;
+    vertical-align: middle;
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Hind Siliguri;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Hind Siliguri;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 6px 227px 7px 88px;
+    width: 239px;
+    height: 52px;
+}
+
+.submit {
+    padding: 0;
+    vertical-align: middle;
+    width: 122px;
+    height: 65px;
+    background: #5275A0;
+    border: none;
+    color: #FFF;
+    font-family: Hind Siliguri;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.toDoItem {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toDoItem__value {
+    width: 554px;
+    height: 65px;
+    background: #ECF3FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Hind Siliguri;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.toDoItemList {
+    margin-top: 88px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 47px;
+}
+
+.editBtn, .deleteBtn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.editBtn:hover, .deleteBtn:hover {
+    background-color: #a5b5c9fa;
+}
