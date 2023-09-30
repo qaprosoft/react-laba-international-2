@@ -5,7 +5,7 @@ import {useRef, useState} from 'react';
 const taskExistsMessage = 'The task already exists';
 const taskLengthMessage = "Task length must be from 0 to 33 characters";
 
-const TaskCreator = ({createTask, tasks}) => {
+const TaskCreator = ({createTask, state}) => {
   const addTaskInput = useRef(null);
   const [opacity, setOpacity] = useState(0);
   const [taskExists, setTaskExists] = useState(false);
@@ -13,7 +13,7 @@ const TaskCreator = ({createTask, tasks}) => {
   function validateDublicatedTask(task) {
     let result = true;
 
-    for (let item of tasks) {
+    for (let item of state) {
       if (item.taskText === task) {
         result = false;
       }
