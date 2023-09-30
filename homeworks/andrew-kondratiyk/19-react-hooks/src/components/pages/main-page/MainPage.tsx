@@ -4,7 +4,11 @@ import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
 import Modal from '@/components/common/modal/Modal';
 import TodoCard from '@/components/common/todo-card/TodoCard';
 import {queryClient} from '@/context/Providers';
-import {TodoCreateRequest, TodoResponse} from '@/types/todos';
+import {
+  TodoCreateRequest,
+  TodoResponse,
+  TodoUpdateRequest,
+} from '@/types/todos';
 import axios from 'axios';
 import {signOut, useSession} from 'next-auth/react';
 import {useRouter} from 'next/navigation';
@@ -44,6 +48,17 @@ const MainPage = () => {
     },
   );
 
+  const {mutate: updateTodo} = useMutation(
+    ['todos'],
+    ({id, todo}: {id: string; todo: TodoUpdateRequest}) =>
+      axios.put(`/api/todos/${id}`, todo),
+    {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({queryKey: ['todos']});
+      },
+    },
+  );
+
   return (
     <MainContext.Provider value={{userId}}>
       <main className={styles.container}>
@@ -62,7 +77,12 @@ const MainPage = () => {
             <div className={styles.divider}></div>
             <div className={styles.todosList}>
               {todos?.data?.map((todo: TodoResponse) => (
-                <TodoCard onDelete={deleteTodo} todo={todo} key={todo._id} />
+                <TodoCard
+                  onUpdate={updateTodo}
+                  onDelete={deleteTodo}
+                  todo={todo}
+                  key={todo._id}
+                />
               ))}
             </div>
             <div className={styles.addTaskContainer}>

@@ -1,7 +1,11 @@
 'use client';
 
 import {MainContext} from '@/context/MainContext';
-import {TodoCreateRequest, TodoResponse} from '@/types/todos';
+import {
+  TodoCreateRequest,
+  TodoResponse,
+  TodoUpdateRequest,
+} from '@/types/todos';
 import {useSession} from 'next-auth/react';
 import {useContext, useState} from 'react';
 
@@ -10,7 +14,9 @@ import styles from './EditTodoCard.module.css';
 type EditTodoCardProps = {
   todo?: TodoResponse;
   onCancel?: () => void;
-  onSave: (todo: TodoCreateRequest) => void;
+  onSave:
+    | ((todo: TodoCreateRequest) => void)
+    | ((todo: TodoUpdateRequest) => void);
   onDelete?: () => void;
 };
 const EditTodoCard = ({
@@ -24,7 +30,16 @@ const EditTodoCard = ({
 
   const handleSave = () => {
     if (!inputValue) return;
-    onSave({title: inputValue, userId});
+    if (todo) {
+      // @ts-ignore
+      onSave({
+        title: inputValue,
+        completed: todo.completed,
+      });
+    } else {
+      // @ts-ignore
+      onSave({title: inputValue, userId});
+    }
   };
 
   return (

@@ -1,5 +1,5 @@
 import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
-import {TodoResponse} from '@/types/todos';
+import {TodoResponse, TodoUpdateRequest} from '@/types/todos';
 import {useRef, useState} from 'react';
 
 import styles from './TodoCard.module.css';
@@ -7,12 +7,16 @@ import styles from './TodoCard.module.css';
 type TodoCardProps = {
   todo: TodoResponse;
   onDelete: (id: string) => void;
+  onUpdate: ({id, todo}: {id: string; todo: TodoUpdateRequest}) => void;
 };
-const TodoCard = ({todo, onDelete}: TodoCardProps) => {
+const TodoCard = ({todo, onDelete, onUpdate}: TodoCardProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [completed, setCompleted] = useState(todo.completed);
   const [isEdit, setIsEdit] = useState(false);
 
+  const handleUpdate = (newTodo: TodoUpdateRequest) => {
+    setIsEdit(false);
+    onUpdate({id: todo._id, todo: newTodo});
+  };
   const handleDelete = () => {
     setIsEdit(false);
     onDelete(todo._id);
@@ -23,7 +27,7 @@ const TodoCard = ({todo, onDelete}: TodoCardProps) => {
       {isEdit ? (
         <EditTodoCard
           todo={todo}
-          onSave={() => console.log('save')}
+          onSave={handleUpdate}
           onDelete={handleDelete}
         />
       ) : (
@@ -31,8 +35,13 @@ const TodoCard = ({todo, onDelete}: TodoCardProps) => {
           <div className={styles.left}>
             <div className={styles.checkBoxContainer}>
               <input
-                checked={completed}
-                onChange={() => setCompleted(!completed)}
+                checked={todo.completed}
+                onChange={() =>
+                  onUpdate({
+                    id: todo._id,
+                    todo: {...todo, completed: !todo.completed},
+                  })
+                }
                 type="checkbox"
                 className={styles.checkBoxInput}
                 ref={inputRef}
@@ -41,7 +50,9 @@ const TodoCard = ({todo, onDelete}: TodoCardProps) => {
               <div
                 onClick={() => inputRef.current?.click()}
                 className={styles.checkBox}
-                style={{backgroundColor: completed ? '#bc2d2d' : '#E0E0E0'}}
+                style={{
+                  backgroundColor: todo.completed ? '#bc2d2d' : '#E0E0E0',
+                }}
               ></div>
             </div>
 
