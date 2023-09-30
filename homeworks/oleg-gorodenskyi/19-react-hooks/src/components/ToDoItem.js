@@ -1,23 +1,36 @@
 import React, {Fragment} from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import editIcon from '../assets/write 1.png';
 import deleteIcon from '../assets/delete 1.png';
 
-function ToDoItem({toDo, editToDo, deleteToDo}) {
+function ToDoItem({toDo, deleteToDo, toDoList, setToDoList}) {
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(toDo.value);
   const [isMarked, setIsMarked] = useState({});
 
-  console.log(isMarked)
-
-
-  function handleSave() {
-    editToDo(inputValue, toDo.id);
-    setIsEdit(false);
+  function editToDo(value, id) {
+    const valueToStore = JSON.stringify(value);
+    const isValueExist = Object.values(localStorage).includes(valueToStore);
+    if (isValueExist) {
+      alert('This value is already exist');
+      setInputValue('');
+      localStorage.setItem(id, JSON.stringify(''));
+      setIsEdit(false);
+    } else if (value.length > 25) {
+      alert('The value should be not longer 25 symbols');
+      setInputValue('');
+      localStorage.setItem(id, JSON.stringify(''));
+    } else {
+      const updatedToDoList = toDoList.map(list =>
+        list.id === id ? {id: list.id, value: value} : list,
+      );
+      localStorage.setItem(id, JSON.stringify(value));
+      setToDoList(updatedToDoList);
+      setIsEdit(false);
+    }
   }
 
-  // Learn and repeat how it works
   const toggleIsMarked = id => {
     const updatedIsMarked = {...isMarked};
     updatedIsMarked[id] = !updatedIsMarked[id];
@@ -33,7 +46,10 @@ function ToDoItem({toDo, editToDo, deleteToDo}) {
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
           />
-          <button className="editBtn" onClick={handleSave}>
+          <button
+            className="editBtn"
+            onClick={() => editToDo(inputValue, toDo.id)}
+          >
             <img src={editIcon} alt="edit" />
           </button>
         </>

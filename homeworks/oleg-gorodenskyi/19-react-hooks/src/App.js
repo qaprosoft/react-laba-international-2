@@ -14,7 +14,7 @@ function App() {
     const isValueExist = Object.values(localStorage).includes(valueToStore);
     if (isValueExist) {
       setInputValue('');
-      alert('This value already exist');
+      alert('This value is already exist');
     } else if (inputValue.length > 25) {
       setInputValue('');
       alert('The value should be not longer 25 symbols');
@@ -32,23 +32,8 @@ function App() {
     }));
     setToDoList(storedData);
   }, []);
-  console.log(toDoList);
 
-  function editToDo(value, id) {
-    const valueToStore = JSON.stringify(value);
-    const localStorageValues = Object.values(localStorage)
-    const idxOfValueExist = localStorageValues.indexOf(valueToStore);
-    if (idxOfValueExist >= 0) {
-      alert('This value already exist');
-    } else {
-      const updatedToDoList = toDoList.map(list =>
-        list.id === id ? { id: list.id, value: value } : list
-      );
-      localStorage.setItem(id, JSON.stringify(value));
-      setToDoList(updatedToDoList);
-
-    }
-  }
+  
 
   function deleteToDo(id) {
     localStorage.removeItem(id);
@@ -70,10 +55,11 @@ function App() {
       <div className="toDoItemList">
         {toDoList.map(toDo => (
           <ToDoItem
+          toDoList={toDoList}
             toDo={toDo}
             key={toDo.id}
-            editToDo={editToDo}
             deleteToDo={deleteToDo}
+            setToDoList={setToDoList}
           />
         ))}
       </div>
