@@ -10,15 +10,26 @@ import styles from "../styles/components/TodoEl.module.css";
 
 export default function TodoElComponent({ id, isDone, value }: ITodo) {
   const todos = React.useContext(TodosContext);
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const [newValue, setNewValue] = React.useState<string>("");
   const [isEditable, setIsEditable] = React.useState<boolean>(false);
   
+  React.useEffect(() => {
+    if(inputRef.current) {
+      if(isEditable) {
+        inputRef.current.focus();
+      } else {
+        inputRef.current.blur();
+      }
+    }
+  }, [isEditable]);
+
   React.useEffect(() => {
     setNewValue(value);
   }, [value]);
 
   const editTodo = () => {
-    if(!isEditable) {
+    if(isEditable) {
       setIsEditable(true);
     } else {
       checkTodoValue({value: newValue}, () => {
@@ -48,6 +59,7 @@ export default function TodoElComponent({ id, isDone, value }: ITodo) {
         onClick={() => {
           if(!isEditable) changeTodoDoneStatus();
         }}
+        inputRef={inputRef}
         readonly={!isEditable}
         changeValue={(newValue: string) => setNewValue(newValue)}
       />
