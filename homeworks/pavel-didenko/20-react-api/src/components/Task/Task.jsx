@@ -1,4 +1,4 @@
-import React, {useRef, useState, useContext} from 'react';
+import React, { useState, useContext} from 'react';
 import modifyIcon from '../../assets/img/icons/write.svg';
 import removeIcon from '../../assets/img/icons/delete.svg';
 import completeIcon from '../../assets/img/icons/task-complete.svg';
@@ -12,9 +12,10 @@ const taskCompletedStyles = {
 
 const Task = ({taskText, index, completed}) => {
   const [disabledModification, setDisabledModification] = useState(true);
+  const {modifyTasks, removeTask, setCompletedTask} = useContext(MainContext);
+  //task validation
   const [opacity, setOpacity] = useState(0);
   const [newTaskText, setNewTaskText] = useState(taskText);
-  const {modifyTasks, removeTask, setCompletedTask} = useContext(MainContext);
 
   
 
