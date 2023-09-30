@@ -11,5 +11,7 @@
 }
 
 .button {
+  padding: 0px;
   cursor: pointer;
+  background: transparent;
 }

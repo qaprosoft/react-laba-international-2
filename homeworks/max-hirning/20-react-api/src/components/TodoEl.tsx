@@ -3,17 +3,17 @@ import InputUI from "../UI/Input";
 import { ITodo } from "../store/types";
 import SaveIcon from "../assets/save.svg";
 import EditIcon from "../assets/edit.svg";
-import { TodosContext } from "../store/todos";
 import DeleteIcon from "../assets/delete.svg";
-import { checkTodoValue } from "../functions/error";
+import { useTodoActions } from "../hooks/actions";
+import { useStringValidation } from "../hooks/validation";
 import styles from "../styles/components/TodoEl.module.css";
 
 export default function TodoElComponent({ id, isDone, value }: ITodo) {
-  const todos = React.useContext(TodosContext);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [newValue, setNewValue] = React.useState<string>("");
-  const [isEditable, setIsEditable] = React.useState<boolean>(false);
-  
+  const errorStatus: boolean = useStringValidation(newValue);
+  const { isEditable, editTodo, deleteTodoEl, changeTodoDoneStatus } = useTodoActions();
+
   React.useEffect(() => {
     if(inputRef.current) {
       if(isEditable) {
@@ -28,25 +28,6 @@ export default function TodoElComponent({ id, isDone, value }: ITodo) {
     setNewValue(value);
   }, [value]);
 
-  const editTodo = () => {
-    if(isEditable) {
-      setIsEditable(true);
-    } else {
-      checkTodoValue({value: newValue}, () => {
-        todos?.updateTodo(id, newValue);
-        setIsEditable(false);
-      })
-    }
-  }
-
-  const deleteTodoEl = () => {
-    todos?.deleteTodo(id);
-  }
-
-  const changeTodoDoneStatus = () => {
-    todos?.toggleTodo(id);
-  }
-
   return (
     <div className={styles.container}>
       <InputUI
@@ -57,7 +38,7 @@ export default function TodoElComponent({ id, isDone, value }: ITodo) {
           textDecoration: (isDone && !isEditable) ? "line-through" : "auto",
         }}
         onClick={() => {
-          if(!isEditable) changeTodoDoneStatus();
+          if(!isEditable) changeTodoDoneStatus(id);
         }}
         inputRef={inputRef}
         readonly={!isEditable}
@@ -67,30 +48,47 @@ export default function TodoElComponent({ id, isDone, value }: ITodo) {
         {
           (isEditable)
           ?
-          <img
+          <button
             style={{
-              width: "56px",
-              height: "53px",
+              opacity: errorStatus ? 0.5 : 1,
+              cursor: errorStatus ? "not-allowed" : "pointer",
             }}
-            src={SaveIcon}
-            onClick={editTodo}
-            alt="save changed todo"
+            disabled={errorStatus}
             className={styles.button}
-          />
+            onClick={() => editTodo(id, value)}
+          >
+            <img
+              style={{
+                width: "56px",
+                height: "53px",
+              }}
+              src={SaveIcon}
+              alt="save changed todo"
+              className={styles.icon}
+            />
+          </button>
           :
-          <img
-            src={EditIcon}
-            alt="edit todo"
-            onClick={editTodo}
+          <button
             className={styles.button}
-          /> 
+            onClick={() => editTodo(id, value)}
+          >
+            <img
+              src={EditIcon}
+              alt="edit todo"
+              className={styles.icon}
+            /> 
+          </button>
         }
-        <img
-          src={DeleteIcon}
-          alt="delete todo"
-          onClick={deleteTodoEl}
+        <button
           className={styles.button}
-        />
+          onClick={() => deleteTodoEl(id)}
+        >
+          <img
+            src={DeleteIcon}
+            alt="delete todo"
+            className={styles.icon}
+          />
+        </button>
       </div>
     </div>
   )
