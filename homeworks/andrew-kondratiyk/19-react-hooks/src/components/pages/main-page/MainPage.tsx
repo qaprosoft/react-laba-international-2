@@ -22,12 +22,12 @@ const MainPage = () => {
   const session = useSession();
   // @ts-ignore
   const userId = session.data?.user?._doc._id;
-  const isLoggedIn = session.status === 'authenticated';
 
   const [isAddTodo, setIsAddTodo] = useState(false);
 
-  const {data: todos} = useQuery(['todos'], () =>
-    axios.get(`/api/todos/${userId}`),
+  const {data: todos} = useQuery(
+    ['todos'],
+    () => userId && axios.get(`/api/todos/${userId}`),
   );
   const {mutate: createTodo} = useMutation(
     ['todos'],
@@ -61,16 +61,43 @@ const MainPage = () => {
     },
   );
 
+  const {mutate: deleteTodos} = useMutation(
+    ['todos'],
+    () => axios.delete(`/api/todos/${userId}`),
+    {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({queryKey: ['todos']});
+      },
+    },
+  );
+
+  const {mutate: deleteCompletedTodos} = useMutation(
+    ['todos'],
+    () => axios.delete(`/api/todos/${userId}/completed`),
+    {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({queryKey: ['todos']});
+      },
+    },
+  );
+
   return (
     <MainContext.Provider value={{userId}}>
       <main className={styles.container}>
-        {isLoggedIn ? (
+        {session.status === 'authenticated' && (
           <>
             <div className={styles.header}>
               <h1>Todos</h1>
               <div className={styles.buttons}>
-                <button className={styles.button}>Clear finished todos</button>
-                <button className={styles.button}>Clear all todos</button>
+                <button
+                  onClick={() => deleteCompletedTodos()}
+                  className={styles.button}
+                >
+                  Clear finished todos
+                </button>
+                <button onClick={() => deleteTodos()} className={styles.button}>
+                  Clear all todos
+                </button>
                 <button className={styles.button} onClick={() => signOut()}>
                   Sign out
                 </button>
@@ -103,7 +130,8 @@ const MainPage = () => {
               )}
             </div>
           </>
-        ) : (
+        )}
+        {session.status === 'unauthenticated' && (
           <Modal isOpen={true} title="Please, login to see your todos">
             <button
               className={styles.siginButton}

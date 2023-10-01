@@ -13,6 +13,13 @@ export async function POST(req: NextRequest, {params}: {params: any}) {
 export async function GET(req: NextRequest, {params}: {params: any}) {
   await dbConnect();
   const {userId} = params;
-  const todos = await Todo.find({userId});
+  const todos = await Todo.find({userId: userId});
   return NextResponse.json(todos);
+}
+
+export async function DELETE(req: NextRequest, {params}: {params: any}) {
+  await dbConnect();
+  const {userId} = params;
+  await Todo.deleteMany({userId});
+  return NextResponse.json({message: 'Todos deleted'}, {status: 200});
 }
