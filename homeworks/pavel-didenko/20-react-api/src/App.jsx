@@ -4,6 +4,7 @@ import TaskCreator from './components/TaskCreator/TaskCreator';
 import {useEffect, useReducer, useCallback} from 'react';
 import reducer from './functions/reducer';
 import { MainContext } from './contexts/mainContext';
+import ClearCompletedTasksButton from './components/ClearCompletedTasksButton/ClearCompletedTasksButton';
 
 const App = function () {
   const [state, dispatch] = useReducer(reducer, []);
@@ -71,12 +72,10 @@ const App = function () {
         <TaskCreator state={state} />
         <div className="tasks-section">
           {tasksUploader()}
-          <button
-            className="clear-completed-tasks"
-            onClick={removeCompletedTasks}
-          >
-            Clear completed tasks
-          </button>
+          <ClearCompletedTasksButton
+            removeCompletedTasks={removeCompletedTasks}
+            tasks={state}
+          />
         </div>
       </div>
     </MainContext.Provider>
