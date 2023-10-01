@@ -2,6 +2,7 @@ import './App.css';
 import Task from './components/Task/Task';
 import TaskCreator from './components/TaskCreator/TaskCreator';
 import {useState, useEffect} from 'react';
+import ClearCompletedTasksButton from './components/ClearCompletedTasksButton/ClearCompletedTasksButton';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -76,12 +77,16 @@ function App() {
             />
           );
         })}
-        <button
+        {/* <button
           className="clear-completed-tasks"
           onClick={removeCompletedTasks}
         >
           Clear completed tasks
-        </button>
+        </button> */}
+        <ClearCompletedTasksButton
+          removeCompletedTasks={removeCompletedTasks}
+          tasks={tasks}
+        />
       </div>
     </div>
   );
