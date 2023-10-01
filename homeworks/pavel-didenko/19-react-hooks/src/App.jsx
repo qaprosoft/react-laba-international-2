@@ -24,24 +24,23 @@ function App() {
     ]);
   }
 
-  function modifyTasks(index, text) {
+  function modifyTasks(id, text) {
     setTasks(tasks => {
-      return tasks.map((task, i) => {
-        if (i !== index) {
+      return tasks.map((task) => {
+        if (task.id !== id) {
           return task;
         } else {
           task.taskText = text;
-          task.id = Date.now();
           return task;
         }
       });
     });
   }
 
-  function setCompletedTask(index) {
+  function setCompletedTask(id) {
     setTasks(tasks => {
-      return tasks.map((task, i) => {
-        if (i !== index) {
+      return tasks.map((task) => {
+        if (task.id !== id) {
           return task;
         } else {
           task.completed = !task.completed;
@@ -51,8 +50,8 @@ function App() {
     });
   }
 
-  function removeTask(index) {
-    setTasks(tasks.filter((_, i) => i !== index));
+  function removeTask(id) {
+    setTasks(tasks.filter(task => task.id !== id));
   }
 
   function removeCompletedTasks() {
@@ -68,7 +67,7 @@ function App() {
             <Task
               taskText={task.taskText}
               key={task.id}
-              index={index}
+              id={task.id}
               completed={task.completed}
               modifyTasks={modifyTasks}
               removeTask={removeTask}

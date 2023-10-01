@@ -12,7 +12,7 @@ const taskCompletedStyles = {
 const Task = ({
   taskText,
   modifyTasks,
-  index,
+  id,
   removeTask,
   completed,
   setCompletedTask,
@@ -26,7 +26,7 @@ const Task = ({
       setDisabledModification(false);
     } else {
       setDisabledModification(true);
-      modifyTasks(index, newTaskText);
+      modifyTasks(id, newTaskText);
     }
   }
 
@@ -67,13 +67,13 @@ const Task = ({
           className="task__icon"
           src={removeIcon}
           alt="Remove task"
-          onClick={() => removeTask(index)}
+          onClick={() => removeTask(id)}
         />
         <img
           className="task__icon"
           src={completeIcon}
           alt="Complete icon"
-          onClick={() => setCompletedTask(index)}
+          onClick={() => setCompletedTask(id)}
         />
       </div>
       <p className="task-creator__warning" style={{opacity: opacity}}>
