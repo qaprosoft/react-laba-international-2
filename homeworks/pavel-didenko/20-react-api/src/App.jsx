@@ -9,12 +9,12 @@ const App = function () {
   const [state, dispatch] = useReducer(reducer, []);
 
   const tasksUploader = useCallback(() => {
-    return state.map((task, index) => {
+    return state.map((task) => {
       return (
         <Task
           taskText={task.taskText}
           key={task.id}
-          index={index}
+          id={task.id}
           completed={task.completed}
           modifyTasks={modifyTasks}
           removeTask={removeTask}
@@ -41,16 +41,16 @@ const App = function () {
     dispatch({type: 'task_added', text: newTaskText});
   }
 
-  function modifyTasks(index, text) {
-    dispatch({type: 'task_modified', index: index, text: text});
+  function modifyTasks(id, text) {
+    dispatch({type: 'task_modified', 'id': id, text: text});
   }
 
-  function setCompletedTask(index) {
-    dispatch({type: 'task_completed', 'index': index});
+  function setCompletedTask(id) {
+    dispatch({type: 'task_completed', 'id': id});
   }
 
-  function removeTask(index) {
-    dispatch({type: 'task_removed', 'index': index});
+  function removeTask(id) {
+    dispatch({type: 'task_removed', 'id': id});
   }
 
   function removeCompletedTasks() {

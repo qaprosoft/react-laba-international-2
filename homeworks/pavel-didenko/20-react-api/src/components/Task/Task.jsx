@@ -12,7 +12,7 @@ const taskCompletedStyles = {
   color: 'green',
 };
 
-const Task = ({taskText, index, completed, state}) => {
+const Task = ({taskText, id, completed, state}) => {
   const [disabledModification, setDisabledModification] = useState(true);
   const {modifyTasks, removeTask, setCompletedTask} = useContext(MainContext);
   const [newTaskText, setNewTaskText] = useState(taskText);
@@ -26,7 +26,7 @@ const Task = ({taskText, index, completed, state}) => {
       setDisabledModification(false);
     } else {
       setDisabledModification(true);
-      modifyTasks(index, newTaskText);
+      modifyTasks(id, newTaskText);
     }
   }
 
@@ -61,13 +61,13 @@ const Task = ({taskText, index, completed, state}) => {
           className="task__icon"
           src={removeIcon}
           alt="Remove task"
-          onClick={() => removeTask(index)}
+          onClick={() => removeTask(id)}
         />
         <img
           className="task__icon"
           src={completeIcon}
           alt="Complete icon"
-          onClick={() => setCompletedTask(index)}
+          onClick={() => setCompletedTask(id)}
         />
       </div>
       <p className="task-creator__warning" style={{opacity: opacity}}>

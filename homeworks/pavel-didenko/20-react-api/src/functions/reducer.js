@@ -8,19 +8,18 @@ export default function reducer(state, action) {
     }
 
     case 'task_modified': {
-      return state.map((task, index) => {
-        if (index !== action.index) {
+      return state.map((task) => {
+        if (task.id !== action.id) {
           return task;
         } else {
           task.taskText = action.text;
-          task.id = Date.now();
           return task;
         }
       });
     }
 
     case 'task_removed': {
-      return state.filter((_, index) => index !== action.index);
+      return state.filter((item) => item.id !== action.id);
     }
 
     case 'tasks_extracted': {
@@ -28,8 +27,8 @@ export default function reducer(state, action) {
     }
 
     case 'task_completed': {
-      return state.map((task, index) => {
-        if (index !== action.index) {
+      return state.map((task) => {
+        if (task.id !== action.id) {
           return task;
         } else {
           task.completed = !task.completed;
