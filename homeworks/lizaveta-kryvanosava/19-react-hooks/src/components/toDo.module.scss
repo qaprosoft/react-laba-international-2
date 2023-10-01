@@ -27,6 +27,9 @@
   }
 
   &__control {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     width: 20%;
 
     &-button {
@@ -34,6 +37,7 @@
 
       &--edit-image,
       &--delete-image {
+        max-width: min-content;
         max-height: 3rem;
       }
     }

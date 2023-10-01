@@ -2,9 +2,12 @@
 @use '@/styles/variables';
 @use '@/styles/font.scss';
 
+* {
+  font-family: Hind;
+}
+
 html {
   height: 100%;
-  font-family: Hind;
 }
 
 body {
