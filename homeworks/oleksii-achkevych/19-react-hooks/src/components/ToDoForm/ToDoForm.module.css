@@ -1,0 +1,21 @@
+.input_block {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input_block input {
+  padding: 10px 200px;
+  font-size: 32px;
+}
+
+.input_block button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 32px;
+}
+
+.input_block button:hover {
+  background-color: #5275a0;
+  cursor: pointer;
+}
