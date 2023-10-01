@@ -43,6 +43,7 @@ const TaskCreator = ({state}) => {
         className="add-task-button"
         onClick={() => {
           if (result) createTask(taskText);
+          addTaskInput.current.value='';
           addTaskInput.current.focus();
         }}
       >
