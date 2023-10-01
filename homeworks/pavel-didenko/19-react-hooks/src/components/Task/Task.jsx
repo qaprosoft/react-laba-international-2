@@ -3,6 +3,8 @@ import modifyIcon from '../../assets/img/icons/write.svg';
 import removeIcon from '../../assets/img/icons/delete.svg';
 import completeIcon from '../../assets/img/icons/task-complete.svg';
 import './task.css';
+import IconButton from '../IconButton/IconButton';
+import incompleteIcon from '../../assets/img/icons/task-incomplete.svg'
 
 const taskCompletedStyles = {
   textDecoration: 'line-through',
@@ -41,7 +43,7 @@ const Task = ({
   }
 
   return (
-    <div className="task" onClick={e => e.stopPropagation()}>
+    <div className="task">
       <div className="task__inputs-wrapper">
         <input
           className="task__input"
@@ -53,28 +55,43 @@ const Task = ({
               taskLengthValidator(task, 1, 33);
             }
           }}
-          onChange={(e) => {
+          onChange={e => {
             setTask(e.target.value);
           }}
         ></input>
-        <img
+        <IconButton
+          src={modifyIcon}
+          alt="Modify task"
+          clickHandler={() => taskLengthValidator(task, 1, 33)}
+        />
+        {/* <img
           className="task__icon"
           src={modifyIcon}
           alt="Modify task"
           onClick={() => taskLengthValidator(task, 1, 33)}
+        /> */}
+        <IconButton
+          src={removeIcon}
+          alt="Remove task"
+          clickHandler={() => removeTask(id)}
         />
-        <img
+        {/* <img
           className="task__icon"
           src={removeIcon}
           alt="Remove task"
           onClick={() => removeTask(id)}
+        /> */}
+        <IconButton
+          src={completed? completeIcon: incompleteIcon}
+          alt="Complete icon"
+          clickHandler={() => setCompletedTask(id)}
         />
-        <img
+        {/* <img
           className="task__icon"
           src={completeIcon}
           alt="Complete icon"
           onClick={() => setCompletedTask(id)}
-        />
+        /> */}
       </div>
       <p className="task-creator__warning" style={{opacity: opacity}}>
         Task length must be from 1 to 33 characters

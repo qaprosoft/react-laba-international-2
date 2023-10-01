@@ -1,9 +1,3 @@
 .task {
   padding-left: 6.2rem;
 }
-
-.task__icon{
-  position: relative;
-  top: 1.3rem;
-  cursor: pointer;
-}

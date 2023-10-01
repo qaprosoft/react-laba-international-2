@@ -77,12 +77,6 @@ function App() {
             />
           );
         })}
-        {/* <button
-          className="clear-completed-tasks"
-          onClick={removeCompletedTasks}
-        >
-          Clear completed tasks
-        </button> */}
         <ClearCompletedTasksButton
           removeCompletedTasks={removeCompletedTasks}
           tasks={tasks}
