@@ -64,34 +64,16 @@ const Task = ({
           alt="Modify task"
           clickHandler={() => taskLengthValidator(task, 1, 33)}
         />
-        {/* <img
-          className="task__icon"
-          src={modifyIcon}
-          alt="Modify task"
-          onClick={() => taskLengthValidator(task, 1, 33)}
-        /> */}
         <IconButton
           src={removeIcon}
           alt="Remove task"
           clickHandler={() => removeTask(id)}
         />
-        {/* <img
-          className="task__icon"
-          src={removeIcon}
-          alt="Remove task"
-          onClick={() => removeTask(id)}
-        /> */}
         <IconButton
           src={completed? completeIcon: incompleteIcon}
           alt="Complete icon"
           clickHandler={() => setCompletedTask(id)}
         />
-        {/* <img
-          className="task__icon"
-          src={completeIcon}
-          alt="Complete icon"
-          onClick={() => setCompletedTask(id)}
-        /> */}
       </div>
       <p className="task-creator__warning" style={{opacity: opacity}}>
         Task length must be from 1 to 33 characters
