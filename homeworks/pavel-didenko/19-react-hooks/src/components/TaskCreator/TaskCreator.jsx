@@ -38,7 +38,7 @@ const TaskCreator = ({createTask, tasks}) => {
 
     for (let item of tasks) {
       if (item.taskText === task) {
-        result = false;
+        return false;
       }
     }
 
