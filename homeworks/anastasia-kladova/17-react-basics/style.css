@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+}
+
+.traffic-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* .traffic-light__head {
+} */
+
+.traffic-light__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 560px;
+  border-radius: 60px;
+  background-color: #585f68;
+  box-shadow: 24px 0px 0px 0px #0000001a inset;
+  filter: drop-shadow(6px 6px 10px 0px rgba(0, 0, 0, 0.251));
+}
+
+.traffic-light__light {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  background-color: aliceblue;
+  box-shadow: 10px 0px 0px 0px #0000001a inset;
+}
+
+.traffic-light__light:not(:last-child) {
+  margin-bottom: 24px;
+}
