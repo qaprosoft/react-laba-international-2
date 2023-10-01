@@ -1,11 +1,13 @@
-import React, { useState, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import modifyIcon from '../../assets/img/icons/write.svg';
 import removeIcon from '../../assets/img/icons/delete.svg';
 import completeIcon from '../../assets/img/icons/task-complete.svg';
+import incompleteIcon from '../../assets/img/icons/task-incomplete.svg';
 import './task.css';
 import {MainContext} from '../../contexts/mainContext';
 import useTaskEditValidator from '../../hooks/useTaskEditValidator';
-import { taskLengthMessage } from '../../variables/errorMessages';
+import {taskLengthMessage} from '../../variables/errorMessages';
+import IconButton from '../IconButton/IconButton';
 
 const taskCompletedStyles = {
   textDecoration: 'line-through',
@@ -17,9 +19,6 @@ const Task = ({taskText, id, completed, state}) => {
   const {modifyTasks, removeTask, setCompletedTask} = useContext(MainContext);
   const [newTaskText, setNewTaskText] = useState(taskText);
   const {opacity, unique} = useTaskEditValidator(newTaskText, 1, 33);
-
-
-  
 
   function modifyTaskHandler(newTaskText) {
     if (disabledModification) {
@@ -47,27 +46,22 @@ const Task = ({taskText, id, completed, state}) => {
             }
           }}
         ></input>
-        <img
-          className="task__icon"
+        <IconButton
           src={modifyIcon}
-          alt="Modify task"
-          onClick={() => {
-            if (opacity === 0 && unique) {
-              modifyTaskHandler(newTaskText);
-            }
+          clickHandler={() => {
+            if (opacity === 0 && unique) modifyTaskHandler(newTaskText);
           }}
+          alt="Modify task"
         />
-        <img
-          className="task__icon"
+        <IconButton
           src={removeIcon}
+          clickHandler={() => removeTask(id)}
           alt="Remove task"
-          onClick={() => removeTask(id)}
         />
-        <img
-          className="task__icon"
-          src={completeIcon}
+        <IconButton
+          src={completed ? completeIcon : incompleteIcon}
+          clickHandler={() => setCompletedTask(id)}
           alt="Complete icon"
-          onClick={() => setCompletedTask(id)}
         />
       </div>
       <p className="task-creator__warning" style={{opacity: opacity}}>
