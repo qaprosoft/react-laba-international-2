@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
-import styles from '@/components/addToDoForm.module.scss';
+import Button from '@/components/Button';
+import TextInput from '@/components/TextInput';
+
+import styles from './addToDoForm.module.scss';
 
 export default function AddToDoForm({
   addToDo,
@@ -9,8 +12,8 @@ export default function AddToDoForm({
 }) {
   const [input, setInput] = useState('');
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+  const handleKeyDown = (key: string) => {
+    if (key === 'Enter') {
       addToDo(input);
       setInput('');
     }
@@ -18,24 +21,22 @@ export default function AddToDoForm({
 
   return (
     <div className={styles.form}>
-      <input
-        className={styles.form__input}
+      <TextInput
+        onChangeHandler={({ target: { value } }) => setInput(value)}
+        onKeyDownHandler={({ key }) => handleKeyDown(key)}
         value={input}
-        type="text"
         placeholder="Create Todo-Task"
-        onChange={({ target: { value } }) => setInput(value)}
-        onKeyDown={event => handleKeyDown(event)}
+        externalStyles={styles.form__input}
       />
 
-      <button
-        className={styles.form__button}
-        onClick={() => {
+      <Button
+        onClickHandler={() => {
           addToDo(input);
           setInput('');
         }}
-      >
-        Add
-      </button>
+        text="Add"
+        externalStyles={styles.form__button}
+      />
     </div>
   );
 }

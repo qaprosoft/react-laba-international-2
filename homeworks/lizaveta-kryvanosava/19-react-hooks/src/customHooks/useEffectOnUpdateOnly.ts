@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 export function useEffectOnUpdateOnly(
   func: () => void,
-  dependency: Array<any>,
+  dependency: Array<unknown>,
 ) {
   const initialRender = useRef(true);
 

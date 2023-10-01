@@ -3,15 +3,17 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import styles from '@/app/page.module.scss';
 import AddToDoForm from '@/components/AddToDoForm';
 import ToDo from '@/components/ToDo';
 import { useEffectOnUpdateOnly } from '@/customHooks/useEffectOnUpdateOnly';
-import isValidInput from '@/helpers/isValidInput';
+import isToDoValid from '@/helpers/isToDoValid';
 import IToDo from '@/types/toDo';
+
+import styles from './page.module.scss';
 
 export default function Home() {
   const [toDos, setToDos] = useState<IToDo[]>([]);
+  const [editingId, setEditingId] = useState<IToDo['id'] | null>(null);
 
   useEffect(() => {
     const storedList = localStorage.getItem('toDos');
@@ -25,35 +27,29 @@ export default function Home() {
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }, [toDos]);
 
-  const addToDo = (newToDoValue: string) => {
-    if (!isValidInput(toDos, newToDoValue)) return;
+  const addToDo = (newToDoValue: IToDo['value']) => {
+    if (!isToDoValid(toDos, newToDoValue)) return;
 
     setToDos([...toDos, { value: newToDoValue, done: false, id: uuidv4() }]);
   };
 
-  const deleteToDo = (id: string) => {
+  const deleteToDo = (id: IToDo['id']) => {
     setToDos(toDos.filter(toDo => toDo.id !== id));
   };
 
   const editToDo = <T extends keyof IToDo>(
-    id: string,
+    id: IToDo['id'],
     newValue: IToDo[T],
     keyToChange: T,
   ) => {
-    if (
-      keyToChange === 'value' &&
-      !isValidInput(toDos, newValue as IToDo['value'])
-    )
-      return false;
-
     setToDos(
       toDos.map(toDo =>
         toDo.id === id ? { ...toDo, [keyToChange]: newValue } : toDo,
       ),
     );
-
-    return true;
   };
+
+  const isInputValid = (newValue: string) => isToDoValid(toDos, newValue);
 
   return (
     <main className={styles.main}>
@@ -66,6 +62,9 @@ export default function Home() {
             toDoData={toDo}
             deleteToDo={deleteToDo}
             editToDo={editToDo}
+            setEditingId={setEditingId}
+            isInputValid={isInputValid}
+            isEditing={editingId === toDo.id}
           />
         ))}
       </div>
