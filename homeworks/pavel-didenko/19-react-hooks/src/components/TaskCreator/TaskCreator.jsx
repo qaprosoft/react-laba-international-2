@@ -59,7 +59,10 @@ const TaskCreator = ({createTask, tasks}) => {
       </div>
       <button
         className="add-task-button"
-        onClick={() => taskLengthHandler(1, 33, createTask, taskText)}
+        onClick={() => {
+          taskLengthHandler(1, 33, createTask, taskText);
+          addTaskInput.current.value = '';
+        }}
       >
         Add
       </button>
