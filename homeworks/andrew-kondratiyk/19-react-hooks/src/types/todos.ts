@@ -6,7 +6,7 @@ export type TodoResponse = {
   completed: boolean;
 };
 
-export type TodoCreateRequest = Pick<TodoResponse, 'userId' | 'title' | 'note'>;
+export type TodoCreateRequest = Pick<TodoResponse, 'title' | 'note'>;
 
 export type TodoUpdateRequest = Pick<
   TodoResponse,

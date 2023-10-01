@@ -38,7 +38,7 @@ const EditTodoCard = ({
       });
     } else {
       // @ts-ignore
-      onSave({title: inputValue, userId});
+      onSave({title: inputValue});
     }
   };
 

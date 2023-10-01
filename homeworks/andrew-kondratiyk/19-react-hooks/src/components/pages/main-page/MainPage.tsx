@@ -26,10 +26,12 @@ const MainPage = () => {
 
   const [isAddTodo, setIsAddTodo] = useState(false);
 
-  const {data: todos} = useQuery(['todos'], () => axios.get('/api/todos'));
+  const {data: todos} = useQuery(['todos'], () =>
+    axios.get(`/api/todos/${userId}`),
+  );
   const {mutate: createTodo} = useMutation(
     ['todos'],
-    (todo: TodoCreateRequest) => axios.post('/api/todos', todo),
+    (todo: TodoCreateRequest) => axios.post(`/api/todos/${userId}`, todo),
     {
       onSuccess: async () => {
         await queryClient.invalidateQueries({queryKey: ['todos']});
@@ -40,7 +42,7 @@ const MainPage = () => {
 
   const {mutate: deleteTodo} = useMutation(
     ['todos'],
-    (id: string) => axios.delete(`/api/todos/${id}`),
+    (id: string) => axios.delete(`/api/todos/${userId}/${id}`),
     {
       onSuccess: async () => {
         await queryClient.invalidateQueries({queryKey: ['todos']});
@@ -51,7 +53,7 @@ const MainPage = () => {
   const {mutate: updateTodo} = useMutation(
     ['todos'],
     ({id, todo}: {id: string; todo: TodoUpdateRequest}) =>
-      axios.put(`/api/todos/${id}`, todo),
+      axios.put(`/api/todos/${userId}/${id}`, todo),
     {
       onSuccess: async () => {
         await queryClient.invalidateQueries({queryKey: ['todos']});

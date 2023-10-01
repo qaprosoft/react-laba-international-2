@@ -2,15 +2,17 @@ import dbConnect from '@/lib/db-connect';
 import Todo from '@/models/todo';
 import {NextRequest, NextResponse} from 'next/server';
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest, {params}: {params: any}) {
   await dbConnect();
-  const {userId, title} = await req.json();
+  const {title} = await req.json();
+  const {userId} = params;
   await Todo.create({title, userId, completed: false});
   return NextResponse.json({message: 'Todo Created'}, {status: 201});
 }
 
-export async function GET() {
+export async function GET(req: NextRequest, {params}: {params: any}) {
   await dbConnect();
-  const todos = await Todo.find();
+  const {userId} = params;
+  const todos = await Todo.find({userId});
   return NextResponse.json(todos);
 }
