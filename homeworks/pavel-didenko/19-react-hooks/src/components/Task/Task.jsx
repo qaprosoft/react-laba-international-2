@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, { useState} from 'react';
 import modifyIcon from '../../assets/img/icons/write.svg';
 import removeIcon from '../../assets/img/icons/delete.svg';
 import completeIcon from '../../assets/img/icons/task-complete.svg';
