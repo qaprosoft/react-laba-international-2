@@ -18,8 +18,8 @@ const Task = ({
   setCompletedTask,
 }) => {
   const [disabledModification, setDisabledModification] = useState(true);
-  const taskField = useRef(null);
   const [opacity, setOpacity] = useState(0);
+  const [task, setTask] = useState(taskText);
 
   function modifyTaskHandler(newTaskText) {
     if (disabledModification) {
@@ -47,19 +47,21 @@ const Task = ({
           className="task__input"
           defaultValue={taskText}
           disabled={disabledModification}
-          ref={taskField}
           style={completed ? taskCompletedStyles : {}}
           onKeyUp={e => {
             if (e.key === 'Enter') {
-              taskLengthValidator(taskField.current.value, 1, 33);
+              taskLengthValidator(task, 1, 33);
             }
+          }}
+          onChange={(e) => {
+            setTask(e.target.value);
           }}
         ></input>
         <img
           className="task__icon"
           src={modifyIcon}
           alt="Modify task"
-          onClick={() => taskLengthValidator(taskField.current.value, 1, 33)}
+          onClick={() => taskLengthValidator(task, 1, 33)}
         />
         <img
           className="task__icon"

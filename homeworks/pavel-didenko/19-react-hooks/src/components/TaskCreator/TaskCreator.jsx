@@ -9,6 +9,7 @@ const TaskCreator = ({createTask, tasks}) => {
   const addTaskInput = useRef(null);
   const [opacity, setOpacity] = useState(0);
   const [taskExists, setTaskExists] = useState(false);
+  const [taskText, setTaskText] = useState(tasks);
 
   function taskLengthHandler(minLength, maxLength, callback, taskText) {
     const taskLength = taskText.length;
@@ -47,16 +48,18 @@ const TaskCreator = ({createTask, tasks}) => {
   return (
     <div className="task-creator-wrapper">
       <div>
-        <input ref={addTaskInput} placeholder="Create-Todo-Task"></input>
+        <input
+          ref={addTaskInput}
+          placeholder="Create-Todo-Task"
+          onChange={e => setTaskText(e.target.value)}
+        ></input>
         <p className="task-creator__warning" style={{opacity: opacity}}>
           {taskExists ? taskExistsMessage : taskLengthMessage}
         </p>
       </div>
       <button
         className="add-task-button"
-        onClick={() =>
-          taskLengthHandler(1, 33, createTask, addTaskInput.current.value)
-        }
+        onClick={() => taskLengthHandler(1, 33, createTask, taskText)}
       >
         Add
       </button>
