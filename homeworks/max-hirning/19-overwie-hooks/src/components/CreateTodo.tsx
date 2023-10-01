@@ -1,9 +1,9 @@
-import { useState } from "react";
 import InputUI from "../UI/Input";
+import ButtonUI from "../UI/Button";
 import { ITodo } from "../types/todo";
+import { useState, useRef } from "react";
 import { checkTodoValue } from "../validations/error";
 import styles from "../styles/components/CreateTodo.module.css";
-import ButtonUI from "../UI/Button";
 
 interface IProps {
   todos: ITodo[];
@@ -12,8 +12,10 @@ interface IProps {
 
 export default function CreateTodoComponent({todos, addTodo}: IProps) {
   const [value, setValue] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const createTodo = () => {
+    (inputRef.current) && inputRef.current.focus();
     checkTodoValue({value, todos}, () => {
       addTodo({
         value,
@@ -28,6 +30,7 @@ export default function CreateTodoComponent({todos, addTodo}: IProps) {
     <div className={styles.container}>
       <InputUI
         value={value}
+        inputRef={inputRef}
         placeholder='Create Todo-Task'
         changeValue={(value: string) => setValue(value)}
       />

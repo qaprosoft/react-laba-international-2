@@ -1,6 +1,6 @@
 import InputUI from "../UI/Input";
 import IconButtonUI from "../UI/IconButton";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { checkTodoValue } from "../validations/error";
 import styles from "../styles/components/TodoEl.module.css";
 
@@ -14,6 +14,7 @@ interface IProps {
 
 export default function TodoElComponent({ isDone, todoValue, deleteTodoEl, changeTodoEl, changeTodoDoneStatus }: IProps) {
   const [value, setValue] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
   const [isEditable, setIsEditable] = useState<boolean>(false);
   
   useEffect(() => {
@@ -37,14 +38,15 @@ export default function TodoElComponent({ isDone, todoValue, deleteTodoEl, chang
         value={value}
         customStyles={{ 
           cursor: isEditable ? "text" : "pointer", 
-          textDecoration: (isDone && !isEditable) ? "line-through" : "auto",
           backgroundColor: isEditable ? "yellow" : "#ECF3FF",
+          textDecoration: (isDone && !isEditable) ? "line-through" : "auto",
         }}
         onClick={() => {
           if(!isEditable) changeTodoDoneStatus();
         }}
+        inputRef={inputRef}
         readonly={!isEditable}
-        changeValue={(value: string) => setValue(value)}
+        changeValue={(newValue: string) => setValue(newValue)}
       />
       <div className={styles.buttonsGroup}>
         {

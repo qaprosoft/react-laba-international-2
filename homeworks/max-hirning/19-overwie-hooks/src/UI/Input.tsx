@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import * as React from "react";
 import styles from "../styles/UI/Input.module.css";
 
 interface IProps {
@@ -8,21 +8,10 @@ interface IProps {
   placeholder?: string;
   customStyles?: object;
   changeValue: (value: string) => void
+  inputRef: React.RefObject<HTMLInputElement>;
 }
 
-export default function InputUI({ onClick, customStyles, readonly, value, changeValue, placeholder=""}: IProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if(inputRef.current) {
-      if(!readonly) {
-        inputRef.current.focus();
-      } else {
-        inputRef.current.blur();
-      }
-    }
-  }, [readonly]);
-
+export default function InputUI({ inputRef, onClick, customStyles, readonly, value, changeValue, placeholder=""}: IProps) {
   return (
     <input
       value={value}
