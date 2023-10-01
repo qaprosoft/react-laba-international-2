@@ -50,7 +50,7 @@ export const AuthOptions: NextAuthOptions = {
       return token;
     },
     session: async ({session, token}) => {
-      const user = token.user as IUser;
+      const {password, ...user} = (token.user as any)._doc;
       session.user = user;
 
       return session;

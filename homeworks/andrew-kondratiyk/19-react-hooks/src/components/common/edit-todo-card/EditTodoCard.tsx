@@ -1,13 +1,11 @@
 'use client';
 
-import {MainContext} from '@/context/MainContext';
 import {
   TodoCreateRequest,
   TodoResponse,
   TodoUpdateRequest,
 } from '@/types/todos';
-import {useSession} from 'next-auth/react';
-import {useContext, useState} from 'react';
+import {useState} from 'react';
 
 import styles from './EditTodoCard.module.css';
 
@@ -25,7 +23,6 @@ const EditTodoCard = ({
   onSave,
   onDelete,
 }: EditTodoCardProps) => {
-  const {userId} = useContext(MainContext);
   const [inputValue, setInputValue] = useState(todo?.title || '');
 
   const handleSave = () => {
