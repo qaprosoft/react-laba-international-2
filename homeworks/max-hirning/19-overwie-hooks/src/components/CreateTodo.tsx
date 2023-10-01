@@ -1,8 +1,9 @@
-import * as React from "react";
-import { ITodo } from "../App";
+import { useState } from "react";
 import InputUI from "../UI/Input";
-import { checkTodoValue } from "../functions/error";
+import { ITodo } from "../types/todo";
+import { checkTodoValue } from "../validations/error";
 import styles from "../styles/components/CreateTodo.module.css";
+import ButtonUI from "../UI/Button";
 
 interface IProps {
   todos: ITodo[];
@@ -10,7 +11,7 @@ interface IProps {
 }
 
 export default function CreateTodoComponent({todos, addTodo}: IProps) {
-  const [value, setValue] = React.useState<string>("");
+  const [value, setValue] = useState<string>("");
 
   const createTodo = () => {
     checkTodoValue({value, todos}, () => {
@@ -30,10 +31,10 @@ export default function CreateTodoComponent({todos, addTodo}: IProps) {
         placeholder='Create Todo-Task'
         changeValue={(value: string) => setValue(value)}
       />
-      <button 
-        onClick={createTodo}
-        className={styles.button}
-      >Add</button>
+      <ButtonUI
+        value="Add"
+        buttonAction={createTodo}
+      />
     </div>
   )
 }

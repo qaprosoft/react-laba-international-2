@@ -1,9 +1,7 @@
-import * as React from "react";
 import InputUI from "../UI/Input";
-import SaveIcon from "../assets/save.svg";
-import EditIcon from "../assets/edit.svg";
-import DeleteIcon from "../assets/delete.svg";
-import { checkTodoValue } from "../functions/error";
+import IconButtonUI from "../UI/IconButton";
+import { useState, useEffect } from "react";
+import { checkTodoValue } from "../validations/error";
 import styles from "../styles/components/TodoEl.module.css";
 
 interface IProps {
@@ -15,10 +13,10 @@ interface IProps {
 }
 
 export default function TodoElComponent({ isDone, todoValue, deleteTodoEl, changeTodoEl, changeTodoDoneStatus }: IProps) {
-  const [value, setValue] = React.useState<string>("");
-  const [isEditable, setIsEditable] = React.useState<boolean>(false);
+  const [value, setValue] = useState<string>("");
+  const [isEditable, setIsEditable] = useState<boolean>(false);
   
-  React.useEffect(() => {
+  useEffect(() => {
     setValue(todoValue);
   }, [todoValue]);
 
@@ -52,29 +50,19 @@ export default function TodoElComponent({ isDone, todoValue, deleteTodoEl, chang
         {
           (isEditable)
           ?
-          <img
-            style={{
-              width: "56px",
-              height: "53px",
-            }}
-            src={SaveIcon}
-            onClick={editTodo}
-            alt="save changed todo"
-            className={styles.button}
+          <IconButtonUI
+            iconType="save"
+            buttonAction={editTodo}
           />
           :
-          <img
-            src={EditIcon}
-            alt="edit todo"
-            onClick={editTodo}
-            className={styles.button}
-          /> 
+          <IconButtonUI
+            iconType="edit"
+            buttonAction={editTodo}
+          />
         }
-        <img
-          src={DeleteIcon}
-          alt="delete todo"
-          onClick={deleteTodoEl}
-          className={styles.button}
+        <IconButtonUI
+          iconType="delete"
+          buttonAction={deleteTodoEl}
         />
       </div>
     </div>

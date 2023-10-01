@@ -1,4 +1,4 @@
-import { ITodo } from "../App";
+import { ITodo } from "../types/todo";
 import { isValidValue } from "./string";
 
 export function checkTodoValue({ value, todos }: { value: string, todos?: ITodo[] }, callBack: () => void) {
