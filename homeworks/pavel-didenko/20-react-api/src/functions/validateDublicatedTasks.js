@@ -3,7 +3,7 @@ export default function validateDublicatedTask(task, state) {
 
   for (let item of state) {
     if (item.taskText === task) {
-      result = false;
+      return false;
     }
   }
 
