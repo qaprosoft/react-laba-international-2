@@ -48,25 +48,6 @@ export default function IconButtonUI({ iconType, buttonAction }: IProps) {
         src={buttonIcon()}
         alt={buttonIconAlt()}
       />
-      {/* <img
-        style={{
-          width: "56px",
-          height: "53px",
-        }}
-        src={SaveIcon}
-        onClick={editTodo}
-        alt="save changed todo"
-      />
-      <img
-        src={EditIcon}
-        alt="edit todo"
-        onClick={editTodo}
-      /> 
-      <img
-        src={DeleteIcon}
-        alt="delete todo"
-        onClick={deleteTodoEl}
-      /> */}
     </button>
   )
 }
