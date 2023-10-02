@@ -15,12 +15,9 @@ import styles from './EditTodoCard.module.css';
 type EditTodoCardProps = {
   todo?: TodoResponse;
   onCancel?: () => void;
-  onSave:
-    | ((todo: TodoCreateRequest) => void)
-    | ((todo: TodoUpdateRequest) => void);
 };
-const EditTodoCard = ({todo, onCancel, onSave}: EditTodoCardProps) => {
-  const {deleteById} = useContext(ServiceContext);
+const EditTodoCard = ({todo, onCancel}: EditTodoCardProps) => {
+  const {deleteById, create, update} = useContext(ServiceContext);
   const [inputValue, setInputValue] = useState(todo?.title || '');
 
   const {mutate: deleteTodo} = useMutation(['todos'], deleteById, {
@@ -29,18 +26,32 @@ const EditTodoCard = ({todo, onCancel, onSave}: EditTodoCardProps) => {
     },
   });
 
+  const {mutate: createTodo} = useMutation(['todos'], create, {
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({queryKey: ['todos']});
+    },
+  });
+
+  const {mutate: updateTodo} = useMutation(['todos'], update, {
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({queryKey: ['todos']});
+    },
+  });
+
   const handleSave = () => {
     if (!inputValue) return;
     if (todo) {
-      // @ts-ignore
-      onSave({
-        title: inputValue,
-        completed: todo.completed,
+      updateTodo({
+        id: todo._id,
+        todo: {
+          title: inputValue,
+          completed: todo.completed,
+        },
       });
     } else {
-      // @ts-ignore
-      onSave({title: inputValue});
+      createTodo({title: inputValue});
     }
+    onCancel?.();
   };
 
   return (

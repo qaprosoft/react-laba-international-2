@@ -16,23 +16,11 @@ import {useMutation, useQuery} from 'react-query';
 import styles from './MainPage.module.css';
 
 const MainPage = () => {
-  const {getAll, create, update} = useContext(ServiceContext);
+  const {getAll} = useContext(ServiceContext);
 
   const [isAddTodo, setIsAddTodo] = useState(false);
 
   const {data: todos} = useQuery(['todos'], getAll);
-  const {mutate: createTodo} = useMutation(['todos'], create, {
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({queryKey: ['todos']});
-      setIsAddTodo(false);
-    },
-  });
-
-  const {mutate: updateTodo} = useMutation(['todos'], update, {
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({queryKey: ['todos']});
-    },
-  });
 
   return (
     <main className={styles.container}>
@@ -40,15 +28,12 @@ const MainPage = () => {
       <div className={styles.divider}></div>
       <div className={styles.todosList}>
         {todos?.map((todo: TodoResponse) => (
-          <TodoCard onUpdate={updateTodo} todo={todo} key={todo._id} />
+          <TodoCard todo={todo} key={todo._id} />
         ))}
       </div>
       <div className={styles.addTaskContainer}>
         {isAddTodo ? (
-          <EditTodoCard
-            onCancel={() => setIsAddTodo(false)}
-            onSave={createTodo}
-          />
+          <EditTodoCard onCancel={() => setIsAddTodo(false)} />
         ) : (
           <div onClick={() => setIsAddTodo(true)} className={styles.addTodoBtn}>
             Add Task

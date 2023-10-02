@@ -1,26 +1,30 @@
 import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
+import {queryClient} from '@/context/Providers';
+import {ServiceContext} from '@/context/TodoService';
 import {TodoResponse, TodoUpdateRequest} from '@/types/todos';
-import {useRef, useState} from 'react';
+import {useContext, useRef, useState} from 'react';
+import {useMutation} from 'react-query';
 
 import styles from './TodoCard.module.css';
 
 type TodoCardProps = {
   todo: TodoResponse;
-  onUpdate: ({id, todo}: {id: string; todo: TodoUpdateRequest}) => void;
 };
-const TodoCard = ({todo, onUpdate}: TodoCardProps) => {
+const TodoCard = ({todo}: TodoCardProps) => {
+  const {update} = useContext(ServiceContext);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isEdit, setIsEdit] = useState(false);
 
-  const handleUpdate = (newTodo: TodoUpdateRequest) => {
-    setIsEdit(false);
-    onUpdate({id: todo._id, todo: newTodo});
-  };
+  const {mutate: updateTodo} = useMutation(['todos'], update, {
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({queryKey: ['todos']});
+    },
+  });
 
   return (
     <>
       {isEdit ? (
-        <EditTodoCard todo={todo} onSave={handleUpdate} />
+        <EditTodoCard onCancel={() => setIsEdit(false)} todo={todo} />
       ) : (
         <div className={styles.todoCard}>
           <div className={styles.left}>
@@ -28,7 +32,7 @@ const TodoCard = ({todo, onUpdate}: TodoCardProps) => {
               <input
                 checked={todo.completed}
                 onChange={() =>
-                  onUpdate({
+                  updateTodo({
                     id: todo._id,
                     todo: {...todo, completed: !todo.completed},
                   })
