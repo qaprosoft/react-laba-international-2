@@ -1,6 +1,7 @@
 'use client';
 
 import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
+import Header from '@/components/common/header/Header';
 import TodoCard from '@/components/common/todo-card/TodoCard';
 import {queryClient} from '@/context/Providers';
 import {
@@ -10,14 +11,12 @@ import {
 } from '@/context/TodoService';
 import {TodoResponse} from '@/types/todos';
 import {Session} from 'next-auth';
-import {signOut} from 'next-auth/react';
 import {useContext, useState} from 'react';
 import {useMutation, useQuery} from 'react-query';
 import styles from './MainPage.module.css';
 
 const MainPage = () => {
-  const {getAll, create, update, deleteById, deleteComplete, deleteMany} =
-    useContext(ServiceContext);
+  const {getAll, create, update, deleteById} = useContext(ServiceContext);
 
   const [isAddTodo, setIsAddTodo] = useState(false);
 
@@ -41,41 +40,9 @@ const MainPage = () => {
     },
   });
 
-  const {mutate: deleteTodos} = useMutation(['todos'], deleteMany, {
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({queryKey: ['todos']});
-    },
-  });
-
-  const {mutate: deleteCompletedTodos} = useMutation(
-    ['todos'],
-    deleteComplete,
-    {
-      onSuccess: async () => {
-        await queryClient.invalidateQueries({queryKey: ['todos']});
-      },
-    },
-  );
-
   return (
     <main className={styles.container}>
-      <div className={styles.header}>
-        <h1>Todos</h1>
-        <div className={styles.buttons}>
-          <button
-            onClick={() => deleteCompletedTodos()}
-            className={styles.button}
-          >
-            Clear finished todos
-          </button>
-          <button onClick={() => deleteTodos()} className={styles.button}>
-            Clear all todos
-          </button>
-          <button className={styles.button} onClick={() => signOut()}>
-            Sign out
-          </button>
-        </div>
-      </div>
+      <Header />
       <div className={styles.divider}></div>
       <div className={styles.todosList}>
         {todos?.map((todo: TodoResponse) => (
