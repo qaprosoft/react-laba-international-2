@@ -9,7 +9,7 @@ export default function useValidation() {
   const { toDos } = useToDoContext();
 
   const isValidToDo = useCallback(
-    (input: string): boolean => {
+    (input: string) => {
       if (!input.trim().length) {
         toast.warning(constants.ErrorMessages.emptyInput);
         return false;

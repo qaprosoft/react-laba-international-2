@@ -11,11 +11,7 @@ const toDoReducer = (state: IState, action: ITodoAction) => {
   switch (type) {
     case constants.Actions.SET_TODOS: {
       return {
-        toDos: [
-          ...toDos!.map(toDO => {
-            return { ...toDO, editMode: false };
-          }),
-        ],
+        toDos: toDos!.map(toDo => ({ ...toDo, editMode: false })),
       };
     }
 
@@ -30,39 +26,33 @@ const toDoReducer = (state: IState, action: ITodoAction) => {
 
     case constants.Actions.REMOVE_TODO_ITEM: {
       return {
-        toDos: [...state.toDos.filter(toDo => toDo.id !== todoItemId)],
+        toDos: state.toDos.filter(({ id }) => id !== todoItemId),
       };
     }
 
     case constants.Actions.EDIT_TODO_ITEM: {
       return {
-        toDos: [
-          ...state.toDos.map(toDo =>
-            toDo.id === todoItemId ? { ...toDo, value: newToDoValue } : toDo,
-          ),
-        ],
+        toDos: state.toDos.map(toDo =>
+          toDo.id === todoItemId ? { ...toDo, value: newToDoValue } : toDo,
+        ),
       };
     }
 
     case constants.Actions.TOGGLE_DONE: {
       return {
-        toDos: [
-          ...state.toDos.map(toDo =>
-            toDo.id === todoItemId ? { ...toDo, done: !toDo.done } : toDo,
-          ),
-        ],
+        toDos: state.toDos.map(toDo =>
+          toDo.id === todoItemId ? { ...toDo, done: !toDo.done } : toDo,
+        ),
       };
     }
 
     case constants.Actions.SET_EDIT_MODE: {
       return {
-        toDos: [
-          ...state.toDos.map(toDo =>
-            toDo.id === todoItemId
-              ? { ...toDo, editMode: !toDo.editMode }
-              : { ...toDo, editMode: false },
-          ),
-        ],
+        toDos: state.toDos.map(toDo =>
+          toDo.id === todoItemId
+            ? { ...toDo, editMode: !toDo.editMode }
+            : { ...toDo, editMode: false },
+        ),
       };
     }
 
