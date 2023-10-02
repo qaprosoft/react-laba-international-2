@@ -1,7 +1,6 @@
 'use client';
 
 import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
-import Modal from '@/components/common/modal/Modal';
 import TodoCard from '@/components/common/todo-card/TodoCard';
 import {queryClient} from '@/context/Providers';
 import {
@@ -9,15 +8,9 @@ import {
   LocalStorageTodoService,
   ServiceContext,
 } from '@/context/TodoService';
-import {
-  TodoCreateRequest,
-  TodoResponse,
-  TodoUpdateRequest,
-} from '@/types/todos';
-import axios from 'axios';
+import {TodoResponse} from '@/types/todos';
 import {Session} from 'next-auth';
 import {signOut} from 'next-auth/react';
-import {useRouter} from 'next/navigation';
 import {useContext, useState} from 'react';
 import {useMutation, useQuery} from 'react-query';
 import styles from './MainPage.module.css';
@@ -85,7 +78,7 @@ const MainPage = () => {
       </div>
       <div className={styles.divider}></div>
       <div className={styles.todosList}>
-        {todos?.data?.map((todo: TodoResponse) => (
+        {todos?.map((todo: TodoResponse) => (
           <TodoCard
             onUpdate={updateTodo}
             onDelete={deleteTodo}

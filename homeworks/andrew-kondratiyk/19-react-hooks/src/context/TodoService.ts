@@ -5,6 +5,7 @@ import {
 } from '@/types/todos';
 import axios from 'axios';
 import {createContext} from 'react';
+import {v4} from 'uuid';
 
 interface TodoService {
   getAll: () => Promise<any>;
@@ -43,38 +44,47 @@ export class BackendTodoService implements TodoService {
 
 export class LocalStorageTodoService implements TodoService {
   public getAll = async () => {
-    const todos = localStorage.getItem(`todos`);
+    const todos = localStorage.getItem('todos');
 
-    return todos ? JSON.parse(todos) : null;
+    return todos ? JSON.parse(todos) : [];
   };
   public create = async (todo: TodoCreateRequest) => {
-    const id = Math.ceil(Math.random() * 10_000);
+    let list = await this.getAll();
 
     const createdTodo = {
-      id,
-      todo,
+      _id: v4(),
+      completed: false,
+      ...todo,
     };
 
-    window.localStorage.setItem(`todo-${id}`, JSON.stringify(createdTodo));
-
-    let newList = await this.getAll();
-
-    if (!newList) {
-      newList = [];
-    }
-
-    newList.push(id);
+    const newList = [...list, createdTodo];
+    localStorage.setItem('todos', JSON.stringify(newList));
   };
-  public deleteById = async (id: string) => {};
-  public update = async ({
-    id,
-    todo,
-  }: {
-    id: string;
-    todo: TodoUpdateRequest;
-  }) => {};
-  public deleteMany = async () => {};
-  public deleteComplete = async () => {};
+  public deleteById = async (id: string) => {
+    let list = await this.getAll();
+
+    const newList = list.filter((todo: any) => todo._id !== id);
+    localStorage.setItem('todos', JSON.stringify(newList));
+  };
+  public update = async ({id, todo}: {id: string; todo: TodoUpdateRequest}) => {
+    let list = await this.getAll();
+    const newList = list.map((listTodo: TodoResponse) => {
+      if (listTodo._id === id) {
+        return {...listTodo, ...todo};
+      }
+      return listTodo;
+    });
+    localStorage.setItem('todos', JSON.stringify(newList));
+  };
+  public deleteMany = async () => {
+    localStorage.setItem('todos', JSON.stringify([]));
+  };
+  public deleteComplete = async () => {
+    let list = await this.getAll();
+
+    const newList = list.filter((todo: TodoResponse) => !todo.completed);
+    localStorage.setItem('todos', JSON.stringify(newList));
+  };
 }
 
 export const ServiceContext = createContext<TodoService>(
