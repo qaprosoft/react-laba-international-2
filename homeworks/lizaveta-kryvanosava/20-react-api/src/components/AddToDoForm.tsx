@@ -1,4 +1,10 @@
-import { useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  KeyboardEvent,
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
 
 import Button from '@/components/Button';
 import TextInput from '@/components/TextInput';
@@ -13,26 +19,34 @@ export default function AddToDoForm() {
   const { addTodoItem } = useToDoContext();
   const isValidToDo = useValidation();
 
-  const handleButtonClick = () => {
+  const handleButtonClick = useCallback(() => {
     if (!isValidToDo(input)) return;
 
     addTodoItem(input);
     setInput('');
     inputRef.current?.focus();
-  };
+  }, [input]);
 
-  const handleKeyDown = (key: string) => {
-    if (key === 'Enter') {
-      handleButtonClick();
-    }
-  };
+  const handleKeyDown = useCallback(
+    ({ key }: KeyboardEvent<HTMLInputElement>) => {
+      if (key === 'Enter') {
+        handleButtonClick();
+      }
+    },
+    [handleButtonClick],
+  );
+
+  const onChangeHandler = useCallback(
+    ({ target: { value } }: ChangeEvent<HTMLInputElement>) => setInput(value),
+    [setInput],
+  );
 
   return (
     <div className={styles.form}>
       <TextInput
         ref={inputRef}
-        onChangeHandler={({ target: { value } }) => setInput(value)}
-        onKeyDownHandler={({ key }) => handleKeyDown(key)}
+        onChangeHandler={onChangeHandler}
+        onKeyDownHandler={handleKeyDown}
         value={input}
         disabled={false}
         placeholder="Create Todo-Task"

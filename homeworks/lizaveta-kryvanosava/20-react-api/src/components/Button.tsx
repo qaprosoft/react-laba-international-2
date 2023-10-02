@@ -1,8 +1,10 @@
+import { memo } from 'react';
+
 import IButtonProps from '@/types/props/buttonProps';
 
 import styles from './button.module.scss';
 
-export default function Button({
+export default memo(function Button({
   onClickHandler,
   text,
   externalStyles,
@@ -15,4 +17,4 @@ export default function Button({
       {text}
     </button>
   );
-}
+});
