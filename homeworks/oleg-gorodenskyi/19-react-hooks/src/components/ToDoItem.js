@@ -1,57 +1,66 @@
-import React, {Fragment} from 'react';
-import {useState, useEffect} from 'react';
+import React from 'react';
+import {useState} from 'react';
 
 import editIcon from '../assets/write 1.png';
 import deleteIcon from '../assets/delete 1.png';
+import IconBtn from './IconBtn';
+import Input from './Input';
 
 function ToDoItem({toDo, deleteToDo, toDoList, setToDoList}) {
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(toDo.value);
-  const [isMarked, setIsMarked] = useState({});
+  const [isMarked, setIsMarked] = useState(toDo.completed);
 
   function editToDo(value, id) {
-    const valueToStore = JSON.stringify(value);
-    const isValueExist = Object.values(localStorage).includes(valueToStore);
+    let isValueExist = toDoList.some(list => list.value === inputValue);
+
     if (isValueExist) {
       alert('This value is already exist');
       setInputValue('');
-      localStorage.setItem(id, JSON.stringify(''));
+      const updatedToDoList = toDoList.map(list =>
+        list.id === id ? {id: list.id, value: '', completed: false} : list,
+      );
+      localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
       setIsEdit(false);
     } else if (value.length > 25) {
       alert('The value should be not longer 25 symbols');
       setInputValue('');
-      localStorage.setItem(id, JSON.stringify(''));
+      const updatedToDoList = toDoList.map(list =>
+        list.id === id ? {id: list.id, value: '', completed: false} : list,
+      );
+      localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
     } else {
       const updatedToDoList = toDoList.map(list =>
-        list.id === id ? {id: list.id, value: value} : list,
+        list.id === id ? {id: list.id, value: value, completed: false} : list,
       );
-      localStorage.setItem(id, JSON.stringify(value));
+      localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
       setToDoList(updatedToDoList);
       setIsEdit(false);
     }
   }
 
   const toggleIsMarked = id => {
-    const updatedIsMarked = {...isMarked};
-    updatedIsMarked[id] = !updatedIsMarked[id];
-    setIsMarked(updatedIsMarked);
+    setIsMarked(!isMarked);
+    const updatedToDoList = toDoList.map(list =>
+      list.id === id ? {id, value: inputValue, completed: !isMarked} : list,
+    );
+    localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
+    setToDoList(updatedToDoList);
   };
 
   return (
     <div className="toDoItem">
       {isEdit ? (
         <>
-          <input
-            type="text"
+          <Input
             value={inputValue}
-            onChange={e => setInputValue(e.target.value)}
+            inputHandler={e => setInputValue(e.target.value)}
           />
-          <button
-            className="editBtn"
-            onClick={() => editToDo(inputValue, toDo.id)}
-          >
-            <img src={editIcon} alt="edit" />
-          </button>
+          <IconBtn
+            src={editIcon}
+            alt="edit"
+            iconHandler={() => editToDo(inputValue, toDo.id)}
+          />
         </>
       ) : (
         <div
@@ -60,7 +69,7 @@ function ToDoItem({toDo, deleteToDo, toDoList, setToDoList}) {
         >
           <div
             style={{
-              textDecoration: isMarked[toDo.id] ? 'line-through' : 'none',
+              textDecoration: isMarked ? 'line-through' : 'none',
             }}
           >
             {inputValue}
@@ -68,13 +77,17 @@ function ToDoItem({toDo, deleteToDo, toDoList, setToDoList}) {
         </div>
       )}
       {!isEdit && (
-        <button className="editBtn" onClick={() => setIsEdit(!isEdit)}>
-          <img src={editIcon} alt="edit" />
-        </button>
+        <IconBtn
+          src={editIcon}
+          alt="edit"
+          iconHandler={() => setIsEdit(!isEdit)}
+        />
       )}
-      <button className="deleteBtn" onClick={() => deleteToDo(toDo.id)}>
-        <img src={deleteIcon} alt="delete" />
-      </button>
+      <IconBtn
+        src={deleteIcon}
+        alt="delete"
+        iconHandler={() => deleteToDo(toDo.id)}
+      />
     </div>
   );
 }

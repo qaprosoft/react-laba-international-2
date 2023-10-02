@@ -1,61 +1,66 @@
 import './App.css';
-import { v4 } from 'uuid';
-import { useState, useEffect } from 'react';
+import {v4} from 'uuid';
+import {useState, useEffect} from 'react';
 
 import ToDoItem from './components/ToDoItem';
+import AddBtn from './components/AddBtn';
+import Input from './components/Input';
 
 function App() {
   const [toDoList, setToDoList] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
+  useEffect(() => {
+    const storedData = localStorage.getItem('toDoList');
+    if (storedData) {
+      setToDoList(JSON.parse(storedData));
+    }
+  }, []);
+
   function handleSubmit(event) {
     event.preventDefault();
-    const valueToStore = JSON.stringify(inputValue);
-    const isValueExist = Object.values(localStorage).includes(valueToStore);
+    let isValueExist = toDoList.some(list => list.value === inputValue);
+
     if (isValueExist) {
       setInputValue('');
       alert('This value is already exist');
     } else if (inputValue.length > 25) {
       setInputValue('');
-      alert('The value should be not longer 25 symbols');
+      alert('The value should be not longer than 25 symbols');
     } else {
       const id = v4();
-      localStorage.setItem(id, JSON.stringify(inputValue));
-      setToDoList([...toDoList, { value: inputValue, id }]);
+      const storedData = [
+        ...toDoList,
+        {value: inputValue, isCompleted: false, id},
+      ];
+      setToDoList(storedData);
+      localStorage.setItem('toDoList', JSON.stringify(storedData));
       setInputValue('');
     }
   }
-  useEffect(() => {
-    const storedData = Object.entries(localStorage).map(([key, data]) => ({
-      id: key,
-      value: JSON.parse(data),
-    }));
-    setToDoList(storedData);
-  }, []);
 
-  
+  console.log(toDoList);
 
   function deleteToDo(id) {
-    localStorage.removeItem(id);
     const updatedToDoList = toDoList.filter(list => list.id !== id);
     setToDoList(updatedToDoList);
+    localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
   }
 
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder='Create To-Do Task'
+        <Input
+          inputHandler={e => setInputValue(e.target.value)}
           value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
+          placeholder="Create To-Do Task"
         />
-        <button className='submit' type="submit">Add</button>
+        <AddBtn />
       </form>
       <div className="toDoItemList">
         {toDoList.map(toDo => (
           <ToDoItem
-          toDoList={toDoList}
+            toDoList={toDoList}
             toDo={toDo}
             key={toDo.id}
             deleteToDo={deleteToDo}
