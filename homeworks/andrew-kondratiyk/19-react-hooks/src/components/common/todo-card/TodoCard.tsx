@@ -6,10 +6,9 @@ import styles from './TodoCard.module.css';
 
 type TodoCardProps = {
   todo: TodoResponse;
-  onDelete: (id: string) => void;
   onUpdate: ({id, todo}: {id: string; todo: TodoUpdateRequest}) => void;
 };
-const TodoCard = ({todo, onDelete, onUpdate}: TodoCardProps) => {
+const TodoCard = ({todo, onUpdate}: TodoCardProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -17,19 +16,11 @@ const TodoCard = ({todo, onDelete, onUpdate}: TodoCardProps) => {
     setIsEdit(false);
     onUpdate({id: todo._id, todo: newTodo});
   };
-  const handleDelete = () => {
-    setIsEdit(false);
-    onDelete(todo._id);
-  };
 
   return (
     <>
       {isEdit ? (
-        <EditTodoCard
-          todo={todo}
-          onSave={handleUpdate}
-          onDelete={handleDelete}
-        />
+        <EditTodoCard todo={todo} onSave={handleUpdate} />
       ) : (
         <div className={styles.todoCard}>
           <div className={styles.left}>

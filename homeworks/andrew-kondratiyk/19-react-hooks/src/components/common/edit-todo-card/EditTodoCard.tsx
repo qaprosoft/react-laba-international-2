@@ -1,11 +1,14 @@
 'use client';
 
+import {queryClient} from '@/context/Providers';
+import {ServiceContext} from '@/context/TodoService';
 import {
   TodoCreateRequest,
   TodoResponse,
   TodoUpdateRequest,
 } from '@/types/todos';
-import {useState} from 'react';
+import {useContext, useState} from 'react';
+import {useMutation} from 'react-query';
 
 import styles from './EditTodoCard.module.css';
 
@@ -15,15 +18,16 @@ type EditTodoCardProps = {
   onSave:
     | ((todo: TodoCreateRequest) => void)
     | ((todo: TodoUpdateRequest) => void);
-  onDelete?: () => void;
 };
-const EditTodoCard = ({
-  todo,
-  onCancel,
-  onSave,
-  onDelete,
-}: EditTodoCardProps) => {
+const EditTodoCard = ({todo, onCancel, onSave}: EditTodoCardProps) => {
+  const {deleteById} = useContext(ServiceContext);
   const [inputValue, setInputValue] = useState(todo?.title || '');
+
+  const {mutate: deleteTodo} = useMutation(['todos'], deleteById, {
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({queryKey: ['todos']});
+    },
+  });
 
   const handleSave = () => {
     if (!inputValue) return;
@@ -50,7 +54,10 @@ const EditTodoCard = ({
       />
       <div className={styles.footer}>
         {todo ? (
-          <button onClick={onDelete} className={styles.deleteBtn}>
+          <button
+            onClick={() => deleteTodo(todo._id)}
+            className={styles.deleteBtn}
+          >
             Delete
           </button>
         ) : (

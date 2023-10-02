@@ -16,7 +16,7 @@ import {useMutation, useQuery} from 'react-query';
 import styles from './MainPage.module.css';
 
 const MainPage = () => {
-  const {getAll, create, update, deleteById} = useContext(ServiceContext);
+  const {getAll, create, update} = useContext(ServiceContext);
 
   const [isAddTodo, setIsAddTodo] = useState(false);
 
@@ -25,12 +25,6 @@ const MainPage = () => {
     onSuccess: async () => {
       await queryClient.invalidateQueries({queryKey: ['todos']});
       setIsAddTodo(false);
-    },
-  });
-
-  const {mutate: deleteTodo} = useMutation(['todos'], deleteById, {
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({queryKey: ['todos']});
     },
   });
 
@@ -46,12 +40,7 @@ const MainPage = () => {
       <div className={styles.divider}></div>
       <div className={styles.todosList}>
         {todos?.map((todo: TodoResponse) => (
-          <TodoCard
-            onUpdate={updateTodo}
-            onDelete={deleteTodo}
-            todo={todo}
-            key={todo._id}
-          />
+          <TodoCard onUpdate={updateTodo} todo={todo} key={todo._id} />
         ))}
       </div>
       <div className={styles.addTaskContainer}>
