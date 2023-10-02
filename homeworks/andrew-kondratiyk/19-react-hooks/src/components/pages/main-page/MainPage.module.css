@@ -10,7 +10,6 @@
 	height: 2px;
 	background-color: #fff;
 	opacity: 0.7;
-	margin-bottom: 20px;
 }
 
 .todosList {
@@ -18,6 +17,7 @@
 	flex-direction: column;
 	gap: 15px;
 	position: relative;
+	margin: 40px 0;
 }
 
 .siginButton {
@@ -26,10 +26,6 @@
 	font-weight: 700;
 	background-color: #0c0c0c;
 	color: #FFFFFF;
-}
-
-.addTaskContainer {
-	margin-top: 30px;
 }
 
 .addTodoBtn {

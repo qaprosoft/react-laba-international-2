@@ -17,27 +17,34 @@ const EditTodoCard = ({todo, onCancel}: EditTodoCardProps) => {
   const {deleteById, create, update} = useContext(ServiceContext);
   const [inputValue, setInputValue] = useState(todo?.title || '');
 
+  const handleSuccess = async () => {
+    onCancel?.();
+    await queryClient.invalidateQueries({queryKey: ['todos']});
+  };
+
   const {mutate: deleteTodo, isLoading: deleteLoading} = useMutation(
     ['todos'],
     deleteById,
     {
-      onSuccess: async () => {
-        await queryClient.invalidateQueries({queryKey: ['todos']});
-      },
+      onSuccess: handleSuccess,
     },
   );
 
-  const {mutate: createTodo} = useMutation(['todos'], create, {
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({queryKey: ['todos']});
+  const {mutate: createTodo, isLoading: createLoading} = useMutation(
+    ['todos'],
+    create,
+    {
+      onSuccess: handleSuccess,
     },
-  });
+  );
 
-  const {mutate: updateTodo} = useMutation(['todos'], update, {
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({queryKey: ['todos']});
+  const {mutate: updateTodo, isLoading: updateLoading} = useMutation(
+    ['todos'],
+    update,
+    {
+      onSuccess: handleSuccess,
     },
-  });
+  );
 
   const handleSave = () => {
     if (!inputValue) return;
@@ -52,18 +59,19 @@ const EditTodoCard = ({todo, onCancel}: EditTodoCardProps) => {
     } else {
       createTodo({title: inputValue});
     }
-    onCancel?.();
   };
 
   return (
     <div className={styles.editTodoCard}>
-      {deleteLoading && <LoadingOverlay />}
+      {(deleteLoading || createLoading || updateLoading) && <LoadingOverlay />}
       <input
         type="text"
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
         placeholder="What are you working on?"
         className={styles.input}
+        autoFocus
+        onKeyDown={e => e.code === 'Enter' && handleSave()}
       />
       <div className={styles.footer}>
         {todo ? (

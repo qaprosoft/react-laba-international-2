@@ -3,7 +3,6 @@
 	background-color: #FFFFFF;
 	border-radius: 10px;
 	overflow: hidden;
-	overflow: hidden;
 }
 
 .input {
@@ -11,8 +10,8 @@
 	font-weight: 700;
 	outline: none;
 	border: none;
-	margin: 30px 20px;
 	width: 100%;
+	padding: 30px 20px;
 	font-size: 24px;
 }
 
