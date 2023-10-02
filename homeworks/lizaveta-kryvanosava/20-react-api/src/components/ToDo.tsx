@@ -14,7 +14,7 @@ import styles from './toDo.module.scss';
 
 export default function ToDo({ toDoData }: { toDoData: IToDo }) {
   const [inputValue, setInputValue] = useState(toDoData.value);
-  const { setEditMode, toDos, editTodoItem, toggleDone, removeTodoItem } =
+  const { setEditMode, editTodoItem, toggleDone, removeTodoItem } =
     useToDoContext();
   const inputRef = useRef<HTMLInputElement>(null);
   const isValidToDo = useValidation();
@@ -28,7 +28,7 @@ export default function ToDo({ toDoData }: { toDoData: IToDo }) {
   const editButtonHandler = () => {
     setEditMode(toDoData.id);
 
-    if (toDoData.value === inputValue || !isValidToDo(toDos, inputValue)) {
+    if (toDoData.value === inputValue || !isValidToDo(inputValue)) {
       setInputValue(toDoData.value);
       return;
     }

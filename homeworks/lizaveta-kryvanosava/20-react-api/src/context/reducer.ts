@@ -12,7 +12,7 @@ const toDoReducer = (state: IState, action: ITodoAction) => {
     case constants.Actions.SET_TODOS: {
       return {
         toDos: [
-          ...toDos.map(toDO => {
+          ...toDos!.map(toDO => {
             return { ...toDO, editMode: false };
           }),
         ],

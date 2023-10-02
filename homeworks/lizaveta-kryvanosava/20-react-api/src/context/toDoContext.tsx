@@ -22,63 +22,52 @@ function ToDoProvider({ children }: { children: ReactNode }) {
       dispatch({
         type: constants.Actions.SET_TODOS,
         payload: {
-          newToDoValue: '',
           toDos: toDos,
-          todoItemId: '',
         },
       });
     },
 
-    addTodoItem: (newToDoValue: string) => {
+    addTodoItem: (newToDoValue: IToDo['value']) => {
       dispatch({
         type: constants.Actions.ADD_TODO_ITEM,
         payload: {
           newToDoValue,
-          toDos: [],
-          todoItemId: '',
         },
       });
     },
 
-    removeTodoItem: (todoItemId: string) => {
+    removeTodoItem: (todoItemId: IToDo['id']) => {
       dispatch({
         type: constants.Actions.REMOVE_TODO_ITEM,
         payload: {
-          newToDoValue: '',
-          toDos: [],
           todoItemId,
         },
       });
     },
 
-    editTodoItem: (todoItemId: string, newToDoValue: string) => {
+    editTodoItem: (todoItemId: IToDo['id'], newToDoValue: IToDo['value']) => {
       dispatch({
         type: constants.Actions.EDIT_TODO_ITEM,
         payload: {
           newToDoValue,
-          toDos: [],
           todoItemId,
         },
       });
     },
 
-    toggleDone: (todoItemId: string) => {
+    toggleDone: (todoItemId: IToDo['id']) => {
       dispatch({
         type: constants.Actions.TOGGLE_DONE,
         payload: {
-          newToDoValue: '',
-          toDos: [],
           todoItemId,
         },
       });
     },
 
-    setEditMode: (todoItemId: string) => {
+    setEditMode: (todoItemId: IToDo['id']) => {
       dispatch({
         type: constants.Actions.SET_EDIT_MODE,
         payload: {
-          newToDoValue: '',
-          toDos: [],
           todoItemId,
         },
       });

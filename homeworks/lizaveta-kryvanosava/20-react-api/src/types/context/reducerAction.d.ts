@@ -8,7 +8,7 @@ export default interface ITodoAction {
 }
 
 interface IPayload {
-  newToDoValue: string;
-  toDos: IToDo[];
-  todoItemId: string;
+  newToDoValue?: IToDo['value'];
+  toDos?: IToDo[];
+  todoItemId?: IToDo['id'];
 }

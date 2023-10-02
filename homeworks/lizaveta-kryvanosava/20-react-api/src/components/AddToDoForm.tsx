@@ -10,11 +10,12 @@ import styles from './addToDoForm.module.scss';
 export default function AddToDoForm() {
   const [input, setInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-  const { addTodoItem, toDos } = useToDoContext();
+  const { addTodoItem } = useToDoContext();
   const isValidToDo = useValidation();
 
   const handleButtonClick = () => {
-    isValidToDo(toDos, input);
+    if (!isValidToDo(input)) return;
+
     addTodoItem(input);
     setInput('');
     inputRef.current?.focus();
