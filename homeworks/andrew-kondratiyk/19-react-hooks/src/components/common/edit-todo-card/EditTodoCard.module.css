@@ -1,6 +1,8 @@
 .editTodoCard {
+	position: relative;
 	background-color: #FFFFFF;
 	border-radius: 10px;
+	overflow: hidden;
 	overflow: hidden;
 }
 

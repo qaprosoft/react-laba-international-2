@@ -1,4 +1,5 @@
 import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
+import LoadingOverlay from '@/components/common/loading-overlay/LoadingOverlay';
 import {queryClient} from '@/context/Providers';
 import {ServiceContext} from '@/context/TodoService';
 import {TodoResponse} from '@/types/todos';
@@ -15,7 +16,7 @@ const TodoCard = ({todo}: TodoCardProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isEdit, setIsEdit] = useState(false);
 
-  const {mutate: updateTodo} = useMutation(['todos'], update, {
+  const {mutate: updateTodo, isLoading} = useMutation(['todos'], update, {
     onSuccess: async () => {
       await queryClient.invalidateQueries({queryKey: ['todos']});
     },
@@ -27,6 +28,7 @@ const TodoCard = ({todo}: TodoCardProps) => {
         <EditTodoCard onCancel={() => setIsEdit(false)} todo={todo} />
       ) : (
         <div className={styles.todoCard}>
+          {isLoading && <LoadingOverlay />}
           <div className={styles.left}>
             <div className={styles.checkBoxContainer}>
               <input
@@ -51,7 +53,13 @@ const TodoCard = ({todo}: TodoCardProps) => {
               ></div>
             </div>
 
-            <div className={styles.title}>{todo.title}</div>
+            <div
+              className={`${styles.title} ${
+                todo.completed && styles.completed
+              }`}
+            >
+              {todo.title}
+            </div>
           </div>
           <div>
             <button onClick={() => setIsEdit(true)} className={styles.editBtn}>

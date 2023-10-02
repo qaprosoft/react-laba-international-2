@@ -1,5 +1,6 @@
 'use client';
 
+import LoadingOverlay from '@/components/common/loading-overlay/LoadingOverlay';
 import {queryClient} from '@/context/Providers';
 import {ServiceContext} from '@/context/TodoService';
 import {TodoResponse} from '@/types/todos';
@@ -16,11 +17,15 @@ const EditTodoCard = ({todo, onCancel}: EditTodoCardProps) => {
   const {deleteById, create, update} = useContext(ServiceContext);
   const [inputValue, setInputValue] = useState(todo?.title || '');
 
-  const {mutate: deleteTodo} = useMutation(['todos'], deleteById, {
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({queryKey: ['todos']});
+  const {mutate: deleteTodo, isLoading: deleteLoading} = useMutation(
+    ['todos'],
+    deleteById,
+    {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({queryKey: ['todos']});
+      },
     },
-  });
+  );
 
   const {mutate: createTodo} = useMutation(['todos'], create, {
     onSuccess: async () => {
@@ -52,6 +57,7 @@ const EditTodoCard = ({todo, onCancel}: EditTodoCardProps) => {
 
   return (
     <div className={styles.editTodoCard}>
+      {deleteLoading && <LoadingOverlay />}
       <input
         type="text"
         value={inputValue}
