@@ -1,4 +1,4 @@
-import IButtonProps from '@/types/buttonProps';
+import IButtonProps from '@/types/props/buttonProps';
 
 import styles from './button.module.scss';
 

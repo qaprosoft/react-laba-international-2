@@ -1,16 +1,24 @@
-import ITextInputProps from '@/types/textInputProps';
+import { forwardRef } from 'react';
+
+import ITextInputProps from '@/types/props/textInputProps';
 
 import styles from './textInput.module.scss';
 
-export default function TextInput({
-  onChangeHandler,
-  onKeyDownHandler,
-  value,
-  placeholder = '',
-  externalStyles,
-}: ITextInputProps) {
+export default forwardRef<HTMLInputElement, ITextInputProps>(function TextInput(
+  {
+    onChangeHandler,
+    onKeyDownHandler,
+    value,
+    disabled,
+    placeholder = '',
+    externalStyles,
+  },
+  ref,
+) {
   return (
     <input
+      ref={ref}
+      disabled={disabled}
       autoFocus
       className={`${styles.input} ${externalStyles}`}
       value={value}
@@ -20,4 +28,4 @@ export default function TextInput({
       onKeyDown={onKeyDownHandler}
     />
   );
-}
+});

@@ -1,4 +1,4 @@
-import IIconButtonProps from '@/types/iconButtonProps';
+import IIconButtonProps from '@/types/props/iconButtonProps';
 
 import styles from './iconButton.module.scss';
 

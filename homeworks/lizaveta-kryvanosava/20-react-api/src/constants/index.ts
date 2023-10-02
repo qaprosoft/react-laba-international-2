@@ -13,9 +13,23 @@ enum TaskFields {
   value = 'value',
   done = 'done',
 }
+enum Actions {
+  SET_TODOS = 'SET_TODOS',
+  ADD_TODO_ITEM = 'ADD_TODO_ITEM',
+  REMOVE_TODO_ITEM = 'REMOVE_TODO_ITEM',
+  EDIT_TODO_ITEM = 'EDIT_TODO_ITEM',
+  TOGGLE_DONE = 'TOGGLE_DONE',
+  SET_EDIT_MODE = 'SET_EDIT_MODE',
+}
 
 const inputValidationReqEx = /[#^&*\-\[\]{};\\|<>\/~]/;
 
-const constants = { ErrorMessages, Numbers, TaskFields, inputValidationReqEx };
+const constants = {
+  ErrorMessages,
+  Numbers,
+  TaskFields,
+  Actions,
+  inputValidationReqEx,
+};
 
 export default constants;
