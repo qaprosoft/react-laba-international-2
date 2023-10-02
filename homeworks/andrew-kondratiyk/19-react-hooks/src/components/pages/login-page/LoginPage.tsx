@@ -1,10 +1,13 @@
 'use client';
 
+import {ValidationError} from '@/types/validation-error';
+import {AxiosError} from 'axios';
 import {signIn} from 'next-auth/react';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import {FormEvent, useState} from 'react';
 import {useMutation} from 'react-query';
+import {toast} from 'react-toastify';
 import styles from './LoginPage.module.css';
 const LoginPage = () => {
   const router = useRouter();
@@ -14,10 +17,11 @@ const LoginPage = () => {
   const {mutate} = useMutation({
     mutationFn: () => signIn('credentials', {name, password, redirect: false}),
     onSuccess: () => {
+      router.refresh();
       router.push('/');
     },
-    onError: error => {
-      console.log(error);
+    onError: (error: AxiosError<ValidationError>) => {
+      toast.error(error.response?.data.message);
     },
   });
 

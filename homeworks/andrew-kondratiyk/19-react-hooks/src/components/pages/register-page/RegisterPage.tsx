@@ -1,10 +1,12 @@
 'use client';
 
-import axios from 'axios';
+import {ValidationError} from '@/types/validation-error';
+import axios, {AxiosError} from 'axios';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import {FormEvent, useState} from 'react';
 import {useMutation} from 'react-query';
+import {toast} from 'react-toastify';
 import styles from './RegisterPage.module.css';
 const RegisterPage = () => {
   const router = useRouter();
@@ -14,10 +16,11 @@ const RegisterPage = () => {
   const {mutate} = useMutation({
     mutationFn: () => axios.post('/api/auth/register', {name, password}),
     onSuccess: () => {
+      toast.success('You have successfully registered. Now you can log in');
       router.push('/login');
     },
-    onError: error => {
-      console.log(error);
+    onError: (error: AxiosError<ValidationError>) => {
+      toast.error(error.response?.data.message);
     },
   });
 

@@ -4,11 +4,16 @@ import {ServiceContext} from '@/context/TodoService';
 import {TodoResponse} from '@/types/todos';
 import {useContext} from 'react';
 import {useQuery} from 'react-query';
+import {toast} from 'react-toastify';
 
 const TodoList = () => {
   const {getAll} = useContext(ServiceContext);
 
-  const {data: todos, isLoading} = useQuery(['todos'], getAll);
+  const {data: todos, isLoading} = useQuery(['todos'], getAll, {
+    onError: () => {
+      toast.error("Something went wrong, can't load todos");
+    },
+  });
 
   return (
     <>

@@ -1,10 +1,12 @@
 'use client';
 
+import {ReactNode} from 'react';
 import {Providers} from '@/context/Providers';
 import {Inter} from 'next/font/google';
 
 import '@/styles/global.css';
-import {ReactNode} from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from 'react-toastify';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -16,7 +18,10 @@ export default function RootLayout({children}: Props) {
   return (
     <html lang="en">
       <Providers>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          {children}
+          <ToastContainer />
+        </body>
       </Providers>
     </html>
   );
