@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import React from 'react';
+import { ReactNode } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import { ToDoProvider } from '@/context/toDoContext';
@@ -15,11 +15,7 @@ export const metadata: Metadata = {
   description: 'To-Do List with CRUD Operations',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <ToDoProvider>

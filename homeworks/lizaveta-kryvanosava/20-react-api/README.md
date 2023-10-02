@@ -17,7 +17,7 @@ Clone the project
 ```
 
 ```bash
-  cd homeworks/lizaveta-kryvanosava/19-react-hooks
+  cd homeworks/lizaveta-kryvanosava/20-react-api
 ```
 
 Install dependencies
