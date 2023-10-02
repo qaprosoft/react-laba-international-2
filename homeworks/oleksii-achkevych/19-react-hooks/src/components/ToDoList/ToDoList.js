@@ -5,16 +5,12 @@ import ToDoForm from '../ToDoForm/ToDoForm';
 const MAX_TODO_LENGTH = 30;
 
 const ToDoList = () => {
-  const [toDos, setToDos] = useState([]);
+  const [toDos, setToDos] = useState(() => {
+    const storedToDos = localStorage.getItem('toDos');
+    return storedToDos ? JSON.parse(storedToDos) : [];
+  });
   const [newToDo, setNewToDo] = useState('');
   const [editingId, setEditingId] = useState(null);
-
-  useEffect(() => {
-    const storedToDos = localStorage.getItem('toDos');
-    if (storedToDos) {
-      setToDos(JSON.parse(storedToDos));
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('toDos', JSON.stringify(toDos));

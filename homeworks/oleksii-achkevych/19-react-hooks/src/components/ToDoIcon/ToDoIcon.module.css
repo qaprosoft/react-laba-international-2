@@ -1,0 +1,11 @@
+.icon_item img {
+  margin-left: 10px;
+  width: 65px;
+  height: 65px;
+}
+
+.icon_item {
+  cursor: pointer;
+  background: none;
+  border: none;
+}

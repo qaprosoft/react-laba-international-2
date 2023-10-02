@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import styles from './ToDoItem.module.css';
+import ToDoIcon from '../ToDoIcon/ToDoIcon';
+import TodoButton from '../ToDoButton/ToDoButton';
 
 const ToDoItem = ({
   text,
@@ -69,13 +71,21 @@ const ToDoItem = ({
         <div className={styles.icons}>
           {isEditing ? (
             <div>
-              <button onClick={handleSave}>Save</button>
-              <button onClick={handleCancel}>Cancel</button>
+              <TodoButton label="Save" onClick={handleSave} />
+              <TodoButton label="Cancel" onClick={handleCancel} />
             </div>
           ) : (
             <div>
-              <img src="/images/icons/delete.png" alt="" onClick={onDelete} />
-              <img src="/images/icons/write.png" alt="" onClick={handleEdit} />
+              <ToDoIcon
+                onClick={onDelete}
+                iconSrc="/images/icons/delete.png"
+                alt="Delete"
+              />
+              <ToDoIcon
+                onClick={handleEdit}
+                iconSrc="/images/icons/write.png"
+                alt="Edit"
+              />
             </div>
           )}
         </div>

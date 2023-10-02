@@ -1,9 +1,3 @@
-.icons img {
-  margin-left: 10px;
-  width: 65px;
-  height: 65px;
-}
-
 .icons {
   cursor: pointer;
   right: 80px;
@@ -31,16 +25,6 @@
 .container input {
   padding: 10px 200px;
   font-size: 32px;
-}
-
-.container button {
-  cursor: pointer;
-  padding: 10px 20px;
-  font-size: 32px;
-}
-
-.container button:hover {
-  background-color: #5275a0;
 }
 
 .checkbox {
