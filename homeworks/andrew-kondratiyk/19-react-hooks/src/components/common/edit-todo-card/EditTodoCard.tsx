@@ -2,11 +2,7 @@
 
 import {queryClient} from '@/context/Providers';
 import {ServiceContext} from '@/context/TodoService';
-import {
-  TodoCreateRequest,
-  TodoResponse,
-  TodoUpdateRequest,
-} from '@/types/todos';
+import {TodoResponse} from '@/types/todos';
 import {useContext, useState} from 'react';
 import {useMutation} from 'react-query';
 

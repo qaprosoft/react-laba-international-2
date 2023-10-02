@@ -1,7 +1,7 @@
 import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
 import {queryClient} from '@/context/Providers';
 import {ServiceContext} from '@/context/TodoService';
-import {TodoResponse, TodoUpdateRequest} from '@/types/todos';
+import {TodoResponse} from '@/types/todos';
 import {useContext, useRef, useState} from 'react';
 import {useMutation} from 'react-query';
 

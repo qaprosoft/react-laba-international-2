@@ -1,12 +1,17 @@
 import {queryClient} from '@/context/Providers';
 import {ServiceContext} from '@/context/TodoService';
 import {signOut} from 'next-auth/react';
+import {useRouter} from 'next/navigation';
 import {useContext} from 'react';
 import {useMutation} from 'react-query';
 
 import styles from './Header.module.css';
 
-const Header = () => {
+type HeaderProps = {
+  isAuthenticated: boolean;
+};
+const Header = ({isAuthenticated}: HeaderProps) => {
+  const router = useRouter();
   const {deleteComplete, deleteMany} = useContext(ServiceContext);
   const {mutate: deleteTodos} = useMutation(['todos'], deleteMany, {
     onSuccess: async () => {
@@ -37,9 +42,18 @@ const Header = () => {
         <button onClick={() => deleteTodos()} className={styles.button}>
           Clear all todos
         </button>
-        <button className={styles.button} onClick={() => signOut()}>
-          Sign out
-        </button>
+        {isAuthenticated ? (
+          <button className={styles.button} onClick={() => signOut()}>
+            Sign out
+          </button>
+        ) : (
+          <button
+            className={styles.button}
+            onClick={() => router.push('/login')}
+          >
+            Login
+          </button>
+        )}
       </div>
     </div>
   );

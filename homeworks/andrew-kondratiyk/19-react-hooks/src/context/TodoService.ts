@@ -23,7 +23,9 @@ export class BackendTodoService implements TodoService {
     this.userId = userId;
   }
   public getAll = async () => {
-    return axios.get(`/api/todos/${this.userId}`);
+    const {data} = await axios.get(`/api/todos/${this.userId}`);
+
+    return data;
   };
   public create = async (todo: TodoCreateRequest) => {
     return axios.post(`/api/todos/${this.userId}`, todo);
