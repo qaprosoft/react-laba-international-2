@@ -28,6 +28,21 @@
   gap: 47px;
 }
 
+.delete_completed {
+  background-color: #5275a0;
+  color: #fff;
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 6px 50px 7px;
+}
+
 @media (max-width: 700px) {
   .main {
     padding: 3rem;
