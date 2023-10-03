@@ -45,3 +45,15 @@ body {
 .traffic-light__light:not(:last-child) {
   margin-bottom: 24px;
 }
+
+.yellow {
+  background-color: #ffff00;
+}
+
+.red {
+  background-color: #ff0000;
+}
+
+.green {
+  background-color: #008000;
+}

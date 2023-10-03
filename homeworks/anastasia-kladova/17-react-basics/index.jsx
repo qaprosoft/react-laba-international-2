@@ -30,11 +30,12 @@ const App = () => {
       <div className="traffic-light__body">
         {trafficColors.map(color => (
           <div
-            className="traffic-light__light"
-            style={{
-              backgroundColor:
-                color === currentColor && trafficStates[color].backgroundColor,
-            }}
+            key={color}
+            className={`traffic-light__light ${
+              color === currentColor && trafficStates[color].backgroundColor
+                ? color
+                : ''
+            }`}
           ></div>
         ))}
       </div>
