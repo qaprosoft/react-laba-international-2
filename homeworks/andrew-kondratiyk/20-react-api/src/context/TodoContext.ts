@@ -1,12 +1,29 @@
-import {TodoResponse} from '@/types/todos';
 import {createContext, Dispatch} from 'react';
 import {v4} from 'uuid';
 
-export const todoReducer = (state: TodoResponse[], action: any) => {
+export type TodoResponse = {
+  id: string;
+  title: string;
+  completed: boolean;
+};
+
+export type DispatchAction = Record<string, any> & {
+  type:
+    | 'init'
+    | 'create'
+    | 'deleteById'
+    | 'update'
+    | 'deleteMany'
+    | 'deleteCompleted';
+};
+
+export const todoReducer = (state: TodoResponse[], action: DispatchAction) => {
+  let todos = state;
   switch (action.type) {
     case 'init': {
       const todosLS = window.localStorage.getItem('todos');
-      return todosLS ? JSON.parse(todosLS) : [];
+      todos = todosLS ? JSON.parse(todosLS) : [];
+      break;
     }
     case 'create': {
       const newTodo = {
@@ -14,29 +31,36 @@ export const todoReducer = (state: TodoResponse[], action: any) => {
         completed: false,
         ...action.todo,
       };
-      return [...state, newTodo];
+      todos = [...state, newTodo];
+      break;
     }
     case 'deleteById': {
-      return state.filter((todo: any) => todo.id !== action.id);
+      todos = state.filter((todo: any) => todo.id !== action.id);
+      break;
     }
     case 'update': {
-      return state.map((listTodo: TodoResponse) => {
+      todos = state.map((listTodo: TodoResponse) => {
         if (listTodo.id === action.id) {
           return {...listTodo, ...action.todo};
         }
         return listTodo;
       });
+      break;
     }
     case 'deleteMany': {
-      return [];
+      todos = [];
+      break;
     }
     case 'deleteCompleted': {
-      return state.filter((todo: TodoResponse) => !todo.completed);
+      todos = state.filter((todo: TodoResponse) => !todo.completed);
+      break;
     }
     default: {
       throw Error('Unknown action: ' + action.type);
     }
   }
+  localStorage.setItem('todos', JSON.stringify(todos));
+  return todos;
 };
 
 export const TodoContext = createContext<{

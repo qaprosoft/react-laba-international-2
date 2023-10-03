@@ -1,7 +1,6 @@
 'use client';
 
-import {TodoContext} from '@/context/TodoContext';
-import {TodoResponse} from '@/types/todos';
+import {TodoContext, TodoResponse} from '@/context/TodoContext';
 import {useContext, useState} from 'react';
 
 import styles from './EditTodoCard.module.css';

@@ -1,6 +1,5 @@
 import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
-import {TodoContext} from '@/context/TodoContext';
-import {TodoResponse} from '@/types/todos';
+import {TodoContext, TodoResponse} from '@/context/TodoContext';
 import {useContext, useRef, useState} from 'react';
 
 import styles from './TodoCard.module.css';
