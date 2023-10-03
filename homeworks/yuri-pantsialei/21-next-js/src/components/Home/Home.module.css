@@ -1,0 +1,40 @@
+.main {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 78px 38px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tiles_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.button_wrapper {
+  padding-top: 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button_wrapper div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 1440px) {
+  .main {
+    width: 75vw;
+    padding: 4.063vw 1.979vw;
+  }
+
+  .tiles_wrapper {
+    gap: 2.083vw;
+  }
+}
