@@ -6,8 +6,8 @@ import addUserIcon from '../assets/img/icons/add-user.svg';
 
 
 
-export default function HomePage () {
-  const [users, setUsers] = useState([]);
+export default function HomePage({usersAvatars}) {
+  const [users, setUsers] = useState(usersAvatars ? usersAvatars : []);
   const [loading, setLoading] = useState(false);
 
   async function fetchUsers(url, limit, quality) {
