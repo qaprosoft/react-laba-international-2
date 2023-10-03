@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 100%;
+  background-color: var(--main-background);
+  color: var(--green);
+}
