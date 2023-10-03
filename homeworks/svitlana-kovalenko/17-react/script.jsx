@@ -1,34 +1,37 @@
-const domContainer = document.querySelector('.root');
-const root = ReactDOM.createRoot(domContainer);
-
 function TrafficLight(color) {
-  root.render(
-    React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'div',
-        {
-          className: 'traffic_head',
-        },
-        React.createElement(
-          'div',
-          {
-            className: 'traffic_body',
-          },
-          React.createElement('div', {
-            className: `red ${color === 'red' ? 'active' : ''}`,
-          }),
-          React.createElement('div', {
-            className: `yellow ${color === 'yellow' ? 'active' : ''}`,
-          }),
-          React.createElement('div', {
-            className: `green ${color === 'green' ? 'active' : ''}`,
-          }),
-        ),
-      ),
-    ),
+  const redLight = React.createElement('div', {
+    className: `red ${color === 'red' && 'active'}`,
+  });
+
+  const yellowLight = React.createElement('div', {
+    className: `yellow ${color === 'yellow' && 'active'}`,
+  });
+
+  const greenLight = React.createElement('div', {
+    className: `green ${color === 'green' && 'active'}`,
+  });
+
+  const trafficBody = React.createElement(
+    'div',
+    {
+      className: 'traffic_body',
+    },
+    redLight,
+    yellowLight,
+    greenLight,
   );
+
+  const trafficHead = React.createElement(
+    'div',
+    {
+      className: 'traffic_head',
+    },
+    trafficBody,
+  );
+
+  const trafficLightElement = React.createElement('div', null, trafficHead);
+
+  root.render(trafficLightElement);
 }
 
 let currentColor = 'red';
@@ -42,3 +45,6 @@ setInterval(() => {
 
   TrafficLight(currentColor);
 }, 2000);
+
+const domContainer = document.querySelector('.root');
+const root = ReactDOM.createRoot(domContainer);
