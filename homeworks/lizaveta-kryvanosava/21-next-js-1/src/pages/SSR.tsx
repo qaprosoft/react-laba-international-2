@@ -1,16 +1,17 @@
-import AvatarsList from '@/components/AvatarsList/AvatarsList';
+import AvatarsGrid from '@/components/AvatarsGrid/AvatarsGrid';
+import constants from '@/constants';
 import getNewAvatars from '@/helpers/getNewAvatars';
 
 export async function getServerSideProps() {
-  const avatarsProp = await getNewAvatars(5);
+  const initialAvatars = await getNewAvatars(constants.initialNumberOfAvatars);
 
   return {
     props: {
-      avatarsProp,
+      initialAvatars,
     },
   };
 }
 
-export default function StaticSiteGenerationPage({ avatarsProp = [] }) {
-  return <AvatarsList avatarsProp={avatarsProp} />;
+export default function StaticSiteGenerationPage({ initialAvatars = [] }) {
+  return <AvatarsGrid initialAvatars={initialAvatars} />;
 }

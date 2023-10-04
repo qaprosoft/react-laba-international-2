@@ -1,5 +1,6 @@
 const avatarURL = 'https://tinyfac.es/api/data?';
+const initialNumberOfAvatars = 5;
 
-const constants = { avatarURL };
+const constants = { avatarURL, initialNumberOfAvatars };
 
 export default constants;

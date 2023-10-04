@@ -1,17 +1,15 @@
-import 'react-toastify/dist/ReactToastify.css';
-
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import AddAvatar from '@/components/AddAvatar/AddAvatar';
 import Avatar from '@/components/Avatar/Avatar';
-import styles from '@/components/AvatarsList/avatarsList.module.scss';
+import styles from '@/components/AvatarsGrid/avatarsGrid.module.scss';
 import RefreshButton from '@/components/RefreshButton/RefreshButton';
 import getNewAvatars from '@/helpers/getNewAvatars';
 import IAvatarResponse from '@/types/avatarResponse';
 
-export default function AvatarsList({ avatarsProp = [] }) {
-  const [avatars, setAvatars] = useState<IAvatarResponse[]>(avatarsProp);
+export default function AvatarsGrid({ initialAvatars = [] }) {
+  const [avatars, setAvatars] = useState<IAvatarResponse[]>(initialAvatars);
   const [isAllRefreshing, setIsAllRefreshing] = useState(false);
   const [refreshingIndex, setRefreshingIndex] = useState<number | null>(null);
 
