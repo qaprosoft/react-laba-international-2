@@ -1,0 +1,9 @@
+.btn {
+  font-size: 21px;
+  font-weight: 400;
+  padding: 8px 68px;
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--color-light);
+  background-color: var(--color-accent);
+}
