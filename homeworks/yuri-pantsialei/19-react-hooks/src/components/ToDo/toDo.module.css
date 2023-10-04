@@ -1,5 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .wrapper {
   display: flex;
+  align-items: center;
 }
 
 .text_wrapper {
@@ -15,6 +23,11 @@
   width: 554px;
 }
 
+.text_wrapper div {
+  padding-top: 6px;
+  padding-bottom: 7px;
+}
+
 .input {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.6);
@@ -28,6 +41,11 @@
   outline: none;
 }
 
+.completed {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.3);
+}
+
 .btn_wrapper {
   width: 122px;
   display: flex;
@@ -39,6 +57,7 @@
   background-color: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 @media (max-width: 870px) {
@@ -115,4 +134,9 @@
     height: 42px;
     width: 30.5px;
   }
+}
+
+.error {
+  font-family: Hind Siliguri;
+  color: red;
 }

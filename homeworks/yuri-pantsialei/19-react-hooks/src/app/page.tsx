@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react';
 import {TodoType} from '@/types/mainTypes';
 import {ToDo} from '@/components/ToDo/ToDo';
 import {v4} from 'uuid';
+import {TodoError} from '@/helpers/errors';
 
 export default function Home() {
   const [todos, setTodos] = useState<Array<TodoType>>([]);
@@ -25,18 +26,16 @@ export default function Home() {
     } else {
       setIsInitialRender(false);
     }
-  }, [todos]);
+  }, [todos, isInitialRender]);
 
   const addNewTodo = (value: string) => {
     if (value.length < 2 || value.length > 30) {
-      setIsAlreadyExist(
-        'Todo title length need to be at least 2 symbols and not longer than 30',
-      );
+      setIsAlreadyExist(TodoError.wrongTitleSize);
       return;
     }
     const isExist = todos.findIndex(todo => todo.value === value);
     if (isExist > -1) {
-      setIsAlreadyExist('To do with such title already exist');
+      setIsAlreadyExist(TodoError.alreadyExist);
       return;
     }
     setIsAlreadyExist(null);
@@ -47,7 +46,7 @@ export default function Home() {
   const editTodoHandler = (id: string, value: string) => {
     const isExist = todos.findIndex(todo => todo.value === value);
     if (isExist > -1) {
-      setIsAlreadyExist('To do with such title already exist');
+      setIsAlreadyExist(TodoError.alreadyExist);
       return;
     }
     setIsAlreadyExist(null);
@@ -74,7 +73,7 @@ export default function Home() {
               <ToDo
                 key={todo.id}
                 value={todo.value}
-                callback={editTodoHandler}
+                changeEditMode={editTodoHandler}
                 id={todo.id}
                 deleteCallback={deleteTodo}
               />
