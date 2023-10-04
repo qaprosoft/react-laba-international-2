@@ -34,7 +34,7 @@ export const todoReducer = (state: TodoResponse[], action: DispatchAction) => {
       break;
     }
     case 'deleteById': {
-      todos = state.filter((todo: any) => todo.id !== action.id);
+      todos = state.filter((todo: TodoResponse) => todo.id !== action.id);
       break;
     }
     case 'update': {
