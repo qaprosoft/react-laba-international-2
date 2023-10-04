@@ -1,5 +1,4 @@
 import {TodoContext} from '@/context/TodoContext';
-import {useRouter} from 'next/navigation';
 import {useContext} from 'react';
 
 import styles from './Header.module.css';

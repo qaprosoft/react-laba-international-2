@@ -1,8 +1,8 @@
 import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
 import styles from '@/components/pages/main-page/MainPage.module.css';
-import {useState} from 'react';
+import {memo, useState} from 'react';
 
-const AddTodoContainer = () => {
+const AddTodoContainer = memo(() => {
   const [isAddTodo, setIsAddTodo] = useState(false);
 
   return (
@@ -16,6 +16,6 @@ const AddTodoContainer = () => {
       )}
     </>
   );
-};
+});
 
 export default AddTodoContainer;
