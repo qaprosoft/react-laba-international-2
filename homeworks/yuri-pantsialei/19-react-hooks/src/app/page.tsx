@@ -28,6 +28,8 @@ export default function Home() {
     }
   }, [todos, isInitialRender]);
 
+  console.log(todos);
+
   const addNewTodo = (value: string) => {
     if (value.length < 2 || value.length > 30) {
       setIsAlreadyExist(TodoError.wrongTitleSize);
@@ -40,7 +42,7 @@ export default function Home() {
     }
     setIsAlreadyExist(null);
     const id = v4();
-    setTodos([...todos, {id, value}]);
+    setTodos([...todos, {id, value, status: false}]);
   };
 
   const editTodoHandler = (id: string, value: string) => {
@@ -50,11 +52,15 @@ export default function Home() {
       return;
     }
     setIsAlreadyExist(null);
-    setTodos(todos.map(todo => (todo.id === id ? {id, value} : todo)));
+    setTodos(todos.map(todo => (todo.id === id ? {...todo, value} : todo)));
   };
 
   const deleteTodo = (id: string) => {
     setTodos(todos.filter(todo => todo.id !== id));
+  };
+
+  const changeTodoStatus = (id: string, status: boolean) => {
+    setTodos(todos.map(todo => (todo.id === id ? {...todo, status} : todo)));
   };
 
   return (
@@ -73,9 +79,11 @@ export default function Home() {
               <ToDo
                 key={todo.id}
                 value={todo.value}
-                changeEditMode={editTodoHandler}
+                isChecked={todo.status}
                 id={todo.id}
+                changeEditMode={editTodoHandler}
                 deleteCallback={deleteTodo}
+                changeTodoStatus={changeTodoStatus}
               />
             );
           })}

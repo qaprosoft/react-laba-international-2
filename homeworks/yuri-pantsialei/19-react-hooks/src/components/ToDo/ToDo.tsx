@@ -1,20 +1,27 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import {PropsType} from './types';
 import Image from 'next/image';
 import editIcon from '../../../public/icons/edit.svg';
 import deleteIcon from '../../../public/icons/delete.svg';
 import styles from './toDo.module.css';
 import {TodoError} from '@/helpers/errors';
+import {useOnClickOutside} from 'usehooks-ts';
+import Checkbox, {checkboxClasses} from '@mui/material/Checkbox';
 
 export const ToDo = ({
   value,
-  changeEditMode,
   id,
+  isChecked,
+  changeEditMode,
   deleteCallback,
+  changeTodoStatus,
 }: PropsType) => {
   const [state, setState] = useState<string>(value);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [error, setError] = useState<null | string>(null);
+
+  const ref = useRef<HTMLInputElement>(null);
+  const containerRef = useRef(null);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState(e.target.value);
@@ -38,10 +45,43 @@ export const ToDo = ({
     deleteCallback(id);
   };
 
+  const handleClickOutside = () => {
+    if (state.length < 2 || state.length > 30) {
+      setError(TodoError.wrongTitleSize);
+      setState(value);
+    } else {
+      if (state !== value && isEditMode) {
+        changeEditMode(id, state);
+      }
+    }
+
+    setIsEditMode(false);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    changeTodoStatus(id, event.target.checked);
+  };
+
+  useOnClickOutside(containerRef, handleClickOutside);
+
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <div className={styles.text_wrapper}>
+      <div className={styles.wrapper} ref={containerRef}>
+        <Checkbox
+          checked={isChecked}
+          onChange={handleChange}
+          inputProps={{'aria-label': 'controlled'}}
+          sx={{
+            [`&, &.${checkboxClasses.checked}`]: {
+              color: '#5275a0',
+            },
+          }}
+        />
+        <div
+          className={`${styles.text_wrapper} ${
+            isChecked && !isEditMode ? styles.completed : ''
+          }`}
+        >
           {isEditMode ? (
             <input
               className={styles.input}
@@ -49,6 +89,7 @@ export const ToDo = ({
               value={state}
               onChange={onChangeHandler}
               autoFocus
+              ref={ref}
             />
           ) : (
             <div>{value}</div>
