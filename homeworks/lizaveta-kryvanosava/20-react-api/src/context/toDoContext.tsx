@@ -23,7 +23,7 @@ function ToDoProvider({ children }: { children: ReactNode }) {
         dispatch({
           type: constants.Actions.SET_TODOS,
           payload: {
-            toDos: toDos,
+            toDos,
           },
         });
       },
