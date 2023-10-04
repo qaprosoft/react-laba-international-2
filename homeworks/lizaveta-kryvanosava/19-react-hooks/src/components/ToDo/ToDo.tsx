@@ -4,8 +4,8 @@ import { useState } from 'react';
 import deleteImage from '@/assets/icons/delete.svg';
 import doneImage from '@/assets/icons/done.svg';
 import editImage from '@/assets/icons/write.svg';
-import IconButton from '@/components/IconButton';
-import TextInput from '@/components/TextInput';
+import IconButton from '@/components/IconButton/IconButton';
+import TextInput from '@/components/TextInput/TextInput';
 import constants from '@/constants';
 import IToDoProps from '@/types/toDoProps';
 

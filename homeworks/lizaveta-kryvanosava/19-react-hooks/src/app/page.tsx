@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import AddToDoForm from '@/components/AddToDoForm';
-import ToDo from '@/components/ToDo';
+import AddToDoForm from '@/components/AddToDoForm/AddToDoForm';
+import ToDo from '@/components/ToDo/ToDo';
 import { useEffectOnUpdateOnly } from '@/customHooks/useEffectOnUpdateOnly';
 import isToDoValid from '@/helpers/isToDoValid';
 import IToDo from '@/types/toDo';
