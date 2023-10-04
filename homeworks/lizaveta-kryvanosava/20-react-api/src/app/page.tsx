@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 
-import AddToDoForm from '@/components/AddToDoForm';
-import ToDo from '@/components/ToDo';
+import AddToDoForm from '@/components/AddToDoForm/AddToDoForm';
+import ToDo from '@/components/ToDo/ToDo';
 import { useEffectOnUpdateOnly } from '@/customHooks/useEffectOnUpdateOnly';
 import useToDoContext from '@/customHooks/useToDoContext';
 
