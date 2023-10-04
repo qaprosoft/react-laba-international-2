@@ -7,6 +7,7 @@ import styles from './toDo.module.css';
 import {useOnClickOutside} from 'usehooks-ts';
 import Checkbox, {checkboxClasses} from '@mui/material/Checkbox';
 import {NewTodoCreatedContext} from '@/app/page';
+import {TodoError} from '@/helpers/errors';
 
 export const ToDo = memo(function ToDo({
   changeEditMode,
@@ -41,9 +42,7 @@ export const ToDo = memo(function ToDo({
 
   const handleEditMode = () => {
     if (state.length < 2 || state.length > 30) {
-      setError(
-        'Todo title length need to be at least 2 symbols and not longer than 30',
-      );
+      setError(TodoError.wrongTitleSize);
       return;
     }
 

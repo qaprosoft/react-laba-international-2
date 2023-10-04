@@ -20,6 +20,7 @@ import {
 } from '@/reducer/reducer';
 import {useSetInitialTodos} from '@/Hooks/useSetInitialTodos';
 import {useTodosReducer} from '@/Hooks/useTodosReducer';
+import {TodoError} from '@/helpers/errors';
 
 export const NewTodoCreatedContext = createContext<{
   isCreated: boolean;
@@ -40,14 +41,12 @@ export default function Home() {
   const addNewTodo = useCallback(
     (value: string) => {
       if (value.length < 2 || value.length > 30) {
-        setIsError(
-          'Todo title length need to be at least 2 symbols and not longer than 30',
-        );
+        setIsError(TodoError.wrongTitleSize);
         return;
       }
       const isExist = state.todos.findIndex(todo => todo.value === value);
       if (isExist > -1) {
-        setIsError('To do with such title already exist');
+        setIsError(TodoError.alreadyExist);
         return;
       }
       setIsError(null);
@@ -60,7 +59,7 @@ export default function Home() {
     (id: string, value: string) => {
       const isExist = state.todos.findIndex(todo => todo.value === value);
       if (isExist > -1) {
-        setIsError('To do with such title already exist');
+        setIsError(TodoError.alreadyExist);
         return;
       }
       setIsError(null);

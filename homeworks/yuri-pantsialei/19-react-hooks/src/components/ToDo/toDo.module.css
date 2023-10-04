@@ -57,6 +57,7 @@
   background-color: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 @media (max-width: 870px) {
