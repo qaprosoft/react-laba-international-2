@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import styles from '@/components/addAvatar.module.scss';
-import Loader from '@/components/Loader';
+import styles from '@/components/AddAvatar/addAvatar.module.scss';
+import Loader from '@/components/Loader/Loader';
 
 export default function AddAvatar({
   addNewAvatar,

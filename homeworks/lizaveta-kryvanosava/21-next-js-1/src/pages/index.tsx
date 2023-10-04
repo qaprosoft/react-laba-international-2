@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { ToastContainer } from 'react-toastify';
 
-import styles from '@/styles/Home.module.scss';
+import styles from '@/styles/home.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 

@@ -1,4 +1,4 @@
-import styles from './refreshButton.module.scss';
+import styles from '@/components/RefreshButton/refreshButton.module.scss';
 
 export default function RefreshButton({
   updateAllAvatars,

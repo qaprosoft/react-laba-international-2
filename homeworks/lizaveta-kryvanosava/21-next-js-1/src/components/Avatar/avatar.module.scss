@@ -5,7 +5,8 @@
   overflow: hidden;
   border: none;
   border-radius: var(--tile-border-radius);
-  background: center/contain no-repeat url(../../public/Avatar-Placeholder.jpg);
+  background: center/contain no-repeat
+    url(../../../public/Avatar-Placeholder.jpg);
 
   &__image,
   &__refresh {
