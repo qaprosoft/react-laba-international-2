@@ -28,8 +28,6 @@ export default function Home() {
     }
   }, [todos, isInitialRender]);
 
-  console.log(todos);
-
   const addNewTodo = (value: string) => {
     if (value.length < 2 || value.length > 30) {
       setIsAlreadyExist(TodoError.wrongTitleSize);
