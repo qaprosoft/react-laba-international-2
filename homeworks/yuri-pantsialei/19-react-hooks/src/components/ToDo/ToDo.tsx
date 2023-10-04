@@ -59,9 +59,7 @@ export const ToDo = memo(function ToDo({
 
   const handleClickOutside = () => {
     if (state.length < 2 || state.length > 30) {
-      setError(
-        'Todo title length need to be at least 2 symbols and not longer than 30',
-      );
+      setError(TodoError.wrongTitleSize);
       setState(value);
     } else {
       if (state !== value && isEditMode) {
