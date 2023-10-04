@@ -1,14 +1,12 @@
 .main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
   background-color: var(--main-background);
 
   &__navigation {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     gap: 2rem;
     color: var(--green);
