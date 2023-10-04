@@ -21,8 +21,7 @@ export const todoReducer = (state: TodoResponse[], action: DispatchAction) => {
   let todos = state;
   switch (action.type) {
     case 'init': {
-      const todosLS = window.localStorage.getItem('todos');
-      todos = todosLS ? JSON.parse(todosLS) : [];
+      todos = action.value;
       break;
     }
     case 'create': {
