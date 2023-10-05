@@ -1,12 +1,11 @@
-import {ActionCreatorsTypes, addTodosAction} from '@/reducer/reducer';
+import {ActionCreatorsTypes, addTodosAction} from '@/reducer/actionCreators';
 import {Dispatch, useEffect} from 'react';
 
 export const useSetInitialTodos = (dispatch: Dispatch<ActionCreatorsTypes>) => {
   useEffect(() => {
-    const savedTodos = JSON.parse(localStorage.getItem('todos') || '');
-    if (savedTodos.length) {
-      dispatch(addTodosAction(savedTodos));
-      //setTodos(JSON.parse(savedTodos));
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+      dispatch(addTodosAction(JSON.parse(savedTodos)));
     }
   }, [dispatch]);
 };

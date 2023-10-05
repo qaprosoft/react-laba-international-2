@@ -17,7 +17,7 @@ import {
   deleteTodoAction,
   changeTodoStatusAction,
   deleteCompletedTodosAction,
-} from '@/reducer/reducer';
+} from '@/reducer/actionCreators';
 import {useSetInitialTodos} from '@/Hooks/useSetInitialTodos';
 import {useTodosReducer} from '@/Hooks/useTodosReducer';
 import {TodoError} from '@/helpers/errors';
@@ -30,13 +30,18 @@ export const NewTodoCreatedContext = createContext<{
 export default function Home() {
   const [isError, setIsError] = useState<null | string>(null);
   const [isCreated, setIsCreated] = useState<boolean>(false);
+  const [isInitialRender, setIsInitialRender] = useState<boolean>(true);
   const {state, dispatch} = useTodosReducer();
 
   useSetInitialTodos(dispatch);
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(state.todos));
-  }, [state.todos]);
+    if (!isInitialRender) {
+      localStorage.setItem('todos', JSON.stringify(state.todos));
+    } else {
+      setIsInitialRender(false);
+    }
+  }, [state.todos, isInitialRender]);
 
   const addNewTodo = useCallback(
     (value: string) => {
