@@ -1,6 +1,5 @@
-.avatarsBox {
+.avatars__box {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
   flex-wrap: wrap;
+  padding-bottom: var(--space-measure);
 }

@@ -6,6 +6,7 @@
   --color-accent: #02cc67;
   --color-light: #fff;
   --border-radius: 10px;
+  --space-measure: 40px;
 }
 
 body {
@@ -20,4 +21,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.main {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1392px;
+  min-height: 100vh;
+  padding: 40px 24px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
