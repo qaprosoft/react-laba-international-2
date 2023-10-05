@@ -35,9 +35,16 @@ export function Tile({loading, image, alt, getNewTile, isRefreshingAll}: IProps)
       onMouseEnter={() => { setShowRefreshBtn(true); }}
       onMouseLeave={() => { (!loading) && setShowRefreshBtn(false); }}
     >
-      <img
+      {/* <img
         alt={alt}
         src={image} 
+        className={styles.image}
+      /> */}
+      <Image
+        alt={alt}
+        width={240}
+        src={image}
+        height={240}
         className={styles.image}
       />
       <button 

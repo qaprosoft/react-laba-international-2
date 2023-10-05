@@ -7,7 +7,7 @@
   justify-content: space-between;
 }
 
-.tilesList {
+.tilesList, .btns {
   display: flex;
   flex-wrap: wrap;
   align-items: center;

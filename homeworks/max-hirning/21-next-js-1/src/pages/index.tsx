@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Head from 'next/head'
 import { useState } from "react"
 import { ITile } from "@/types/tile"
@@ -88,10 +89,14 @@ export default function Home({ data }: { data: ITile[] }) {
             />
           </section>
         </Loader>
-        <RefreshAllButton 
-          onClick={refreshAllTiles}
-          disabled={(!(data && data.length > 0))}
-        />
+        <section className={styles.btns}>
+          <Link href="/ssr">SSR</Link>
+          <RefreshAllButton 
+            onClick={refreshAllTiles}
+            disabled={(!(data && data.length > 0))}
+          />
+          <Link href="/ssg">SSG</Link>
+        </section>
       </main>
     </>
   )
