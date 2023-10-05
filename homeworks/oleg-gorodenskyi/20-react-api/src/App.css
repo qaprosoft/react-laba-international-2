@@ -1,0 +1,92 @@
+.App {
+  padding: 99px 0 266px 0;
+}
+
+form {
+  display: flex;
+}
+
+form button:nth-of-type(2) {
+  margin-left: 10px;
+}
+
+input {
+  width: 554px;
+  height: 65px;
+  background: #ecf3ff;
+  border: none;
+  padding: 0;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 6px 227px 7px 88px;
+  width: 239px;
+  height: 52px;
+}
+
+.submit {
+  padding: 0;
+  vertical-align: middle;
+  width: 122px;
+  height: 65px;
+  background: #5275a0;
+  border: none;
+  color: #fff;
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.toDoItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toDoItem__value {
+  width: 554px;
+  height: 65px;
+  background: #ecf3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.toDoItemList {
+  margin-top: 88px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 47px;
+}
+
+.iconBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.iconBtn:hover {
+  background-color: #a5b5c9fa;
+}
