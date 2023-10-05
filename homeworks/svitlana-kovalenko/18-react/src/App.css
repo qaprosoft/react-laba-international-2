@@ -64,3 +64,10 @@ button {
   border-radius: 3px;
   font-size: 21px;
 }
+
+.loader{
+  font-size: 20px;
+  border-radius: 10px;
+ color: #cc5151;
+ align-self: center;
+}

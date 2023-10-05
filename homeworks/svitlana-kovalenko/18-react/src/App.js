@@ -1,14 +1,24 @@
 import './App.css';
-import tilesImage from './tiles.png';
 import refreshItem from './refresh.png';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import UserItem from './UserItem';
+import BtnRefresh from './BtnRefresh';
+import BtnShowMore from './BtnShowMore';
 
 const App = () => {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [loadingOne, setLoadingOne] = useState(false);
+
 
   const refreshAll = () => {
     fetch(`https://tinyfac.es/api/data?limit=${users.length}&quality=0`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
         setUsers(data);
       })
@@ -18,28 +28,39 @@ const App = () => {
   };
 
   const showMore = () => {
-    fetch(`https://tinyfac.es/api/data?limit=7&quality=0`)
-      .then(response => response.json())
-      .then(data => {
-        setUsers(prevUsers => [...prevUsers, ...data]);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+    if (!loading) {
+      setLoading(true);
+
+      fetch(`https://tinyfac.es/api/data?limit=1&quality=0`)
+        .then(response => response.json())
+        .then(data => {
+          setUsers(prevUsers => [...prevUsers, ...data]);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          setLoading(false);
+        });
+    }
   };
 
   const refreshOne = user => {
+    setLoadingOne(true);
+
     fetch(`https://tinyfac.es/api/data?limit=1&quality=0`)
       .then(response => response.json())
       .then(data => {
         const randomImageUrl = data[0].url;
-        const updatedUser = users.map(u =>
-          u.id === user.id ? {...u, url: randomImageUrl} : u,
+        const refreshedImg = users.map(u =>
+          u.id === user.id ? { ...u, url: randomImageUrl } : u,
         );
-        setUsers(updatedUser);
+        setUsers(refreshedImg);
       })
       .catch(error => {
         console.error('Error:', error);
+      })
+      .finally(() => {
+        setLoadingOne(false);
       });
   };
 
@@ -47,25 +68,14 @@ const App = () => {
     <>
       <div className="gallery">
         {users.map(user => (
-          <div className="avatar_wrap" key={user.id}>
-            <img className="avatar" src={user.url} alt="user" />
-            <div className="overlay" onClick={() => refreshOne(user)}>
-              <img
-                className="refresh_item"
-                src={refreshItem}
-                alt="refresh avatar"
-              />
-            </div>
-          </div>
+          loading ? (
+            <span className='loader'>Loading...</span>
+          ) :
+            <UserItem key={user.id} user={user} onRefreshOne={refreshOne} refreshItem={refreshItem} />
         ))}
-
-        <button className="show_more" onClick={showMore}>
-          <img src={tilesImage} width={240} height={240} alt="show more"></img>
-        </button>
+        <BtnShowMore onClick={showMore} disabled={loading} />
       </div>
-      <button className="refresh" onClick={refreshAll}>
-        Refresh All
-      </button>
+      <BtnRefresh onClick={refreshAll} />
     </>
   );
 };
