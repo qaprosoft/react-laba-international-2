@@ -39,6 +39,7 @@ function App() {
       setInput('');
     }
   };
+
   const handleCompleted = id => {
     setTodoList(
       todoList.map(todo =>
@@ -63,6 +64,7 @@ function App() {
       ),
     );
   };
+
   return (
     <div className="App">
       <div className="container">
@@ -70,6 +72,7 @@ function App() {
         <div>
           <input
             value={input}
+            onFocus={(e) => e.target.placeholder = ""}
             onInput={e => setInput(e.target.value)}
             placeholder="Create Todo-Task"
           ></input>

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-export const EditInput = ({handleEdit, task}) => {
+export const EditInput = ({ handleEdit, task, }) => {
   const [value, setValue] = useState('');
   const handleSubmit = e => {
     e.preventDefault();
@@ -12,7 +12,9 @@ export const EditInput = ({handleEdit, task}) => {
       <input
         type="text"
         value={value}
+        placeholder={task.task}
         onChange={e => setValue(e.target.value)}
+        onFocus={() => setValue(task.task)}
       />
       <button type="submit">Update</button>
     </form>
