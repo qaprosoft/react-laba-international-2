@@ -2,7 +2,7 @@ import App from '@/components/App';
 import fetchAllData from '@/helpers/fetchAllData';
 import React from 'react';
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const initialAvatars = await fetchAllData(5);
   const imagesOfAvatars = initialAvatars.map(list => list.url);
 
@@ -13,8 +13,8 @@ export async function getServerSideProps() {
   };
 }
 
-const SSR = ({imagesOfAvatars}) => {
+const SSG = ({imagesOfAvatars}) => {
   return <App imagesOfAvatars={imagesOfAvatars} />;
 };
 
-export default SSR;
+export default SSG;

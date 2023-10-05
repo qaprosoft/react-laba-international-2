@@ -4,16 +4,14 @@ import AvatarList from './AvatarList';
 import {useState} from 'react';
 import fetchAllData from '@/helpers/fetchAllData';
 
-
 function App({imagesOfAvatars}) {
   const [avatars, setAvatars] = useState(imagesOfAvatars);
   const [animationRefreshIcon, setAnimationRefreshIcon] = useState(false);
 
-   async function addAvatar() {
+  async function addAvatar() {
     const response = await fetchAllData();
     const url = response[0].url;
     setAvatars([...avatars, url]);
-
   }
 
   async function replaceAvatar(index) {
@@ -28,12 +26,11 @@ function App({imagesOfAvatars}) {
   }
 
   async function refreshAllAvatars(length) {
-    const fetchedAvatars = await fetchAllData(length)
+    const fetchedAvatars = await fetchAllData(length);
     const updatedAvatars = fetchedAvatars.map(object => object.url);
     setAvatars(updatedAvatars);
   }
 
-  
   return (
     <>
       <div className="rectangle">
