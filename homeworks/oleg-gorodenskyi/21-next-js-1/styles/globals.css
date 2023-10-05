@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rectangle {
+  padding: 40px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.tiles_btn {
+  border: none;
+}
+
+.tiles_avatar {
+  width: 240px;
+  height: 240px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease;
+}
+
+.icon_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon_wrapper::before {
+  content: '';
+  width: 100px;
+  height: 104px;
+  position: absolute;
+  background-image: url(../assets/001-refresh.svg);
+  opacity: 0;
+  transition: opacity 0.4s, transform 1s forwards;
+  transform-origin: center;
+}
+
+.icon_wrapper.start_animation::before {
+  animation: spin 1s infinite ease;
+}
+
+.tiles_avatar:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.icon_wrapper:hover::before {
+  opacity: 1;
+}
+
+.tiles_refresh {
+  width: 100px;
+  height: 104px;
+  position: absolute;
+  opacity: 0;
+}
+
+.refresh {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 40px;
+  border-radius: 3px;
+  background: #02cc67;
+  border: none;
+  color: #fff;
+  font-family: Basic;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: block;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
