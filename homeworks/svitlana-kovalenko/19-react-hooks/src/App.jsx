@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Todo } from './Todo';
-import { EditInput } from './EditInput';
 
 function App() {
   const [input, setInput] = useState('');
@@ -57,13 +56,6 @@ function App() {
       ),
     );
   };
-  const handleEditTask = (task, id) => {
-    setTodoList(
-      todoList.map(todo =>
-        todo.id === id ? { ...todo, task, edition: !todo.edition } : todo,
-      ),
-    );
-  };
 
   return (
     <div className="App">
@@ -82,17 +74,13 @@ function App() {
         </div>
         <ul className="todos">
           {todoList.map((todo, index) =>
-            todo.edition ? (
-              <EditInput handleEdit={handleEditTask} task={todo} />
-            ) : (
-              <Todo
-                task={todo}
-                key={index}
-                handleCompleted={handleCompleted}
-                handleDelete={handleDelete}
-                handleEdit={handleEdit}
-              />
-            )
+            <Todo
+              task={todo}
+              key={index}
+              handleCompleted={handleCompleted}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+            />
           )}
         </ul>
       </div>

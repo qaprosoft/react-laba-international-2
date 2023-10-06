@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import write from './img/write.png';
 import trash from './img/delete.png';
 
-export const Todo = ({task, handleCompleted, handleDelete, handleEdit}) => {
+export const Todo = ({ task, handleCompleted, handleDelete, handleEdit, edition }) => {
+  const [value, setValue] = useState('');
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    handleEdit(value, task.id);
+  };
   return (
     <>
       <div className="todos_wrap">
         <div className="todos_item" onClick={() => handleEdit(task.id)}>
-          <p className={`${task.complete ? 'completed' : ''}`}>{task.task}</p>
+          <input className={`${task.complete ? 'completed' : ''}`} type="text" value={value} placeholder={task.task} onChange={e => setValue(e.target.value)} onFocus={() => setValue(task.task)} />
         </div>
-        <div>
+        {edition ? <button type="submit" onClick={handleSubmit}>Update</button> : <div>
           <img
             src={write}
             onClick={() => handleCompleted(task.id)}
             alt="complete"
           />
           <img src={trash} alt="delete" onClick={() => handleDelete(task.id)} />
-        </div>
+        </div>}
+
       </div>
     </>
   );

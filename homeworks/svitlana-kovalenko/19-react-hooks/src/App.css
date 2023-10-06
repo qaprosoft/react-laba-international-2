@@ -38,10 +38,6 @@ input,
   text-align: center;
 }
 
-p {
-  font-size: 35px;
-}
-
 input:focus {
   outline: none;
 }
