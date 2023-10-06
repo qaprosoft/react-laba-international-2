@@ -1,6 +1,8 @@
-import {getAvatars} from '@/api';
 import Avatar from '@/components/avatar/Avatar';
-import {AvatarResponse} from '@/types';
+import {API_URL} from '@/config/env-config';
+import {addIdToResponse} from '@/helpers/addIdToResponse';
+import useFetch from '@/hooks/useFetch';
+import {ApiError, AvatarResponse} from '@/types';
 import {useState} from 'react';
 
 import styles from './Home.module.css';
@@ -11,34 +13,29 @@ export type HomePageProps = {
 
 const HomePage = ({initialAvatars}: HomePageProps) => {
   const [avatars, setAvatars] = useState<AvatarResponse[]>(initialAvatars);
-  const addAvatar = async () => {
-    const avatar = (await getAvatars())[0];
-    setAvatars([...avatars, avatar]);
-  };
 
-  const refreshAvatar = async (custom_id: string) => {
-    const newAvatar = (await getAvatars())[0];
-    const updatedAvatars = avatars.map(avatar =>
-      avatar.custom_id === custom_id ? newAvatar : avatar,
-    );
-    setAvatars(updatedAvatars);
-  };
+  const {query: addAvatar, isLoading} = useFetch(`${API_URL}/data?limit=${1}`, {
+    onSuccess: (result: any) => {
+      const newAvatar = addIdToResponse(result)[0];
+      setAvatars([...avatars, newAvatar]);
+    },
+    onError: (error: ApiError) => {
+      alert(error.reason);
+    },
+  });
 
-  const refreshAllAvatars = async () => {
-    const avatarsCount = avatars.length;
-    if (!avatarsCount) {
-      return;
-    }
-    const newAvatars = await getAvatars(avatarsCount);
-    setAvatars(newAvatars);
-  };
-
-  const deleteAvatar = (custom_id: string) => {
-    const updatedAvatars = avatars.filter(
-      avatar => avatar.custom_id !== custom_id,
-    );
-    setAvatars(updatedAvatars);
-  };
+  const {query: refreshAllAvatars, isLoading: isAllLoading} = useFetch(
+    `${API_URL}/data?limit=${avatars.length}`,
+    {
+      onSuccess: (result: any) => {
+        const newAvatars = addIdToResponse(result);
+        setAvatars(newAvatars);
+      },
+      onError: (error: ApiError) => {
+        alert(error.reason);
+      },
+    },
+  );
 
   return (
     <main className={styles.main}>
@@ -47,13 +44,20 @@ const HomePage = ({initialAvatars}: HomePageProps) => {
           <Avatar
             key={avatar.custom_id}
             avatar={avatar}
-            refreshAvatar={() => refreshAvatar(avatar.custom_id)}
-            deleteAvatar={() => deleteAvatar(avatar.custom_id)}
+            setAvatars={setAvatars}
           />
         ))}
-        <button className={styles.addAvatarBtn} onClick={addAvatar}></button>
+        <button
+          className={styles.addAvatarBtn}
+          onClick={addAvatar}
+          disabled={isLoading || isAllLoading}
+        ></button>
       </div>
-      <button className={styles.refreshAll} onClick={refreshAllAvatars}>
+      <button
+        className={styles.refreshAll}
+        onClick={() => avatars.length && refreshAllAvatars()}
+        disabled={isLoading || isAllLoading}
+      >
         Refresh all
       </button>
     </main>

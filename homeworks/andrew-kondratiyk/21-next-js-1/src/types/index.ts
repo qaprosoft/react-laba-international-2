@@ -21,3 +21,8 @@ export type AvatarSource = {
 export type AvatarResponse = AvatarResponseApi & {
   custom_id: string;
 };
+
+export type ApiError = {
+  error: boolean;
+  reason: string;
+};

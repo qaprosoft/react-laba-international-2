@@ -44,6 +44,7 @@
 
 .refresh.active {
 	animation: loading 2s infinite linear;
+	pointer-events: none;
 }
 
 @keyframes loading {
