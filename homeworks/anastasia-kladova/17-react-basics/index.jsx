@@ -1,43 +1,34 @@
 const {useState, useEffect} = React;
 
 const App = () => {
+  const LIGTHS = ['red', 'yellow', 'green'];
   const DURATION = 2000;
-
-  const trafficStates = {
-    red: {backgroundColor: 'red', next: 'yellow'},
-    yellow: {backgroundColor: 'yellow', next: 'green'},
-    green: {backgroundColor: 'green', next: 'red'},
-  };
-  const trafficColors = Object.keys(trafficStates);
-
-  const [currentColor, setCurrentColor] = useState('green');
+  const lightsLength = LIGTHS.length;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const {next} = trafficStates[currentColor];
-
     const timerId = setTimeout(() => {
-      setCurrentColor(next);
+      setCurrentIndex((currentIndex + 1) % lightsLength);
     }, DURATION);
 
     return () => {
       clearTimeout(timerId);
     };
-  }, [currentColor]);
+  }, [currentIndex]);
 
   return (
     <div className="traffic-light">
       <div className="traffic-light__head"></div>
       <div className="traffic-light__body">
-        {trafficColors.map(color => (
-          <div
-            key={color}
-            className={`traffic-light__light ${
-              color === currentColor && trafficStates[color].backgroundColor
-                ? color
-                : ''
-            }`}
-          ></div>
-        ))}
+        <div
+          className={`traffic-light__light ${currentIndex === 0 && LIGTHS[0]}`}
+        ></div>
+        <div
+          className={`traffic-light__light ${currentIndex === 1 && LIGTHS[1]}`}
+        ></div>
+        <div
+          className={`traffic-light__light ${currentIndex === 2 && LIGTHS[2]}`}
+        ></div>
       </div>
     </div>
   );
