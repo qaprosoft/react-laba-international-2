@@ -1,0 +1,13 @@
+@use '@/styles/normalize.scss';
+@use '@/styles/variables';
+
+html {
+  height: 100%;
+  font-size: 21px;
+}
+
+body {
+  height: 100%;
+  background-color: var(--main-background);
+  margin: 0;
+}

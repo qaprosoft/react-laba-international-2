@@ -1,0 +1,19 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.button {
+	padding: 8px 16px;
+	background-color: rgba(255, 255, 255, 0.36);
+	color: #fff;
+	font-weight: 600;
+}

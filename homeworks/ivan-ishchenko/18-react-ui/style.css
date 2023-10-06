@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.spinner {
+  width: 100%;
+  text-align: center;
+  width: 70px;
+  height: 70px;
+  border: 7px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-top-color: #02cc67;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.error {
+  background-color: rgb(248, 46, 46);
+  color: white;
+  width: 40%;
+  padding: 20px 30px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+.avatars {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 80px 40px;
+  gap: 2vw;
+}
+
+.tile {
+  width: calc(20% - 2vw);
+  aspect-ratio: 1 / 1;
+  box-shadow: 2px 2px 8px 0px #00000080;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.tile .tileIcon {
+  width: 50%;
+}
+
+.avatar {
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.avatar:hover .overlay {
+  opacity: 1;
+}
+
+.addAvatar {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #02cc67;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.addAvatar:hover {
+  background: #b4ffda;
+}
+
+.refreshAll {
+  max-width: 240px;
+  width: 60%;
+  border-radius: 3px;
+  padding: 5px 10px;
+  border: none;
+  background: #02cc67;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.refreshAll:hover {
+  background: #05a856;
+}

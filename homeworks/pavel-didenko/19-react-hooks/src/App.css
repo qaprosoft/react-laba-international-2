@@ -1,0 +1,14 @@
+.main-container {
+  background-image: url('./assets/img/backgrounds/background.png');
+  min-height: 100vh;
+  background-size: cover;
+}
+
+.tasks-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.1rem;
+}

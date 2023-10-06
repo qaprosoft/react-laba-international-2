@@ -1,0 +1,27 @@
+.user {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+}
+
+.user__refresh-foto {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s;
+  opacity: 0;
+  /* animation: spinner 1.5s linear infinite; */
+}
+
+.user:hover > .user__refresh-foto {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.user__foto {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  cursor: pointer;
+}

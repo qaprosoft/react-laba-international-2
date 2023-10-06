@@ -1,0 +1,49 @@
+.icons {
+  cursor: pointer;
+  right: 80px;
+  position: absolute;
+}
+
+.container {
+  margin: 0 auto;
+  position: relative;
+  width: 1000px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.item_title {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.container input {
+  padding: 10px 200px;
+  font-size: 32px;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.check {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.item_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item_title img {
+  cursor: pointer;
+  margin-right: 10px;
+}

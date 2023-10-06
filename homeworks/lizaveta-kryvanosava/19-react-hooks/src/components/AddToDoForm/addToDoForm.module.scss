@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40%;
+  height: 3rem;
+  overflow: hidden;
+
+  @media (max-width: 80rem) {
+    width: 60%;
+  }
+  @media (max-width: 40rem) {
+    width: 90%;
+  }
+
+  &__input {
+    padding: 1rem;
+    width: 80%;
+    height: 100%;
+  }
+
+  &__button {
+    width: 20%;
+    height: 100%;
+  }
+}

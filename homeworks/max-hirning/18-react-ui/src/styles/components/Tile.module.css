@@ -1,0 +1,37 @@
+.tile {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.image, .button {
+  margin: 10px;
+  width: 240px;
+  height: 240px;
+  border-radius: 4px;
+}
+
+.button {
+  z-index: 1;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.icon {
+  width: 100px;
+  height: 104px;
+}
+
+.rotate {
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

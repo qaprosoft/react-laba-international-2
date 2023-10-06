@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+}
+
+.App-header {
+  background-color: #e5e5e5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+}
+
+.traffic-light {
+  position: relative;
+  width: 240px;
+  height: 560px;
+  background-color: #585f68;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 24px;
+  box-shadow: 24px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.25));
+}
+
+.traffic-light__stand {
+  top: 18%;
+  position: absolute;
+  width: 120px;
+  height: 378px;
+  border-radius: 40px;
+  background-color: #414447;
+}
+
+.light {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  background-color: #5b5b5b;
+  box-shadow: 10px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
+}
