@@ -1,0 +1,5 @@
+.avatars__box {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: var(--space-measure);
+}
