@@ -2,10 +2,19 @@ import {useState} from 'react';
 import {getNewAvatar} from '../../utils/getNewAvatar';
 import styles from './AvatarItem.module.css';
 
-const AvatarItem = ({src, id, alt, avatars, setAvatars}) => {
+const AvatarItem = ({
+  src,
+  id,
+  alt,
+  avatars,
+  setAvatars,
+  isLoading,
+  setIsLoading,
+}) => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   const refreshOneAvatar = async () => {
+    setIsLoading(true);
     setIsAnimated(true);
 
     const indexToReplace = avatars.findIndex(avatar => avatar.id === id);
@@ -18,6 +27,7 @@ const AvatarItem = ({src, id, alt, avatars, setAvatars}) => {
     }
 
     setIsAnimated(false);
+    setIsLoading(false);
   };
 
   return (
@@ -27,6 +37,8 @@ const AvatarItem = ({src, id, alt, avatars, setAvatars}) => {
         className={`${styles.avatars__refreshAllBtn} ${
           isAnimated ? styles.animated : ''
         }`}
+        type="button"
+        disabled={isLoading}
         onClick={() => refreshOneAvatar()}
       ></button>
     </li>

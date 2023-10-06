@@ -1,7 +1,7 @@
 import AvatarItem from '../AvatarItem/AvatarItem';
 import styles from './AvatarsList.module.css';
 
-const AvatarsList = ({avatars, setAvatars}) => {
+const AvatarsList = ({avatars, setAvatars, isLoading, setIsLoading}) => {
   return (
     <ul className={styles.avatars__list}>
       {avatars.map((avatar, index) => (
@@ -12,6 +12,8 @@ const AvatarsList = ({avatars, setAvatars}) => {
           avatars={avatars}
           setAvatars={setAvatars}
           key={index}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
         />
       ))}
     </ul>
