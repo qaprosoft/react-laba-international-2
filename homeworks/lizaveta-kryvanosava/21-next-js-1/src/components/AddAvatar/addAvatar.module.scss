@@ -11,6 +11,7 @@
     height: 100%;
     background-color: var(--main-background);
     border: none;
+    cursor: pointer;
   }
 
   &:before,
@@ -21,6 +22,7 @@
     left: 50%;
     translate: -50% -50%;
     background-color: var(--green);
+    cursor: pointer;
   }
 
   &:after {
