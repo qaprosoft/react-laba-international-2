@@ -45,7 +45,10 @@ const App = () => {
   };
 
   const refreshOne = user => {
-    setLoadingOne(true);
+    setLoadingOne(prevLoading => ({
+      ...prevLoading,
+      [user.id]: true, // Set loading to true for the specific user
+    }));
 
     fetch(`https://tinyfac.es/api/data?limit=1&quality=0`)
       .then(response => response.json())
@@ -60,15 +63,37 @@ const App = () => {
         console.error('Error:', error);
       })
       .finally(() => {
-        setLoadingOne(false);
+        setLoadingOne(prevLoading => ({
+          ...prevLoading,
+          [user.id]: false, // Set loading back to false for the specific user
+        }));
       });
   };
+  // const refreshOne = user => {
+  //   setLoadingOne(true);
+
+  //   fetch(`https://tinyfac.es/api/data?limit=1&quality=0`)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       const randomImageUrl = data[0].url;
+  //       const refreshedImg = users.map(u =>
+  //         u.id === user.id ? { ...u, url: randomImageUrl } : u,
+  //       );
+  //       setUsers(refreshedImg);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error:', error);
+  //     })
+  //     .finally(() => {
+  //       setLoadingOne(false);
+  //     });
+  // };
 
   return (
     <>
       <div className="gallery">
         {users.map(user => (
-          loading ? (
+          loadingOne[user.id] ? (
             <span className='loader'>Loading...</span>
           ) :
             <UserItem key={user.id} user={user} onRefreshOne={refreshOne} refreshItem={refreshItem} />

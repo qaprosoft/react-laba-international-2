@@ -4,21 +4,25 @@ body {
   margin: 0 auto;
   text-align: center;
 }
+
 button {
   cursor: pointer;
 }
+
 .gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding-top: 80px;
 }
+
 .avatar_wrap {
   margin: 20px;
   box-shadow: 3px 3px 3px 3px #0000001a;
   border-radius: 5px;
   position: relative;
 }
+
 .avatar {
   display: block;
   width: 240px;
@@ -39,6 +43,7 @@ button {
   transition: 0.3s ease;
   background-color: #00000066;
 }
+
 .refresh_item {
   position: absolute;
   top: 68px;
@@ -53,6 +58,7 @@ button {
   background: none;
   border: none;
 }
+
 .refresh {
   background-color: #02cc67;
   width: 240px;
@@ -65,9 +71,10 @@ button {
   font-size: 21px;
 }
 
-.loader{
-  font-size: 20px;
+.loader {
+  font-size: 30px;
   border-radius: 10px;
- color: #cc5151;
- align-self: center;
+  width: 240px;
+  color: #cc5151;
+  align-self: center;
 }
