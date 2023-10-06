@@ -3,4 +3,11 @@
   padding: 0;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 576px) {
+  .avatars__list {
+    justify-content: center;
+  }
 }

@@ -39,4 +39,36 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+}
+
+/* responsive styles */
+@media (max-width: 768px) {
+  :root {
+    --space-measure: 30px;
+  }
+
+  .container {
+    padding: 30px 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --space-measure: 20px;
+  }
+
+  .container {
+    padding: 20px 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --space-measure: 10px;
+  }
+
+  .container {
+    padding: 16px 10px;
+  }
 }
