@@ -1,8 +1,9 @@
 import React from 'react';
 
-const AddBtn = () => {
+const AddBtn = ({focusInput}) => {
+
   return (
-    <button className="submit" type="submit">
+    <button onClick={focusInput} className="submit" type="submit">
       Add
     </button>
   );

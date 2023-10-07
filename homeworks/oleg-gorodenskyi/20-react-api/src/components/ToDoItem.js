@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {useState} from 'react';
 
 import editIcon from '../assets/write 1.png';
@@ -6,7 +6,8 @@ import deleteIcon from '../assets/delete 1.png';
 import IconBtn from './IconBtn';
 import Input from './Input';
 
-function ToDoItem({toDo, deleteToDo, toDoList, setToDoList}) {
+function ToDoItem({toDo, deleteToDo, setToDoList, toDoList}) {
+
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(toDo.value);
   const [isMarked, setIsMarked] = useState(toDo.completed);
@@ -16,15 +17,12 @@ function ToDoItem({toDo, deleteToDo, toDoList, setToDoList}) {
 
     if (isValueExist) {
       alert('This value is already exist');
-      setInputValue('');
       const updatedToDoList = toDoList.map(list =>
         list.id === id ? {id: list.id, value: '', completed: false} : list,
       );
       localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
-      setIsEdit(false);
     } else if (value.length > 25) {
       alert('The value should be not longer 25 symbols');
-      setInputValue('');
       const updatedToDoList = toDoList.map(list =>
         list.id === id ? {id: list.id, value: '', completed: false} : list,
       );
@@ -35,8 +33,8 @@ function ToDoItem({toDo, deleteToDo, toDoList, setToDoList}) {
       );
       localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
       setToDoList(updatedToDoList);
-      setIsEdit(false);
     }
+    setIsEdit(false)
   }
 
   const toggleIsMarked = id => {
