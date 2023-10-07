@@ -25,25 +25,21 @@ const App = () => {
   return (
     <main className="main">
       <section className="avatars">
-        {isLoading ? (
-          <LoaderContainer />
-        ) : (
-          <div className="container avatars__container">
-            <AvatarsBox
-              avatars={avatars}
-              setAvatars={setAvatars}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
-            <Button
-              handler={refreshAll}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            >
-              Refresh All
-            </Button>
-          </div>
-        )}
+        <div className="container avatars__container">
+          <AvatarsBox
+            avatars={avatars}
+            setAvatars={setAvatars}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+          />
+          <Button
+            handler={refreshAll}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+          >
+            Refresh All
+          </Button>
+        </div>
       </section>
     </main>
   );
