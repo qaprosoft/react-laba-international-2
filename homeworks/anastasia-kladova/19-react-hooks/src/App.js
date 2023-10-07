@@ -4,7 +4,7 @@ const App = () => {
   return (
     <main>
       <section className="todo">
-        <div className="todo__container"></div>
+        <div className="container todo__container"></div>
       </section>
     </main>
   );
