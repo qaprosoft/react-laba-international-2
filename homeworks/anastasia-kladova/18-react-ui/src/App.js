@@ -3,8 +3,6 @@ import AvatarsBox from './components/AvatarsBox/AvatarsBox';
 import Button from './components/Buttons/Button/Button';
 import {useState} from 'react';
 import {getNewAvatar} from './utils/getNewAvatar';
-import Loader from './components/Loader/Loader';
-import LoaderContainer from './components/LoaderContainer.jsx/LoaderContainer';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +19,7 @@ const App = () => {
     setAvatars([data]);
     setIsLoading(false);
   };
-  console.log(isLoading);
+
   return (
     <main className="main">
       <section className="avatars">
