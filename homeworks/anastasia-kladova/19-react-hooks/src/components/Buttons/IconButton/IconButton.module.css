@@ -1,0 +1,16 @@
+.iconBtn {
+  width: 60px;
+  height: 65px;
+  background-position: center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.iconBtn--delete {
+  background-image: url(../../../assets/images/delete.svg);
+}
+
+.iconBtn--update {
+  background-image: url(../../../assets/images/write.svg);
+}

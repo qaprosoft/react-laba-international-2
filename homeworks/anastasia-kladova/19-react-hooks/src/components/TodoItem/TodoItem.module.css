@@ -1,0 +1,23 @@
+.todoItem {
+  min-width: 676px;
+}
+
+.todoItem:not(:last-child) {
+  margin-bottom: 47px;
+}
+
+.todoItem__box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todoItem__info {
+  padding: 6px;
+  flex-basis: 82%;
+  background-color: var(--color-light);
+}
+
+.todoItem__btns {
+  display: flex;
+}
