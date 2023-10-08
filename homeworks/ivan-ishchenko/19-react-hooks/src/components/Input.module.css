@@ -1,6 +1,7 @@
 .input {
   background: #ecf3ff;
-  width: 550px;
+  width: 80%;
+  min-width: 150px;
   height: 65px;
   border: none;
   padding: 5px 10px;
