@@ -7,6 +7,7 @@ import Task from './components/Task';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [didMount, setDidMount] = useState(false);
 
   const changeNewTaskHandler = e => setNewTask(e.target.value);
 
@@ -32,8 +33,16 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(tasks);
-  }, [tasks]);
+    if (didMount) {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  }, [tasks, didMount]);
+
+  useEffect(() => {
+    setDidMount(true);
+    const tasks = localStorage.getItem('tasks');
+    if (tasks) setTasks(JSON.parse(tasks));
+  }, []);
 
   return (
     <div className={styles.App}>
