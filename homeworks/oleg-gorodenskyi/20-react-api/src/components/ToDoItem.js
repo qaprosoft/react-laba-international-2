@@ -1,56 +1,35 @@
 import React, { useContext } from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 
 import editIcon from '../assets/write 1.png';
 import deleteIcon from '../assets/delete 1.png';
 import IconBtn from './IconBtn';
-import Input from './Input';
+import { ToDoContext } from '../store/toDoContext';
+import ForwardedInput from './ForwardedInput';
 
-function ToDoItem({toDo, deleteToDo, setToDoList, toDoList}) {
+function ToDoItem({ toDo }) {
 
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(toDo.value);
   const [isMarked, setIsMarked] = useState(toDo.completed);
-
+  let { dispatchToDos } = useContext(ToDoContext)
+  
   function editToDo(value, id) {
-    let isValueExist = toDoList.some(list => list.value === inputValue);
-
-    if (isValueExist) {
-      alert('This value is already exist');
-      const updatedToDoList = toDoList.map(list =>
-        list.id === id ? {id: list.id, value: '', completed: false} : list,
-      );
-      localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
-    } else if (value.length > 25) {
-      alert('The value should be not longer 25 symbols');
-      const updatedToDoList = toDoList.map(list =>
-        list.id === id ? {id: list.id, value: '', completed: false} : list,
-      );
-      localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
-    } else {
-      const updatedToDoList = toDoList.map(list =>
-        list.id === id ? {id: list.id, value: value, completed: false} : list,
-      );
-      localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
-      setToDoList(updatedToDoList);
-    }
+    dispatchToDos({ type: 'EditToDo', value, id, setInputValue })
     setIsEdit(false)
   }
 
   const toggleIsMarked = id => {
     setIsMarked(!isMarked);
-    const updatedToDoList = toDoList.map(list =>
-      list.id === id ? {id, value: inputValue, completed: !isMarked} : list,
-    );
-    localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
-    setToDoList(updatedToDoList);
+    dispatchToDos({ type: 'ToggleMarked', value: inputValue, completed: !isMarked, id })
   };
+
 
   return (
     <div className="toDoItem">
       {isEdit ? (
         <>
-          <Input
+          <ForwardedInput
             value={inputValue}
             inputHandler={e => setInputValue(e.target.value)}
           />
@@ -84,7 +63,7 @@ function ToDoItem({toDo, deleteToDo, setToDoList, toDoList}) {
       <IconBtn
         src={deleteIcon}
         alt="delete"
-        iconHandler={() => deleteToDo(toDo.id)}
+        iconHandler={(id) => dispatchToDos({ type: 'Delete', id: toDo.id })}
       />
     </div>
   );

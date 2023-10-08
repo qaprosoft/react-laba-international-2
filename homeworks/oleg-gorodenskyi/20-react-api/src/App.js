@@ -1,57 +1,27 @@
 import './App.css';
-import { v4 } from 'uuid';
-import { useState, useEffect, useContext, useRef } from 'react';
+import { useState, useRef, useReducer } from 'react';
 
 import ToDoItem from './components/ToDoItem';
 import AddBtn from './components/AddBtn';
 import IconBtn from './components/IconBtn';
 import deleteAllCompleted from './assets/delete-list.png'
-import ForwardedInput from './components/Input';
+import ForwardedInput from './components/ForwardedInput';
+import { ToDoContext, toDoReducer } from './store/toDoContext';
 
 function App() {
-  const [toDoList, setToDoList] = useState([]);
+  const [toDos, dispatchToDos] = useReducer(toDoReducer, [], initialValue)
   const [inputValue, setInputValue] = useState('');
-
   const inputRef = useRef(null)
 
-
-  useEffect(() => {
-    const storedData = localStorage.getItem('toDoList');
-    if (storedData) {
-      setToDoList(JSON.parse(storedData));
-    }
-  }, []);
-
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    let isValueExist = toDoList.some(list => list.value === inputValue);
-
-    if (isValueExist) {
-      alert('This value is already exist');
-    } else if (inputValue.length > 25) {
-      alert('The value should be not longer than 25 symbols');
-    } else {
-      const id = v4();
-      const storedData = [
-        ...toDoList,
-        { value: inputValue, isCompleted: false, id },
-      ];
-      setToDoList(storedData);
-      localStorage.setItem('toDoList', JSON.stringify(storedData));
-    }
+    dispatchToDos({ type: 'Add', value: inputValue })
     setInputValue('')
   }
 
-  function deleteToDo(id) {
-    const updatedToDoList = toDoList.filter(list => list.id !== id);
-    setToDoList(updatedToDoList);
-    localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
-  }
-
-  function clearAllCompletedToDo() {
-    const filteredToDoList = toDoList.filter(list => list.isCompleted === false)
-    setToDoList(filteredToDoList)
-    localStorage.setItem('toDoList', JSON.stringify(filteredToDoList))
+  function initialValue() {
+    let storedData = localStorage.getItem('toDoList');
+    return storedData ? JSON.parse(storedData) : []
   }
 
   const focusInput = () => {
@@ -62,6 +32,7 @@ function App() {
 
 
   return (
+    <ToDoContext.Provider value={{ toDos, dispatchToDos }}>
       <div className="App">
         <form onSubmit={handleSubmit}>
           <ForwardedInput
@@ -72,20 +43,18 @@ function App() {
             ref={inputRef}
           />
           <AddBtn focusInput={focusInput} />
-          <IconBtn src={deleteAllCompleted} alt='delete all marked' iconHandler={clearAllCompletedToDo} />
+          <IconBtn src={deleteAllCompleted} alt='delete all marked' iconHandler={() => dispatchToDos({ type: 'ClearAllMarked' })} />
         </form>
         <div className="toDoItemList">
-          {toDoList.map(toDo => (
+          {toDos.map(toDo => (
             <ToDoItem
-            toDoList={toDoList}
               toDo={toDo}
               key={toDo.id}
-              deleteToDo={deleteToDo}
-              setToDoList={setToDoList}
             />
           ))}
         </div>
       </div>
+    </ToDoContext.Provider>
   );
 }
 
