@@ -7,3 +7,7 @@
   max-width: 676px;
   list-style-type: none;
 }
+
+.todo__noTodoList {
+  text-align: center;
+}

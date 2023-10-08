@@ -1,7 +1,16 @@
+import {useState} from 'react';
 import {Context} from './AppContext';
 
 const AppContextProvider = ({children}) => {
-  return <Context.Provider>{children}</Context.Provider>;
+  const [todos, setTodos] = useState([]);
+  const [currentInputText, setCurrentInputText] = useState('');
+  return (
+    <Context.Provider
+      value={{todos, setTodos, currentInputText, setCurrentInputText}}
+    >
+      {children}
+    </Context.Provider>
+  );
 };
 
 export default AppContextProvider;
