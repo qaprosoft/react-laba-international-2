@@ -1,5 +1,7 @@
-export const localStorageKeys = {
+const localStorageKeys = {
   TODOS: 'todos',
 };
 
-export default localStorageKeys;
+export const TODOLENGHLIMIT = 20;
+
+export default {localStorageKeys, TODOLENGHLIMIT};
