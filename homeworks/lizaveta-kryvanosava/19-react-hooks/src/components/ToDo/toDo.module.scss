@@ -1,0 +1,45 @@
+.todo {
+  display: flex;
+  max-height: 3rem;
+  width: 100%;
+
+  &__inputs {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    width: 80%;
+    background-color: var(--input-background);
+
+    &-checkbox {
+      width: 10%;
+      height: 100%;
+    }
+
+    &-text {
+      width: 90%;
+      height: 100%;
+      background-color: var(--input-background);
+      text-align: center;
+      word-break: break-all;
+      border: none;
+    }
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20%;
+
+    &-button {
+      max-width: 50%;
+
+      &--edit-image,
+      &--delete-image {
+        max-width: min-content;
+        max-height: 3rem;
+      }
+    }
+  }
+}

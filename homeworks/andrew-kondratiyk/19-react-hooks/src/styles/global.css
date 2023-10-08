@@ -1,0 +1,17 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #43a05d;
+	color: #fff;
+}
+
+button {
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+}

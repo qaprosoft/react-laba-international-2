@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+:root {
+  --main-font-family: Hind Siliguri;
+  --main-font-size: 2rem;
+  --main-font-style: normal;
+}
+
+input {
+  width: 32.625rem;
+  height: 4.0625rem;
+  background-color: #ECF3FF;
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  font-style: var(--main-font-style);
+  padding-left: 2rem;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.60);
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  font-style: var(--main-font-style);
+  padding-left: 3.5rem;
+}
+
+input:focus {
+  color: rgba(0, 0, 0, 0.60);
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  font-style: var(--main-font-style);
+}

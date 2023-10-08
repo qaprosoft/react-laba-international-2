@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.image-wrapper {
+  width: 87rem;
+  max-width: 95%;
+  min-height: 13rem;
+  margin-top: 4.9rem;
+  padding-left: 2.4rem;
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.add-user {
+  width: 15rem;
+  height: 15rem;
+  cursor: pointer;
+}
+

@@ -1,0 +1,44 @@
+.editTodoCard {
+	position: relative;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.input {
+	color: #393939;
+	font-weight: 700;
+	outline: none;
+	border: none;
+	width: 100%;
+	padding: 30px 20px;
+	font-size: 24px;
+}
+
+.input::placeholder {
+	font-style: italic;
+	font-weight: 700;
+}
+
+.footer {
+	background-color: #eaeaea;
+	padding: 10px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.deleteBtn,
+.cancelBtn {
+	padding: 10px 20px;
+	background-color: transparent;
+	color: #434343;
+	font-weight: 600;
+}
+
+.saveBtn {
+	padding: 10px 20px;
+	background-color: #0c0c0c;
+	font-weight: 600;
+	color: #eaeaea;
+}
