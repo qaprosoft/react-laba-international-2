@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {useState, useEffect} from 'react';
 import {Loader, Error as MyError} from '@/components';
 import {AnimatePresence} from 'framer-motion';
+import {API_URL_SINGLE_AVATAR} from '@/constants';
 import styles from './Component.module.css';
 
 interface Props {
@@ -14,9 +15,9 @@ export default ({avatarUrl: iAvatar}: Props) => {
   const [visible, setVisible] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchAvatar = () => {
+  const fetchAvatar = async () => {
     setLoading(true);
-    fetch('https://tinyfac.es/api/data?limit=1&quality=0')
+    await fetch(API_URL_SINGLE_AVATAR)
       .then(res => res.json())
       .then(data => {
         if (!data.length) throw new Error('Failed to fetch avatar');
