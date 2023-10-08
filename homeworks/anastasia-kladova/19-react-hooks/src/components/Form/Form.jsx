@@ -29,7 +29,10 @@ const Form = () => {
     const currentError = validateTodo(newTodo, todos);
 
     if (!currentError) {
-      let newTodos = [...todos, {text: newTodo, id: Date.now()}];
+      let newTodos = [
+        ...todos,
+        {text: newTodo, id: Date.now(), isCompleted: false},
+      ];
       setTodos(newTodos);
       setCurrentInputText('');
       saveDataToStorage(newTodos);

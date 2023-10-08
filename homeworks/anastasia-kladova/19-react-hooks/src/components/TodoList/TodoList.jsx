@@ -27,9 +27,7 @@ const TodoList = () => {
               key={todo.id}
               id={todo.id}
               text={todo.text}
-              //   date={todo.date}
-              //   isCompleted={todo.isCompleted}
-              //   isFavourite={todo.isFavourite}
+              isCompleted={todo.isCompleted}
             />
           ))}
         </ul>
