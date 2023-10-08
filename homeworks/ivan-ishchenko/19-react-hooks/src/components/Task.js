@@ -20,6 +20,10 @@ const Task = ({id, value, deleteHandler, updateHandler}) => {
   const changeNewValueHandler = e => setNewTaskValue(e.target.value);
 
   const updateTaskHandler = () => {
+    if (newTaskValue.trim().length === 0) {
+      alert('New Task message cannot be empty');
+      return;
+    }
     updateHandler({id, value: newTaskValue});
     setReadOnly(true);
   };

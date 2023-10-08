@@ -12,6 +12,10 @@ function App() {
   const changeNewTaskHandler = e => setNewTask(e.target.value);
 
   const addTaskHandler = () => {
+    if (newTask.trim().length === 0) {
+      alert('Task message cannot be empty');
+      return;
+    }
     setTasks(prev => [
       ...prev,
       {id: 'id' + Math.random().toString(16).slice(2), value: newTask},
