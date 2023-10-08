@@ -1,5 +1,6 @@
 .todoItem {
   min-width: 676px;
+  /* width: 100%; */
 }
 
 .todoItem:not(:last-child) {
@@ -13,7 +14,7 @@
 }
 
 .todoItem__info {
-  padding: 6px;
+  padding: 6px 88px;
   flex-basis: 82%;
   background-color: var(--color-light);
 }

@@ -1,0 +1,9 @@
+.todo__todoList {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 676px;
+  list-style-type: none;
+}
