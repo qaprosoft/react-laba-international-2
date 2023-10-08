@@ -1,4 +1,4 @@
-const checkIsTodoExist = (todos, text) => {
+const checkIsTodoExist = (text, todos) => {
   return todos.some(todo => todo.text === text);
 };
 

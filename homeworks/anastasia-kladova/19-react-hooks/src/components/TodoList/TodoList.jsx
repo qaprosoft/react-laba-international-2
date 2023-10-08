@@ -1,11 +1,18 @@
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import TodoItem from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
+import {localStorageKeys} from '../../constants/constants';
 
 const TodoList = () => {
-  const {todos} = useContext(Context);
+  const {todos, setTodos} = useContext(Context);
   const todosLength = todos.length;
+
+  useEffect(() => {
+    if (localStorage.getItem(localStorageKeys.TODOS)) {
+      setTodos(JSON.parse(localStorage.getItem(localStorageKeys.TODOS)));
+    }
+  }, []);
 
   return (
     <>

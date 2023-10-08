@@ -14,3 +14,13 @@
 .iconBtn--update {
   background-image: url(../../../assets/images/write.svg);
 }
+
+.iconBtn--close {
+  position: relative;
+  top: -20px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  align-self: flex-end;
+  background-image: url(../../../assets/images/close.svg);
+}

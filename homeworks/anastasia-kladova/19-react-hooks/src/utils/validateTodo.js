@@ -1,13 +1,15 @@
 import {TODOLENGHLIMIT} from '../constants/constants';
 import checkIsTodoExist from './checkIsTodoExist';
 
-export const validateTodo = todo => {
+export const validateTodo = (text, todos) => {
   let errorMessage;
-  if (!todo) {
+  const isTodoExist = checkIsTodoExist(text, todos);
+
+  if (!text) {
     errorMessage = 'There is no todo. Please, type something!';
-  } else if (checkIsTodoExist) {
+  } else if (isTodoExist) {
     errorMessage = 'Such a todo already exists. Please, create a new one!';
-  } else if (todo.length > TODOLENGHLIMIT) {
+  } else if (text.length > TODOLENGHLIMIT) {
     errorMessage =
       'Your todo should have maximum 20 characters. Please, create a new one!';
   } else {

@@ -1,4 +1,4 @@
-const localStorageKeys = {
+export const localStorageKeys = {
   TODOS: 'todos',
 };
 

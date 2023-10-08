@@ -5,6 +5,7 @@ const AppContextProvider = ({children}) => {
   const [todos, setTodos] = useState([]);
   const [currentInputText, setCurrentInputText] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
+  const [isShowModal, setIsShowModal] = useState(false);
 
   return (
     <Context.Provider
@@ -15,6 +16,8 @@ const AppContextProvider = ({children}) => {
         setCurrentInputText,
         errorMessage,
         setErrorMessage,
+        isShowModal,
+        setIsShowModal,
       }}
     >
       {children}
