@@ -9,7 +9,13 @@ function App() {
   const [newTask, setNewTask] = useState('');
   const [didMount, setDidMount] = useState(false);
 
-  const changeNewTaskHandler = e => setNewTask(e.target.value);
+  const changeNewTaskHandler = e => {
+    if (e.target.value.length > 20) {
+      alert('Task length must be less than 20');
+      return;
+    }
+    setNewTask(e.target.value);
+  };
 
   const addTaskHandler = () => {
     if (newTask.trim().length === 0) {

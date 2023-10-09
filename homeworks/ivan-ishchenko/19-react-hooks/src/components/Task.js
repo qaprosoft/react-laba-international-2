@@ -17,7 +17,13 @@ const Task = ({id, value, deleteHandler, updateHandler}) => {
     inputRef.current.focus();
   };
 
-  const changeNewValueHandler = e => setNewTaskValue(e.target.value);
+  const changeNewValueHandler = e => {
+    if (e.target.value.length > 20) {
+      alert('Task length must be less than 20');
+      return;
+    }
+    setNewTaskValue(e.target.value);
+  };
 
   const updateTaskHandler = () => {
     if (newTaskValue.trim().length === 0) {
