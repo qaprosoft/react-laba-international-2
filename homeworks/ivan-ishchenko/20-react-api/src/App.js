@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from 'react';
+import {useCallback, useContext, useEffect, useState, useMemo} from 'react';
 
 import Input from './components/Input';
 import Task from './components/Task';
@@ -13,15 +13,16 @@ import {
 } from './context/actions';
 
 import styles from './App.module.css';
-import { useTaskValidation } from './hook/useTaskValidation';
+import {useTaskValidation} from './hook/useTaskValidation';
 
 function App() {
   const {tasks} = useContext(TodoContext);
   const dispatch = useContext(TodoDispatchContext);
   const [didMount, setDidMount] = useState(false);
-  const [newTask, newTaskError, onChangeNewTask, eraseNewTask] = useTaskValidation()
+  const [newTask, newTaskError, onChangeNewTask, eraseNewTask] =
+    useTaskValidation();
 
-  const addTaskHandler = () => {
+  const addTaskHandler = useCallback(() => {
     if (newTaskError) {
       alert(newTaskError);
       return;
@@ -34,23 +35,32 @@ function App() {
       }),
     );
     eraseNewTask();
-  };
+  }, [dispatch, newTask, newTaskError, eraseNewTask]);
 
-  const deleteTaskHandler = id => {
-    dispatch(deleteTaskActionCreator(id));
-  };
+  const deleteTaskHandler = useCallback(
+    id => {
+      dispatch(deleteTaskActionCreator(id));
+    },
+    [dispatch],
+  );
 
-  const updateTaskHandler = newTask => {
-    dispatch(updateTaskActionCreator(newTask));
-  };
+  const updateTaskHandler = useCallback(
+    newTask => {
+      dispatch(updateTaskActionCreator(newTask));
+    },
+    [dispatch],
+  );
 
-  const toggleCompleteHandler = id => {
-    dispatch(toggleCompletedActionCreator(id));
-  };
+  const toggleCompleteHandler = useCallback(
+    id => {
+      dispatch(toggleCompletedActionCreator(id));
+    },
+    [dispatch],
+  );
 
-  const deleteCompletedHandler = () => {
+  const deleteCompletedHandler = useCallback(() => {
     dispatch(deleteCompletedActionCreator());
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     if (didMount) {
@@ -63,6 +73,8 @@ function App() {
     const tasks = localStorage.getItem('tasks');
     if (tasks) dispatch(setTasksActionCreator(JSON.parse(tasks)));
   }, [dispatch]);
+
+  const memoizedTasks = useMemo(() => tasks, [tasks]);
 
   return (
     <div className={styles.App}>
@@ -79,7 +91,7 @@ function App() {
         </header>
 
         <main>
-          {tasks.map(task => (
+          {memoizedTasks.map(task => (
             <Task
               key={task.id}
               task={task}
