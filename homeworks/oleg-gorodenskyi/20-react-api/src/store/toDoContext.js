@@ -1,11 +1,10 @@
-import { createContext } from "react";
+import {createContext} from 'react';
 
 export const ToDoContext = createContext({
-    toDos: [],
-    dispatch: () => { },
-    addToDo: (inputValue) => { },
-    deleteToDo: (id) => { },
-    editToDo: (value, id, setInputValue, setIsEdit) => { },
-    clearAllMarkedToDo: () => { },
-
-})
+  toDos: [],
+  dispatch: () => {},
+  addToDo: inputValue => {},
+  deleteToDo: id => {},
+  editToDo: (value, id, setInputValue, setIsEdit) => {},
+  clearAllMarkedToDo: () => {},
+});
