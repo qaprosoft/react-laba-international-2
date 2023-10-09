@@ -18,8 +18,8 @@ export default function Home() {
 
       <main className={`${styles.main} ${inter.className}`}>
         <nav className={styles.main__navigation}>
-          <Link href="./SSR">Server Side Rendering Page</Link>
-          <Link href="./SSG">Static Site Generation Page</Link>
+          <Link href="./ssr">Server Side Rendering Page</Link>
+          <Link href="./ssg">Static Site Generation Page</Link>
         </nav>
       </main>
     </>
