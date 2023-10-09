@@ -12,9 +12,7 @@ const Form = () => {
     setCurrentInputText,
     todos,
     setTodos,
-    errorMessage,
     setErrorMessage,
-    isShowModal,
     setIsShowModal,
   } = useContext(Context);
 

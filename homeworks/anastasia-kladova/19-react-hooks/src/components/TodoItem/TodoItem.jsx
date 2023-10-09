@@ -18,13 +18,15 @@ const TodoItem = ({id, text, isCompleted}) => {
     setErrorMessage,
     setIsShowModal,
   } = useContext(Context);
-  console.log(editingText);
+
+  //delete todo
   const deleteTodo = id => {
     const newTodos = todos.filter(todo => todo.id !== id);
     setTodos(newTodos);
     saveDataToStorage(newTodos);
   };
 
+  //toggle isCompleted todo
   const toggleIsCompleted = (id, isCompleted) => {
     const newTodos = todos.map(todo =>
       todo.id === id ? {id, text, isCompleted: !isCompleted} : todo,
@@ -34,6 +36,7 @@ const TodoItem = ({id, text, isCompleted}) => {
     setTodos(newTodos);
   };
 
+  //edit todo
   const editTodo = id => {
     setEditingText(text);
     setTodoToEdit(id);
