@@ -14,6 +14,9 @@ export default () => {
       if (tasks.find(task => task.name === name)) {
         setError(`Task already exists`);
         return;
+      } else if (name.length >= 15) {
+        setError(`Task name is too long. Max 15 characters.`);
+        return;
       }
       addTask(name);
       setName('');

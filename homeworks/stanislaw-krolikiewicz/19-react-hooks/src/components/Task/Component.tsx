@@ -22,6 +22,10 @@ export default ({task}: Props) => {
         setError(`Task already exists`);
         setName(task.name);
         return;
+      } else if (name.length >= 15) {
+        setError(`Task name is too long. Max 15 characters.`);
+        setName(task.name);
+        return;
       }
       updateTask({...task, name: name});
     } else {
