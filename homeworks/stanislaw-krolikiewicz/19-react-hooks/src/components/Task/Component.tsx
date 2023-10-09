@@ -30,12 +30,18 @@ export default ({task}: Props) => {
     }
   };
   return (
-    <li>
-      <input ref={refInput} onChange={handleChange} type="text" value={name} />
-      <button onClick={handleUpdate}>
+    <li className="h-full w-full flex">
+      <input
+        ref={refInput}
+        onChange={handleChange}
+        type="text"
+        value={name}
+        className="w-[82%] h-full text-[32px] pl-[88px]"
+      />
+      <button onClick={handleUpdate} className="h-auto w-[9%]">
         <Update />
       </button>
-      <button onClick={() => deleteTask(task.id)}>
+      <button onClick={() => deleteTask(task.id)} className="h-auto w-[9%]">
         <Delete />
       </button>
     </li>

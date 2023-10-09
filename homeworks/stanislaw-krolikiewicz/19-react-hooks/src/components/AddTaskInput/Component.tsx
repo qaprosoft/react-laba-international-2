@@ -22,9 +22,21 @@ export default () => {
     }
   };
   return (
-    <div className="addTaskInput">
-      <input ref={refInput} onChange={handleChange} type="text" value={name} />
-      <button onClick={handleSubmit}>Add</button>
+    <div className="h-[65px] w-full max-w-[676px] flex">
+      <input
+        ref={refInput}
+        onChange={handleChange}
+        type="text"
+        placeholder="Create Todo-Task"
+        value={name}
+        className="h-full w-[82%] text-[32px] pl-[88px]"
+      />
+      <button
+        onClick={handleSubmit}
+        className="h-full w-[18%] bg-[#5275A0] text-white text-[32px]"
+      >
+        Add
+      </button>
     </div>
   );
 };
