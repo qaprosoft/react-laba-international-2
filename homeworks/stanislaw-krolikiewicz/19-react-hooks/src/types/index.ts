@@ -1,4 +1,6 @@
-export interface Task {
+interface Task {
   id: number;
   name: string;
 }
+
+export { type Task }
