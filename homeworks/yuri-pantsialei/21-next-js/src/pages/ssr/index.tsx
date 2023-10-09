@@ -3,6 +3,30 @@ import {getTinyfaces} from '@/HTTP/tinyfaces';
 import {HomeComponent} from '@/components/Home/HomeComponent';
 import Head from 'next/head';
 
+export async function getServerSideProps() {
+  const newImages = await getTinyfaces(5);
+  let images = [];
+  let error = null;
+  if (newImages.error) {
+    error = newImages.reason;
+  } else {
+    images = newImages.map((image: ImageType) => {
+      return {
+        id: image.id,
+        url: image.url,
+        fullname: `${image.firstName} ${image.lastName}`,
+      };
+    });
+  }
+
+  return {
+    props: {
+      imagesProps: images,
+      error,
+    },
+  };
+}
+
 export default function HomeSSR({
   imagesProps = [],
   error = null,
@@ -18,28 +42,4 @@ export default function HomeSSR({
       <HomeComponent imagesProps={imagesProps} reqError={error} />
     </>
   );
-}
-
-export async function getServerSideProps() {
-  const newImages = await getTinyfaces(5);
-  let images = [];
-  let error = null;
-  if (newImages.error) {
-    error = newImages.reason;
-  } else {
-    images = newImages;
-  }
-
-  return {
-    props: {
-      imagesProps: images.map((image: ImageType) => {
-        return {
-          id: image.id,
-          url: image.url,
-          fullname: `${image.firstName} ${image.lastName}`,
-        };
-      }),
-      error,
-    },
-  };
 }
