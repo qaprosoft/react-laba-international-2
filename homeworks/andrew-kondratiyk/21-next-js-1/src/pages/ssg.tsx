@@ -1,12 +1,14 @@
-import {getAvatars} from '@/api';
 import HomePage from '@/components/home-page/HomePage';
+import {API_URL} from '@/config/env-config';
+import {addIdToResponse} from '@/helpers/addIdToResponse';
 
 export async function getStaticProps() {
-  const avatars = await getAvatars(5);
+  const response = await fetch(`${API_URL}/data?limit=${5}`);
+  const avatars = await response.json();
 
   return {
     props: {
-      avatars,
+      avatars: addIdToResponse(avatars),
     },
   };
 }
