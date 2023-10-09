@@ -1,11 +1,20 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 
-import styles from './App.module.css';
 import Input from './components/Input';
 import Task from './components/Task';
+import {TodoContext, TodoDispatchContext} from './context/TodoContext';
+import {
+  addTaskActionCreator,
+  deleteTaskActionCreator,
+  setTasksActionCreator,
+  updateTaskActionCreator,
+} from './context/actions';
+
+import styles from './App.module.css';
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const {tasks} = useContext(TodoContext);
+  const dispatch = useContext(TodoDispatchContext);
   const [newTask, setNewTask] = useState('');
   const [didMount, setDidMount] = useState(false);
 
@@ -22,24 +31,21 @@ function App() {
       alert('Task message cannot be empty');
       return;
     }
-    setTasks(prev => [
-      ...prev,
-      {id: 'id' + Math.random().toString(16).slice(2), value: newTask},
-    ]);
+    dispatch(
+      addTaskActionCreator({
+        id: 'id' + Math.random().toString(16).slice(2),
+        value: newTask,
+      }),
+    );
     setNewTask('');
   };
 
-  const deleteTaskHandler = id =>
-    setTasks(prev => prev.filter(task => task.id !== id));
+  const deleteTaskHandler = id => {
+    dispatch(deleteTaskActionCreator(id));
+  };
 
   const updateTaskHandler = newTask => {
-    setTasks(prev => {
-      let ind = prev.findIndex(task => task.id === newTask.id);
-      if (ind === -1) return prev;
-      let newTasks = [...prev];
-      newTasks[ind] = newTask;
-      return newTasks;
-    });
+    dispatch(updateTaskActionCreator(newTask));
   };
 
   useEffect(() => {
@@ -51,8 +57,8 @@ function App() {
   useEffect(() => {
     setDidMount(true);
     const tasks = localStorage.getItem('tasks');
-    if (tasks) setTasks(JSON.parse(tasks));
-  }, []);
+    if (tasks) dispatch(setTasksActionCreator(JSON.parse(tasks)));
+  }, [dispatch]);
 
   return (
     <div className={styles.App}>
