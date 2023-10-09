@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Basic&family=Hind+Siliguri&family=Poppins:wght@500&display=swap');
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.errror_text {
+  margin-top: 22px;
+  color: red;
+  font-family: Hind Siliguri;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.addTodo_wrapper {
+  margin-bottom: 81px;
+}
+
+.todo_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+}
+
+.delete_completed {
+  background-color: #5275a0;
+  color: #fff;
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 6px 50px 7px;
+}
+
+@media (max-width: 700px) {
+  .main {
+    padding: 3rem;
+  }
+}
