@@ -1,6 +1,8 @@
 import {Task} from '@/types';
 import {ChangeEvent, useRef, useState, useContext} from 'react';
 import {TasksContext} from '@/contexts/tasks';
+import Update from 'public/assets/icons/update.svg';
+import Delete from 'public/assets/icons/delete.svg';
 
 interface Props {
   task: Task;
@@ -30,8 +32,12 @@ export default ({task}: Props) => {
   return (
     <li>
       <input ref={refInput} onChange={handleChange} type="text" value={name} />
-      <button onClick={handleUpdate}>update</button>
-      <button onClick={() => deleteTask(task.id)}>delete</button>
+      <button onClick={handleUpdate}>
+        <Update />
+      </button>
+      <button onClick={() => deleteTask(task.id)}>
+        <Delete />
+      </button>
     </li>
   );
 };
