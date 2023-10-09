@@ -12,17 +12,17 @@ function ToDoItem({ toDo }) {
   const [isEdit, setIsEdit] = useState(false);
   const [inputValue, setInputValue] = useState(toDo.value);
   const [isMarked, setIsMarked] = useState(toDo.completed);
-  let { dispatchToDos } = useContext(ToDoContext)
+  let { dispatchToDos, deleteToDo, editToDo } = useContext(ToDoContext)
   
-  function editToDo(value, id) {
-    dispatchToDos({ type: 'EditToDo', value, id, setInputValue })
-    setIsEdit(false)
-  }
-
   const toggleIsMarked = id => {
     setIsMarked(!isMarked);
     dispatchToDos({ type: 'ToggleMarked', value: inputValue, completed: !isMarked, id })
   };
+
+  const checkEdit = () => {
+    setIsEdit(!isEdit)
+    console.log('ToDoItem Run')
+  }
 
 
   return (
@@ -36,7 +36,7 @@ function ToDoItem({ toDo }) {
           <IconBtn
             src={editIcon}
             alt="edit"
-            iconHandler={() => editToDo(inputValue, toDo.id)}
+            iconHandler={() => editToDo(inputValue, toDo.id, setIsEdit)}
           />
         </>
       ) : (
@@ -57,13 +57,13 @@ function ToDoItem({ toDo }) {
         <IconBtn
           src={editIcon}
           alt="edit"
-          iconHandler={() => setIsEdit(!isEdit)}
+          iconHandler={checkEdit}
         />
       )}
       <IconBtn
         src={deleteIcon}
         alt="delete"
-        iconHandler={(id) => dispatchToDos({ type: 'Delete', id: toDo.id })}
+        iconHandler={() => deleteToDo(toDo.id)}
       />
     </div>
   );
