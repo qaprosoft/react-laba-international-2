@@ -1,4 +1,5 @@
-import { v4 } from 'uuid';
+// import { v4 } from 'uuid';
+import inputValidation from '../helpers/inputValidation';
 import { ToDoContext } from './toDoContext';
 import { useReducer } from 'react';
 
@@ -7,38 +8,18 @@ export const toDoReducer = (state, action) => {
     let actualState = state;
     switch (action.type) {
         case 'Add': {
-            let isValueExist = actualState.some(list => list.value === action.value);
-            if (isValueExist) {
-                alert('This value is already exist');
-            } else if (action.value.length > 25) {
-                alert('The value should be not longer than 25 symbols');
-            } else {
-                const id = v4();
-                const storedData = [
-                    ...state,
-                    { value: action.value, isCompleted: false, id },
-                ];
-
-                localStorage.setItem('toDoList', JSON.stringify(storedData));
-                actualState = storedData
-
-            }
+            const validated = inputValidation(action.value, actualState, 'Add')
+            actualState = validated
             break;
         }
         case 'EditToDo': {
-            let isValueExist = actualState.some(list => list.value === action.value);
-
-            if (isValueExist) {
-                alert('This value is already exist in ToDo and you can"t edit');
-            } else if (action.value.length > 25) {
-                alert('The value should be not longer 25 symbols');
+            const validated = inputValidation(action.value, actualState, 'Edit', action.id)
+            if (Array.isArray(validated)) {
+                actualState = validated
             } else {
-                const updatedToDoList = actualState.map(list =>
-                    list.id === action.id ? { id: list.id, value: action.value, completed: false } : list,
-                );
-                localStorage.setItem('toDoList', JSON.stringify(updatedToDoList));
+                const { updatedToDoList, toFalse } = validated;
                 actualState = updatedToDoList;
-                action.setIsEdit(false)
+                action.setIsEdit(toFalse)
             }
             break
         }
