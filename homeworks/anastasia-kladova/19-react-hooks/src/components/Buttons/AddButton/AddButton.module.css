@@ -1,5 +1,5 @@
 .todo__addBtn {
-  font-size: 32px;
+  font-size: var(--font-size);
   font-weight: 400;
   text-align: left;
   padding: 6px 22px;

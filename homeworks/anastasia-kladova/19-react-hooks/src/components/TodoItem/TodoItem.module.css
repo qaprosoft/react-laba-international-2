@@ -1,6 +1,6 @@
 .todoItem {
-  min-width: 676px;
-  /* width: 100%; */
+  /* min-width: 676px; */
+  width: 100%;
 }
 
 .todoItem:not(:last-child) {
@@ -16,16 +16,19 @@
 .todoItem__info {
   display: flex;
   align-items: center;
-  padding: 6px 88px;
+  padding: 6px;
+  padding-left: calc((var(--space-measure) * 2) + 8px);
   flex-basis: 82%;
   background-color: var(--color-light);
 }
 
 .todoItem__text {
+  font-size: var(--font-size);
   text-decoration: none;
 }
 
 .todoItem__textComplete {
+  font-size: var(--font-size);
   text-decoration: line-through;
 }
 

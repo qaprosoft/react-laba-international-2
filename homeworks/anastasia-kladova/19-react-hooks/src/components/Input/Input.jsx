@@ -1,9 +1,9 @@
 import styles from './Input.module.css';
 
-const Input = ({placeholder, value, onInputChangeHandler}) => {
+const Input = ({placeholder, value, onInputChangeHandler, classtype}) => {
   return (
     <input
-      className={styles.todo__input}
+      className={classtype ? styles[classtype] : styles.todo__input}
       placeholder={placeholder}
       value={value}
       onChange={onInputChangeHandler}

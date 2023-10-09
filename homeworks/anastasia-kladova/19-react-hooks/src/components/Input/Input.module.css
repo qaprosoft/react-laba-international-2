@@ -1,9 +1,18 @@
 .todo__input {
-  font-size: 32px;
+  font-size: var(--font-size);
   text-align: left;
-  padding: 6px 88px;
+  padding: 6px;
+  padding-left: calc((var(--space-measure) * 2) + 8px);
   width: 82%;
   border: none;
   outline: none;
   background-color: var(--color-light);
+}
+
+.todo__input--edit {
+  padding: 6px;
+  margin-right: 10px;
+  color: var(--color-light);
+  border: none;
+  background-color: var(--color-accent);
 }

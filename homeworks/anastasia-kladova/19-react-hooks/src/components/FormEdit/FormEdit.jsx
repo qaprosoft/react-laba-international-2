@@ -1,15 +1,21 @@
+import Input from '../Input/Input';
+import IconButton from '../Buttons/IconButton/IconButton';
 import styles from './FormEdit.module.css';
 
 const FormEdit = ({value, handleEditingText, handleEditingTodo}) => {
   return (
     <form onSubmit={handleEditingTodo} className={styles.form}>
-      <div className={styles.formEnter}>
-        <input
+      <Input
+        value={value}
+        onInputChangeHandler={handleEditingText}
+        classtype="todo__input--edit"
+      />
+      <IconButton type="submit" classType="iconBtn--approveEdit" />
+      {/* <input
           value={value}
           onChange={handleEditingText}
           className={styles.formField}
-        />
-      </div>
+        /> */}
     </form>
   );
 };

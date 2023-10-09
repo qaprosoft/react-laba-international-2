@@ -3,10 +3,9 @@ import IconButton from '../Buttons/IconButton/IconButton';
 import styles from './TodoItem.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
 import {saveDataToStorage} from '../../utils/saveDataToStorage';
-import {localStorageKeys} from '../../constants/constants';
-import Input from '../Input/Input';
 import FormEdit from '../FormEdit/FormEdit';
 import {validateTodo} from '../../utils/validateTodo';
+import {localStorageKeys} from '../../constants/constants';
 
 const TodoItem = ({id, text, isCompleted}) => {
   const {
@@ -47,7 +46,7 @@ const TodoItem = ({id, text, isCompleted}) => {
   const handleEditingTodo = e => {
     e.preventDefault();
 
-    const currentError = validateTodo(editingText, todos);
+    const currentError = validateTodo(editingText, todos, todoToEdit);
 
     if (!currentError) {
       let newTodos = [...todos].map(todo => {

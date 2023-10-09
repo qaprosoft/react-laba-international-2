@@ -6,7 +6,8 @@
   --color-light: #ecf3ff;
   --color-accent: #5275a0;
   --color-typography: rgba(0, 0, 0, 0.6);
-  --padding: 40px;
+  --space-measure: 10px;
+  --font-size: 32px;
 }
 
 body {
@@ -38,11 +39,38 @@ button {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1200px;
   padding: 40px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-measure: 5px;
+    --font-size: 26px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --font-size: 16px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --font-size: 14px;
+  }
+
+  .container {
+    width: 320px;
+  }
 }

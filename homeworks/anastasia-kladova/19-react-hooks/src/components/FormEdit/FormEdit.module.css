@@ -1,7 +1,7 @@
 .form {
-  max-width: 676px;
-  margin-bottom: 81px;
+  width: 82%;
   display: flex;
+  align-items: center;
 }
 
 .formField {
