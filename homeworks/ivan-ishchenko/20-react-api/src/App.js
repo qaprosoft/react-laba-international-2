@@ -13,24 +13,17 @@ import {
 } from './context/actions';
 
 import styles from './App.module.css';
+import { useTaskValidation } from './hook/useTaskValidation';
 
 function App() {
   const {tasks} = useContext(TodoContext);
   const dispatch = useContext(TodoDispatchContext);
-  const [newTask, setNewTask] = useState('');
   const [didMount, setDidMount] = useState(false);
-
-  const changeNewTaskHandler = e => {
-    if (e.target.value.length > 20) {
-      alert('Task length must be less than 20');
-      return;
-    }
-    setNewTask(e.target.value);
-  };
+  const [newTask, newTaskError, onChangeNewTask, eraseNewTask] = useTaskValidation()
 
   const addTaskHandler = () => {
-    if (newTask.trim().length === 0) {
-      alert('Task message cannot be empty');
+    if (newTaskError) {
+      alert(newTaskError);
       return;
     }
     dispatch(
@@ -40,7 +33,7 @@ function App() {
         completed: false,
       }),
     );
-    setNewTask('');
+    eraseNewTask();
   };
 
   const deleteTaskHandler = id => {
@@ -78,7 +71,7 @@ function App() {
           <Input
             placeholder="Create ToDo task"
             value={newTask}
-            onChange={changeNewTaskHandler}
+            onChange={onChangeNewTask}
           />
           <button className={styles.addButton} onClick={addTaskHandler}>
             Add

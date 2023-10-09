@@ -6,10 +6,12 @@ import crossIcon from '../assets/icons/cross.svg';
 
 import styles from './Task.module.css';
 import {useRef, useState} from 'react';
+import {useTaskValidation} from '../hook/useTaskValidation';
 
 const Task = ({task, deleteHandler, updateHandler, toggleCompleteHandler}) => {
-  const [newTaskValue, setNewTaskValue] = useState(task.value);
   const [readOnly, setReadOnly] = useState(true);
+  const [newTaskValue, newTaskError, onNewTaskChange, , revertNewTask] =
+    useTaskValidation(task.value);
   const inputRef = useRef();
 
   const disableReadOnlyHandler = () => {
@@ -17,17 +19,9 @@ const Task = ({task, deleteHandler, updateHandler, toggleCompleteHandler}) => {
     inputRef.current.focus();
   };
 
-  const changeNewValueHandler = e => {
-    if (e.target.value.length > 20) {
-      alert('Task length must be less than 20');
-      return;
-    }
-    setNewTaskValue(e.target.value);
-  };
-
   const updateTaskHandler = () => {
-    if (newTaskValue.trim().length === 0) {
-      alert('New Task message cannot be empty');
+    if (newTaskError) {
+      alert(newTaskError);
       return;
     }
     updateHandler({id: task.id, value: newTaskValue});
@@ -35,7 +29,7 @@ const Task = ({task, deleteHandler, updateHandler, toggleCompleteHandler}) => {
   };
 
   const cancelHandler = () => {
-    setNewTaskValue(task.value);
+    revertNewTask();
     setReadOnly(true);
   };
 
@@ -50,7 +44,7 @@ const Task = ({task, deleteHandler, updateHandler, toggleCompleteHandler}) => {
         value={newTaskValue}
         readonly={readOnly}
         ref={inputRef}
-        onChange={changeNewValueHandler}
+        onChange={onNewTaskChange}
       />
       {readOnly && (
         <>
