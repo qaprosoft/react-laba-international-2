@@ -5,6 +5,7 @@ import Task from './components/Task';
 import {TodoContext, TodoDispatchContext} from './context/TodoContext';
 import {
   addTaskActionCreator,
+  deleteCompletedActionCreator,
   deleteTaskActionCreator,
   setTasksActionCreator,
   toggleCompletedActionCreator,
@@ -54,6 +55,10 @@ function App() {
     dispatch(toggleCompletedActionCreator(id));
   };
 
+  const deleteCompletedHandler = () => {
+    dispatch(deleteCompletedActionCreator());
+  };
+
   useEffect(() => {
     if (didMount) {
       localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -90,6 +95,11 @@ function App() {
               toggleCompleteHandler={toggleCompleteHandler.bind(null, task.id)}
             />
           ))}
+          <div className={styles.deleteCompleted}>
+            <button onClick={deleteCompletedHandler}>
+              Delete all completed tasks
+            </button>
+          </div>
         </main>
       </div>
     </div>

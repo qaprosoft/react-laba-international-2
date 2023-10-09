@@ -1,6 +1,7 @@
 import {createContext, useReducer} from 'react';
 import {
   ADD_TASK,
+  DELETE_COMPLETED,
   DELETE_TASK,
   SET_TASKS,
   TOGGLE_COMPLETED,
@@ -52,6 +53,12 @@ const todoReducer = (state, action) => {
       return {
         ...state,
         tasks: newTasks,
+      };
+    }
+    case DELETE_COMPLETED: {
+      return {
+        ...state,
+        tasks: state.tasks.filter(task => !task.completed),
       };
     }
     default:

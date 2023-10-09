@@ -31,3 +31,18 @@ header {
   padding: 6px 42px 6px 22px;
   cursor: pointer;
 }
+
+.deleteCompleted {
+  display: flex;
+  justify-content: center;
+}
+
+.deleteCompleted button {
+  background: rgb(202, 47, 47);
+  color: white;
+  border: none;
+  font-size: 24px;
+  font-weight: normal;
+  padding: 10px 15px;
+  cursor: pointer;
+}
