@@ -38,7 +38,7 @@ const Task = ({id, value, deleteHandler, updateHandler}) => {
       <Input
         value={newTaskValue}
         readonly={readOnly}
-        inputRef={inputRef}
+        ref={inputRef}
         onChange={changeNewValueHandler}
       />
       {readOnly && (
