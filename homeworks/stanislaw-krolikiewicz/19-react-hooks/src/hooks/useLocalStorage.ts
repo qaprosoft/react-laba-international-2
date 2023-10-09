@@ -27,7 +27,7 @@ export default function useLocalStorage<T>(key: string, initialValue: T): [T, Di
     setStoredValue(fromLocal);
     // First load is done
     setFirstLoadDone(true);
-  }, [initialValue, key]);
+  }, []);
 
   // Instead of replacing the setState function, react to changes.
   // Whenever the state value changes, save it in the local storage.
