@@ -7,8 +7,8 @@ import crossIcon from '../assets/icons/cross.svg';
 import styles from './Task.module.css';
 import {useRef, useState} from 'react';
 
-const Task = ({id, value, deleteHandler, updateHandler}) => {
-  const [newTaskValue, setNewTaskValue] = useState(value);
+const Task = ({task, deleteHandler, updateHandler, toggleCompleteHandler}) => {
+  const [newTaskValue, setNewTaskValue] = useState(task.value);
   const [readOnly, setReadOnly] = useState(true);
   const inputRef = useRef();
 
@@ -30,17 +30,22 @@ const Task = ({id, value, deleteHandler, updateHandler}) => {
       alert('New Task message cannot be empty');
       return;
     }
-    updateHandler({id, value: newTaskValue});
+    updateHandler({id: task.id, value: newTaskValue});
     setReadOnly(true);
   };
 
   const cancelHandler = () => {
-    setNewTaskValue(value);
+    setNewTaskValue(task.value);
     setReadOnly(true);
   };
 
   return (
-    <div className={styles.task}>
+    <div className={`${styles.task} ${task.completed ? styles.completed : ''}`}>
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={toggleCompleteHandler}
+      />
       <Input
         value={newTaskValue}
         readonly={readOnly}

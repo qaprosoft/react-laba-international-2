@@ -7,6 +7,7 @@ import {
   addTaskActionCreator,
   deleteTaskActionCreator,
   setTasksActionCreator,
+  toggleCompletedActionCreator,
   updateTaskActionCreator,
 } from './context/actions';
 
@@ -35,6 +36,7 @@ function App() {
       addTaskActionCreator({
         id: 'id' + Math.random().toString(16).slice(2),
         value: newTask,
+        completed: false,
       }),
     );
     setNewTask('');
@@ -46,6 +48,10 @@ function App() {
 
   const updateTaskHandler = newTask => {
     dispatch(updateTaskActionCreator(newTask));
+  };
+
+  const toggleCompleteHandler = id => {
+    dispatch(toggleCompletedActionCreator(id));
   };
 
   useEffect(() => {
@@ -78,10 +84,10 @@ function App() {
           {tasks.map(task => (
             <Task
               key={task.id}
-              id={task.id}
-              value={task.value}
+              task={task}
               updateHandler={updateTaskHandler}
               deleteHandler={deleteTaskHandler.bind(null, task.id)}
+              toggleCompleteHandler={toggleCompleteHandler.bind(null, task.id)}
             />
           ))}
         </main>

@@ -1,5 +1,11 @@
 import {createContext, useReducer} from 'react';
-import {ADD_TASK, DELETE_TASK, SET_TASKS, UPDATE_TASK} from './actions';
+import {
+  ADD_TASK,
+  DELETE_TASK,
+  SET_TASKS,
+  TOGGLE_COMPLETED,
+  UPDATE_TASK,
+} from './actions';
 
 const initialState = {
   tasks: [],
@@ -36,6 +42,16 @@ const todoReducer = (state, action) => {
       return {
         ...state,
         tasks: action.payload,
+      };
+    }
+    case TOGGLE_COMPLETED: {
+      const newTasks = [...state.tasks];
+      let ind = newTasks.findIndex(task => task.id === action.payload);
+      if (ind === -1) return state;
+      newTasks[ind].completed = !newTasks[ind].completed;
+      return {
+        ...state,
+        tasks: newTasks,
       };
     }
     default:
