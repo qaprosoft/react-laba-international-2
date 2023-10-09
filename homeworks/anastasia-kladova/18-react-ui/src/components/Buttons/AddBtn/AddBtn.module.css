@@ -27,3 +27,10 @@
   height: 6px;
   width: 70px;
 }
+
+@media (max-width: 768px) {
+  .avatars__addBtn {
+    width: 200px;
+    height: 200px;
+  }
+}

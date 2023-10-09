@@ -11,7 +11,7 @@ const App = () => {
   const refreshAll = async () => {
     if (!avatarsLength) return;
     const data = await getNewAvatar(avatarsLength);
-    setAvatars([...data]);
+    setAvatars([data]);
   };
 
   return (

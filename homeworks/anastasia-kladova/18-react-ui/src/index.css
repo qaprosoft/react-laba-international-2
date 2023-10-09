@@ -23,6 +23,10 @@ code {
     monospace;
 }
 
+button {
+  cursor: pointer;
+}
+
 .main {
   min-height: 100vh;
 }
@@ -35,4 +39,10 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-measure: 20px;
+  }
 }

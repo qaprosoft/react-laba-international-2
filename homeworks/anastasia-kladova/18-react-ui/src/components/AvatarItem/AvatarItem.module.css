@@ -30,3 +30,10 @@
 .avatars__item:hover .avatars__refreshAllBtn {
   display: block;
 }
+
+@media (max-width: 768px) {
+  .avatars__item {
+    width: 200px;
+    height: 200px;
+  }
+}
