@@ -1,0 +1,13 @@
+.task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.task img {
+  cursor: pointer;
+}
+
+.icon {
+  width: 65px;
+}
