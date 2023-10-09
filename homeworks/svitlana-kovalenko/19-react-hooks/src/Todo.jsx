@@ -7,7 +7,7 @@ export const Todo = ({ task, handleCompleted, handleDelete, handleEdit, edition 
   const handleSubmit = e => {
     e.preventDefault();
 
-    handleEdit(value, task.id);
+    handleEdit(task.id);
   };
   return (
     <>
@@ -15,7 +15,7 @@ export const Todo = ({ task, handleCompleted, handleDelete, handleEdit, edition 
         <div className="todos_item" onClick={() => handleEdit(task.id)}>
           <input className={`${task.complete ? 'completed' : ''}`} type="text" value={value} placeholder={task.task} onChange={e => setValue(e.target.value)} onFocus={() => setValue(task.task)} />
         </div>
-        {edition ? <button type="submit" onClick={handleSubmit}>Update</button> : <div>
+        {task.edition ? <button type="submit" onClick={handleSubmit}>Update</button> : <div>
           <img
             src={write}
             onClick={() => handleCompleted(task.id)}
