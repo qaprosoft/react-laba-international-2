@@ -15,25 +15,44 @@
 }
 
 .avatars__refreshAllBtn {
-  display: none;
+  display: block;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
   border: none;
   border-radius: var(--border-radius);
   background: no-repeat center / 100px 104px
-    url(../../assets/images/refresh.svg) rgba(0, 0, 0, 0.4);
+    url(../../assets/images/refresh.svg);
+}
+
+.avatars__item:hover {
+  filter: brightness(60%);
 }
 
 .avatars__item:hover .avatars__refreshAllBtn {
   display: block;
 }
 
+.avatars__refreshAllBtnSpin {
+  composes: avatars__refreshAllBtn;
+  animation: spin 4s infinite ease;
+}
+
 @media (max-width: 768px) {
   .avatars__item {
     width: 200px;
     height: 200px;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
