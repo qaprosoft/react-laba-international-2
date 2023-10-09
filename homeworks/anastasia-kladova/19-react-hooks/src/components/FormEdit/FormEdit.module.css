@@ -1,0 +1,18 @@
+.form {
+  max-width: 676px;
+  margin-bottom: 81px;
+  display: flex;
+}
+
+.formField {
+  padding: 10px;
+  margin-right: 10px;
+  /* min-width: 50px; */
+  border: none;
+  outline: none;
+}
+
+/* .formField::placeholder {
+  font-size: 12px;
+  color: var(--color-dark);
+} */
