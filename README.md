@@ -63,6 +63,6 @@ Once PR is created you have to do the following things:
 | Sep 29th      | [React API](./lectures/20-react-api/README.md).                                        | [task 🔗](./lectures/20-react-api/task.md)    |
 | Oct 3th       | [Overview of web application, key points. Next.js.](./lectures/21-next-js-1/README.md) | [task 🔗](./lectures/21-next-js-1/task.md)    |
 | Oct 6th       | [Next.js. Key features.](./lectures/22-next-js-2/README.md)                            | no task for this lecture                      |
-| Oct 10th      | Testing.                                                                               |                                               |
+| Oct 10th      | [Testing.](./lectures/23-testing/README.md)                                            | [task 🔗](./lectures/23-testing/task.md)      |
 | Oct 9th-20th  | Learning weeks. Finishing homeworks/preparing for exam.                                |                                               |
 | Oct 23th-27th | Third block exam.                                                                      |
