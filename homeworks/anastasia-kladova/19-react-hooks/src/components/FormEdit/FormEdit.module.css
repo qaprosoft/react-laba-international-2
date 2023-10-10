@@ -1,0 +1,13 @@
+.form {
+  width: 82%;
+  display: flex;
+  align-items: center;
+}
+
+.formField {
+  padding: 10px;
+  margin-right: 10px;
+  /* min-width: 50px; */
+  border: none;
+  outline: none;
+}
