@@ -27,7 +27,7 @@ const TodoCard = ({todo}: TodoCardProps) => {
       {isEdit ? (
         <EditTodoCard onCancel={() => setIsEdit(false)} todo={todo} />
       ) : (
-        <div className={styles.todoCard}>
+        <div data-testid="todo-card" className={styles.todoCard}>
           {isLoading && <LoadingOverlay />}
           <div className={styles.left}>
             <div className={styles.checkBoxContainer}>

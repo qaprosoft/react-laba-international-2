@@ -3,6 +3,14 @@ import {renderWithClient} from '@/tests/utils';
 import {screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+    };
+  },
+}));
+
 describe('Header', () => {
   it('renders without crashing', () => {
     renderWithClient(<Header isAuthenticated={false} />);

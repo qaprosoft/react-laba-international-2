@@ -62,7 +62,7 @@ const EditTodoCard = ({todo, onCancel}: EditTodoCardProps) => {
   };
 
   return (
-    <div className={styles.editTodoCard}>
+    <div data-testid="edit-todo-card" className={styles.editTodoCard}>
       {(deleteLoading || createLoading || updateLoading) && <LoadingOverlay />}
       <input
         type="text"
