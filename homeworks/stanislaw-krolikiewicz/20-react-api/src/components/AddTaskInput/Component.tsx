@@ -1,5 +1,5 @@
 import {ChangeEvent, useRef, useState, useContext} from 'react';
-import {TasksContext} from '@/contexts/tasks';
+import {TasksContext} from '@/contexts/TasksContext';
 
 export default () => {
   const {tasks, setError, addTask} = useContext(TasksContext);

@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 import type {AppProps} from 'next/app';
 import {Hind_Siliguri} from 'next/font/google';
-import {TasksProvider} from '@/contexts/tasks';
+import {TasksProvider} from '@/contexts/TasksContext';
 
 const hindSiliguri = Hind_Siliguri({
   weight: '400',

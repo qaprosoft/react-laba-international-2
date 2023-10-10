@@ -1,6 +1,6 @@
 import {Task} from '@/types';
 import {ChangeEvent, useRef, useState, useContext} from 'react';
-import {TasksContext} from '@/contexts/tasks';
+import {TasksContext} from '@/contexts/TasksContext';
 import Update from 'public/assets/icons/update.svg';
 import Delete from 'public/assets/icons/delete.svg';
 
@@ -9,7 +9,8 @@ interface Props {
 }
 
 export default ({task}: Props) => {
-  const {tasks, setError, updateTask, deleteTask} = useContext(TasksContext);
+  const {tasks, setError, updateTask, deleteTask, toggleTask} =
+    useContext(TasksContext);
   const [name, setName] = useState(task.name);
   const refInput = useRef<HTMLInputElement>(null);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +36,12 @@ export default ({task}: Props) => {
   };
   return (
     <li className="h-full w-full flex">
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleTask(task.id)}
+        className="h-full w-[9%]"
+      />
       <input
         ref={refInput}
         onChange={handleChange}
