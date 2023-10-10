@@ -12,40 +12,36 @@ export default function Main() {
 
   const addNewTile = async () => {
     setLoading(true);
-    await fetch(API_URL_SINGLE_AVATAR)
-      .then(res => res.json())
-      .then(data => {
-        if (!data.length) throw new Error('Failed to fetch avatar');
-        setTiles([...tiles, <Tile key={data[0].id} avatarUrl={data[0].url} />]);
-        setError(null);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error.message);
-        setLoading(false);
-      });
+    try {
+      const res = await fetch(API_URL_SINGLE_AVATAR);
+      const data = await res.json();
+      if (!data.length) throw new Error('Failed to fetch avatar');
+      setTiles([...tiles, <Tile key={data[0].id} avatarUrl={data[0].url} />]);
+      setError(null);
+    } catch (error) {
+      if (error instanceof Error) setError(error.message);
+      else setError(String(error));
+    }
+    setLoading(false);
   };
 
   const fetchAvatars = async () => {
     setLoading(true);
-    await fetch(API_URL_MULTIPLE_AVATARS(tiles.length))
-      .then(res => res.json())
-      .then(data => {
-        if (!data.length) throw new Error('Failed to fetch avatars!');
-        setTiles(
-          data.map((avatar: Avatar) => (
-            <Tile key={avatar.id} avatarUrl={avatar.url} />
-          )),
-        );
-        setError(null);
-      })
-      .catch(error => {
-        setError(error.message);
-        setLoading(false);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    try {
+      const res = await fetch(API_URL_MULTIPLE_AVATARS(tiles.length));
+      const data = await res.json();
+      if (!data.length) throw new Error('Failed to fetch avatars!');
+      setTiles(
+        data.map((avatar: Avatar) => (
+          <Tile key={avatar.id} avatarUrl={avatar.url} />
+        )),
+      );
+      setError(null);
+    } catch (error) {
+      if (error instanceof Error) setError(error.message);
+      else setError(String(error));
+    }
+    setLoading(false);
   };
 
   useEffect(() => {

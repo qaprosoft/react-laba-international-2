@@ -17,20 +17,18 @@ export default ({avatarUrl: iAvatar}: Props) => {
 
   const fetchAvatar = async () => {
     setLoading(true);
-    await fetch(API_URL_SINGLE_AVATAR)
-      .then(res => res.json())
-      .then(data => {
-        if (!data.length) throw new Error('Failed to fetch avatar');
-        setAvatar(data[0].url);
-        setError(null);
-      })
-      .catch(error => {
-        setError(error.message);
-        setLoading(false);
-      })
-      .finally(() => {
-        setVisible(false);
-      });
+    try {
+      const res = await fetch(API_URL_SINGLE_AVATAR);
+      const data = await res.json();
+      if (!data.length) throw new Error('Failed to fetch avatar');
+      setAvatar(data[0].url);
+      setError(null);
+    } catch (error) {
+      if (error instanceof Error) setError(error.message);
+      else setError(String(error));
+      setLoading(false);
+    }
+    setVisible(false);
   };
 
   useEffect(() => {
