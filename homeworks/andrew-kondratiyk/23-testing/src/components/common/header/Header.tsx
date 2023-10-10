@@ -34,20 +34,30 @@ const Header = ({isAuthenticated}: HeaderProps) => {
       <h1>Todos</h1>
       <div className={styles.buttons}>
         <button
+          data-testid="clear-completed-button"
           onClick={() => deleteCompletedTodos()}
           className={styles.button}
         >
           Clear finished todos
         </button>
-        <button onClick={() => deleteTodos()} className={styles.button}>
+        <button
+          data-testid="clear-all-button"
+          onClick={() => deleteTodos()}
+          className={styles.button}
+        >
           Clear all todos
         </button>
         {isAuthenticated ? (
-          <button className={styles.button} onClick={() => signOut()}>
+          <button
+            data-testid="sign-out-button"
+            className={styles.button}
+            onClick={() => signOut()}
+          >
             Sign out
           </button>
         ) : (
           <button
+            data-testid="login-button"
             className={styles.button}
             onClick={() => router.push('/login')}
           >

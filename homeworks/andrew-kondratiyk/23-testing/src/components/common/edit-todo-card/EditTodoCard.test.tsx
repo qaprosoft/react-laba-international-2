@@ -1,4 +1,4 @@
-import EditTodoCard from '@/components/common/edit-todo-card/EditTodoCard';
+import EditTodoCard from './EditTodoCard';
 import {renderWithClient} from '@/tests/utils';
 import {screen, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
