@@ -33,7 +33,7 @@ const RegisterPage = () => {
     <main className={styles.registerPage}>
       <h1 className={styles.title}>Create Account</h1>
       <form className={styles.registerContainer} onSubmit={handleSubmit}>
-        <label htmlFor="email" className={styles.label}>
+        <label htmlFor="name" className={styles.label}>
           Name
         </label>
         <input
@@ -56,7 +56,9 @@ const RegisterPage = () => {
           onChange={e => setPassword(e.target.value)}
         />
 
-        <button className={styles.submitBtn}>Sign up</button>
+        <button data-testid="register-submit-btn" className={styles.submitBtn}>
+          Sign up
+        </button>
       </form>
       <p className={styles.haveAccountText}>Already have an account?</p>
       <Link href="/login" className={styles.haveAccountLink}>
