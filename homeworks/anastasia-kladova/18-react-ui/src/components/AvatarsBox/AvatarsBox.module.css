@@ -1,0 +1,11 @@
+.avatars__box {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: var(--space-measure);
+}
+
+@media (max-width: 576px) {
+  .avatars__box {
+    justify-content: center;
+  }
+}

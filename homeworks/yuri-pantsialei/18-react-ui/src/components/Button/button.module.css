@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Basic&family=Poppins:wght@500&display=swap');
+
+.wrapper {
+  border-radius: 3px;
+  background-color: #02cc67;
+  color: #fff;
+  font-family: Basic;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 8px 76px 6px 68px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.disabled {
+  background-color: gray;
+  cursor: default;
+}
+
+@media (max-width: 1440px) {
+  .wrapper {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    font-size: 17px;
+    padding: 8px 56px 6px 48px;
+  }
+}
+
+@media (max-width: 660px) {
+  .wrapper {
+    font-size: 16px;
+    padding: 8px 36px 6px 28px;
+  }
+}
+
+@media (max-width: 660px) {
+  .wrapper {
+    font-size: 14px;
+    padding: 8px 26px 6px 18px;
+  }
+}
+
+@media (max-width: 430px) {
+  .wrapper {
+    font-size: 14px;
+    padding: 8px 16px 6px 8px;
+  }
+}
