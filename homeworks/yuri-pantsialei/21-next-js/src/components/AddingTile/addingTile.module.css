@@ -1,0 +1,37 @@
+.wrapper {
+  cursor: pointer;
+  height: 240px;
+  width: 240px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1440px) {
+  .wrapper {
+    height: 12vw;
+    width: 12vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    height: 12.5vw;
+    width: 12.5vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    height: 16vw;
+    width: 16vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    height: 22vw;
+    width: 22vw;
+  }
+}
