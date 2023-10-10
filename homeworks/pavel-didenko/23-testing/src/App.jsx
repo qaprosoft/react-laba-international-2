@@ -27,7 +27,7 @@ function App() {
 
   function modifyTasks(id, text) {
     setTasks(tasks => {
-      return tasks.map((task) => {
+      return tasks.map(task => {
         if (task.id !== id) {
           return task;
         } else {
@@ -40,7 +40,7 @@ function App() {
 
   function setCompletedTask(id) {
     setTasks(tasks => {
-      return tasks.map((task) => {
+      return tasks.map(task => {
         if (task.id !== id) {
           return task;
         } else {
@@ -56,7 +56,7 @@ function App() {
   }
 
   function removeCompletedTasks() {
-    setTasks(tasks.filter((task) => !task.completed))
+    setTasks(tasks.filter(task => !task.completed));
   }
 
   return (

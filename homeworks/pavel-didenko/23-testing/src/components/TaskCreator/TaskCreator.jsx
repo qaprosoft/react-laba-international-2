@@ -4,8 +4,7 @@ import {useRef, useState} from 'react';
 import validateDuplicatedTask from '../../functions/validateDuplicatedTask';
 
 const taskExistsMessage = 'The task already exists';
-const taskLengthMessage = "Task length must be from 0 to 33 characters";
-
+const taskLengthMessage = 'Task length must be from 0 to 33 characters';
 
 const TaskCreator = ({createTask, tasks}) => {
   const addTaskInput = useRef(null);
@@ -27,14 +26,12 @@ const TaskCreator = ({createTask, tasks}) => {
       if (opacity === 1) {
         setOpacity(0);
       }
-
     } else {
       setTaskExists(false);
       setOpacity(1);
       addTaskInput.current.focus();
     }
   }
-
 
   return (
     <div className="task-creator-wrapper">
