@@ -1,39 +1,34 @@
 /* Extra small devices */
 @media only screen and (max-width: 600px) {
-  .page-wrapper {
-    --title-text: 2rem;
-    --text-medium: 1.1rem;
-    --text-small: 0.8rem;
-  }
-
   .new-task {
     width: 90%;
-    font-size: medium;
   }
 
   .tasks {
     width: 95%;
   }
 
-  .task__button {
-    width: 2.5rem;
-  }
-}
-/* Small devices  */
-@media only screen and (min-width: 600px) and (max-width: 798px) {
-  .page-wrapper {
-    --title-text: 2.3rem;
-    --text-medium: 1.2rem;
-    --text-small: 0.9rem;
+  .task__container {
+    padding: 0 2%;
   }
 
+  .task__button {
+    width: 9%;
+  }
+
+  .edit-buttons__button {
+    width: 20%;
+  }
+}
+
+/* Small devices  */
+@media only screen and (min-width: 600px) and (max-width: 798px) {
   .new-task {
     width: 70%;
-    font-size: medium;
   }
 
   .tasks {
-    width: 75%;
+    width: 70%;
   }
 
   .task__button {
@@ -42,17 +37,12 @@
 }
 /* Medium devices */
 @media only screen and (min-width: 798px) and (max-width: 992px) {
-  .page-wrapper {
-    --title-text: 2.5rem;
-  }
-
   .new-task {
     width: 60%;
-    font-size: medium;
   }
 
   .tasks {
-    width: 65%;
+    width: 60%;
   }
 
   .task__button {

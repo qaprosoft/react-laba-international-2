@@ -1,38 +1,38 @@
-body {
-  margin: 0;
+html {
+  min-height: 100%;
 }
 
-.page-wrapper {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
+body {
+  margin: 0;
   background: linear-gradient(
     117deg,
     #8c72b7 0.58%,
     rgba(192, 46, 195, 0) 101.02%
   );
+}
+
+.page-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
   --steel-blue: #5275a0;
   --green: #00695f;
   --light-green: #4caf50;
   --gray: #a19e9e;
   --light-gray: #e9e9e9;
   --red: #ab003c;
-  --title-text: 3rem;
-  --text-medium: 1.3rem;
-  --text-small: 1rem;
 }
 
 .header {
-  justify-content: center;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .title {
-  font-size: var(--title-text);
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 
 .new-task {
@@ -40,7 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 5vh;
-  width: 45vw;
+  width: 45%;
   margin: 1vh 0;
 }
 
@@ -49,7 +49,7 @@ body {
   width: 80%;
   border: none;
   border-radius: 10px 0 0 10px;
-  font-size: var(--text-medium);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
   padding: 0 3%;
 }
 
@@ -57,7 +57,7 @@ body {
   height: 100%;
   width: 20%;
   background: var(--steel-blue);
-  color: white;
+  color: #fff;
   font-size: var(--text-medium);
   border: none;
   border-radius: 0 10px 10px 0;
@@ -72,9 +72,9 @@ body {
 .tasks {
   display: flex;
   flex-direction: column;
-  width: 45vw;
+  width: 45%;
   align-items: center;
-  margin-top: 8vh;
+  margin-top: 5%;
 }
 
 .task {
@@ -89,7 +89,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 10%;
+  padding: 0 5%;
   height: 5vh;
   width: 100%;
   margin: 1vh 0;
@@ -98,7 +98,7 @@ body {
 .task__checkbox {
   appearance: none;
   background-color: #fff;
-  margin: 0;
+  margin: 1%;
   width: 1.6em;
   height: 1.6em;
   border-radius: 0.15em;
@@ -133,14 +133,14 @@ body {
   width: 65%;
   border: none;
   border-radius: 10px;
-  font-size: var(--text-small);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
   padding: 0 3%;
-  border: 3px solid var(--steel-blue);
+  box-shadow: 0 0 0 3px var(--steel-blue) inset;
 }
 
 .task__text:read-only {
   cursor: not-allowed;
-  border: none;
+  box-shadow: none;
 }
 
 .task--completed {
@@ -153,6 +153,7 @@ body {
   border: none;
   width: 3rem;
   cursor: pointer;
+  padding: 1%;
 }
 
 .task__img {
