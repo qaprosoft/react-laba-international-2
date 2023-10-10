@@ -1,0 +1,82 @@
+.avatar {
+	position: relative;
+	width: 240px;
+	height: 240px;
+	border-radius: 5%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.avatarImg {
+	border-radius: 5%;
+	width: 100%;
+	height: 100%;
+}
+
+.avatarOverlay {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #000;
+	z-index: 1;
+	transition: 0.2s;
+	opacity: 0;
+	border-radius: 5%;
+}
+
+.avatar:hover .avatarOverlay{
+	opacity: 0.4;
+}
+
+.refresh {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	transition: 0.2s;
+	z-index: 2;
+	cursor: pointer;
+}
+
+.refresh.active {
+	animation: loading 2s infinite linear;
+	pointer-events: none;
+}
+
+@keyframes loading {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+.avatar:hover .refresh {
+	opacity: 1;
+}
+
+.deleteAvatarBtn {
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 2;
+	cursor: pointer;
+	border-radius: 50%;
+	opacity: 0;
+	transition: 0.2s;
+}
+
+.avatar:hover .deleteAvatarBtn {
+	opacity: 1;
+}
