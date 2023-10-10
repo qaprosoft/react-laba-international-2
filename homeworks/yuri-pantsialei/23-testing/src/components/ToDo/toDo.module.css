@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.text_wrapper {
+  background-color: #ecf3ff;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  width: 554px;
+}
+
+.text_wrapper div {
+  padding-top: 6px;
+  padding-bottom: 7px;
+}
+
+.input {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 6px 0 7px 88px;
+  border: none;
+  outline: none;
+}
+
+.completed {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.btn_wrapper {
+  width: 122px;
+  display: flex;
+  align-items: center;
+}
+
+.icon_button {
+  width: 61px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media (max-width: 870px) {
+  .text_wrapper {
+    width: 400px;
+    font-size: 27px;
+  }
+
+  .input {
+    font-size: 27px;
+  }
+
+  .btn_wrapper {
+    width: 112px;
+  }
+  .btn_wrapper img {
+    height: 57px;
+    width: 56px;
+  }
+}
+
+@media (max-width: 700px) {
+  .text_wrapper {
+    width: 340px;
+    font-size: 24px;
+  }
+
+  .input {
+    font-size: 24px;
+  }
+
+  .btn_wrapper {
+    width: 107px;
+  }
+  .btn_wrapper img {
+    height: 52px;
+    width: 53.5px;
+  }
+}
+
+@media (max-width: 550px) {
+  .text_wrapper {
+    width: 280px;
+    font-size: 20px;
+  }
+
+  .input {
+    font-size: 20px;
+  }
+
+  .btn_wrapper {
+    width: 80px;
+  }
+  .btn_wrapper img {
+    height: 45px;
+    width: 40px;
+  }
+}
+
+@media (max-width: 470px) {
+  .text_wrapper {
+    width: 200px;
+    font-size: 18px;
+  }
+
+  .input {
+    font-size: 18px;
+  }
+
+  .btn_wrapper {
+    width: 61px;
+  }
+  .btn_wrapper img {
+    height: 42px;
+    width: 30.5px;
+  }
+}
+
+.error {
+  font-family: Hind Siliguri;
+  color: red;
+}
