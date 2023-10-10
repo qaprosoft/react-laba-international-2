@@ -6,23 +6,17 @@ export const toDoReducer = (state, action) => {
   let actualState = state;
   switch (action.type) {
     case 'Add': {
-      const validated = inputValidation(action.value, actualState, 'Add');
-      actualState = validated;
+      actualState = action.value;
       break;
     }
     case 'EditToDo': {
-      const validated = inputValidation(
-        action.value,
-        actualState,
-        'Edit',
-        action.id,
-      );
-      if (Array.isArray(validated)) {
-        actualState = validated;
+      const {value, setIsEdit} = action;
+      if (Array.isArray(value)) {
+        actualState = value;
       } else {
-        const {updatedToDoList, toFalse} = validated;
+        const {updatedToDoList, toFalse} = value;
         actualState = updatedToDoList;
-        action.setIsEdit(toFalse);
+        setIsEdit(toFalse);
       }
       break;
     }
@@ -65,7 +59,8 @@ const ToDoProvider = props => {
   }
 
   const addToDo = inputValue => {
-    dispatchToDos({type: 'Add', value: inputValue});
+    const validatedToDos = inputValidation(inputValue, toDos, 'Add');
+    dispatchToDos({type: 'Add', value: validatedToDos});
   };
 
   const clearAllMarkedToDo = () => {
@@ -77,7 +72,8 @@ const ToDoProvider = props => {
   };
 
   const editToDo = (value, id, setIsEdit) => {
-    dispatchToDos({type: 'EditToDo', value, id, setIsEdit});
+    const validatedToDos = inputValidation(value, toDos, 'Edit', id);
+    dispatchToDos({type: 'EditToDo', value: validatedToDos, setIsEdit});
   };
 
   const cartContext = {
