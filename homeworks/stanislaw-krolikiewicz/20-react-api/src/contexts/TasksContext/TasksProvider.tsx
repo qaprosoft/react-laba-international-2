@@ -1,4 +1,11 @@
-import {createContext, useState, useEffect, useReducer} from 'react';
+import {
+  createContext,
+  useState,
+  useEffect,
+  useReducer,
+  useCallback,
+  useMemo,
+} from 'react';
 import {Task} from '@/types';
 import {useTasksList, useLastTaskId} from '@/hooks';
 import tasksReducer from './TasksReducer';
@@ -22,6 +29,7 @@ export const TasksProvider = ({children}: {children: React.ReactNode}) => {
   const [initialRender, setInitialRender] = useState(true);
 
   const [state, dispatch] = useReducer(tasksReducer, tasks);
+  const nextId = useMemo(() => lastTaskId + 1, [lastTaskId]);
 
   useEffect(() => {
     if (error !== '') {
@@ -38,18 +46,29 @@ export const TasksProvider = ({children}: {children: React.ReactNode}) => {
     }
   }, [state]);
 
+  useEffect(() => {
+    dispatch({type: ActionType.SET_TASKS, payload: tasks});
+  }, [tasks]);
+
+  const chekIfTaskExists = useCallback(
+    (name: string) => {
+      if (tasks.find(task => task.name === name)) {
+        setError(`Task already exists`);
+        return;
+      }
+    },
+    [tasks],
+  );
+
   const addTask = (name: string) => {
     const newTask: Task = {
-      id: lastTaskId + 1,
+      id: nextId,
       name,
       completed: false,
     };
-    if (tasks.find(task => task.name === name)) {
-      setError(`Task already exists`);
-      return;
-    }
+    chekIfTaskExists(name);
     dispatch({type: ActionType.ADD_TASK, payload: newTask});
-    setLastTaskId(lastTaskId + 1);
+    setLastTaskId(nextId);
     setError('');
   };
 

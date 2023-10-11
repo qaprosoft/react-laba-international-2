@@ -2,6 +2,8 @@ import {Task, Action, ActionType} from '@/types';
 
 export default (state: Task[], action: Action) => {
   switch (action.type) {
+    case ActionType.SET_TASKS:
+      return action.payload;
     case ActionType.ADD_TASK:
       return [...state, action.payload];
     case ActionType.DELETE_TASK:

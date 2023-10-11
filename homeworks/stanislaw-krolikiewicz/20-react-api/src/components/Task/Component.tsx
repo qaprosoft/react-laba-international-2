@@ -1,5 +1,5 @@
 import {Task} from '@/types';
-import {ChangeEvent, useRef, useState, useContext} from 'react';
+import {ChangeEvent, useRef, useState, useContext, useCallback} from 'react';
 import {TasksContext} from '@/contexts/TasksContext';
 import Update from 'public/assets/icons/update.svg';
 import Delete from 'public/assets/icons/delete.svg';
@@ -17,7 +17,7 @@ export default ({task}: Props) => {
     e.preventDefault();
     setName(e.target.value);
   };
-  const handleUpdate = () => {
+  const handleUpdate = useCallback(() => {
     if (name !== '') {
       if (tasks.find(task => task.name === name)) {
         setError(`Task already exists`);
@@ -28,11 +28,16 @@ export default ({task}: Props) => {
         setName(task.name);
         return;
       }
-      updateTask({...task, name: name});
     } else {
       setName(task.name);
       setError('Task name cannot be empty!');
+      return;
     }
+    updateTask({...task, name: name});
+  }, [name]);
+
+  const handleDelete = () => {
+    deleteTask(task.id);
   };
   return (
     <li className="h-full w-full flex">
@@ -52,7 +57,7 @@ export default ({task}: Props) => {
       <button onClick={handleUpdate} className="h-auto w-[9%]">
         <Update />
       </button>
-      <button onClick={() => deleteTask(task.id)} className="h-auto w-[9%]">
+      <button onClick={handleDelete} className="h-auto w-[9%]">
         <Delete />
       </button>
     </li>
