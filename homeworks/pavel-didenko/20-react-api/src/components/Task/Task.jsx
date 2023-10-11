@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useRef, useEffect} from 'react';
 import modifyIcon from '../../assets/img/icons/write.svg';
 import removeIcon from '../../assets/img/icons/delete.svg';
 import completeIcon from '../../assets/img/icons/task-complete.svg';
@@ -14,11 +14,16 @@ const taskCompletedStyles = {
   color: 'green',
 };
 
-const Task = ({taskText, id, completed, state}) => {
+const Task = ({taskText, id, completed}) => {
   const [disabledModification, setDisabledModification] = useState(true);
   const {modifyTasks, removeTask, setCompletedTask} = useContext(MainContext);
   const [newTaskText, setNewTaskText] = useState(taskText);
   const {opacity, unique} = useTaskEditValidator(newTaskText, 1, 33);
+  const taskInput = useRef(null);
+
+  useEffect(() => {
+    if (!disabledModification) taskInput.current.focus();
+  }, [disabledModification]);
 
   function modifyTaskHandler(newTaskText) {
     if (disabledModification) {
@@ -33,6 +38,7 @@ const Task = ({taskText, id, completed, state}) => {
     <div className="task" onClick={e => e.stopPropagation()}>
       <div className="task__inputs-wrapper">
         <input
+          ref={taskInput}
           className="task__input"
           defaultValue={taskText}
           disabled={disabledModification}
