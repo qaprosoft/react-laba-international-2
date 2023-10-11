@@ -19,6 +19,7 @@ export const TasksProvider = ({children}: {children: React.ReactNode}) => {
   const {tasks, setTasks} = useTasksList();
   const {lastTaskId, setLastTaskId} = useLastTaskId();
   const [error, setError] = useState('');
+  const [initialRender, setInitialRender] = useState(true);
 
   const [state, dispatch] = useReducer(tasksReducer, tasks);
 
@@ -29,7 +30,12 @@ export const TasksProvider = ({children}: {children: React.ReactNode}) => {
   }, [error]);
 
   useEffect(() => {
-    setTasks(state);
+    if (initialRender) {
+      setInitialRender(false);
+      return;
+    } else {
+      setTasks(state);
+    }
   }, [state]);
 
   const addTask = (name: string) => {
