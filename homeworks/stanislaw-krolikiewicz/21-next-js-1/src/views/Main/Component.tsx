@@ -3,19 +3,25 @@ import {TilesGrid} from './_components';
 import {ReactElement, useEffect, useState} from 'react';
 import {Avatar} from '@/types';
 import {AnimatePresence} from 'framer-motion';
-import {API_URL_SINGLE_AVATAR, API_URL_MULTIPLE_AVATARS} from '@/constants';
+import {getAvatars, getSingleAvatar} from '@/services/avatars';
 
-export default function Main() {
+interface MainProps {
+  avatars: Avatar[];
+}
+
+export default function Main({avatars}: MainProps) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [tiles, setTiles] = useState<ReactElement[]>([]);
+  const [tiles, setTiles] = useState<ReactElement[]>(
+    avatars.map((avatar: Avatar) => (
+      <Tile key={avatar.id} avatarUrl={avatar.url} />
+    )),
+  );
 
   const addNewTile = async () => {
     setLoading(true);
     try {
-      const res = await fetch(API_URL_SINGLE_AVATAR);
-      const data = await res.json();
-      if (!data.length) throw new Error('Failed to fetch avatar');
+      const data = await getSingleAvatar();
       setTiles([...tiles, <Tile key={data[0].id} avatarUrl={data[0].url} />]);
       setError(null);
     } catch (error) {
@@ -28,9 +34,7 @@ export default function Main() {
   const fetchAvatars = async () => {
     setLoading(true);
     try {
-      const res = await fetch(API_URL_MULTIPLE_AVATARS(tiles.length));
-      const data = await res.json();
-      if (!data.length) throw new Error('Failed to fetch avatars!');
+      const data = await getAvatars(tiles.length);
       setTiles(
         data.map((avatar: Avatar) => (
           <Tile key={avatar.id} avatarUrl={avatar.url} />
@@ -45,16 +49,13 @@ export default function Main() {
   };
 
   useEffect(() => {
-    if (tiles.length) fetchAvatars();
-  }, []);
-
-  useEffect(() => {
     if (error) {
       setTimeout(() => {
         setError(null);
       }, 3000);
     }
   }, [error]);
+
   return (
     <main className="p-[40px] w-full flex flex-col items-center">
       <TilesGrid
