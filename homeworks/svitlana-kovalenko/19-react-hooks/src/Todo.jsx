@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import write from './img/write.png';
 import trash from './img/delete.png';
 
@@ -7,36 +7,38 @@ export const Todo = ({
   handleCompleted,
   handleDelete,
   handleEdit,
-  edition,
+  updateTodoList
 }) => {
   const [value, setValue] = useState(task.task);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = e => {
-    // e.preventDefault();
-
-    // !!!UPDATE TASK HERE INSTEAD OF HANDLING EDIT STATE
-    handleEdit(task.id);
+  const handleSubmit = () => {
+    if ((task.task === value)) {
+      setError('Duplicate To-Do Item');
+      return;
+    } else if (!/^[a-zA-Z0-9\s]+$/.test(value)) {
+      setError('Invalid Characters in To-Do Name');
+      return;
+    } else if (value.length > 50) {
+      setError('Exceeding Maximum To-Do Length');
+      return;
+    } else { updateTodoList(task.id, value); }
   };
-
-  console.log('task:::', task);
 
   return (
     <>
       <div className="todos_wrap">
-        <div
-          className="todos_item"
-          // onClick={() => handleEdit(task.id)}
-        >
-          <input
-            className={`${task.complete ? 'completed' : ''}`}
-            type="text"
-            value={value}
-            // placeholder={task.task}
-            placeholder={'Enter task'}
-            // onChange={e => setValue(e.target.value)}
-            onChange={e => setValue(e.target.value)}
-            onFocus={() => handleEdit(task.id)}
-          />
+        <div className="todos_item">
+          {error ? <input className="error" value={error} onChange={e => setValue(e.target.value)}
+            onFocus={() => setError('')} /> :
+            <input
+              className={`${task.complete ? 'completed' : ''}`}
+              type="text"
+              value={value}
+              placeholder={'Enter task'}
+              onChange={e => setValue(e.target.value)}
+              onFocus={() => handleEdit(task.id)}
+            />}
         </div>
         {task.edition ? (
           <button type="submit" onClick={handleSubmit}>

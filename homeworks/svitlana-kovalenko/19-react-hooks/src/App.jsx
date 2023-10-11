@@ -52,11 +52,17 @@ function App() {
   const handleEdit = id => {
     setTodoList(
       todoList.map(todo =>
-        todo.id === id ? { ...todo, edition: !todo.edition } : todo,
+        todo.id === id ? { ...todo, edition: true } : todo,
       ),
     );
   };
-
+  const updateTodoList = (id, updatedTask) => {
+    setTodoList(prevTodoList => {
+      return prevTodoList.map(todo =>
+        todo.id === id ? { ...todo, task: updatedTask, edition: false } : todo
+      );
+    });
+  };
   return (
     <div className="App">
       <div className="container">
@@ -80,6 +86,7 @@ function App() {
               handleCompleted={handleCompleted}
               handleDelete={handleDelete}
               handleEdit={handleEdit}
+              updateTodoList={updateTodoList}
             />
           )}
         </ul>
