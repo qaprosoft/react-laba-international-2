@@ -1,6 +1,6 @@
 import styles from './Form.module.css';
 import Input from '../Input/Input';
-import AddButton from '../Buttons/AddButton/AddButton';
+import Button from '../Buttons/Button/Button';
 import {useContext} from 'react';
 import {Context} from '../../contexts/AppContext/AppContext';
 import {saveDataToStorage} from '../../utils/saveDataToStorage';
@@ -51,7 +51,7 @@ const Form = () => {
         value={currentInputText}
         inputRef={inputRef}
       />
-      <AddButton type="submit" btnText="Add" />
+      <Button type="submit" btnText="Add" />
     </form>
   );
 };
