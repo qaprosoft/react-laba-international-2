@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input active after button was pressed 1`] = `
+<div
+  className="_container_0f8d1c"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    placeholder="Create Todo-Task"
+    style={{}}
+    value=""
+  />
+  <button
+    className="_button_0f8d1c"
+    disabled={true}
+    onClick={[Function]}
+    style={
+      {
+        "cursor": "not-allowed",
+        "opacity": 0.5,
+      }
+    }
+  >
+    Add
+  </button>
+</div>
+`;
+
+exports[`Input active after button was pressed 2`] = `
+<div
+  className="_container_0f8d1c"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    placeholder="Create Todo-Task"
+    style={{}}
+    value=""
+  />
+  <button
+    className="_button_0f8d1c"
+    disabled={true}
+    onClick={[Function]}
+    style={
+      {
+        "cursor": "not-allowed",
+        "opacity": 0.5,
+      }
+    }
+  >
+    Add
+  </button>
+</div>
+`;

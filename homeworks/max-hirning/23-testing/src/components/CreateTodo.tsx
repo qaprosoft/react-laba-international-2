@@ -10,6 +10,10 @@ export default function CreateTodoComponent() {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const errorStatus: boolean = useStringValidation(value);
 
+  React.useEffect(() => {
+    (inputRef.current) && inputRef.current.focus();
+  }, [inputRef])
+
   const createTodo = () => {
     (inputRef.current) && inputRef.current.focus();
     todos?.addTodo(value);
