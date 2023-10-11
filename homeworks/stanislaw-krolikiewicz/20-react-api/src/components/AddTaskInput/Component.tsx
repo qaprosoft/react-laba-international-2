@@ -1,6 +1,7 @@
 import {ChangeEvent, useRef, useState, useContext} from 'react';
 import {TasksContext} from '@/contexts/TasksContext';
 import {ErrorsContext} from '@/contexts/ErrorsContext';
+import {useValidation} from '@/hooks';
 
 export default () => {
   const {setError} = useContext(ErrorsContext);
@@ -12,18 +13,13 @@ export default () => {
     setName(e.target.value);
   };
   const handleSubmit = () => {
-    if (name !== '') {
-      if (tasks.find(task => task.name === name)) {
-        setError(`Task already exists`);
-        return;
-      } else if (name.length >= 15) {
-        setError(`Task name is too long. Max 15 characters.`);
-        return;
-      }
+    const {valid, error} = useValidation(name, tasks);
+    if (valid) {
       addTask(name);
       setName('');
+      setError('');
     } else {
-      setError('Task name cannot be empty!');
+      setError(error);
     }
   };
   return (
