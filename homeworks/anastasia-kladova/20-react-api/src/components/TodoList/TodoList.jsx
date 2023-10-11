@@ -1,4 +1,4 @@
-import {useContext, useEffect} from 'react';
+import {useContext, useEffect, useMemo} from 'react';
 import TodoItem from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
@@ -6,7 +6,7 @@ import {localStorageKeys} from '../../constants/constants';
 
 const TodoList = () => {
   const {todos, setTodos} = useContext(Context);
-  const todosLength = todos.length;
+  const todosLength = useMemo(todos.length, [todos.length]);
 
   useEffect(() => {
     if (localStorage.getItem(localStorageKeys.TODOS)) {
