@@ -77,4 +77,5 @@ img {
 .error {
   font-size: 25px;
   color: rgb(189, 21, 21);
+  text-align: center;
 }

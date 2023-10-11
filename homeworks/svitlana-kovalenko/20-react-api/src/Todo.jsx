@@ -1,23 +1,32 @@
 import React, { memo, useState } from 'react';
 import write from './img/write.png';
 import trash from './img/delete.png';
+import useValidation from './useValidation';
 
-export const Todo = memo(({ task, handleCompleted, handleDelete, handleEdit }) => {
-  const [value, setValue] = useState('');
-  const handleSubmit = e => {
-    e.preventDefault();
-    handleEdit(task.id);
+export const Todo = memo(({ task, handleCompleted, handleDelete, handleEdit, updateTodoList }) => {
+  const [value, setValue] = useState(task.task);
+  const { error, validateInput } = useValidation();
+
+  const handleSubmit = () => {
+    const isValid = validateInput(value);
+
+    if (!isValid) {
+      return;
+    } else {
+      updateTodoList(task.id, value);
+    }
   };
 
   return (
     <>
+      {error && <div className="error">{error}</div>}
       <div className="todos_wrap">
-        <div className="todos_item" onClick={() => handleEdit(task.id)}>
+        <div className="todos_item" >
           <input className={`${task.complete ? 'completed' : ''}`} type="text"
             value={value}
-            placeholder={task.task}
+            placeholder={'Edit task'}
             onChange={e => setValue(e.target.value)}
-            onFocus={() => setValue(task.task)} />
+            onFocus={() => handleEdit(task.id)} />
         </div>
         {task.edition ? <button type="submit" onClick={handleSubmit}>Update</button> :
           <div>

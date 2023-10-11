@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect, useRef, useReducer, useCallback } from 'react';
 import { Todo } from './Todo';
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETED_TODO } from './reducer/actions';
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETED_TODO, UPDATE_TODO } from './reducer/actions';
 import { reducer } from './reducer/reducer';
 import useValidation from './useValidation';
 
@@ -65,7 +65,12 @@ function App() {
       payload: id
     })
   }, []);
-
+  const updateTodoList = (id, updatedTask) => {
+    dispatch({
+      type: UPDATE_TODO,
+      payload: { id, updatedTask }
+    });
+  };
   return (
     <div className="App">
       <TodoContext.Provider value={{ state, dispatch }}>
@@ -91,6 +96,7 @@ function App() {
                 handleCompleted={handleCompleted}
                 handleDelete={handleDelete}
                 handleEdit={handleEdit}
+                updateTodoList={updateTodoList}
               />
             )}
           </ul>
