@@ -14,6 +14,7 @@ const Form = () => {
     setTodos,
     setErrorMessage,
     setIsShowModal,
+    inputRef,
   } = useContext(Context);
 
   const handleCurrentInputValue = e => {
@@ -34,6 +35,7 @@ const Form = () => {
       setTodos(newTodos);
       setCurrentInputText('');
       saveDataToStorage(newTodos);
+      inputRef.current.focus();
     } else {
       setErrorMessage(currentError);
       setCurrentInputText('');
@@ -47,6 +49,7 @@ const Form = () => {
         placeholder="Create Todo-Task"
         onInputChangeHandler={handleCurrentInputValue}
         value={currentInputText}
+        inputRef={inputRef}
       />
       <AddButton type="submit" btnText="Add" />
     </form>

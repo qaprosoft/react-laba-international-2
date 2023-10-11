@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import {Context} from './AppContext';
 
 const AppContextProvider = ({children}) => {
@@ -8,6 +8,7 @@ const AppContextProvider = ({children}) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [todoToEdit, setTodoToEdit] = useState('');
   const [editingText, setEditingText] = useState('');
+  const inputRef = useRef(null);
 
   return (
     <Context.Provider
@@ -24,6 +25,7 @@ const AppContextProvider = ({children}) => {
         setTodoToEdit,
         editingText,
         setEditingText,
+        inputRef,
       }}
     >
       {children}
