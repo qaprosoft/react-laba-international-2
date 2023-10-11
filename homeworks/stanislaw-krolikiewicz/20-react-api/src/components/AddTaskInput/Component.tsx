@@ -1,8 +1,10 @@
 import {ChangeEvent, useRef, useState, useContext} from 'react';
 import {TasksContext} from '@/contexts/TasksContext';
+import {ErrorsContext} from '@/contexts/ErrorsContext';
 
 export default () => {
-  const {tasks, setError, addTask} = useContext(TasksContext);
+  const {setError} = useContext(ErrorsContext);
+  const {tasks, addTask} = useContext(TasksContext);
   const [name, setName] = useState('');
   const refInput = useRef<HTMLInputElement>(null);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

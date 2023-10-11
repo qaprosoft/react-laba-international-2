@@ -3,14 +3,15 @@ import {ChangeEvent, useRef, useState, useContext, useCallback} from 'react';
 import {TasksContext} from '@/contexts/TasksContext';
 import Update from 'public/assets/icons/update.svg';
 import Delete from 'public/assets/icons/delete.svg';
+import {ErrorsContext} from '@/contexts/ErrorsContext';
 
 interface Props {
   task: Task;
 }
 
 export default ({task}: Props) => {
-  const {tasks, setError, updateTask, deleteTask, toggleTask} =
-    useContext(TasksContext);
+  const {setError} = useContext(ErrorsContext);
+  const {tasks, updateTask, deleteTask, toggleTask} = useContext(TasksContext);
   const [name, setName] = useState(task.name);
   const refInput = useRef<HTMLInputElement>(null);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +41,7 @@ export default ({task}: Props) => {
     deleteTask(task.id);
   };
   return (
-    <li className="h-full w-full flex">
+    <li className="h-full w-full flex gap-3">
       <input
         type="checkbox"
         checked={task.completed}

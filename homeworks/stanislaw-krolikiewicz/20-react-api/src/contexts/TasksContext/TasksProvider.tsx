@@ -5,16 +5,16 @@ import {
   useReducer,
   useCallback,
   useMemo,
+  useContext,
 } from 'react';
 import {Task} from '@/types';
 import {useTasksList, useLastTaskId} from '@/hooks';
 import tasksReducer from './TasksReducer';
 import {ActionType} from '@/types';
+import {ErrorsContext} from '../ErrorsContext';
 
 export const TasksContext = createContext({
   tasks: [] as Task[],
-  error: '',
-  setError: (error: string) => {},
   addTask: (name: string) => {},
   deleteTask: (id: number) => {},
   updateTask: (task: Task) => {},
@@ -23,19 +23,13 @@ export const TasksContext = createContext({
 });
 
 export const TasksProvider = ({children}: {children: React.ReactNode}) => {
+  const {setError} = useContext(ErrorsContext);
   const {tasks, setTasks} = useTasksList();
   const {lastTaskId, setLastTaskId} = useLastTaskId();
-  const [error, setError] = useState('');
   const [initialRender, setInitialRender] = useState(true);
 
   const [state, dispatch] = useReducer(tasksReducer, tasks);
   const nextId = useMemo(() => lastTaskId + 1, [lastTaskId]);
-
-  useEffect(() => {
-    if (error !== '') {
-      setTimeout(() => setError(''), 3000);
-    }
-  }, [error]);
 
   useEffect(() => {
     if (initialRender) {
@@ -84,16 +78,18 @@ export const TasksProvider = ({children}: {children: React.ReactNode}) => {
     dispatch({type: ActionType.TOGGLE_TASK, payload: id});
   };
 
-  const deleteCompletedTasks = () => {
-    dispatch({type: ActionType.DELETE_COMPLETED_TASKS});
-  };
+  const deleteCompletedTasks = useCallback(() => {
+    if (tasks.filter((task: Task) => task.completed).length !== 0) {
+      dispatch({type: ActionType.DELETE_COMPLETED_TASKS});
+    } else {
+      setError('No completed tasks to delete');
+    }
+  }, [tasks]);
 
   return (
     <TasksContext.Provider
       value={{
         tasks,
-        error,
-        setError,
         addTask,
         deleteTask,
         updateTask,

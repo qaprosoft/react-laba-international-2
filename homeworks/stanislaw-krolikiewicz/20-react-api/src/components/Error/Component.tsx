@@ -1,8 +1,8 @@
 import {useContext} from 'react';
-import {TasksContext} from '@/contexts/TasksContext';
+import {ErrorsContext} from '@/contexts/ErrorsContext';
 
 export default () => {
-  const {error} = useContext(TasksContext);
+  const {error} = useContext(ErrorsContext);
   return (
     <>
       {error && (
