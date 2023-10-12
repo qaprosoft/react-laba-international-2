@@ -2,7 +2,7 @@
 
 ## Deployment
 
-You can view my deployed project [here](https://avatars-app-ledz.vercel.app/).
+You can view my deployed project [here](https://avatars-app-o5oj.vercel.app/).
 
 ## Getting Started
 First, install required dependencies:
