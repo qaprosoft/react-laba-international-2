@@ -6,8 +6,9 @@ const AppContextProvider = ({children}) => {
   const [currentInputText, setCurrentInputText] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [isNewTodoValid, setIsNewTodoValid] = useState(false);
-  const [isShowModal, setIsShowModal] = useState(false);
+  const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [todoToEdit, setTodoToEdit] = useState('');
+  const [todoToDelete, setTodoToDelete] = useState(null);
   const [editingText, setEditingText] = useState('');
   const inputRef = useRef(null);
 
@@ -20,8 +21,8 @@ const AppContextProvider = ({children}) => {
         setCurrentInputText,
         errorMessage,
         setErrorMessage,
-        isShowModal,
-        setIsShowModal,
+        isShowDeleteModal,
+        setIsShowDeleteModal,
         todoToEdit,
         setTodoToEdit,
         editingText,
@@ -29,6 +30,8 @@ const AppContextProvider = ({children}) => {
         inputRef,
         isNewTodoValid,
         setIsNewTodoValid,
+        todoToDelete,
+        setTodoToDelete,
       }}
     >
       {children}

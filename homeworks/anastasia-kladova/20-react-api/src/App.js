@@ -2,18 +2,36 @@ import {useContext} from 'react';
 import Form from './components/Form/Form';
 import {Context} from './contexts/AppContext/AppContext';
 import TodoList from './components/TodoList/TodoList';
-import Modal from './components/Modal/Modal';
 import Button from './components/Buttons/Button/Button';
 import {saveDataToStorage} from './utils/saveDataToStorage';
+import Modal from './components/Modal/Modal';
+import {phrases} from './constants/constants';
 
 const App = () => {
-  const {isShowModal, todos, setTodos} = useContext(Context);
+  const {
+    isShowDeleteModal,
+    setIsShowDeleteModal,
+    todos,
+    setTodos,
+    todoToDelete,
+    setTodoToDelete,
+  } = useContext(Context);
 
   const deleteCompletedTodo = () => {
     const newTodos = todos.filter(todo => todo.isCompleted !== true);
     setTodos(newTodos);
     saveDataToStorage(newTodos);
   };
+
+  const deleteTodo = id => {
+    const newTodos = todos.filter(todo => todo.id !== id);
+    setTodos(newTodos);
+    saveDataToStorage(newTodos);
+    setTodoToDelete(null);
+    setIsShowDeleteModal(false);
+  };
+
+  console.log(isShowDeleteModal);
 
   return (
     <main className="main">
@@ -28,7 +46,12 @@ const App = () => {
           />
         </div>
       </section>
-      {/* {isShowModal && <Modal />} */}
+      {isShowDeleteModal && (
+        <Modal
+          modalText={phrases.DELETEMODAL}
+          deleteHandler={() => deleteTodo(todoToDelete)}
+        />
+      )}
     </main>
   );
 };

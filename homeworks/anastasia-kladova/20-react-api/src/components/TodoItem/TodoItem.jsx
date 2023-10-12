@@ -7,6 +7,7 @@ import FormEdit from '../FormEdit/FormEdit';
 import {localStorageKeys} from '../../constants/constants';
 import {useValidateTodo} from '../../hooks/useValidateTodo';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Modal from '../Modal/Modal';
 
 const TodoItem = ({id, text, isCompleted}) => {
   const {
@@ -18,16 +19,20 @@ const TodoItem = ({id, text, isCompleted}) => {
     setEditingText,
     errorMessage,
     setErrorMessage,
-    setIsShowModal,
+    isShowDeleteModal,
+    setIsShowDeleteModal,
+    todoToDelete,
+    setTodoToDelete,
   } = useContext(Context);
 
   const {currentError} = useValidateTodo(editingText, todos, todoToEdit);
 
   //delete todo
-  const deleteTodo = id => {
-    const newTodos = todos.filter(todo => todo.id !== id);
-    setTodos(newTodos);
-    saveDataToStorage(newTodos);
+
+  const showModal = id => {
+    setIsShowDeleteModal(true);
+    setTodoToDelete(id);
+    console.log(isShowDeleteModal);
   };
 
   //toggle isCompleted todo
@@ -66,12 +71,11 @@ const TodoItem = ({id, text, isCompleted}) => {
         saveDataToStorage(newTodos);
       } else {
         setErrorMessage(currentError);
-        setIsShowModal(true);
       }
     },
     [currentError],
   );
-  console.log(errorMessage);
+
   return (
     <li className={`todo__todo-item ${styles.todoItem}`} id={id} key={id}>
       <div className={styles.todoItem__box}>
@@ -114,7 +118,7 @@ const TodoItem = ({id, text, isCompleted}) => {
           <IconButton
             type="button"
             classType="iconBtn--delete"
-            onBtnClickHandler={() => deleteTodo(id)}
+            onBtnClickHandler={() => showModal(id)}
           />
         </div>
       </div>
