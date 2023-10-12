@@ -31,3 +31,9 @@ Run development server
 ```bash
   npm run dev
 ```
+
+## Test
+
+```bash
+  npm run test
+```

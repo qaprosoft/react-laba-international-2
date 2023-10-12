@@ -6,7 +6,9 @@
     "next/core-web-vitals",
     "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended"
   ],
 
   "parserOptions": {

@@ -3,3 +3,8 @@ package-lock.json
 .next
 next-env.d.ts
 next.config.js
+
+jest.config.mjs
+jest.setup.js
+*.test.tsx
+*.test.ts
