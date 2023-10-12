@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.todo__error {
+  flex-basis: 82%;
+}
+
 @media (max-width: 768px) {
   .todo__form {
     min-width: 500px;

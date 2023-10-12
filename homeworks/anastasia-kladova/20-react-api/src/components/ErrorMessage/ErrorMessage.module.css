@@ -1,0 +1,6 @@
+.todo__errorMessage {
+  margin-top: 5px;
+  font-size: 8px;
+  width: 100%;
+  color: var(--color-warning);
+}

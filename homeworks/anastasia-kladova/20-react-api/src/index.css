@@ -5,6 +5,7 @@
 :root {
   --color-light: #ecf3ff;
   --color-accent: #5275a0;
+  --color-warning: rgb(171, 37, 37);
   --color-typography: rgba(0, 0, 0, 0.6);
   --space-measure: 10px;
   --font-size: 32px;

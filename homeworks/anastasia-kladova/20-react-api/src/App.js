@@ -24,11 +24,11 @@ const App = () => {
           <Button
             type="button"
             btnText="Delete completed"
-            onClickHandler={deleteCompletedTodo}
+            onClickHandler={() => deleteCompletedTodo()}
           />
         </div>
       </section>
-      {isShowModal && <Modal />}
+      {/* {isShowModal && <Modal />} */}
     </main>
   );
 };

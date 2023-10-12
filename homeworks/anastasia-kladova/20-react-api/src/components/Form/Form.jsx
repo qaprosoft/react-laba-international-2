@@ -1,10 +1,11 @@
 import styles from './Form.module.css';
 import Input from '../Input/Input';
 import Button from '../Buttons/Button/Button';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import {useContext} from 'react';
 import {Context} from '../../contexts/AppContext/AppContext';
 import {saveDataToStorage} from '../../utils/saveDataToStorage';
-import {validateTodo} from '../../utils/validateTodo';
+import {useValidateTodo} from '../../hooks/useValidateTodo';
 
 const Form = () => {
   const {
@@ -15,7 +16,13 @@ const Form = () => {
     setErrorMessage,
     setIsShowModal,
     inputRef,
+    isNewTodoValid,
+    setIsNewTodoValid,
+    errorMessage,
   } = useContext(Context);
+
+  const newTodo = currentInputText.trim();
+  const {currentError} = useValidateTodo(newTodo, todos);
 
   const handleCurrentInputValue = e => {
     setCurrentInputText(e.target.value);
@@ -23,9 +30,6 @@ const Form = () => {
 
   const addNewTodo = e => {
     e.preventDefault();
-    const newTodo = currentInputText.trim();
-
-    const currentError = validateTodo(newTodo, todos);
 
     if (!currentError) {
       let newTodos = [
@@ -37,6 +41,7 @@ const Form = () => {
       saveDataToStorage(newTodos);
       inputRef.current.focus();
     } else {
+      setIsNewTodoValid(true);
       setErrorMessage(currentError);
       setCurrentInputText('');
       setIsShowModal(true);
@@ -45,12 +50,14 @@ const Form = () => {
 
   return (
     <form className={styles.todo__form} onSubmit={addNewTodo}>
-      <Input
-        placeholder="Create Todo-Task"
-        onInputChangeHandler={handleCurrentInputValue}
-        value={currentInputText}
-        inputRef={inputRef}
-      />
+      <div className={styles.todo__error}>
+        <Input
+          placeholder="Create Todo-Task"
+          onInputChangeHandler={handleCurrentInputValue}
+          value={currentInputText}
+          inputRef={inputRef}
+        />
+      </div>
       <Button type="submit" btnText="Add" />
     </form>
   );

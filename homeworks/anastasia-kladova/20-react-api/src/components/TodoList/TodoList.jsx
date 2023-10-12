@@ -6,7 +6,7 @@ import {localStorageKeys} from '../../constants/constants';
 
 const TodoList = () => {
   const {todos, setTodos} = useContext(Context);
-  const todosLength = useMemo(todos.length, [todos.length]);
+  const todosLength = useMemo(() => todos.length, [todos.length]);
 
   useEffect(() => {
     if (localStorage.getItem(localStorageKeys.TODOS)) {

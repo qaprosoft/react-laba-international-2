@@ -3,7 +3,7 @@
   text-align: left;
   padding: 6px;
   padding-left: calc((var(--space-measure) * 2) + 8px);
-  width: 82%;
+  width: 100%;
   border: none;
   outline: none;
   background-color: var(--color-light);

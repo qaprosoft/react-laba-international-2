@@ -1,11 +1,12 @@
-import {useContext, useMemo} from 'react';
+import {useCallback, useContext, useMemo, useState} from 'react';
 import IconButton from '../Buttons/IconButton/IconButton';
 import styles from './TodoItem.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
 import {saveDataToStorage} from '../../utils/saveDataToStorage';
 import FormEdit from '../FormEdit/FormEdit';
-import {validateTodo} from '../../utils/validateTodo';
 import {localStorageKeys} from '../../constants/constants';
+import {useValidateTodo} from '../../hooks/useValidateTodo';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 const TodoItem = ({id, text, isCompleted}) => {
   const {
@@ -15,9 +16,12 @@ const TodoItem = ({id, text, isCompleted}) => {
     setTodoToEdit,
     editingText,
     setEditingText,
+    errorMessage,
     setErrorMessage,
     setIsShowModal,
   } = useContext(Context);
+
+  const {currentError} = useValidateTodo(editingText, todos, todoToEdit);
 
   //delete todo
   const deleteTodo = id => {
@@ -46,37 +50,40 @@ const TodoItem = ({id, text, isCompleted}) => {
     setEditingText(e.target.value);
   };
 
-  const handleEditingTodo = e => {
-    e.preventDefault();
+  const handleEditingTodo = useCallback(
+    (e, id) => {
+      e.preventDefault();
 
-    const currentError = validateTodo(editingText, todos, todoToEdit);
-
-    if (!currentError) {
-      let newTodos = [...todos].map(todo => {
-        return todo.id === todoToEdit
-          ? {id, text: editingText, isCompleted}
-          : todo;
-      });
-      setTodos(newTodos);
-      setTodoToEdit('');
-      setEditingText('');
-      saveDataToStorage(newTodos);
-    } else {
-      setErrorMessage(currentError);
-      setIsShowModal(true);
-    }
-  };
-
+      if (!currentError) {
+        let newTodos = [...todos].map(todo => {
+          return todo.id === todoToEdit
+            ? {id, text: editingText, isCompleted}
+            : todo;
+        });
+        setTodos(newTodos);
+        setTodoToEdit('');
+        setEditingText('');
+        saveDataToStorage(newTodos);
+      } else {
+        setErrorMessage(currentError);
+        setIsShowModal(true);
+      }
+    },
+    [currentError],
+  );
+  console.log(errorMessage);
   return (
     <li className={`todo__todo-item ${styles.todoItem}`} id={id} key={id}>
       <div className={styles.todoItem__box}>
         <div className={styles.todoItem__info}>
           {todoToEdit === id ? (
-            <FormEdit
-              value={editingText}
-              handleEditingText={handleEditingText}
-              handleEditingTodo={handleEditingTodo}
-            />
+            <>
+              <FormEdit
+                value={editingText}
+                handleEditingText={handleEditingText}
+                handleEditingTodo={handleEditingTodo}
+              />
+            </>
           ) : (
             <>
               <input
@@ -111,6 +118,9 @@ const TodoItem = ({id, text, isCompleted}) => {
           />
         </div>
       </div>
+      {errorMessage && todoToEdit === id && (
+        <ErrorMessage errorText={errorMessage} />
+      )}
     </li>
   );
 };
