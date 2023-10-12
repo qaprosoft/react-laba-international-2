@@ -12,8 +12,6 @@ export default function Home() {
             <Link href="/ssr">SSR</Link>
           </div>
         </div>
-
-        <h1>Welcome To The Home Page</h1>
       </main>
     </>
   );
