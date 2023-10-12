@@ -1,19 +1,18 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
 import AddToDoForm from '@/components/AddToDoForm/AddToDoForm';
 import { ToDoProvider } from '@/context/toDoContext';
 
-const renderForm = () => {
+const renderAddToDoForm = () => {
   render(
     <ToDoProvider>
-      <AddToDoForm />;
+      <AddToDoForm />
     </ToDoProvider>,
   );
 };
 
-beforeEach(renderForm);
-afterEach(cleanup);
+beforeEach(renderAddToDoForm);
 
 describe('AddToDoForm', () => {
   it('Should have an input', () => {

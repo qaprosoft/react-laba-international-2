@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import ToDo from '@/components/ToDo/ToDo';
 import { ToDoProvider } from '@/context/toDoContext';
@@ -11,8 +11,9 @@ const renderToDo = () => {
     </ToDoProvider>,
   );
 };
+
 beforeEach(renderToDo);
-afterEach(cleanup);
+
 describe('ToDo', () => {
   it('should have text input', () => {
     const input = screen.getByRole('textbox');

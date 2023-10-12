@@ -1,14 +1,8 @@
-import { cleanup, render } from '@testing-library/react';
-import React from 'react';
-
-import Home from '@/app/page';
-import { ToDoProvider } from '@/context/toDoContext';
 import toDoReducer from '@/context/reducer';
 import constants from '@/constants';
 import toDos from './dummyData/toDos';
-import { afterEach } from 'node:test';
 
-const renderPage = () => {
+const setDefaultState = () => {
   toDoReducer(
     { toDos: [] },
     {
@@ -16,16 +10,9 @@ const renderPage = () => {
       payload: { toDos: toDos },
     },
   );
-
-  render(
-    <ToDoProvider>
-      <Home />;
-    </ToDoProvider>,
-  );
 };
 
-beforeEach(renderPage);
-afterEach(cleanup);
+beforeEach(setDefaultState);
 
 describe('reducer', () => {
   it('Should add new toDo', () => {

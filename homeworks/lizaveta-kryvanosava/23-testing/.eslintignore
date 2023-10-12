@@ -8,3 +8,4 @@ jest.config.mjs
 jest.setup.js
 *.test.tsx
 *.test.ts
+coverage
