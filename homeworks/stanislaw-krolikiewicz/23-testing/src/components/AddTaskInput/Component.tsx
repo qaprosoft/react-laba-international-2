@@ -25,6 +25,7 @@ export default () => {
   return (
     <div className="h-[65px] w-full max-w-[676px] flex">
       <input
+        data-testid="add-task-input"
         ref={refInput}
         onChange={handleChange}
         type="text"
@@ -33,6 +34,7 @@ export default () => {
         className="h-full w-[82%] text-[32px] pl-[88px]"
       />
       <button
+        data-testid="add-task-button"
         onClick={handleSubmit}
         className="h-full w-[18%] bg-[#5275A0] text-white text-[32px]"
       >
