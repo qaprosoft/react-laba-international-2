@@ -2,7 +2,7 @@ import Image from 'next/image';
 import {useState, useEffect} from 'react';
 import {Loader, Error as MyError} from '@/components';
 import {AnimatePresence} from 'framer-motion';
-import {API_URL_SINGLE_AVATAR} from '@/constants';
+import {getSingleAvatar} from '@/services/avatars';
 import styles from './Component.module.css';
 
 interface Props {
@@ -18,9 +18,7 @@ export default ({avatarUrl: iAvatar}: Props) => {
   const fetchAvatar = async () => {
     setLoading(true);
     try {
-      const res = await fetch(API_URL_SINGLE_AVATAR);
-      const data = await res.json();
-      if (!data.length) throw new Error('Failed to fetch avatar');
+      const data = await getSingleAvatar();
       setAvatar(data[0].url);
       setError(null);
     } catch (error) {

@@ -9,7 +9,7 @@ const api = async ({ url, method = 'GET', body, headers = {} }: Api) => {
   const req = await fetch(url, { method, body, headers });
   const res = await req.json();
   if (!req.ok) {
-    throw new Error(res.error);
+    throw new Error('Failed to fetch data.');
   }
   return res;
 };
