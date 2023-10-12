@@ -1,9 +1,7 @@
 import React from 'react';
 import AddTaskInput from './Component';
-import {render, fireEvent, cleanup, screen} from '@testing-library/react';
-import {afterEach, test, expect} from '@jest/globals';
-
-afterEach(cleanup);
+import {render, fireEvent, screen} from '@testing-library/react';
+import {test, expect} from '@jest/globals';
 
 test('Checking AddTaskInput display', () => {
   render(<AddTaskInput />);
