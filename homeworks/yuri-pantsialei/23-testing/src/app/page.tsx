@@ -3,13 +3,13 @@
 import {AddToDo} from '@/components/AddToDo/AddToDo';
 import styles from './page.module.css';
 import {useState, useEffect} from 'react';
-import {MainPropType, TodoType} from '@/types/mainTypes';
+import {TodoType} from '@/types/mainTypes';
 import {ToDo} from '@/components/ToDo/ToDo';
 import {v4} from 'uuid';
 import {TodoError} from '@/helpers/errors';
 
-export default function Home({propsTodos = []}: MainPropType) {
-  const [todos, setTodos] = useState<Array<TodoType>>(propsTodos);
+export default function Home() {
+  const [todos, setTodos] = useState<Array<TodoType>>([]);
   const [isAlreadyExist, setIsAlreadyExist] = useState<null | string>(null);
   const [isInitialRender, setIsInitialRender] = useState<boolean>(true);
 
@@ -66,7 +66,9 @@ export default function Home({propsTodos = []}: MainPropType) {
       <div className={styles.addTodo_wrapper}>
         <AddToDo callback={addNewTodo} />
         {isAlreadyExist && (
-          <div className={styles.errror_text}>{isAlreadyExist}</div>
+          <div data-testid="already-exist-err" className={styles.errror_text}>
+            {isAlreadyExist}
+          </div>
         )}
       </div>
 

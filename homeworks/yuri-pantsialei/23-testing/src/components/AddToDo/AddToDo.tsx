@@ -24,7 +24,11 @@ export const AddToDo = ({callback}: PropsTypes) => {
         onChange={onChangeHandler}
         className={styles.addToDo_input}
       />
-      <button className={styles.addToDo_button} onClick={onAddTodoHandler}>
+      <button
+        data-testid="add-todo-btn"
+        className={styles.addToDo_button}
+        onClick={onAddTodoHandler}
+      >
         Add
       </button>
     </div>

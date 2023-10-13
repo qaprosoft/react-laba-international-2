@@ -93,7 +93,7 @@ export const ToDo = ({
               data-testid="toDo-input"
             />
           ) : (
-            <div>{value}</div>
+            <div data-testid="todo-text">{value}</div>
           )}
         </div>
         <div className={styles.btn_wrapper}>

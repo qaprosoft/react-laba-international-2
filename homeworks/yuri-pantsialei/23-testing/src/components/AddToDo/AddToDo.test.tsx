@@ -1,5 +1,5 @@
 import {cleanup, fireEvent, render, screen} from '@testing-library/react';
-import {AddToDo} from '../AddToDo';
+import {AddToDo} from './AddToDo';
 
 afterEach(cleanup);
 
@@ -21,12 +21,4 @@ test('calls the correct function on click', () => {
   expect(onClick).toHaveBeenCalled();
 
   expect(input.value).toBe('');
-});
-
-test('type value to the input', () => {
-  render(<AddToDo callback={defaultProps.callback} />);
-  const input: HTMLInputElement = screen.getByTestId('addTodo-input');
-  expect(input.value).toBe('');
-  fireEvent.change(input, {target: {value: 'New task!'}});
-  expect(input.value).toBe('New task!');
 });

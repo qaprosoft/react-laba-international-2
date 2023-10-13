@@ -3,7 +3,3 @@ export type TodoType = {
   value: string;
   status: boolean;
 };
-
-export type MainPropType = {
-  propsTodos?: Array<TodoType>;
-};
