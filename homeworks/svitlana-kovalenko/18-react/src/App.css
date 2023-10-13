@@ -78,3 +78,7 @@ button {
   color: #cc5151;
   align-self: center;
 }
+
+.show_more:disabled {
+  opacity: 0.5;
+}

@@ -11,6 +11,8 @@ const App = () => {
   const [loadingOne, setLoadingOne] = useState(false);
 
   const refreshAll = () => {
+    if (loading) return;
+    setLoading(true);
     fetch(`https://tinyfac.es/api/data?limit=${users.length}&quality=0`)
       .then(response => {
         if (!response.ok) {
@@ -20,27 +22,27 @@ const App = () => {
       })
       .then(data => {
         setUsers(data);
+        setLoading(false);
       })
       .catch(error => {
         console.error('Error:', error);
-      });
+        setLoading(false);
+      }).finally(() => setLoading(false));
   };
 
   const showMore = () => {
-    if (!loading) {
-      setLoading(true);
-
-      fetch(`https://tinyfac.es/api/data?limit=1&quality=0`)
-        .then(response => response.json())
-        .then(data => {
-          setUsers(prevUsers => [...prevUsers, ...data]);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          setLoading(false);
-        });
-    }
+    if (loading) return;
+    setLoading(true);
+    fetch(`https://tinyfac.es/api/data?limit=1&quality=0`)
+      .then(response => response.json())
+      .then(data => {
+        setUsers(prevUsers => [...prevUsers, ...data]);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setLoading(false);
+      }).finally(() => setLoading(false));
   };
 
   const refreshOne = user => {
@@ -53,10 +55,10 @@ const App = () => {
       .then(response => response.json())
       .then(data => {
         const randomImageUrl = data[0].url;
-        const refreshedImg = users.map(u =>
+        const updatedUser = users.map(u =>
           u.id === user.id ? { ...u, url: randomImageUrl } : u,
         );
-        setUsers(refreshedImg);
+        setUsers(updatedUser);
       })
       .catch(error => {
         console.error('Error:', error);
