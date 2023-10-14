@@ -1,0 +1,18 @@
+.clear-completed-tasks {
+  height: 3rem;
+  width: 15rem;
+  background-color: green;
+  font-family: var(--main-font-family);
+  font-size: 1.5rem;
+  font-style: var(--main-font-style);
+  color: #FFF;
+}
+
+.clear-completed-tasks:hover {
+  cursor: pointer;
+  background-color: orange;
+}
+
+.clear-completed-tasks:active {
+  background-color: orangered;
+}
