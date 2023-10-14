@@ -1,0 +1,32 @@
+.modalBox {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  padding: 20px 10px;
+  max-width: 350px;
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgba(79, 41, 89, 0.9);
+}
+
+.modalText {
+  text-align: center;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 60%;
+}
