@@ -14,7 +14,6 @@ import {useRouter} from 'next/navigation';
 export const handlers = [
   rest.post('*/api/auth/register', async (req, res, ctx) => {
     const requestJson = await req.json();
-    console.log(requestJson);
 
     if (
       requestJson.name === 'testUser' &&
@@ -63,8 +62,8 @@ describe('RegisterPage', () => {
     const nameInput = screen.getByLabelText<HTMLInputElement>('Name');
     const passwordInput = screen.getByLabelText<HTMLInputElement>('Password');
 
-    fireEvent.change(nameInput, {target: {value: 'testUser'}});
-    fireEvent.change(passwordInput, {target: {value: 'testPassword'}});
+    await userEvent.type(nameInput, 'testUser');
+    await userEvent.type(passwordInput, 'testPassword');
 
     await userEvent.click(screen.getByTestId('register-submit-btn'));
 

@@ -1,5 +1,6 @@
 import {renderWithClient} from '@/tests/utils';
-import {fireEvent, render, screen} from '@testing-library/react';
+import {screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import TodoCard from './TodoCard';
 import '@testing-library/jest-dom';
 
@@ -27,7 +28,7 @@ describe('TodoCard', () => {
     renderWithClient(<TodoCard todo={mockTodo} />);
 
     const editButton = screen.getByText('Edit');
-    fireEvent.click(editButton);
+    userEvent.click(editButton);
 
     const editTodoCard = screen.getByTestId('edit-todo-card');
 

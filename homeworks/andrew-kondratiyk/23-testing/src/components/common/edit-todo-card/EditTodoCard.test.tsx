@@ -1,6 +1,7 @@
+import userEvent from '@testing-library/user-event';
 import EditTodoCard from './EditTodoCard';
 import {renderWithClient} from '@/tests/utils';
-import {screen, fireEvent} from '@testing-library/react';
+import {screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 const mockTodo = {
@@ -28,7 +29,7 @@ describe('EditTodoCard', () => {
     renderWithClient(<EditTodoCard onCancel={onCancelMock} />);
 
     const cancelButton = screen.getByText('Cancel');
-    fireEvent.click(cancelButton);
+    userEvent.click(cancelButton);
 
     expect(onCancelMock).toHaveBeenCalled();
   });
