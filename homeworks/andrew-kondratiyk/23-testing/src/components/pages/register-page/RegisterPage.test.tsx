@@ -1,30 +1,63 @@
 import {renderWithClient} from '@/tests/utils';
-import {screen, fireEvent} from '@testing-library/react';
+import {fireEvent, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import RegisterPage from './RegisterPage';
 import '@testing-library/jest-dom';
 
-jest.mock('next/navigation', () => ({
-  useRouter() {
-    return {
-      prefetch: () => null,
-    };
-  },
-}));
+import {rest} from 'msw';
+
+import {setupServer} from 'msw/node';
+import {setLogger} from 'react-query';
+
+import {useRouter} from 'next/navigation';
+
+export const handlers = [
+  rest.post('*/api/auth/register', async (req, res, ctx) => {
+    const requestJson = await req.json();
+    console.log(requestJson);
+
+    if (
+      requestJson.name === 'testUser' &&
+      requestJson.password === 'testPassword'
+    ) {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          name: 'Chuck Norris',
+        }),
+      );
+    } else {
+      return res(ctx.status(500));
+    }
+  }),
+];
+
+export const server = setupServer(...handlers);
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+
+setLogger({
+  log: console.log,
+  warn: console.warn,
+  error: () => {},
+});
+
+jest.mock('next/navigation', () => {
+  const pushMock = jest.fn();
+  return {
+    useRouter() {
+      return {
+        prefetch: () => null,
+        push: pushMock,
+      };
+    },
+  };
+});
 
 describe('RegisterPage', () => {
-  it('renders RegisterPage with input fields and submit button', () => {
-    renderWithClient(<RegisterPage />);
-
-    const nameInput = screen.getByLabelText('Name');
-    const passwordInput = screen.getByLabelText('Password');
-    const submitButton = screen.getByTestId('register-submit-btn');
-
-    expect(nameInput).toBeInTheDocument();
-    expect(passwordInput).toBeInTheDocument();
-    expect(submitButton).toBeInTheDocument();
-  });
-
-  it('updates state on input change', () => {
+  it('redirecting to login after successful registration', async () => {
     renderWithClient(<RegisterPage />);
 
     const nameInput = screen.getByLabelText<HTMLInputElement>('Name');
@@ -33,7 +66,10 @@ describe('RegisterPage', () => {
     fireEvent.change(nameInput, {target: {value: 'testUser'}});
     fireEvent.change(passwordInput, {target: {value: 'testPassword'}});
 
-    expect(nameInput.value).toBe('testUser');
-    expect(passwordInput.value).toBe('testPassword');
+    await userEvent.click(screen.getByTestId('register-submit-btn'));
+
+    await waitFor(() =>
+      expect(useRouter().push as jest.Mock).toBeCalledWith('/login'),
+    );
   });
 });
