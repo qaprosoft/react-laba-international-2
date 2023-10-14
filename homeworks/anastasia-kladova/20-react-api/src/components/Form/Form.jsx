@@ -3,18 +3,12 @@ import Input from '../Input/Input';
 import Button from '../Buttons/Button/Button';
 import {useContext} from 'react';
 import {Context} from '../../contexts/AppContext/AppContext';
+
 import {useAddTodo} from '../../hooks/addTodoHook';
 
 const Form = () => {
-  const {
-    state,
-    dispatch,
-    currentInputText,
-    setCurrentInputText,
-    setErrorMessage,
-    inputRef,
-    setIsNewTodoValid,
-  } = useContext(Context);
+  const {currentInputText, setCurrentInputText, inputRef, state} =
+    useContext(Context);
 
   const {addNewTodo} = useAddTodo();
 

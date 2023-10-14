@@ -1,4 +1,3 @@
-import {saveDataToStorage} from '../utils/saveDataToStorage';
 import {ACTION_TYPES} from './actionTypes';
 export const mainReducer = (state, action) => {
   switch (action.type) {
@@ -9,6 +8,7 @@ export const mainReducer = (state, action) => {
       };
     }
     case ACTION_TYPES.ADD_NEWTODO: {
+      console.log('4', action.payload.newTodo);
       const newTodo = {
         text: action.payload.newTodo,
         id: Date.now(),
@@ -32,7 +32,7 @@ export const mainReducer = (state, action) => {
           ? {
               id: todo.id,
               text: action.payload.text,
-              isCompleted: todo.payload.isCompleted,
+              isCompleted: todo.isCompleted,
             }
           : todo;
       });

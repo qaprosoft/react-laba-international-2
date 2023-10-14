@@ -1,9 +1,8 @@
 import {TODOLENGTHLIMIT} from '../constants/constants';
-import useCheckIsTodoExist from './checkIsTodoExistHook';
-
-export const useValidateTodo = (text, todos, todoToEdit) => {
+import checkIsTodoExist from './checkIsTodoExist';
+export const validateTodo = (text, todos, todoToEdit) => {
   let currentError;
-  const {isTodoExist} = useCheckIsTodoExist(text, todos);
+  const isTodoExist = checkIsTodoExist(text, todos);
 
   if (!text) {
     currentError = 'There is no todo. Please, type something!';
@@ -16,5 +15,5 @@ export const useValidateTodo = (text, todos, todoToEdit) => {
     currentError = '';
   }
 
-  return {currentError};
+  return currentError;
 };

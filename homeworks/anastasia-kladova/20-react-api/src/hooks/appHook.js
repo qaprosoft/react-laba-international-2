@@ -6,7 +6,8 @@ import {INITIAL_STATE} from '../state/initialState';
 import {saveDataToStorage} from '../utils/saveDataToStorage';
 
 export const useApp = () => {
-  const {state, dispatch} = useContext(Context);
+  const {state, dispatch, setErrorMessage, setIsNewTodoValid} =
+    useContext(Context);
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem(localStorageKeys.TODOS))) {
@@ -15,7 +16,7 @@ export const useApp = () => {
         payload: JSON.parse(localStorage.getItem(localStorageKeys.TODOS)),
       });
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (state !== INITIAL_STATE) {

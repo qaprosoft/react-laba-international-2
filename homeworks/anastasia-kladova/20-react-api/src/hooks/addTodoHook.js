@@ -1,7 +1,7 @@
 import {useContext} from 'react';
-import {useValidateTodo} from './validateTodoHook';
 import {Context} from '../contexts/AppContext/AppContext';
 import {ACTION_TYPES} from '../state/actionTypes';
+import {validateTodo} from '../utils/validateTodo';
 
 export const useAddTodo = () => {
   const {
@@ -14,11 +14,11 @@ export const useAddTodo = () => {
     setIsNewTodoValid,
   } = useContext(Context);
 
-  const newTodo = currentInputText.trim();
-  const {currentError} = useValidateTodo(newTodo, state.todos);
-
   const addNewTodo = e => {
     e.preventDefault();
+
+    const newTodo = currentInputText.trim();
+    let currentError = validateTodo(newTodo, state.todos);
 
     if (!currentError) {
       dispatch({type: ACTION_TYPES.ADD_NEWTODO, payload: {newTodo: newTodo}});

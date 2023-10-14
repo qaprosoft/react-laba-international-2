@@ -4,9 +4,10 @@ import styles from './TodoItem.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
 import {saveDataToStorage} from '../../utils/saveDataToStorage';
 import FormEdit from '../FormEdit/FormEdit';
-import {useValidateTodo} from '../../hooks/validateTodoHook';
+
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import {ACTION_TYPES} from '../../state/actionTypes';
+import {validateTodo} from '../../utils/validateTodo';
 
 const TodoItem = ({id, text, isCompleted}) => {
   const {
@@ -22,7 +23,7 @@ const TodoItem = ({id, text, isCompleted}) => {
     setTodoToDelete,
   } = useContext(Context);
 
-  const {currentError} = useValidateTodo(editingText, state.todos, todoToEdit);
+  const currentError = validateTodo(editingText, state.todos, todoToEdit);
 
   //show modal
   const showModal = id => {
@@ -31,17 +32,24 @@ const TodoItem = ({id, text, isCompleted}) => {
   };
 
   //toggle isCompleted todo
-  const toggleIsCompleted = (id, isCompleted) => {
-    dispatch({
-      type: ACTION_TYPES.TOGGLE_COMPLETED,
-      payload: {id: id, isCompleted: isCompleted},
-    });
-  };
+  const toggleIsCompleted = useCallback(
+    (id, isCompleted) => {
+      dispatch({
+        type: ACTION_TYPES.TOGGLE_COMPLETED,
+        payload: {id: id, isCompleted: isCompleted},
+      });
+    },
+    [dispatch],
+  );
 
   //edit todo
   const editTodo = id => {
     setEditingText(text);
     setTodoToEdit(id);
+    dispatch({
+      type: ACTION_TYPES.UPDATE_TODO,
+      payload: {id: id, text: editingText},
+    });
   };
 
   const handleEditingText = e => {
@@ -65,7 +73,16 @@ const TodoItem = ({id, text, isCompleted}) => {
         setErrorMessage(currentError);
       }
     },
-    [currentError],
+    [
+      currentError,
+      dispatch,
+      editingText,
+      setEditingText,
+      setErrorMessage,
+      setTodoToEdit,
+      state.todos,
+      todoToEdit,
+    ],
   );
 
   return (
