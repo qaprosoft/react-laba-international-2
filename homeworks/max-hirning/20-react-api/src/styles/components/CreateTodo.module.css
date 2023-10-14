@@ -1,0 +1,18 @@
+.container {
+  height: 65px;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  width: 122px;
+  height: 65px;
+  border: none;
+  height: inherit;
+  font-size: 32px;
+  color: #FFFFFF;
+  text-align: left;
+  border-radius: 0px;
+  padding-block: 0px;
+  background-color: #5275A0;
+}

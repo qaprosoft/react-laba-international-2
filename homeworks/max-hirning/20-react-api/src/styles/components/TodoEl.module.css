@@ -1,0 +1,17 @@
+.container {
+  height: 65px;
+  display: flex;
+  margin-block: 3rem;
+  align-items: center;
+}
+
+.buttonsGroup {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  padding: 0px;
+  cursor: pointer;
+  background: transparent;
+}
