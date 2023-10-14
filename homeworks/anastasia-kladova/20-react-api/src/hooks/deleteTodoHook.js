@@ -1,9 +1,8 @@
 import {useContext} from 'react';
-import {useValidateTodo} from './validateTodoHook';
 import {Context} from '../contexts/AppContext/AppContext';
 import {ACTION_TYPES} from '../state/actionTypes';
 
-export const useAddTodo = () => {
+export const useDeleteTodo = () => {
   const {setIsShowDeleteModal, dispatch, setTodoToDelete} = useContext(Context);
 
   const deleteCompletedTodo = () => {

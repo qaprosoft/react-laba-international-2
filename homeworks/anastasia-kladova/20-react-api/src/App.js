@@ -8,13 +8,13 @@ import Modal from './components/Modal/Modal';
 import {phrases} from './constants/constants';
 import {ACTION_TYPES} from './state/actionTypes';
 import {useApp} from './hooks/appHook';
-import {useAddTodo} from './hooks/deleteTodoHook';
+import {useDeleteTodo} from './hooks/deleteTodoHook';
 
 const App = () => {
   useApp();
 
   const {isShowDeleteModal, todoToDelete} = useContext(Context);
-  const {deleteCompletedTodo, deleteTodo} = useAddTodo();
+  const {deleteCompletedTodo, deleteTodo} = useDeleteTodo();
 
   return (
     <main className="main">
