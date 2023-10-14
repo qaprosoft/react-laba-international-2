@@ -1,0 +1,15 @@
+.copy-rights {
+  color: #575757;
+  font-size: var(--main-font-size);
+  font-family: var(--main-font-family);
+  font-style: var(--main-font-style);
+  font-weight: var(--main-font-weight);
+  line-height: var(--main-line-height);
+  margin-top: 7.2rem;
+}
+
+@media (max-width: 376px) {
+  .copy-rights {
+    margin-top: 1.7rem;
+  }
+}/*# sourceMappingURL=copyRights.css.map */

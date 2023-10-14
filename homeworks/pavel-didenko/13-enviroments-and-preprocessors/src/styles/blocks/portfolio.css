@@ -1,0 +1,111 @@
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 47.5rem;
+  max-width: 90%;
+  justify-content: center;
+}
+
+.portfolio__img-wrapper {
+  position: relative;
+  overflow-y: hidden;
+}
+
+.portfolio__project {
+  margin-top: 1rem;
+}
+
+.portfolio__project:hover {
+  cursor: pointer;
+}
+
+.portfolio__project:hover ~ .portfolio__description {
+  transform: translateY(-14.3rem);
+}
+
+.portfolio__description {
+  width: 22.625rem;
+  height: 14.125rem;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  background-color: #fbd144;
+  opacity: 0.88;
+  border-radius: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.7s ease-in-out;
+}
+
+.portfolio__description:hover {
+  transform: translateY(-14.3rem);
+  cursor: url("../../assets/img/icons/navigation.svg"), pointer;
+}
+
+.portfolio__project-name {
+  color: #3d3d3d;
+  text-align: center;
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  font-style: var(--main-font-style);
+  font-weight: var(--main-font-weight);
+  line-height: var(--main-line-height);
+  letter-spacing: -0.03319rem;
+}
+
+.portfolio__project-description {
+  width: 17.9375rem;
+  max-width: 100%;
+  color: #3d3d3d;
+  text-align: center;
+  letter-spacing: -0.03319rem;
+  font-family: var(--main-font-family);
+  font-size: 0.875rem;
+  font-style: var(--main-font-style);
+  font-weight: 400;
+  line-height: var(--main-line-height);
+}
+
+.portfolio__link-wrapper {
+  width: 2.375rem;
+  height: 2.375rem;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 1.3rem;
+}
+
+.portfolio__link-wrapper:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 761px) {
+  .portfolio {
+    justify-content: center;
+  }
+}
+@media (max-width: 404px) {
+  .portfolio {
+    gap: 0.88rem;
+  }
+  .portfolio__project {
+    width: 21.25rem;
+    max-width: 100%;
+    height: 13.125rem;
+    border-radius: 0.9375rem;
+  }
+}
+/* @media (max-width: 370px){
+  .portfolio__project{
+    width: 18rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+} *//*# sourceMappingURL=portfolio.css.map */

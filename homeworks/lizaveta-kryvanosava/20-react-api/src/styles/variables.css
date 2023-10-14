@@ -1,0 +1,10 @@
+:root {
+  --gradient-background: linear-gradient(
+    116.67deg,
+    #8c72b7 0.58%,
+    rgba(192, 46, 195, 0) 101.02%
+  );
+  --button-color: #5275a0;
+  --input-background: #ecf3ff;
+  --white-color: #ffffff;
+}/*# sourceMappingURL=variables.css.map */

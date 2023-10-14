@@ -1,8 +1,12 @@
-import {useRef, useState} from 'react';
+import {useReducer, useRef, useState} from 'react';
 import {Context} from './AppContext';
+import {mainReducer} from '../../state/mainReducer';
+import {INITIAL_STATE} from '../../state/initialState';
 
 const AppContextProvider = ({children}) => {
-  const [todos, setTodos] = useState([]);
+  //reducer
+  const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);
+  //state
   const [currentInputText, setCurrentInputText] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [isNewTodoValid, setIsNewTodoValid] = useState(false);
@@ -15,8 +19,8 @@ const AppContextProvider = ({children}) => {
   return (
     <Context.Provider
       value={{
-        todos,
-        setTodos,
+        state,
+        dispatch,
         currentInputText,
         setCurrentInputText,
         errorMessage,

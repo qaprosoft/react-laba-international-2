@@ -1,0 +1,11 @@
+@keyframes switchToGreenColor {
+  0% {
+    background-color: green;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: blue;
+  }
+}/*# sourceMappingURL=greenRedBlue.css.map */

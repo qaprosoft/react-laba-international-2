@@ -1,0 +1,41 @@
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.switcher {
+  margin-top: 2.063rem;
+}
+
+.person {
+  margin-top: 4rem;
+}
+
+.achievements {
+  margin-top: 4rem;
+  position: relative;
+  right: 1.5rem;
+}
+
+.contact-buttons {
+  margin-top: 2.2rem;
+  position: relative;
+}
+
+@media (max-width: 376px) {
+  .switcher {
+    margin-top: 1.3rem;
+  }
+  .person {
+    margin-top: 1.8rem;
+    position: relative;
+    right: 0.5rem;
+  }
+  .achievements {
+    margin-top: 3.3rem;
+  }
+  .contact-buttons {
+    margin-top: 2.7rem;
+  }
+}/*# sourceMappingURL=header.css.map */

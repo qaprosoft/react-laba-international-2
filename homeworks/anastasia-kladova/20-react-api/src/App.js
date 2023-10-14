@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import Form from './components/Form/Form';
 import {Context} from './contexts/AppContext/AppContext';
 import TodoList from './components/TodoList/TodoList';
@@ -6,32 +6,15 @@ import Button from './components/Buttons/Button/Button';
 import {saveDataToStorage} from './utils/saveDataToStorage';
 import Modal from './components/Modal/Modal';
 import {phrases} from './constants/constants';
+import {ACTION_TYPES} from './state/actionTypes';
+import {useApp} from './hooks/appHook';
+import {useAddTodo} from './hooks/deleteTodoHook';
 
 const App = () => {
-  const {
-    isShowDeleteModal,
-    setIsShowDeleteModal,
-    todos,
-    setTodos,
-    todoToDelete,
-    setTodoToDelete,
-  } = useContext(Context);
+  useApp();
 
-  const deleteCompletedTodo = () => {
-    const newTodos = todos.filter(todo => todo.isCompleted !== true);
-    setTodos(newTodos);
-    saveDataToStorage(newTodos);
-  };
-
-  const deleteTodo = id => {
-    const newTodos = todos.filter(todo => todo.id !== id);
-    setTodos(newTodos);
-    saveDataToStorage(newTodos);
-    setTodoToDelete(null);
-    setIsShowDeleteModal(false);
-  };
-
-  console.log(isShowDeleteModal);
+  const {isShowDeleteModal, todoToDelete} = useContext(Context);
+  const {deleteCompletedTodo, deleteTodo} = useAddTodo();
 
   return (
     <main className="main">

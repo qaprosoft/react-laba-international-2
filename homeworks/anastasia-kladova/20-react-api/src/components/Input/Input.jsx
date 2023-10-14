@@ -13,7 +13,6 @@ const Input = ({
   const {errorMessage, isNewTodoValid} = useContext(Context);
   return (
     <>
-      {' '}
       <input
         className={classtype ? styles[classtype] : styles.todo__input}
         placeholder={placeholder}

@@ -1,5 +1,5 @@
 import {TODOLENGTHLIMIT} from '../constants/constants';
-import useCheckIsTodoExist from './useCheckIsTodoExist';
+import useCheckIsTodoExist from './checkIsTodoExistHook';
 
 export const useValidateTodo = (text, todos, todoToEdit) => {
   let currentError;

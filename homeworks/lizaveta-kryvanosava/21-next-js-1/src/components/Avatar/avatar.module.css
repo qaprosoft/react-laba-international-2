@@ -1,0 +1,29 @@
+.tile {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  overflow: hidden;
+  border: none;
+  border-radius: var(--tile-border-radius);
+  background: center/contain no-repeat url(../../../public/Avatar-Placeholder.jpg);
+}
+.tile__image, .tile__refresh {
+  width: 100%;
+  height: 100%;
+}
+.tile__refresh-icon, .tile__refresh {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+.tile__refresh {
+  display: none;
+}
+.tile:hover {
+  filter: brightness(50%);
+}
+.tile:hover .tile__refresh {
+  display: block;
+  cursor: pointer;
+}/*# sourceMappingURL=avatar.module.css.map */

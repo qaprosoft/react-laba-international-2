@@ -1,28 +1,25 @@
 import styles from './Form.module.css';
 import Input from '../Input/Input';
 import Button from '../Buttons/Button/Button';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import {useContext} from 'react';
 import {Context} from '../../contexts/AppContext/AppContext';
-import {saveDataToStorage} from '../../utils/saveDataToStorage';
-import {useValidateTodo} from '../../hooks/useValidateTodo';
+import {useValidateTodo} from '../../hooks/validateTodoHook';
+import {ACTION_TYPES} from '../../state/actionTypes';
+import {useAddTodo} from '../../hooks/deleteTodoHook';
 
 const Form = () => {
   const {
+    state,
+    dispatch,
     currentInputText,
     setCurrentInputText,
-    todos,
-    setTodos,
     setErrorMessage,
-    setIsShowModal,
     inputRef,
-    isNewTodoValid,
     setIsNewTodoValid,
-    errorMessage,
   } = useContext(Context);
 
   const newTodo = currentInputText.trim();
-  const {currentError} = useValidateTodo(newTodo, todos);
+  const {currentError} = useValidateTodo(newTodo, state.todos);
 
   const handleCurrentInputValue = e => {
     setCurrentInputText(e.target.value);
@@ -32,19 +29,15 @@ const Form = () => {
     e.preventDefault();
 
     if (!currentError) {
-      let newTodos = [
-        ...todos,
-        {text: newTodo, id: Date.now(), isCompleted: false},
-      ];
-      setTodos(newTodos);
+      dispatch({type: ACTION_TYPES.ADD_NEWTODO, payload: {newTodo: newTodo}});
       setCurrentInputText('');
-      saveDataToStorage(newTodos);
       inputRef.current.focus();
+      setIsNewTodoValid(false);
+      setErrorMessage('');
     } else {
       setIsNewTodoValid(true);
       setErrorMessage(currentError);
       setCurrentInputText('');
-      setIsShowModal(true);
     }
   };
 

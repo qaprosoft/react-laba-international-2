@@ -1,0 +1,51 @@
+:root {
+  --color-main: #E5E5E5;
+  --color-primary: #FBD144;
+  --color-secondary: #FFFFFF;
+  --color-text: #3D3D3D;
+  --color-text-second: #575757;
+  --border-radius-1: 5px;
+  --border-radius-2: 10px;
+  --border-radius-3: 15px;
+  --border-radius-4: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: var(--color-text);
+  font-size: 2.2rem;
+  line-height: 3.3rem;
+  transition: 0.2s;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: var(--color-main);
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 757px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.3rem 2.3rem 4.2rem;
+}
+
+.footer {
+  margin-top: 13rem;
+  text-align: center;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,364 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Root styles */
+/* General styles */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #333;
+  background-color: #E9EBEC;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body section {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+@media (max-width: 768px) {
+  body section {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Dark mode styles */
+/* General styles for dark mode */
+body.dark-mode {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #F1F2F4;
+  background-color: #0C151D;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Styles for toggler in dark mode */
+  /* Styles for profile icons in dark mode */
+  /* Styles for secondary buttons in dark mode */
+  /* Styles for custom button container in dark mode */
+  /* Styles for primary buttons in dark mode */
+}
+body.dark-mode .switch-container {
+  background-color: #171F26;
+}
+body.dark-mode .switch {
+  filter: brightness(500%) saturate(0%) hue-rotate(0deg);
+  opacity: 0.9;
+}
+body.dark-mode .profile__social-icon {
+  filter: brightness(500%) saturate(0%) hue-rotate(0deg);
+  opacity: 0.9;
+}
+body.dark-mode .button--secondary {
+  background-color: #171F26;
+  color: #F1F2F4;
+}
+body.dark-mode .custom-button-container {
+  background-color: #171F26;
+}
+body.dark-mode .custom-button--primary {
+  background-color: #0C151D;
+}
+
+/* Header */
+.switch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+.switch-container .switch {
+  width: 40px;
+  height: 40px;
+}
+@media (max-width: 768px) {
+  .switch-container .switch {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  width: 631px;
+  height: 215px;
+  align-items: center;
+}
+.profile .profile__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+.profile .profile__avatar img {
+  position: absolute;
+  top: 10;
+  left: 10;
+  width: 90%;
+  height: 90%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.profile .profile__avatar img:first-child {
+  z-index: 2;
+}
+.profile .profile__avatar img:last-child {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: -5% -5%;
+}
+.profile .profile__info {
+  width: 65%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.profile .profile__info .profile__info-container {
+  width: 372px;
+  height: 186px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.profile .profile__info .profile__name {
+  font-size: 2.875em;
+  line-height: 69px;
+}
+.profile .profile__info .profile__description {
+  font-size: 1.5em;
+  line-height: 33px;
+}
+.profile .profile__info .profile__social-icons {
+  width: 222px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.profile .profile__info .profile__social-icons .profile__social-icon {
+  width: 36px;
+  height: 36px;
+}
+@media (max-width: 768px) {
+  .profile .profile__info .profile,
+  .profile .profile__info .profile__info-container {
+    width: 362px;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .profile .profile__info .profile__avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 144px;
+    height: 144px;
+  }
+  .profile .profile__info .profile__avatar img {
+    position: absolute;
+    top: 10;
+    left: 10;
+    width: 90%;
+    height: 90%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .profile .profile__info .profile__info {
+    width: 100%;
+    justify-content: center;
+  }
+  .profile .profile__info .profile__info .profile__info-container {
+    width: 100%;
+    max-width: 500px;
+  }
+  .profile .profile__info .profile__info .profile__name {
+    font-size: 2.0625em;
+  }
+  .profile .profile__info .profile__info .profile__description {
+    font-size: 0.875em;
+  }
+  .profile .profile__info .profile__info .profile__social-icons {
+    width: 174px;
+  }
+  .profile .profile__info .profile__info .profile__social-icons .profile__social-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Blocks */
+.block-container {
+  display: flex;
+  width: 634px;
+  height: 142px;
+}
+.block-container .block {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.5em;
+}
+@media (max-width: 768px) {
+  .block-container .block {
+    font-size: 0.875em;
+  }
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  width: 618px;
+  height: 80px;
+  justify-content: space-between;
+}
+.button-container .button {
+  width: 290px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+.button-container .button .button__svg {
+  margin-left: 4px;
+}
+.button-container .button--primary {
+  background-color: #FBD144;
+}
+.button-container .button--secondary {
+  background-color: #FFFFFF;
+}
+.button-container .button .button__link {
+  color: #333;
+  text-decoration: none;
+}
+.button-container .custom-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 760px;
+  height: 110px;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+}
+.button-container .custom-button-container .custom-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 355px;
+  height: 80px;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+.button-container .custom-button-container .custom-button--primary {
+  background-color: #D7D7D7;
+}
+@media (max-width: 768px) {
+  .button-container .custom-button-container {
+    width: 362px;
+    height: 44px;
+  }
+  .button-container .custom-button-container .custom-button-container {
+    width: 330px;
+    height: 64px;
+  }
+  .button-container .custom-button-container .custom-button-container .button {
+    width: 158px;
+    height: 44px;
+    font-size: 0.875em;
+  }
+  .button-container .custom-button-container .custom-button-container .custom-button {
+    width: 154px;
+    height: 50.3px;
+    font-size: 0.875em;
+  }
+}
+
+/* Cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+}
+.card-container .card {
+  width: 362px;
+  height: 226px;
+}
+.card-container .card .card__image {
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .card-container .card {
+    width: 100%;
+  }
+}
+
+/* Footer */
+footer p {
+  margin-top: 40px;
+  font-size: 0.875em;
+}
+@media (max-width: 768px) {
+  footer p {
+    margin-top: 20px;
+    font-size: 0.875em;
+  }
+}
+
+/* scroll to top button */
+.scroll-to-top-button {
+  display: none;
+}
+@media (max-width: 768px) {
+  .scroll-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  .scroll-to-top-button img {
+    filter: brightness(500%) saturate(0%) hue-rotate(0deg);
+    opacity: 0.9;
+    width: 42px;
+    height: 42px;
+  }
+  .scroll-to-top-button.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}/*# sourceMappingURL=main.css.map */

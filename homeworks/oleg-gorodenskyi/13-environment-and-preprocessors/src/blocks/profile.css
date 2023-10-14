@@ -1,0 +1,136 @@
+.profile__info {
+  margin: 0 auto;
+  margin-top: 65px;
+  max-width: 631px;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  align-items: center;
+}
+.profile__info-avatar {
+  position: relative;
+  width: 215px;
+  height: 215px;
+  border-radius: 100%;
+  border: 4px solid #f7d039;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__info-name {
+  color: #f1f2f4;
+  font-size: 46px;
+}
+
+.profile__info-speciality {
+  color: #a3abb2;
+  font-size: 22px;
+}
+
+.profile__info-social {
+  display: flex;
+  -moz-column-gap: 26px;
+       column-gap: 26px;
+  margin-top: 12px;
+}
+
+.profile__info-social a {
+  transition: transform 0.5s;
+}
+
+.profile__info-social a:hover {
+  transform: translateY(-20px);
+}
+
+.profile__facts {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  color: #a3abb2;
+  margin-top: 48px;
+  padding: 20px 31px;
+  gap: 90px;
+}
+
+.profile__facts .profile__facts-descr span:nth-child(1) {
+  font-size: 24px;
+}
+
+.profile__facts .profile__facts-descr span:nth-child(n+2) {
+  font-size: 22px;
+}
+
+.profile__facts-descr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 148px;
+}
+
+.profile__facts .profile__facts-descr span:nth-child(1) {
+  font-size: 24px;
+}
+
+.profile__facts .profile__facts-descr span:nth-child(n+2) {
+  font-size: 22px;
+}
+
+.profile__buttons {
+  display: flex;
+  justify-content: center;
+  width: 618px;
+  margin: 0 auto;
+  margin-top: 47px;
+  -moz-column-gap: 38px;
+       column-gap: 38px;
+}
+
+.profile__buttons-btn {
+  width: 290px;
+  height: 80px;
+  background-color: #171f26;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-size: 22px;
+  color: #a3abb2;
+  border: none;
+  transition: all 0.6s;
+  transform: perspective(1px) translateZ(0);
+}
+
+.profile__buttons-btn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0;
+  background-color: #ffe071;
+  -webkit-clip-path: circle(0.5% at 50% 50%);
+          clip-path: circle(0.5% at 50% 50%);
+  opacity: 1;
+  transition: 0.6s;
+}
+
+.profile__buttons-btn:hover::before {
+  -webkit-clip-path: circle(100% at 50% 50%);
+          clip-path: circle(100% at 50% 50%);
+}
+
+.profile__buttons-btn:hover {
+  color: #3d3d3d;
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgba(250, 250, 250, 0.1);
+}
+
+.profile__buttons-btn-download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+}/*# sourceMappingURL=profile.css.map */

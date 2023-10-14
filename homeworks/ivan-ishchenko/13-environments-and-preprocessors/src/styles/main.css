@@ -1,0 +1,108 @@
+/* Tabs */
+.tabs {
+  margin-top: 85px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+.tabs__item {
+  border-radius: 10px;
+  width: 50%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tabs__item:hover {
+  background: var(--accent-color);
+  color: var(--on-accent-text-color-text-color);
+}
+.tabs__item--active {
+  background: var(--secondary-color);
+}
+
+@media screen and (max-width: 900px) {
+  .tabs__item {
+    height: 70px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tabs {
+    margin-top: 60px;
+  }
+  .tabs__item {
+    height: 60px;
+  }
+}
+/* Portfolio */
+.portfolio {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+}
+.portfolio__item {
+  margin-top: 45px;
+  width: 360px;
+  height: 225px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio__item_overlay {
+  position: absolute;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  opacity: 0;
+}
+.portfolio__item_overlay::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: var(--accent-color);
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+}
+.portfolio__item:hover .portfolio__item_overlay {
+  opacity: 1;
+}
+.portfolio__item_name {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--on-accent-text-color);
+}
+.portfolio__item_description {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: 3px;
+  color: var(--on-accent-text-color);
+  text-align: center;
+}
+.portfolio__item_link {
+  margin-top: 15px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,24 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  padding-block: 5rem;
+}
+.main__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 40%;
+}
+@media (max-width: 80rem) {
+  .main__list {
+    width: 60%;
+  }
+}
+@media (max-width: 40rem) {
+  .main__list {
+    width: 90%;
+  }
+}/*# sourceMappingURL=page.module.css.map */

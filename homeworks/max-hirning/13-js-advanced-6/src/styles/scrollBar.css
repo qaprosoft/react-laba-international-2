@@ -1,0 +1,19 @@
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--main-bg-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--download-btn-bg-color);
+}/*# sourceMappingURL=scrollBar.css.map */

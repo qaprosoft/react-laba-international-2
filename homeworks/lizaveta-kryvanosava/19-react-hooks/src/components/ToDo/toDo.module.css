@@ -1,0 +1,39 @@
+.todo {
+  display: flex;
+  max-height: 3rem;
+  width: 100%;
+}
+.todo__inputs {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  width: 80%;
+  background-color: var(--input-background);
+}
+.todo__inputs-checkbox {
+  width: 10%;
+  height: 100%;
+}
+.todo__inputs-text {
+  width: 90%;
+  height: 100%;
+  background-color: var(--input-background);
+  text-align: center;
+  word-break: break-all;
+  border: none;
+}
+.todo__control {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 20%;
+}
+.todo__control-button {
+  max-width: 50%;
+}
+.todo__control-button--edit-image, .todo__control-button--delete-image {
+  max-width: -moz-min-content;
+  max-width: min-content;
+  max-height: 3rem;
+}/*# sourceMappingURL=toDo.module.css.map */

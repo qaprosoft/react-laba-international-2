@@ -1,0 +1,244 @@
+body {
+  background-color: #0c151d;
+  font-family: "Poppins", sans-serif;
+  color: #a3abb2;
+}
+body header {
+  margin-top: 2rem;
+}
+body header .header__description {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+body header .theme-toggle {
+  display: block;
+  margin: 0 auto 3rem;
+  width: 40px;
+  height: 40px;
+}
+body header .theme-toggle:hover {
+  opacity: 20%;
+  color: #a3abb2;
+  cursor: pointer;
+}
+body header .header__full-name {
+  color: white;
+  margin-bottom: 0;
+}
+body header .header__experience {
+  margin-top: 2rem;
+  gap: 3rem;
+  display: flex;
+  justify-content: center;
+}
+body header .header__my-photo {
+  width: 215px;
+  height: 215px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body header .header__icon {
+  text-decoration: none;
+}
+body header .header__icon img {
+  width: 36px;
+  height: 36px;
+}
+body header .header__main-info {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+body button {
+  cursor: pointer;
+}
+body .header__icons {
+  display: flex;
+  justify-content: space-around;
+}
+body .header__icons a {
+  transition: opacity 0.5s, color 0.5s;
+}
+body .header__icons a:hover {
+  opacity: 20%;
+  color: #a3abb2;
+}
+body .header__profession {
+  display: flex;
+  justify-content: center;
+}
+body .header__achievement {
+  text-align: center;
+}
+body .container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+body .container .cv-buttons {
+  display: inline-flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem;
+  border-radius: 3%;
+}
+body .container .cv-buttons .cv-buttons__button {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffe071;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: black;
+  width: 10rem;
+  height: 4rem;
+  transition: opacity 0.5s, box-shadow 0.5s;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+body .container .cv-buttons .cv-buttons__button img {
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+body .container .cv-buttons .cv-buttons__button:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+  animation: buttonAnimation 1s ease-in-out forwards;
+}
+body .container .cv-buttons .cv-buttons__button:last-child {
+  background-color: #171f26;
+  color: #a3abb2;
+}
+body .container button img {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+body .nav__buttons {
+  display: inline-flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem;
+  border-radius: 5%;
+  background-color: #171f26;
+  color: #a3abb2;
+}
+body .nav__buttons .nav__button {
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  color: #a3abb2;
+  background-color: #171f26;
+  width: 11.5rem;
+  height: 4rem;
+}
+body .nav__buttons .nav__button.selected {
+  background-color: #0c151d;
+}
+body .gallery-container {
+  display: flex;
+  justify-content: center;
+}
+body .gallery-container .gallery {
+  margin-top: 4rem;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+body .gallery-container .gallery img {
+  cursor: pointer;
+}
+body .gallery-container .gallery img.highlight {
+  opacity: 0.8;
+  box-shadow: 0 0 5px 2px yellow;
+}
+body footer {
+  padding-top: 5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+body #scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  background-color: #ffe071;
+  border-radius: 50%;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+@media (min-width: 768px) {
+  .header__my-photo {
+    width: 215px;
+    height: 215px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .header__description {
+    font-size: x-large;
+  }
+  .nav__button {
+    font-size: x-large;
+    width: 18rem;
+    height: 6rem;
+  }
+  .cv-buttons__button {
+    font-size: x-large;
+    width: 16rem;
+    height: 5rem;
+  }
+  .header__achievement {
+    font-size: 22px;
+  }
+}
+@media (max-width: 767px) {
+  .gallery img {
+    width: available;
+  }
+}
+@media (min-width: 530px) and (max-width: 767px) {
+  .gallery img {
+    width: 15rem;
+  }
+  .header__icon img {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (max-width: 529px) {
+  .cv-buttons__button {
+    width: 9rem;
+  }
+  .nav__button {
+    width: 10rem;
+  }
+  .header__icon img {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (max-width: 767px) {
+  #scrollToTopBtn {
+    display: block;
+  }
+}
+@keyframes buttonAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=main.css.map */

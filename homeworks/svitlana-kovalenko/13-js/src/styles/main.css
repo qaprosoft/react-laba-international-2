@@ -1,0 +1,232 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+ul,
+li,
+div,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Poppins;
+  font-weight: 500;
+  color: #575757;
+  background: #e9ebec;
+  padding-top: 33px;
+}
+body main {
+  max-width: 760px;
+  margin: 0 auto;
+}
+body ul,
+body li {
+  list-style-type: none;
+}
+body .header {
+  padding-bottom: 65px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 65px;
+}
+body button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: Poppins;
+  border-radius: 10px;
+}
+body .portfolio {
+  padding-bottom: 75px;
+  margin: 0 auto;
+}
+body .portfolio__head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 47px;
+}
+body .portfolio__head__img {
+  margin-right: 40px;
+}
+body .portfolio .info_description {
+  margin-bottom: 12px;
+}
+body .portfolio__links {
+  width: 222px;
+  display: flex;
+  justify-content: space-between;
+}
+body .portfolio__facts {
+  display: flex;
+  justify-content: center;
+  padding: 20px 30px;
+  text-align: center;
+  margin-bottom: 27px;
+}
+body .portfolio__facts .fact_item {
+  display: flex;
+  flex-direction: column;
+}
+body .portfolio__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3d3d3d;
+}
+body .portfolio__btn.btn_download:hover, body .portfolio__btn.btn_contact:hover {
+  animation: buttonAnimation 1s infinite;
+}
+body .portfolio__btn.btn_download {
+  background-color: #fbd144;
+  margin-right: 38px;
+}
+body .portfolio__btn.btn_contact {
+  background-color: #fff;
+}
+body .tabs {
+  display: flex;
+  justify-content: center;
+  color: #19191b;
+  margin-bottom: 65px;
+}
+body .tabs__container {
+  display: flex;
+  border-radius: 10px;
+  background-color: #fff;
+}
+body .tabs__container__portfolio {
+  width: 351px;
+}
+body .tabs__container.tab--active {
+  background-color: #d7d7d7;
+  padding: 23px;
+}
+body .tabs__content_grid {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 52px;
+}
+body .tabs__content_grid__img {
+  border-radius: 15px;
+  cursor: pointer;
+}
+body .scroll_btn {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  background-color: #fed753;
+  border: 5px solid #fff;
+  padding: 10px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+body .scroll_btn.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+body .footer {
+  padding-top: 78px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  body body,
+  body button {
+    font-size: 14px;
+  }
+  body main {
+    max-width: 460px;
+  }
+  body .info_name {
+    font-size: 36px;
+  }
+  body .portfolio__links {
+    width: 172px;
+  }
+  body .portfolio__btn {
+    height: 64px;
+  }
+  body .btn_download,
+  body .btn_contact {
+    padding: 10px 20px;
+    width: 290px;
+  }
+  body .tabs__container {
+    width: 360px;
+    padding: 10px;
+  }
+  body .tabs_content_grid {
+    grid-template-columns: 362px;
+  }
+  body .scroll_btn.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@media (min-width: 601px) {
+  body body,
+  body button {
+    font-size: 16px;
+  }
+  body img {
+    margin: 10px;
+  }
+  body .info_name {
+    font-size: 40px;
+  }
+  body .portfolio__btn {
+    height: 44px;
+  }
+  body .btn_download,
+  body .btn_contact {
+    width: 250px;
+  }
+  body .tabs__container {
+    width: 510px;
+    padding: 10px;
+  }
+  body .tabs_content_grid {
+    grid-template-columns: 362px;
+  }
+}
+@media (min-width: 1025px) {
+  body body,
+  body button {
+    font-size: 22px;
+  }
+  body .info_name {
+    font-size: 46px;
+  }
+  body .portfolio__btn {
+    height: 80px;
+  }
+  body .btn_download,
+  body .btn_contact {
+    width: 290px;
+  }
+  body .tabs__container {
+    width: 760px;
+    padding: 20px;
+  }
+  body .tabs_content_grid {
+    grid-template-columns: 362px 362px;
+    gap: 48px 32px;
+  }
+}
+@keyframes rotateAnimation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -3,16 +3,29 @@ import TodoItem from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
 import {localStorageKeys} from '../../constants/constants';
+import {ACTION_TYPES} from '../../state/actionTypes';
+import {saveDataToStorage} from '../../utils/saveDataToStorage';
+import {INITIAL_STATE} from '../../state/initialState';
 
 const TodoList = () => {
-  const {todos, setTodos} = useContext(Context);
-  const todosLength = useMemo(() => todos.length, [todos.length]);
+  const {state, dispatch} = useContext(Context);
+  const todosLength = useMemo(() => state.todos.length, [state.todos.length]);
 
-  useEffect(() => {
-    if (localStorage.getItem(localStorageKeys.TODOS)) {
-      setTodos(JSON.parse(localStorage.getItem(localStorageKeys.TODOS)));
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (JSON.parse(localStorage.getItem(localStorageKeys.TODOS))) {
+  //     dispatch({
+  //       type: ACTION_TYPES.SET_TODOS,
+  //       payload: JSON.parse(localStorage.getItem(localStorageKeys.TODOS)),
+  //     });
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   if (state !== INITIAL_STATE) {
+  //     localStorage.setItem(localStorageKeys.TODOS, JSON.stringify(state.todos));
+  //     saveDataToStorage(state.todos);
+  //   }
+  // }, [state]);
 
   return (
     <>
@@ -22,7 +35,7 @@ const TodoList = () => {
         </p>
       ) : (
         <ul className={styles.todo__todoList}>
-          {todos.map(todo => (
+          {state.todos.map(todo => (
             <TodoItem
               key={todo.id}
               id={todo.id}

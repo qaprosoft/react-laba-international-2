@@ -1,48 +1,41 @@
-import {useCallback, useContext, useMemo, useState} from 'react';
+import {useCallback, useContext} from 'react';
 import IconButton from '../Buttons/IconButton/IconButton';
 import styles from './TodoItem.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
 import {saveDataToStorage} from '../../utils/saveDataToStorage';
 import FormEdit from '../FormEdit/FormEdit';
-import {localStorageKeys} from '../../constants/constants';
-import {useValidateTodo} from '../../hooks/useValidateTodo';
+import {useValidateTodo} from '../../hooks/validateTodoHook';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import Modal from '../Modal/Modal';
+import {ACTION_TYPES} from '../../state/actionTypes';
 
 const TodoItem = ({id, text, isCompleted}) => {
   const {
-    todos,
-    setTodos,
+    state,
+    dispatch,
     todoToEdit,
     setTodoToEdit,
     editingText,
     setEditingText,
     errorMessage,
     setErrorMessage,
-    isShowDeleteModal,
     setIsShowDeleteModal,
-    todoToDelete,
     setTodoToDelete,
   } = useContext(Context);
 
-  const {currentError} = useValidateTodo(editingText, todos, todoToEdit);
+  const {currentError} = useValidateTodo(editingText, state.todos, todoToEdit);
 
-  //delete todo
-
+  //show modal
   const showModal = id => {
     setIsShowDeleteModal(true);
     setTodoToDelete(id);
-    console.log(isShowDeleteModal);
   };
 
   //toggle isCompleted todo
   const toggleIsCompleted = (id, isCompleted) => {
-    const newTodos = todos.map(todo =>
-      todo.id === id ? {id, text, isCompleted: !isCompleted} : todo,
-    );
-
-    localStorage.setItem(localStorageKeys.TODOS, JSON.stringify(newTodos));
-    setTodos(newTodos);
+    dispatch({
+      type: ACTION_TYPES.TOGGLE_COMPLETED,
+      payload: {id: id, isCompleted: isCompleted},
+    });
   };
 
   //edit todo
@@ -60,15 +53,14 @@ const TodoItem = ({id, text, isCompleted}) => {
       e.preventDefault();
 
       if (!currentError) {
-        let newTodos = [...todos].map(todo => {
-          return todo.id === todoToEdit
-            ? {id, text: editingText, isCompleted}
-            : todo;
+        dispatch({
+          type: ACTION_TYPES.UPDATE_TODO,
+          payload: {id: todoToEdit, text: editingText},
         });
-        setTodos(newTodos);
+
         setTodoToEdit('');
         setEditingText('');
-        saveDataToStorage(newTodos);
+        saveDataToStorage(state.todos);
       } else {
         setErrorMessage(currentError);
       }

@@ -35,25 +35,14 @@ const Modal = ({deleteHandler, modalText}) => {
     setIsShowDeleteModal(false);
   };
 
-  if (domNode && IsShowDeleteModal) {
-    return ReactDOM.createPortal(
-      <Template
-        deleteHandler={deleteHandler}
-        modalText={modalText}
-        closeModal={closeModal}
-      />,
-      domNode,
-    );
-  }
-
-  // return ReactDOM.createPortal(
-  //   <Template
-  //     deleteHandler={deleteHandler}
-  //     modalText={modalText}
-  //     closeModal={closeModal}
-  //   />,
-  //   domNode,
-  // );
+  return ReactDOM.createPortal(
+    <Template
+      deleteHandler={deleteHandler}
+      modalText={modalText}
+      closeModal={closeModal}
+    />,
+    domNode,
+  );
 };
 
 export default Modal;

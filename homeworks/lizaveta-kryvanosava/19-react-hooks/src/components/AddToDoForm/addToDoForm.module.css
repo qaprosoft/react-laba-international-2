@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40%;
+  height: 3rem;
+  overflow: hidden;
+}
+@media (max-width: 80rem) {
+  .form {
+    width: 60%;
+  }
+}
+@media (max-width: 40rem) {
+  .form {
+    width: 90%;
+  }
+}
+.form__input {
+  padding: 1rem;
+  width: 80%;
+  height: 100%;
+}
+.form__button {
+  width: 20%;
+  height: 100%;
+}/*# sourceMappingURL=addToDoForm.module.css.map */

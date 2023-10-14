@@ -1,0 +1,57 @@
+body.dark-theme {
+  background-color: #0C151D;
+}
+body.dark-theme h1 {
+  color: #A3ABB2;
+}
+body.dark-theme h2 {
+  color: #A3ABB2;
+}
+body.dark-theme h3 {
+  color: #A3ABB2;
+}
+body.dark-theme p {
+  color: #A3ABB2;
+}
+body.dark-theme a {
+  color: #A3ABB2;
+}
+body.dark-theme button {
+  color: #A3ABB2;
+}
+body.dark-theme button:hover .arrow-icon img {
+  filter: invert(0%);
+  transition-duration: 0.3s;
+}
+body.dark-theme li {
+  color: #A3ABB2;
+}
+body.dark-theme .theme-switch {
+  background-color: #171F26;
+}
+body.dark-theme .theme-switch img {
+  filter: invert(100%);
+}
+body.dark-theme .profile-info-items h1 {
+  color: #F1F2F4;
+}
+body.dark-theme .btn_style {
+  background-color: #171F26;
+}
+body.dark-theme .btn_style:hover {
+  color: #3D3D3D;
+  background-color: #FBD144;
+  transition-duration: 0.3s;
+}
+body.dark-theme .arrow-icon img {
+  filter: invert(100%);
+}
+body.dark-theme .tab-buttons-block {
+  background-color: #171F26;
+}
+body.dark-theme .tab-button.active {
+  background-color: #0C151D;
+}
+body.dark-theme .tab-button {
+  color: #A3ABB2;
+}/*# sourceMappingURL=darkTheme.css.map */
