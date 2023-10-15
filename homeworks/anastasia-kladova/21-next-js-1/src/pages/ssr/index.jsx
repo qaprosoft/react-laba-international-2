@@ -1,7 +1,3 @@
-// import './index.css';
-
-
-
 import App from '@/components/App/App';
 import { getNewAvatar } from '@/utils/getNewAvatar';
 import Head from 'next/head';
@@ -30,8 +26,5 @@ return (
 
 
 };
-
-
-
 
 export default SsrPage;

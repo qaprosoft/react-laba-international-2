@@ -1,8 +1,0 @@
-.todo__addBtn {
-  font-size: var(--font-size);
-  font-weight: 400;
-  text-align: left;
-  padding: 6px 22px;
-  color: var(--color-light);
-  background-color: var(--color-accent);
-}

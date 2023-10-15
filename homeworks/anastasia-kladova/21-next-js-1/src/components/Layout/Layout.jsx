@@ -1,11 +1,12 @@
-const { default: Header } = require( "../Header/Header" );
+import Header from "../Header/Header";
+
 
 const Layout = ({children}) => {
     return (
         <>
         <Header/>
-        {children}
-        </>
+          {children} 
+       </>
     )
 };
 

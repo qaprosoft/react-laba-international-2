@@ -1,10 +1,8 @@
-
-
 import {useState} from 'react';
-
 import AvatarsBox from '../AvatarsBox/AvatarsBox';
 import Button from '../Buttons/Button/Button';
 import { getNewAvatar } from '@/utils/getNewAvatar';
+
 
 const App = ({avatarsFromServer}) => {
   const [avatars, setAvatars] = useState(avatarsFromServer);
