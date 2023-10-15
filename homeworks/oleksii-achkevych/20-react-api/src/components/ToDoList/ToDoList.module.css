@@ -1,0 +1,14 @@
+ul {
+  margin: 0 auto;
+}
+
+.error {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
