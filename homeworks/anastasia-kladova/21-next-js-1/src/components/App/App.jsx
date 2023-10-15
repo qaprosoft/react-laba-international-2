@@ -1,4 +1,4 @@
-// import './index.css';
+
 
 import {useState} from 'react';
 
@@ -11,12 +11,14 @@ const App = ({avatarsFromServer}) => {
   const [isLoading, setIsLoading] = useState(false);
   const avatarsLength = avatars.length;
 
+ console.log(avatarsLength)
+
   const refreshAll = async () => {
     setIsLoading(true);
 
     if (!avatarsLength) return;
     const data = await getNewAvatar(avatarsLength);
-    setAvatars([data]);
+    setAvatars(data);
 
     setIsLoading(false);
   };

@@ -5,7 +5,7 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .avatars__list {
     justify-content: center;
   }

@@ -19,7 +19,7 @@ const AvatarsBox = ({avatars, setAvatars, isLoading, setIsLoading}) => {
         isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
-      <AddBtn handler={addNewAvatar} isLoading={isLoading} />
+      {/* <AddBtn handler={addNewAvatar} isLoading={isLoading} /> */}
     </div>
   );
 };
