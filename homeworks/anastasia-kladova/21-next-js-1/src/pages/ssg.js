@@ -1,10 +1,11 @@
 import App from "@/components/App/App";
 import { getNewAvatar } from "@/utils/getNewAvatar";
+import Head from "next/head";
 
 
 export const getStaticProps = async () => {
     const avatars = await getNewAvatar(5);
-console.log(avatars)
+
     return {
       props: {
         avatars,
@@ -13,7 +14,16 @@ console.log(avatars)
 };
 
 const SsgPage = ({avatars}) => {
-    return (<App avatarsFromServer={avatars}/>)
+    return (
+        <>
+        <Head>
+        <title>Avatar App | SSG</title>
+        <meta name="description" content="SSG page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <App avatarsFromServer={avatars}/>
+        </>
+   )
 };
 
 export default SsgPage;

@@ -11,7 +11,6 @@ const App = ({avatarsFromServer}) => {
   const [isLoading, setIsLoading] = useState(false);
   const avatarsLength = avatars.length;
 
- console.log(avatarsLength)
 
   const refreshAll = async () => {
     setIsLoading(true);
