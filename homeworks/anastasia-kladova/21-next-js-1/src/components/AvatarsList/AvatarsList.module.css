@@ -1,0 +1,12 @@
+.avatars__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+  .avatars__list {
+    justify-content: center;
+  }
+}
