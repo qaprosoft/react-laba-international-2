@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useCallback, useRef} from 'react';
 import axios from 'axios';
-import AddButton from "../AddButton/AddButton";
-import Avatar from "../Avatar/Avatar";
-import Button from "../Button/Button";
+import AddButton from '../AddButton/AddButton';
+import Avatar from '../Avatar/Avatar';
+import Button from '../Button/Button';
 
 const API_URL = 'https://tinyfac.es/api/data';
 
@@ -87,4 +87,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

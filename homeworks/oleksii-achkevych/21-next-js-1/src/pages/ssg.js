@@ -1,8 +1,6 @@
-// pages/ssg.js
+import HomePage from '../components/HomePage/HomePage';
 
-import HomePage from '../components/HomePage/HomePage'; 
-
-function SSGPage({ avatars }) {
+function SSGPage({avatars}) {
   return <HomePage avatars={avatars} />;
 }
 

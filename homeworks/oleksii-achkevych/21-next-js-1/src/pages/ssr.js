@@ -1,6 +1,6 @@
-import HomePage from '../components/HomePage/HomePage'; 
+import HomePage from '../components/HomePage/HomePage';
 
-function SSRPage({ avatars }) {
+function SSRPage({avatars}) {
   return <HomePage avatars={avatars} />;
 }
 
