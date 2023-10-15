@@ -5,14 +5,6 @@
 import App from '@/components/App/App';
 import { getNewAvatar } from '@/utils/getNewAvatar';
 
-
-const SsrPage = ({avatars}) => {
-return (<App avatarsFromServer={avatars}/>)
-
-
-};
-
-
 export const getServerSideProps = async () => {
   const avatars = await getNewAvatar(5);
 
@@ -22,5 +14,14 @@ export const getServerSideProps = async () => {
     }
   }
 };
+
+const SsrPage = ({avatars}) => {
+return (<App avatarsFromServer={avatars}/>)
+
+
+};
+
+
+
 
 export default SsrPage;
