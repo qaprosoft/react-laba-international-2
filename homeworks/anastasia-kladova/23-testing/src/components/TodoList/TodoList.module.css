@@ -1,0 +1,32 @@
+.todo__todoList {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 676px;
+  list-style-type: none;
+}
+
+.todo__noTodoList {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .todo__todoList {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .todo__todoList {
+    width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .todo__todoList {
+    min-width: 95%;
+  }
+}
