@@ -1,0 +1,8 @@
+.boxShadow {
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.error {
+  @apply bg-error border-2 border-black text-black;
+}
