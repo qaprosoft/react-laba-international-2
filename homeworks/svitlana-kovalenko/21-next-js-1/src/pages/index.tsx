@@ -1,4 +1,4 @@
-import Gallery from '@/components/Gallery'
+import Gallery from '@/components/Gallery/Gallery'
 import Link from 'next/link'
 
 export default function HomePage() {
@@ -6,7 +6,7 @@ export default function HomePage() {
     <>
       <Link href="/ssg">SSG</Link>
       <Link href="/ssr">SSR</Link>
-      <Gallery />
+      <Gallery users={[]} />
     </>
   )
 }

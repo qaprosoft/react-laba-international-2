@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import styles from "./BtnRefresh.module.css";
 
 interface BtnRefreshProps {
     onClick: () => void;
@@ -6,7 +7,7 @@ interface BtnRefreshProps {
 
 const BtnRefresh: FC<BtnRefreshProps> = ({ onClick }) => {
     return (
-        <button className="refresh" onClick={onClick}>
+        <button className={styles.refresh} onClick={onClick}>
             Refresh All
         </button>
     );

@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
 import Image from "next/image";
-import BtnRefresh from "./BtnRefresh";
-import UserItem from "./UserItem";
+import BtnRefresh from "../BtnRefresh/BtnRefresh";
+import UserItem from "../UserItem/UserItem";
+import styles from "./Gallery.module.css";
 
 interface User {
   id: number;
@@ -10,21 +11,30 @@ interface User {
 interface GalleryProps {
   users: User[];
 }
+type LoadingStates = {
+  [key: number]: boolean;
+}
 
 const Gallery: FC<GalleryProps> = ({ users: propUsers }) => {
   const [users, setUsers] = useState<User[]>(Array.isArray(propUsers) ? propUsers : []);
-  const [loadingOne, setLoadingOne] = useState<boolean>(false);
+  const [loadingOne, setLoadingOne] = useState<LoadingStates>();
   const [loading, setLoading] = useState<boolean>(false);
 
   const refreshAll = () => {
-    fetch(`https://tinyfac.es/api/data?limit=${users.length}&quality=0`)
-      .then(response => response.json())
-      .then(data => {
-        setUsers(data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+    if (!loading) {
+      setLoading(true);
+
+      fetch(`https://tinyfac.es/api/data?limit=${users.length}&quality=0`)
+        .then(response => response.json())
+        .then(data => {
+          setUsers(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          setLoading(false);
+        });
+    }
   };
 
 
@@ -74,14 +84,14 @@ const Gallery: FC<GalleryProps> = ({ users: propUsers }) => {
 
   return (
     <>
-      <div className="gallery">
+      <div className={styles.gallery}>
         {users.map(user => (
-          loadingOne[user.id] ? (
-            <span className='loader'>Loading...</span>
+          loadingOne && loadingOne[user.id] ? (
+            <span key={user.id} className={styles.loader}>Loading...</span>
           ) :
             <UserItem key={user.id} user={user} onRefreshOne={refreshOne} />
         ))}
-        <button className="show_more" onClick={showMore}>
+        <button className={styles.show_more} onClick={showMore}>
           <Image src='/tiles.png' width={240} height={240} alt="show more" />
         </button>
       </div>

@@ -1,0 +1,35 @@
+.avatar_wrap {
+    margin: 20px;
+    box-shadow: 3px 3px 3px 3px #0000001a;
+    border-radius: 5px;
+    position: relative;
+}
+
+.avatar {
+    display: block;
+    border-radius: 5px;
+}
+
+.overlay {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.3s ease;
+    background-color: #00000066;
+}
+
+.refresh_item {
+    position: absolute;
+    top: 68px;
+    left: 70px;
+}
+
+.avatar_wrap:hover .overlay {
+    opacity: 1;
+}

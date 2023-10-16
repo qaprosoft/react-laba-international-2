@@ -1,4 +1,4 @@
-import Gallery from "../components/Gallery";
+import Gallery from "../components/Gallery/Gallery";
 
 const SSGPage = ({ users }) => {
     return <Gallery users={users} />;

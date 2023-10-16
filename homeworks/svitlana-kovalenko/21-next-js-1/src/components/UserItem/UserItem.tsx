@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
+import styles from "./UserItem.module.css";
 
 interface UserItemProps {
     user: {
@@ -11,7 +12,7 @@ interface UserItemProps {
 
 const UserItem: FC<UserItemProps> = ({ user, onRefreshOne }) => {
     return (
-        <div className="avatar_wrap" key={user.id}>
+        <div className={styles.avatar_wrap} key={user.id}>
             <img
                 className="avatar"
                 src={user.url}
@@ -19,8 +20,8 @@ const UserItem: FC<UserItemProps> = ({ user, onRefreshOne }) => {
                 width={240}
                 height={240}
             />
-            <div className="overlay" onClick={() => onRefreshOne(user)}>
-                <Image className="refresh_item"
+            <div className={styles.overlay} onClick={() => onRefreshOne(user)}>
+                <Image className={styles.refresh_item}
                     src='/refresh.png'
                     alt="refresh avatar" width={100} height={100} />
             </div>
