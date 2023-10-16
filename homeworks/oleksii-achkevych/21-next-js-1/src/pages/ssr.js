@@ -1,6 +1,6 @@
 import HomePage from '../components/HomePage/HomePage';
 
-function SSRPage({avatars}) {
+export default function SSRPage({avatars}) {
   return <HomePage avatars={avatars} />;
 }
 
@@ -15,5 +15,3 @@ export async function getServerSideProps() {
     },
   };
 }
-
-export default SSRPage;

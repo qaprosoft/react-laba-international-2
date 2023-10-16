@@ -1,6 +1,6 @@
 import HomePage from '../components/HomePage/HomePage';
 
-function SSGPage({avatars}) {
+export default function SSGPage({avatars}) {
   return <HomePage avatars={avatars} />;
 }
 
@@ -15,5 +15,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default SSGPage;
