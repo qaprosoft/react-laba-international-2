@@ -42,13 +42,14 @@ const Form = () => {
   };
 
   return (
-    <form className={styles.todo__form} onSubmit={addNewTodo}>
+    <form className={styles.todo__form} onSubmit={addNewTodo} data-testid='form'>
       <Input
+        data-testid='formInput'
         placeholder="Create Todo-Task"
         onInputChangeHandler={handleCurrentInputValue}
         value={currentInputText}
       />
-      <AddButton type="submit" btnText="Add" />
+      <AddButton type="submit" btnText="Add" data-testid='formAddBtn'/>
     </form>
   );
 };

@@ -87,13 +87,13 @@ const TodoItem = ({id, text, isCompleted}) => {
               />
 
               <span
+                data-testid="todoText"
                 className={
                   isCompleted
                     ? styles.todoItem__textComplete
                     : styles.todoItem__text
                 }
-              >
-                {text}
+              >{text}
               </span>
             </>
           )}
