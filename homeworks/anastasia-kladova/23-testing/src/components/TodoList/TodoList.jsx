@@ -17,11 +17,11 @@ const TodoList = () => {
   return (
     <>
       {todosLength === 0 ? (
-        <p className={styles.todo__noTodoList}>
+        <p className={styles.todo__noTodoList} data-testid="noTodoList"> 
           There are no todos yet. To start, add new one.
         </p>
       ) : (
-        <ul className={styles.todo__todoList}>
+        <ul className={styles.todo__todoList} data-testid="todoList">
           {todos.map(todo => (
             <TodoItem
               key={todo.id}
