@@ -24,9 +24,19 @@ const useValidation = () => {
         return true;
     };
 
+    const handleDuplicates = (input, todoList) => {
+        if (todoList.some(todo => todo.task === input)) {
+            setError('Duplicate To-Do Item');
+            return true;
+        }
+
+        return false;
+    };
+
     return {
         error,
         validateInput,
+        handleDuplicates
     };
 };
 
