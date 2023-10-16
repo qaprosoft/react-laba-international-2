@@ -24,7 +24,6 @@ import FormEdit from './FormEdit';
     it('check on input change event', () => {
         const {getByTestId} = render(<FormEdit />);
         const input = getByTestId("input");
-        const btnSubmit = getByTestId("btnSubmit")
         const testValue = "Apple";
 
         fireEvent.change(input, {target: {value: testValue}});

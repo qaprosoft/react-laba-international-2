@@ -6,7 +6,7 @@ const FormEdit = ({value, handleEditingText, handleEditingTodo}) => {
   return (
     <form onSubmit={handleEditingTodo} className={styles.form} data-testid="formEdit">
       <Input
-       data-testid="input"
+        data-testid="input"
         value={value}
         onInputChangeHandler={handleEditingText}
         classtype="todo__input--edit"
