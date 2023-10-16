@@ -49,22 +49,6 @@ button {
   width: 122px;
 }
 
-.todos {
-  padding-top: 81px;
-}
-
-.todos_wrap {
-  display: flex;
-  align-items: center;
-  margin-bottom: 47px;
-}
-
-.todos_item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 img {
   cursor: pointer;
 }

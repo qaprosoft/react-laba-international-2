@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import write from './img/write.png';
-import trash from './img/delete.png';
+import "./Todo.css";
+import write from "../../img/write.png"
+import trash from '../../img/delete.png';
 
 export const Todo = ({
   task,
@@ -24,6 +25,14 @@ export const Todo = ({
       return;
     } else { updateTodoList(task.id, value); }
   };
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+  const handleBlur = () => {
+    updateTodoList(task.id, value);
+  }
 
   return (
     <>
@@ -35,10 +44,11 @@ export const Todo = ({
               className={`${task.complete ? 'completed' : ''}`}
               type="text"
               value={value}
+              onKeyPress={handleKeyPress}
               placeholder={'Enter task'}
               onChange={e => setValue(e.target.value)}
               onFocus={() => handleEdit(task.id)}
-            />}
+              onBlur={handleBlur} />}
         </div>
         {task.edition ? (
           <button type="submit" onClick={handleSubmit}>
