@@ -40,7 +40,7 @@ export default ({task}: Props) => {
         onChange={handleChange}
         type="text"
         value={name}
-        className="h-full text-[32px] flex-1 md:pl-[88px] px-[20px] overflow-ellipsis overflow-hidden"
+        className="text-[32px] flex-1 md:pl-[88px] px-[20px] overflow-ellipsis overflow-hidden"
       />
       <button onClick={handleUpdate} className="h-full">
         <Update />
