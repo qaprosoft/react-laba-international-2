@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  background: linear-gradient(117deg, #8C72B7 0.58%, rgba(192, 46, 195, 0.00) 101.02%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-input-container {
+  width: 60%;
+}
+
+.todo-input {
+  width: 100%;
+  max-width: 554px;
+  height: 65px;
+  flex-shrink: 0;
+  background: #ECF3FF;
+  color: rgba(0, 0, 0, 0.60);
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.todo-input:focus::placeholder {
+  color: transparent;
+}
+
+.add-todo-btn {
+  width: 20%;
+  max-width: 122px;
+  height: 69px;
+  flex-shrink: 0;
+  background: #5275A0;
+  color: #FFF;
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.flex-container {
+  display: flex;
+  width: 70%;
+  margin-top: 47px;
+}
+
+@media(max-width:600px) {
+  .todo-input {
+    font-size: 20px;
+  }
+
+  .add-todo-btn {
+    font-size: 18px;
+  }
+}
+
+.error-msj {
+  padding: 10px;
+  color: red;
+  font-size: 18px;
+}
