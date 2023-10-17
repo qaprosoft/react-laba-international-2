@@ -1,0 +1,51 @@
+/* Extra small devices */
+@media only screen and (max-width: 600px) {
+  .new-task {
+    width: 90%;
+  }
+
+  .tasks {
+    width: 95%;
+  }
+
+  .task__container {
+    padding: 0 2%;
+  }
+
+  .task__button {
+    width: 9%;
+  }
+
+  .edit-buttons__button {
+    width: 20%;
+  }
+}
+
+/* Small devices  */
+@media only screen and (min-width: 600px) and (max-width: 798px) {
+  .new-task {
+    width: 70%;
+  }
+
+  .tasks {
+    width: 70%;
+  }
+
+  .task__button {
+    width: 3rem;
+  }
+}
+/* Medium devices */
+@media only screen and (min-width: 798px) and (max-width: 992px) {
+  .new-task {
+    width: 60%;
+  }
+
+  .tasks {
+    width: 60%;
+  }
+
+  .task__button {
+    width: 3rem;
+  }
+}
