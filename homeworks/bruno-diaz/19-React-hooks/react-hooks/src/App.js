@@ -6,11 +6,14 @@ function App() {
   const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([]);
 
+  // Recuperar las tareas almacenadas en localStorage cuando se carga la página
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setTaskList(storedTasks);
+    // Fusiona los datos almacenados con los datos existentes
+    setTaskList((prevList) => [...prevList, ...storedTasks]);
   }, []);
 
+  // Actualizar localStorage cada vez que taskList cambie
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }, [taskList]);
@@ -37,28 +40,31 @@ function App() {
     setTaskList((prevList) => [...prevList, newTask]);
     setTask("");
 
-    console.log(taskList);
+    // Actualiza localStorage después de agregar una tarea
+    localStorage.setItem("tasks", JSON.stringify([...taskList, newTask]));
   }
 
   function handleUpdateTask(updatedTask) {
-
     const updatedList = taskList.map((item) =>
       item.id === updatedTask.id ? updatedTask : item
     );
-
     setTaskList(updatedList);
+
+    // Actualiza localStorage después de editar una tarea
+    localStorage.setItem("tasks", JSON.stringify(updatedList));
   }
 
   function handleDeleteTask(id) {
-
     const filteredList = taskList.filter((item) => item.id !== id);
     setTaskList(filteredList);
+
+    // Actualiza localStorage después de eliminar una tarea
+    localStorage.setItem("tasks", JSON.stringify(filteredList));
   }
 
   return (
     <>
       <div className="container">
-
         <form onSubmit={handleSubmit}>
           <input
             className="input__form"
@@ -72,7 +78,6 @@ function App() {
       </div>
 
       <div className="task-container">
-
         <div className="task-container__info">
           {taskList.map((task) => (
             <Task
