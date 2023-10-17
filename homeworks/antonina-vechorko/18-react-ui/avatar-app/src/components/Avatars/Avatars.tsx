@@ -9,16 +9,14 @@ interface IAvatarsProps {
 
 const Avatars: FC<IAvatarsProps> = ({avatars, onRefresh}) => {
   return (
-    <div className="avatars__list">
-      {avatars.length > 0 &&
-        avatars.map((avatar, index) => (
-          <Avatar
-            avatar={avatar}
-            key={avatar.id}
-            onRefresh={() => onRefresh(avatar, index)}
-          />
-        ))}
-    </div>
+    avatars.length > 0 &&
+    avatars.map((avatar, index) => (
+      <Avatar
+        avatar={avatar}
+        key={avatar.id}
+        onRefresh={() => onRefresh(avatar, index)}
+      />
+    ))
   );
 };
 

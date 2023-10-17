@@ -26,12 +26,6 @@ body {
   gap: 40px;
 }
 
-.avatars__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
 .avatar__item {
   position: relative;
   cursor: pointer;
