@@ -42,9 +42,7 @@ function TodoApp() {
     const addTodo = () => {
         const trimmedTask = task.trim();
 
-        if (!validateTodoText(trimmedTask)) {
-            return;
-        }
+        if (!validateTodoText(trimmedTask)) return;
 
         if (todos.some((todo) => todo.text === trimmedTask)) {
             setError('To-Do already exists');
