@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from "react";
 import "./App.css";
 import {AvatarTile} from "./components/AvatarTile";
-import { RefreshAllButton } from "./components/RefreshAllButton";
 import { AddAvatarButton } from "./components/AddAvatarButton";
+import { RefreshAllButton } from "./components/RefreshAllButton";
 
 function App() {
   const [avatars, setAvatars] = useState([]);
@@ -20,7 +20,7 @@ function App() {
       console.error("Error fetching avatars:", error);
       return [];
     }
-  };
+  };  
 
   const getAvatar = useCallback(async () => {
     let newAvatar = await fetchRandomAvatar(1);
@@ -33,7 +33,7 @@ function App() {
 
     return newAvatar[0];
   }, [avatars]);
-
+  
   const addRandomAvatar = async () => {
     try {
       const newAvatar = await fetchRandomAvatar(1);
@@ -79,7 +79,7 @@ function App() {
           ))}
           <AddAvatarButton onClick={addRandomAvatar} />
         </div>
-      </div>
+        </div>
       <div className="button-refresh-wrapper">
         <RefreshAllButton onClick={refreshAllAvatars} />
       </div>

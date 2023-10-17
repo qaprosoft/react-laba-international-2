@@ -6,7 +6,7 @@ body {
 
 #root {
   display: grid;
-  grid-template-rows: 850px auto;
+  grid-template-rows: 800px auto;
   margin: 40px 24px;
   height: 100%;
   width: 100%;

@@ -5,4 +5,3 @@ export function RefreshAllButton({ onClick }) {
     </button>
   );
 }
-

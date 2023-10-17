@@ -4,4 +4,4 @@ export function AvatarTile({ avatar, onRefresh }) {
         <img src={avatar.url} alt="Avatar" />
       </div>
     );
-  }
+}
