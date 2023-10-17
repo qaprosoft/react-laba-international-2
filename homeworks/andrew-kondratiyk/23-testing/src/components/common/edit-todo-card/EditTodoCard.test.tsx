@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import EditTodoCard from './EditTodoCard';
 import {renderWithClient} from '@/tests/utils';
-import {screen} from '@testing-library/react';
+import {screen, waitFor} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 const mockTodo = {
@@ -24,13 +24,14 @@ describe('EditTodoCard', () => {
     expect(screen.getByDisplayValue(mockTodo.title)).toBeInTheDocument();
   });
 
-  it('calls onCancel callback when cancel button is clicked', () => {
+  it('calls onCancel callback when cancel button is clicked', async () => {
     const onCancelMock = jest.fn();
     renderWithClient(<EditTodoCard onCancel={onCancelMock} />);
 
     const cancelButton = screen.getByText('Cancel');
-    userEvent.click(cancelButton);
-
-    expect(onCancelMock).toHaveBeenCalled();
+    await userEvent.click(cancelButton);
+    await waitFor(() => {
+      expect(onCancelMock).toHaveBeenCalled();
+    });
   });
 });

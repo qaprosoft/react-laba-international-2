@@ -1,5 +1,5 @@
 import {renderWithClient} from '@/tests/utils';
-import {screen} from '@testing-library/react';
+import {screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TodoCard from './TodoCard';
 import '@testing-library/jest-dom';
@@ -24,14 +24,15 @@ describe('TodoCard', () => {
     expect(editButton).toBeInTheDocument();
   });
 
-  it('renders EditTodoCard when isEdit is true', () => {
+  it('renders EditTodoCard when isEdit is true', async () => {
     renderWithClient(<TodoCard todo={mockTodo} />);
 
     const editButton = screen.getByText('Edit');
-    userEvent.click(editButton);
+    await userEvent.click(editButton);
 
-    const editTodoCard = screen.getByTestId('edit-todo-card');
-
-    expect(editTodoCard).toBeInTheDocument();
+    await waitFor(() => {
+      const editTodoCard = screen.getByTestId('edit-todo-card');
+      expect(editTodoCard).toBeInTheDocument();
+    });
   });
 });
