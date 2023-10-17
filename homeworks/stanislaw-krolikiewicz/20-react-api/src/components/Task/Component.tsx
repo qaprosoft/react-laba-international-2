@@ -65,7 +65,7 @@ export default ({task}: Props) => {
         type="checkbox"
         checked={task.completed}
         onChange={() => toggleTask(task.id)}
-        className="h-full w-[9%]"
+        className="h-full w-[32px]"
       />
       <input
         ref={refInput}
@@ -73,18 +73,14 @@ export default ({task}: Props) => {
         onChange={handleChange}
         type="text"
         value={name}
-        className={`w-[82%] h-full text-[32px] pl-[88px] transition-all duration-300 ${
+        className={`h-full text-[32px] flex-1 md:pl-[88px] px-[20px] overflow-ellipsis overflow-hidden transition-all duration-300 ${
           updated ? 'bg-green-300' : ''
         }`}
       />
-      <button
-        onClick={handleUpdate}
-        className="h-auto w-[9%]"
-        disabled={updated}
-      >
+      <button onClick={handleUpdate} className="h-full" disabled={updated}>
         <Update />
       </button>
-      <button onClick={handleDelete} className="h-auto w-[9%]">
+      <button onClick={handleDelete} className="h-full">
         <Delete />
       </button>
     </li>
