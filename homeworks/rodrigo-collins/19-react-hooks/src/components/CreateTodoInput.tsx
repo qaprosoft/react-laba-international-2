@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface CreateTodoInputProps {
+type CreateTodoInputProps = {
     task: string;
     setTask: (value: string) => void;
     inputRef: React.RefObject<HTMLInputElement>;

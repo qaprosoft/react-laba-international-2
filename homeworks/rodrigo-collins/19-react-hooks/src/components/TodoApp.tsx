@@ -4,7 +4,7 @@ import TodoList from './TodoList';
 import CreateTodoInput from './CreateTodoInput';
 import AddTodoBtn from './AddTodoBtn';
 
-interface Todo {
+export type Todo = {
     id: number;
     text: string;
     completed: boolean;

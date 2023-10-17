@@ -2,12 +2,7 @@ import { useState } from 'react';
 import deleteImg from '../assets/delete 1.png'
 import editImg from '../assets/write 1.png'
 import checkImg from '../assets/check.svg'
-
-interface Todo {
-    id: number;
-    text: string;
-    completed: boolean;
-}
+import { Todo } from './TodoApp';
 
 interface TodoItemProps {
     todo: Todo;

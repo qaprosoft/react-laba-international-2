@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface CreateTodoInputProps {
+type CreateTodoInputProps = {
     addTodo: () => void;
 }
 
