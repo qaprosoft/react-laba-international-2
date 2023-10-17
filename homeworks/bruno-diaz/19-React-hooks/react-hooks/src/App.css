@@ -27,18 +27,22 @@
 .input__form {
   width: 554px;
   height: 65px;
-  flex-shrink: 0;
-  text-align: center; 
+  text-align: center;
   background: #ECF3FF;
-  border: none; 
+  border: none;
   color: rgba(0, 0, 0, 0.60);
-  font-family: Hind Siliguri;
+  font-family: "Hind Siliguri", sans-serif;
   font-size: 32px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
-  cursor: pointer;
+  cursor: text;
   margin-top: 47px;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
 .input__button {
