@@ -65,7 +65,7 @@ export default ({task}: Props) => {
         type="checkbox"
         checked={task.completed}
         onChange={() => toggleTask(task.id)}
-        className="h-full w-[32px]"
+        className="w-[32px]"
       />
       <input
         ref={refInput}
@@ -73,7 +73,7 @@ export default ({task}: Props) => {
         onChange={handleChange}
         type="text"
         value={name}
-        className={`h-full text-[32px] flex-1 md:pl-[88px] px-[20px] overflow-ellipsis overflow-hidden transition-all duration-300 ${
+        className={`text-[32px] flex-1 md:pl-[88px] px-[20px] overflow-ellipsis overflow-hidden transition-all duration-300 ${
           updated ? 'bg-green-300' : ''
         }`}
       />
