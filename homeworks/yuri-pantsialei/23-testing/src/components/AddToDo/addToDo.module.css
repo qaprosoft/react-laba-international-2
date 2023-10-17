@@ -1,0 +1,75 @@
+.addToDo_input {
+  background-color: #ecf3ff;
+  width: 554px;
+  padding: 6px 0 7px 88px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  outline: none;
+}
+
+.addToDo_button {
+  background-color: #5275a0;
+  color: #fff;
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 6px 42px 7px 22px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media (max-width: 870px) {
+  .addToDo_input {
+    width: 400px;
+    font-size: 27px;
+  }
+
+  .addToDo_button {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 700px) {
+  .addToDo_input {
+    width: 340px;
+    font-size: 24px;
+    padding-left: 40px;
+  }
+
+  .addToDo_button {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 550px) {
+  .addToDo_input {
+    width: 280px;
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+  .addToDo_button {
+    font-size: 20px;
+    padding-right: 22px;
+  }
+}
+
+@media (max-width: 470px) {
+  .addToDo_input {
+    width: 200px;
+    font-size: 18px;
+  }
+
+  .addToDo_button {
+    font-size: 18px;
+    padding-right: 7px;
+  }
+}
