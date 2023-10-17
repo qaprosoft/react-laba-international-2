@@ -1,0 +1,14 @@
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: var(--main-background);
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: var(--green);
+  }
+}

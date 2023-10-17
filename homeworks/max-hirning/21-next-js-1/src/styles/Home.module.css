@@ -1,0 +1,32 @@
+.header {
+
+}
+
+.nav {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.link {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.main {
+  display: flex;
+  padding: 1rem;
+  min-height: 89vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tilesList, .btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}

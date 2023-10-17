@@ -1,0 +1,22 @@
+.task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.task img {
+  cursor: pointer;
+}
+
+.icon {
+  width: 65px;
+}
+
+.task input[type='checkbox'] {
+  width: 40px;
+  height: 40px;
+}
+
+.task.completed input {
+  text-decoration: line-through;
+}

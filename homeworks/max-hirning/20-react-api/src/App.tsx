@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import * as React from "react";
+import styles from "./App.module.css";
+import { TodosContext } from "./store/todos";
+import { useTodosStore } from "./hooks/store";
+import TodosListComponent from "./components/TodosList";
+import CreateTodoComponent from './components/CreateTodo';
+
+export default function App() {
+  const { todos, deleteTodo, addTodo, toggleTodo, updateTodo, setTodos } = useTodosStore();
+
+  React.useEffect(() => {
+    const result = localStorage.getItem("todos");
+    if(result) setTodos(JSON.parse(result));
+  }, [setTodos]);
+
+  React.useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <TodosContext.Provider value={{ todos, addTodo, updateTodo, toggleTodo, deleteTodo }}>
+      <main className={styles.main}>
+        <CreateTodoComponent/>
+        <TodosListComponent/>
+      </main>
+    </TodosContext.Provider>
   )
 }
-
-export default App

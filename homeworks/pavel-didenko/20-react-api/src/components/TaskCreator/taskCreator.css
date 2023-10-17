@@ -1,0 +1,34 @@
+.task-creator-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 6.2rem;
+  padding-left: 2.7rem;
+}
+
+.add-task-button {
+  width: 7.625rem;
+  height: 4.0625rem;
+  background-color: #5275a0;
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  font-style: var(--main-font-style);
+  color: #fff;
+  padding-right: 1.3rem;
+}
+
+.add-task-button:hover {
+  cursor: pointer;
+  background-color: yellowgreen;
+}
+
+.add-task-button:active {
+  background-color: orangered;
+}
+
+.task-creator__warning{
+  color: rgb(223, 10, 10);
+  font-family: var(--main-font-family);
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity .7s;
+}

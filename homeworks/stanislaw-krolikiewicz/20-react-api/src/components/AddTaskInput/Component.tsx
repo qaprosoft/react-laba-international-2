@@ -30,13 +30,14 @@ export default () => {
         type="text"
         placeholder="Create Todo-Task"
         value={name}
-        className="h-full w-[82%] text-[32px] pl-[88px]"
+        className="h-full w-[82%] text-[32px] md:pl-[88px] px-[20px] overflow-ellipsis overflow-hidden"
       />
       <button
         onClick={handleSubmit}
         className="h-full w-[18%] bg-[#5275A0] text-white text-[32px]"
       >
-        Add
+        <span className="hidden sm:block">Add</span>
+        <span className="sm:hidden">+</span>
       </button>
     </div>
   );
