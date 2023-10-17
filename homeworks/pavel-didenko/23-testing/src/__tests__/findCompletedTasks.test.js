@@ -1,40 +1,5 @@
 import findCompletedTask from "../functions/findCompletedTasks.js";
-
-const tasks1 = [
-  {
-    id: 1,
-    taskText: 'someTask1',
-    completed: false,
-  },
-  {
-    id: 2,
-    taskText: 'someTask2',
-    completed: false,
-  },
-  {
-    id: 3,
-    taskText: 'someTask3',
-    completed: true,
-  },
-];
-
-const tasks2 = [
-  {
-    id: 1,
-    taskText: 'someTask1',
-    completed: false,
-  },
-  {
-    id: 2,
-    taskText: 'someTask2',
-    completed: false,
-  },
-  {
-    id: 3,
-    taskText: 'someTask3',
-    completed: false,
-  },
-];
+import { tasks1, tasks2 } from "../testVariables/tasks.js";
 
 
 test('finds completed task, returns block', () => {
