@@ -1,14 +1,8 @@
 import React, { useState, useCallback } from "react";
 import "./App.css";
-
-function AvatarTile({ avatar, onRefresh }) {
-  return (
-    <div className="avatar-tile" onClick={() => onRefresh(avatar.id)}>
-      <img src={avatar.url} alt="Avatar" />
-    </div>
-  );
-}
-
+import {AvatarTile} from "./components/AvatarTile";
+import { RefreshAllButton } from "./components/RefreshAllButton";
+import { AddAvatarButton } from "./components/AddAvatarButton";
 
 function App() {
   const [avatars, setAvatars] = useState([]);
@@ -81,13 +75,11 @@ function App() {
           {avatars.map((avatar, index) => (
             <AvatarTile key={avatar.id} avatar={avatar} onRefresh={refreshAvatar} />
           ))}
-          <button onClick={addRandomAvatar} className="button-tile"></button>
+          <AddAvatarButton onClick={addRandomAvatar} />
         </div>
       </div>
       <div className="button-refresh-wrapper">
-        <button onClick={refreshAllAvatars} className="button-refresh">
-          Refresh All
-        </button>
+        <RefreshAllButton onClick={refreshAllAvatars} />
       </div>
     </>
   );
