@@ -53,3 +53,661 @@ exports[`Input active after button was pressed 2`] = `
   </button>
 </div>
 `;
+
+exports[`Todos el tests > Todos el changes with its status changing 1`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el changes with its status changing 2`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el shouldnt change with delet btn was pressed 1`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el shouldnt change with delet btn was pressed 2`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el shouldnt change with delet btn was pressed 3`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value="Some value"
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el shouldnt change with delet btn was pressed 4`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value="Some value"
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el style changes with edit btn was pressed 1`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el style changes with edit btn was pressed 2`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el style shouldnt change with delet btn was pressed 1`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el style shouldnt change with delet btn was pressed 2`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el style shouldnt change with edit btn was pressed 1`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el style shouldnt change with edit btn was pressed 2`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el style shouldnt changes with edit btn was pressed 1`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Todos el tests > Todos el style shouldnt changes with edit btn was pressed 2`] = `
+<div
+  className="_container_fee394"
+>
+  <input
+    className="_input_141368"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder=""
+    readOnly={true}
+    style={
+      {
+        "backgroundColor": "#ECF3FF",
+        "cursor": "pointer",
+        "textDecoration": "auto",
+      }
+    }
+    value=""
+  />
+  <div
+    className="_buttonsGroup_fee394"
+  >
+    <button
+      className="_button_fee394"
+      onClick={[Function]}
+    >
+      <img
+        alt="edit todo"
+        className="_icon_fee394"
+        src="/src/assets/edit.svg"
+      />
+    </button>
+    <button
+      className="_button_fee394"
+      id="delete-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="delete todo"
+        className="_icon_fee394"
+        src="/src/assets/delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;

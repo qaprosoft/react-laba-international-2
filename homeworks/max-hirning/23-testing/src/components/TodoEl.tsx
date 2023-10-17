@@ -80,6 +80,7 @@ export default function TodoElComponent({ id, isDone, value }: ITodo) {
           </button>
         }
         <button
+          id="delete-btn"
           className={styles.button}
           onClick={() => deleteTodoEl(id)}
         >

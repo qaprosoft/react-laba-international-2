@@ -2,6 +2,8 @@ import { todosReducer } from "../store/todos";
 import TestRenderer from 'react-test-renderer';
 import { expect, test, describe } from 'vitest';
 import CreateTodoComponent from '../components/CreateTodo';
+import TodoElComponent from "../components/TodoEl";
+import { ITodo } from "../store/types";
 
 describe.concurrent('Test todos reducer', () => {
   test('Set todos', () => {
@@ -172,4 +174,33 @@ test('Input active after button was pressed', () => {
   button.props.onClick();
 
   expect(component.toJSON()).toMatchSnapshot();
+})
+describe.concurrent('Todos el tests', () => {
+  const todo: ITodo = {
+    id: "1",
+    value: "Some value",
+    isDone: false,
+  }
+  
+  test('Todos el shouldnt changes with its status changing', () => {
+    const component = TestRenderer.create(<TodoElComponent id={todo.id} isDone={todo.isDone} value={todo.value} />);
+    const root = component.root;
+  
+    expect(component.toJSON()).toMatchSnapshot(); 
+  
+    const input = root.findByType('input');
+    input.props.onClick();
+  
+    expect(component.toJSON()).toMatchSnapshot();
+  })
+
+  test('Todos el shouldnt change with delet btn was pressed', () => {
+    const component = TestRenderer.create(<TodoElComponent id={todo.id} isDone={todo.isDone} value={todo.value} />);
+    expect(component.toJSON()).toMatchSnapshot(); 
+    const { rendered } = component.toTree()?.rendered;
+    const deleteButton = rendered[1].rendered.find(element => element.props.id === 'delete-btn');
+    expect(deleteButton).toBeDefined();
+    deleteButton.props.onClick();
+    expect(component.toJSON()).toMatchSnapshot(); 
+  })
 })
