@@ -36,7 +36,7 @@ function App() {
 
   const addRandomAvatar = async () => {
     try {
-      const newAvatar = await getAvatar();
+      const newAvatar = await fetchRandomAvatar(1);
       setAvatars((prevAvatars) => [...prevAvatars, newAvatar]);
     } catch (error) {
       console.log(error);
