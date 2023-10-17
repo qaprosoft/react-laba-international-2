@@ -37,6 +37,10 @@ body {
   text-align: center;
 }
 
+.todo-input:focus::placeholder {
+  color: transparent;
+}
+
 .add-todo-btn {
   width: 20%;
   max-width: 122px;
