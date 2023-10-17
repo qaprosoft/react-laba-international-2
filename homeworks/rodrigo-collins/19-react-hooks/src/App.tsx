@@ -89,7 +89,7 @@ function App() {
   return (
     <div className="todo-container">
       <div className='flex-container'>
-        <CreateTodoInput task={task} setTask={setTask} inputRef={inputRef} />
+        <CreateTodoInput task={task} setTask={setTask} inputRef={inputRef} addTodo={addTodo} />
         <AddTodoBtn addTodo={addTodo} />
       </div>
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
