@@ -40,12 +40,12 @@ export default ({task}: Props) => {
         onChange={handleChange}
         type="text"
         value={name}
-        className="w-[82%] h-full text-[32px] pl-[88px]"
+        className="h-full text-[32px] flex-1 md:pl-[88px] px-[20px] overflow-ellipsis overflow-hidden"
       />
-      <button onClick={handleUpdate} className="h-auto w-[9%]">
+      <button onClick={handleUpdate} className="h-full">
         <Update />
       </button>
-      <button onClick={() => deleteTask(task.id)} className="h-auto w-[9%]">
+      <button onClick={() => deleteTask(task.id)} className="h-full">
         <Delete />
       </button>
     </li>
