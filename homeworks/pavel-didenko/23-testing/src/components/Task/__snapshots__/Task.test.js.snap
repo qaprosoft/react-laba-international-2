@@ -20,7 +20,6 @@ exports[`renders correctly 1`] = `
       <img
         alt="Modify task"
         className="task__icon"
-        data-testid="task-icon"
         onClick={[Function]}
         src="write.svg"
       />
@@ -31,7 +30,6 @@ exports[`renders correctly 1`] = `
       <img
         alt="Remove task"
         className="task__icon"
-        data-testid="task-icon"
         onClick={[Function]}
         src="delete.svg"
       />
@@ -42,7 +40,6 @@ exports[`renders correctly 1`] = `
       <img
         alt="Complete icon"
         className="task__icon"
-        data-testid="task-icon"
         onClick={[Function]}
         src="task-incomplete.svg"
       />
