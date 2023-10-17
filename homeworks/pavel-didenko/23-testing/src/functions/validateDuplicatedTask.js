@@ -1,4 +1,4 @@
-module.exports = function validateDuplicatedTask(task, tasks) {
+export default function validateDuplicatedTask(task, tasks) {
   let result = true;
 
   for (let item of tasks) {

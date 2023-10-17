@@ -1,4 +1,4 @@
-const validateDuplicatedTask = require('../functions/validateDuplicatedTask');
+import validateDuplicatedTask from "../functions/validateDuplicatedTask";
 
 const tasks1 = [
   {

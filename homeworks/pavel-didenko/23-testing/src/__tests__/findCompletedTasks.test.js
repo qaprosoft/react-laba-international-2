@@ -1,4 +1,4 @@
-const findCompletedTask = require('../functions/findCompletedTasks');
+import findCompletedTask from "../functions/findCompletedTasks.js";
 
 const tasks1 = [
   {

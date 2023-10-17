@@ -1,4 +1,4 @@
-module.exports = function findCompletedTask(tasks) {
+export default function findCompletedTask(tasks) {
   let result = 'none';
 
   for (let task of tasks) {
