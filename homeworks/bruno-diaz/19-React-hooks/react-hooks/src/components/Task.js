@@ -6,7 +6,16 @@ export function Task(props) {
   const [editing, setEditing] = useState(false);
   const [editedValue, setEditedValue] = useState(task.task);
 
-  function handleUpdate() {
+  function handleEditClick() {
+    setEditing(true);
+  }
+
+  function handleCancelEdit() {
+    setEditing(false);
+    setEditedValue(task.task);
+  }
+
+  function handleSaveEdit() {
     onUpdateTask({
       id: task.id,
       task: editedValue,
@@ -15,39 +24,33 @@ export function Task(props) {
     setEditing(false);
   }
 
-  function EditionModeOn() {
-    return (
-      <>
-        <input
-          className="input__form"
-          type="text"
-          value={editedValue}
-          onChange={(e) => setEditedValue(e.target.value)}
-        />
-        <button className="button__icon button__icon-update" onClick={handleUpdate}></button>
-        <button className="button__icon button__icon-delete" onClick={() => onDeleteTask(task.id)}></button>
-      </>
-    );
-  }
-
-  function EditionModeOff() {
-    return (
-      <>
-        <span
-          className={`input__form task-field ${task.completed ? "completed" : ""}`}
-          onClick={() => onUpdateTask({ ...task, completed: !task.completed })}
-        >
-          {task.task}
-        </span>
-        <button className="button__icon button__icon-update" onClick={() => setEditing(true)}></button>
-        <button className="button__icon button__icon-delete" onClick={() => onDeleteTask(task.id)}></button>
-      </>
-    );
-  }
-
   return (
-    <div className="task-container" id={task.id}>
-      {editing ? <EditionModeOn /> : <EditionModeOff />}
-    </div>
+    <>
+      <div className="task-container" id={task.id}>
+        {editing ? (
+          <>
+            <input
+              className="input__form"
+              type="text"
+              value={editedValue}
+              onChange={(e) => setEditedValue(e.target.value)}
+            />
+            <button onClick={handleSaveEdit} className="button__icon button__icon-update"></button>
+            <button onClick={handleCancelEdit} className="button__icon button__icon-delete"></button>
+          </>
+        ) : (
+          <>
+            <span
+              className={task.completed ? "input__form task-field completed" : "input__form"}
+              onClick={() => onUpdateTask({ ...task, completed: !task.completed })}
+            >
+              {task.task}
+            </span>
+            <button onClick={handleEditClick} className="button__icon button__icon-update"></button>
+            <button onClick={() => onDeleteTask(task.id)} className="button__icon button__icon-delete"></button>
+          </>
+        )}
+      </div>
+    </>
   );
 }
