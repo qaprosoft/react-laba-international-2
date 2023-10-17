@@ -1,5 +1,6 @@
 import ClearCompletedTasksButton from './ClearCompletedTasksButton';
 import renderer from 'react-test-renderer';
+import {render, screen} from '@testing-library/react';
 
 const tasks1 = [
   {
@@ -29,4 +30,9 @@ it('renders correctly', () => {
     .create(<ClearCompletedTasksButton tasks={tasks1} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
+});
+
+test('Button has text', () => {
+  render(<ClearCompletedTasksButton tasks={tasks1} />);
+  screen.getByText('Clear completed tasks');
 });
