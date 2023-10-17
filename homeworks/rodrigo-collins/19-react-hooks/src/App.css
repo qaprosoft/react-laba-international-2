@@ -18,8 +18,12 @@ body {
   align-items: center;
 }
 
+.todo-input-container {
+  width: 60%;
+}
+
 .todo-input {
-  width: 80%;
+  width: 100%;
   max-width: 554px;
   height: 65px;
   flex-shrink: 0;
@@ -61,4 +65,10 @@ body {
   .add-todo-btn {
     font-size: 18px;
   }
+}
+
+.error-msj {
+  padding: 10px;
+  color: red;
+  font-size: 18px;
 }
