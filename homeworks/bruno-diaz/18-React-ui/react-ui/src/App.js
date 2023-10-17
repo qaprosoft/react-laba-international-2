@@ -7,10 +7,12 @@ import { AddAvatarButton } from "./components/AddAvatarButton";
 function App() {
   const [avatars, setAvatars] = useState([]);
 
+  const API_URL = "https://tinyfac.es/api/data";
+
   const fetchRandomAvatar = async (num) => {
     try {
       const response = await fetch(
-        `https://tinyfac.es/api/data?limit=${num}&quality=2`
+        `${API_URL}?limit=${num}&quality=2`
       );
       const data = await response.json();
       return data.length === 1 ? [data[0]] : data;
