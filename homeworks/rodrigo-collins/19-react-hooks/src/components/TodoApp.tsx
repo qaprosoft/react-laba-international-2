@@ -60,12 +60,6 @@ function TodoApp() {
             return;
         }
 
-        if (todos.some((todo) => todo.text === newText)) {
-            setError('To-Do already exists');
-            setTodos(todos);
-            return;
-        }
-
         const updatedTodos = todos.map((todo) =>
             todo.id === id ? { ...todo, text: newText } : todo
         );
