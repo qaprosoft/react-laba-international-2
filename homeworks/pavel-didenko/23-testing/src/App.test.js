@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import App from './App';
-import {render, screen} from '@testing-library/react';
-import { tasks1 } from './testVariables/tasks';
+import {render, screen, fireEvent} from '@testing-library/react';
+import {tasks1} from './testVariables/tasks';
 
 it('renders correctly', () => {
   const tree = renderer.create(<App />).toJSON();
@@ -19,5 +19,6 @@ test('Renders tasks from localStorage', () => {
   screen.getByDisplayValue('someTask1');
   screen.getByDisplayValue('someTask2');
   screen.getByDisplayValue('someTask3');
-  screen.getByDisplayValue('someTask3');
+  screen.getByDisplayValue('someTask4');
+  localStorage.clear();
 });
