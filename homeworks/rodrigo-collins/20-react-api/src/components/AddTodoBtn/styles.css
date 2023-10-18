@@ -1,0 +1,20 @@
+.add-todo-btn {
+    width: 20%;
+    max-width: 122px;
+    height: 69px;
+    flex-shrink: 0;
+    background: #5275A0;
+    color: #FFF;
+    font-family: Hind Siliguri;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media(max-width:600px) {
+    .add-todo-btn {
+        font-size: 18px;
+        height: 49px;
+    }
+}
