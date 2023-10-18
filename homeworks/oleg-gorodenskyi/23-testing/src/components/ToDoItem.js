@@ -68,12 +68,14 @@ function ToDoItem({ toDo, deleteToDo, toDoList, setToDoList }) {
       ) : (
         <div
           className="toDoItem__value"
+          data-testid='toggle-marked'
           onClick={() => toggleIsMarked(toDo.id)}
         >
           <div
             style={{
               textDecoration: isMarked ? 'line-through' : 'none',
             }}
+            data-testid='check-style'
           >
             {inputValue}
           </div>
