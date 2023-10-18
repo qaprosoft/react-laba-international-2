@@ -1,0 +1,34 @@
+.todo-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 554px;
+    height: 65px;
+    flex-shrink: 0;
+    background: #ECF3FF;
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Hind Siliguri;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.todo-icon {
+    width: 65px;
+    height: 65px;
+}
+
+@media(max-width:600px) {
+    .todo-item {
+        font-size: 20px;
+        height: 45px;
+    }
+
+    .todo-icon {
+        width: 45px;
+        height: 45px;
+    }
+}

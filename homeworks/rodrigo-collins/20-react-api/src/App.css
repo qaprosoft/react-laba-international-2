@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  background: linear-gradient(117deg, #8C72B7 0.58%, rgba(192, 46, 195, 0.00) 101.02%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 40px;
+}
