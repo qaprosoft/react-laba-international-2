@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import App from './App';
-import {render, screen, fireEvent} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {tasks1} from './testVariables/tasks';
 
 it('renders correctly', () => {
