@@ -11,11 +11,6 @@ const FormEdit = ({value, handleEditingText, handleEditingTodo}) => {
         classtype="todo__input--edit"
       />
       <IconButton type="submit" classType="iconBtn--approveEdit" />
-      {/* <input
-          value={value}
-          onChange={handleEditingText}
-          className={styles.formField}
-        /> */}
     </form>
   );
 };
