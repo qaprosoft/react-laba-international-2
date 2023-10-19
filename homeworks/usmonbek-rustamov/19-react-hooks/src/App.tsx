@@ -1,11 +1,11 @@
-import {useState} from 'react';
 import {v4 as uuidV4} from 'uuid';
 import {Todo} from './common/types';
 import CreateTaskForm from './components/CreateTaskForm';
 import TodoList from './components/TodoList';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useLocalStorage<Todo[]>('todo-app.todos', []);
 
   const handleAddTodo = (task: string) => {
     const newTodo = {
