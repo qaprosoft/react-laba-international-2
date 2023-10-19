@@ -2,10 +2,17 @@ import {useContext} from 'react';
 import Form from './components/Form/Form';
 import {Context} from './contexts/AppContext/AppContext';
 import TodoList from './components/TodoList/TodoList';
+import Button from './components/Buttons/Button/Button';
 import Modal from './components/Modal/Modal';
+import {phrases} from './constants/constants';
+import {useApp} from './hooks/appHook';
+import {useDeleteTodo} from './hooks/deleteTodoHook';
 
 const App = () => {
-  const {isShowModal} = useContext(Context);
+  useApp();
+
+  const {isShowDeleteModal, todoToDelete} = useContext(Context);
+  const {deleteCompletedTodo, deleteTodo} = useDeleteTodo();
 
   return (
     <main className="main">
@@ -13,9 +20,19 @@ const App = () => {
         <div className="container todo__container">
           <Form />
           <TodoList />
+          <Button
+            type="button"
+            btnText="Delete completed"
+            onClickHandler={() => deleteCompletedTodo()}
+          />
         </div>
       </section>
-      {isShowModal && <Modal />}
+      {isShowDeleteModal && (
+        <Modal
+          modalText={phrases.DELETEMODAL}
+          deleteHandler={() => deleteTodo(todoToDelete)}
+        />
+      )}
     </main>
   );
 };

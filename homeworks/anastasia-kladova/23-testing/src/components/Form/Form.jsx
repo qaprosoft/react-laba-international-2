@@ -1,55 +1,33 @@
 import styles from './Form.module.css';
 import Input from '../Input/Input';
-import AddButton from '../Buttons/AddButton/AddButton';
+import Button from '../Buttons/Button/Button';
 import {useContext} from 'react';
 import {Context} from '../../contexts/AppContext/AppContext';
-import {saveDataToStorage} from '../../utils/saveDataToStorage';
-import {validateTodo} from '../../utils/validateTodo';
+
+import {useAddTodo} from '../../hooks/addTodoHook';
 
 const Form = () => {
-  const {
-    currentInputText,
-    setCurrentInputText,
-    todos,
-    setTodos,
-    setErrorMessage,
-    setIsShowModal,
-  } = useContext(Context);
+  const {currentInputText, setCurrentInputText, inputRef, state} =
+    useContext(Context);
+
+  const {addNewTodo} = useAddTodo();
 
   const handleCurrentInputValue = e => {
     setCurrentInputText(e.target.value);
   };
 
-  const addNewTodo = e => {
-    e.preventDefault();
-    const newTodo = currentInputText.trim();
-
-    const currentError = validateTodo(newTodo, todos);
-
-    if (!currentError) {
-      let newTodos = [
-        ...todos,
-        {text: newTodo, id: Date.now(), isCompleted: false},
-      ];
-      setTodos(newTodos);
-      setCurrentInputText('');
-      saveDataToStorage(newTodos);
-    } else {
-      setErrorMessage(currentError);
-      setCurrentInputText('');
-      setIsShowModal(true);
-    }
-  };
-
   return (
-    <form className={styles.todo__form} onSubmit={addNewTodo} data-testid='form'>
-      <Input
-        data-testid='input'
-        placeholder="Create Todo-Task"
-        onInputChangeHandler={handleCurrentInputValue}
-        value={currentInputText}
-      />
-      <AddButton type="submit" btnText="Add" data-testid='addBtn'/>
+    <form className={styles.todo__form} onSubmit={addNewTodo} data-testid="form">
+      <div className={styles.todo__error}>
+        <Input
+          placeholder="Create Todo-Task"
+          onInputChangeHandler={handleCurrentInputValue}
+          value={currentInputText}
+          inputRef={inputRef}
+          data-testid="input"
+        />
+      </div>
+      <Button type="submit" btnText="Add"/>
     </form>
   );
 };

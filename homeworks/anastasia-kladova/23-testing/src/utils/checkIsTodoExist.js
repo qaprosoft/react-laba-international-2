@@ -1,5 +1,6 @@
 const checkIsTodoExist = (text, todos) => {
-  return todos.some(todo => todo.text === text);
+  const isTodoExist = todos.some(todo => todo.text === text);
+  return isTodoExist;
 };
 
 export default checkIsTodoExist;

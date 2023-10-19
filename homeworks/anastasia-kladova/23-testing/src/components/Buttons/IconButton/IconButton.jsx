@@ -6,7 +6,6 @@ const IconButton = ({type, onBtnClickHandler, classType}) => {
       className={`todo__todo-iconBtn ${styles.iconBtn} ${styles[classType]}`}
       type={type}
       onClick={onBtnClickHandler}
-      data-testid="btnSubmit"
     ></button>
   );
 };

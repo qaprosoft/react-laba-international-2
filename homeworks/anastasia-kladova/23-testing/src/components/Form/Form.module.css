@@ -2,6 +2,11 @@
   min-width: 676px;
   margin-bottom: calc(var(--space-measure) * 8);
   display: flex;
+  align-items: flex-start;
+}
+
+.todo__error {
+  flex-basis: 82%;
 }
 
 @media (max-width: 768px) {

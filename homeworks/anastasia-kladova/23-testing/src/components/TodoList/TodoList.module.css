@@ -1,6 +1,7 @@
 .todo__todoList {
   padding: 0;
   margin: 0;
+  margin-bottom: calc(var(--space-measure) * 8);
   display: flex;
   flex-direction: column;
   align-items: center;

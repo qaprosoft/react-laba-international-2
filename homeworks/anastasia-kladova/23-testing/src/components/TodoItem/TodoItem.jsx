@@ -1,82 +1,103 @@
-import {useContext} from 'react';
+import {useCallback, useContext} from 'react';
 import IconButton from '../Buttons/IconButton/IconButton';
 import styles from './TodoItem.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
 import {saveDataToStorage} from '../../utils/saveDataToStorage';
 import FormEdit from '../FormEdit/FormEdit';
+
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import {ACTION_TYPES} from '../../state/actionTypes';
 import {validateTodo} from '../../utils/validateTodo';
-import {localStorageKeys} from '../../constants/constants';
 
 const TodoItem = ({id, text, isCompleted}) => {
   const {
-    todos,
-    setTodos,
+    state,
+    dispatch,
     todoToEdit,
     setTodoToEdit,
     editingText,
     setEditingText,
+    errorMessage,
     setErrorMessage,
-    setIsShowModal,
+    setIsShowDeleteModal,
+    setTodoToDelete,
   } = useContext(Context);
 
-  //delete todo
-  const deleteTodo = id => {
-    const newTodos = todos.filter(todo => todo.id !== id);
-    setTodos(newTodos);
-    saveDataToStorage(newTodos);
+  const currentError = validateTodo(editingText, state.todos, todoToEdit);
+
+  //show modal
+  const showModal = id => {
+    setIsShowDeleteModal(true);
+    setTodoToDelete(id);
   };
 
   //toggle isCompleted todo
-  const toggleIsCompleted = (id, isCompleted) => {
-    const newTodos = todos.map(todo =>
-      todo.id === id ? {id, text, isCompleted: !isCompleted} : todo,
-    );
-
-    localStorage.setItem(localStorageKeys.TODOS, JSON.stringify(newTodos));
-    setTodos(newTodos);
-  };
+  const toggleIsCompleted = useCallback(
+    (id, isCompleted) => {
+      dispatch({
+        type: ACTION_TYPES.TOGGLE_COMPLETED,
+        payload: {id: id, isCompleted: isCompleted},
+      });
+    },
+    [dispatch],
+  );
 
   //edit todo
   const editTodo = id => {
     setEditingText(text);
     setTodoToEdit(id);
+    dispatch({
+      type: ACTION_TYPES.UPDATE_TODO,
+      payload: {id: id, text: editingText},
+    });
   };
 
   const handleEditingText = e => {
     setEditingText(e.target.value);
   };
 
-  const handleEditingTodo = e => {
-    e.preventDefault();
+  const handleEditingTodo = useCallback(
+    (e, id) => {
+      e.preventDefault();
 
-    const currentError = validateTodo(editingText, todos, todoToEdit);
+      if (!currentError) {
+        dispatch({
+          type: ACTION_TYPES.UPDATE_TODO,
+          payload: {id: todoToEdit, text: editingText},
+        });
 
-    if (!currentError) {
-      let newTodos = [...todos].map(todo => {
-        return todo.id === todoToEdit
-          ? {id, text: editingText, isCompleted}
-          : todo;
-      });
-      setTodos(newTodos);
-      setTodoToEdit('');
-      setEditingText('');
-      saveDataToStorage(newTodos);
-    } else {
-      setErrorMessage(currentError);
-      setIsShowModal(true);
-    }
-  };
+        setTodoToEdit('');
+        setEditingText('');
+        saveDataToStorage(state.todos);
+      } else {
+        setErrorMessage(currentError);
+      }
+    },
+    [
+      currentError,
+      dispatch,
+      editingText,
+      setEditingText,
+      setErrorMessage,
+      setTodoToEdit,
+      state.todos,
+      todoToEdit,
+    ],
+  );
 
   return (
-    <li className={`todo__todo-item ${styles.todoItem}`} id={id} key={id}>
+    <li className={`todo__todo-item ${styles.todoItem}`} id={id} key={id} data-testid="todoItem">
       <div className={styles.todoItem__box}>
         <div className={styles.todoItem__info}>
           {todoToEdit === id ? (
-            <FormEdit
-              value={editingText}
-              handleEditingText={handleEditingText}
-              handleEditingTodo={handleEditingTodo}
-            />
+            <>
+              <FormEdit
+                value={editingText}
+                handleEditingText={handleEditingText}
+                handleEditingTodo={handleEditingTodo}
+                data-testid="formEdit"
+              />
+            </>
           ) : (
             <>
               <input
@@ -84,16 +105,17 @@ const TodoItem = ({id, text, isCompleted}) => {
                 type="checkbox"
                 defaultChecked={isCompleted}
                 onClick={() => toggleIsCompleted(id, isCompleted)}
+                role="checkbox"
               />
 
               <span
-                data-testid="todoText"
                 className={
                   isCompleted
                     ? styles.todoItem__textComplete
                     : styles.todoItem__text
                 }
-              >{text}
+              >
+                {text}
               </span>
             </>
           )}
@@ -103,14 +125,19 @@ const TodoItem = ({id, text, isCompleted}) => {
             type="button"
             classType="iconBtn--update"
             onBtnClickHandler={() => editTodo(id)}
+            aria-label='edit button'
           />
           <IconButton
             type="button"
             classType="iconBtn--delete"
-            onBtnClickHandler={() => deleteTodo(id)}
+            onBtnClickHandler={() => showModal(id)}
+            aria-label='delete button'
           />
         </div>
       </div>
+      {errorMessage && todoToEdit === id && (
+        <ErrorMessage errorText={errorMessage} />
+      )}
     </li>
   );
 };

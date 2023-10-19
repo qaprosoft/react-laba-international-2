@@ -1,5 +1,4 @@
-import { render, fireEvent, screen , getByTestId} from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { render, fireEvent, screen } from '@testing-library/react';
 import Form from './Form';
 import AppContextProvider from '../../contexts/AppContext/AppContextProvider';
 
@@ -13,14 +12,14 @@ const renderFormComponent = () => {
   
   beforeEach(renderFormComponent);
 
- describe('FormEdit Component', () => {
+ describe('Form Component', () => {
     it('is form component rendered', () => {
         const form = screen.getByTestId("form");
         expect(form).toBeTruthy();
     });
 
     it('form should have add button', () => {
-        const button = screen.getByTestId("addBtn");
+        const button = screen.getByText(/Add/i);
         expect(button).toBeTruthy();
     });
 
@@ -34,10 +33,18 @@ const renderFormComponent = () => {
 
     it('check on add button click', () => {
         const input = screen.getByTestId("input");
-        const button = screen.getByTestId("addBtn")
+        const button = screen.getByText(/Add/i);
 
         fireEvent.click(button);
         expect(input.value).toBe("");
+    });
+
+    it('is input focused after the addition of a new todo', () => {
+        const input = screen.getByTestId("input");
+        const button = screen.getByText(/Add/i);
+
+        fireEvent.click(button);
+        expect(input.focus);
     });
 
  });

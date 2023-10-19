@@ -8,7 +8,7 @@
   align-items: center;
 }
 .modal {
-  padding: 10px;
+  padding: 20px 10px;
   max-width: 350px;
   max-height: 350px;
   display: flex;
@@ -19,6 +19,14 @@
   background-color: rgba(79, 41, 89, 0.9);
 }
 
-.modalError {
+.modalText {
   text-align: center;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 60%;
 }

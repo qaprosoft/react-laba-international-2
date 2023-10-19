@@ -1,5 +1,4 @@
-import { render, fireEvent, screen } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
 import TodoList from './TodoList';
 import AppContextProvider from '../../contexts/AppContext/AppContextProvider';
 
@@ -9,7 +8,7 @@ import AppContextProvider from '../../contexts/AppContext/AppContextProvider';
         render(<AppContextProvider>
                 <TodoList todos={[]}/>
                </AppContextProvider>);
-        const noTodoList = screen.getByTestId("noTodoList");
-        expect(noTodoList).toBeTruthy();
+        const noTodoText= screen.getByTestId("noTodoText");
+        expect(noTodoText).toBeTruthy();
     });
  });
