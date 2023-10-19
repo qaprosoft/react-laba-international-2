@@ -58,4 +58,19 @@ describe('Task', () => {
     fireEvent.click(deleteButton);
     expect(task).not.toBeInTheDocument();
   });
+
+  it('Task should be changable', () => {
+    render(<App />);
+
+    const input = screen.getByPlaceholderText('Create ToDo task');
+    fireEvent.change(input, {target: {value: 'Test task'}});
+    const addBtn = screen.getByRole('button', {name: 'Add'});
+    fireEvent.click(addBtn);
+
+    const task = screen.getByDisplayValue('Test task');
+    const changeButton = screen.getByAltText('change');
+    fireEvent.click(changeButton);
+    fireEvent.change(task, {target: {value: 'new task'}});
+    expect(task.value).toBe('new task');
+  });
 });
