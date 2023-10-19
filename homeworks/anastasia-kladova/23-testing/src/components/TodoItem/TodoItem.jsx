@@ -1,4 +1,4 @@
-import {useCallback, useContext, useEffect, useRef} from 'react';
+import {useCallback, useContext} from 'react';
 import IconButton from '../Buttons/IconButton/IconButton';
 import styles from './TodoItem.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';

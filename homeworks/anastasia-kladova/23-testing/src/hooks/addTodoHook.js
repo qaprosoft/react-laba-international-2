@@ -23,7 +23,7 @@ export const useAddTodo = () => {
     if (!currentError) {
       dispatch({type: ACTION_TYPES.ADD_NEWTODO, payload: {newTodo: newTodo}});
       setCurrentInputText('');
-      // inputRef.current.focus();
+      inputRef.current.focus();
       setIsNewTodoValid(false);
       setErrorMessage('');
     } else {

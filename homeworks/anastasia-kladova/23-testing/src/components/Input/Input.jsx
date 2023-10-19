@@ -1,4 +1,4 @@
-import {useContext, useEffect, useRef} from 'react';
+import {useContext, useEffect, useRef } from 'react';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import styles from './Input.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
@@ -8,7 +8,6 @@ const Input = ({
   value,
   onInputChangeHandler,
   classtype,
-  inputRef,
 }) => {
 
   const ref = useRef(null);
@@ -16,7 +15,7 @@ const Input = ({
 
   useEffect(() => {
     ref.current.focus();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -25,7 +24,6 @@ const Input = ({
         placeholder={placeholder}
         value={value}
         onChange={onInputChangeHandler}
-        input={inputRef}
         ref={ref}
         data-testid="input"
       />

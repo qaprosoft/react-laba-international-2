@@ -11,6 +11,17 @@
   flex-basis: 82%;
 }
 
+.todo__input {
+  font-size: var(--font-size);
+  text-align: left;
+  padding: 6px;
+  padding-left: calc((var(--space-measure) * 2) + 8px);
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: var(--color-light);
+}
+
 @media (max-width: 768px) {
   .todo__form {
     min-width: 500px;
