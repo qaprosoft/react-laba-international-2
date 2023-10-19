@@ -1,0 +1,30 @@
+/* Extra small devices */
+@media only screen and (max-width: 600px) {
+  .avatars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer__button {
+    width: 50vw;
+  }
+}
+/* Small devices  */
+@media only screen and (min-width: 600px) and (max-width: 798px) {
+  .avatars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .footer__button {
+    width: 40vw;
+  }
+}
+/* Medium devices */
+@media only screen and (min-width: 798px) and (max-width: 992px) {
+  .avatars {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .footer__button {
+    width: 30vw;
+  }
+}
