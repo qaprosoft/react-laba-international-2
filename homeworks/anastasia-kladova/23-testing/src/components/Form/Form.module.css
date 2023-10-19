@@ -6,6 +6,8 @@
 }
 
 .todo__error {
+  display: flex;
+  flex-direction: column;
   flex-basis: 82%;
 }
 
