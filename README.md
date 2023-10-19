@@ -64,5 +64,6 @@ Once PR is created you have to do the following things:
 | Oct 3th       | [Overview of web application, key points. Next.js.](./lectures/21-next-js-1/README.md) | [task 🔗](./lectures/21-next-js-1/task.md)    |
 | Oct 6th       | [Next.js. Key features.](./lectures/22-next-js-2/README.md)                            | no task for this lecture                      |
 | Oct 10th      | [Testing.](./lectures/23-testing/README.md)                                            | [task 🔗](./lectures/23-testing/task.md)      |
+| Oct 19th      | [React State Management Workshop.](./workshops/react-state-management/)                | no task                                       |
 | Oct 9th-20th  | Learning weeks. Finishing homeworks/preparing for exam.                                |                                               |
 | Oct 23th-27th | Third block exam.                                                                      |
