@@ -1,7 +1,6 @@
-import { render, fireEvent, screen, getByText } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import AppContextProvider from '../../contexts/AppContext/AppContextProvider';
 import TodoItem from './TodoItem';
-
 import { act } from 'react-dom/test-utils';
 import TESTTODOS from '../../constants/testTodos';
 
@@ -28,6 +27,7 @@ const renderTodoItemComponent = () => {
         expect(checkboxInput.checked).toEqual(false);
         expect(TESTTODOS[0].isCompleted).toBeFalsy();
     });
+
 
     it('form edit should be shown after click on edit button', () => {
       async  () => {

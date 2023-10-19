@@ -114,6 +114,7 @@ const TodoItem = ({id, text, isCompleted}) => {
                     ? styles.todoItem__textComplete
                     : styles.todoItem__text
                 }
+                data-testid="todoItemText"
               >
                 {text}
               </span>
