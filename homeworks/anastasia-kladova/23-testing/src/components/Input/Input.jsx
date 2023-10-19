@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, useEffect, useRef} from 'react';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import styles from './Input.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
@@ -10,7 +10,14 @@ const Input = ({
   classtype,
   inputRef,
 }) => {
+
+  const ref = useRef(null);
   const {errorMessage, isNewTodoValid} = useContext(Context);
+
+  useEffect(() => {
+    ref.current.focus();
+  }, [])
+
   return (
     <>
       <input
@@ -18,7 +25,8 @@ const Input = ({
         placeholder={placeholder}
         value={value}
         onChange={onInputChangeHandler}
-        ref={inputRef}
+        input={inputRef}
+        ref={ref}
         data-testid="input"
       />
       {errorMessage && isNewTodoValid && (

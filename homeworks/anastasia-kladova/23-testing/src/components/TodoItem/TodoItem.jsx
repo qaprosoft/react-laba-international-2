@@ -1,4 +1,4 @@
-import {useCallback, useContext} from 'react';
+import {useCallback, useContext, useEffect, useRef} from 'react';
 import IconButton from '../Buttons/IconButton/IconButton';
 import styles from './TodoItem.module.css';
 import {Context} from '../../contexts/AppContext/AppContext';
@@ -9,7 +9,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import {ACTION_TYPES} from '../../state/actionTypes';
 import {validateTodo} from '../../utils/validateTodo';
 
-const TodoItem = ({id, text, isCompleted}) => {
+const TodoItem = ({id, text, isCompleted }) => {
   const {
     state,
     dispatch,
