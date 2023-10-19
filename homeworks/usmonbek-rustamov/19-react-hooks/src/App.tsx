@@ -16,9 +16,14 @@ function App() {
     setTodos(prevTodos => [newTodo, ...prevTodos]);
   };
 
+  const checkTodo = (task: string) => {
+    const existTodo = todos.find(todo => todo.task === task);
+    if (existTodo) throw new Error('Todo already exist');
+  };
+
   return (
     <div className="container">
-      <CreateTaskForm onAddTodo={handleAddTodo} />
+      <CreateTaskForm onAddTodo={handleAddTodo} checkTodo={checkTodo} />
       <TodoList todos={todos} />
     </div>
   );

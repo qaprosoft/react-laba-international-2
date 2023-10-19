@@ -2,17 +2,26 @@ import {FormEvent, useState} from 'react';
 
 interface Props {
   onAddTodo: (task: string) => void;
+  checkTodo: (task: string) => void;
 }
 
-function CreateTaskForm({onAddTodo}: Props) {
+function CreateTaskForm({onAddTodo, checkTodo}: Props) {
   const [task, setTask] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!task) return;
 
-    onAddTodo(task);
-    setTask('');
+    try {
+      checkTodo(task);
+      onAddTodo(task);
+      setErrorMessage('');
+    } catch (error) {
+      setErrorMessage((error as Error).message);
+    } finally {
+      setTask('');
+    }
   };
 
   return (
@@ -26,6 +35,7 @@ function CreateTaskForm({onAddTodo}: Props) {
         />
         <input type="submit" value="Add" />
       </form>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }
