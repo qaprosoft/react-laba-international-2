@@ -4,7 +4,13 @@ import refreshIcon from '@/assets/icons/refresh.svg';
 const Avatar = ({imgSrc, onClick}) => {
   return (
     <div className="tile avatar">
-      <img src={imgSrc} />
+      <Image
+        src={imgSrc}
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{width: '100%', height: 'auto'}}
+      />
       <div className="overlay" onClick={onClick}>
         <Image
           className="tileIcon"
