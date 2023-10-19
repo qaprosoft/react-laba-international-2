@@ -7,9 +7,10 @@ const AddAvatar = ({onClick}) => {
       <Image
         className="tileIcon"
         src={addIcon}
-        width={0}
-        height={0}
+        width="auto"
+        height="auto"
         alt="add"
+        style={{width: 'auto', height: 'auto'}}
       />
     </div>
   );

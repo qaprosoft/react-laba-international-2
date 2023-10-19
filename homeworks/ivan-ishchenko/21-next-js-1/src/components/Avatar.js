@@ -10,8 +10,9 @@ const Avatar = ({imgSrc, onClick}) => {
           className="tileIcon"
           src={refreshIcon}
           alt="refresh"
-          width={0}
-          height={0}
+          width="auto"
+          height="auto"
+          style={{width: 'auto', height: 'auto'}}
         />
       </div>
     </div>
