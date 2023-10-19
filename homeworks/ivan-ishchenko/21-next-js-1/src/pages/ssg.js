@@ -6,7 +6,7 @@ const handler = data => {
 };
 
 export async function getStaticProps() {
-  const avatars = await fetchUsers(handler, handler, 5);
+  const avatars = await fetchUsers(handler, () => {}, 5);
   return {props: {loadedAvatars: avatars}};
 }
 
