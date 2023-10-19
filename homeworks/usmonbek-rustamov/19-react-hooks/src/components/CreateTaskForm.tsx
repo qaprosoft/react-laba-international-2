@@ -2,10 +2,9 @@ import {FormEvent, useState} from 'react';
 
 interface Props {
   onAddTodo: (task: string) => void;
-  checkTodo: (task: string) => void;
 }
 
-function CreateTaskForm({onAddTodo, checkTodo}: Props) {
+function CreateTaskForm({onAddTodo}: Props) {
   const [task, setTask] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -14,7 +13,6 @@ function CreateTaskForm({onAddTodo, checkTodo}: Props) {
     if (!task) return;
 
     try {
-      checkTodo(task);
       onAddTodo(task);
       setErrorMessage('');
     } catch (error) {

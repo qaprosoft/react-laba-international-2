@@ -7,7 +7,21 @@ import useLocalStorage from './hooks/useLocalStorage';
 function App() {
   const [todos, setTodos] = useLocalStorage<Todo[]>('todo-app.todos', []);
 
+  const updateTodo = (id: string, props: Partial<Todo>) => {
+    setTodos(prevTodos => {
+      return prevTodos.map(todo => {
+        if (todo.id === id) {
+          return {...todo, ...props};
+        }
+        return todo;
+      });
+    });
+  };
+
   const handleAddTodo = (task: string) => {
+    const existTodo = todos.find(todo => todo.task === task);
+    if (existTodo) throw new Error('Todo already exist');
+
     const newTodo = {
       id: uuidV4(),
       isCompleted: false,
@@ -16,15 +30,27 @@ function App() {
     setTodos(prevTodos => [newTodo, ...prevTodos]);
   };
 
-  const checkTodo = (task: string) => {
-    const existTodo = todos.find(todo => todo.task === task);
-    if (existTodo) throw new Error('Todo already exist');
+  const handleEditTodo = (id: string, task: string) => {
+    updateTodo(id, {task});
+  };
+
+  const handleToggleTodo = (id: string, isCompleted: boolean) => {
+    updateTodo(id, {isCompleted});
+  };
+
+  const handleDeleteTodo = (id: string) => {
+    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
   };
 
   return (
     <div className="container">
-      <CreateTaskForm onAddTodo={handleAddTodo} checkTodo={checkTodo} />
-      <TodoList todos={todos} />
+      <CreateTaskForm onAddTodo={handleAddTodo} />
+      <TodoList
+        todos={todos}
+        onEdit={handleEditTodo}
+        onDelete={handleDeleteTodo}
+        onToggle={handleToggleTodo}
+      />
     </div>
   );
 }
