@@ -15,6 +15,10 @@ export const fetchRandomUser = async () => {
 
     } catch (err) {
         console.log(err)
+        user = {
+            name: 'Default User',
+            url: '/assets/default-placeholder.png',
+        };
     }
 
     return user
