@@ -6,8 +6,8 @@ import ErrorModal from '@/components/ErrorModal';
 import Avatar from '@/components/Avatar';
 import Spinner from '@/components/Spinner';
 
-export default function HomePage({loadedAvatars}) {
-  const [avatars, setAvatars] = useState(loadedAvatars ? loadedAvatars : []);
+export default function HomePage({loadedAvatars = []}) {
+  const [avatars, setAvatars] = useState(loadedAvatars);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
