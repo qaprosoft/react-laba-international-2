@@ -11,6 +11,8 @@ describe('Task component', () => {
   const mockDeleteHandler = jest.fn();
   const mockUpdateHandler = jest.fn();
 
+  beforeEach(() => jest.spyOn(window, 'alert').mockImplementation());
+
   it('renders the task with default props', () => {
     render(
       <Task

@@ -7,7 +7,7 @@ const Input = forwardRef(
       className,
       placeholder = '',
       value,
-      onChange,
+      onChange = () => {},
       readonly = false,
       cursor = 'inherit',
     },
