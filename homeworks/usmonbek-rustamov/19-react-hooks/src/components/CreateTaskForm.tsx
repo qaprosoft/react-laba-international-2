@@ -1,12 +1,11 @@
 import {FormEvent, useState} from 'react';
+import {useTodos} from '../contexts/TodosContext';
 
-interface Props {
-  onAddTodo: (task: string) => void;
-}
-
-function CreateTaskForm({onAddTodo}: Props) {
+function CreateTaskForm() {
   const [task, setTask] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const {onAddTodo} = useTodos();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

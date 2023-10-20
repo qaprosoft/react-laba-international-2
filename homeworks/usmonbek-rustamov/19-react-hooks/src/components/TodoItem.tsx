@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import {Todo} from '../common/types';
+import {useTodos} from '../contexts/TodosContext';
 
 import editIcon from '../assets/edit.svg';
 import deleteIcon from '../assets/delete.svg';
@@ -7,14 +8,13 @@ import completeIcon from '../assets/complete.svg';
 
 interface Props {
   todo: Todo;
-  onEdit: (id: string, task: string) => void;
-  onToggle: (id: string, isCompleted: boolean) => void;
-  onDelete: (id: string) => void;
 }
 
-function TodoItem({todo, onEdit, onDelete, onToggle}: Props) {
+function TodoItem({todo}: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const {onEditTodo, onToggleTodo, onDeleteTodo} = useTodos();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -27,7 +27,7 @@ function TodoItem({todo, onEdit, onDelete, onToggle}: Props) {
     if (!inputRef.current?.value) return;
 
     try {
-      onEdit(todo.id, inputRef.current.value);
+      onEditTodo(todo.id, inputRef.current.value);
       setErrorMessage('');
     } catch (error) {
       setErrorMessage((error as Error).message);
@@ -55,14 +55,17 @@ function TodoItem({todo, onEdit, onDelete, onToggle}: Props) {
           <button className="btn btn-icon" onClick={() => setIsEditing(true)}>
             <img src={editIcon} alt="Edit task" />
           </button>
-          <button className="btn btn-icon" onClick={() => onDelete(todo.id)}>
+          <button
+            className="btn btn-icon"
+            onClick={() => onDeleteTodo(todo.id)}
+          >
             <img src={deleteIcon} alt="Delete task" />
           </button>
           <button
             className={`btn btn-icon ${
               todo.isCompleted ? 'btn-icon_active' : ''
             }`}
-            onClick={() => onToggle(todo.id, !todo.isCompleted)}
+            onClick={() => onToggleTodo(todo.id, !todo.isCompleted)}
           >
             <img src={completeIcon} alt="Complete task" />
           </button>
