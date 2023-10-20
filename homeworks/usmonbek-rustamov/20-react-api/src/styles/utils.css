@@ -16,7 +16,10 @@
   width: 80%;
   padding: 0.75rem 1.25rem;
   border: none;
-  outline: none;
+}
+
+.form-control:focus-within {
+  outline: 3px solid #5275a0;
 }
 
 .btn {
