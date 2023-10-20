@@ -27,6 +27,7 @@ function TodoItem({todo}: Props) {
     if (!inputRef.current?.value) return;
 
     try {
+      if (inputRef.current.value === todo.task) return;
       onEditTodo(todo.id, inputRef.current.value);
       setErrorMessage('');
     } catch (error) {
