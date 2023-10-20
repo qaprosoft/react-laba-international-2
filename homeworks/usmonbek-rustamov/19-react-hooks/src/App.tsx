@@ -3,6 +3,7 @@ import {Todo} from './common/types';
 import CreateTaskForm from './components/CreateTaskForm';
 import TodoList from './components/TodoList';
 import useLocalStorage from './hooks/useLocalStorage';
+import {checkTodoExist} from './services/todos';
 
 function App() {
   const [todos, setTodos] = useLocalStorage<Todo[]>('todo-app.todos', []);
@@ -19,8 +20,7 @@ function App() {
   };
 
   const handleAddTodo = (task: string) => {
-    const existTodo = todos.find(todo => todo.task === task);
-    if (existTodo) throw new Error('Todo already exist');
+    checkTodoExist(todos, task);
 
     const newTodo = {
       id: uuidV4(),
@@ -31,6 +31,7 @@ function App() {
   };
 
   const handleEditTodo = (id: string, task: string) => {
+    checkTodoExist(todos, task);
     updateTodo(id, {task});
   };
 

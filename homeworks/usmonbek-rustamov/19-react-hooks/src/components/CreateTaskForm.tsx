@@ -24,14 +24,15 @@ function CreateTaskForm({onAddTodo}: Props) {
 
   return (
     <div className="add-todo">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
+          className="form-control"
           aria-label="Create Todo"
           value={task}
           onChange={e => setTask(e.target.value)}
         />
-        <input type="submit" value="Add" />
+        <input type="submit" className="btn btn-primary" value="Add" />
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>

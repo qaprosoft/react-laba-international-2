@@ -31,6 +31,7 @@ function TodoItem({todo, onEdit, onDelete, onToggle}: Props) {
       setErrorMessage('');
     } catch (error) {
       setErrorMessage((error as Error).message);
+      inputRef.current.value = todo.task;
     } finally {
       setIsEditing(false);
     }
@@ -38,31 +39,36 @@ function TodoItem({todo, onEdit, onDelete, onToggle}: Props) {
 
   return (
     <li className="todo">
-      <div className="todo__edit">
+      <div className="todo__container">
         <input
+          className={`form-control ${
+            todo.isCompleted ? 'text-line-through' : ''
+          }`}
           ref={inputRef}
           disabled={!isEditing}
           defaultValue={todo.task}
           onBlur={handleEdit}
           onKeyUp={e => e.key === 'Enter' && handleEdit()}
         />
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+        <div className="todo__actions">
+          <button className="btn btn-icon" onClick={() => setIsEditing(true)}>
+            <img src={editIcon} alt="Edit task" />
+          </button>
+          <button className="btn btn-icon" onClick={() => onDelete(todo.id)}>
+            <img src={deleteIcon} alt="Delete task" />
+          </button>
+          <button
+            className={`btn btn-icon ${
+              todo.isCompleted ? 'btn-icon_active' : ''
+            }`}
+            onClick={() => onToggle(todo.id, !todo.isCompleted)}
+          >
+            <img src={completeIcon} alt="Complete task" />
+          </button>
+        </div>
       </div>
-      <div className="todo__actions">
-        <button className="btn btn-icon" onClick={() => setIsEditing(true)}>
-          <img src={editIcon} alt="Edit task" />
-        </button>
-        <button className="btn btn-icon" onClick={() => onDelete(todo.id)}>
-          <img src={deleteIcon} alt="Delete task" />
-        </button>
-        <button
-          style={{background: todo.isCompleted ? 'green' : 'transparent'}}
-          className="btn btn-icon"
-          onClick={() => onToggle(todo.id, !todo.isCompleted)}
-        >
-          <img src={completeIcon} alt="Complete task" />
-        </button>
-      </div>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </li>
   );
 }
