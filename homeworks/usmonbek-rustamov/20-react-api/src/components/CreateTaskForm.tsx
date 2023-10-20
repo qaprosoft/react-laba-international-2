@@ -1,23 +1,28 @@
-import {FormEvent, useState} from 'react';
+import {FormEvent, useCallback} from 'react';
 import {useTodos} from '../contexts/TodosContext';
+import useTodoValidation from '../hooks/useTodoValidation';
+import minMaxCharacters from '../utils/minMaxCharacters';
 
 function CreateTaskForm() {
-  const [task, setTask] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const todoValidator = useCallback(
+    (text: string) => minMaxCharacters(3, 40)(text),
+    [],
+  );
+  const {task, errorMessage, setTask, setErrorMessage} = useTodoValidation(
+    todoValidator,
+    '',
+  );
 
   const {onAddTodo} = useTodos();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!task) return;
+    if (!task || errorMessage) return;
 
     try {
-      setErrorMessage('');
       onAddTodo(task);
     } catch (error) {
       setErrorMessage((error as Error).message);
-    } finally {
-      setTask('');
     }
   };
 

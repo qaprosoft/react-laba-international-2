@@ -1,21 +1,31 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState, useCallback} from 'react';
 import {Todo} from '../common/types';
 import {useTodos} from '../contexts/TodosContext';
 
 import editIcon from '../assets/edit.svg';
 import deleteIcon from '../assets/delete.svg';
 import completeIcon from '../assets/complete.svg';
+import minMaxCharacters from '../utils/minMaxCharacters';
+import useTodoValidation from '../hooks/useTodoValidation';
 
 interface Props {
   todo: Todo;
 }
 
 function TodoItem({todo}: Props) {
+  const {onEditTodo, onToggleTodo, onDeleteTodo} = useTodos();
+
   const [isEditing, setIsEditing] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const {onEditTodo, onToggleTodo, onDeleteTodo} = useTodos();
+  const todoValidator = useCallback(
+    (text: string) => minMaxCharacters(3, 40)(text),
+    [],
+  );
+  const {task, errorMessage, setTask, setErrorMessage} = useTodoValidation(
+    todoValidator,
+    todo.task,
+  );
 
   useEffect(() => {
     if (!(isEditing && inputRef.current)) return;
@@ -23,17 +33,14 @@ function TodoItem({todo}: Props) {
   }, [isEditing]);
 
   const handleEdit = () => {
-    if (!inputRef.current?.value) return;
-    setErrorMessage('');
+    if (!task || errorMessage) return;
 
     try {
-      if (inputRef.current.value === todo.task) return;
-      onEditTodo(todo.id, inputRef.current.value);
+      if (task === todo.task) return;
+      onEditTodo(todo.id, task);
+      setIsEditing(false);
     } catch (error) {
       setErrorMessage((error as Error).message);
-      inputRef.current.value = todo.task;
-    } finally {
-      setIsEditing(false);
     }
   };
 
@@ -46,9 +53,10 @@ function TodoItem({todo}: Props) {
           }`}
           ref={inputRef}
           disabled={!isEditing}
-          defaultValue={todo.task}
+          value={task}
           onBlur={handleEdit}
           onKeyUp={e => e.key === 'Enter' && handleEdit()}
+          onChange={e => setTask(e.target.value)}
         />
 
         <div className="todo__actions">
