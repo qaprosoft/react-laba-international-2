@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import AddTaskComponent from '../AddTaskComponent/AddTaskComponent';
 import Task from '../Task/Task';
 import {MAX_TASK_LENGTH} from '../../constants/constants';
@@ -10,8 +10,15 @@ interface ITask {
 }
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState<ITask[]>([]);
+  const [tasks, setTasks] = useState<ITask[]>(() => {
+    const storedTasks = localStorage.getItem('tasks');
+    return storedTasks ? JSON.parse(storedTasks) : [];
+  });
   const [newTaskText, setNewTaskText] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = () => {
     if (newTaskText.length === 0) {
@@ -49,6 +56,16 @@ const TaskList = () => {
     setTasks(updatedTasks);
   };
 
+  const handleToggle = id => {
+    const updatedTasks = [...tasks];
+    const taskIsDone = updatedTasks.find(task => task.id === id);
+
+    if (taskIsDone) {
+      taskIsDone.done = !taskIsDone.done;
+      setTasks(updatedTasks);
+    }
+  };
+
   return (
     <>
       <AddTaskComponent
@@ -63,7 +80,7 @@ const TaskList = () => {
               text={task.text}
               onChange={() => editTask(task.id, task.text)}
               onDelete={() => deleteTask(task.id)}
-              onToggle={console.log(123)}
+              onToggle={() => handleToggle(task.id)}
             />
           </li>
         ))}
