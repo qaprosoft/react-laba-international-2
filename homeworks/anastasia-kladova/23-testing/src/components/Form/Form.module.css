@@ -1,0 +1,41 @@
+.todo__form {
+  min-width: 676px;
+  margin-bottom: calc(var(--space-measure) * 8);
+  display: flex;
+  align-items: flex-start;
+}
+
+.todo__error {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 82%;
+}
+
+.todo__input {
+  font-size: var(--font-size);
+  text-align: left;
+  padding: 6px;
+  padding-left: calc((var(--space-measure) * 2) + 8px);
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: var(--color-light);
+}
+
+@media (max-width: 768px) {
+  .todo__form {
+    min-width: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .todo__form {
+    min-width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .todo__form {
+    min-width: 95%;
+  }
+}
