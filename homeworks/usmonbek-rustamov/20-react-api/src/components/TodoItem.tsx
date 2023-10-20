@@ -10,10 +10,6 @@ interface Props {
   todo: Todo;
 }
 
-////////////////////////////////////////////
-// TODO: Fix error in folder 19
-///////////////////////////////////////////
-
 function TodoItem({todo}: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
