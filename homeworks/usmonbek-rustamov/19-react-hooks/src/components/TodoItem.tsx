@@ -25,11 +25,11 @@ function TodoItem({todo}: Props) {
 
   const handleEdit = () => {
     if (!inputRef.current?.value) return;
+    setErrorMessage('');
 
     try {
       if (inputRef.current.value === todo.task) return;
       onEditTodo(todo.id, inputRef.current.value);
-      setErrorMessage('');
     } catch (error) {
       setErrorMessage((error as Error).message);
       inputRef.current.value = todo.task;
