@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: linear-gradient(
+    116.67deg,
+    #8c72b7 0.58%,
+    rgba(192, 46, 195, 0) 101.02%
+  );
+  font-size: 2.5rem;
+  min-height: 100vh;
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
