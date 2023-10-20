@@ -1,0 +1,17 @@
+.avatar-container {
+    display: grid;
+    place-items: center;
+    width: 242px;
+    height: 242px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.avatar-container:hover {
+    filter: brightness(0.8);
+}
+
+.loading-text {
+    color: #fafafa;
+    font-size: 26px;
+}

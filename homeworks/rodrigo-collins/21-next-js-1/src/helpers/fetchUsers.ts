@@ -1,23 +1,17 @@
-
-export const fetchRandomUser = async () => {
-
-    let user: {} = {}
+export const fetchUsers = async (limit: number) => {
 
     try {
-        const response = await fetch(`https://tinyfac.es/api/data?limit=1`);
+        const response = await fetch(`https://tinyfac.es/api/data?limit=${limit}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
 
         const data = await response.json();
 
-        user = data[0];
-
-        return user
+        return data
 
     } catch (err) {
         console.log(err)
     }
-
 
 };

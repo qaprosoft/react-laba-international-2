@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styles from './styles.module.css';
+
 
 type AvatarItemProps = {
     imgUrl: string,
@@ -25,20 +27,20 @@ const AvatarItem = ({ imgUrl, refreshAvatar, index, isLoading }: AvatarItemProps
     };
 
     return (
-        <div className='avatar-container'
+        <div className={styles['avatar-container']}
             style={bgStyle}
             onClick={() => refreshAvatar(index)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
             {isLoading ? (
-                <p className="loading-text">Loading...</p>
+                <p className={styles["loading-text"]}>Loading...</p>
             ) : (
                 hovered && (
                     <img
                         src={'/assets/refresh.svg'}
                         alt='refresh svg'
-                        className="superimposed-svg"
+                        className={styles["superimposed-svg"]}
                     />
                 )
             )}
