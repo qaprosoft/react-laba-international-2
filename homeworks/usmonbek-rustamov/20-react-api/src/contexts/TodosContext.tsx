@@ -1,8 +1,7 @@
 import {ReactNode, createContext, useContext} from 'react';
-import {v4 as uuidV4} from 'uuid';
-import {Todo} from '../common/types';
-import {checkTodoExist} from '../services/todos';
+import {TodosAction, Todo} from '../common/types';
 import useLocalStorage from '../hooks/useLocalStorage';
+import todosReducer from '../reducers/todosReducer';
 
 interface ContextProps {
   todos: Todo[];
@@ -19,47 +18,42 @@ interface ProviderProps {
 const TodosContext = createContext({} as ContextProps);
 
 const TodosProvider = ({children}: ProviderProps) => {
-  const [todos, setTodos] = useLocalStorage<Todo[]>('todo-app.todos', []);
-
-  const updateTodo = (id: string, props: Partial<Todo>) => {
-    setTodos(prevTodos => {
-      return prevTodos.map(todo => {
-        if (todo.id === id) {
-          return {...todo, ...props};
-        }
-        return todo;
-      });
-    });
-  };
+  const [state, dispatch] = useLocalStorage<Todo[], TodosAction>(
+    'todo-app.todos',
+    {data: [], error: ''},
+    todosReducer,
+  );
 
   const onAddTodo = (task: string) => {
-    checkTodoExist(todos, task);
-
-    const newTodo = {
-      id: uuidV4(),
-      isCompleted: false,
-      task,
-    };
-    setTodos(prevTodos => [newTodo, ...prevTodos]);
+    const action = {type: 'added', task} as TodosAction;
+    const nextState = todosReducer(state, action);
+    if (nextState.error) {
+      throw new Error(nextState.error);
+    }
+    dispatch(action);
   };
 
   const onEditTodo = (id: string, task: string) => {
-    checkTodoExist(todos, task);
-    updateTodo(id, {task});
+    const action = {type: 'edited', id, task} as TodosAction;
+    const nextState = todosReducer(state, action);
+    if (nextState.error) {
+      throw new Error(nextState.error);
+    }
+    dispatch(action);
   };
 
   const onToggleTodo = (id: string, isCompleted: boolean) => {
-    updateTodo(id, {isCompleted});
+    dispatch({type: 'toggled', id, isCompleted});
   };
 
   const onDeleteTodo = (id: string) => {
-    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
+    dispatch({type: 'deleted', id});
   };
 
   return (
     <TodosContext.Provider
       value={{
-        todos,
+        todos: state.data,
         onAddTodo,
         onEditTodo,
         onToggleTodo,

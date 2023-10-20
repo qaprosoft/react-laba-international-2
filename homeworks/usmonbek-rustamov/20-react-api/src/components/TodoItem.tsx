@@ -10,13 +10,16 @@ interface Props {
   todo: Todo;
 }
 
+////////////////////////////////////////////
+// TODO: Fix error in folder 19
+///////////////////////////////////////////
+
 function TodoItem({todo}: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const {onEditTodo, onToggleTodo, onDeleteTodo} = useTodos();
-
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!(isEditing && inputRef.current)) return;
@@ -25,10 +28,9 @@ function TodoItem({todo}: Props) {
 
   const handleEdit = () => {
     if (!inputRef.current?.value) return;
-
     try {
+      if (inputRef.current.value === todo.task) return;
       onEditTodo(todo.id, inputRef.current.value);
-      setErrorMessage('');
     } catch (error) {
       setErrorMessage((error as Error).message);
       inputRef.current.value = todo.task;

@@ -12,8 +12,8 @@ function CreateTaskForm() {
     if (!task) return;
 
     try {
-      onAddTodo(task);
       setErrorMessage('');
+      onAddTodo(task);
     } catch (error) {
       setErrorMessage((error as Error).message);
     } finally {
