@@ -1,4 +1,4 @@
-import {Todo} from '../common/types';
+import {State, Todo} from '../common/types';
 
 export const checkTodoExist = (todos: Todo[], target: string) => {
   const existTodo = todos.find(todo => todo.task === target);
@@ -17,3 +17,14 @@ export const updateSingleTodo = (
     return todo;
   });
 };
+
+export function checkErrors<T, A>(
+  reducer: (state: State<T>, action: A) => State<T>,
+  currentState: State<T>,
+  currentAction: A,
+) {
+  const nextState = reducer(currentState, currentAction);
+  if (nextState.error) {
+    throw new Error(nextState.error);
+  }
+}

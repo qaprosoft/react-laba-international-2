@@ -2,6 +2,7 @@ import {ReactNode, createContext, useContext} from 'react';
 import {TodosAction, Todo} from '../common/types';
 import useLocalStorage from '../hooks/useLocalStorage';
 import todosReducer from '../reducers/todosReducer';
+import {checkErrors} from '../services/todos';
 
 interface ContextProps {
   todos: Todo[];
@@ -26,19 +27,13 @@ const TodosProvider = ({children}: ProviderProps) => {
 
   const onAddTodo = (task: string) => {
     const action = {type: 'added', task} as TodosAction;
-    const nextState = todosReducer(state, action);
-    if (nextState.error) {
-      throw new Error(nextState.error);
-    }
+    checkErrors(todosReducer, state, action);
     dispatch(action);
   };
 
   const onEditTodo = (id: string, task: string) => {
     const action = {type: 'edited', id, task} as TodosAction;
-    const nextState = todosReducer(state, action);
-    if (nextState.error) {
-      throw new Error(nextState.error);
-    }
+    checkErrors(todosReducer, state, action);
     dispatch(action);
   };
 
