@@ -85,7 +85,7 @@ const Gallery: FC<GalleryProps> = ({ users: propUsers }) => {
   return (
     <>
       <div className={styles.gallery}>
-        {users.map(user => (
+        {users.length > 0 && users.map(user => (
           loadingOne && loadingOne[user.id] ? (
             <span key={user.id} className={styles.loader}>Loading...</span>
           ) :
