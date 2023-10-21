@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import AddTaskComponent from '../AddTaskComponent/AddTaskComponent';
 import Task from '../Task/Task';
 import {MAX_TASK_LENGTH} from '../../constants/constants';
+import Button from '../Button/Button';
 
 interface ITask {
   id: number;
@@ -66,6 +67,15 @@ const TaskList = () => {
     }
   };
 
+  const handleClearAll = () => {
+    setTasks([]);
+  };
+
+  const handleClearAllCompleted = () => {
+    const updatedTasks = tasks.filter(task => !task.done);
+    setTasks(updatedTasks);
+  };
+
   return (
     <>
       <AddTaskComponent
@@ -73,6 +83,10 @@ const TaskList = () => {
         addTask={addTask}
         setNewTask={setNewTaskText}
       />
+      <>
+        <Button onClick={handleClearAll}>Clear All</Button>
+        <Button onClick={handleClearAllCompleted}>Clear All Completed</Button>
+      </>
       <ul>
         {tasks.map(task => (
           <li key={task.id}>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 
-const Input = ({type, value, onChange, disabled = false}) => {
+const Input = forwardRef(({type, value, onChange, disabled = false}, ref) => {
   return (
     <input
+      ref={ref}
       type={type}
       value={value}
       placeholder="Create Todo-Task"
@@ -10,6 +11,6 @@ const Input = ({type, value, onChange, disabled = false}) => {
       disabled={disabled}
     />
   );
-};
+});
 
 export default Input;
