@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React from 'react';
 import TaskList from './components/TaskList/TaskList';
 import AddTaskComponent from './components/AddTaskComponent/AddTaskComponent';
 import {TaskProvider} from './context/Context';

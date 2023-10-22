@@ -1,28 +1,24 @@
 import React, {useRef, useContext, useState} from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
-import {TaskContext, TaskDispatchContext} from '../../context/Context';
-import {MAX_TASK_LENGTH} from '../../constants/constants';
+import {TaskDispatchContext} from '../../context/Context';
+import useInputValidation from '../../customHooks/useInputValidation';
+import useEnterKeyPress from '../../customHooks/useEnterKeyPress';
 
 const AddTaskComponent = () => {
   const [newTaskText, setNewTaskText] = useState('');
   const inputRef = useRef(null);
-  const tasks = useContext(TaskContext);
   const dispatch = useContext(TaskDispatchContext);
+  const {validateInput} = useInputValidation();
+
+  useEnterKeyPress(() => {
+    addTask(inputRef);
+  });
 
   const addTask = inputRef => {
-    if (newTaskText.length === 0) {
-      alert('Please enter to-do');
-      return;
-    }
-
-    if (newTaskText.length > MAX_TASK_LENGTH) {
-      alert('Your to-do is longer than 35 symbols');
-      return;
-    }
-
-    if (tasks.some(task => task.text === newTaskText)) {
-      alert('This to-do already exists');
+    const validationError = validateInput(newTaskText);
+    if (validationError) {
+      alert(validationError);
       return;
     }
 
@@ -39,6 +35,7 @@ const AddTaskComponent = () => {
       <Input
         ref={inputRef}
         value={newTaskText}
+        placeholder="Create Todo-Task"
         onChange={e => setNewTaskText(e.target.value)}
       />
       <Button onClick={() => addTask(inputRef)}>Add</Button>

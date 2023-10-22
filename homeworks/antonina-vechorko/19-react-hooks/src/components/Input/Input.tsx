@@ -1,15 +1,18 @@
 import React, {forwardRef} from 'react';
 
-const Input = forwardRef(({value, onChange, disabled = false}, ref) => {
-  return (
-    <input
-      ref={ref}
-      value={value}
-      placeholder="Create Todo-Task"
-      onChange={onChange}
-      disabled={disabled}
-    />
-  );
-});
+const Input = forwardRef(
+  ({value, placeholder, onChange, disabled = false}, ref) => {
+    return (
+      <input
+        type="text"
+        ref={ref}
+        value={value}
+        placeholder={placeholder}
+        onChange={onChange}
+        disabled={disabled}
+      />
+    );
+  },
+);
 
 export default Input;
