@@ -1,30 +1,49 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Input from '../Input/Input';
 import IconButton from '../IconButton/IconButton';
 import deleteIcon from '../../assets/delete.svg';
 import editIcon from '../../assets/edit.svg';
 import saveIcon from '../../assets/save.svg';
+import {TaskDispatchContext} from '../../context/Context';
 
-const Task = ({text, onChange, onDelete, onToggle}) => {
+const Task = ({task, onDelete}) => {
+  const dispatch = useContext(TaskDispatchContext);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedText, setEditedText] = useState(text);
 
   const handleEdit = () => {
     setIsEditing(true);
   };
 
   const handleSave = () => {
-    onChange(editedText);
     setIsEditing(false);
   };
 
   return (
     <>
-      <Input type="checkbox" onChange={onToggle} value="" />
+      <input
+        type="checkbox"
+        checked={task.done}
+        onChange={e => {
+          dispatch({
+            type: 'toggle checkbox',
+            task: {
+              ...task,
+              done: e.target.checked,
+            },
+          });
+        }}
+      />
       <Input
-        type="text"
-        value={editedText}
-        onChange={setEditedText}
+        value={task.text}
+        onChange={e => {
+          dispatch({
+            type: 'edit',
+            task: {
+              ...task,
+              text: e.target.value,
+            },
+          });
+        }}
         disabled={!isEditing}
       />
       {isEditing ? (

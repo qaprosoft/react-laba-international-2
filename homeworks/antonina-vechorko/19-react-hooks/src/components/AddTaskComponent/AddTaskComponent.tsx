@@ -1,12 +1,36 @@
-import React, {useRef} from 'react';
+import React, {useRef, useContext, useState} from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
+import {TaskContext, TaskDispatchContext} from '../../context/Context';
+import {MAX_TASK_LENGTH} from '../../constants/constants';
 
-const AddTaskComponent = ({newTaskText, setNewTask, addTask}) => {
+const AddTaskComponent = () => {
+  const [newTaskText, setNewTaskText] = useState('');
   const inputRef = useRef(null);
+  const tasks = useContext(TaskContext);
+  const dispatch = useContext(TaskDispatchContext);
 
-  const focusHandler = inputRef => {
-    addTask();
+  const addTask = inputRef => {
+    if (newTaskText.length === 0) {
+      alert('Please enter to-do');
+      return;
+    }
+
+    if (newTaskText.length > MAX_TASK_LENGTH) {
+      alert('Your to-do is longer than 35 symbols');
+      return;
+    }
+
+    if (tasks.some(task => task.text === newTaskText)) {
+      alert('This to-do already exists');
+      return;
+    }
+
+    dispatch({
+      type: 'add',
+      text: newTaskText,
+    });
+    setNewTaskText('');
     inputRef.current.focus();
   };
 
@@ -14,11 +38,10 @@ const AddTaskComponent = ({newTaskText, setNewTask, addTask}) => {
     <>
       <Input
         ref={inputRef}
-        type="text"
         value={newTaskText}
-        onChange={setNewTask}
+        onChange={e => setNewTaskText(e.target.value)}
       />
-      <Button onClick={() => focusHandler(inputRef)}>Add</Button>
+      <Button onClick={() => addTask(inputRef)}>Add</Button>
     </>
   );
 };
