@@ -1,0 +1,9 @@
+.app-container {
+    padding: 40px;
+}
+
+.nav-container {
+    display: flex;
+    width: auto;
+    justify-content: space-around;
+}
