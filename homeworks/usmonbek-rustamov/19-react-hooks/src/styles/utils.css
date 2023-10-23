@@ -1,0 +1,61 @@
+/* Utility classes */
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-control {
+  background-color: #fff;
+  font-size: inherit;
+  width: 80%;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  outline: none;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #fff;
+  color: #333;
+
+  font-size: inherit;
+  padding: 0.75rem 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #5275a0;
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #577ba8;
+}
+
+.btn-icon {
+  background-color: transparent;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+}
+
+.btn-icon_active {
+  background-color: aquamarine;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
+
+.error-message {
+  margin: 1rem 0;
+  color: #c20000;
+}
