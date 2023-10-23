@@ -5,7 +5,7 @@ import {MAX_TASK_LENGTH} from '../constants/constants';
 const useInputValidation = () => {
   const tasks = useContext(TaskContext);
 
-  const validateInput = newTaskText => {
+  const validateInput = (newTaskText: string) => {
     if (newTaskText.length === 0) {
       return 'Please enter a to-do.';
     }

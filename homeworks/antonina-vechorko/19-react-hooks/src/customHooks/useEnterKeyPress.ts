@@ -1,8 +1,8 @@
 import {useEffect} from 'react';
 
-const useEnterKeyPress = callback => {
+const useEnterKeyPress = (callback: () => void) => {
   useEffect(() => {
-    const handleKeyPress = e => {
+    const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         callback();
       }

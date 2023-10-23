@@ -1,11 +1,19 @@
-import {createContext, useMemo} from 'react';
+import {createContext, useMemo, ReactNode, FC} from 'react';
 import {useLocalStorageReducer} from '../customHooks/useLocalStorageReducer';
 import TaskReducer from '../reducer/TaskReducer';
+import {IAction, ITask} from '../reducer/TaskReducer';
 
-export const TaskContext = createContext([]);
-export const TaskDispatchContext = createContext(null);
+interface ProviderProps<T> {
+  value?: T;
+  children?: ReactNode | undefined;
+}
 
-export const TaskProvider = ({children}) => {
+export const TaskContext = createContext<ITask[]>([]);
+export const TaskDispatchContext = createContext<
+  ((action: IAction) => void) | null
+>(null);
+
+export const TaskProvider: FC<ProviderProps<ITask[]>> = ({children}) => {
   const [tasks, dispatch] = useLocalStorageReducer(TaskReducer, []);
 
   const memoizedTasks = useMemo(() => tasks, [tasks]);

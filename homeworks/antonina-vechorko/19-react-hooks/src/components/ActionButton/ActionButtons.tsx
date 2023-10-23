@@ -6,15 +6,19 @@ const ActionButtons = () => {
   const dispatch = useContext(TaskDispatchContext);
 
   const handleClearAll = () => {
-    dispatch({
-      type: 'clear all',
-    });
+    if (dispatch) {
+      dispatch({
+        type: 'clear all',
+      });
+    }
   };
 
   const handleClearAllCompleted = () => {
-    dispatch({
-      type: 'clear all completed',
-    });
+    if (dispatch) {
+      dispatch({
+        type: 'clear all completed',
+      });
+    }
   };
 
   return (

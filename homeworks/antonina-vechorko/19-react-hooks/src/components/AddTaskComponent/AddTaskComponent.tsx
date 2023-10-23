@@ -15,19 +15,21 @@ const AddTaskComponent = () => {
     addTask(inputRef);
   });
 
-  const addTask = inputRef => {
+  const addTask = (inputRef: React.RefObject<HTMLInputElement>) => {
     const validationError = validateInput(newTaskText);
     if (validationError) {
       alert(validationError);
       return;
     }
 
-    dispatch({
-      type: 'add',
-      text: newTaskText,
-    });
+    if (dispatch) {
+      dispatch({
+        type: 'add',
+        text: newTaskText,
+      });
+    }
     setNewTaskText('');
-    inputRef.current.focus();
+    if (inputRef.current) inputRef.current.focus();
   };
 
   return (

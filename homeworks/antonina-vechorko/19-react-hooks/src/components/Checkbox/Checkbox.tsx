@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {ChangeEvent, FC} from 'react';
 
-const Checkbox = ({checked, onChange}) => {
+interface ICheckboxProps {
+  checked: boolean;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Checkbox: FC<ICheckboxProps> = ({checked, onChange}) => {
   return <input type="checkbox" checked={checked} onChange={onChange} />;
 };
 

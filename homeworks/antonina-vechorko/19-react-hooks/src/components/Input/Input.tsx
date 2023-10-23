@@ -1,6 +1,13 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, ChangeEvent} from 'react';
 
-const Input = forwardRef(
+interface IInputProps {
+  value: string;
+  placeholder: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+}
+
+const Input = forwardRef<HTMLInputElement, IInputProps>(
   ({value, placeholder, onChange, disabled = false}, ref) => {
     return (
       <input

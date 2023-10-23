@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from 'react';
+import React, {useCallback, useContext, useState, FC, ChangeEvent} from 'react';
 import Input from '../Input/Input';
 import IconButton from '../IconButton/IconButton';
 import Checkbox from '../Checkbox/Checkbox';
@@ -7,7 +7,15 @@ import deleteIcon from '../../assets/delete.svg';
 import editIcon from '../../assets/edit.svg';
 import saveIcon from '../../assets/save.svg';
 
-const Task = ({task}) => {
+interface ITaskProps {
+  task: {
+    id: number;
+    done: boolean;
+    text: string;
+  };
+}
+
+const Task: FC<ITaskProps> = ({task}) => {
   const dispatch = useContext(TaskDispatchContext);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -20,36 +28,42 @@ const Task = ({task}) => {
   };
 
   const handleCheckboxClick = useCallback(
-    e => {
-      dispatch({
-        type: 'toggle checkbox',
-        task: {
-          ...task,
-          done: e.target.checked,
-        },
-      });
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (dispatch) {
+        dispatch({
+          type: 'toggle checkbox',
+          task: {
+            ...task,
+            done: e.target.checked,
+          },
+        });
+      }
     },
     [dispatch, task],
   );
 
   const handleEditText = useCallback(
-    e => {
-      dispatch({
-        type: 'edit',
-        task: {
-          ...task,
-          text: e.target.value,
-        },
-      });
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (dispatch) {
+        dispatch({
+          type: 'edit',
+          task: {
+            ...task,
+            text: e.target.value,
+          },
+        });
+      }
     },
     [dispatch, task],
   );
 
-  const handleDeleteTask = id => {
-    dispatch({
-      type: 'delete',
-      id: id,
-    });
+  const handleDeleteTask = (id: number) => {
+    if (dispatch) {
+      dispatch({
+        type: 'delete',
+        id: id,
+      });
+    }
   };
 
   return (
@@ -59,6 +73,7 @@ const Task = ({task}) => {
         value={task.text}
         onChange={e => handleEditText(e)}
         disabled={!isEditing}
+        placeholder=""
       />
       {isEditing ? (
         <IconButton src={saveIcon} alt="Save" onClick={handleSave} />
