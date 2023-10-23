@@ -1,11 +1,11 @@
-import React, {useRef, useContext, useState} from 'react';
+import React, {useRef, useContext, useState, FC} from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import {TaskDispatchContext} from '../../context/Context';
 import useInputValidation from '../../customHooks/useInputValidation';
 import useEnterKeyPress from '../../customHooks/useEnterKeyPress';
 
-const AddTaskComponent = () => {
+const AddTaskComponent: FC = () => {
   const [newTaskText, setNewTaskText] = useState('');
   const inputRef = useRef(null);
   const dispatch = useContext(TaskDispatchContext);
@@ -33,7 +33,7 @@ const AddTaskComponent = () => {
   };
 
   return (
-    <>
+    <div className="add__wrapper">
       <Input
         ref={inputRef}
         value={newTaskText}
@@ -41,7 +41,7 @@ const AddTaskComponent = () => {
         onChange={e => setNewTaskText(e.target.value)}
       />
       <Button onClick={() => addTask(inputRef)}>Add</Button>
-    </>
+    </div>
   );
 };
 

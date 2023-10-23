@@ -7,9 +7,11 @@ import ActionButtons from './components/ActionButton/ActionButtons';
 function App() {
   return (
     <TaskProvider>
-      <AddTaskComponent />
-      <ActionButtons />
-      <TaskList />
+      <div className="wrapper">
+        <AddTaskComponent />
+        <ActionButtons />
+        <TaskList />
+      </div>
     </TaskProvider>
   );
 }

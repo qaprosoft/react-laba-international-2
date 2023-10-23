@@ -67,7 +67,7 @@ const Task: FC<ITaskProps> = ({task}) => {
   };
 
   return (
-    <>
+    <div className="task-list__item">
       <Checkbox checked={task.done} onChange={e => handleCheckboxClick(e)} />
       <Input
         value={task.text}
@@ -75,17 +75,19 @@ const Task: FC<ITaskProps> = ({task}) => {
         disabled={!isEditing}
         placeholder=""
       />
-      {isEditing ? (
-        <IconButton src={saveIcon} alt="Save" onClick={handleSave} />
-      ) : (
-        <IconButton src={editIcon} alt="Edit" onClick={handleEdit} />
-      )}
-      <IconButton
-        src={deleteIcon}
-        alt="Delete"
-        onClick={() => handleDeleteTask(task.id)}
-      ></IconButton>
-    </>
+      <div className="action__wrapper">
+        {isEditing ? (
+          <IconButton src={saveIcon} alt="Save" onClick={handleSave} />
+        ) : (
+          <IconButton src={editIcon} alt="Edit" onClick={handleEdit} />
+        )}
+        <IconButton
+          src={deleteIcon}
+          alt="Delete"
+          onClick={() => handleDeleteTask(task.id)}
+        ></IconButton>
+      </div>
+    </div>
   );
 };
 

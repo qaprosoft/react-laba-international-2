@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React, {useContext, FC} from 'react';
 import Button from '../Button/Button';
 import {TaskDispatchContext} from '../../context/Context';
 
-const ActionButtons = () => {
+const ActionButtons: FC = () => {
   const dispatch = useContext(TaskDispatchContext);
 
   const handleClearAll = () => {
@@ -22,7 +22,7 @@ const ActionButtons = () => {
   };
 
   return (
-    <div>
+    <div className="action-btn__wrapper">
       <Button onClick={() => handleClearAll()}>Clear All</Button>
       <Button onClick={() => handleClearAllCompleted()}>
         Clear All Completed

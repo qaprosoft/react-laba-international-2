@@ -1,18 +1,18 @@
-import React, {useContext} from 'react';
+import React, {useContext, FC} from 'react';
 import Task from '../Task/Task';
 import {TaskContext} from '../../context/Context';
 
-const TaskList = () => {
+const TaskList: FC = () => {
   const tasks = useContext(TaskContext);
 
   return (
-    <ul>
+    <div className="task-list__wrapper">
       {tasks.map(task => (
         <li key={task.id}>
           <Task task={task} />
         </li>
       ))}
-    </ul>
+    </div>
   );
 };
 

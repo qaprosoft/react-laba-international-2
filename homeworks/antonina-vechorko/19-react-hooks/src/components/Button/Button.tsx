@@ -1,5 +1,4 @@
-import React, {useContext, ReactNode, MouseEvent, FC} from 'react';
-import {TaskDispatchContext} from '../../context/Context';
+import React, {ReactNode, MouseEvent, FC} from 'react';
 
 interface IButtonProps {
   children: ReactNode;
@@ -7,8 +6,6 @@ interface IButtonProps {
 }
 
 const Button: FC<IButtonProps> = ({children, onClick}) => {
-  const dispatch = useContext(TaskDispatchContext);
-
   return <button onClick={onClick}>{children}</button>;
 };
 

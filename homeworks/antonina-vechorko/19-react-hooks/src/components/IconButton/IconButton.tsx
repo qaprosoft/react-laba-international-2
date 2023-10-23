@@ -8,7 +8,7 @@ interface IIconButtonProps {
 
 const IconButton: FC<IIconButtonProps> = ({src, alt, onClick}) => {
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} className="icon-btn">
       <img src={src} alt={alt} />
     </button>
   );
