@@ -1,0 +1,11 @@
+.refresh {
+    background-color: #02cc67;
+    width: 240px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    margin-top: 320px;
+    margin-bottom: 64px;
+    border-radius: 3px;
+    font-size: 21px;
+}
