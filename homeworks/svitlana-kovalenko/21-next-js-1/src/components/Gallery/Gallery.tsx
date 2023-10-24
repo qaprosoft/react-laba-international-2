@@ -20,23 +20,25 @@ const Gallery: FC<GalleryProps> = ({ users: propUsers }) => {
   const [loadingOne, setLoadingOne] = useState<LoadingStates>();
   const [loading, setLoading] = useState<boolean>(false);
 
-  const refreshAll = () => {
+  const refreshAll = async () => {
     if (!loading) {
       setLoading(true);
 
-      fetch(`https://tinyfac.es/api/data?limit=${users.length}&quality=0`)
-        .then(response => response.json())
-        .then(data => {
-          setUsers(data);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          setLoading(false);
-        });
+      try {
+        const response = await fetch(`https://tinyfac.es/api/data?limit=${users.length}&quality=0`);
+        if (response.status === 429) {
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          refreshAll();
+        }
+        const data = await response.json();
+        setUsers(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error:', error);
+        setLoading(false);
+      }
     }
   };
-
 
   const showMore = () => {
     if (!loading) {
