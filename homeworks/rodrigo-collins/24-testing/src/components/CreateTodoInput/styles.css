@@ -1,0 +1,37 @@
+.todo-input-container {
+    width: 60%;
+}
+
+.todo-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 554px;
+    height: 65px;
+    flex-shrink: 0;
+    background: #ECF3FF;
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Hind Siliguri;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.todo-input:focus::placeholder {
+    color: transparent;
+}
+
+@media(max-width:600px) {
+    .todo-input {
+        font-size: 20px;
+    }
+}
+
+.error-msj {
+    padding: 10px;
+    color: red;
+    font-size: 18px;
+}
