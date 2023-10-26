@@ -8,8 +8,12 @@ import AddAvatarButton from './AddAvatarButton';
 import RefreshAllAvatarsButton from './RefreshAllAvatarsButton';
 import Loader from '../Loader';
 
-function AvatarList() {
-  const [avatarList, setAvatarList] = useState<AvatarData[]>([]);
+interface Props {
+  preloadedAvatars?: AvatarData[];
+}
+
+function AvatarList({preloadedAvatars = []}: Props) {
+  const [avatarList, setAvatarList] = useState<AvatarData[]>(preloadedAvatars);
   const [loadingAvatarsId, setLoadingAvatarsId] = useState<number[]>([]);
 
   const handleAddAvatar = async () => {
