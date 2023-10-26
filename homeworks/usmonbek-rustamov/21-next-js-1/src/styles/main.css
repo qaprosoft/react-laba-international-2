@@ -23,7 +23,6 @@
 }
 
 .avatar {
-  overflow: hidden;
   position: relative;
   width: 240px;
   height: 240px;
@@ -57,5 +56,5 @@
 }
 
 .avatar__refresh-logo {
-  width: 30%;
+  width: 50%;
 }
