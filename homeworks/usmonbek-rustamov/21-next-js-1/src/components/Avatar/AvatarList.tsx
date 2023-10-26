@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {toast} from 'react-toastify';
-import {getAvatars} from '../../http/avatars';
-import {AvatarData} from '../../common/types';
+import {getAvatars} from '@/http/avatars';
+import {AvatarData} from '@/common/types';
 
 import Avatar from './Avatar';
 import AddAvatarButton from './AddAvatarButton';
