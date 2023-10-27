@@ -1,0 +1,19 @@
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 80px;
+}
+
+.show_more {
+    background: none;
+    border: none;
+}
+
+.loader {
+    font-size: 30px;
+    border-radius: 10px;
+    width: 240px;
+    color: #cc5151;
+    align-self: center;
+}
