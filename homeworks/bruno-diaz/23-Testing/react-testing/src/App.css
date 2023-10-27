@@ -1,0 +1,77 @@
+#root {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  height: 1024px;
+  background: linear-gradient(117deg, #8C72B7 0.58%, rgba(192, 46, 195, 0.00) 101.02%);
+}
+
+.container {
+  display: flex;
+  align-items: center; 
+  margin-top: 6.18rem;
+}
+
+.task-container {
+  display: flex;
+  margin-top: 34px;
+}
+
+.task-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input__form {
+  width: 554px;
+  height: 65px;
+  flex-shrink: 0;
+  text-align: center; 
+  background: #ECF3FF;
+  border: none; 
+  color: rgba(0, 0, 0, 0.60);
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  margin-top: 47px;
+}
+
+.input__button {
+  width: 122px;
+  height: 65px;
+  flex-shrink: 0;
+  background: #5275A0;
+  border: none; 
+  color: #FFF;
+  font-family: Hind Siliguri;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.button__icon {
+  width: 63.227px;
+  height: 63.227px;
+  flex-shrink: 0;
+  border: none; 
+  cursor: pointer;
+  margin-top: 47px;
+  transition: transform 0.5 ease-in;
+}
+
+.button__icon-update {
+  background: url(./assets/icons/write-icon.png), lightgray 50% / cover no-repeat;
+}
+.button__icon-delete {
+  background: url(./assets/icons/delete-icon.png), lightgray 50% / cover no-repeat;
+}
+.completed {
+  text-decoration: line-through;
+}
