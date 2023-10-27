@@ -1,0 +1,16 @@
+body {
+  max-width: 1392px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  padding: 20px;
+  font-size: 20px;
+  color: #02cc67;
+}
