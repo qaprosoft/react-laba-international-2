@@ -1,0 +1,15 @@
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    max-width: 90%;
+    margin-top: 47px;
+}
