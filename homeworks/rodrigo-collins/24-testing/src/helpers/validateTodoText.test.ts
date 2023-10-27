@@ -1,3 +1,4 @@
+import 'jest-localstorage-mock';
 import { validateTodoText } from "./validateTodoText";
 
 describe('validateTodoText', () => {

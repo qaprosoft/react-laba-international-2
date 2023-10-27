@@ -1,3 +1,4 @@
+import 'jest-localstorage-mock';
 import { Action, todoReducer } from './todoReducer';
 
 const sampleTask = 'Buy milk';
