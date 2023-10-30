@@ -1,0 +1,15 @@
+.add-todo {
+  margin: 5rem 0;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.todo__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
