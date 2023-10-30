@@ -1,21 +1,25 @@
-import React, {FC} from 'react';
-import {ApiResponse} from '../../types/types';
+import React from 'react';
 import refreshAvatarImg from '../../assets/refresh_avatar.svg';
+import Image from 'next/image';
+import styles from '../../styles/avatar.module.css';
 
-interface IAvatarProps {
-  avatar: ApiResponse;
-  onRefresh: () => void;
-}
-
-const Avatar: FC<IAvatarProps> = ({avatar, onRefresh}) => {
+const Avatar = ({avatar, onRefresh}) => {
   return (
-    <div className="avatar__item" onClick={onRefresh}>
-      <img
-        className="avatar__img"
+    <div className={styles.avatar__item} onClick={onRefresh}>
+      <Image
+        className={styles.avatar__img}
         src={avatar.url}
         alt={avatar.first_name + ' ' + avatar.last_name}
+        width={240}
+        height={240}
       />
-      <img className="avatar__refresh" src={refreshAvatarImg} />
+      <Image
+        className={styles.avatar__refresh}
+        src={refreshAvatarImg}
+        alt="refresh"
+        width={100}
+        height={100}
+      />
     </div>
   );
 };

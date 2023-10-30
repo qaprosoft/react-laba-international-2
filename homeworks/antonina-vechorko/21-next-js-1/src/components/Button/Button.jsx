@@ -1,12 +1,6 @@
-import React, {FC} from 'react';
+import React from 'react';
 
-interface IButtonProps {
-  onClick: () => void;
-  children: any;
-  className: string;
-}
-
-const Button: FC<IButtonProps> = ({onClick, children, className}) => {
+const Button = ({onClick, children, className}) => {
   return (
     <button className={className} onClick={onClick}>
       {children}

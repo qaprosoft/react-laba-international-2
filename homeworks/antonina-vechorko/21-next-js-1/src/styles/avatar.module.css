@@ -1,0 +1,29 @@
+.avatar__item {
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar__img {
+    border-radius: 6px;
+    box-shadow: var(--box-shadow);
+}
+
+.avatar__refresh {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.avatar__img:hover + .avatar__refresh {
+    opacity: 1;
+    transition: 0.5s ease-in;
+    transform: translate(-50%, -50%) rotate(360deg);
+}
+
+.avatar__refresh:hover {
+    opacity: 1;
+    transition: 0.5s ease-in;
+    transform: translate(-50%, -50%) rotate(360deg);
+}

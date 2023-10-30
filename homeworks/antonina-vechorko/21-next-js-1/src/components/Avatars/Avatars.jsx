@@ -1,23 +1,14 @@
-import React, {FC} from 'react';
-import Avatar from '../Avatar/Avatar';
-import {ApiResponse} from '../../types/types';
+import React from 'react';
+import Avatar from '@/components/Avatar/Avatar';
 
-interface IAvatarsProps {
-  avatars: ApiResponse[];
-  onRefresh: (avatar: ApiResponse, index: number) => void;
-}
-
-const Avatars: FC<IAvatarsProps> = ({avatars, onRefresh}) => {
-  return (
-    avatars.length > 0 &&
-    avatars.map((avatar, index) => (
-      <Avatar
-        avatar={avatar}
-        key={avatar.id}
-        onRefresh={() => onRefresh(avatar, index)}
-      />
-    ))
-  );
+const Avatars = ({avatars, onRefresh}) => {
+  return avatars.map(avatar => (
+    <Avatar
+      avatar={avatar}
+      key={avatar.id}
+      onRefresh={() => onRefresh(avatar)}
+    />
+  ));
 };
 
 export default Avatars;
