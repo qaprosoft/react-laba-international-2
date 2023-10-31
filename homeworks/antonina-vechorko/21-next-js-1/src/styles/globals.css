@@ -1,0 +1,34 @@
+:root {
+  --main-background: #dceae0;
+  --page-background: #FFF;
+  --font-mono: 'Basic', sans-serif;
+  --main-text-color: #099859;
+  --secondary-text-color: #000000;
+  --text-hover-color: #757171;
+  --btn-text-color: #FFF;
+  --box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.50);
+  --btn-background: #02CC67;
+  --btn-add-hover: #d3e1da;
+  --btn-refresh-hover: #099859;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}

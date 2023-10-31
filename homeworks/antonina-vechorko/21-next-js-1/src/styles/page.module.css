@@ -1,0 +1,24 @@
+.wrapper {
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 22px 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.link {
+    text-align: center;
+    color: var(--main-text-color);
+    text-decoration: underline;
+    font-size: 1rem;
+    font-family: var(--font-mono);
+    font-weight: bold;
+    margin-left: 80px;
+}
+
+.link:hover {
+    color: var(--text-hover-color);
+}
